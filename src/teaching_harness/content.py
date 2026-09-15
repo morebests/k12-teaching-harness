@@ -6,7 +6,7 @@ import json
 import os
 import re
 import tempfile
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
@@ -22,7 +22,7 @@ class ContentError(ValueError):
 
 class ContentStore:
     def __init__(self, root: Path, thread_id: str) -> None:
-        self.root = root.resolve() / str(UUID(thread_id))
+        self.root = root.absolute() / str(UUID(thread_id))
 
     @contextmanager
     def locked(self) -> Iterator[None]:
@@ -56,6 +56,16 @@ class ContentStore:
             raise ContentError("记录类型不受支持")
         with self.locked():
             self._write(name, json.dumps(value, ensure_ascii=False, indent=2).encode())
+
+    def update_record(self, name: str, update: Callable[[dict[str, Any]], Any]) -> Any:
+        """在同一文件锁中读改写执行／知识证据，避免并行工具丢失累计记录。"""
+        if name not in {"execution.json", "knowledge.json"}:
+            raise ContentError("记录类型不受支持")
+        with self.locked():
+            value = self._json(name) or {}
+            result = update(value)
+            self._write(name, json.dumps(value, ensure_ascii=False, indent=2).encode())
+            return result
 
     def _snapshot(self) -> dict[str, Any]:
         content = self._json("content/curriculum.json")
@@ -198,6 +208,10 @@ class ContentStore:
             return (self.root / "output/curriculum.html").read_text()
 
     def review_assets(self) -> dict[str, Any]:
+        return self.review_input()["review_assets"]
+
+    def review_input(self) -> dict[str, Any]:
+        """在一次锁内固定当前正文、真实图件、渲染身份及内容指纹。"""
         with self.locked():
             current = self._snapshot()
             result = {}
@@ -206,7 +220,12 @@ class ContentStore:
                     "svg": (self.root / name).read_text(),
                     "parameters": self._json(name.removesuffix(".svg") + ".json"),
                 }
-            return result
+            return {
+                **current,
+                "review_assets": result,
+                "render_identity": self._json("output/render.json"),
+                "knowledge": self._json("knowledge.json") or {},
+            }
 
     def evidence(self) -> dict[str, Any]:
         with self.locked():

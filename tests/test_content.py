@@ -1,5 +1,6 @@
 """内容接口负责文件、引用和检查的实际往返。"""
 
+import hashlib
 import json
 from uuid import uuid4
 
@@ -41,6 +42,12 @@ def test_公式表格和图件可以渲染且修改后检查失效(tmp_path):
     checked = store.check(saved["fingerprint"], review, "规则版本")
     assert checked["checks"]["passed"]
     html = store.rendered()
+    submitted = store.review_input()
+    assert (
+        submitted["render_identity"]["output_fingerprint"]
+        == hashlib.sha256(html.encode()).hexdigest()
+    )
+    assert submitted["review_assets"][graph["src"]]["parameters"]["slope"] == 3
     assert "<math" in html and "<table>" in html and "<svg" in html
     assert r"。\n" not in html and "≠" in html
     assert "<mi>n</mi>" in html

@@ -108,7 +108,7 @@ async for part in client.native.runs.join_stream(
 
 `0-0` 从已保留的首条事件开始；断线续接用最后收到的事件 ID。当前 dev 的可重连流缓存在进程内，结束后可回放，服务重启后不保证保留；长期复核使用已导出的 JSONL。checkpoint 不是这份流缓存。对未启用详细保留的旧事件重送不会补录，也不会重新调用模型；既有 E 的缺失参数／返回不能追溯恢复。
 
-当前只读状态 API 能返回外层任务状态。作者／审阅 Agent 在执行节点内动态创建，未向外层静态注册；它们的详细事件流可读，但内部 checkpoint 不能通过子图命名空间独立回取。`get_state(subgraphs=True)` 成功不代表已经读到了内部消息历史。阶段图与恢复边界仍待实现，不能用工具追踪通过代替。
+作者／审阅已改为静态子图；具有任务访问权的维护者可以通过历史父检查点回取实际子图状态。只读取最新外层 completed 不代表读到了内部历史，具体方法见[有限课段的阶段图](#有限课段的阶段图)。实际服务验证见[重构记录](../.scratch/math-harness-delivery/evidence/01-live-curriculum/graph-refactor/README.md)。
 
 如需 LangSmith，可在服务端显式设置 `LANGSMITH_TRACING=true`、`LANGSMITH_API_KEY`、`LANGSMITH_PROJECT`。本次验证使用真实 dev 服务和可控模型／知识边界，没有上传历史内容，也没有验收云端关联、故障解耦或生产数据范围策略；这些仍见 [观察平台票](../.scratch/math-harness-delivery/issues/04-tracing-and-quality-regressions.md)。
 
@@ -119,3 +119,13 @@ async for part in client.native.runs.join_stream(
 模型没有任意文件、URL、SQL、shell 或课程读取工具。browse 只投影标准、组件、实际进阶边及来源，移除混合课程导航／对齐信息；输入和投影对已标识的对应参考来源作排除检查。实际运行不装配开发研究目录或目标课程。该边界不能消除模型预训练记忆，也不能证明未标明来源的复制文本没有参考污染。
 
 框架依据：[Agent Server 认证](https://docs.langchain.com/langsmith/auth)、[自定义只读路由](https://docs.langchain.com/langsmith/custom-routes)、[LangChain 原生模型循环](https://docs.langchain.com/oss/python/langchain/agents)。实际适用范围以本仓库锁定版本和运行证据为准。
+
+## 有限课段的阶段图
+
+2026-09-16 的重构采用 `prepare_task → author → prepare_review → reviewer → record_review`。作者和审阅是静态 `create_agent` 子图；准备、固定送审对象、提交检查和停止收尾用普通 Python。阻断检查由条件边返回作者，不额外调用一个“路由 LLM”。[目标图与边界](../.scratch/math-harness-delivery/ticket-01-graph-refactor-design.md)记录状态和恢复位置。
+
+维护者可用 `threads.get_history()` 取得父检查点，再用 `threads.get_state(task_id, checkpoint=..., subgraphs=True)` 展开当时的作者或审阅子图。已结束任务的最新父状态未必带子图任务，应从历史检查点读取；原生消息流仍可按诊断示例回放。父状态不含 `messages`，普通证据接口也不返回工具重放缓存。
+
+已持久化的准备、作者和审阅输出分别支持框架阶段接续。当前 API 继续拒绝调用方任意改写状态、配置或发起续作；完整教师回应及取消后续作留在后续票。未知外部调用停止自动重放，消耗不归零。
+
+**升级前先处理旧图的活动 run。** 本次拓扑版本是 `curriculum-stages-v1`；旧图的 `curriculum_work` 检查点不能直接交给新图继续。等待旧活动运行结束，或保留旧版本服务处理它们；旧成果仍可按文件读取。真实重构验收使用独立端口和工作目录，未热替换原开发服务。

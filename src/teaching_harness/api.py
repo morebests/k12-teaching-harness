@@ -164,4 +164,8 @@ async def reading(thread_id: UUID, request: Request, expected_fingerprint: str) 
 @app.get("/v1/threads/{thread_id}/evidence")
 async def evidence(thread_id: UUID, request: Request) -> dict[str, Any]:
     _, store = await authorized_thread(thread_id, request)
-    return await asyncio.to_thread(store.evidence)
+    result = await asyncio.to_thread(store.evidence)
+    if result.get("execution"):
+        # 重放缓存含完整 ToolMessage；教学证据只返回用量和事件，详细消息走维护者原生诊断。
+        result["execution"].pop("operations", None)
+    return result

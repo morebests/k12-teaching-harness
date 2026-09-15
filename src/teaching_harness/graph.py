@@ -1,145 +1,160 @@
-"""课程任务的原生模型循环、独立检查及有限修订。"""
+"""LangGraph 编排课程阶段；生成和独立审阅各使用一个静态 Agent 子图。"""
 
 import asyncio
 import json
 import os
-import time
 import traceback
-from collections.abc import Awaitable, Callable
+from collections.abc import AsyncIterator, Callable
+from contextlib import asynccontextmanager
 from importlib.metadata import version
 from pathlib import Path
 from typing import Any, TypedDict
 
 import httpx
 from langchain.agents import create_agent
-from langchain.agents.middleware import AgentMiddleware
-from langchain.agents.middleware.types import ModelRequest, ModelResponse
+from langchain.agents.middleware.types import InputAgentState
 from langchain.agents.structured_output import ToolStrategy
 from langchain_core.language_models import BaseChatModel
-from langchain_core.messages import AIMessage, ToolMessage
+from langchain_core.messages import HumanMessage
 from langchain_core.runnables import RunnableConfig
-from langchain_core.tools import tool
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.config import get_stream_writer
 from langgraph.graph import END, START, StateGraph
 
-from teaching_harness.content import ContentStore
+from teaching_harness.content import ContentError
 from teaching_harness.contracts import Curriculum, Finding, Review, TaskRequest, fingerprint
-from teaching_harness.knowledge import Knowledge, Operation
-from teaching_harness.mathematics import calculate
+from teaching_harness.curriculum_tools import author_tools, calculate_math
+from teaching_harness.execution import (
+    WORKFLOW_VERSION,
+    AgentContext,
+    ExecutionMiddleware,
+    Ledger,
+    ResourceStop,
+)
+from teaching_harness.knowledge import Knowledge
 
 RESOURCES = Path(__file__).with_name("resources")
 
 
 class State(TypedDict, total=False):
     request: dict[str, Any]
+    request_fingerprint: str
+    workflow_version: str
+    prepared_context: dict[str, Any]
+    round_index: int
+    candidate_ref: str | None
+    review_input: dict[str, Any]
+    program_findings: list[dict[str, Any]]
+    review_result: dict[str, Any]
+    feedback: dict[str, Any] | None
+    previous_review_ref: str
     status: str
     unresolved: list[str]
     usage: dict[str, Any]
     content_fingerprint: str | None
+    stop_reason: str | None
 
 
-class ResourceStop(Exception):
-    pass
+def work(state: State, config: RunnableConfig, stage: str, root: Path) -> dict[str, Any]:
+    context = state.get("prepared_context", {})
+    return {
+        "root": context.get("root", str(root)),
+        "task_id": config["configurable"]["thread_id"],
+        "request": state["request"],
+        "stage": stage,
+        "round": state.get("round_index", 0),
+        "rules": context.get("rules", {}).get(
+            "review" if stage == "reviewer" else "curriculum", ""
+        ),
+        "knowledge_source": context.get("knowledge_source", {}),
+    }
 
 
-class Budget(AgentMiddleware):
-    def __init__(
-        self,
-        request: TaskRequest,
-        store: ContentStore,
-        emit: Callable[[Any], None],
-        previous: dict[str, Any] | None = None,
-    ) -> None:
-        self.limits = request.limits
-        self.store = store
-        self.emit = emit
-        self.start = time.monotonic()
-        self.usage: dict[str, Any] = {
-            "model_calls": 0,
-            "tool_calls": 0,
-            "input_tokens": 0,
-            "output_tokens": 0,
-            "total_tokens": 0,
-            "unknown_usage": False,
-            "cost": None,
-            "seconds": 0.0,
-        }
-        self.events: list[dict[str, Any]] = []
-        if previous:
-            self.usage.update(previous["usage"])
-            self.events.extend(previous["events"])
-            self.start -= self.usage["seconds"]
-            if self.events and self.events[-1]["kind"] in {"model_started", "model_unfinished"}:
-                self.usage["unknown_usage"] = True
+def stopped(exc: Exception, status: str = "stopped") -> dict[str, Any]:
+    reason = str(exc) or "达到活动时间上限"
+    return {"status": status, "stop_reason": reason, "unresolved": [reason]}
 
-    async def record(self, kind: str, **data: Any) -> None:
-        self.usage["seconds"] = round(time.monotonic() - self.start, 3)
-        self.events.append({"kind": kind, **data})
+
+@asynccontextmanager
+async def stage(ledger: Ledger) -> AsyncIterator[None]:
+    """节点边界记活动时间；取消与故障继续交给原生 run 处理。"""
+    try:
+        await asyncio.to_thread(ledger.begin_stage)
+        get_stream_writer()(
+            {
+                "type": "progress",
+                "step": ledger.stage,
+                "message": {
+                    "prepare_task": "正在核对本次 CCSS、组件与前后联系",
+                    "author": "正在生成或修订当前课段",
+                    "prepare_review": "正在固定实际送审内容",
+                    "reviewer": "正在独立核对数学、目标与课堂条件",
+                    "record_review": "正在核对版本并提交检查",
+                }[ledger.stage],
+            }
+        )
+        usage = await asyncio.to_thread(ledger.usage)
+        async with asyncio.timeout(max(0, ledger.limits.seconds - usage["seconds"])):
+            yield
+    except (ResourceStop, TimeoutError, ContentError):
+        raise
+    except asyncio.CancelledError:
+        await asyncio.to_thread(ledger.record, "cancelled")
+        raise
+    except Exception as exc:  # noqa: BLE001 — 记录安全故障位置后保留原生失败状态。
         await asyncio.to_thread(
-            self.store.record, "execution.json", {"usage": self.usage, "events": self.events}
+            ledger.record,
+            "failure",
+            exception_type=type(exc).__name__,
+            locations=[
+                {"file": Path(f.filename).name, "line": f.lineno, "function": f.name}
+                for f in traceback.extract_tb(exc.__traceback__)
+            ],
         )
+        # 原生状态仍为 error；外部异常文本可能含供应商请求和凭据。
+        raise RuntimeError(
+            f"{type(exc).__name__}：执行失败，当前工作已保留，请核对知识或模型配置"
+        ) from None
+    finally:
+        await asyncio.to_thread(ledger.end_stage)
 
-    def guard(self) -> None:
-        if (
-            time.monotonic() - self.start >= self.limits.seconds
-            or self.usage["total_tokens"] >= self.limits.total_tokens
-        ):
-            raise ResourceStop("达到运行资源上限，已保存的草稿保留")
 
-    async def awrap_model_call(
-        self, request: ModelRequest, handler: Callable[[ModelRequest], Awaitable[ModelResponse]]
-    ) -> ModelResponse:
-        self.guard()
-        if self.usage["model_calls"] >= self.limits.model_calls:
-            raise ResourceStop("达到模型调用上限")
-        # 以 UTF-8 字节作保守输入预留，含消息、规则和工具 Schema；供应商实际消耗另记。
-        reserve = (
-            len(str([request.system_message, request.messages, request.tools]).encode()) + 2048
-        )
-        remaining = self.limits.total_tokens - self.usage["total_tokens"] - reserve
-        if remaining < 512 or self.usage["unknown_usage"]:
-            raise ResourceStop("剩余 token 不足以安全发起下一调用，或上次消耗未知")
-        request = request.override(
-            model_settings={**request.model_settings, "max_output_tokens": min(16000, remaining)}
-        )
-        self.usage["model_calls"] += 1
-        self.emit({"type": "progress", "step": "model", "message": "正在推敲课程或检查实际内容"})
-        await self.record("model_started", call=self.usage["model_calls"])
-        try:
-            result = await handler(request)
-        except BaseException:
-            self.usage["unknown_usage"] = True
-            await self.record("model_unfinished", call=self.usage["model_calls"])
-            raise
-        for message in result.result:
-            if isinstance(message, AIMessage) and message.usage_metadata:
-                for key in ("input_tokens", "output_tokens", "total_tokens"):
-                    self.usage[key] += message.usage_metadata[key]
-            elif isinstance(message, AIMessage):
-                self.usage["unknown_usage"] = True
-        await self.record("model_finished", call=self.usage["model_calls"])
-        return result
+class TeachingAgentInput(InputAgentState):
+    work: dict[str, Any]
 
-    async def awrap_tool_call(self, request: Any, handler: Any) -> Any:
-        try:
-            return await handler(request)
-        except (ValueError, ArithmeticError) as exc:
-            # 参数／引用错误交回模型修复，资源停止与取消不转成可继续的工具回复。
-            await self.record(
-                "tool_error", tool=request.tool_call["name"], exception_type=type(exc).__name__
-            )
-            return ToolMessage(
-                content="工具未完成：" + str(exc), tool_call_id=request.tool_call["id"]
-            )
 
-    async def tool_started(self, name: str) -> None:
-        self.guard()
-        if self.usage["tool_calls"] >= self.limits.tool_calls:
-            raise ResourceStop("达到工具调用上限")
-        self.usage["tool_calls"] += 1
-        self.emit({"type": "progress", "step": name, "message": "正在执行教学工具"})
-        await self.record("tool_started", tool=name)
+def agent_input(
+    state: State, config: RunnableConfig, name: str, payload: dict[str, Any], root: Path
+) -> TeachingAgentInput:
+    return {
+        "work": work(state, config, name, root),
+        "messages": [HumanMessage(content=json.dumps(payload, ensure_ascii=False))],
+    }
+
+
+async def final_result(state: State, ledger: Ledger) -> dict[str, Any]:
+    await asyncio.to_thread(ledger.record, "work_finished")
+    unresolved = list(state.get("unresolved", []))
+    status = state.get("status", "incomplete")
+    stop_reason = state.get("stop_reason")
+    try:
+        content_fingerprint = (await asyncio.to_thread(ledger.store.snapshot))["fingerprint"]
+    except ContentError as exc:
+        # 停止出口不修复文件；损坏的引用不能把已判定的未完成结果再变成异常。
+        content_fingerprint = None
+        status = "incomplete"
+        stop_reason = str(exc)
+        if str(exc) not in unresolved:
+            unresolved.append(str(exc))
+    result = {
+        "status": status,
+        "unresolved": unresolved,
+        "usage": await asyncio.to_thread(ledger.usage),
+        "content_fingerprint": content_fingerprint,
+        "stop_reason": stop_reason,
+    }
+    get_stream_writer()({"type": "result", **result})
+    return result
 
 
 def deterministic_findings(content: Curriculum, request: TaskRequest) -> list[Finding]:
@@ -175,309 +190,6 @@ def deterministic_findings(content: Curriculum, request: TaskRequest) -> list[Fi
     return findings
 
 
-def build_graph(
-    model_factory: Callable[[], BaseChatModel],
-    knowledge_factory: Callable[[httpx.AsyncClient], Knowledge] = Knowledge,
-) -> Any:
-    async def execute(state: State, config: RunnableConfig) -> dict[str, Any]:
-        request = TaskRequest.model_validate(state["request"])
-        tid = config["configurable"]["thread_id"]
-        store = await asyncio.to_thread(
-            ContentStore, Path(os.environ.get("HARNESS_WORK_DIR", "work")), tid
-        )
-        emit = get_stream_writer()
-        previous = (await asyncio.to_thread(store.evidence)).get("execution")
-        budget = Budget(request, store, emit, previous)
-        rules = await asyncio.to_thread((RESOURCES / "curriculum.md").read_text)
-        review_rules = await asyncio.to_thread((RESOURCES / "review.md").read_text)
-        manifest = {
-            "request_fingerprint": fingerprint(request.model_dump()),
-            "rules": {
-                "curriculum": fingerprint(rules),
-                "review": fingerprint(review_rules),
-            },
-            "external_content": [x.model_dump() for x in request.external_content],
-            "identity": config["configurable"].get("langgraph_auth_user", {}).get("identity"),
-            "versions": {
-                name: version(name)
-                for name in [
-                    "k12-teaching-harness",
-                    "langchain",
-                    "langgraph",
-                    "langgraph-api",
-                    "langchain-google-genai",
-                ]
-            },
-            "model": os.environ.get("HARNESS_MODEL", "gemini-3.8-flash"),
-            "tools_version": 1,
-        }
-        if not previous:
-            await asyncio.to_thread(store.record, "context.json", manifest)
-        status, unresolved = "incomplete", []
-        try:
-            if previous:
-                # 这里只保护已发生的资源消耗；运行状态与重试调度仍由框架管理。
-                # 当前未交付受控续作，不能在节点重放时归零预算或覆盖原有证据。
-                raise ResourceStop(
-                    "检测到已有执行证据，保留累计用量并停止自动重放；受控续作尚未实现"
-                )
-            async with (
-                asyncio.timeout(request.limits.seconds),
-                httpx.AsyncClient(
-                    base_url=os.environ.get("HARNESS_LC_URL", "http://127.0.0.1:8000"), timeout=30
-                ) as http,
-            ):
-                knowledge = knowledge_factory(http)
-                emit(
-                    {
-                        "type": "progress",
-                        "step": "knowledge",
-                        "message": "正在核对本次 CCSS、组件与前后联系",
-                    }
-                )
-                try:
-                    package = await knowledge.prepare(request.target_codes)
-                except Exception:
-                    await asyncio.to_thread(
-                        store.record, "knowledge.json", {"audit": knowledge.audit}
-                    )
-                    raise
-                await asyncio.to_thread(
-                    store.record, "knowledge.json", {"package": package, "audit": knowledge.audit}
-                )
-                manifest.update(
-                    knowledge_fingerprint=fingerprint(package),
-                    source_snapshot=knowledge.identity,
-                )
-                await asyncio.to_thread(store.record, "context.json", manifest)
-
-                @tool
-                async def browse(code: str, operation: Operation) -> dict[str, Any]:
-                    """读取真实 CCSS 原文、支持组件、前驱或后继；不能查询课程材料。"""
-                    await budget.tool_started("browse")
-                    result = await knowledge.lookup(code, operation)
-                    await asyncio.to_thread(
-                        store.record,
-                        "knowledge.json",
-                        {
-                            "package": package,
-                            "additional": knowledge.records,
-                            "audit": knowledge.audit,
-                        },
-                    )
-                    await budget.record(
-                        "tool_finished", tool="browse", result_fingerprint=fingerprint(result)
-                    )
-                    return result
-
-                @tool
-                async def calculate_math(expression: str) -> str:
-                    """用有理数核对有限加减乘除和整数幂，例如 (23-11)/(6-2)。"""
-                    await budget.tool_started("calculate")
-                    result = calculate(expression)
-                    await budget.record(
-                        "tool_finished", tool="calculate", expression=expression, result=result
-                    )
-                    return result
-
-                @tool
-                async def read_curriculum() -> dict[str, Any]:
-                    """读取当前实际课程与指纹；当前无内容时 fingerprint 为 null。"""
-                    await budget.tool_started("read_curriculum")
-                    return await asyncio.to_thread(store.snapshot)
-
-                @tool
-                async def save_curriculum(
-                    content: Curriculum, expected_fingerprint: str | None
-                ) -> dict[str, Any]:
-                    """保存完整当前课段草稿；须用刚读取的指纹，首次保存用 null。"""
-                    await budget.tool_started("save_curriculum")
-                    result = await asyncio.to_thread(store.save, content, expected_fingerprint)
-                    emit(
-                        {
-                            "type": "draft",
-                            "checked": False,
-                            "fingerprint": result["fingerprint"],
-                            "content": content.model_dump(),
-                        }
-                    )
-                    await budget.record(
-                        "tool_finished",
-                        tool="save_curriculum",
-                        content_fingerprint=result["fingerprint"],
-                    )
-                    return {
-                        "fingerprint": result["fingerprint"],
-                        "rendered": result.get("rendered", False),
-                        "message": "当前草稿已保存，尚未通过检查；rendered=false 时需修复排版",
-                    }
-
-                model = await asyncio.to_thread(model_factory)
-
-                @tool
-                async def plot_linear(
-                    name: str,
-                    slope: float,
-                    intercept: float,
-                    x_max: float,
-                    y_max: float,
-                    x_label: str,
-                    y_label: str,
-                    expected_fingerprint: str | None = None,
-                ) -> dict[str, Any]:
-                    """绘制第一象限内 y=slope*x+intercept 的真实 SVG，图含坐标刻度与单位。"""
-                    await budget.tool_started("plot_linear")
-                    result = await asyncio.to_thread(
-                        store.plot_linear,
-                        name,
-                        slope=slope,
-                        intercept=intercept,
-                        x_max=x_max,
-                        y_max=y_max,
-                        x_label=x_label,
-                        y_label=y_label,
-                        expected_fingerprint=expected_fingerprint,
-                    )
-                    await budget.record("tool_finished", tool="plot_linear", **result)
-                    return result
-
-                tools = [browse, calculate_math, read_curriculum, save_curriculum, plot_linear]
-                author = create_agent(
-                    model, tools, system_prompt=rules, middleware=[budget], name="curriculum_author"
-                )
-                reviewer = create_agent(
-                    model,
-                    [calculate_math],
-                    system_prompt=review_rules,
-                    response_format=ToolStrategy(Review),
-                    middleware=[budget],
-                    name="curriculum_reviewer",
-                )
-                feedback: dict[str, Any] | None = None
-                while True:
-                    budget.guard()
-                    current = await asyncio.to_thread(store.snapshot)
-                    message = {
-                        "request": request.model_dump(),
-                        "knowledge": package,
-                        "current": current,
-                        "review_feedback": feedback,
-                    }
-                    # 云端追踪继承框架与服务端配置；原生 run 标识和命名保留调用关联。
-                    await author.ainvoke(
-                        {
-                            "messages": [
-                                {"role": "user", "content": json.dumps(message, ensure_ascii=False)}
-                            ]
-                        },
-                        config={"recursion_limit": 500, "run_name": "curriculum_author"},
-                    )
-                    current = await asyncio.to_thread(store.snapshot)
-                    if current["content"] is None:
-                        raise ResourceStop("模型尚未保存实际课程，不能宣称完成")
-                    emit(
-                        {
-                            "type": "progress",
-                            "step": "check",
-                            "message": "正在独立核对数学、目标与课堂条件",
-                        }
-                    )
-                    checked = await reviewer.ainvoke(
-                        {
-                            "messages": [
-                                {
-                                    "role": "user",
-                                    "content": json.dumps(
-                                        {
-                                            "request": request.model_dump(),
-                                            "knowledge": package,
-                                            "content": current["content"],
-                                            "assets": await asyncio.to_thread(store.review_assets),
-                                        },
-                                        ensure_ascii=False,
-                                    ),
-                                }
-                            ]
-                        },
-                        config={"recursion_limit": 500, "run_name": "curriculum_reviewer"},
-                    )
-                    review = Review.model_validate(checked["structured_response"])
-                    review.findings.extend(
-                        deterministic_findings(
-                            Curriculum.model_validate(current["content"]), request
-                        )
-                    )
-                    if not current.get("rendered"):
-                        review.findings.append(
-                            Finding(
-                                criterion="mathematics",
-                                target="rendering",
-                                detail="当前内容未成功排版，核对公式或图件",
-                                blocking=True,
-                            )
-                        )
-                    current = await asyncio.to_thread(
-                        store.check, current["fingerprint"], review, fingerprint(review_rules)
-                    )
-                    await budget.record(
-                        "review_finished",
-                        fingerprint=current["fingerprint"],
-                        findings=review.model_dump()["findings"],
-                    )
-                    if current["checks"]["passed"]:
-                        status = "completed"
-                        break
-                    feedback = review.model_dump()
-                    unresolved = [f.detail for f in review.findings if f.blocking]
-                    emit(
-                        {
-                            "type": "progress",
-                            "step": "revision",
-                            "message": "正在核实检查问题并修订当前稿",
-                        }
-                    )
-        except (ResourceStop, TimeoutError) as exc:
-            status, unresolved = "stopped", [*unresolved, str(exc) or "达到活动时间上限"]
-        except asyncio.CancelledError:
-            await budget.record("cancelled")
-            raise
-        except Exception as exc:  # noqa: BLE001 — 任务边界保存外部模型／知识故障，绝不提升为成功。
-            # 外部异常文本可能包含请求和凭据；只返回类别与通用说明。
-            status, unresolved = (
-                "failed",
-                [f"{type(exc).__name__}：执行失败，当前工作已保留，请核对知识或模型配置"],
-            )
-            await budget.record(
-                "failure",
-                exception_type=type(exc).__name__,
-                locations=[
-                    {
-                        "file": Path(frame.filename).name,
-                        "line": frame.lineno,
-                        "function": frame.name,
-                    }
-                    for frame in traceback.extract_tb(exc.__traceback__)
-                ],
-            )
-        finally:
-            await budget.record("work_finished")
-        current = await asyncio.to_thread(store.snapshot)
-        result = {
-            "status": status,
-            "unresolved": [] if status == "completed" else unresolved,
-            "usage": budget.usage,
-            "content_fingerprint": current["fingerprint"],
-        }
-        emit({"type": "result", **result})
-        return result
-
-    builder = StateGraph(State)
-    builder.add_node("curriculum_work", execute)
-    builder.add_edge(START, "curriculum_work")
-    builder.add_edge("curriculum_work", END)
-    return builder.compile()
-
-
 def gemini() -> BaseChatModel:
     return ChatGoogleGenerativeAI(
         model=os.environ.get("HARNESS_MODEL", "gemini-3.8-flash"),
@@ -488,4 +200,303 @@ def gemini() -> BaseChatModel:
     )
 
 
-graph = build_graph(gemini)
+def build_graph(
+    model_factory: Callable[[], BaseChatModel],
+    knowledge_factory: Callable[[httpx.AsyncClient], Knowledge] = Knowledge,
+) -> Any:
+    root = Path(os.environ.get("HARNESS_WORK_DIR", "work")).resolve()
+    model = model_factory()
+    author_agent = create_agent(
+        model,
+        author_tools(knowledge_factory),
+        middleware=[ExecutionMiddleware()],
+        context_schema=AgentContext,
+        name="curriculum_author",
+    )
+    reviewer_agent = create_agent(
+        model,
+        [calculate_math],
+        middleware=[ExecutionMiddleware()],
+        context_schema=AgentContext,
+        response_format=ToolStrategy(Review),
+        name="curriculum_reviewer",
+    )
+
+    async def prepare_task(state: State, config: RunnableConfig) -> dict[str, Any]:
+        request = TaskRequest.model_validate(state["request"])
+        ledger = Ledger(work(state, config, "prepare_task", root))
+        try:
+            async with stage(ledger):
+                evidence = await asyncio.to_thread(ledger.store.evidence)
+                previous = evidence.get("context")
+                request_fp = fingerprint(request.model_dump())
+                if previous and previous.get("request_fingerprint") != request_fp:
+                    raise ResourceStop("任务请求与已有执行证据不一致")
+                if previous and previous.get("prepared_context"):
+                    prepared = previous["prepared_context"]
+                else:
+                    rules = {
+                        name: await asyncio.to_thread((RESOURCES / file).read_text)
+                        for name, file in [("curriculum", "curriculum.md"), ("review", "review.md")]
+                    }
+                    async with httpx.AsyncClient(
+                        base_url=os.environ.get("HARNESS_LC_URL", "http://127.0.0.1:8000"),
+                        timeout=30,
+                    ) as http:
+                        knowledge = knowledge_factory(http)
+                        try:
+                            package = await knowledge.prepare(request.target_codes)
+                        finally:
+                            await asyncio.to_thread(
+                                ledger.store.update_record,
+                                "knowledge.json",
+                                lambda v: v.update(audit=knowledge.audit),
+                            )
+                    await asyncio.to_thread(
+                        ledger.store.record,
+                        "knowledge.json",
+                        {"package": package, "audit": knowledge.audit},
+                    )
+                    prepared = {
+                        "root": ledger.work["root"],
+                        "rules": rules,
+                        "knowledge": package,
+                        "knowledge_source": {
+                            "identity": knowledge.identity,
+                            "framework": knowledge.framework,
+                            "snapshot_id": knowledge.snapshot_id,
+                        },
+                    }
+                    manifest = {
+                        "workflow_version": WORKFLOW_VERSION,
+                        "request_fingerprint": request_fp,
+                        "rules": {name: fingerprint(text) for name, text in rules.items()},
+                        "external_content": [x.model_dump() for x in request.external_content],
+                        "identity": config["configurable"]
+                        .get("langgraph_auth_user", {})
+                        .get("identity"),
+                        "versions": {
+                            name: await asyncio.to_thread(version, name)
+                            for name in [
+                                "k12-teaching-harness",
+                                "langchain",
+                                "langgraph",
+                                "langgraph-api",
+                                "langchain-google-genai",
+                            ]
+                        },
+                        "model": os.environ.get("HARNESS_MODEL", "gemini-3.8-flash"),
+                        "tools_version": 2,
+                        "source_snapshot": knowledge.identity,
+                        "knowledge_fingerprint": fingerprint(package),
+                        "prepared_context": prepared,
+                    }
+                    await asyncio.to_thread(ledger.store.record, "context.json", manifest)
+            return {
+                "workflow_version": WORKFLOW_VERSION,
+                "request_fingerprint": request_fp,
+                "prepared_context": prepared,
+                "round_index": 0,
+                "status": "running",
+                "unresolved": [],
+                "stop_reason": None,
+                "usage": await asyncio.to_thread(ledger.usage),
+            }
+        except (ResourceStop, TimeoutError) as exc:
+            return stopped(exc)
+
+    async def author(state: State, config: RunnableConfig) -> dict[str, Any]:
+        ledger = Ledger(work(state, config, "author", root))
+        try:
+            async with stage(ledger):
+                current = await asyncio.to_thread(ledger.store.snapshot)
+                await author_agent.ainvoke(
+                    agent_input(
+                        state,
+                        config,
+                        "author",
+                        {
+                            "request": state["request"],
+                            "knowledge": state.get("review_input", {}).get(
+                                "knowledge", state["prepared_context"]["knowledge"]
+                            ),
+                            "current": current,
+                            "review_feedback": state.get("feedback"),
+                        },
+                        root,
+                    ),
+                    config=RunnableConfig(
+                        **{**config, "recursion_limit": 500, "run_name": "curriculum_author"}
+                    ),
+                    context=AgentContext(get_stream_writer()),
+                )
+                current = await asyncio.to_thread(ledger.store.snapshot)
+                if current["content"] is None:
+                    return stopped(ResourceStop("模型尚未保存实际课程，不能宣称完成"), "incomplete")
+            return {
+                "candidate_ref": current["fingerprint"],
+                "content_fingerprint": current["fingerprint"],
+                "usage": await asyncio.to_thread(ledger.usage),
+            }
+        except (ResourceStop, TimeoutError) as exc:
+            return stopped(exc)
+        except ContentError as exc:
+            return stopped(exc, "incomplete")
+
+    async def prepare_review(state: State, config: RunnableConfig) -> dict[str, Any]:
+        ledger = Ledger(work(state, config, "prepare_review", root))
+        try:
+            async with stage(ledger):
+                current = await asyncio.to_thread(ledger.store.review_input)
+                current["knowledge"] = {
+                    **state["prepared_context"]["knowledge"],
+                    "additional": current["knowledge"].get("additional", []),
+                }
+                if current["fingerprint"] != state["candidate_ref"]:
+                    raise ContentError("候选稿在送审前已改变，停止本次检查")
+                findings = deterministic_findings(
+                    Curriculum.model_validate(current["content"]),
+                    TaskRequest.model_validate(state["request"]),
+                )
+                if not current.get("rendered"):
+                    findings.append(
+                        Finding(
+                            criterion="mathematics",
+                            target="rendering",
+                            detail="当前内容未成功排版，核对公式或图件",
+                            blocking=True,
+                        )
+                    )
+            return {
+                "review_input": current,
+                "review_result": {},
+                "program_findings": [f.model_dump() for f in findings],
+                "usage": await asyncio.to_thread(ledger.usage),
+            }
+        except (ResourceStop, TimeoutError) as exc:
+            return stopped(exc)
+        except ContentError as exc:
+            return stopped(exc, "incomplete")
+
+    async def reviewer(state: State, config: RunnableConfig) -> dict[str, Any]:
+        ledger = Ledger(work(state, config, "reviewer", root))
+        try:
+            async with stage(ledger):
+                current = state["review_input"]
+                result = await reviewer_agent.ainvoke(
+                    agent_input(
+                        state,
+                        config,
+                        "reviewer",
+                        {
+                            "request": state["request"],
+                            "knowledge": current["knowledge"],
+                            "content": current["content"],
+                            "assets": current["review_assets"],
+                            "render_identity": current["render_identity"],
+                        },
+                        root,
+                    ),
+                    config=RunnableConfig(
+                        **{**config, "recursion_limit": 500, "run_name": "curriculum_reviewer"}
+                    ),
+                    context=AgentContext(get_stream_writer()),
+                )
+                review = Review.model_validate(result["structured_response"])
+            return {
+                "review_result": review.model_dump(),
+                "usage": await asyncio.to_thread(ledger.usage),
+            }
+        except (ResourceStop, TimeoutError) as exc:
+            return stopped(exc)
+
+    async def record_review(state: State, config: RunnableConfig) -> dict[str, Any]:
+        ledger = Ledger(work(state, config, "record_review", root))
+        try:
+            async with stage(ledger):
+                for name, filename in [("curriculum", "curriculum.md"), ("review", "review.md")]:
+                    current_rules = await asyncio.to_thread((RESOURCES / filename).read_text)
+                    if fingerprint(current_rules) != fingerprint(
+                        state["prepared_context"]["rules"][name]
+                    ):
+                        raise ContentError("执行规则在本次任务中已改变，旧检查不能应用")
+                review = Review.model_validate(state["review_result"])
+                review.findings.extend(Finding.model_validate(f) for f in state["program_findings"])
+                current = await asyncio.to_thread(
+                    ledger.store.check,
+                    state["review_input"]["fingerprint"],
+                    review,
+                    fingerprint(state["prepared_context"]["rules"]["review"]),
+                )
+                await asyncio.to_thread(
+                    ledger.record,
+                    "review_finished",
+                    fingerprint=current["fingerprint"],
+                    program_findings=state["program_findings"],
+                    model_review=state["review_result"],
+                )
+            if current["checks"]["passed"]:
+                return await final_result(
+                    {**state, "status": "completed", "unresolved": []}, ledger
+                )
+            blocking = [f.detail for f in review.findings if f.blocking]
+            review_ref = fingerprint([current["fingerprint"], review.model_dump()])
+            if review_ref == state.get("previous_review_ref"):
+                return stopped(ResourceStop("稿件及阻断检查与上一轮相同，未取得修订进展"))
+            get_stream_writer()(
+                {"type": "progress", "step": "revision", "message": "正在核实检查问题并修订当前稿"}
+            )
+            return {
+                "feedback": review.model_dump(),
+                "unresolved": blocking,
+                "previous_review_ref": review_ref,
+                "round_index": state["round_index"] + 1,
+                "usage": await asyncio.to_thread(ledger.usage),
+            }
+        except (ResourceStop, TimeoutError) as exc:
+            return stopped(exc)
+        except ContentError as exc:
+            return stopped(exc, "incomplete")
+
+    async def finish_incomplete(state: State, config: RunnableConfig) -> dict[str, Any]:
+        return await final_result(state, Ledger(work(state, config, "finish_incomplete", root)))
+
+    def advance(next_node: str) -> Callable[[State], str]:
+        return lambda state: "finish_incomplete" if state.get("stop_reason") else next_node
+
+    builder = StateGraph(State)
+    for name, node in [
+        ("prepare_task", prepare_task),
+        ("author", author),
+        ("prepare_review", prepare_review),
+        ("reviewer", reviewer),
+        ("record_review", record_review),
+        ("finish_incomplete", finish_incomplete),
+    ]:
+        builder.add_node(name, node)
+    builder.add_edge(START, "prepare_task")
+    for name, next_node in [
+        ("prepare_task", "author"),
+        ("author", "prepare_review"),
+        ("prepare_review", "reviewer"),
+        ("reviewer", "record_review"),
+    ]:
+        builder.add_conditional_edges(name, advance(next_node), [next_node, "finish_incomplete"])
+    builder.add_conditional_edges(
+        "record_review",
+        lambda state: (
+            END
+            if state.get("status") == "completed"
+            else "finish_incomplete"
+            if state.get("stop_reason")
+            else "author"
+        ),
+        [END, "finish_incomplete", "author"],
+    )
+    builder.add_edge("finish_incomplete", END)
+    return builder.compile().with_config(recursion_limit=500)
+
+
+async def graph(config: RunnableConfig) -> Any:
+    """原生 Agent Server 图工厂：在服务请求时构造模型，不在模块导入时读取凭据。"""
+    return await asyncio.to_thread(build_graph, gemini)

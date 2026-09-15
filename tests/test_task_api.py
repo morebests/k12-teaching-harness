@@ -38,6 +38,8 @@ async def test_实际课程与检查可以查询且查询不启动新运行(serv
         assert result["content"]["tasks"][0]["solution"]
         assert await client.query(receipt.task_id) == result
         assert len(await client.native.runs.list(receipt.task_id)) == 1
+        evidence = (await client.http.get(f"/v1/threads/{receipt.task_id}/evidence")).json()
+        assert "operations" not in evidence["execution"]
 
 
 async def test_不能通过原生流索取模型原始消息(server, request_data):

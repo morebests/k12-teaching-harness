@@ -85,6 +85,33 @@ async def test_维护者取得原生模型工具请求和对应返回(server, re
         assert state["values"]["status"] == "completed"
 
 
+async def test_维护者可回取真实子图检查点而父图没有私有消息(server, request_data):
+    request_data["event_id"] = "子图历史回取"
+    async with HarnessClient(server, "维护者", "debug-token") as client:
+        receipt = await client.submit(TaskRequest.model_validate(request_data), diagnostics=True)
+        await client.native.runs.join(receipt.task_id, receipt.run_id)
+        history = await client.native.threads.get_history(receipt.task_id, limit=30)
+        children = {}
+        for checkpoint in history:
+            assert "messages" not in checkpoint["values"]
+            expanded = await client.native.threads.get_state(
+                receipt.task_id, checkpoint=checkpoint["checkpoint"], subgraphs=True
+            )
+            for task in expanded["tasks"]:
+                if task["name"] in {"author", "reviewer"} and task.get("state"):
+                    child = task["state"]
+                    if "values" not in child:
+                        child = await client.native.threads.get_state(
+                            receipt.task_id, checkpoint=child, subgraphs=True
+                        )
+                    if child["values"].get("messages"):
+                        children[task["name"]] = child["values"]["messages"]
+        assert set(children) == {"author", "reviewer"}
+        assert any(m.get("tool_call_id") == "save" for m in children["author"])
+        assert all(m.get("tool_call_id") != "save" for m in children["reviewer"])
+        assert "review_feedback" not in children["reviewer"][0]["content"]
+
+
 async def test_普通调用方不能通过重连请求详细流(server, request_data):
     request_data["event_id"] = "重连诊断隔离"
     async with HarnessClient(server, "测试调用方", "test-token") as client:

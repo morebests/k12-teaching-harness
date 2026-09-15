@@ -20,7 +20,7 @@
 
 维护者可通过原生流查看模型／工具请求、返回与错误，并保存本地诊断记录。开发脚本默认开启诊断能力，读取仍须服务配置的维护者身份及任务访问权；生产直接启动默认关闭，可由管理员显式开启。普通教学订阅继续只提供教学进度、草稿与结果。LangSmith 追踪尊重服务端显式配置，平台关联和观察故障仍由后续票验收；配置与回放方法见 [维护者诊断](docs/runtime.md#维护者诊断)。
 
-本次真实结果为 3 课时、6 项关键任务，当前检查通过；不代表完整全年、正式三课上层、课堂成效或生产保证。取消后快速重启仍有框架重放窗口，应用保留累计用量并停止重复执行；受控续作后置。浏览器视觉验收尚未完成。详见 [实际课段与验收证据](.scratch/math-harness-delivery/evidence/01-live-curriculum/e-completed/api-result.json)。
+首票此前真实结果为 3 课时、6 项关键任务，当前检查通过；不代表完整全年、正式三课上层、课堂成效或生产保证。当前已采用[五阶段执行图](.scratch/math-harness-delivery/ticket-01-graph-refactor-design.md)：作者与审阅用静态 Agent，其余阶段用普通 Python。已保存阶段可按框架检查点接续，未确认的外部调用仍保守停止；取消后公开续作与生产恢复后置。本轮新的真实样本走过审阅和修订后因资源边界停止，未成功排版，详见[重构验证](.scratch/math-harness-delivery/evidence/01-live-curriculum/graph-refactor/README.md)。浏览器视觉验收尚未完成。详见 [实际课段与验收证据](.scratch/math-harness-delivery/evidence/01-live-curriculum/e-completed/api-result.json)。
 
 ## 本仓库要交付的能力
 
