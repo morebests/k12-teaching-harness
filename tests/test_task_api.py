@@ -8,6 +8,7 @@ import httpx
 import pytest
 
 from teaching_harness.client import HarnessClient
+from teaching_harness.content import ContentStore
 from teaching_harness.contracts import TaskRequest, task_id
 
 
@@ -157,3 +158,34 @@ async def test_无凭据和开发工具后门不能读取任务(server):
         for headers in [{}, {"x-api-key": "invalid-studio-token"}]:
             response = await http.post("/threads/search", json={}, headers=headers)
             assert response.status_code == 401
+
+
+async def test_框架重入已有调用证据时不归零或重复调用(server, request_data, work_root):
+    request_data["event_id"] = "未完成节点重入"
+    request = TaskRequest.model_validate(request_data)
+    tid = task_id("测试调用方", request.event_id)
+    ContentStore(work_root, tid).record(
+        "execution.json",
+        {
+            "usage": {
+                "model_calls": 3,
+                "tool_calls": 2,
+                "total_tokens": 900,
+                "input_tokens": 600,
+                "output_tokens": 300,
+                "unknown_usage": True,
+                "seconds": 4.0,
+                "cost": None,
+            },
+            "events": [{"kind": "model_unfinished", "call": 3}],
+        },
+    )
+    async with HarnessClient(server, "测试调用方", "test-token") as client:
+        receipt = await client.submit(request)
+        await client.native.runs.join(tid, receipt.run_id)
+        result = await client.query(tid)
+        assert result["status"] == "stopped"
+        assert result["usage"]["model_calls"] == 3
+        assert result["usage"]["total_tokens"] == 900
+        assert result["usage"]["unknown_usage"] is True
+        assert result["content"] is None

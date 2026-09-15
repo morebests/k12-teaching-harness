@@ -1,0 +1,281 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>八年级线性函数建模：从文字、表格、图像与数值构建并解释变化率与初始值</title><style>body{max-width:900px;margin:36px auto;padding:0 24px;font:17px/1.7 system-ui;color:#17212a}h1{font-size:30px}h2{margin-top:36px}h3{font-size:18px}.scope{color:#586472}table{border-collapse:collapse;width:100%}td,th{border:1px solid #abb5bf;padding:8px}figure{margin:20px 0}svg{max-width:680px;width:100%;height:auto}section{border-top:1px solid #bbb;margin-top:32px}math{font-size:1.12em}@media print{body{margin:0;font-size:11pt}h2,h3{break-after:avoid}table,figure{break-inside:avoid}}</style><body><h1>八年级线性函数建模：从文字、表格、图像与数值构建并解释变化率与初始值</h1><p class="scope">有限课段方案与关键任务构想 · 检查状态请查看任务结果</p><p>【起点与困境】学生在七年级学习了正比例关系（y = kx），习惯了“两量成比例则过原点 (0,0)”以及“常数 k = y / x”的认知结构。在进入八年级线性函数学习时，普遍存在的思维误区是盲目使用单个数据点的比值 y/x 来求变化率，且难以理解“当自变量为 0 时因变量并不为 0”的初始值概念。
+【核心理解跃迁】本课段通过 3 节紧密递进的课时设计，推动学生完成三重关键认知跃迁：</p>
+<ol>
+<li>从“单点除法”跃迁到“增量比率（Rate of Change = Δy / Δx）”，建立变化率的恒定性本质；</li>
+<li>从“默认从零开始”跃迁到“初始值（Initial Value / y-intercept）作为独立系统基准”，明确 y = mx + b 中 m 与 b 的正交结构与现实物理对应；</li>
+<li>从“单一形式的孤立计算”跃迁到“跨越文字、表格、图像与任意两点坐标的多表征建模与对比决策”，体会函数作为描述现实世界变化规律的有力工具。
+【推进逻辑】第 1 课以学生熟悉的储蓄与图书角基金情境切入，通过非连续表格迫使学生放弃逐项递推，运用差商寻找变化率并反向推演 x=0 时的底数；第 2 课引入真实坐标图像与高速货运两点数据，强化几何直观（斜率三角形与垂直截距）与代数待定系数法的互证；第 3 课通过两套社区水箱方案的多表征对比，将建模能力直接应用于交点求解与决策分析。
+【诊断与衔接】各任务嵌入了针对典型误区的诊断性问题，配有针对性的纠偏脚手架；后续顺畅衔接高中阶段的线性与指数模型构建（HSF-LE.A.2）、平均变化率（HSF-IF.B.6）与统计回归参数解释（HSS-ID.C.7）。</li>
+</ol>
+<h2>目标与证据</h2><h3>8.F.B.4</h3><p>完整承担 8.F.B.4 的全部教学与评估职责。确保学生不仅掌握参数计算技能，而且建立起函数作为两个物理量之间恒定变化关系模型的数学观念。</p>
+<p>全面落实 8.F.B.4 的 10 项 Learning Components：在数学情境与真实情境下，分别从文字描述、表格和函数图中确定初始值与变化率；从两组数值构建线性模型；在具体情境中严谨解释变化率和初始值的现实意义。</p>
+<p>学生能够在文字描述、非连续表格、坐标图像和任意两组 (x, y) 数值这四种表征中，独立计算/提取变化率（m）与初始值（b）；能够准确写出线性函数关系式 y = mx + b；并能结合实际背景使用带单位的语言（如“美元/小时”、“加仑/分钟”）准确阐述 m 与 b 的物理意义。</p>
+<h2>先备与后续</h2><p>7.RP.A.2: 识别并表示两量之间的正比例关系，理解比例常数 k 的单位比率意义及其图像是一条通过原点的直线。
+8.F.A.3: 理解方程 y = mx + b 定义了一个线性函数，其图像是一条直线，并能区分线性与非线性函数（如面积与边长的非线性关系）。
+说明：前驱关系为本课段提供认知基础与进阶方向，而非机械准入限制。课段中对比例与非比例的比较起到温故知新的桥梁作用。</p>
+<p>HSF-LE.A.2: 给定图像、文字描述或两对输入输出数值（包括从表格中读取）构建线性和指数函数模型。
+HSF-BF.A.1.a: 根据实际情境确定显式表达式、递归过程或计算步骤。
+HSF-IF.B.6: 计算并解释函数在指定区间上的平均变化率，从图像估计变化率。
+HSS-ID.C.7: 在数据情境中解释线性模型的斜率（变化率）和截距（常数项）。
+HSA-CED.A.2: 创建含有两个变量的方程以表示两量关系并在带标签和刻度的坐标系中画出图像。</p>
+<h2>学习进程</h2><h3>第 1 课：从情境文字与非连续数据表格构建线性模型</h3><p>打破“所有线性增长都由单点商 y/x 决定”的比例思维定势，建立“恒定变化率等于增量比率 Δy/Δx，初始值是输入量为 0 时的基础状态”的仿射线性观念。</p>
+<p>学生工作 25 分钟 · 讨论 15 分钟 · 其他 10 分钟</p><h3>第 2 课：从函数坐标图像与离散两点数值提取模型参数</h3><p>从依赖表格单步差值，跃迁到从几何直角三角形（垂直变化与水平变化）直观读取斜率与截距，并进一步抽象为脱离图像直接由两点坐标 (x1, y1) 和 (x2, y2) 代数推导模型解析式。</p>
+<p>学生工作 25 分钟 · 讨论 15 分钟 · 其他 10 分钟</p><h3>第 3 课：多表征综合建模、模型对比与情境决策验证</h3><p>从单一情境下的机械套用公式，跃迁到自如穿梭于图、表、式、文之间，通过比较不同线性系统的初始值与变化率，解释系统交汇点并做出量化决策。</p>
+<p>学生工作 25 分钟 · 讨论 15 分钟 · 其他 10 分钟</p><section id="task-1-verbal-table"><h2>关键任务 · task-1-verbal-table</h2><p>评估并发展学生从文字描述和非连续表格中识别变化率与初始值的能力，辨析比例除法与增量差商的根本区别。</p>
+<p>结合夏令营储蓄的文字描述和班级图书角基金的数据表格，分别确定线性函数的变化率与初始值，写出函数模型并解释参数在情境中的实际意义。</p>
+<h3>任务情境 A：夏令营储蓄计划（文字描述）</h3>
+<p>小明为了参加暑期科技夏令营，制定了一个储蓄计划。他的存钱罐里原来就有 40 美元的基础零用钱。从本周开始，他决定每周从零花钱中恒定存入 12 美元。</p>
+<ol>
+<li>请写出一个函数关系式，表示经过 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span> 周后，存钱罐中的总金额 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span>（美元）。</li>
+<li>在这个情境中，变化率是多少？它的实际意义和单位是什么？</li>
+<li>在这个情境中，初始值是多少？它的实际意义和单位是什么？</li>
+</ol>
+<hr />
+<h3>任务情境 B：班级图书角基金（数据表格）</h3>
+<p>班级图书管理小组每周通过收集废品变卖为图书角补充基金。下表记录了开展活动若干周后，图书角累计筹得的总资金记录。由于第 0 周和第 1 周的记录表遗失，仅存以下三条记录：</p>
+<table><thead><tr><th><p>活动周数 (w)</p>
+</th><th><p>累计筹集资金 (A, 美元)</p>
+</th></tr></thead><tbody><tr><td><p>2</p>
+</td><td><p>75</p>
+</td></tr><tr><td><p>5</p>
+</td><td><p>120</p>
+</td></tr><tr><td><p>8</p>
+</td><td><p>165</p>
+</td></tr></tbody></table><p>请根据上表回答：</p>
+<ol>
+<li>随着周数的增加，累计筹集资金是匀速增加的吗？请通过计算相邻两段的变化率说明理由。</li>
+<li>该线性函数的变化率是多少？请写出计算过程、复合单位，并解释其现实含义。</li>
+<li>在活动正式开始前（即第 0 周，活动筹备时），图书角原来已有多少初始备用金？请写出你的计算推理过程。</li>
+<li>写出累计资金 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span> 与周数 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span> 之间的函数表达式，并预测第 12 周累计资金将达到多少美元。</li>
+</ol>
+<h3>解答与条件</h3><p>【情境 A 解答】</p>
+<ol>
+<li>函数表达式：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mn>12</mn><mi>w</mi><mo>+</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">S = 12w + 40</annotation></semantics></math></span>（或 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">)</mo><mo>=</mo><mn>12</mn><mi>w</mi><mo>+</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">S(w) = 12w + 40</annotation></semantics></math></span>）。</li>
+<li>变化率：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn></mrow><annotation encoding="application/x-tex">12</annotation></semantics></math></span> 美元/周。实际意义：每周存钱罐中增加的存款金额。</li>
+<li>初始值：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>40</mn></mrow><annotation encoding="application/x-tex">40</annotation></semantics></math></span> 美元。实际意义：储蓄计划开始前（第 0 周）存钱罐中原有的零用钱金额。</li>
+</ol>
+<p>【情境 B 解答】</p>
+<ol>
+<li>检验变化率是否恒定：
+<ul>
+<li>第 2 周到第 5 周的变化率：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>120</mn><mo>−</mo><mn>75</mn></mrow><mrow><mn>5</mn><mo>−</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mfrac><mn>45</mn><mn>3</mn></mfrac><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">\frac{120 - 75}{5 - 2} = \frac{45}{3} = 15</annotation></semantics></math></span>（美元/周）；</li>
+<li>第 5 周到第 8 周的变化率：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>165</mn><mo>−</mo><mn>120</mn></mrow><mrow><mn>8</mn><mo>−</mo><mn>5</mn></mrow></mfrac><mo>=</mo><mfrac><mn>45</mn><mn>3</mn></mfrac><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">\frac{165 - 120}{8 - 5} = \frac{45}{3} = 15</annotation></semantics></math></span>（美元/周）。
+两段变化率相等，均为 15 美元/周，因此是匀速增加的线性关系。</li>
+</ul>
+</li>
+<li>变化率：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn></mrow><annotation encoding="application/x-tex">15</annotation></semantics></math></span> 美元/周。计算过程如上。现实含义：每周通过收集废品为图书角新增加的资金为 15 美元。</li>
+<li>初始值计算：
+已知第 2 周累计资金为 75 美元，其中包含 2 周增加的资金：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mo>×</mo><mn>2</mn><mo>=</mo><mn>30</mn></mrow><annotation encoding="application/x-tex">15 \times 2 = 30</annotation></semantics></math></span> 美元。
+因此，第 0 周的初始备用金为：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>75</mn><mo>−</mo><mn>30</mn><mo>=</mo><mn>45</mn></mrow><annotation encoding="application/x-tex">75 - 30 = 45</annotation></semantics></math></span> 美元。
+（亦可用第 5 周验证：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>120</mn><mo>−</mo><mn>15</mn><mo>×</mo><mn>5</mn><mo>=</mo><mn>120</mn><mo>−</mo><mn>75</mn><mo>=</mo><mn>45</mn></mrow><annotation encoding="application/x-tex">120 - 15 \times 5 = 120 - 75 = 45</annotation></semantics></math></span> 美元）。
+初始值为 45 美元，表示在开始收集废品前，图书角已有的初始备用金。</li>
+<li>函数表达式：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mn>15</mn><mi>w</mi><mo>+</mo><mn>45</mn></mrow><annotation encoding="application/x-tex">A = 15w + 45</annotation></semantics></math></span>。
+当 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">w = 12</annotation></semantics></math></span> 时，<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mn>15</mn><mo>×</mo><mn>12</mn><mo>+</mo><mn>45</mn><mo>=</mo><mn>180</mn><mo>+</mo><mn>45</mn><mo>=</mo><mn>225</mn></mrow><annotation encoding="application/x-tex">A = 15 \times 12 + 45 = 180 + 45 = 225</annotation></semantics></math></span> 美元。预测第 12 周累计资金达到 225 美元。</li>
+</ol>
+<h3>学生数学工作</h3><p>小芳的作答记录：
+情境 A：写出 S = 12w + 40。变化率是 12，单位是美元/周；初始值是 40 美元。
+情境 B：
+步骤 1：算第 2 到第 5 周，资金增加了 120 - 75 = 45 美元，周数增加了 5 - 2 = 3 周，45 / 3 = 15 美元/周。再看第 5 到第 8 周，165 - 120 = 45，8 - 5 = 3，45 / 3 = 15 美元/周。变化率恒定为 15 美元/周。
+步骤 2：找初始值。第 2 周是 75，往前退 2 周，每周 15，所以 75 - 15 * 2 = 45 美元。
+步骤 3：公式 A = 15w + 45。
+步骤 4：第 12 周，代入 w = 12，A = 15 * 12 + 45 = 225 美元。</p>
+<h3>观察证据</h3><p>学生能从文字直接提取 m 和 b；在没有第 0 行且步长大于 1 的表格中，自主运用 ΔA/Δw 验证变化率的恒定性，通过倒推 A - m*w 准确求出 b=45，并给两个参数赋予正确现实含义。</p>
+<h3>预判回应</h3><p>正确回应：能通过 Δy/Δx 计算变化率（如问题 2 中 (120-75)/(5-2) = 15 美元/周），并用 75 - 15*2 = 45 得到初始值。
+典型错误回应 1：直接计算单点除法 75 / 2 = 37.5，认为变化率是 37.5 美元/周。
+典型错误回应 2：求出变化率 15 后，误认为第 2 周的 75 美元就是初始值，或认为初始值必须是 0。
+理解推断：错误 1 反映出受七年级比例思维惯性影响，未意识到存在基础初始费用；错误 2 反映出对“初始值对应自变量为 0”的定义理解模糊。</p>
+<h3>支持</h3><p>对出现 75/2 错误的学生，教师在黑板上呈现表格并在两列旁画出增量大括号：提问“从第 2 周到第 5 周，钱增加了多少？过了几周？那么平均每周增加多少？”；接着问“第 2 周的 75 美元里，包含了几个 15 美元？那没存钱之前（第 0 周）应该有多少钱？”通过图解增量帮助学生摆脱机械除法。</p>
+</section><section id="task-2-graph-reading"><h2>关键任务 · task-2-graph-reading</h2><p>评估并强化学生从真实函数图象（第一象限直角坐标系）中读取垂直截距（初始值）和利用斜率三角形提取变化率的能力。</p>
+<p>从给出的设备租赁费用真实函数图像中读取初始值与变化率，构建线性模型并解释其情境意义，最后进行费用预测。</p>
+<h3>任务情境：户外露营设备租赁费用</h3>
+<p>某户外运动俱乐部提供露营帐篷成套设备租赁服务。下图展示了租用该设备的总费用 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span>（美元）与租用时间 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span>（小时）之间的函数关系图。</p>
+<figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480" role="img"><title>总费用 (美元)随时间 (小时)变化</title><rect width="680" height="480" fill="white"/><defs><clipPath id="plot"><rect x="100" y="55" width="500" height="340"/></clipPath></defs><path d="M100 55V395 M100 395H600" stroke="#ccc" fill="none"/><text x="100" y="420" text-anchor="middle" font-size="16">0</text><text x="88" y="400" text-anchor="end" font-size="16">0</text><path d="M200 55V395 M100 327H600" stroke="#ccc" fill="none"/><text x="200" y="420" text-anchor="middle" font-size="16">1.6</text><text x="88" y="332" text-anchor="end" font-size="16">12</text><path d="M300 55V395 M100 259H600" stroke="#ccc" fill="none"/><text x="300" y="420" text-anchor="middle" font-size="16">3.2</text><text x="88" y="264" text-anchor="end" font-size="16">24</text><path d="M400 55V395 M100 191H600" stroke="#ccc" fill="none"/><text x="400" y="420" text-anchor="middle" font-size="16">4.8</text><text x="88" y="196" text-anchor="end" font-size="16">36</text><path d="M500 55V395 M100 123H600" stroke="#ccc" fill="none"/><text x="500" y="420" text-anchor="middle" font-size="16">6.4</text><text x="88" y="128" text-anchor="end" font-size="16">48</text><path d="M600 55V395 M100 55H600" stroke="#ccc" fill="none"/><text x="600" y="420" text-anchor="middle" font-size="16">8</text><text x="88" y="60" text-anchor="end" font-size="16">60</text><path d="M100 55V395H600" stroke="#222" fill="none" stroke-width="2"/><path d="M100 310.0 L600 83.33333333333337" stroke="#174c70" fill="none" stroke-width="3" clip-path="url(#plot)"/><text x="350" y="458" text-anchor="middle" font-size="18">时间 (小时)</text><text x="100" y="28" font-size="18">总费用 (美元)</text></svg><figcaption>设备租赁总费用与时间关系图，横轴为时间（小时）范围 0 到 8，纵轴为总费用（美元）范围 0 到 60，直线从 (0, 15) 出发经过 (5, 40) 和 (7, 50)</figcaption></figure><p>请仔细观察上方真实坐标图，完成下列任务：</p>
+<ol>
+<li>观察图像与纵轴（总费用轴）的交点坐标是什么？它所代表的初始值是多少？在租赁情境中，这个初始值代表什么含义？</li>
+<li>在直线上选取两个清晰的整点坐标，通过画“斜率直角三角形”计算该函数的变化率（斜率）。请写出计算过程及复合单位。</li>
+<li>写出总费用 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span> 与租用时间 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span> 之间的线性函数表达式。</li>
+<li>某家庭计划租用该套设备 6.5 小时，根据你构建的函数模型，他们需要支付多少总费用？请展示代数计算过程。</li>
+</ol>
+<h3>解答与条件</h3><ol>
+<li>纵轴交点坐标为 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>15</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 15)</annotation></semantics></math></span>。
+初始值为 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn></mrow><annotation encoding="application/x-tex">15</annotation></semantics></math></span> 美元。
+现实含义：这是设备起租费（或基础服务费/押金管理费），即只要租用设备（即便时间接近 0 小时），也必须支付的基础固定底费 15 美元。</li>
+<li>选取直线上的两个格点，例如 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>15</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 15)</annotation></semantics></math></span> 和 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>5</mn><mo separator="true">,</mo><mn>40</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(5, 40)</annotation></semantics></math></span>（或选取 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2</mn><mo separator="true">,</mo><mn>25</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2, 25)</annotation></semantics></math></span> 与 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>7</mn><mo separator="true">,</mo><mn>50</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(7, 50)</annotation></semantics></math></span>）：
+垂直变化量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>C</mi><mo>=</mo><mn>40</mn><mo>−</mo><mn>15</mn><mo>=</mo><mn>25</mn></mrow><annotation encoding="application/x-tex">\Delta C = 40 - 15 = 25</annotation></semantics></math></span> 美元，
+水平变化量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi><mo>=</mo><mn>5</mn><mo>−</mo><mn>0</mn><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\Delta t = 5 - 0 = 5</annotation></semantics></math></span> 小时。
+变化率 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>C</mi></mrow><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mfrac><mn>25</mn><mn>5</mn></mfrac><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">m = \frac{\Delta C}{\Delta t} = \frac{25}{5} = 5</annotation></semantics></math></span> 美元/小时。
+现实含义：租用设备每增加 1 小时，总费用增加 5 美元（即小时租金费率）。</li>
+<li>线性函数模型为：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mn>5</mn><mi>t</mi><mo>+</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">C = 5t + 15</annotation></semantics></math></span>。</li>
+<li>当 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>6.5</mn></mrow><annotation encoding="application/x-tex">t = 6.5</annotation></semantics></math></span> 小时时：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mn>5</mn><mo>×</mo><mn>6.5</mn><mo>+</mo><mn>15</mn><mo>=</mo><mn>32.5</mn><mo>+</mo><mn>15</mn><mo>=</mo><mn>47.5</mn></mrow><annotation encoding="application/x-tex">C = 5 \times 6.5 + 15 = 32.5 + 15 = 47.5</annotation></semantics></math></span> 美元。
+答：他们需要支付 47.5 美元的总费用。</li>
+</ol>
+<h3>学生数学工作</h3><p>小李的解题记录：</p>
+<ol>
+<li>纵轴交点在 (0, 15)，初始值是 15 美元。意思是刚租还没用就要付的底费 15 美元。</li>
+<li>我找了图上的点 A(2, 25) 和点 B(6, 45)。
+竖直上升了 45 - 25 = 20，水平向右走了 6 - 2 = 4。
+斜率 = 20 / 4 = 5 美元/小时。</li>
+<li>公式是 C = 5t + 15。</li>
+<li>把 t = 6.5 代进去：C = 5 * 6.5 + 15 = 32.5 + 15 = 47.5 美元。</li>
+</ol>
+<h3>观察证据</h3><p>学生能独立从图像中准确定位纵轴截距 (0, 15)，准确选取图像上的格点如 (5, 40) 或 (2, 25)，通过垂直增量除以水平增量计算出变化率 5 美元/小时，建立 C = 5t + 15，并正确代入 t=6.5 求值。</p>
+<h3>预判回应</h3><p>正确回应：能从纵轴与直线交点直接读出 (0, 15)，确定初始值为 15 美元；能选取格点 (0, 15) 与 (5, 40) 计算斜率 (40-15)/(5-0) = 5 美元/小时；构建 C = 5t + 15。
+典型错误回应 1：将纵轴截距读成 (0, 10) 或误以为直线必须从原点出发而强行连到 (0, 0)。
+典型错误回应 2：计算变化率时颠倒自变量与因变量，算出 (5-0)/(40-15) = 1/5 = 0.2 小时/美元。
+理解推断：错误 1 属于坐标轴读数不细致或受比例图形先入为主观念影响；错误 2 属于斜率定义 Δy/Δx 中纵横增量颠倒。</p>
+<h3>支持</h3><p>对于容易搞混纵横轴的学生，提供带有直尺和彩笔的操作指引：用彩笔在纵轴上点出 (0, 15) 并标注“起点/初始值 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>”；在选定的两点之间用直尺画出直角三角形，一条竖直边标上“<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>C</mi><mo>=</mo><mn>25</mn></mrow><annotation encoding="application/x-tex">\Delta C = 25</annotation></semantics></math></span> 美元”，一条水平边标上“<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\Delta t = 5</annotation></semantics></math></span> 小时”，引导学生朗读“25 美元比 5 小时等于 5 美元/小时”。</p>
+</section><section id="task-3-two-points"><h2>关键任务 · task-3-two-points</h2><p>深化从两组离散数值构建线性模型的能力，使学生脱离对图像截距目测的依赖，掌握纯代数形式的待定系数法与参数意义反思。</p>
+<p>仅根据两组 (x, y) 数值，代数求解线性函数的变化率与初始值，构建函数解析式并在情境中解释参数，完成逆向预测。</p>
+<h3>任务情境：城际长途物流货车的行驶记录</h3>
+<p>一辆城际冷链物流货车在连接两个物流枢纽的封闭高速公路上保持匀速巡航。调度中心车载传感器在无纸化系统中记录了两组时间与总里程表读数：</p>
+<ul>
+<li>出发并进入高速正常行驶 <strong>2 小时</strong> 时，货车总里程表显示为 <strong>170 英里</strong>；</li>
+<li>出发并进入高速正常行驶 <strong>5 小时</strong> 时，货车总里程表显示为 <strong>365 英里</strong>。</li>
+</ul>
+<p>题目条件仅有上述两组数值 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math></span>，没有附带图表。请回答下列问题：</p>
+<ol>
+<li>将这两组数据写成两个平面直角坐标点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x_1, y_1)</annotation></semantics></math></span> 和 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x_2, y_2)</annotation></semantics></math></span> 的形式，其中 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span> 表示行驶时间（小时），<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span> 表示总里程表读数（英里）。</li>
+<li>根据这两组数值，计算该线性函数的变化率。写出规范计算公式、过程与复合单位，并在情境中说明变化率代表什么。</li>
+<li>利用求得的变化率与其中一组数值，求出该函数的初始值（即 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x = 0</annotation></semantics></math></span> 时的 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span> 值）。写出代数推导过程，并解释该初始值在物流情境中意味着什么。</li>
+<li>构建总里程 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span> 与时间 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span> 的线性函数关系式。如果全程总里程表读数达到 495 英里时货车到达目的地物流园，货车总共行驶了多少小时？</li>
+</ol>
+<h3>解答与条件</h3><ol>
+<li>坐标点表示为：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mn>2</mn><mo separator="true">,</mo><mn>170</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x_1, y_1) = (2, 170)</annotation></semantics></math></span>，<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mn>5</mn><mo separator="true">,</mo><mn>365</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x_2, y_2) = (5, 365)</annotation></semantics></math></span>。</li>
+<li>计算变化率 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span>：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mfrac><mrow><msub><mi>y</mi><mn>2</mn></msub><mo>−</mo><msub><mi>y</mi><mn>1</mn></msub></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><msub><mi>x</mi><mn>1</mn></msub></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>365</mn><mo>−</mo><mn>170</mn></mrow><mrow><mn>5</mn><mo>−</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mfrac><mn>195</mn><mn>3</mn></mfrac><mo>=</mo><mn>65</mn></mrow><annotation encoding="application/x-tex">m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{365 - 170}{5 - 2} = \frac{195}{3} = 65</annotation></semantics></math></span> 英里/小时。
+现实含义：货车在高速公路上保持恒定的巡航速度为 65 英里/小时。</li>
+<li>求解初始值 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>：
+将点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2</mn><mo separator="true">,</mo><mn>170</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2, 170)</annotation></semantics></math></span> 和 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>65</mn></mrow><annotation encoding="application/x-tex">m = 65</annotation></semantics></math></span> 代入一般式 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>m</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">y = mx + b</annotation></semantics></math></span>：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>170</mn><mo>=</mo><mn>65</mn><mo>×</mo><mn>2</mn><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">170 = 65 \times 2 + b</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>170</mn><mo>=</mo><mn>130</mn><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">170 = 130 + b</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>170</mn><mo>−</mo><mn>130</mn><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">b = 170 - 130 = 40</annotation></semantics></math></span> 英里。
+（用点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>5</mn><mo separator="true">,</mo><mn>365</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(5, 365)</annotation></semantics></math></span> 验证：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>365</mn><mo>=</mo><mn>65</mn><mo>×</mo><mn>5</mn><mo>+</mo><mi>b</mi><mtext>  </mtext><mo>⟹</mo><mtext>  </mtext><mn>365</mn><mo>=</mo><mn>325</mn><mo>+</mo><mi>b</mi><mtext>  </mtext><mo>⟹</mo><mtext>  </mtext><mi>b</mi><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">365 = 65 \times 5 + b \implies 365 = 325 + b \implies b = 40</annotation></semantics></math></span>）。
+现实含义：在开始记录高速行驶时间之前（<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x = 0</annotation></semantics></math></span> 时），里程表上已有 40 英里的读数（例如从出发货场驶往高速收费站的市区接驳路程）。</li>
+<li>线性函数关系式为：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>65</mn><mi>x</mi><mo>+</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">y = 65x + 40</annotation></semantics></math></span>。
+当总里程 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>495</mn></mrow><annotation encoding="application/x-tex">y = 495</annotation></semantics></math></span> 英里时：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>495</mn><mo>=</mo><mn>65</mn><mi>x</mi><mo>+</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">495 = 65x + 40</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>65</mn><mi>x</mi><mo>=</mo><mn>495</mn><mo>−</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">65x = 495 - 40</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>65</mn><mi>x</mi><mo>=</mo><mn>455</mn></mrow><annotation encoding="application/x-tex">65x = 455</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mfrac><mn>455</mn><mn>65</mn></mfrac><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">x = \frac{455}{65} = 7</annotation></semantics></math></span> 小时。
+答：货车总共行驶了 7 小时。</li>
+</ol>
+<h3>学生数学工作</h3><p>小张的解答记录：</p>
+<ol>
+<li>两个点：(2, 170) 和 (5, 365)。</li>
+<li>变化率 m = (365 - 170) / (5 - 2) = 195 / 3 = 65。单位是英里/小时。这表示货车的行驶速度。</li>
+<li>算 b：设 y = 65x + b。
+把 x = 2, y = 170 代入：
+170 = 65 * 2 + b
+170 = 130 + b
+b = 40。初始值是 40 英里，表示出发前里程表本来就有 40 英里底数。</li>
+<li>方程是 y = 65x + 40。
+到达时 y = 495：
+495 = 65x + 40
+65x = 455
+x = 7 小时。货车总共开了 7 小时。</li>
+</ol>
+<h3>观察证据</h3><p>学生能在完全脱离直观网格图的情况下，独立将题意提炼为两个数对 (2, 170) 和 (5, 365)；正确运用两点斜率公式求出 65 英里/小时；运用代数方程 170 = 65(2) + b 解出 b = 40 英里；并能逆向求解一元一次方程求得总时间 7 小时。</p>
+<h3>预判回应</h3><p>正确回应：设两点为 (2, 170) 和 (5, 365)。变化率 m = (365 - 170) / (5 - 2) = 195 / 3 = 65 英里/小时；代入求 b = 170 - 65 * 2 = 40 英里；得到 y = 65x + 40。
+典型错误回应 1：分子分母顺序错位，如 (365 - 170) / (2 - 5) 导致算成负数，或颠倒成 (5 - 2) / (365 - 170)。
+典型错误回应 2：算得变化率 65 后，以为初始值是 170，直接写出 y = 65x + 170。
+理解推断：错误 1 暴露出减法对应顺序的格式不熟练；错误 2 暴露出未理解第 2 小时的 170 英里中已经包含了 2 小时的行驶路程，缺少代数回扣意识。</p>
+<h3>支持</h3><p>对于不知如何求 b 的学生，提示采用“追溯法”：既然每小时跑 65 英里，第 2 小时跑了 170 英里，那么前两小时跑了多少？（<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>65</mn><mo>×</mo><mn>2</mn><mo>=</mo><mn>130</mn></mrow><annotation encoding="application/x-tex">65 \times 2 = 130</annotation></semantics></math></span>）。从 170 里面扣除这 130，剩下的 40 是哪里来的？从而理解 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mi>y</mi><mo>−</mo><mi>m</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">b = y - mx</annotation></semantics></math></span> 的代数本质。</p>
+</section><section id="task-4-representation-synthesis"><h2>关键任务 · task-4-representation-synthesis</h2><p>通过多表征集成与双模型对比任务，全面评估学生对 8.F.B.4 的综合掌握程度，强化利用变化率与初始值进行现实系统对比与决策的能力。</p>
+<p>综合图形表征与文本数值表征，分别构建两个蓄水池的线性函数模型，对比变化率与初始值，求解两方案水量相等的时刻并做出量化决策。</p>
+<h3>任务情境：社区应急蓄水池注水方案评测</h3>
+<p>生态社区有两个并排的应急蓄水池需要补水。工程团队采用了两种不同的注水系统：</p>
+<ul>
+<li><strong>水箱 A</strong> 的注水过程通过传感器记录在下方的函数图像中，显示了注水时间 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span>（分钟）与水箱中已有水量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span>（加仑）的关系。</li>
+<li><strong>水箱 B</strong> 的初始存水量为 <strong>5 加仑</strong>。由于采用了大口径水泵，注水开始后保持恒定速度注水，<strong>注水 3 分钟时</strong>，水箱 B 的水量达到了 <strong>26 加仑</strong>。</li>
+</ul>
+<figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480" role="img"><title>水量 (加仑)随注水时间 (分钟)变化</title><rect width="680" height="480" fill="white"/><defs><clipPath id="plot"><rect x="100" y="55" width="500" height="340"/></clipPath></defs><path d="M100 55V395 M100 395H600" stroke="#ccc" fill="none"/><text x="100" y="420" text-anchor="middle" font-size="16">0</text><text x="88" y="400" text-anchor="end" font-size="16">0</text><path d="M200 55V395 M100 327H600" stroke="#ccc" fill="none"/><text x="200" y="420" text-anchor="middle" font-size="16">2</text><text x="88" y="332" text-anchor="end" font-size="16">14</text><path d="M300 55V395 M100 259H600" stroke="#ccc" fill="none"/><text x="300" y="420" text-anchor="middle" font-size="16">4</text><text x="88" y="264" text-anchor="end" font-size="16">28</text><path d="M400 55V395 M100 191H600" stroke="#ccc" fill="none"/><text x="400" y="420" text-anchor="middle" font-size="16">6</text><text x="88" y="196" text-anchor="end" font-size="16">42</text><path d="M500 55V395 M100 123H600" stroke="#ccc" fill="none"/><text x="500" y="420" text-anchor="middle" font-size="16">8</text><text x="88" y="128" text-anchor="end" font-size="16">56</text><path d="M600 55V395 M100 55H600" stroke="#ccc" fill="none"/><text x="600" y="420" text-anchor="middle" font-size="16">10</text><text x="88" y="60" text-anchor="end" font-size="16">70</text><path d="M100 55V395H600" stroke="#222" fill="none" stroke-width="2"/><path d="M100 297.8571428571429 L600 103.57142857142861" stroke="#174c70" fill="none" stroke-width="3" clip-path="url(#plot)"/><text x="350" y="458" text-anchor="middle" font-size="18">注水时间 (分钟)</text><text x="100" y="28" font-size="18">水量 (加仑)</text></svg><figcaption>水箱 A 注水过程图，横轴为时间（分钟）范围 0 到 10，纵轴为水量（加仑）范围 0 到 70，直线从 (0, 20) 出发经过 (5, 40) 和 (10, 60)</figcaption></figure><p>请综合运用本课段学习的多表征建模方法，完成以下对比任务：</p>
+<ol>
+<li><strong>构建水箱 A 的模型</strong>：从上方图像中读取水箱 A 的初始值与变化率，写出函数关系式 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">y_A</annotation></semantics></math></span>。</li>
+<li><strong>构建水箱 B 的模型</strong>：根据文字描述中的两组数值，计算水箱 B 的注水变化率，写出函数关系式 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">y_B</annotation></semantics></math></span>。</li>
+<li><strong>参数现实对比</strong>：
+<ul>
+<li>哪个水箱开始注水前的基础存水量更多？多多少加仑？</li>
+<li>哪个水箱的注水速度更快？每分钟多注入多少加仑？</li>
+</ul>
+</li>
+<li><strong>交汇与决策分析</strong>：
+<ul>
+<li>注水多长时间后，两个水箱的水量会恰好相等？此时各自的水量是多少加仑？请展示方程求解过程，并在水箱 A 的图像上指出这个交点的大致位置。</li>
+<li>如果工程需要注水持续 10 分钟，哪一个水箱最终蓄水更多？请通过函数模型计算两者的最终水量并比较。</li>
+</ul>
+</li>
+</ol>
+<h3>解答与条件</h3><ol>
+<li>水箱 A 模型构建：
+从图像中观察纵截距，得初始值 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>A</mi></msub><mo>=</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">b_A = 20</annotation></semantics></math></span> 加仑；
+选取格点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>20</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 20)</annotation></semantics></math></span> 与 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>5</mn><mo separator="true">,</mo><mn>40</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(5, 40)</annotation></semantics></math></span>，计算变化率：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>A</mi></msub><mo>=</mo><mfrac><mrow><mn>40</mn><mo>−</mo><mn>20</mn></mrow><mrow><mn>5</mn><mo>−</mo><mn>0</mn></mrow></mfrac><mo>=</mo><mfrac><mn>20</mn><mn>5</mn></mfrac><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">m_A = \frac{40 - 20}{5 - 0} = \frac{20}{5} = 4</annotation></semantics></math></span> 加仑/分钟。
+函数表达式为：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>A</mi></msub><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">y_A = 4x + 20</annotation></semantics></math></span>。</li>
+<li>水箱 B 模型构建：
+初始值已知为 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>B</mi></msub><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">b_B = 5</annotation></semantics></math></span> 加仑（即点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>5</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 5)</annotation></semantics></math></span>）；
+另一组数值为 3 分钟时 26 加仑，即点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>3</mn><mo separator="true">,</mo><mn>26</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(3, 26)</annotation></semantics></math></span>。
+计算变化率：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>B</mi></msub><mo>=</mo><mfrac><mrow><mn>26</mn><mo>−</mo><mn>5</mn></mrow><mrow><mn>3</mn><mo>−</mo><mn>0</mn></mrow></mfrac><mo>=</mo><mfrac><mn>21</mn><mn>3</mn></mfrac><mo>=</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">m_B = \frac{26 - 5}{3 - 0} = \frac{21}{3} = 7</annotation></semantics></math></span> 加仑/分钟。
+函数表达式为：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>B</mi></msub><mo>=</mo><mn>7</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">y_B = 7x + 5</annotation></semantics></math></span>。</li>
+<li>参数现实对比：
+<ul>
+<li>基础存水量：水箱 A 初始存水 20 加仑，水箱 B 初始存水 5 加仑。水箱 A 更多，多 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>−</mo><mn>5</mn><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">20 - 5 = 15</annotation></semantics></math></span> 加仑。</li>
+<li>注水速度：水箱 A 为 4 加仑/分钟，水箱 B 为 7 加仑/分钟。水箱 B 注水更快，每分钟多注入 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>−</mo><mn>4</mn><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">7 - 4 = 3</annotation></semantics></math></span> 加仑。</li>
+</ul>
+</li>
+<li>交汇与决策分析：
+<ul>
+<li>令 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>A</mi></msub><mo>=</mo><msub><mi>y</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">y_A = y_B</annotation></semantics></math></span>，即：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mi>x</mi><mo>+</mo><mn>20</mn><mo>=</mo><mn>7</mn><mi>x</mi><mo>+</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">4x + 20 = 7x + 5</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>−</mo><mn>5</mn><mo>=</mo><mn>7</mn><mi>x</mi><mo>−</mo><mn>4</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">20 - 5 = 7x - 4x</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mo>=</mo><mn>3</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">15 = 3x</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">x = 5</annotation></semantics></math></span> 分钟。
+将 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">x = 5</annotation></semantics></math></span> 代入求水量：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>A</mi></msub><mo>=</mo><mn>4</mn><mo>×</mo><mn>5</mn><mo>+</mo><mn>20</mn><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">y_A = 4 \times 5 + 20 = 40</annotation></semantics></math></span> 加仑；<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>B</mi></msub><mo>=</mo><mn>7</mn><mo>×</mo><mn>5</mn><mo>+</mo><mn>5</mn><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">y_B = 7 \times 5 + 5 = 40</annotation></semantics></math></span> 加仑。
+答：注水 5 分钟后，两个水箱的水量恰好相等，均为 40 加仑。在水箱 A 图像中，这正对应着直线上的点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>5</mn><mo separator="true">,</mo><mn>40</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(5, 40)</annotation></semantics></math></span>。</li>
+<li>当持续注水 10 分钟（<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">x = 10</annotation></semantics></math></span>）时：
+水箱 A 水量：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>A</mi></msub><mo>=</mo><mn>4</mn><mo>×</mo><mn>10</mn><mo>+</mo><mn>20</mn><mo>=</mo><mn>60</mn></mrow><annotation encoding="application/x-tex">y_A = 4 \times 10 + 20 = 60</annotation></semantics></math></span> 加仑（亦可直接在图中读出点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>10</mn><mo separator="true">,</mo><mn>60</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(10, 60)</annotation></semantics></math></span>）；
+水箱 B 水量：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>B</mi></msub><mo>=</mo><mn>7</mn><mo>×</mo><mn>10</mn><mo>+</mo><mn>5</mn><mo>=</mo><mn>75</mn></mrow><annotation encoding="application/x-tex">y_B = 7 \times 10 + 5 = 75</annotation></semantics></math></span> 加仑。
+比较：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>75</mn><mo>&gt;</mo><mn>60</mn></mrow><annotation encoding="application/x-tex">75 &gt; 60</annotation></semantics></math></span>。
+答：水箱 B 最终蓄水更多，比水箱 A 多出 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>75</mn><mo>−</mo><mn>60</mn><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">75 - 60 = 15</annotation></semantics></math></span> 加仑。尽管水箱 B 起始水量少 15 加仑，但因为注水速度更快（每分钟多 3 加仑），在 5 分钟追平后，到 10 分钟时实现了反超。</li>
+</ul>
+</li>
+</ol>
+<h3>学生数学工作</h3><p>小王团队的研讨汇报记录：</p>
+<ol>
+<li>水箱 A：图上起点是 20，选点 (0, 20) 和 (10, 60)，斜率 (60-20)/10 = 4 加仑/分。方程：y_A = 4x + 20。</li>
+<li>水箱 B：一开始有 5 加仑，3 分钟到了 26 加仑，增加 21 加仑，21/3 = 7 加仑/分。方程：y_B = 7x + 5。</li>
+<li>对比：A 起始水多，多 15 加仑；但 B 灌水更快，每分钟多 3 加仑。</li>
+<li>算相等：4x + 20 = 7x + 5 -&gt; 3x = 15 -&gt; x = 5 分钟。代入算出来都是 40 加仑。在 A 的图上正好看到 (5, 40) 在线上！</li>
+<li>10 分钟：A 是 4<em>10+20=60 加仑，B 是 7</em>10+5=75 加仑。水箱 B 更多！因为速度快，时间越长 B 越占优势。</li>
+</ol>
+<h3>观察证据</h3><p>学生能同时处理图表表征与文本数值表征，准确建立 y_A = 4x + 20 与 y_B = 7x + 5；能清晰区分初始值与变化率的现实影响；能正确列出一元一次方程求出交点 x = 5 分钟，并在图像上验证 (5, 40)；能进行长远预测决策。</p>
+<h3>预判回应</h3><p>正确回应：能从图读取水箱 A：b_A = 20 加仑，m_A = (40-20)/(5-0) = 4 加仑/分，y_A = 4x + 20；能从描述构建水箱 B：b_B = 5 加仑，m_B = (26-5)/3 = 7 加仑/分，y_B = 7x + 5；能联立 4x + 20 = 7x + 5 解出 x = 5 分钟，此时水量均为 40 加仑；能分析 x &lt; 5 与 x &gt; 5 时的水量高低差异。
+典型错误回应 1：混淆两水箱的参数，如认为水箱 A 比水箱 B 注水更快，误将初始值 20 大于 5 当成了速度更快。
+典型错误回应 2：列出 4x + 20 = 7x + 5 后在移项解方程时出现符号错误，如 3x = 25 导致解出错数。
+理解推断：错误 1 反映出学生对“初始状态”与“变化速率”的概念混淆；错误 2 反映出代数移项运算基本功需巩固。</p>
+<h3>支持</h3><p>若学生在对比时困惑“为什么 B 的水一开始少最后却更多”，教师在黑板上画出简易的双水箱随时间推进动画/数值对照表（从 0 分钟到 6 分钟每分钟列出水量：A 是 20, 24, 28, 32, 36, 40；B 是 5, 12, 19, 26, 33, 40, 47），引导全班观察“差值如何从 +15，+8，+1 变为 0 再变成 -7”，直观体会变化率对累积总量的动态决定作用。</p>
+</section><h2>实践与准备</h2><ul>
+<li>MP1（理解并坚持解决问题）：在面对不含 x=0 且行间步长不均匀的数据表格或纯两点坐标时，学生不放弃或盲目套用除法，而是通过分析量与量之间的增量关系规划解题路径。</li>
+<li>MP2（抽象与定量推理）：学生在具体情境与符号之间进行双向转化——在去情境化过程中将时间与费用抽象为坐标点并计算 m 和 b，在再情境化过程中为 m=5 和 b=15 赋予“每小时租金 5 美元”和“基础起租费 15 美元”的实际含义与单位。</li>
+<li>MP4（数学建模）：从实际生活问题中识别输入变量与输出变量，建立线性函数表达式 y = mx + b，并利用模型进行外推预测（如计算 6.5 小时租金）和方案选择。</li>
+<li>MP6（精准表达）：严格要求写出变化率的复合单位（如“美元/周”、“英里/小时”、“加仑/分钟”）及初始值的单项单位，坐标轴刻度与方程式的书写符合数学规范。</li>
+</ul>
+<ol>
+<li>材料准备：课前为每位学生黑白打印学案（确保图像中的坐标刻度、网格交点清晰无失真）；分发直尺与普通计算器；备用少量方格纸。</li>
+<li>设备投影：调试教室投影仪，确保能清晰投影 assets/equipment_rental_graph.svg 与 assets/water_tank_graph.svg，便于在讨论环节用电子教鞭或板书进行网格坐标与直角三角形标绘。</li>
+<li>关键误区预防指引：
+<ul>
+<li>警惕“正比例单点除法定势”：在第 1 课务必留足 5 分钟组织“75/2 是否等于每小时增加量”的全班辩论，借由非连续表格建立“只有增量比才是变化率”的共识；</li>
+<li>关注“坐标轴刻度步长”：第 2 课与第 3 课图表中，横轴每小格通常代表 1 或 2，纵轴每小格可能代表 5 或 10，提醒学生读取点坐标时务必先看清轴刻度标注，不可盲目按“格数”当做数值；</li>
+<li>时间把控机制：巡视时利用普通计算器降低学生由于多位数除法（如 195/3, 455/65）受阻的挫败感，保障核心认知时间集中于数学建模与情境解释。</li>
+</ul>
+</li>
+</ol>
+<h2>假设与交付边界</h2><p>假设学生在七年级经历过比例关系（7.RP.A.2）的学习，熟悉 y=kx 形式及过原点的直线，但尚无本班学生对非零初始值 y=mx+b 的前测诊断数据。</p>
+<p>假设学生具备基本的有理数四则运算、正负数加减以及单步一元一次方程求解能力，但在没有计算器辅助时多位数除法可能消耗认知资源，因此教学中允许使用普通计算器辅助数值计算。</p>
+<p>假设学校具备黑白打印、直尺与方格纸资源，坐标图像可清晰呈现在学生学案与教室黑白/投影设备上。</p>
+<p>本课段为 3 课时的有限设计切片，仅聚焦于 8.F.B.4 核心建模与参数解释，不包含非线性函数深入辨析（8.F.A.3 完整范畴）或二元一次方程组图象法通法（8.EE.C.8）。</p>
+<p>未收集真实班级的前测与后测数据，学生回应与困难预判基于认知典型特征假设，实际教学中须视学生即时生成调整脚手架。</p>
+<p>所有任务限于第一象限实际正向物理量情境（时间、费用、里程、水量），尚未扩展到负斜率（如持续漏水或持续消耗）情境的全面覆盖。</p>
+</body></html>

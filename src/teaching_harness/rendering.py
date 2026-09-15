@@ -66,6 +66,8 @@ def render_curriculum(content: Curriculum, assets: dict[str, str]) -> str:
                 collect(token.children)
 
     def text(value: str) -> str:
+        # 模型偶尔把正文换行再次转义；只展开独立的换行标记，不碰 \neq 等公式命令。
+        value = re.sub(r"(?<!\\)\\n(?![A-Za-z])", "\n", value)
         # 同时接受常见的 \(...\) 与 \[...\]，渲染变换不改 JSON 源。
         value = re.sub(r"\\\((.*?)\\\)", r"$\1$", value, flags=re.DOTALL)
         value = re.sub(r"\\\[(.*?)\\\]", r"\n$$\1$$\n", value, flags=re.DOTALL)

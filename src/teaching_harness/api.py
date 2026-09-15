@@ -21,7 +21,7 @@ app = FastAPI(title="数学教学内容契约", version="0.1.0")
 @app.middleware("http")
 async def protect_runtime_options(request: Request, call_next: Any) -> Any:
     path = request.url.path
-    if request.method == "POST" and path.endswith("/state/checkpoint"):
+    if request.method == "POST" and path.endswith(("/state/checkpoint", "/history")):
         body = await request.json()
         if body.get("subgraphs") or (body.get("checkpoint") or {}).get("checkpoint_ns"):
             return JSONResponse({"detail": "不开放内部模型子图状态"}, status_code=422)

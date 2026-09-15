@@ -2,7 +2,7 @@
 
 Status: ready-for-agent
 
-日期：2026-09-15。实施状态：尚未开始。本规格承接 [项目目标与原则](../../README.md)、[架构结论](../skills-harness/assets/architecture-conclusion.md) 与 [验证路线](../skills-harness/assets/validation-and-release-route.md)。任务顺序和依赖见 [交付路线与实现票](README.md)。`ready-for-agent` 表示要求已可用于实施，不表示教学质量或生产能力已通过。
+日期：2026-09-15。实施状态：首个有限课程任务已实现，详见 [首票验证报告](evidence/01-live-curriculum/README.md)；其余范围待实现。本规格承接 [项目目标与原则](../../README.md)、[架构结论](../skills-harness/assets/architecture-conclusion.md) 与 [验证路线](../skills-harness/assets/validation-and-release-route.md)。任务顺序和依赖见 [交付路线与实现票](README.md)。`ready-for-agent` 表示要求已可用于实施，不表示教学质量或生产能力已通过。
 
 实现或评审每张票前还需读 [用户交互原型基准](prototype-baseline.md)。用户于 2026-09-15 要求本轮方案定稿、提交并推送；原型作为现行交互参考随本轮保存，不再重复索取同一确认。当前按下述文件化阶段实施，原型的内容历史等后置能力不构成首阶段要求；原型不承担 Web 产品建设或真实教学质量验证。
 

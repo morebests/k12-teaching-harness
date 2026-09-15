@@ -9,7 +9,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from teaching_harness.client import HarnessClient
-from teaching_harness.contracts import TaskRequest
+from teaching_harness.contracts import TaskRequest, fingerprint
 
 
 async def main() -> None:
@@ -18,6 +18,8 @@ async def main() -> None:
     parser.add_argument("--event", required=True)
     parser.add_argument("--query", help="仅查询已有 task_id，不发起生成")
     parser.add_argument("--output", default="work/last-result.json")
+    parser.add_argument("--source", help="调用方已规范化的实际 JSON 内容文件")
+    parser.add_argument("--instruction", help="本次课程设计的具体要求")
     args = parser.parse_args()
     load_dotenv(".env.local")
     identity, token = next(iter(json.loads(os.environ["HARNESS_AUTH_TOKENS"]).items()))
@@ -46,6 +48,29 @@ async def main() -> None:
             },
         }
     )
+    if args.source:
+        source = json.loads(Path(args.source).read_text())
+        request = TaskRequest.model_validate(
+            {
+                **request.model_dump(),
+                "external_content": [
+                    {
+                        "id": "caller-source",
+                        "content": source,
+                        "fingerprint": fingerprint(source),
+                        "source": {
+                            "label": Path(args.source).name,
+                            "version": fingerprint(source),
+                            "origin": "caller",
+                        },
+                    }
+                ],
+            }
+        )
+    if args.instruction:
+        request = TaskRequest.model_validate(
+            {**request.model_dump(), "instruction": args.instruction}
+        )
     async with HarnessClient(args.url, identity, token) as client:
         if args.query:
             result = await client.query(args.query)

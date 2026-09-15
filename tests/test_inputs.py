@@ -37,6 +37,6 @@ def test_接收外部实际原课但拒绝错误指纹(request_data):
 def test_受限算术核对不等间隔变化率并拒绝代码():
     assert calculate("(23-11)/(6-2)") == "3"
     assert calculate("11-3*2") == "5"
-    for expression in ["__import__('os')", "2**1000000", "2**(2**12)"]:
+    for expression in ["__import__('os')", "2**1000000", "2**(2**12)", "(2 +"]:
         with pytest.raises(ValueError):
             calculate(expression)

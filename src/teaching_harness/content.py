@@ -69,7 +69,15 @@ class ContentStore:
                     path = self.root / block.src
                     if not path.is_file() or path.is_symlink():
                         raise ContentError("当前内容包含缺失或无效的图件引用")
-                    assets[block.src] = hashlib.sha256(path.read_bytes()).hexdigest()
+                    svg = path.read_bytes()
+                    parameters = self._json(block.src.removesuffix(".svg") + ".json")
+                    try:
+                        matches = linear_svg(**parameters).encode() == svg
+                    except (TypeError, ValueError):
+                        matches = False
+                    if not matches:
+                        raise ContentError("图件与实际数学参数不一致，必须修复后重查")
+                    assets[block.src] = hashlib.sha256(svg).hexdigest()
         source_digest = fingerprint({"content": content, "assets": assets})
         rendering = self._json("output/render.json")
         output = self.root / "output/curriculum.html"

@@ -1,0 +1,3812 @@
+{
+  "package": {
+    "targets": [
+      {
+        "components": {
+          "code": "8.F.B.4",
+          "operation": "components",
+          "standard": {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "StandardsFrameworkItem",
+              "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+            },
+            "source_fields": {
+              "academicSubject": "Mathematics",
+              "alternateStatementCode": "8.F.4",
+              "author": "Common Good Learning Tools",
+              "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ef36a-d7cc-11e8-824f-0242ac160002",
+              "caseIdentifierUUID": "6b9ef36a-d7cc-11e8-824f-0242ac160002",
+              "dateModified": "2025-02-05",
+              "description": "Construct a function to model a linear relationship between two quantities. Determine the rate of change and initial value of the function from a description of a relationship or from two (x, y) values, including reading these from a table or from a graph. Interpret the rate of change and initial value of a linear function in terms of the situation it models, and in terms of its graph or a table of values.",
+              "inLanguage": "en-US",
+              "notes": null,
+              "statementCode": "8.F.B.4",
+              "statementType": "Standard"
+            },
+            "publisher": "Common Good Learning Tools",
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+            "source_snapshot": {
+              "namespace": "lc",
+              "version": "v1.11.0",
+              "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+              "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+              "schemaVersion": 2,
+              "cleaningVersion": "v2"
+            }
+          },
+          "framework": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFramework",
+            "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+          },
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          },
+          "complete_for_query": true,
+          "records": [
+            {
+              "id": "1932b475-1141-5389-98b2-daa66a76718c",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "5f3a9252-5252-54ed-9c00-f4c910b3b9a4"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "5f3a9252-5252-54ed-9c00-f4c910b3b9a4"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Determine the initial value of a function from a mathematical context presented in a table or graph",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "2e2c34c6-f349-553b-a8bc-c2859e43b7f0",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "b2a9431b-e28d-5c7c-8a46-e0012eef91b8"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "b2a9431b-e28d-5c7c-8a46-e0012eef91b8"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Interpret the rate of change of a linear function in the context of the situation it models",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "4bb4e78d-aa05-5eba-85ac-229dc12a1ae2",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "dab9e9b0-faa3-5080-9f2e-ac82c0ba0346"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "dab9e9b0-faa3-5080-9f2e-ac82c0ba0346"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Model a linear relationship between two quantities with a function",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "6263d962-f3bf-50d4-b75f-81215f0dbb10",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "411f2a23-973d-5338-9a16-93f6c252b221"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "411f2a23-973d-5338-9a16-93f6c252b221"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Determine the initial value of a function from a mathematical context presented with a verbal description",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "6bc4a027-9827-5133-8764-3f7a143cb297",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "c6f0747b-6ee8-5e35-95d9-d25d8f5debc6"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "c6f0747b-6ee8-5e35-95d9-d25d8f5debc6"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Determine the rate of change of a function from a real-world context presented in a table or graph",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "8d4a8511-65b2-5962-a77f-7c886bf55649",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "dd4d95c3-4e5b-511f-b490-f0bf52638e99"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "dd4d95c3-4e5b-511f-b490-f0bf52638e99"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Determine the rate of change of a function from a real-world context presented with a verbal description",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "8ec78835-9e15-53dc-9e3d-9ab6e5caa04e",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "e1ce9802-e05b-541d-ae86-641087a49faf"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "e1ce9802-e05b-541d-ae86-641087a49faf"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Determine the rate of change of a function from a mathematical context presented in a table or graph",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "b7e1b08a-6165-5096-a5aa-6cbb64c6a91e",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "c8e759d8-4ed5-597d-a8ae-6a20147a354d"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "c8e759d8-4ed5-597d-a8ae-6a20147a354d"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Determine the initial value of a function from a real-world context presented with a verbal description",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "c2275122-5f8c-506e-a739-c59f57b92ba4",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "6c340f89-4534-5ed4-acee-bb1e959071d4"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "6c340f89-4534-5ed4-acee-bb1e959071d4"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Interpret the initial value of a linear function in the context of the situation it models",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "d9f26f66-9f75-590b-95ac-c6c490a5ce24",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "443d082c-df90-5586-8d15-fc375f4a8b4f"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "443d082c-df90-5586-8d15-fc375f4a8b4f"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Determine the initial value of a function from a real-world context presented in a table or graph",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "f771ca12-d210-5bba-b1bc-d43fa3510649",
+              "type": "supports",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "1944c542-6fe1-5883-beee-d6fe87cc5e7f"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Achievement Network",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "qualifiers": [
+                {
+                  "value": "Achievement Network",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateCreated"
+                },
+                {
+                  "value": "2025-04-01",
+                  "projection": null,
+                  "name": "dateModified"
+                },
+                {
+                  "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                  "projection": {
+                    "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "1944c542-6fe1-5883-beee-d6fe87cc5e7f"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "author": "Achievement Network",
+                  "dateCreated": "2025-04-01",
+                  "dateModified": "2025-04-01",
+                  "description": "Determine the rate of change of a function from a mathematical context presented with a verbal description",
+                  "inLanguage": "en-US"
+                },
+                "publisher": "Achievement Network",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            }
+          ],
+          "excluded": [],
+          "result_status": "complete"
+        },
+        "prerequisites": {
+          "code": "8.F.B.4",
+          "operation": "prerequisites",
+          "standard": {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "StandardsFrameworkItem",
+              "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+            },
+            "source_fields": {
+              "academicSubject": "Mathematics",
+              "alternateStatementCode": "8.F.4",
+              "author": "Common Good Learning Tools",
+              "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ef36a-d7cc-11e8-824f-0242ac160002",
+              "caseIdentifierUUID": "6b9ef36a-d7cc-11e8-824f-0242ac160002",
+              "dateModified": "2025-02-05",
+              "description": "Construct a function to model a linear relationship between two quantities. Determine the rate of change and initial value of the function from a description of a relationship or from two (x, y) values, including reading these from a table or from a graph. Interpret the rate of change and initial value of a linear function in terms of the situation it models, and in terms of its graph or a table of values.",
+              "inLanguage": "en-US",
+              "notes": null,
+              "statementCode": "8.F.B.4",
+              "statementType": "Standard"
+            },
+            "publisher": "Common Good Learning Tools",
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+            "source_snapshot": {
+              "namespace": "lc",
+              "version": "v1.11.0",
+              "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+              "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+              "schemaVersion": 2,
+              "cleaningVersion": "v2"
+            }
+          },
+          "framework": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFramework",
+            "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+          },
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          },
+          "complete_for_query": true,
+          "records": [
+            {
+              "id": "2bb06fbf-7d35-5c9b-8494-49b12738a766",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "6086f1c2-b335-57fc-b575-6e2e4210c727"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "6086f1c2-b335-57fc-b575-6e2e4210c727"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "7.RP.2",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d7951-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6b9d7951-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-05",
+                  "description": "Recognize and represent proportional relationships between quantities.",
+                  "inLanguage": "en-US",
+                  "notes": null,
+                  "statementCode": "7.RP.A.2",
+                  "statementType": "Standard"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "a8bb6ab4-5e2f-5adb-9f42-c74f6a4e7c9d",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "534ca674-79cd-5a7e-b7e0-b9258b338e8c"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "534ca674-79cd-5a7e-b7e0-b9258b338e8c"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "8.F.3",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9e5396-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6b9e5396-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-07",
+                  "description": "Interpret the equation y = mx + b as defining a linear function, whose graph is a straight line; give examples of functions that are not linear. *For example, the function $A = s^{2}$ giving the area of a square as a function of its side length is not linear because its graph contains the points (1,1), (2,4) and (3,9), which are not on a straight line.*",
+                  "inLanguage": "en-US",
+                  "notes": null,
+                  "statementCode": "8.F.A.3",
+                  "statementType": "Standard"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            }
+          ],
+          "excluded": [],
+          "result_status": "complete"
+        },
+        "successors": {
+          "code": "8.F.B.4",
+          "operation": "successors",
+          "standard": {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "StandardsFrameworkItem",
+              "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+            },
+            "source_fields": {
+              "academicSubject": "Mathematics",
+              "alternateStatementCode": "8.F.4",
+              "author": "Common Good Learning Tools",
+              "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ef36a-d7cc-11e8-824f-0242ac160002",
+              "caseIdentifierUUID": "6b9ef36a-d7cc-11e8-824f-0242ac160002",
+              "dateModified": "2025-02-05",
+              "description": "Construct a function to model a linear relationship between two quantities. Determine the rate of change and initial value of the function from a description of a relationship or from two (x, y) values, including reading these from a table or from a graph. Interpret the rate of change and initial value of a linear function in terms of the situation it models, and in terms of its graph or a table of values.",
+              "inLanguage": "en-US",
+              "notes": null,
+              "statementCode": "8.F.B.4",
+              "statementType": "Standard"
+            },
+            "publisher": "Common Good Learning Tools",
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+            "source_snapshot": {
+              "namespace": "lc",
+              "version": "v1.11.0",
+              "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+              "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+              "schemaVersion": 2,
+              "cleaningVersion": "v2"
+            }
+          },
+          "framework": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFramework",
+            "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+          },
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          },
+          "complete_for_query": true,
+          "records": [
+            {
+              "id": "1333480b-6231-5094-b193-ed1d74f51802",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "9a0fdd78-5f2d-573b-a3b0-965a37b79252"
+              },
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "9a0fdd78-5f2d-573b-a3b0-965a37b79252"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "HSF-BF.2",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d974a-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6b9d974a-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-05",
+                  "description": "Write arithmetic and geometric sequences both recursively and with an explicit formula, use them to model situations, and translate between the two forms.",
+                  "inLanguage": "en-US",
+                  "notes": "Modeling is best interpreted not as a collection of isolated topics but in relation to other standards. Making mathematical models is a Standard for Mathematical Practice, and specific modeling standards appear throughout the high school standards indicated by a star symbol (★). The star symbol sometimes appears on the heading for a group of standards; in that case, it should be understood to apply to all standards in that group.",
+                  "statementCode": "HSF-BF.A.2",
+                  "statementType": "Standard"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "17bb66bf-2f99-5b5f-b153-360b6b29488b",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "4c04dc94-6389-5bd8-ab25-d42e38404eb8"
+              },
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "4c04dc94-6389-5bd8-ab25-d42e38404eb8"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "HSS-ID.7",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba08773-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6ba08773-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-05",
+                  "description": "Interpret the slope (rate of change) and the intercept (constant term) of a linear model in the context of the data.",
+                  "inLanguage": "en-US",
+                  "notes": null,
+                  "statementCode": "HSS-ID.C.7",
+                  "statementType": "Standard"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "433c549f-d251-513d-b1db-2ba360c8fe5f",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "3f028ef1-85eb-5a3d-ad58-00d688a03626"
+              },
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "3f028ef1-85eb-5a3d-ad58-00d688a03626"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "HSF-BF.1.a",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba15907-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6ba15907-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-05",
+                  "description": "Determine an explicit expression, a recursive process, or steps for calculation from a context.",
+                  "inLanguage": "en-US",
+                  "notes": null,
+                  "statementCode": "HSF-BF.A.1.a",
+                  "statementType": "Component"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "50072a3f-9726-568a-b9c3-4a6f739f863a",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "042c432f-410c-5dd9-a87f-e6413634a266"
+              },
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "042c432f-410c-5dd9-a87f-e6413634a266"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "HSF-LE.5",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9f97c6-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6b9f97c6-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-05",
+                  "description": "Interpret the parameters in a linear or exponential function in terms of a context.",
+                  "inLanguage": "en-US",
+                  "notes": null,
+                  "statementCode": "HSF-LE.B.5",
+                  "statementType": "Standard"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "680a571f-6a0d-53b5-bf0f-1640593352a0",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "4f10105d-975b-5a0a-b751-dd77893c8242"
+              },
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "4f10105d-975b-5a0a-b751-dd77893c8242"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "HSF-LE.2",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d9ca7-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6b9d9ca7-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-05",
+                  "description": "Construct linear and exponential functions, including arithmetic and geometric sequences, given a graph, a description of a relationship, or two input-output pairs (include reading these from a table).",
+                  "inLanguage": "en-US",
+                  "notes": null,
+                  "statementCode": "HSF-LE.A.2",
+                  "statementType": "Standard"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "9516c389-064a-5dcd-b673-b5fdcc2b5007",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "eef22ac1-43c3-5771-bc43-448f3e117f97"
+              },
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "eef22ac1-43c3-5771-bc43-448f3e117f97"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "HSF-IF.6",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba00b75-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6ba00b75-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-05",
+                  "description": "Calculate and interpret the average rate of change of a function (presented symbolically or as a table) over a specified interval. Estimate the rate of change from a graph.",
+                  "inLanguage": "en-US",
+                  "notes": "Modeling is best interpreted not as a collection of isolated topics but in relation to other standards. Making mathematical models is a Standard for Mathematical Practice, and specific modeling standards appear throughout the high school standards indicated by a star symbol (★). The star symbol sometimes appears on the heading for a group of standards; in that case, it should be understood to apply to all standards in that group.",
+                  "statementCode": "HSF-IF.B.6",
+                  "statementType": "Standard"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "c92f3dd7-8722-55ae-8a6b-257b04651748",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "7bf83ce5-c739-5d93-aef9-fc92540518d5"
+              },
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "7bf83ce5-c739-5d93-aef9-fc92540518d5"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "HSA-CED.2",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d8f41-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6b9d8f41-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-05",
+                  "description": "Create equations in two or more variables to represent relationships between quantities; graph equations on coordinate axes with labels and scales.",
+                  "inLanguage": "en-US",
+                  "notes": null,
+                  "statementCode": "HSA-CED.A.2",
+                  "statementType": "Standard"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            },
+            {
+              "id": "f58c8dfc-2b4b-5b2d-a6f4-1b95209d00a4",
+              "type": "buildsTowards",
+              "source": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+              },
+              "target": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "942e06f7-6c45-53e5-9d0b-96dfbfcebaa6"
+              },
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": "Student Achievement Partners",
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "qualifiers": [
+                {
+                  "value": "Student Achievement Partners",
+                  "projection": null,
+                  "name": "author"
+                },
+                {
+                  "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                  "projection": {
+                    "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                    "kind": "machine_translation",
+                    "reviewStatus": "reviewed"
+                  },
+                  "name": "description"
+                },
+                {
+                  "value": false,
+                  "projection": null,
+                  "name": "identifierRepaired"
+                },
+                {
+                  "value": null,
+                  "projection": null,
+                  "name": "upstreamIdentifier"
+                }
+              ],
+              "upstream_identifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "942e06f7-6c45-53e5-9d0b-96dfbfcebaa6"
+                },
+                "source_fields": {
+                  "academicSubject": "Mathematics",
+                  "alternateStatementCode": "HSF-LE.1",
+                  "author": "Common Good Learning Tools",
+                  "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9c644f-d7cc-11e8-824f-0242ac160002",
+                  "caseIdentifierUUID": "6b9c644f-d7cc-11e8-824f-0242ac160002",
+                  "dateModified": "2025-02-05",
+                  "description": "Distinguish between situations that can be modeled with linear functions and with exponential functions.",
+                  "inLanguage": "en-US",
+                  "notes": null,
+                  "statementCode": "HSF-LE.A.1",
+                  "statementType": "Standard"
+                },
+                "publisher": "Common Good Learning Tools",
+                "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+                "source_snapshot": {
+                  "namespace": "lc",
+                  "version": "v1.11.0",
+                  "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+                  "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+                  "schemaVersion": 2,
+                  "cleaningVersion": "v2"
+                }
+              }
+            }
+          ],
+          "excluded": [],
+          "result_status": "complete"
+        }
+      }
+    ],
+    "practices": [
+      {
+        "code": "MP1",
+        "operation": "standard",
+        "standard": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFrameworkItem",
+            "identifier": "3b1f7006-2d44-5097-86b6-7ac05d0de3ac"
+          },
+          "source_fields": {
+            "academicSubject": "Mathematics",
+            "alternateStatementCode": null,
+            "author": "Common Good Learning Tools",
+            "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ca36a-d7cc-11e8-824f-0242ac160002",
+            "caseIdentifierUUID": "6b9ca36a-d7cc-11e8-824f-0242ac160002",
+            "dateModified": "2025-02-05",
+            "description": "Make sense of problems and persevere in solving them.",
+            "inLanguage": "en-US",
+            "notes": "Mathematically proficient students start by explaining to themselves the meaning of a problem and looking for entry points to its solution. They analyze givens, constraints, relationships, and goals. They make conjectures about the form and meaning of the solution and plan a solution pathway rather than simply jumping into a solution attempt. They consider analogous problems, and try special cases and simpler forms of the original problem in order to gain insight into its solution. They monitor and evaluate their progress and change course if necessary. Older students might, depending on the context of the problem, transform algebraic expressions or change the viewing window on their graphing calculator to get the information they need. Mathematically proficient students can explain correspondences between equations, verbal descriptions, tables, and graphs or draw diagrams of important features and relationships, graph data, and search for regularity or trends. Younger students might rely on using concrete objects or pictures to help conceptualize and solve a problem. Mathematically proficient students check their answers to problems using a different method, and they continually ask themselves, \"Does this make sense?\" They can understand the approaches of others to solving complex problems and identify correspondences between different approaches.",
+            "statementCode": "MP1",
+            "statementType": "Standard"
+          },
+          "publisher": "Common Good Learning Tools",
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          }
+        },
+        "framework": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        },
+        "source_snapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "complete_for_query": true,
+        "records": [],
+        "excluded": [],
+        "result_status": "complete"
+      },
+      {
+        "code": "MP2",
+        "operation": "standard",
+        "standard": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFrameworkItem",
+            "identifier": "6a0b0b39-d910-5b38-8d8d-6c1b1e22a351"
+          },
+          "source_fields": {
+            "academicSubject": "Mathematics",
+            "alternateStatementCode": null,
+            "author": "Common Good Learning Tools",
+            "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9dd3bc-d7cc-11e8-824f-0242ac160002",
+            "caseIdentifierUUID": "6b9dd3bc-d7cc-11e8-824f-0242ac160002",
+            "dateModified": "2025-02-05",
+            "description": "Reason abstractly and quantitatively.",
+            "inLanguage": "en-US",
+            "notes": "Mathematically proficient students make sense of quantities and their relationships in problem situations. They bring two complementary abilities to bear on problems involving quantitative relationships: the ability to decontextualize—to abstract a given situation and represent it symbolically and manipulate the representing symbols as if they have a life of their own, without necessarily attending to their referents—and the ability to contextualize, to pause as needed during the manipulation process in order to probe into the referents for the symbols involved. Quantitative reasoning entails habits of creating a coherent representation of the problem at hand; considering the units involved; attending to the meaning of quantities, not just how to compute them; and knowing and flexibly using different properties of operations and objects.",
+            "statementCode": "MP2",
+            "statementType": "Standard"
+          },
+          "publisher": "Common Good Learning Tools",
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          }
+        },
+        "framework": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        },
+        "source_snapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "complete_for_query": true,
+        "records": [],
+        "excluded": [],
+        "result_status": "complete"
+      },
+      {
+        "code": "MP3",
+        "operation": "standard",
+        "standard": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFrameworkItem",
+            "identifier": "f0dc8000-e9bd-5e45-8268-684ccf49c304"
+          },
+          "source_fields": {
+            "academicSubject": "Mathematics",
+            "alternateStatementCode": null,
+            "author": "Common Good Learning Tools",
+            "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9e9614-d7cc-11e8-824f-0242ac160002",
+            "caseIdentifierUUID": "6b9e9614-d7cc-11e8-824f-0242ac160002",
+            "dateModified": "2025-02-05",
+            "description": "Construct viable arguments and critique the reasoning of others.",
+            "inLanguage": "en-US",
+            "notes": "Mathematically proficient students understand and use stated assumptions, definitions, and previously established results in constructing arguments. They make conjectures and build a logical progression of statements to explore the truth of their conjectures. They are able to analyze situations by breaking them into cases, and can recognize and use counterexamples. They justify their conclusions, communicate them to others, and respond to the arguments of others. They reason inductively about data, making plausible arguments that take into account the context from which the data arose. Mathematically proficient students are also able to compare the effectiveness of two plausible arguments, distinguish correct logic or reasoning from that which is flawed, and—if there is a flaw in an argument—explain what it is. Elementary students can construct arguments using concrete referents such as objects, drawings, diagrams, and actions. Such arguments can make sense and be correct, even though they are not generalized or made formal until later grades. Later, students learn to determine domains to which an argument applies. Students at all grades can listen or read the arguments of others, decide whether they make sense, and ask useful questions to clarify or improve the arguments.",
+            "statementCode": "MP3",
+            "statementType": "Standard"
+          },
+          "publisher": "Common Good Learning Tools",
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          }
+        },
+        "framework": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        },
+        "source_snapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "complete_for_query": true,
+        "records": [],
+        "excluded": [],
+        "result_status": "complete"
+      },
+      {
+        "code": "MP4",
+        "operation": "standard",
+        "standard": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFrameworkItem",
+            "identifier": "4493563c-595c-53a2-a21a-5c027c6d4dc4"
+          },
+          "source_fields": {
+            "academicSubject": "Mathematics",
+            "alternateStatementCode": null,
+            "author": "Common Good Learning Tools",
+            "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9f345f-d7cc-11e8-824f-0242ac160002",
+            "caseIdentifierUUID": "6b9f345f-d7cc-11e8-824f-0242ac160002",
+            "dateModified": "2025-02-05",
+            "description": "Model with mathematics.",
+            "inLanguage": "en-US",
+            "notes": "Mathematically proficient students can apply the mathematics they know to solve problems arising in everyday life, society, and the workplace. In early grades, this might be as simple as writing an addition equation to describe a situation. In middle grades, a student might apply proportional reasoning to plan a school event or analyze a problem in the community. By high school, a student might use geometry to solve a design problem or use a function to describe how one quantity of interest depends on another. Mathematically proficient students who can apply what they know are comfortable making assumptions and approximations to simplify a complicated situation, realizing that these may need revision later. They are able to identify important quantities in a practical situation and map their relationships using such tools as diagrams, two-way tables, graphs, flowcharts and formulas. They can analyze those relationships mathematically to draw conclusions. They routinely interpret their mathematical results in the context of the situation and reflect on whether the results make sense, possibly improving the model if it has not served its purpose.",
+            "statementCode": "MP4",
+            "statementType": "Standard"
+          },
+          "publisher": "Common Good Learning Tools",
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          }
+        },
+        "framework": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        },
+        "source_snapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "complete_for_query": true,
+        "records": [],
+        "excluded": [],
+        "result_status": "complete"
+      },
+      {
+        "code": "MP5",
+        "operation": "standard",
+        "standard": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFrameworkItem",
+            "identifier": "abdd678e-c221-5e70-ae72-5397fd27c4f2"
+          },
+          "source_fields": {
+            "academicSubject": "Mathematics",
+            "alternateStatementCode": null,
+            "author": "Common Good Learning Tools",
+            "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9fca17-d7cc-11e8-824f-0242ac160002",
+            "caseIdentifierUUID": "6b9fca17-d7cc-11e8-824f-0242ac160002",
+            "dateModified": "2025-02-05",
+            "description": "Use appropriate tools strategically.",
+            "inLanguage": "en-US",
+            "notes": "Mathematically proficient students consider the available tools when solving a mathematical problem. These tools might include pencil and paper, concrete models, a ruler, a protractor, a calculator, a spreadsheet, a computer algebra system, a statistical package, or dynamic geometry software. Proficient students are sufficiently familiar with tools appropriate for their grade or course to make sound decisions about when each of these tools might be helpful, recognizing both the insight to be gained and their limitations. For example, mathematically proficient high school students analyze graphs of functions and solutions generated using a graphing calculator. They detect possible errors by strategically using estimation and other mathematical knowledge. When making mathematical models, they know that technology can enable them to visualize the results of varying assumptions, explore consequences, and compare predictions with data. Mathematically proficient students at various grade levels are able to identify relevant external mathematical resources, such as digital content located on a website, and use them to pose or solve problems. They are able to use technological tools to explore and deepen their understanding of concepts.",
+            "statementCode": "MP5",
+            "statementType": "Standard"
+          },
+          "publisher": "Common Good Learning Tools",
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          }
+        },
+        "framework": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        },
+        "source_snapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "complete_for_query": true,
+        "records": [],
+        "excluded": [],
+        "result_status": "complete"
+      },
+      {
+        "code": "MP6",
+        "operation": "standard",
+        "standard": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFrameworkItem",
+            "identifier": "e87ba523-1aec-5c4d-a894-b21036323a93"
+          },
+          "source_fields": {
+            "academicSubject": "Mathematics",
+            "alternateStatementCode": null,
+            "author": "Common Good Learning Tools",
+            "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba033ff-d7cc-11e8-824f-0242ac160002",
+            "caseIdentifierUUID": "6ba033ff-d7cc-11e8-824f-0242ac160002",
+            "dateModified": "2025-02-05",
+            "description": "Attend to precision.",
+            "inLanguage": "en-US",
+            "notes": "Mathematically proficient students try to communicate precisely to others. They try to use clear definitions in discussion with others and in their own reasoning. They state the meaning of the symbols they choose, including using the equal sign consistently and appropriately. They are careful about specifying units of measure, and labeling axes to clarify the correspondence with quantities in a problem. They calculate accurately and efficiently, express numerical answers with a degree of precision appropriate for the problem context. In the elementary grades, students give carefully formulated explanations to each other. By the time they reach high school they have learned to examine claims and make explicit use of definitions.",
+            "statementCode": "MP6",
+            "statementType": "Standard"
+          },
+          "publisher": "Common Good Learning Tools",
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          }
+        },
+        "framework": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        },
+        "source_snapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "complete_for_query": true,
+        "records": [],
+        "excluded": [],
+        "result_status": "complete"
+      },
+      {
+        "code": "MP7",
+        "operation": "standard",
+        "standard": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFrameworkItem",
+            "identifier": "4d9707ed-235e-543a-b90f-87c54d740e46"
+          },
+          "source_fields": {
+            "academicSubject": "Mathematics",
+            "alternateStatementCode": null,
+            "author": "Common Good Learning Tools",
+            "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba09141-d7cc-11e8-824f-0242ac160002",
+            "caseIdentifierUUID": "6ba09141-d7cc-11e8-824f-0242ac160002",
+            "dateModified": "2025-02-06",
+            "description": "Look for and make use of structure.",
+            "inLanguage": "en-US",
+            "notes": "Mathematically proficient students look closely to discern a pattern or structure. Young students, for example, might notice that three and seven more is the same amount as seven and three more, or they may sort a collection of shapes according to how many sides the shapes have. Later, students will see $7 \\times 8$ equals the well remembered $7 \\times 5 + 7 \\times 3$, in preparation for learning about the distributive property. In the expression $x^2 + 9x + 14$, older students can see the $14$ as $2 \\times 7$ and the $9$ as $2 + 7$. They recognize the significance of an existing line in a geometric figure and can use the strategy of drawing an auxiliary line for solving problems. They also can step back for an overview and shift perspective. They can see complicated things, such as some algebraic expressions, as single objects or as being composed of several objects. For example, they can see $5 – 3{(x – y)^{2}}$ as 5 minus a positive number times a square and use that to realize that its value cannot be more than $5$ for any real numbers x and y.",
+            "statementCode": "MP7",
+            "statementType": "Standard"
+          },
+          "publisher": "Common Good Learning Tools",
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          }
+        },
+        "framework": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        },
+        "source_snapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "complete_for_query": true,
+        "records": [],
+        "excluded": [],
+        "result_status": "complete"
+      },
+      {
+        "code": "MP8",
+        "operation": "standard",
+        "standard": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "StandardsFrameworkItem",
+            "identifier": "da2c7ffe-57fa-5b44-85ef-342e76a5820e"
+          },
+          "source_fields": {
+            "academicSubject": "Mathematics",
+            "alternateStatementCode": null,
+            "author": "Common Good Learning Tools",
+            "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba0d653-d7cc-11e8-824f-0242ac160002",
+            "caseIdentifierUUID": "6ba0d653-d7cc-11e8-824f-0242ac160002",
+            "dateModified": "2025-02-07",
+            "description": "Look for and express regularity in repeated reasoning.",
+            "inLanguage": "en-US",
+            "notes": "Mathematically proficient students notice if calculations are repeated, and look both for general methods and for shortcuts. Upper elementary students might notice when dividing 25 by 11 that they are repeating the same calculations over and over again, and conclude they have a repeating decimal. By paying attention to the calculation of slope as they repeatedly check whether points are on the line through (1, 2) with slope 3, middle school students might abstract the equation $\\frac{(y – 2)}{(x – 1)} = 3$. Noticing the regularity in the way terms cancel when expanding $(x – 1)(x + 1)$, $(x – 1)(x^{2} + x + 1)$, and $(x – 1)(x^{3} + x^{2} + x + 1)$ might lead them to the general formula for the sum of a geometric series. As they work to solve a problem, mathematically proficient students maintain oversight of the process, while attending to the details. They continually evaluate the reasonableness of their intermediate results.",
+            "statementCode": "MP8",
+            "statementType": "Standard"
+          },
+          "publisher": "Common Good Learning Tools",
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+          "source_snapshot": {
+            "namespace": "lc",
+            "version": "v1.11.0",
+            "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+            "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+            "schemaVersion": 2,
+            "cleaningVersion": "v2"
+          }
+        },
+        "framework": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        },
+        "source_snapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "complete_for_query": true,
+        "records": [],
+        "excluded": [],
+        "result_status": "complete"
+      }
+    ],
+    "scope": "仅本次目标及其直接联系；不是全年覆盖"
+  },
+  "audit": [
+    {
+      "path": "frameworks/directory",
+      "params": {},
+      "response_fingerprint": "3b081bd96295575b8cb9bb2beb058efa51a861e12fa0de3ef00078d6116edeec",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "search",
+      "params": {
+        "limit": 100,
+        "q": "8.F.B.4",
+        "kind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "83b8b14a080a5b7f4e3ac603006f1a56451622a8a53bfd4ab161f2afc2bb1fe8",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/root-paths",
+      "params": {},
+      "response_fingerprint": "1354c010ccb5f7a22a696fe274be31c9468f6658e34acbdfb09c3db400801bf8",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc",
+      "params": {},
+      "response_fingerprint": "6044c6ad4b250171218a01477480f0590ec0b91ebae302c6ba133f572e5e9e41",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "params": {
+        "limit": 100,
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent"
+      },
+      "response_fingerprint": "aba913d4c204528f5b3a28ef3ed8ca41f1629e7389b887692d2306b1006077b7",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/5f3a9252-5252-54ed-9c00-f4c910b3b9a4",
+      "params": {},
+      "response_fingerprint": "d0ad70a3f5274df64e13a8c948dce7faeb5a2a071f44916f050d60269a6b6df4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/b2a9431b-e28d-5c7c-8a46-e0012eef91b8",
+      "params": {},
+      "response_fingerprint": "6d9b71c1039d917c05516d1067fbcb61fc74946229ff31f61ff2d09a2eb8b23a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/dab9e9b0-faa3-5080-9f2e-ac82c0ba0346",
+      "params": {},
+      "response_fingerprint": "182af6acc2c8780196378eef920f45cea08c3b4b4ae868067e936b6ff53268eb",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/411f2a23-973d-5338-9a16-93f6c252b221",
+      "params": {},
+      "response_fingerprint": "614ad25d5ea3fb1fed0d54fe8f1d8238fb0fd6ac1ea4f2f581d3c4306bd65c92",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/c6f0747b-6ee8-5e35-95d9-d25d8f5debc6",
+      "params": {},
+      "response_fingerprint": "d579f54efd52cb6d749dc66e8f11d8a90eafe6c88be291d4e6da22e96481616c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/dd4d95c3-4e5b-511f-b490-f0bf52638e99",
+      "params": {},
+      "response_fingerprint": "f6be4081c0d782c71db3b77a15e0f63302e330f0fb40f14ca5308eff7662ebfe",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/e1ce9802-e05b-541d-ae86-641087a49faf",
+      "params": {},
+      "response_fingerprint": "415afff4b4537c5b5867ebe450e5c4129b60342a03bb9d402e912b1caaaa2aa3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/c8e759d8-4ed5-597d-a8ae-6a20147a354d",
+      "params": {},
+      "response_fingerprint": "6ba8b839f8b003921e805d12ecd20026c37bc266d0234de439c45ba3494e8fa2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/6c340f89-4534-5ed4-acee-bb1e959071d4",
+      "params": {},
+      "response_fingerprint": "30c1b46c09e5e0d3203d73fad4f205cb3e5580a64c4c2f47b6b0d279dce58c34",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/443d082c-df90-5586-8d15-fc375f4a8b4f",
+      "params": {},
+      "response_fingerprint": "12d571ddf5609ce3303551bf58834e479d9bdfacfda6d605f1465636997c5dd0",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/LearningComponent/1944c542-6fe1-5883-beee-d6fe87cc5e7f",
+      "params": {},
+      "response_fingerprint": "e40a031ca1f93f5741bd438653da16261bdbe6e59ed40196a13f6da01cb0d2ab",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "params": {
+        "limit": 100,
+        "type": "buildsTowards",
+        "direction": "incoming",
+        "endpointKind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "dcbdadadfed6e611564b15d6c04f235207f0ac21d66d04cc99155dd059e6692d",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/6086f1c2-b335-57fc-b575-6e2e4210c727/root-paths",
+      "params": {},
+      "response_fingerprint": "8ed8c9c1a9bb8022168e4bf18bd02666955934966078d5c2eab61ea6ed6d713b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/6086f1c2-b335-57fc-b575-6e2e4210c727",
+      "params": {},
+      "response_fingerprint": "e5062bb33ce13a30620c24c7d733d3ba285381eb4717bef78c1bcdb9210c217e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/534ca674-79cd-5a7e-b7e0-b9258b338e8c/root-paths",
+      "params": {},
+      "response_fingerprint": "2df462c25a33dd839c4e578f0d56f011dec619f8e071810c3cd6d13a07785cea",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/534ca674-79cd-5a7e-b7e0-b9258b338e8c",
+      "params": {},
+      "response_fingerprint": "9222d01eee52bf15d10c70101d1c843906f82897b3b970b068696a26cdd97dd4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "params": {
+        "limit": 100,
+        "type": "buildsTowards",
+        "direction": "outgoing",
+        "endpointKind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "81143d6b563228bc77319f931fc509b3e2f9269e89fb34da5c25479c73928a19",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9a0fdd78-5f2d-573b-a3b0-965a37b79252/root-paths",
+      "params": {},
+      "response_fingerprint": "1f2400244b63b4f69c3f9b7d7672343dfc5c67ffeb2cd09a01a6164d18a32ead",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9a0fdd78-5f2d-573b-a3b0-965a37b79252",
+      "params": {},
+      "response_fingerprint": "5635a349e05a5ca886d622c6de39e07ca28f1226b20b47f35f07ae45beb604c4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4c04dc94-6389-5bd8-ab25-d42e38404eb8/root-paths",
+      "params": {},
+      "response_fingerprint": "68561ff15422eedb0afa23a24f7bf4e5d3db5f726ecb0746579b95251edff4aa",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4c04dc94-6389-5bd8-ab25-d42e38404eb8",
+      "params": {},
+      "response_fingerprint": "84a340c99de7694f22cf2dd3edc044d03c4e72d4b1bf8f5ad1ce7697c9c7f5eb",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3f028ef1-85eb-5a3d-ad58-00d688a03626/root-paths",
+      "params": {},
+      "response_fingerprint": "81f4378777161483aa92fa2e81820a4d44fad042b75cb5aa36a80ac89921713a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3f028ef1-85eb-5a3d-ad58-00d688a03626",
+      "params": {},
+      "response_fingerprint": "bbc35608ee8895c8a77e6a00008f132c325103c63a85f16319ae6fb1ccd576f6",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/042c432f-410c-5dd9-a87f-e6413634a266/root-paths",
+      "params": {},
+      "response_fingerprint": "09b0eb44b64e7fbd25a950e64fadbccb47d621960307145fbae11912ba210686",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/042c432f-410c-5dd9-a87f-e6413634a266",
+      "params": {},
+      "response_fingerprint": "50bce372769cb7768d4769fdadeabdc260d0b48e03488fbe07c8e0034ac8f3d2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4f10105d-975b-5a0a-b751-dd77893c8242/root-paths",
+      "params": {},
+      "response_fingerprint": "261b51798328a6055dfc99c6c23c56ddd150440d8e07a41e6e432b3a5857985d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4f10105d-975b-5a0a-b751-dd77893c8242",
+      "params": {},
+      "response_fingerprint": "60bb1ab84b97db1089b4a94d7bf0b1ac3d7a6b646b11f910e0eb07d9bdb6e1f9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/eef22ac1-43c3-5771-bc43-448f3e117f97/root-paths",
+      "params": {},
+      "response_fingerprint": "750b533a5a876e16270cd543419269bf639beb31ea563eb93ecd7247fb8537e5",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/eef22ac1-43c3-5771-bc43-448f3e117f97",
+      "params": {},
+      "response_fingerprint": "9cfc36f7e3acb329b70ac01eb235fe31c867693b4b3dc8d3116c858c448027ff",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7bf83ce5-c739-5d93-aef9-fc92540518d5/root-paths",
+      "params": {},
+      "response_fingerprint": "e9531ac7d6c2675dd091fb91d636c4da2e52500db1e0bbbd557f9ddb3b7648a5",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7bf83ce5-c739-5d93-aef9-fc92540518d5",
+      "params": {},
+      "response_fingerprint": "81a884cc41c0a1c198bb43102c94f6be25a967f4fc2625b64a2c8d44ad873f0c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/942e06f7-6c45-53e5-9d0b-96dfbfcebaa6/root-paths",
+      "params": {},
+      "response_fingerprint": "030f982e147b55686226e6a32c04e244b85ddf67344bc7a37e547be37a093cda",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/942e06f7-6c45-53e5-9d0b-96dfbfcebaa6",
+      "params": {},
+      "response_fingerprint": "280cf78928dfdbf3996d3121a5c9916bf7ec1e393ff35059eae3cbd4fc81ff0c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "search",
+      "params": {
+        "limit": 100,
+        "q": "MP1",
+        "kind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "2c02e8e845c953e1de849e284dc67769858fccfb9a5798c573b28ebe11f80f57",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/db4d62ce-7625-591d-85c7-a16c421ca994/root-paths",
+      "params": {},
+      "response_fingerprint": "2732cfd16874efb5283230e3320689c93a70819e06f1561468ece4e8029a0e0e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/db4d62ce-7625-591d-85c7-a16c421ca994",
+      "params": {},
+      "response_fingerprint": "41aded8d7ac8a69adf94360298f87e9bc156543359f09ae3329a3498347b2635",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ad3c83b1-9a47-59e4-90c8-886d45c4dc5a/root-paths",
+      "params": {},
+      "response_fingerprint": "e9840a4ae3c5837ef879657458e8aca229a1b38ac8e23ab095d210f038c5d4a7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ad3c83b1-9a47-59e4-90c8-886d45c4dc5a",
+      "params": {},
+      "response_fingerprint": "7a0ef56441c97f0a01c078e98497b0ca3642ee3b54131142e367bdeebe423750",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2445a947-5656-57ed-83f3-fbb85fbce1ca/root-paths",
+      "params": {},
+      "response_fingerprint": "56ea319b63de2a73c56fb488bd4c0d2078bac7c1a9e779857b35e2e55efd2616",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2445a947-5656-57ed-83f3-fbb85fbce1ca",
+      "params": {},
+      "response_fingerprint": "4465c40966cd9102ee35e2f749d2beeada282de55dfa1a98a0ba3b54ffb3f542",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/aa46c8cc-c291-5b4f-bca4-0ea7ccc99628/root-paths",
+      "params": {},
+      "response_fingerprint": "4e18bccb2a14de496a2392863faad1b1deaebbff65009f00ef6556f9570bd865",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/aa46c8cc-c291-5b4f-bca4-0ea7ccc99628",
+      "params": {},
+      "response_fingerprint": "04483ba5a9e00ef547258b66afff67f8cced09cad9ea4a537966ec6103fcb140",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/42b34984-450c-50f4-beb2-83c53d498dbf/root-paths",
+      "params": {},
+      "response_fingerprint": "c7ab897bdcfa61dadedc33a9e6eaddb0c42b90e41a38a301dd02a0ca5e2c2898",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/42b34984-450c-50f4-beb2-83c53d498dbf",
+      "params": {},
+      "response_fingerprint": "63bf17d197cf9cf5e145d9d97a13b303d8ad59779b8baf46cc1caab9fec72c31",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/078c5038-6fe0-5306-9438-957698885611/root-paths",
+      "params": {},
+      "response_fingerprint": "b8a9628cc9e1dc7434f728c739cd786d60161d9cc8402ff021672ef03bb4ad8b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/078c5038-6fe0-5306-9438-957698885611",
+      "params": {},
+      "response_fingerprint": "becf10b66bfe42e503b791978af69413a158e121b78f54147a84f908c0b0d2f3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f33b2ded-21d3-51d9-96fe-a0fef141c619/root-paths",
+      "params": {},
+      "response_fingerprint": "6598004fb915ceaaae6ebac9a732e5f13f8ee56e9971a16dc1714e080b85e2ca",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f33b2ded-21d3-51d9-96fe-a0fef141c619",
+      "params": {},
+      "response_fingerprint": "92d9649075097daae4e6340b9751dccccbefcba510f170377f63532e09a5e10b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3d45bc79-6517-51e1-aef8-435cedc7bd42/root-paths",
+      "params": {},
+      "response_fingerprint": "a9931a82d73a40ac2683cee761e9b7c54ee142321d57fdd90dc155410f946f13",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3d45bc79-6517-51e1-aef8-435cedc7bd42",
+      "params": {},
+      "response_fingerprint": "2f2883ceae0fee65696ef7b420d80ce0fca9a1c70317e4a6fd4376bd36a1438c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2485fd09-55e0-55c3-bd1c-2d886f882e7a/root-paths",
+      "params": {},
+      "response_fingerprint": "3458f56edfc834ae0073d8a83afe7b855c12bcbb9889dac03680d8f2a552e2a2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2485fd09-55e0-55c3-bd1c-2d886f882e7a",
+      "params": {},
+      "response_fingerprint": "ab470b3af40dfa12bdda450b6932b1670eb537be1008bdcb00355c29265058e0",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2029605a-a467-5ae9-afa0-268fcabfd60b/root-paths",
+      "params": {},
+      "response_fingerprint": "2247ab847a19d1972945d2788f87a0c13081308e5df4c7a762d152c0e0efbf3c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2029605a-a467-5ae9-afa0-268fcabfd60b",
+      "params": {},
+      "response_fingerprint": "2fe635f1bd24306815cc11b3924f1d7ad1300309ab18cbf6e3116683608fb6fc",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3b1f7006-2d44-5097-86b6-7ac05d0de3ac/root-paths",
+      "params": {},
+      "response_fingerprint": "25d6a69242abf969ffbfbb19918db80e727b2e7217d723d3d45e9f15f9b07527",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3b1f7006-2d44-5097-86b6-7ac05d0de3ac",
+      "params": {},
+      "response_fingerprint": "c5fcb2838e570e834890ec19dd6d9fcd644c4c764436a4f86a4def920b013d08",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "search",
+      "params": {
+        "limit": 100,
+        "q": "MP2",
+        "kind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "210d14fa3324d0102db073c7b5b0f9d92087eb027fe64db76781f770edba8ba9",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/33bb9ea6-d8ee-53a1-9608-e74e5bc2e0c9/root-paths",
+      "params": {},
+      "response_fingerprint": "24ddafc24ae3cbf58189e56c574cf271621c43e20dbd797a83bfc6dd69991d24",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/33bb9ea6-d8ee-53a1-9608-e74e5bc2e0c9",
+      "params": {},
+      "response_fingerprint": "8ed8062d7a968a96cca3720d9f0d8d3b740f76b86312796d07a6753078733d10",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/db9a708e-9dca-5d70-846a-bb73c4971253/root-paths",
+      "params": {},
+      "response_fingerprint": "acc7fc18575b1d95194255d70c6e51bcb4fd9eee6388948a1ed1f434c678613c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/db9a708e-9dca-5d70-846a-bb73c4971253",
+      "params": {},
+      "response_fingerprint": "75b8a78a37d68fa3f8a94591f67d23e8321c9d077bd99020747fa25b37e278e3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/87268aaa-5736-57a4-90eb-c010874c1ff8/root-paths",
+      "params": {},
+      "response_fingerprint": "b8decc9451ca29665dc6006117078f35268d8eda1f7e0dfc1599ee20707fccf9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/87268aaa-5736-57a4-90eb-c010874c1ff8",
+      "params": {},
+      "response_fingerprint": "e945ff9ec03d33b45540b0fd9604d39d4084dadff068068c1c90f15534769fb0",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3c48835d-1385-55db-8d4b-02b347753656/root-paths",
+      "params": {},
+      "response_fingerprint": "36e737bd9313f00621fe1ecb8584a6cb03c3c52d48f473b20ca5931faf573be4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3c48835d-1385-55db-8d4b-02b347753656",
+      "params": {},
+      "response_fingerprint": "599c544cfaec383d3d6feb0c7d1eb1777330a87f108dd6f15436da1e12feb7ef",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/cf62e569-fd87-5ae7-a6ad-030e1d4d743f/root-paths",
+      "params": {},
+      "response_fingerprint": "d053cc89a0b1f5df2c5828824009d28ae7771340a3c11d6e3c3b82cac8615ed7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/cf62e569-fd87-5ae7-a6ad-030e1d4d743f",
+      "params": {},
+      "response_fingerprint": "530e13a40b10a319b7d8916529a4870a5813d2bc65e5f1d6ec61440f2519386e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c73c3d02-9d7b-58ce-8d37-f143622f2b06/root-paths",
+      "params": {},
+      "response_fingerprint": "f325a70305a66642b74afa34a7d76446a72cc2a87e47f56a265a189e3dec2859",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c73c3d02-9d7b-58ce-8d37-f143622f2b06",
+      "params": {},
+      "response_fingerprint": "79c7d5208e3da068fe39b5b8452fe6e1fffabd49ab80640f21105bdb1a4eed27",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9b36c850-31c2-5b80-bd7c-6638aeed9fe5/root-paths",
+      "params": {},
+      "response_fingerprint": "8d708f2c342a7eca5f8be6268f52962eacab33db160d2816cf557afe021d2608",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9b36c850-31c2-5b80-bd7c-6638aeed9fe5",
+      "params": {},
+      "response_fingerprint": "40b8b752f43e0088a03ffb1bb7ac5364a4d290c9ac4850e2d0314923b093bbb7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/30d5f421-351b-5d45-b251-1bd15b2e6e0f/root-paths",
+      "params": {},
+      "response_fingerprint": "9a28fe6aae5d676c0e1da758aaa5afca314c46cd123ea4d23f21bc844269b23b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/30d5f421-351b-5d45-b251-1bd15b2e6e0f",
+      "params": {},
+      "response_fingerprint": "d934ff81173b4a08331794cd29047a0c35f850ef4663eb2f17608fb2db559064",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/82d2882f-8a0e-5e0a-ba34-fc592f9ca5d3/root-paths",
+      "params": {},
+      "response_fingerprint": "0830804e8ebcf7eb8e962263603c2ea69d33711d69e704ee0b6e87bab5c8988f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/82d2882f-8a0e-5e0a-ba34-fc592f9ca5d3",
+      "params": {},
+      "response_fingerprint": "b52dea58d58ffe82eb09eb6b5783e9d47887c465795ca56d0168b37bc0096d5b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/26bbd8ec-3c58-5506-b532-28d1c41c462f/root-paths",
+      "params": {},
+      "response_fingerprint": "989ed7a57c7bec41c76f2de8b256570ecea26b07876b389333df750d0721bfb2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/26bbd8ec-3c58-5506-b532-28d1c41c462f",
+      "params": {},
+      "response_fingerprint": "630c0a768c07bfbd4412afde237dee901089f62e555ae52afd71df6ef87178de",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/6a0b0b39-d910-5b38-8d8d-6c1b1e22a351/root-paths",
+      "params": {},
+      "response_fingerprint": "70b8fde86b54647b41144ad603087a1bb30be36c63c43a55e22846b30efa60af",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/6a0b0b39-d910-5b38-8d8d-6c1b1e22a351",
+      "params": {},
+      "response_fingerprint": "0b32248c683ff61f5c24d655e4c54ebfdc0718e2f972d5f248d99c85a54b62c2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "search",
+      "params": {
+        "limit": 100,
+        "q": "MP3",
+        "kind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "4ae157850723d5d826f00b8652224a22ad02b13d5b74bde527b6602a4824b0c2",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/87621a31-dc43-551b-ad3a-7e708bd29343/root-paths",
+      "params": {},
+      "response_fingerprint": "2c87483a165ba95279a79be05d773e5013ca8342ecb9ca97dca593a4c2c3a3fd",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/87621a31-dc43-551b-ad3a-7e708bd29343",
+      "params": {},
+      "response_fingerprint": "87563d16aa3000067365ec733e4b1e446310e99453e9320e311ebcfbe0d472d1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/824f11dd-494e-5c21-bac7-69f2ef653b70/root-paths",
+      "params": {},
+      "response_fingerprint": "62ee838bf5ad0bf872eaeac940f19eab2918c2f2f246de8699187f4d27d32f73",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/824f11dd-494e-5c21-bac7-69f2ef653b70",
+      "params": {},
+      "response_fingerprint": "337ba7eeea1140c29faf0aa08218a50a196975ad661257ddeecde3301c626f66",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f0faedb8-1a1e-5f97-aaca-27f75909b7ca/root-paths",
+      "params": {},
+      "response_fingerprint": "295b10ea5e4c6851f2fefc37a4a3ffb7b3546b711b5585e25133606a2a83d26d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f0faedb8-1a1e-5f97-aaca-27f75909b7ca",
+      "params": {},
+      "response_fingerprint": "2451b68fab51a22a9db95113ced504e6d75191a6e6950dad809103ed96a3f989",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7a7bc9bb-3ec8-53d1-b218-e57570112bd2/root-paths",
+      "params": {},
+      "response_fingerprint": "05fb84d669588f4575fc9e7c1f369e72272ea0fdc0266f806ba598e235c4c64c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7a7bc9bb-3ec8-53d1-b218-e57570112bd2",
+      "params": {},
+      "response_fingerprint": "34327be4cf5a38c67806170d65c8550cf0b92d126fb9834a236a7c78a493770f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a42455bd-e5dd-5186-b24e-0c2cf48f828c/root-paths",
+      "params": {},
+      "response_fingerprint": "53dda3d5156770287be8e0cababc10c4f436412b7d63ee472933659aa738d41d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a42455bd-e5dd-5186-b24e-0c2cf48f828c",
+      "params": {},
+      "response_fingerprint": "74ba1680c97bc38ee2ff69563e9af0f8b628a742dfbdd638b5948c20a74b3d0d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ed2e44bc-9dfc-5c18-8937-4612db354baa/root-paths",
+      "params": {},
+      "response_fingerprint": "21ff4e71a888a291fcb97a381f4cfdb403e240a955419ac98a8b83355bd34abf",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ed2e44bc-9dfc-5c18-8937-4612db354baa",
+      "params": {},
+      "response_fingerprint": "7c0683ea459a2fbdf6ed5e48f1f2bf39d09d870d1ac0cf8467feccad7ea8039c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7f0b0ef1-ed0c-5412-8776-7f0de8f23c2c/root-paths",
+      "params": {},
+      "response_fingerprint": "cfd7c979314fb4d000945597cba1b00327998481e566e2950f6d73d2478f06f5",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7f0b0ef1-ed0c-5412-8776-7f0de8f23c2c",
+      "params": {},
+      "response_fingerprint": "e8763527aebffb6ae37a75e2077696ef0fd2056552dfd34ea3b73e16a5f47b33",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c3575094-d44c-54b4-9dd8-d675dd76c738/root-paths",
+      "params": {},
+      "response_fingerprint": "b4a8d32eb97bb41dd9c27f7b28127430e2494be90bdd3644024687fed78f9508",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c3575094-d44c-54b4-9dd8-d675dd76c738",
+      "params": {},
+      "response_fingerprint": "efab959d6c998e56335e0294e79914b4a045f48ac20130187e6eeb54a5962e03",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/17f1814a-96ee-545b-bc43-1bad680fa567/root-paths",
+      "params": {},
+      "response_fingerprint": "0864146f1f96d63093795183b19727d6c6c31da71bd0da3eb6dabc4f214d47bc",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/17f1814a-96ee-545b-bc43-1bad680fa567",
+      "params": {},
+      "response_fingerprint": "8639e5d63ac160626974ad8ab5f0a03cc986d04eaf4ca49d8072d251a5e67eac",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/b83a6ba0-e0c7-5fbc-84c4-bfbdba89499b/root-paths",
+      "params": {},
+      "response_fingerprint": "f0d7ef4b8d91362cf48a213c0811da3c36378cdea41394c12f98b0177c5b0363",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/b83a6ba0-e0c7-5fbc-84c4-bfbdba89499b",
+      "params": {},
+      "response_fingerprint": "0e6c5d53c77e28394507212573d183f718fae64bde34774d2bf9bf68e394b90a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f0dc8000-e9bd-5e45-8268-684ccf49c304/root-paths",
+      "params": {},
+      "response_fingerprint": "5c4a9918248358cd0f69340ba8a889d24543165d01b3faf3463684ac6512abde",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f0dc8000-e9bd-5e45-8268-684ccf49c304",
+      "params": {},
+      "response_fingerprint": "bc81bffb10c8773d90477f00685a4a9372df1aced6b1de1088fd2cd71d852027",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "search",
+      "params": {
+        "limit": 100,
+        "q": "MP4",
+        "kind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "8bbaece7e5eeffb19fea5e7879528cad939ad6b775ebaa2f6855f0b17364e702",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/376824d1-630c-57c0-8c6d-f84889e4ecff/root-paths",
+      "params": {},
+      "response_fingerprint": "aeeee4698efc18ade5fa154ca05efda0489d702ee85898fe969241cf54970544",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/376824d1-630c-57c0-8c6d-f84889e4ecff",
+      "params": {},
+      "response_fingerprint": "4acd92cbaaadad839c583e8b5e65473c6506820eec934f7134915d7c6751887b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/bddd3d2b-c539-5bc1-887b-b402e1114a34/root-paths",
+      "params": {},
+      "response_fingerprint": "b845f580cbb01fe27c0cf38c4ccb6bacd62ab4abf155d14574a2a29b6edd1ccf",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/bddd3d2b-c539-5bc1-887b-b402e1114a34",
+      "params": {},
+      "response_fingerprint": "a4740df4e32873ea63c8904d91dfa70b2cd3eb52e7454d6c352877b5ff2e72fe",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/1c697251-4618-5df2-85fa-ae94ecb431fb/root-paths",
+      "params": {},
+      "response_fingerprint": "a9cfb937bce4bf134fd4337ff043352bb19c6570d2ee57b372836d50bd62f967",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/1c697251-4618-5df2-85fa-ae94ecb431fb",
+      "params": {},
+      "response_fingerprint": "8d9ddfe3fcfdcc2e46a7543af93839e4323e522d695e50bc7474da9732c946d3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/5527200d-97e9-5e51-bf85-c9df093db64a/root-paths",
+      "params": {},
+      "response_fingerprint": "80ae6017252b3e4bad100c34f766c61a7a7d0d17a7a87ec95c401afb5fadbea9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/5527200d-97e9-5e51-bf85-c9df093db64a",
+      "params": {},
+      "response_fingerprint": "dbb1f46926a976a16f335779ad2134509270886af83a502c76f1a2f06a3e2bae",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/fba0352e-4c9c-55e3-ba08-9b18f79d32ca/root-paths",
+      "params": {},
+      "response_fingerprint": "42fadcbff974ca4269f24c83f0475ae54f08f3db4f7700d2ee7926b982e28e17",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/fba0352e-4c9c-55e3-ba08-9b18f79d32ca",
+      "params": {},
+      "response_fingerprint": "ac6f925d3a71e8567d5e970abf0c37c83604c0712bf27570c1896a7648e9c53b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/85cb24c6-9c8f-511e-8e20-10dd1ede8ac0/root-paths",
+      "params": {},
+      "response_fingerprint": "fed5671ea9f338e687677fca171e742a64c6fdabdfd25525dd252dc78b6d7dbe",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/85cb24c6-9c8f-511e-8e20-10dd1ede8ac0",
+      "params": {},
+      "response_fingerprint": "d20bfcf7a3117108e52c6f878cab369087c07a49a79039f4964b07f1ac8befdd",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/93c43cdd-80d8-5063-9cf5-2aca51f2b8b3/root-paths",
+      "params": {},
+      "response_fingerprint": "cbfc7182ed6262eac73a01883856a87b74b8f3849caca30d44d7f512dcfa53d3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/93c43cdd-80d8-5063-9cf5-2aca51f2b8b3",
+      "params": {},
+      "response_fingerprint": "4d2fd72a460446c39f94cbafb4d89cfcbec75c773952b1f6e65c7b9c88dc366c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9cacbba9-1d93-5069-8302-4437624c056f/root-paths",
+      "params": {},
+      "response_fingerprint": "76009b217ceeff4a5d5fa9adfc5f8dc00dfd53d455a9ddc1e00d13cb9f2084de",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9cacbba9-1d93-5069-8302-4437624c056f",
+      "params": {},
+      "response_fingerprint": "081e9f24cf4d6756ca61b85efe9f2dd8e9b92bcb25a9a61df579b6f2f699792d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2b1c3138-a67f-5e24-9293-d2155159c7ef/root-paths",
+      "params": {},
+      "response_fingerprint": "37c104ea97269ca5d2f17846ab9eb19dda6e322d10d6cb1092b573c75739a6f3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2b1c3138-a67f-5e24-9293-d2155159c7ef",
+      "params": {},
+      "response_fingerprint": "8b9633d537c5ab472d059d6164a886d43dae287f122301b2188a9e3a53d286f4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2d79c578-ea0b-5192-a33b-126de1a84e79/root-paths",
+      "params": {},
+      "response_fingerprint": "7156bb615ad4b5ffe6b314eb204be3239f43d26f4c4ccbc65b1693380f668504",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2d79c578-ea0b-5192-a33b-126de1a84e79",
+      "params": {},
+      "response_fingerprint": "32a5d26ad94e11de918f44a0c53d63664f552cb629b885bb84ac805ee479a6d0",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4493563c-595c-53a2-a21a-5c027c6d4dc4/root-paths",
+      "params": {},
+      "response_fingerprint": "cbb36f77e6f125c46c87d6f5c571e7f5840590007579bd4dfa94dacf3f930869",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4493563c-595c-53a2-a21a-5c027c6d4dc4",
+      "params": {},
+      "response_fingerprint": "a192472ab6b19d4659d226b2126cb64ab1fa4ad58b750f083a7a3a32f513e956",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "search",
+      "params": {
+        "limit": 100,
+        "q": "MP5",
+        "kind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "5b202bd0737a30c39991648bdda1f019bf91a4d7f2366e252b50a7b337b0c6ab",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e1166e07-ac32-5db0-8203-931c005851c6/root-paths",
+      "params": {},
+      "response_fingerprint": "7c240234eaf7c06e94a446283b93b5731e0ca71431afb20c05c6c7cba3dae132",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e1166e07-ac32-5db0-8203-931c005851c6",
+      "params": {},
+      "response_fingerprint": "5673b5b14d32c73916835a50b3448a2e09da06fdcd163f396151523f352469ca",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e5a976b8-8313-59da-bbe2-4ef498294028/root-paths",
+      "params": {},
+      "response_fingerprint": "d2d02cf39c535a1bafd794e493763c69cff63278b3046441b8f73bea154b9505",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e5a976b8-8313-59da-bbe2-4ef498294028",
+      "params": {},
+      "response_fingerprint": "b467a6e393167d480ae23e6cc4e05847bac793b40ea52bb5038206b39b784423",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/bc42d384-811f-5b5b-b7a4-7e83f599f41a/root-paths",
+      "params": {},
+      "response_fingerprint": "7798be7ff819eb800e975a6ce8e0d97ff32ce13a5505ce242cd875375baad51f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/bc42d384-811f-5b5b-b7a4-7e83f599f41a",
+      "params": {},
+      "response_fingerprint": "0df06c94e7625d6d8122ddb4a9320c852046c6de96d9927eeec22e54b5ff42fc",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/67cd3860-efae-5a91-826a-a8ab3bbc5970/root-paths",
+      "params": {},
+      "response_fingerprint": "67db6b2abe895418f7df76815040d7abda21910caa4b50244633b2cc2504e012",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/67cd3860-efae-5a91-826a-a8ab3bbc5970",
+      "params": {},
+      "response_fingerprint": "a09327a427387a1b81fa8d2c1eef723fa9f6b90cd8226dd8892361afaf0780ee",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d79b591e-b75c-5ca0-81d2-f5184a2c7c9f/root-paths",
+      "params": {},
+      "response_fingerprint": "dd1d380d700500b6f7d84b7e5068b0b4079f068cb3090c95c25cb0db0de2cfa7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d79b591e-b75c-5ca0-81d2-f5184a2c7c9f",
+      "params": {},
+      "response_fingerprint": "439eca9b4b3c2d7e009c44d594fd26d7742dc85ba37259d01484b73353323afc",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/219005c7-505b-5703-86ad-22ed07a0b082/root-paths",
+      "params": {},
+      "response_fingerprint": "d7931ca3ee25ffdb6256e2ae9994f674fc4477f1923ff23010eda5580f5b878b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/219005c7-505b-5703-86ad-22ed07a0b082",
+      "params": {},
+      "response_fingerprint": "6ce5975ed79aeca5c1ce03066d1d5c74025e9dd123eaa27f972119ecc79fe1eb",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/eaf8a064-7934-5028-ab20-68cc52d58a75/root-paths",
+      "params": {},
+      "response_fingerprint": "5c5ef17b8964d8acf981db80723230a629b2bbbbf7e544469549e51ad5d9770b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/eaf8a064-7934-5028-ab20-68cc52d58a75",
+      "params": {},
+      "response_fingerprint": "1508596d00e697d633aa7502251e4ebbeb10fb8caedb3680b093ae3e098411e4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d3ae7e6e-a12f-513d-b829-f83c43882511/root-paths",
+      "params": {},
+      "response_fingerprint": "9f5e8bf69826f4088e8ed2bbb5ff733f65f57a541085a3d454760254f082d002",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d3ae7e6e-a12f-513d-b829-f83c43882511",
+      "params": {},
+      "response_fingerprint": "e9efcae2cfdfdcd099b7001cf8712792db00bb22ef977edf244271a59e59850c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/938b4ae9-a000-5b85-898d-9122a78d760b/root-paths",
+      "params": {},
+      "response_fingerprint": "fca04b09f0c5ae0904a5eb7a67f2db3c988e3be53c8561435d079269f4f480e3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/938b4ae9-a000-5b85-898d-9122a78d760b",
+      "params": {},
+      "response_fingerprint": "9f34f6659a7ef56f7c3a074b53cbf11232845a69d849450f524b5bbe39f365bb",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/5e2ee59f-4920-5691-9977-27de1326ccc8/root-paths",
+      "params": {},
+      "response_fingerprint": "b7d932588130374896e6c5a3a77a6059af7fe8e3363756d96b0a72dfdf06dc4e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/5e2ee59f-4920-5691-9977-27de1326ccc8",
+      "params": {},
+      "response_fingerprint": "e14bee3278d3208309440fd084964b0d27010352b2e2627ceaa468839c6adc29",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/abdd678e-c221-5e70-ae72-5397fd27c4f2/root-paths",
+      "params": {},
+      "response_fingerprint": "c67a14bb1dd4a469f75ca60b1987c8f3ac1d9301ce37ef2667943332602f4e79",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/abdd678e-c221-5e70-ae72-5397fd27c4f2",
+      "params": {},
+      "response_fingerprint": "bad5881b9a2efd51d028edb0e3192724a463dcdf40bc16f49298bcbeadd9eb20",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "search",
+      "params": {
+        "limit": 100,
+        "q": "MP6",
+        "kind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "bf72f6ab56bb7a9eea31b1687a61016c942b1f062d8fea0ff4561848215a6202",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0a433121-46ba-5b7b-95be-2fe992191e6c/root-paths",
+      "params": {},
+      "response_fingerprint": "69d1da2a57f6daa8ab857031f1c3eb204559f2f96b693b8a339a1ac281f507b5",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0a433121-46ba-5b7b-95be-2fe992191e6c",
+      "params": {},
+      "response_fingerprint": "585b5a25ced0c2971f62b7353da28dbdecd23161944440335747e886b9b4482b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/72036608-2c9b-5724-91fe-d0054bcf77ce/root-paths",
+      "params": {},
+      "response_fingerprint": "1fe7207a6ce300c5877942d7cceafe62992485892f37b74cbb5b5f94a8b01c2e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/72036608-2c9b-5724-91fe-d0054bcf77ce",
+      "params": {},
+      "response_fingerprint": "4f17da76a059af71e3627875badccb5d86a350bb3a9a9a93595d383045c80951",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9b2a346d-9afc-5350-b095-ee6838452511/root-paths",
+      "params": {},
+      "response_fingerprint": "1b80005c486eb7d85bcafd5e9ad6efe47421d118f5afa9b4a7ee9846baf81710",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9b2a346d-9afc-5350-b095-ee6838452511",
+      "params": {},
+      "response_fingerprint": "fa9e39148e1ae2428feb8388cefa60c8b21702a79eb8339077a7f18010070816",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a501180a-1704-5f81-9481-9a606386a7d3/root-paths",
+      "params": {},
+      "response_fingerprint": "4d64ab117061fbe0826280b4b28a851c6e24fe3b05409e289b70dfbc0912d2da",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a501180a-1704-5f81-9481-9a606386a7d3",
+      "params": {},
+      "response_fingerprint": "f4cde8b0a155c5ef122c1f1ea39498deb7ea91e15869695d8a7f74ce2edf718e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/338493fc-10ba-52c3-bd2b-7967fcac3321/root-paths",
+      "params": {},
+      "response_fingerprint": "6c83a783443877220177a9b63f816863694671961cbcebbde9c4fcd6e3bd4da2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/338493fc-10ba-52c3-bd2b-7967fcac3321",
+      "params": {},
+      "response_fingerprint": "4dea31dcab3f3472ae0eedc0b7d572a6664a4ceda970c139498c6dff1f462be6",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/43db5df8-3671-514d-b557-701252d5e735/root-paths",
+      "params": {},
+      "response_fingerprint": "576329ff89f3b60850f5602304337442ac48bd86aef03ecaa82e9514c609286b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/43db5df8-3671-514d-b557-701252d5e735",
+      "params": {},
+      "response_fingerprint": "cd8e37296623ed03f0ffd53777727985daeee1ee55bcc8dd8160d32418375ee8",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/30869cef-5095-50bf-88bc-f7031e4e72c8/root-paths",
+      "params": {},
+      "response_fingerprint": "43f00e40a8af3f7a1df30c7872947f1d2852bf506a0e299cf9ae850e4a4b04e1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/30869cef-5095-50bf-88bc-f7031e4e72c8",
+      "params": {},
+      "response_fingerprint": "3fce678a5a6f8dd4701931f78df1bc569e1d4a0ea81e0df4282efd3dfffa8224",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/15cb90d9-4e84-5a7d-b673-754766ca7e9e/root-paths",
+      "params": {},
+      "response_fingerprint": "b3fba8a931e3187a966986928f36aefd7452b81acaf377e465e2da8ae42324e1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/15cb90d9-4e84-5a7d-b673-754766ca7e9e",
+      "params": {},
+      "response_fingerprint": "31afa4ebc23620a08d821c9fd7ae3a8a850352403f543789714f0d749ee62d34",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/172c9962-55dc-5068-8cd9-dd0219a38a6a/root-paths",
+      "params": {},
+      "response_fingerprint": "afb7ec960e959c0ce6e87e168bb54a18695975ab43bbc37fe87297466af9afaa",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/172c9962-55dc-5068-8cd9-dd0219a38a6a",
+      "params": {},
+      "response_fingerprint": "7219e364d2723f093ed4c8145e10e294ff71000da252a27994cbe6e5825d6a53",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d8c1adb4-43e6-5fc3-89d8-ae6e286bc20e/root-paths",
+      "params": {},
+      "response_fingerprint": "c23a5c6e0683aa66b3a0058551db107ca15edf03e61ee99326eefa94832f6608",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d8c1adb4-43e6-5fc3-89d8-ae6e286bc20e",
+      "params": {},
+      "response_fingerprint": "b000181984f088192dfdd19b6bd419ebb29bd60d84ea01193e826922e05a289a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e87ba523-1aec-5c4d-a894-b21036323a93/root-paths",
+      "params": {},
+      "response_fingerprint": "51f027c6184021b51d946a9f879edb868bfde6b875c62ccea5985a50c2caffec",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e87ba523-1aec-5c4d-a894-b21036323a93",
+      "params": {},
+      "response_fingerprint": "2923e4556b4a2cd32172b5becfc19a03127a5e8a89ff0c4a9a869e5dc1c0c4f9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "search",
+      "params": {
+        "limit": 100,
+        "q": "MP7",
+        "kind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "3a2d67f320c1552897835687fa349dc25ee5259b228c77039da11e82136afb2a",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/75fdd8dd-aed6-5c29-a9a3-79f931198306/root-paths",
+      "params": {},
+      "response_fingerprint": "b1bd0713b1fa1a3a79c963195b727c82ba83aebf71b32a2562b868a66d9c5a3f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/75fdd8dd-aed6-5c29-a9a3-79f931198306",
+      "params": {},
+      "response_fingerprint": "83d1f15687b377885d08686994d72adec55d46812ac8c218b12d1508bde6aed7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3000b563-f3c7-5dd2-a661-d7f5864a28c8/root-paths",
+      "params": {},
+      "response_fingerprint": "49b5df8cdfb7ddbce120d1b4130648ebe53acdb97f596595e38f286dc74413fc",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3000b563-f3c7-5dd2-a661-d7f5864a28c8",
+      "params": {},
+      "response_fingerprint": "c159c1aa52b27c30db2d2db091e17fd72801df54332609f855cff569aedf5cb7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c421c38c-789d-5dcc-a98c-d20a911c195b/root-paths",
+      "params": {},
+      "response_fingerprint": "adb4020c7e8424cc4feb82ecdf69b74e9672e8c43a23615a98c72d366f8016c1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c421c38c-789d-5dcc-a98c-d20a911c195b",
+      "params": {},
+      "response_fingerprint": "316df165272ca94a8c9fa4293637ca86f844a7d61022e93aafc92724fb94ffb2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/509f29a8-bcde-5df1-ae1c-3a94077c70d3/root-paths",
+      "params": {},
+      "response_fingerprint": "beed93ffe8a76883bcc66292882fd0b1402fb35821adf68de872075a91c68fe6",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/509f29a8-bcde-5df1-ae1c-3a94077c70d3",
+      "params": {},
+      "response_fingerprint": "2d9ace5a208dea2e4fcacfce6ad4d22f61dd1c6c1ffb45ae8afa73f920b2b3d0",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/6b5315b2-2078-507e-9f87-cd80d14703c7/root-paths",
+      "params": {},
+      "response_fingerprint": "070e4201aba439bc129858c8c2d511d7f6e9a6b24cf37b82f51982600f668439",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/6b5315b2-2078-507e-9f87-cd80d14703c7",
+      "params": {},
+      "response_fingerprint": "44dc52083c50636b13143a5c3564a1b32203e769e28b2e64b75f6e904c3d8ca4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7afc681d-1d7e-503e-8ef2-c525c1f52974/root-paths",
+      "params": {},
+      "response_fingerprint": "a6eeda3c5c8e88b1fcfd3dd2dccb379b72b76ee4dc43e275b65f8be7bc251960",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7afc681d-1d7e-503e-8ef2-c525c1f52974",
+      "params": {},
+      "response_fingerprint": "f6f3ffd104e4a3a5f339b86f45c3c341374d2cdd8dde9eeb1362616d1aeaf034",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3b61a12c-0b61-5b1f-8185-dccbf104bbb7/root-paths",
+      "params": {},
+      "response_fingerprint": "1a85df5356112239ddd9364411f65926e03b5838c7a4b65b14401ccb48c14cd2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3b61a12c-0b61-5b1f-8185-dccbf104bbb7",
+      "params": {},
+      "response_fingerprint": "55c86b4a46205b8be789e8ca16c76f46864759764cef7561bf1e83104b32e17b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e3e3ccb9-148f-5bc4-bb0a-608e462cba5c/root-paths",
+      "params": {},
+      "response_fingerprint": "8189620e5773157e94f718732066ea0a6e5aea7774083643cb20f88e68cc190b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e3e3ccb9-148f-5bc4-bb0a-608e462cba5c",
+      "params": {},
+      "response_fingerprint": "7d22245116077c11d51c77d8d7a10ece519be260f08b47b267bb745ae5804c3a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/09e1fec4-e9d1-5039-b5fe-e002cc1ea712/root-paths",
+      "params": {},
+      "response_fingerprint": "db1b6f274bb392585c522f71b7603f54bc7121abdae0d8ff1ec37f3b87a02f45",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/09e1fec4-e9d1-5039-b5fe-e002cc1ea712",
+      "params": {},
+      "response_fingerprint": "a51c14ead9aaa0be14295e83eba86208b534a861597431bf3f5f92fb6a13239d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e2491851-6ece-551c-9e0c-2a209f0fc87c/root-paths",
+      "params": {},
+      "response_fingerprint": "80ad77d67d3e4c67129a19445da29f7b3d12fdd3d949fc05a7d48572417b9bdc",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e2491851-6ece-551c-9e0c-2a209f0fc87c",
+      "params": {},
+      "response_fingerprint": "b3f95046d4f71e500f61dada28b91599c5309be25e60ca3c02a0370e74416ff9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4d9707ed-235e-543a-b90f-87c54d740e46/root-paths",
+      "params": {},
+      "response_fingerprint": "fe0ff9aac7a294c824de0b9b7790f15ba0e82cd4a30cb5fb332432ba74a3b98e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4d9707ed-235e-543a-b90f-87c54d740e46",
+      "params": {},
+      "response_fingerprint": "39ddd2d90070d1abb0024e68bf895e42b610740a6e1f0892fa9c4f853185a96f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "search",
+      "params": {
+        "limit": 100,
+        "q": "MP8",
+        "kind": "StandardsFrameworkItem"
+      },
+      "response_fingerprint": "1fd442b12330c9146d17d1ac63ff029179187c531aa19aa76dd34c992ee2278f",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e3be432f-8aac-572e-9ca9-43ccfe16b849/root-paths",
+      "params": {},
+      "response_fingerprint": "c5e5984a7f985b2ff6b943ab291d976ecfad6d01433174570b2330ae7de29a4f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e3be432f-8aac-572e-9ca9-43ccfe16b849",
+      "params": {},
+      "response_fingerprint": "02e1560ac6d3701a4146206e8e74ff7b67d0e07041685786b1abc57d29d0d79e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/39edac69-fcfc-5e3d-b6b9-eb6e1a17a81f/root-paths",
+      "params": {},
+      "response_fingerprint": "b88fe66860875d4bcf17b444aecaa95b370843f64a76a508ff1b574841e7405d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/39edac69-fcfc-5e3d-b6b9-eb6e1a17a81f",
+      "params": {},
+      "response_fingerprint": "12b71ba28890c4215ed679fd796be69244b822c4c7f8dbf326e5625ea14a23b1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/5c20bd10-b665-5e7e-acad-e3c499e99565/root-paths",
+      "params": {},
+      "response_fingerprint": "adfa5ee8520939ba933eb588d67eaebaf2dc9664c078916fa8f60f4e4cb87512",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/5c20bd10-b665-5e7e-acad-e3c499e99565",
+      "params": {},
+      "response_fingerprint": "725c42163912cb431f7eae9fd934d985d645de09af2d60aa08b052ffe4132218",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/eeb7f39d-7c80-5f11-8024-0df83efc665f/root-paths",
+      "params": {},
+      "response_fingerprint": "00ebefe097e7d082319b8fb9d86ce5429c641bf8533fed49db37da72c178af3a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/eeb7f39d-7c80-5f11-8024-0df83efc665f",
+      "params": {},
+      "response_fingerprint": "0fdc0f49c8a8439ecb287f45fc7a4d36e95eb935624521ea726e1296bc001515",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/b343f727-44d8-54f4-be66-cefbb009c3f7/root-paths",
+      "params": {},
+      "response_fingerprint": "d811b8b9d4cbf6a99fc127a7c6f9279f0c1ffe627c1c7f021274d3eef35c3ae6",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/b343f727-44d8-54f4-be66-cefbb009c3f7",
+      "params": {},
+      "response_fingerprint": "4a0322c2ef8041dc6a4ce97c80898d154ca01480d813a067394803b650d90268",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/fa5e89d9-57b2-5971-87e1-5903768cca8e/root-paths",
+      "params": {},
+      "response_fingerprint": "2a09ca96d99121c4694896ed2064f1a1ec022917778f3e5a488482efe34478cb",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/fa5e89d9-57b2-5971-87e1-5903768cca8e",
+      "params": {},
+      "response_fingerprint": "3b86faa67bfd187a076629d098e45c6a5f089e173cfbc7784c59c2be4ce5a34f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/555051a8-110f-54b9-825d-b602105afa79/root-paths",
+      "params": {},
+      "response_fingerprint": "40208625ca77365b62fb424e2f66eb78b0642a47a5dd5998694bf2326ddd85e2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/555051a8-110f-54b9-825d-b602105afa79",
+      "params": {},
+      "response_fingerprint": "860a4d64ed9ba6e178c2d885f21f3126aac33d06d6ef789c462bf2a393b5ccee",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4a9f78a4-d08a-5584-aff3-0b62d582e84c/root-paths",
+      "params": {},
+      "response_fingerprint": "01a92fca7fdbf4e44d3846a61a2da1e3873dd1a59f9a8136420d947c7ad4f202",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4a9f78a4-d08a-5584-aff3-0b62d582e84c",
+      "params": {},
+      "response_fingerprint": "f21b806e50b13c9388d83158e4c9ecc3d43bfd836b3cb231ec06de5b89236710",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/1053f866-3ea3-57af-ab36-0a3a531f7099/root-paths",
+      "params": {},
+      "response_fingerprint": "07ae29df07bbab27d0c6a63dece031df605aefea1036a943e88ea979aa926bbd",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/1053f866-3ea3-57af-ab36-0a3a531f7099",
+      "params": {},
+      "response_fingerprint": "f91e022e4151ca0a7fc86401acfd8614b025b50c096956d5944bf69fe8d55e30",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/991dcecf-7e86-5c5b-854f-ff0c6424b131/root-paths",
+      "params": {},
+      "response_fingerprint": "bbecdb7470ebeeab78f1807d0c433e9ce33ecea39915a5dc845ff2c1b6cf5421",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/991dcecf-7e86-5c5b-854f-ff0c6424b131",
+      "params": {},
+      "response_fingerprint": "47fc1c70e1f0cf0261c1d8f472d7c2f491c6da06691846d056ca5e710e8746d1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/da2c7ffe-57fa-5b44-85ef-342e76a5820e/root-paths",
+      "params": {},
+      "response_fingerprint": "a063857f7675c2b0a5fda8e7f9c684f6d733b7c434ddba5d3ff5b87e0c95159a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/da2c7ffe-57fa-5b44-85ef-342e76a5820e",
+      "params": {},
+      "response_fingerprint": "ffb9e68b458a737944e9d47a1cb6011b67ad45bda95126577304cf5b3f07589a",
+      "has_more": null,
+      "next_cursor": null
+    }
+  ]
+}

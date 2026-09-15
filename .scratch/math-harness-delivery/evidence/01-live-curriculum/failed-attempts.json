@@ -1,0 +1,25 @@
+{
+  "a": {
+    "thread_id": "c08da8a3-91e4-5593-bff9-bdb01bfd684d",
+    "run_id": "01a0a486-ec1d-7282-8dcc-3d1548136eaa",
+    "result": "相对工作目录构造在异步节点被阻塞检测器拒绝；发生于模型调用前，已改为工作线程。"
+  },
+  "c_initial": {
+    "thread_id": "bac2294a-4eb4-5208-8531-01b34ae95485",
+    "run_id": "01a0a48a-7abe-7670-824a-2b99d86a737e",
+    "last_observed_usage": {
+      "model_calls": 26,
+      "tool_calls": 17,
+      "input_tokens": 1170567,
+      "output_tokens": 55057,
+      "total_tokens": 1225624,
+      "seconds": 283.675
+    },
+    "unknown_final_usage": true,
+    "result": "第26次模型调用已开始，取消时仍未取得最终消耗。六类依据的自由对象Schema转换丢失字段；取消后立即重启触发同run重放并覆盖旧execution。这里只保留已实际观察的下界，不重构为完整账单。"
+  },
+  "c_restarted": {
+    "result": "重启后继续调用被观察到，已再次取消；本目录c-restarted-execution.json为第二次取消前保存的实际记录，不能与初始运行混为一次完整计量。"
+  },
+  "cost": null
+}

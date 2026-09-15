@@ -2,7 +2,7 @@
 
 日期：2026-09-15。规格：[数学课程与教学设计 Harness](spec.md)。项目目标以 [项目 README](../../README.md) 为准。每票规模、依赖证据及本次变更理由见 [逐票复核](ticket-sizing-review.md)，原 14 票依赖保存在 [复核前快照](ticket-baseline-20260915.json)。
 
-**产品实现均尚未开始。** 本次复核形成 22 个工作项：16 个为 `ready-for-agent`，表示边界已明确，仍须满足硬依赖和实际运行条件；6 个为 `needs-triage`，表示真实范围、评阅结果或部署／版本条件出现后还要收口。不是 22 张全部可立即执行的小票，也不是新增 22 个用户场景。
+**首个有限课程任务已实现，其余 21 个工作项尚未实现。** [首票报告](evidence/01-live-curriculum/README.md) 记录真实生成、检查、反馈修订、触限与取消失败。原复核的 triage 仍为 16 个 `ready-for-agent`、6 个 `needs-triage`；triage 表示要求就绪程度，实施完成状态另记在工单及本路线中。
 
 完整关系见 [22 票依赖图](dependencies.md)。**实现前先读 [用户交互原型基准](prototype-baseline.md)**：用户于 2026-09-15 要求本轮方案定稿、提交并推送，原型随之保存为现行交互参考，不再重复索取同一确认。旧开发原型和浏览器证据保留；静态交互仍不代表生产或教学质量通过。
 
@@ -33,7 +33,7 @@
 
 | 工作项 | 规模与就绪程度 | 硬依赖 | 独立结果 |
 | --- | --- | --- | --- |
-| [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | L；边界已明确 | 无 | 一个真实有限课段方案；任务、知识、内容及最小访问契约 |
+| [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | L；有限范围已实现并验证 | 无 | 一个真实有限课段方案；任务、知识、内容及最小访问契约 |
 | [生成覆盖完整八年级 CCSS 的全年蓝图](issues/15-full-year-blueprint.md) | M/L；边界已明确 | [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | 完整年级 CCSS、全年单元职责和 Narrative |
 | [直接生成一课的真实师生材料并检查修订](issues/03-continuous-lessons-and-materials.md) | L；边界已明确 | [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | 一课已授权直接生成；真实师生材料与检查修订 |
 | [让真实教学决定跨进程等待并恢复执行](issues/02-human-decision-and-resume.md) | L；边界已明确 | [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | 真实展示、回应、采纳事务和受控重启 |
@@ -56,7 +56,7 @@
 | [在部署升级后正确恢复旧版本待答任务](issues/22-waiting-task-upgrade.md) | L；待实际输入收口 | [在持久部署中重启和恢复实际教学任务](issues/13-production-runtime-package.md) | 真实旧待答任务跨一次部署升级 |
 | [从外部后端调用五项能力并核对交付边界](issues/14-backend-integration.md) | M；边界已明确 | [按自然语言修改课程并重查受影响内容](issues/07-scoped-curriculum-revision.md)、[根据学习证据适配真实数学课时](issues/08-lesson-adaptation.md)、[围绕真实任务完成教师参与的备课](issues/09-teacher-preparation.md)、[生成并双重验证数学理解度检查](issues/10-check-for-understanding.md)、[按真实草稿回应生成课时材料](issues/16-lesson-draft-review.md) | 已有五能力的服务外消费者契约汇总 |
 
-当前只有 [有限真实课程任务](issues/01-live-curriculum-task.md) 同时无实现前置且规格就绪。`needs-triage` 不因代码依赖完成而自动变为就绪；读取它的 Ready condition，用实际前置结果限定本轮任务与验收，必要时再拆分。这个收口不重开泛化研究，也不默认增加用户确认。
+[有限真实课程任务](issues/01-live-curriculum-task.md) 已提供后续票所需的当前内容、知识与运行接口；其直接依赖票可据实际交付核对进入条件。`needs-triage` 不因代码依赖完成而自动变为就绪；读取它的 Ready condition，用实际前置结果限定本轮任务与验收，必要时再拆分。这个收口不重开泛化研究，也不默认增加用户确认。
 
 ## 共享交接与验证责任
 

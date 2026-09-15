@@ -1,0 +1,190 @@
+{
+  "usage": {
+    "model_calls": 10,
+    "tool_calls": 9,
+    "input_tokens": 358873,
+    "output_tokens": 27659,
+    "total_tokens": 386532,
+    "unknown_usage": false,
+    "cost": null,
+    "seconds": 122.33
+  },
+  "events": [
+    {
+      "kind": "model_started",
+      "call": 1
+    },
+    {
+      "kind": "model_finished",
+      "call": 1
+    },
+    {
+      "kind": "tool_started",
+      "tool": "read_curriculum"
+    },
+    {
+      "kind": "model_started",
+      "call": 2
+    },
+    {
+      "kind": "model_finished",
+      "call": 2
+    },
+    {
+      "kind": "tool_started",
+      "tool": "plot_linear"
+    },
+    {
+      "kind": "tool_finished",
+      "tool": "plot_linear",
+      "src": "assets/equipment_rental_graph.svg",
+      "fingerprint": "6fcf7a75179a078546ea6e65a44822ccb9b239db0c816857a1578d37e681e398",
+      "parameters": {
+        "slope": 5.0,
+        "intercept": 15.0,
+        "x_max": 8.0,
+        "y_max": 60.0,
+        "x_label": "时间 (小时)",
+        "y_label": "总费用 (美元)"
+      }
+    },
+    {
+      "kind": "model_started",
+      "call": 3
+    },
+    {
+      "kind": "model_finished",
+      "call": 3
+    },
+    {
+      "kind": "tool_started",
+      "tool": "plot_linear"
+    },
+    {
+      "kind": "tool_finished",
+      "tool": "plot_linear",
+      "src": "assets/water_tank_graph.svg",
+      "fingerprint": "4cd0656d4ea2c28506cec4364f280f110cec0ba6ed9a4eb728ed7471fea8aba1",
+      "parameters": {
+        "slope": 4.0,
+        "intercept": 20.0,
+        "x_max": 10.0,
+        "y_max": 70.0,
+        "x_label": "注水时间 (分钟)",
+        "y_label": "水量 (加仑)"
+      }
+    },
+    {
+      "kind": "model_started",
+      "call": 4
+    },
+    {
+      "kind": "model_finished",
+      "call": 4
+    },
+    {
+      "kind": "tool_started",
+      "tool": "calculate"
+    },
+    {
+      "kind": "tool_finished",
+      "tool": "calculate",
+      "expression": "(365-170)/(5-2)",
+      "result": "65"
+    },
+    {
+      "kind": "model_started",
+      "call": 5
+    },
+    {
+      "kind": "model_finished",
+      "call": 5
+    },
+    {
+      "kind": "tool_started",
+      "tool": "calculate"
+    },
+    {
+      "kind": "tool_finished",
+      "tool": "calculate",
+      "expression": "170-65*2",
+      "result": "40"
+    },
+    {
+      "kind": "model_started",
+      "call": 6
+    },
+    {
+      "kind": "model_finished",
+      "call": 6
+    },
+    {
+      "kind": "tool_started",
+      "tool": "calculate"
+    },
+    {
+      "kind": "tool_finished",
+      "tool": "calculate",
+      "expression": "65*5+40",
+      "result": "365"
+    },
+    {
+      "kind": "model_started",
+      "call": 7
+    },
+    {
+      "kind": "model_finished",
+      "call": 7
+    },
+    {
+      "kind": "tool_started",
+      "tool": "calculate"
+    },
+    {
+      "kind": "tool_finished",
+      "tool": "calculate",
+      "expression": "(20-5)/(7-4)",
+      "result": "5"
+    },
+    {
+      "kind": "model_started",
+      "call": 8
+    },
+    {
+      "kind": "model_finished",
+      "call": 8
+    },
+    {
+      "kind": "tool_started",
+      "tool": "read_curriculum"
+    },
+    {
+      "kind": "model_started",
+      "call": 9
+    },
+    {
+      "kind": "model_finished",
+      "call": 9
+    },
+    {
+      "kind": "model_started",
+      "call": 10
+    },
+    {
+      "kind": "model_finished",
+      "call": 10
+    },
+    {
+      "kind": "tool_started",
+      "tool": "save_curriculum"
+    },
+    {
+      "kind": "tool_finished",
+      "tool": "save_curriculum",
+      "content_fingerprint": "f533f3e34da6bf1841573678601b278218808439df8b205d5f0150c7a8dc8ea2"
+    },
+    {
+      "kind": "work_finished"
+    }
+  ]
+}

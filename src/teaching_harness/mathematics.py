@@ -7,7 +7,10 @@ from fractions import Fraction
 def calculate(expression: str) -> str:
     if len(expression) > 500:
         raise ValueError("表达式过长")
-    tree = ast.parse(expression, mode="eval")
+    try:
+        tree = ast.parse(expression, mode="eval")
+    except SyntaxError:
+        raise ValueError("算式语法无效，请使用有限加减乘除与整数幂") from None
     if len(list(ast.walk(tree))) > 80:
         raise ValueError("表达式过于复杂")
 

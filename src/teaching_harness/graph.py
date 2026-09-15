@@ -46,7 +46,11 @@ class ResourceStop(Exception):
 
 class Budget(AgentMiddleware):
     def __init__(
-        self, request: TaskRequest, store: ContentStore, emit: Callable[[Any], None]
+        self,
+        request: TaskRequest,
+        store: ContentStore,
+        emit: Callable[[Any], None],
+        previous: dict[str, Any] | None = None,
     ) -> None:
         self.limits = request.limits
         self.store = store
@@ -63,6 +67,12 @@ class Budget(AgentMiddleware):
             "seconds": 0.0,
         }
         self.events: list[dict[str, Any]] = []
+        if previous:
+            self.usage.update(previous["usage"])
+            self.events.extend(previous["events"])
+            self.start -= self.usage["seconds"]
+            if self.events and self.events[-1]["kind"] in {"model_started", "model_unfinished"}:
+                self.usage["unknown_usage"] = True
 
     async def record(self, kind: str, **data: Any) -> None:
         self.usage["seconds"] = round(time.monotonic() - self.start, 3)
@@ -177,7 +187,8 @@ def build_graph(
             ContentStore, Path(os.environ.get("HARNESS_WORK_DIR", "work")), tid
         )
         emit = get_stream_writer()
-        budget = Budget(request, store, emit)
+        previous = (await asyncio.to_thread(store.evidence)).get("execution")
+        budget = Budget(request, store, emit, previous)
         rules = await asyncio.to_thread((RESOURCES / "curriculum.md").read_text)
         review_rules = await asyncio.to_thread((RESOURCES / "review.md").read_text)
         manifest = {
@@ -201,9 +212,16 @@ def build_graph(
             "model": os.environ.get("HARNESS_MODEL", "gemini-3.8-flash"),
             "tools_version": 1,
         }
-        await asyncio.to_thread(store.record, "context.json", manifest)
+        if not previous:
+            await asyncio.to_thread(store.record, "context.json", manifest)
         status, unresolved = "incomplete", []
         try:
+            if previous:
+                # 这里只保护已发生的资源消耗；运行状态与重试调度仍由框架管理。
+                # 当前未交付受控续作，不能在节点重放时归零预算或覆盖原有证据。
+                raise ResourceStop(
+                    "检测到已有执行证据，保留累计用量并停止自动重放；受控续作尚未实现"
+                )
             async with (
                 asyncio.timeout(request.limits.seconds),
                 httpx.AsyncClient(
@@ -220,7 +238,7 @@ def build_graph(
                 )
                 try:
                     package = await knowledge.prepare(request.target_codes)
-                except Exception:  # noqa: BLE001 — 失败仍保存已完成的来源查询，随后交给任务边界。
+                except Exception:
                     await asyncio.to_thread(
                         store.record, "knowledge.json", {"audit": knowledge.audit}
                     )

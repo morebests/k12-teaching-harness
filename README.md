@@ -4,7 +4,7 @@
 
 它使用本地 Learning Commons、课程目标和学习者上下文，完成课程体系、课时与材料、教学适配、教师备课和理解度检查。对上游 Skills 已有的四项能力，目标是达到并争取超过其教学执行水平；新增课程体系设计能力将各层目标、学习进程、实际任务和评测贯通起来。
 
-本 README 是本项目**目标、实施路线、设计与协作原则、职责范围**的权威入口。项目任务先读本页，再按 [文档读取路径](#文档读取路径) 进入当前决定、规格和详细参考。本轮 wayfinder 已形成 [架构与可行性结论](.scratch/skills-harness/assets/architecture-conclusion.md)，并已交接为 [五项能力的交付规格](.scratch/math-harness-delivery/spec.md) 和 [实现路线与任务](.scratch/math-harness-delivery/README.md)；这些实现任务尚未开始，生产和教学质量门槛尚未通过。
+本 README 是本项目**目标、实施路线、设计与协作原则、职责范围**的权威入口。项目任务先读本页，再按 [文档读取路径](#文档读取路径) 进入当前决定、规格和详细参考。本轮 wayfinder 已形成 [架构与可行性结论](.scratch/skills-harness/assets/architecture-conclusion.md)，并已交接为 [五项能力的交付规格](.scratch/math-harness-delivery/spec.md) 和 [实现路线与任务](.scratch/math-harness-delivery/README.md)。首个有限课程任务已实现并完成真实模型检查闭环；其余实现票、生产和广泛教学质量门槛仍待完成。实际结果、失败与局限见 [首票验证报告](.scratch/math-harness-delivery/evidence/01-live-curriculum/README.md)。
 
 当前方案于 2026-09-15 按用户“定稿提交 push”的指令定稿，包含 [面向课程负责人／教师的交互参考](.scratch/math-harness-delivery/prototype-baseline.md) 与下文的文件化／框架复用范围。全年课程体系及跨层交接已补入同一原型；全部 ticket 的工程依赖见 [依赖关系图](.scratch/math-harness-delivery/dependencies.md)。实现期间共用同一交互参考，按当前阶段落实功能，内容历史等后置能力不因原型已有演示而提前建设。不再重复索取本轮定稿确认；静态原型不是生产或教学质量验收。
 
@@ -13,6 +13,12 @@
 **当前先完成文件化的教学内容闭环。** 按用户最新范围，自行确定中间格式，不再评估或借鉴另一项目的 authoring；暂不上业务数据库，不建设内容版本历史。采用 JSON 保存当前课程／教学工作源和检查，正文允许 Markdown／LaTeX，图件另存文件；运行状态与真实待答由框架管理，保留内容指纹以核对检查和回应的适用性。具体见 [文件化内容格式](.scratch/math-harness-delivery/content-system-design.md)。先落实最小格式与读写渲染，不将全功能内容平台、编辑器或生产部署作为此前置；完整追溯、内容历史及生产可靠性保留在后续交付范围。
 
 当前运行时继续使用 **LangGraph＋Agent Server，以 `langgraph dev` 本地开发模式运行**。会话、run、状态保存、流式、取消及 HITL 恢复直接复用框架，前端使用原生 API／SDK；不另造后台任务、队列、SSE 或文件运行状态机。教学内容仍用 JSON／图件保存，不建业务数据库或内容历史；框架内部 checkpoint 保留。具体见 [简化运行时](.scratch/math-harness-delivery/content-system-design.md#运行时也从简)。当前无需独立 PostgreSQL／Redis 服务，生产部署与完整故障验收后置。
+
+## 当前可运行切片
+
+已支持八年级 CCSS 的有限课段设计：真实 Gemini＋本地 LC、原生任务 API／进度流、JSON／图件／教师阅读稿、独立检查与反馈修订。运行 `uv sync --frozen`、`npm ci --ignore-scripts` 后，按 [配置与调用说明](docs/runtime.md) 启动 `uv run python scripts/dev.py --port 2024`。正式类型和导出契约位于 `src/teaching_harness/contracts.py` 与 `docs/contracts/`。
+
+本次真实结果为 3 课时、6 项关键任务，当前检查通过；不代表完整全年、正式三课上层、课堂成效或生产保证。取消后快速重启仍有框架重放窗口，应用保留累计用量并停止重复执行；受控续作后置。浏览器视觉验收尚未完成。详见 [实际课段与验收证据](.scratch/math-harness-delivery/evidence/01-live-curriculum/e-completed/api-result.json)。
 
 ## 本仓库要交付的能力
 
