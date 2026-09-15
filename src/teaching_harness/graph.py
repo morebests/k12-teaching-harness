@@ -22,7 +22,6 @@ from langchain_core.tools import tool
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.config import get_stream_writer
 from langgraph.graph import END, START, StateGraph
-from langsmith import tracing_context
 
 from teaching_harness.content import ContentStore
 from teaching_harness.contracts import Curriculum, Finding, Review, TaskRequest, fingerprint
@@ -343,13 +342,16 @@ def build_graph(
                     return result
 
                 tools = [browse, calculate_math, read_curriculum, save_curriculum, plot_linear]
-                author = create_agent(model, tools, system_prompt=rules, middleware=[budget])
+                author = create_agent(
+                    model, tools, system_prompt=rules, middleware=[budget], name="curriculum_author"
+                )
                 reviewer = create_agent(
                     model,
                     [calculate_math],
                     system_prompt=review_rules,
                     response_format=ToolStrategy(Review),
                     middleware=[budget],
+                    name="curriculum_reviewer",
                 )
                 feedback: dict[str, Any] | None = None
                 while True:
@@ -361,19 +363,15 @@ def build_graph(
                         "current": current,
                         "review_feedback": feedback,
                     }
-                    # 独立审阅不带生成对话，且当前关闭内容上报；平台 trace 在后续票验证。
-                    with tracing_context(enabled=False):
-                        await author.ainvoke(
-                            {
-                                "messages": [
-                                    {
-                                        "role": "user",
-                                        "content": json.dumps(message, ensure_ascii=False),
-                                    }
-                                ]
-                            },
-                            config={"recursion_limit": 500},
-                        )
+                    # 云端追踪继承框架与服务端配置；原生 run 标识和命名保留调用关联。
+                    await author.ainvoke(
+                        {
+                            "messages": [
+                                {"role": "user", "content": json.dumps(message, ensure_ascii=False)}
+                            ]
+                        },
+                        config={"recursion_limit": 500, "run_name": "curriculum_author"},
+                    )
                     current = await asyncio.to_thread(store.snapshot)
                     if current["content"] is None:
                         raise ResourceStop("模型尚未保存实际课程，不能宣称完成")
@@ -384,28 +382,25 @@ def build_graph(
                             "message": "正在独立核对数学、目标与课堂条件",
                         }
                     )
-                    with tracing_context(enabled=False):
-                        checked = await reviewer.ainvoke(
-                            {
-                                "messages": [
-                                    {
-                                        "role": "user",
-                                        "content": json.dumps(
-                                            {
-                                                "request": request.model_dump(),
-                                                "knowledge": package,
-                                                "content": current["content"],
-                                                "assets": await asyncio.to_thread(
-                                                    store.review_assets
-                                                ),
-                                            },
-                                            ensure_ascii=False,
-                                        ),
-                                    }
-                                ]
-                            },
-                            config={"recursion_limit": 500},
-                        )
+                    checked = await reviewer.ainvoke(
+                        {
+                            "messages": [
+                                {
+                                    "role": "user",
+                                    "content": json.dumps(
+                                        {
+                                            "request": request.model_dump(),
+                                            "knowledge": package,
+                                            "content": current["content"],
+                                            "assets": await asyncio.to_thread(store.review_assets),
+                                        },
+                                        ensure_ascii=False,
+                                    ),
+                                }
+                            ]
+                        },
+                        config={"recursion_limit": 500, "run_name": "curriculum_reviewer"},
+                    )
                     review = Review.model_validate(checked["structured_response"])
                     review.findings.extend(
                         deterministic_findings(

@@ -4,6 +4,7 @@ from typing import Any, Self
 
 import httpx
 from langgraph_sdk import get_client
+from langgraph_sdk.schema import StreamMode
 
 from .contracts import Receipt, TaskRequest, fingerprint, task_id
 
@@ -22,7 +23,7 @@ class HarnessClient:
     async def __aexit__(self, *args: object) -> None:
         await self.http.aclose()
 
-    async def submit(self, request: TaskRequest) -> Receipt:
+    async def submit(self, request: TaskRequest, *, diagnostics: bool = False) -> Receipt:
         tid = task_id(self.identity, request.event_id)
         thread = await self.native.threads.create(
             thread_id=tid, if_exists="do_nothing", metadata={"request": request.model_dump()}
@@ -32,13 +33,18 @@ class HarnessClient:
             rid = runs[0]["run_id"]
         else:
             try:
+                modes: list[StreamMode] = (
+                    ["custom", "messages-tuple", "updates", "debug"] if diagnostics else ["custom"]
+                )
                 # SDK 0.4.4 的实现支持 durability，overload 声明遗漏该参数。
                 run = await self.native.runs.create(
                     tid,
                     "curriculum",
                     input={"request": request.model_dump()},  # type: ignore[call-overload]
                     multitask_strategy="reject",
-                    stream_mode="custom",
+                    stream_mode=modes,
+                    stream_subgraphs=diagnostics,
+                    stream_resumable=diagnostics,
                     durability="sync",
                 )
                 rid = run["run_id"]

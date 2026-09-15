@@ -43,6 +43,7 @@
 | --- | --- | --- |
 | [数学课程与教学设计 Harness：架构与可行性结论](architecture-conclusion.md) | 汇总采用结构、职责、首个实现顺序及规格交接 | 本轮 Wayfinder 已收敛；生产、完整单元及 Skills 质量尚未通过，不代表已证明最优 |
 | [模型、知识与产物工具的实现选择](model-knowledge-artifact-design.md) | 原生循环、实际运行资源、browse 映射、工具职责与上游渲染源码复用 | 技术选择及源码／官方依据；真实模型与原生服务合并、全部模型与生产恢复仍待验收 |
+| [ReAct Agent 与 LangGraph 工作流的职责边界](react-and-workflow-boundaries.md) | 首票实现后核对官方 Agent／workflow 分工、直接部署、子图恢复、middleware 与调用关联；关联 [实际工具顺序](../../math-harness-delivery/evidence/01-live-curriculum/tool-sequence-review.md) | 现有外层单节点没有表达已知业务阶段，日志不能完整还原一次 Agent 执行；本次是复核与改进建议，尚未实施阶段拆分或补齐追踪 |
 | [从架构可行到教学交付的验证路线](validation-and-release-route.md) | 完整单元、五项能力、Skills／IM 分开比较、运行和教师使用门槛；先质量、随任务记录消耗、后优化预算 | 方法与交接已定；预算优化不作首版前置，不重写原始失败或宣称模型／教师质量已通过 |
 | [CFU 持久执行：真实回应、故障恢复与服务接口实测](cfu-durable-prototype-results.md) | 13 项固定事件故障探针、一次真实原型焦点回应及跨进程恢复、Agent Server dev 重启、LangSmith SDK 本地发送与 503 解耦 | 固定模型／材料，完整教学检查未实现；不是生产恢复、LangSmith 云端集成、任意自然语言理解或学校试用证据 |
 | [教学 Harness 的主执行链、调用与运行承载](main-execution-design.md) | 将自然语言任务、实际版本与 Context、模型／工具、检查修订、五项 HITL 位置和框架责任连成主链 | 调用语义已由关联决定收敛，含六项操作、回执／采纳／续作、范围化结果及静态示例；正式 Schema、生产实现和任意自然语言质量尚未验证 |

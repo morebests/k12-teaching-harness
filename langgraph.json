@@ -2,6 +2,9 @@
   "dependencies": ["."],
   "graphs": {"curriculum": "./src/teaching_harness/graph.py:graph"},
   "auth": {"path": "./src/teaching_harness/auth.py:auth", "disable_studio_auth": true},
-  "http": {"app": "./src/teaching_harness/api.py:app", "enable_custom_route_auth": true},
-  "env": ".env"
+  "http": {
+    "app": "./src/teaching_harness/api.py:app",
+    "enable_custom_route_auth": true
+  },
+  "env": {"FF_V2_EVENT_STREAMING": "false"}
 }

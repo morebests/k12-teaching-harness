@@ -13,13 +13,27 @@ from teaching_harness.contracts import TaskRequest, fingerprint, task_id
 auth = Auth()
 
 
-@auth.authenticate
-async def authenticate(authorization: str | None) -> dict[str, Any]:
+def diagnostics_allowed(identity: str | None) -> bool:
+    """详细诊断须由服务开启，并授予已有可信身份；不扩大任务访问范围。"""
+    if os.environ.get("HARNESS_DIAGNOSTICS", "false").lower() != "true":
+        return False
+    identities = json.loads(os.environ.get("HARNESS_DEBUG_IDENTITIES", "[]"))
+    return isinstance(identities, list) and identity is not None and identity in identities
+
+
+def authenticated_identity(authorization: str | None) -> str | None:
     configured = json.loads(os.environ.get("HARNESS_AUTH_TOKENS", "{}"))
     supplied = (authorization or "").removeprefix("Bearer ")
     for identity, token in configured.items():
         if token and hmac.compare_digest(supplied, token):
-            return {"identity": identity, "is_authenticated": True}
+            return str(identity)
+    return None
+
+
+@auth.authenticate
+async def authenticate(authorization: str | None) -> dict[str, Any]:
+    if identity := authenticated_identity(authorization):
+        return {"identity": identity, "is_authenticated": True}
     raise Auth.exceptions.HTTPException(status_code=401, detail="调用凭据无效")
 
 
@@ -73,10 +87,13 @@ async def create_run(
     thread_id = str(value["thread_id"])
     thread = await client.threads.get(thread_id)
     kwargs = value["kwargs"]
-    if set(kwargs.get("stream_mode", [])) - {"custom", "values", "updates"} or kwargs.get(
+    detailed = set(kwargs.get("stream_mode", [])) - {"custom", "values", "updates"} or kwargs.get(
         "subgraphs"
-    ):
-        raise Auth.exceptions.HTTPException(status_code=422, detail="仅开放教学进度、草稿和结果流")
+    )
+    if detailed and not diagnostics_allowed(ctx.user.identity):
+        raise Auth.exceptions.HTTPException(
+            status_code=422, detail="详细流需要启用诊断并具有维护者权限"
+        )
     expected = {"request": (thread["metadata"] or {})["request"]}
     if kwargs.get("input") != expected or kwargs.get("command"):
         raise Auth.exceptions.HTTPException(status_code=409, detail="运行输入必须等于已接收事件")

@@ -4,6 +4,7 @@ import argparse
 import asyncio
 import json
 import os
+from contextlib import nullcontext
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -20,9 +21,19 @@ async def main() -> None:
     parser.add_argument("--output", default="work/last-result.json")
     parser.add_argument("--source", help="调用方已规范化的实际 JSON 内容文件")
     parser.add_argument("--instruction", help="本次课程设计的具体要求")
+    parser.add_argument("--identity", help="使用本地凭据配置中的指定身份")
+    parser.add_argument(
+        "--diagnostics", help="维护者：为新运行订阅详细原生流并保存到新的 JSONL 文件"
+    )
     args = parser.parse_args()
+    if args.query and args.diagnostics:
+        parser.error("--diagnostics 用于新运行；已有运行请用原生 runs.join_stream 读取已保留的流")
+    if args.diagnostics and Path(args.diagnostics).resolve() == Path(args.output).resolve():
+        parser.error("诊断流与最终结果需要不同的输出文件")
     load_dotenv(".env.local")
-    identity, token = next(iter(json.loads(os.environ["HARNESS_AUTH_TOKENS"]).items()))
+    credentials = json.loads(os.environ["HARNESS_AUTH_TOKENS"])
+    identity = args.identity or next(iter(credentials))
+    token = credentials[identity]
     request = TaskRequest.model_validate(
         {
             "event_id": args.event,
@@ -75,28 +86,56 @@ async def main() -> None:
         if args.query:
             result = await client.query(args.query)
         else:
-            receipt = await client.submit(request)
-            print(receipt.model_dump_json(), flush=True)
-            assert await client.submit(request) == receipt
-            async for chunk in client.native.runs.join_stream(
-                receipt.task_id, receipt.run_id, stream_mode="custom"
-            ):
-                if chunk.event == "custom":
-                    event = chunk.data
-                    if event.get("type") == "draft":
-                        print(
+            trace_path = Path(args.diagnostics) if args.diagnostics else None
+            if trace_path:
+                trace_path.parent.mkdir(parents=True, exist_ok=True)
+            # 诊断含实际模型／工具内容，文件仅当前用户可读写且不覆盖旧记录。
+            with (
+                os.fdopen(os.open(trace_path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600), "w")
+                if trace_path
+                else nullcontext()
+            ) as trace:
+                receipt = await client.submit(request, diagnostics=bool(trace_path))
+                assert receipt.run_id is not None
+                print(receipt.model_dump_json(), flush=True)
+                assert await client.submit(request, diagnostics=bool(trace_path)) == receipt
+                if trace:
+                    trace.write(json.dumps({"receipt": receipt.model_dump()}) + "\n")
+                async for chunk in client.native.runs.join_stream(
+                    receipt.task_id,
+                    receipt.run_id,
+                    stream_mode=None if trace else "custom",
+                    last_event_id="0-0" if trace else None,
+                ):
+                    if trace:
+                        trace.write(
                             json.dumps(
                                 {
-                                    "type": "draft",
-                                    "checked": False,
-                                    "title": event["content"]["title"],
+                                    "event": chunk.event,
+                                    "id": chunk.id,
+                                    "data": chunk.data,
                                 },
                                 ensure_ascii=False,
-                            ),
-                            flush=True,
+                            )
+                            + "\n"
                         )
-                    else:
-                        print(json.dumps(event, ensure_ascii=False), flush=True)
+                        trace.flush()
+                    if chunk.event.split("|")[0] == "custom":
+                        event = chunk.data
+                        if event.get("type") == "draft":
+                            print(
+                                json.dumps(
+                                    {
+                                        "type": "draft",
+                                        "checked": False,
+                                        "title": event["content"]["title"],
+                                    },
+                                    ensure_ascii=False,
+                                ),
+                                flush=True,
+                            )
+                        else:
+                            print(json.dumps(event, ensure_ascii=False), flush=True)
             result = await client.query(receipt.task_id)
         output = Path(args.output)
         output.parent.mkdir(parents=True, exist_ok=True)

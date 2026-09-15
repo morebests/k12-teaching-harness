@@ -94,9 +94,10 @@ class TestModel(BaseChatModel):
                 }
             ]
         elif not any(isinstance(m, ToolMessage) for m in messages):
-            calls = [
-                {"name": "calculate_math", "id": "math", "args": {"expression": "(23-11)/(6-2)"}}
-            ]
+            expression = (
+                "1/0" if "验证失败工具追踪" in str(messages[1].content) else "(23-11)/(6-2)"
+            )
+            calls = [{"name": "calculate_math", "id": "math", "args": {"expression": expression}}]
         elif not any(isinstance(m, ToolMessage) and m.name == "save_curriculum" for m in messages):
             payload = json.loads(messages[1].content)
             calls = [

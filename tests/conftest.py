@@ -37,7 +37,7 @@ def work_root(tmp_path_factory):
 
 
 @pytest.fixture(scope="session")
-def server(tmp_path_factory, work_root):
+def server(tmp_path_factory, work_root, request):
     work = tmp_path_factory.mktemp("server")
     with socket.socket() as sock:
         sock.bind(("127.0.0.1", 0))
@@ -50,20 +50,30 @@ def server(tmp_path_factory, work_root):
             "disable_studio_auth": True,
         },
         "http": {
+            **json.loads((ROOT / "langgraph.json").read_text())["http"],
             "app": str(ROOT / "src/teaching_harness/api.py") + ":app",
-            "enable_custom_route_auth": True,
         },
         "env": {
+            **json.loads((ROOT / "langgraph.json").read_text())["env"],
             "HARNESS_AUTH_TOKENS": json.dumps(
-                {"测试调用方": "test-token", "其他学校": "other-token"}
+                {"测试调用方": "test-token", "其他学校": "other-token", "维护者": "debug-token"}
             ),
+            "HARNESS_DIAGNOSTICS": "true",
+            "HARNESS_DEBUG_IDENTITIES": json.dumps(["维护者"]),
             "HARNESS_WORK_DIR": os.path.relpath(work_root, work),
             "LANGSMITH_TRACING": "false",
             "LANGCHAIN_TRACING_V2": "false",
             "LANGGRAPH_CLI_NO_ANALYTICS": "1",
         },
     }
+    diagnostic_mode = getattr(request, "param", "true")
+    if diagnostic_mode == "default":
+        del config["env"]["HARNESS_DIAGNOSTICS"]
+    else:
+        config["env"]["HARNESS_DIAGNOSTICS"] = diagnostic_mode
     (work / "langgraph.json").write_text(json.dumps(config))
+    environment = os.environ.copy()
+    environment.pop("HARNESS_DIAGNOSTICS", None)
     with (work / "server.log").open("w") as log:
         proc = subprocess.Popen(
             [
@@ -77,7 +87,7 @@ def server(tmp_path_factory, work_root):
             cwd=work,
             stdout=log,
             stderr=log,
-            env=os.environ.copy(),
+            env=environment,
         )
         try:
             for _ in range(120):

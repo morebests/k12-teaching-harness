@@ -18,6 +18,8 @@
 
 已支持八年级 CCSS 的有限课段设计：真实 Gemini＋本地 LC、原生任务 API／进度流、JSON／图件／教师阅读稿、独立检查与反馈修订。运行 `uv sync --frozen`、`npm ci --ignore-scripts` 后，按 [配置与调用说明](docs/runtime.md) 启动 `uv run python scripts/dev.py --port 2024`。正式类型和导出契约位于 `src/teaching_harness/contracts.py` 与 `docs/contracts/`。
 
+维护者可通过原生流查看模型／工具请求、返回与错误，并保存本地诊断记录。开发脚本默认开启诊断能力，读取仍须服务配置的维护者身份及任务访问权；生产直接启动默认关闭，可由管理员显式开启。普通教学订阅继续只提供教学进度、草稿与结果。LangSmith 追踪尊重服务端显式配置，平台关联和观察故障仍由后续票验收；配置与回放方法见 [维护者诊断](docs/runtime.md#维护者诊断)。
+
 本次真实结果为 3 课时、6 项关键任务，当前检查通过；不代表完整全年、正式三课上层、课堂成效或生产保证。取消后快速重启仍有框架重放窗口，应用保留累计用量并停止重复执行；受控续作后置。浏览器视觉验收尚未完成。详见 [实际课段与验收证据](.scratch/math-harness-delivery/evidence/01-live-curriculum/e-completed/api-result.json)。
 
 ## 本仓库要交付的能力

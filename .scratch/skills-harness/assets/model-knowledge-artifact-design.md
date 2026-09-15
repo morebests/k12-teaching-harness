@@ -19,6 +19,8 @@
 
 ## 模型调用及三类接入
 
+**首票实现后复核（2026-09-15）：**真实 Gemini 与原生循环已在有限课程任务合并运行，证据见 [首票报告](../../math-harness-delivery/evidence/01-live-curriculum/README.md)。但当前外层图仅有 `curriculum_work`，生成、独立审阅和反馈判断都在一个 Python 循环内；没有充分落实下文所说的阶段分工。`create_agent` 本身就是编译后的 LangGraph 图，可直接注册 Agent Server；外层图的价值应来自显式业务阶段，不能仅以服务承载说明其必要性。官方依据、恢复边界和改进建议见 [职责边界复核](react-and-workflow-boundaries.md)，日志可重建范围见 [真实工具顺序](../../math-harness-delivery/evidence/01-live-curriculum/tool-sequence-review.md)。本次补记缺口，不将建议图当成已实施结构；下文探针与未合并的描述保留为实施前证据状态。
+
 优先采用用户选择且已有真实工具往返和内容实验的 Gemini `gemini-3.8-flash`，经 `ChatGoogleGenerativeAI` 接入。工作段内用 `create_agent` 的模型／工具循环；外层 LangGraph 只安排需要保存、等待和切换可见信息的位置。现有两个探针分别验证了真实 Gemini 手写循环和固定模型 `create_agent`，**尚未验证两者合并后的完整教学路径**。合并是首个实现切片需要兑现的事，不能把两份独立通过记录相加成生产成功。
 
 2026-09-15 核对官方集成说明后的接入判断：
