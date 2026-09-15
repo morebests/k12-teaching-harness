@@ -4,6 +4,8 @@
 
 ## 先确定模块承担的工作
 
+**当前阶段调整（2026-09-15）：**采用 [文件化内容格式与原生开发服务](../../math-harness-delivery/content-system-design.md)，不上业务数据库、不做内容历史、不再参考外部 authoring。运行使用 LangGraph＋Agent Server dev，直接复用 thread／run、checkpoint、流式和 HITL；教学内容与检查使用 JSON／图件及指纹，不另建文件任务状态机。下文完整内容历史和生产部署职责保留后续，不按早期“首版”措辞扩大当前切片。
+
 首版采用一个 Python 教学执行后端，复用 LangChain／LangGraph／Agent Server。下列是内部职责划分，可以在同一进程和部署中实现，不分别建设服务，不先做插件市场或任意工作流配置器。
 
 | 模块 | Interface 接收／返回什么 | 隐藏的实现工作 |

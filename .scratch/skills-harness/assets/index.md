@@ -12,7 +12,7 @@
 
 | 当前任务 | 必读材料 | 应带回当前工作的内容 |
 | --- | --- | --- |
-| 实现前用户交互与原型复核 | [交互基准与维护约定](../../math-harness-delivery/prototype-baseline.md)、[教学工作区样本](../../math-harness-delivery/prototypes/teaching-workspace.prototype.html)、[完整依赖图](../../math-harness-delivery/dependencies.md)，以及本表对应能力的详细流程 | 面向课程负责人／教师的简洁交互、各能力自己的参与条件、旧开发原型的证据定位；候选仍待用户确认，不把模拟当作真实运行 |
+| 实现前用户交互与原型复核 | [交互基准与维护约定](../../math-harness-delivery/prototype-baseline.md)、[全年到教学的交互方案](../../math-harness-delivery/teaching-workspace.shape.md)、[教学工作区样本](../../math-harness-delivery/prototypes/teaching-workspace.prototype.html)、[完整依赖图](../../math-harness-delivery/dependencies.md)，以及本表对应能力的详细流程 | 课程层级导航与内容旁的教学任务、各能力自己的参与条件、旧开发原型的证据定位；现行 HTML 随用户指令定稿保存，按文件化阶段实施，内容历史后置，不把模拟当作真实运行 |
 | 整体能力与执行架构 | [架构结论](architecture-conclusion.md)、[能力范围与推进路线分析](harness-scope-and-priority.md)、[四项源码盘点](skill-capabilities.md)、[执行与 HITL 参考](execution-contract-draft.md)、[执行结构分析](execution-structure-design.md)、[采用决定](../issues/03-execution-structure.md) 及 [主执行与调用设计](main-execution-design.md) | 各项能力的实际工作、输入产物、完成条件、现有机制、阶段边界、实际版本交接和改变需要的证据 |
 | 课程体系与跨层修订 | [课程能力决定](../issues/12-curriculum-design.md#resolution课程设计的能力约定与双向交接2026-09-14)、[课程体系设计](curriculum-design-capability.md)、[IM 方法论补强](im-design-methodology-transfer.md)、[本地图用法](learning-commons-integration.md)、[Context 设计](context-and-llm-design.md) | 四层职责、双向交接、活动目的、表征与练习进程、证据及变更影响 |
 | 数学课时与材料设计 | [数学教案详细流程](lesson-creation-execution-design.md)、[教案创建原 Skill](../../../k12-teacher-skills/plugin/skills/k12-lesson-plan-creation/SKILL.md) 及其中适用参考 | 知识依据、实际任务、教师交互、草稿延续、材料生成、检查与修订 |
@@ -34,6 +34,10 @@
 进入实现或评审时，还需读取 [五项能力的交付规格](../../math-harness-delivery/spec.md)、[实现路线与任务](../../math-harness-delivery/README.md) 中对应实现票和关联决定；[逐票规模与依赖复核](../../math-harness-delivery/ticket-sizing-review.md) 解释当前拆分与待收口工作包。候选研究提供依据，不能自动替代已确定的验收要求。规格和实现票已经形成，实际实施与质量验收尚未开始。
 
 ## 当前设计与研究
+
+当前采用 [文件化内容格式](../../math-harness-delivery/content-system-design.md)。涉及内容保存、公式／表格／图片、修改、检查、渲染或制作前后端接合时，须与本表相关分支一起读取。按用户最新范围，JSON 保存当前工作源，正文允许 Markdown／LaTeX，图件另存；暂不上数据库，不建设内容版本历史，也不再以外部 authoring 为参考。该阶段约定覆盖旧设计中首版存储的时点，完整运行方向与教学质量要求保留；最小字段及实际往返仍待实现验证。
+
+运行继续采用 **LangGraph＋Agent Server dev**，直接复用 thread／run、本地 checkpoint、流式、取消和真实中断恢复；不自建后台协程调度、文件运行状态机或 SSE 服务。不上业务数据库及不做内容历史，不表示停用框架状态保存；此前停用 Agent Server 的候选已撤回，生产部署专项仍后置。
 
 | 材料 | 已完成的工作 | 使用边界 |
 | --- | --- | --- |

@@ -19,6 +19,8 @@ Labels: wayfinder:map
 
 ## Decisions so far
 
+- [当前存储与运行阶段调整](issues/06-architecture-conclusion.md#2026-09-15用户收缩当前存储阶段)：JSON 当前稿、Markdown／LaTeX 正文和独立图件；不上业务数据库、不做内容历史、不参考外部 authoring。运行继续用 LangGraph＋Agent Server dev，复用本地 checkpoint、流式、取消和 HITL，不自建运行状态机或队列；完整生产部署后置。详见 [文件化与运行约定](../math-harness-delivery/content-system-design.md)。
+
 - [课程体系与教学能力的范围和质量基线是什么](issues/01-capability-contract.md)：独立课程体系设计纳入核心；数学优先，IM／Skills 为可取舍参考，本地 KG 由外部提供；具体设计和实现验证继续推进。
 - [LangGraph 如何承载理解度检查的暂停恢复与文件验证顺序](issues/08-cfu-runtime-research.md)：已有局部框架文档事实；仅供后续执行设计参考，不表示采用该 Skill 的全部流程或已确定完整架构。
 - [课程体系设计如何形成可教、可检验的学习进程](issues/12-curriculum-design.md)：收敛四层责任、课程与课时双向交接、修订及交付判据；具体执行状态与效果验证继续由后续决策处理。

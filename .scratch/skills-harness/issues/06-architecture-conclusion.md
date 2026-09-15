@@ -28,6 +28,14 @@ Blocked by: 02, 03, 04, 05, 07, 09, 11, 12, 14
 
 ## Comments
 
+### 2026-09-15：用户收缩当前存储阶段
+
+随后用户要求简化 AI 运行时，并指出框架已提供多数机制。重新核查官方文档及既有 dev 探针后，采用 [LangGraph＋Agent Server dev](../../math-harness-delivery/content-system-design.md#运行时也从简)：会话、run、流式、状态保存、取消和 interrupt／resume 直接复用；不引入业务数据库和独立 PostgreSQL／Redis 服务。上一轮自行管理后台协程、文件运行状态及 SSE 的解释会重复造轮子，已撤回。生产部署与完整故障验收仍后置，框架 checkpoint 不属于被后置的内容历史产品。
+
+用户明确自行设计中间格式，现阶段不上数据库、暂不做版本历史，另一项目 authoring 不再作为参考。当前采用 [文件化教学内容闭环](../../math-harness-delivery/content-system-design.md)：JSON 是实际内容源，正文允许 Markdown／LaTeX，图件独立保存；保留真实教学流程、必要 HITL、检查修订与内容指纹。已同步 README、规格、交付入口与首票。
+
+当前不要求先完成完整内容／资产平台和生产持久部署，旧设计中相关“首版”时点由本阶段约定覆盖。完整历史追溯、可靠调度与故障恢复是后续目标，不能以文件化切片通过将其记为完成。总体教学目标与运行技术方向不变，不重开完整 Wayfinder 或删除已有研究证据。
+
 ### 用户明确预算与质量的推进顺序（2026-09-15）
 
 用户明确先实现高质量能力，观察不同复杂度任务的消耗，再逐步优化预算。已同步 [README](../../../README.md#设计与协作原则)、[架构结论](../assets/architecture-conclusion.md#技术选用及部署条件) 与 [验证路线](../assets/validation-and-release-route.md#质量与消耗的推进顺序)。规格保留实际消耗记录及最小运行保障，预算压缩、预测和优化不设为首版前置；不削减必要 Context、检查和有进展的修订来满足探索次数。

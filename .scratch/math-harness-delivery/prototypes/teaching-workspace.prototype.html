@@ -1,90 +1,368 @@
 <!doctype html>
 <html lang="zh-CN">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>教学工作区 · 交互原型</title>
+<title>数学课程工作区 · 交互原型</title>
 <style>
-:root{color-scheme:light;--ink:#22352f;--muted:#65766e;--line:#dbe3dd;--accent:#256149;--wash:#eff5f0}*{box-sizing:border-box}body{margin:0;background:#f7f8f4;color:var(--ink);font:16px/1.65 system-ui,-apple-system,sans-serif}button,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:white;color:var(--ink);border-radius:8px;padding:8px 14px}button:hover{border-color:var(--accent);background:var(--wash)}button:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #80ab90;outline-offset:3px}button.primary{background:var(--accent);color:white;border-color:var(--accent)}button:disabled{opacity:.5;cursor:default}a{color:var(--accent)}.wrap{max-width:1180px;margin:auto;padding:24px}.intro{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:24px}.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}h1{font-size:28px;letter-spacing:-.03em;margin:4px 0 8px}h2{font-size:20px;margin:0 0 12px}h3{font-size:17px;margin:16px 0 8px}p{margin:8px 0}.muted,small{color:var(--muted)}.notice{background:#fff4dc;border:1px solid #ecd6a3;border-radius:8px;padding:10px 14px;font-size:14px}.layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:28px}.nav{display:grid;gap:8px;align-content:start}.nav button{text-align:left}.nav button[aria-pressed=true]{background:var(--wash);border-color:var(--accent);font-weight:650}.nav small{padding:8px}.workspace{background:white;border:1px solid var(--line);border-radius:12px;padding:28px;min-width:0}.head{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:20px}.pill{display:inline-block;padding:3px 10px;border-radius:20px;background:var(--wash);font-size:13px;white-space:nowrap}.context{background:#f6f8f5;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:14px}.content{border-top:1px solid var(--line);padding:20px 0}.content blockquote{margin:12px 0;border-left:3px solid #a9c4b2;padding:8px 16px;background:#fafbf9}.content ul{padding-left:24px}.content table{border-collapse:collapse;width:100%;font-size:14px}.content th,.content td{border-bottom:1px solid var(--line);padding:8px;text-align:left}.composer{border-top:1px solid var(--line);padding-top:20px}.composer label{display:block;font-weight:600;margin-bottom:8px}textarea{display:block;width:100%;min-height:110px;padding:12px;border:1px solid #b8c9bd;border-radius:8px;resize:vertical;background:white;color:var(--ink)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions .quiet{margin-left:auto;color:var(--muted)}.tabs{display:flex;gap:6px;margin-bottom:18px}.tabs button[aria-pressed=true]{border-color:var(--accent);background:var(--wash)}.step-note{font-size:14px;color:var(--muted);margin-top:12px}.reply{white-space:pre-wrap;background:var(--wash);padding:10px 14px;border-radius:8px;font-size:14px}.invalid{color:#88491d;background:#fff5e7;padding:12px;border-radius:8px}.footer{margin-top:20px;font-size:14px}details{padding:12px 0;border-top:1px solid var(--line)}summary{cursor:pointer;font-weight:600}code{background:#f1f3ef;padding:2px 4px;overflow-wrap:anywhere}.tech{display:grid;gap:10px}.tech dt{font-weight:600}.tech dd{margin:0}.blank{border-bottom:1px solid #aab8ae;height:40px;margin:12px 0}svg{display:block;max-width:100%;height:auto;margin:16px auto} @media(max-width:760px){.wrap{padding:16px}.layout{grid-template-columns:1fr;gap:16px}.nav{grid-template-columns:repeat(2,1fr)}.nav small{grid-column:1/-1}.workspace{padding:18px}.head{flex-wrap:wrap}.actions .quiet{margin-left:0}h1{font-size:25px}}
+:root{color-scheme:light;--ink:#22352f;--muted:#596b62;--line:#d8e1db;--accent:#256149;--wash:#edf4ef;--bg:#f7f8f6;--white:#fff;--warn:#80501d;--warn-bg:#fff5e7;--focus:#176846;--radius:8px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit;color:inherit}button,a,input,textarea,select,summary{touch-action:manipulation}button{cursor:pointer;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:8px 13px;line-height:1.5}button:hover{border-color:var(--accent);background:var(--wash)}button:disabled{color:#6c756f;background:#f0f2ef;cursor:not-allowed}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--focus);outline-offset:3px}button.primary{background:var(--accent);color:white;border-color:var(--accent)}button.primary:hover{background:#194932}button.quiet{border-color:transparent;background:transparent;color:var(--accent)}button.quiet:hover{background:var(--wash)}button.small{font-size:14px;padding:5px 10px}a{color:var(--accent);text-underline-offset:4px}::selection{background:#cfe3d7;color:#163d2b}input,textarea{caret-color:var(--accent)}*{scrollbar-color:#abbdb0 transparent;scrollbar-width:thin}
+h1,h2,h3,h4,p{margin:0}h1{font-size:32px;line-height:1.3;letter-spacing:-.025em;text-wrap:balance}h2{font-size:22px;line-height:1.4;letter-spacing:-.015em}h3{font-size:18px;line-height:1.45}h4{font-size:16px}p+p{margin-top:12px}small,.muted{color:var(--muted)}small{font-size:13px}.num{font-variant-numeric:tabular-nums}.reading{max-width:72ch}.reading p{margin-top:12px}.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.between{justify-content:space-between}.stack{display:grid;gap:14px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;background:var(--wash);border-radius:6px;font-size:13px;line-height:1.5}.chip.warn{background:var(--warn-bg);color:var(--warn)}.tag{font-size:13px;color:var(--muted)}.top{background:var(--white);border-bottom:1px solid var(--line)}.top-inner{max-width:1376px;margin:auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-size:18px;font-weight:700;white-space:nowrap;border:0;padding:0;background:transparent}.brand:hover{background:transparent}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.prototype-note{max-width:1312px;margin:12px auto 0;padding:0 24px;font-size:13px;color:var(--muted);display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}.prototype-note details{display:inline}.prototype-note summary{font-weight:400;display:inline;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.prototype-note details[open]{max-width:760px}.prototype-note p{margin-top:8px}.shell{max-width:1376px;margin:auto;padding:0 32px 40px}.crumbs{display:flex;align-items:center;gap:5px;flex-wrap:wrap;padding:18px 0;font-size:14px}.crumbs button{padding:5px 8px}.crumbs .sep{color:#63796b}.crumbs .current{font-weight:650;padding:5px 8px}.workspace{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start}.workspace.with-panel{grid-template-columns:minmax(0,1fr) 350px}main{min-width:0;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:32px}main:focus{outline:none}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:12px}.page-head .actions{margin:0}.subtitle{color:var(--muted);margin-top:10px}.meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:16px 0 24px}.subnav{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin:0 -4px 26px;padding:0 4px 12px}.subnav button{background:transparent;border-color:transparent}.subnav button[aria-current=page]{background:var(--wash);color:var(--accent);font-weight:650;border-color:#bdd3c3}.section{padding-top:26px;margin-top:26px;border-top:1px solid var(--line)}.section:first-child{border:0;margin:0;padding:0}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px}.section-head button{flex-shrink:0}.notice{border:1px solid #e4d6ba;background:var(--warn-bg);color:#6e481e;padding:12px 15px;border-radius:8px;font-size:14px;margin:16px 0}.info{border:1px solid var(--line);background:var(--wash);padding:12px 15px;border-radius:8px;font-size:14px;margin:16px 0}.empty{padding:24px 0}.empty h2{margin-bottom:12px}.empty p{max-width:65ch;color:var(--muted)}.unit-list{margin-top:16px}.unit-row{display:grid;grid-template-columns:45px minmax(0,1fr) 100px;gap:14px;align-items:start;padding:20px 0;border-top:1px solid var(--line)}.unit-row:first-child{border-top:0}.unit-number{color:var(--muted);font-size:14px;padding-top:5px}.unit-title{border:0;padding:0;text-align:left;background:transparent;border-radius:3px;font-weight:650;font-size:18px;color:var(--accent)}.unit-title:hover{text-decoration:underline;text-underline-offset:4px;background:transparent}.unit-row p{font-size:14px;margin:5px 0;color:var(--muted)}.unit-side{text-align:right;padding-top:5px}.unit-side .tag{display:block;margin-top:5px}.section-list>section{margin-top:28px}.lesson-row{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.lesson-row .unit-title{font-size:16px}.lesson-row p{font-size:13px;color:var(--muted);margin-top:4px}.table-wrap{overflow:auto;margin:16px 0}table{width:100%;border-collapse:collapse;text-align:left;font-size:14px;font-variant-numeric:tabular-nums}th,td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{font-weight:600;background:#f5f7f4}table caption{text-align:left;font-weight:600;margin-bottom:10px}.task-text{font-size:17px;line-height:1.8;background:#f7f9f6;border:1px solid var(--line);padding:20px;border-radius:8px;margin:16px 0}.task-text p{margin-top:12px}.task-text p:first-child{margin-top:0}.answer-space{height:50px;border-bottom:1px solid #8b9d90;margin-top:12px}.student-page{max-width:72ch;margin:auto}.student-page h2{margin-bottom:16px}.student-page ol{padding-left:24px}.student-page li{margin:16px 0}.plot{width:100%;max-width:560px;height:auto;display:block;margin:20px auto}.check-list{padding-left:20px}.check-list li{margin:10px 0}.aside{background:var(--white);border:1px solid var(--line);border-radius:12px;min-width:0;padding:22px;position:sticky;top:16px}.aside h2{font-size:19px}.aside-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:16px}.aside .section{margin-top:20px;padding-top:20px}.aside p{font-size:14px}.aside .field{margin-top:18px}.field label{display:block;font-weight:600;font-size:14px;margin-bottom:7px}textarea,input,select{width:100%;border:1px solid #a8bbae;border-radius:8px;background:white;padding:10px 12px}textarea{resize:vertical;min-height:120px;line-height:1.6}input::placeholder,textarea::placeholder{color:#626f67}input[type=number]{max-width:140px}select{max-width:100%}.field small{display:block;margin-top:7px}.log{padding-left:18px;margin:16px 0;font-size:13px}.log li{margin:9px 0}.raw{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f3;padding:10px;border-radius:6px;font-size:13px}.status-line{display:flex;align-items:center;gap:9px;font-size:14px;margin:14px 0}.dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex-shrink:0}.running .dot{animation:working 1.5s ease-in-out infinite}.request{padding:16px;background:var(--wash);border-radius:8px;margin:16px 0}.request h3{font-size:16px;margin-bottom:8px}.request p{font-size:14px}.version-item{padding:18px 0;border-bottom:1px solid var(--line)}.version-item p{margin-top:8px;font-size:14px}.version-item button{margin-top:10px}.old-banner{background:var(--warn-bg);padding:10px 14px;border-radius:8px;margin-bottom:18px;font-size:14px}.old-banner button{margin-left:8px}.help{margin-top:18px;border-top:1px solid var(--line);padding-top:14px;font-size:13px}.help summary{cursor:pointer;font-weight:500}.help p{margin-top:8px}.help button{margin-top:10px}.drawer{position:fixed;inset:0;z-index:20;background:rgb(25 42 32 / .24);display:flex}.drawer[hidden]{display:none}.drawer-inner{width:min(400px,90vw);height:100%;overflow:auto;background:white;padding:24px;box-shadow:8px 0 28px rgb(25 42 32 / .13)}.drawer-inner nav{display:grid;gap:4px;margin-top:18px}.drawer-inner button{text-align:left}.drawer-inner .nested{padding-left:28px;font-size:14px}.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.drawer h2{font-size:21px}.divider{height:1px;background:var(--line);margin:18px 0}.task-list-item{padding:14px 0;border-bottom:1px solid var(--line)}.task-list-item button{width:100%;text-align:left}.task-list-item small{display:block;margin-top:5px}.task-origin{font-size:13px;color:var(--muted);margin-bottom:12px}.footer{max-width:1376px;margin:auto;padding:0 32px 24px;font-size:13px;color:var(--muted)}.footer a{margin-right:14px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:absolute;left:16px;top:-60px;padding:10px 14px;background:white;z-index:100}.skip:focus{top:10px}.change{background:#f0f6ef;padding:12px 14px;margin:12px 0;border-radius:6px;font-size:14px}
+@keyframes working{50%{opacity:.3}}
+@media(min-width:1100px){.aside{animation:panel-in .18s ease-out}}
+@keyframes panel-in{from{transform:translateX(8px)}to{transform:translateX(0)}}
+@media(max-width:1099px){.workspace.with-panel{grid-template-columns:1fr}.aside{position:static;grid-row:1}.aside .field textarea{min-height:100px}.shell{padding-left:24px;padding-right:24px}.top-inner{padding:14px 24px}}
+@media(max-width:600px){body{font-size:15px}.top-inner{padding:14px 16px;align-items:flex-start;flex-wrap:wrap}.brand{font-size:17px}.toolbar{width:100%;gap:6px}.toolbar button{font-size:13px;padding:6px 9px}.prototype-note{padding:0 16px;gap:4px}.shell{padding:0 12px 28px}.crumbs{padding:12px 3px;gap:2px}.crumbs button,.crumbs .current{font-size:13px;padding:5px}.workspace{gap:16px}main{padding:20px 17px}.aside{padding:18px}h1{font-size:26px}h2{font-size:20px}.page-head{flex-wrap:wrap}.meta{margin-bottom:20px}.section-head{gap:8px}.section-head button{font-size:13px;padding:5px 7px}.unit-row{grid-template-columns:30px minmax(0,1fr);gap:10px;padding:17px 0}.unit-side{grid-column:2;text-align:left;padding:0;display:flex;gap:12px;align-items:center}.unit-side .tag{margin:0}.unit-title{font-size:17px}.lesson-row{grid-template-columns:35px minmax(0,1fr);gap:8px}.lesson-row>.chip{grid-column:2;justify-self:start}.task-text{padding:14px;font-size:15px}th,td{padding:9px 8px}.subnav{gap:2px}.subnav button{font-size:14px;padding:7px 9px}.footer{padding:0 16px 20px}.reading{max-width:100%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
+@media print{.top,.prototype-note,.crumbs,.aside,.footer,.toolbar,.actions,.subnav,.section-head button{display:none!important}.shell{padding:0}.workspace.with-panel{display:block}main{border:0;padding:0}body{background:white}.student-page{max-width:none}}
+@media(max-width:560px){.plot text{font-size:22px}}
+.authoring{display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px;align-items:start}.authoring.nav-collapsed{grid-template-columns:minmax(0,1fr)}.authoring.nav-collapsed .course-nav{display:none}.course-nav{position:sticky;top:16px;max-height:calc(100dvh - 32px);overflow:auto;padding:8px 10px 20px 0}.course-nav-head{position:sticky;top:0;z-index:1;background:var(--bg);padding:8px 0;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.course-nav h2{font-size:16px}.curriculum-tree{display:grid;gap:5px}.curriculum-tree button{width:100%;text-align:left;border-color:transparent;background:transparent;padding:8px;font-size:14px;line-height:1.55}.curriculum-tree button:hover{background:var(--wash)}.curriculum-tree button[aria-current=page]{background:#dfece3;color:#194932;font-weight:650}.curriculum-tree small{display:block;font-size:12px;font-weight:400}.curriculum-tree summary{cursor:pointer;padding:8px;font-size:14px;line-height:1.55}.curriculum-tree details details{margin-left:12px}.curriculum-tree .tree-lessons{margin-left:12px;border-left:1px solid var(--line);padding-left:7px}.curriculum-tree .tree-link{padding-left:17px}.course-nav p{font-size:12px;margin-bottom:12px;color:var(--muted)}.workspace{min-width:0}
+@media(min-width:1000px) and (max-width:1379px){.authoring:not(.nav-collapsed) .workspace.with-panel{grid-template-columns:minmax(0,1fr)}.authoring:not(.nav-collapsed) .aside{position:static;grid-row:1}}
+@media(max-width:999px){.authoring{display:block}.course-nav{display:none}}
+@media print{.course-nav{display:none!important}.authoring{display:block}}
 </style>
-<div class="wrap">
-<header class="intro">
-<div class="eyebrow">PROTOTYPE · 2026-09-15 · 候选，待确认</div>
-<h1>围绕教学内容，把工作做下去</h1>
-<p>走查问题：课程负责人和教师能否在一个工作区里提交需求、查看内容并回应，而不用记住内部场景？</p>
-<div class="notice">这是一次性交互原型。全部内容与处理结果均为预置样本，无模型、知识服务或后端连接；刷新即重置。只验证交互，不证明课程质量或运行可靠性。中文用于本次讨论，不更改美国 K–12／CCSS 语境。</div>
-</header>
-<div class="layout">
-<nav class="nav" aria-label="教学能力示例" id="nav"></nav>
-<main class="workspace" id="app"></main>
-</div>
-<footer class="footer"><a href="../prototype-baseline.md">交互基准与维护约定</a> · <a href="../dependencies.md">实现票依赖图</a> · 这些示例对应五种教学工作，不是必经的五个步骤。</footer>
-</div>
+</head>
+<body>
+<a class="skip" href="#content">跳到课程内容</a>
+<header class="top"><div class="top-inner"><button class="brand" data-action="home">数学课程工作区</button><div class="toolbar"><button data-action="new">新建课程设计</button><button data-action="independent">独立教学任务</button><button data-action="tasks" id="tasks-toggle">我的任务</button></div></div></header>
+<div class="prototype-note"><span>交互原型 · 模拟数据与执行 · 刷新后重置</span><details><summary>样本说明</summary><p>全年目录节选自已有原创实验；单元内计划、三课材料及修订结果为合成的交互样本。未连接模型、知识服务或后端。任意输入会保留原文，只有明确的演示文本或演示操作会推进预置结果。所有条件均为演示设定，不代表真实学校或学生。IM 仅用作页面布局参考。</p></details></div>
+<div class="shell"><nav class="crumbs" aria-label="课程位置" id="crumbs"></nav><div class="authoring" id="authoring"><aside class="course-nav" id="course-nav" aria-label="课程结构"></aside><div class="workspace" id="workspace"><main id="content" tabindex="-1"></main><aside class="aside" id="panel" hidden aria-label="当前工作"></aside></div></div></div>
+<footer class="footer"><a href="../prototype-baseline.md">交互基准与走查说明</a><a href="../teaching-workspace.shape.md">设计方案</a><span>中文用于讨论 · CCSS Mathematics · 教学质量与运行能力尚待验证</span></footer>
+<div class="drawer" id="directory" hidden role="dialog" aria-modal="true" aria-labelledby="directory-title"></div>
+<div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
 <script>
-// THROWAWAY: fixed fixtures, no language parser or production workflow implementation.
-const taskText='A bike rental charges a fixed starting fee and a constant fee per hour. Renting for 2 hours costs $12; renting for 5 hours costs $21. What is the hourly fee? What is the starting fee? Explain why dividing 12 by 2 does not give the hourly fee.';
-const flows={
- curriculum:{name:'课程体系设计',role:'课程负责人',scope:'八年级 · 线性函数 · 有限课段方案',context:'CCSS 8.F.B.4 · 原型学校条件：3 × 45 分钟 · 暂定独立课段，全年衔接未建立',seed:'设计一个三课时的线性函数课段，包含目标、进程、关键任务和学习检查。请在这个范围内直接完成。',first:'result',ticket:'01、15、17、06、07'},
- creation:{name:'课时与材料',role:'教师',scope:'八年级 · 变化率与初始值 · 一课',context:'CCSS 8.F.B.4 · 45 分钟 · 已知先备：读表、量的单位与数值差',seed:'先给我看一节变化率与初始值的课时草稿，总共 45 分钟。',first:'draft',ticket:'03、02、16'},
- adaptation:{name:'教学适配',role:'教师',scope:'同一租车任务 · 本次班级支持',context:'原课：本原型中的租车任务 · 合成教师观察：部分学生用总费用除以小时数 · 无真实学生数据',seed:'沿用租车原题，增加看懂两个量的变化的支持和一个拓展，生成后让我审阅本次材料。',first:'review',ticket:'08、02'},
- prep:{name:'教师备课',role:'教师',scope:'明天的租车任务 · 亲做与讨论',context:'原课：下方完整租车题 · 沿原课备课，不在这里重写课程',seed:'帮我准备讲这道租车题，我想先自己做，再讨论学生接近正确但仍有缺口的回应。',first:'try',ticket:'09、02'},
- cfu:{name:'理解度检查',role:'教师',scope:'八年级 · 变化率 · 一个检查焦点',context:'CCSS 8.F.B.4 · 仅提供标准与用途即可开始，无需先有教案',seed:'做一个变化率的理解度检查，帮助我判断下一节课要补什么。',first:'focus',ticket:'10、02'}
-};
-const state0=key=>({key,stage:'new',version:1,view:'student',revised:false,partial:false,history:[],message:'',lastAction:'尚未提交示例需求',contribution:''});
-function reduce(s,a){
- if(a.type==='reset')return state0(a.key||s.key);
- if(a.type==='view')return {...s,view:a.view};
- if(a.type==='unrecognized')return {...s,history:[...s.history,a.text],message:'原文已在本页记录，但未被解释或采纳。本原型不理解任意自然语言；请使用下方“走查辅助”提供的示例继续。',lastAction:'仅记录原文；未推进工作'};
- if(a.type==='cancel')return {...s,stage:'cancelled',message:'',lastAction:'已取消本页示例，保留此前内容和回应记录'};
- return {...s,...a.patch,history:[...s.history,a.text],message:'',lastAction:a.note};
-}
-let state=state0('curriculum');
+'use strict';
+// Static interaction fixtures. No model, knowledge query or production workflow.
+const units=[
+ {id:1,title:'刚性变换与全等',periods:16,goal:'通过平移、旋转与反射描述图形关系。',codes:'8.G.A.1–3'},
+ {id:2,title:'位似、相似与斜率',periods:18,goal:'连接几何中的相似关系与直线的恒定变化率。',codes:'8.G.A.4–5 · 8.EE.B.5–6'},
+ {id:3,title:'一元一次方程',periods:16,goal:'理解等价变形，解释方程解的不同情况。',codes:'8.EE.C.7'},
+ {id:4,title:'函数的基本概念',periods:14,goal:'用不同表征描述输入和输出，比较函数性质。',codes:'8.F.A.1–3'},
+ {id:5,title:'线性函数与情境建模',periods:18,goal:'从两组对应值建立线性模型，解释变化率与初始值。',codes:'8.F.B.4–5'},
+ {id:6,title:'二元一次方程组',periods:18,goal:'连接两种关系，解释共同解及其情境意义。',codes:'8.EE.C.8'},
+ {id:7,title:'实数与勾股定理',periods:22,goal:'理解无理数，用几何关系推理长度与距离。',codes:'8.NS.A · 8.EE.A.2 · 8.G.B'},
+ {id:8,title:'指数、科学记数法与体积',periods:20,goal:'比较数量级，并在空间问题中使用数量关系。',codes:'8.EE.A.1、3–4 · 8.G.C.9'},
+ {id:9,title:'双变量数据与关联',periods:18,goal:'用图表与模型描述数据关联，解释模型的局限。',codes:'8.SP.A'}
+];
+const sections=[
+ {id:'A',title:'从情境识别两个量的变化',start:1,end:5,goal:'比较表格、语言与图形，辨认变化率和起始状态。'},
+ {id:'B',title:'由对应值建立线性模型',start:6,end:8,goal:'先比较变化，再回推初始值，最后用多种表征解释与检验模型。'},
+ {id:'C',title:'解释、比较与检验模型',start:9,end:14,goal:'在不同情境与表征之间迁移，检验模型对问题的解释。'},
+ {id:'D',title:'整合、迁移与学习检查',start:15,end:18,goal:'独立建模、说明假设，并以学习证据检验目标。'}
+];
+const lessonNames=['情境中的两个量','读懂表格与变化','描述图形中的变化','变化率的单位','初始状态与条件','用两组数据求变化率','把表、式与图连起来','比较两种收费方案','从描述建立模型','解释参数的情境意义','换一种表征检验','模型什么时候适用','定性描述图形','比较不同模型','在新情境中建模','解释与质疑方案','整合练习','单元学习检查'];
+const coreTask='A bike rental charges a fixed starting fee and a constant fee per hour. Renting for 2 hours costs $12; renting for 5 hours costs $21. What is the hourly fee? What is the starting fee? Explain your reasoning using both observations.';
+const prepSample='每小时 3 美元，起步费 6 美元。接近正确的回应是“每小时 3 美元，所以 C = 3h”，它遗漏了固定起步费。';
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const quote=()=>`<blockquote lang="en">${taskText}</blockquote>`;
-function options(s){
- const f=flows[s.key];
- if(s.stage==='new')return [{text:f.seed,patch:{stage:f.first},note:'载入预置处理结果；正式系统在这里查询依据并进行模型工作'}];
- if(s.stage==='cancelled'||s.stage==='closed')return [];
- if(s.key==='curriculum')return [{text:'把三课时压缩到两课时，保留变化率和初始值的目标。',patch:{revised:true,version:s.version+1,stage:'result'},note:'展示预置的压缩修订；正式系统需用实际任务核对容量与依赖，不能只改课时数'}];
- if(s.key==='creation'&&s.stage==='draft')return [
- {text:'把全班讨论增加五分钟，从重复练习里调配，只改草稿。',patch:{revised:true,version:s.version+1},note:'只修订草稿，仍等待生成指令'},
- {text:'把全班讨论增加五分钟，从重复练习里调配，改好直接生成。',patch:{revised:true,version:s.version+1,stage:'result'},note:'指定修改及生成授权一起生效；预置样本直接展示材料，无额外确认'},
- {text:'按当前草稿生成材料。',patch:{stage:'result'},note:'沿当前草稿展示师生材料样本'}];
- if(s.key==='creation')return [{text:'查看本课草稿，继续修改。',patch:{stage:'draft'},note:'回到当前内容草稿，保留任务与讨论安排'}];
- if(s.key==='adaptation')return [
- {text:'支持任务可以，教师说明和拓展还需要看。',patch:{partial:true},note:'只记录支持任务的接受，整套尚未接受'},
- {text:'这次整套材料都可以。',patch:{stage:'closed'},note:'接受针对当前材料包；正常协作结束'},
- {text:'到这里结束，剩下的我稍后再审。',patch:{stage:'closed'},note:'按明确要求结束；未审部分不记为满意'}];
- if(s.key==='prep'&&s.stage==='try')return [
- {text:'每小时 3 美元，起步费 6 美元。近似正确的回应是“每小时 3 美元，所以费用是 3h”；它算对了变化率，但遗漏了起步费。',patch:{stage:'discussion',contribution:'教师示例指出：变化率算对，但把总费用写成 3h，遗漏起步费。'},note:'采纳走查用的教师贡献，后续便签将保留这一具体分析'},
- {text:'先给我一个近似正确回应的示范。',patch:{stage:'discussion',contribution:''},note:'教师明确要求先示范，走例外路径；不记录为教师自己提出'}];
- if(s.key==='prep')return [{text:'够了，请把刚才讨论的要点整理成便签。',patch:{stage:'closed'},note:'按明确结束指令形成便签，不追加结束确认'}];
- if(s.key==='cfu'&&s.stage==='focus')return [
- {text:'采用这个焦点。',patch:{stage:'result'},note:'采用当前焦点；正式系统构建并验证两份实际材料后才交付'},
- {text:'保留两组数据求变化率，但改为要求学生写出推理过程。',patch:{stage:'result',revised:true},note:'采用明确改向，展示开放作答样本，不重复确认焦点'}];
- if(s.key==='cfu')return [{text:'改成要求学生写出推理过程。',patch:{revised:true,version:s.version+1},note:'展示修改样本；正式系统需重做本版两道实物验证'}];
- return [];
+const clone=x=>JSON.parse(JSON.stringify(x));
+const initial={rev:1,timings:{6:{discussion:10,practice:20},7:{discussion:10,practice:20},8:{discussion:10,practice:20}},lessonNotes:{},taskNotes:{},bridging:false,materialMinutes:50,contextMinutes:50,contextNotes:'纸笔、方格纸、投影；不要求每名学生都有设备。',changes:[],reason:'初始交互样本',contextChanged:false};
+const state={route:{type:'year',unit:5,section:'B',lesson:6,tab:'overview'},versions:[initial],viewRev:null,panel:null,activeTask:null,tasks:[],drawer:false,serial:0,formDrafts:{},newTitle:'八年级数学',creationDrafts:{},navCollapsed:false,navOpen:{},notice:''};
+const latest=()=>state.versions[state.versions.length-1];
+const snapshot=()=>state.viewRev?state.versions.find(v=>v.rev===state.viewRev)||latest():latest();
+const isOld=()=>snapshot().rev!==latest().rev;
+const sectionFor=n=>sections.find(s=>n>=s.start&&n<=s.end);
+const ready=n=>[6,7,8].includes(Number(n));
+const unitFor=()=>units.find(u=>u.id===Number(state.route.unit))||units[4];
+function button(label,action,value='',cls=''){return '<button class="'+cls+'" data-action="'+action+'"'+(value!==''?' data-value="'+esc(value)+'"':'')+'>'+label+'</button>';}
+function chip(text,warn=false){return '<span class="chip'+(warn?' warn':'')+'">'+text+'</span>';}
+function announce(text){document.querySelector('#announcement').textContent=text;}
+function routeName(r=state.route){if(r.type==='year'||r.type==='new')return '八年级全年方案';if(r.type==='unit')return '单元 '+r.unit+' · '+units[r.unit-1].title;if(r.type==='section')return '单元 5 · 课段 '+r.section;if(r.type==='lesson')return '单元 5 · 第 '+r.lesson+' 课';return '独立教学任务';}
+function go(type,value,tab='overview'){
+ if(type==='unit')state.route={type,unit:Number(value),section:'B',lesson:6,tab};
+ else if(type==='section')state.route={type,unit:5,section:value,lesson:sections.find(s=>s.id===value).start,tab};
+ else if(type==='lesson')state.route={type,unit:5,section:sectionFor(Number(value)).id,lesson:Number(value),tab};
+ else state.route={type,unit:5,section:'B',lesson:6,tab};
+ if(['unit','section','lesson'].includes(type)&&state.route.unit===5)state.navOpen['unit-5']=true;if(['section','lesson'].includes(type))state.navOpen['section-'+state.route.section]=true;
+ state.notice='';render();document.querySelector('#content').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});
 }
-function blueprint(s){return `<h3>${s.revised?'两课时修订方案':'三课时方案'} · 内容样本 v${s.version}</h3><p>主线：从两个量的变化发现固定费率，再区分固定起步费与按时计费。以下只有课段设计样本，尚无全年覆盖或完整课时材料。</p><table><thead><tr><th>安排</th><th>学生的数学工作</th><th>要观察的证据</th></tr></thead><tbody>${s.revised?'<tr><td>第 1 课 · 45 分钟</td><td>比较两组租车费用，解释变化率及单位，回推起步费</td><td>能区分费用差／时间差与总费用／时间</td></tr><tr><td>第 2 课 · 45 分钟</td><td>用表、式、图解释同一收费关系，再换一个情境检验</td><td>解释系数的情境意义，而非只写公式</td></tr>':'<tr><td>第 1 课 · 45 分钟</td><td>用租车数据解释两种量的变化</td><td>变化率分子、分母及单位的解释</td></tr><tr><td>第 2 课 · 45 分钟</td><td>由变化率回推初始值，连接表与式</td><td>区分起步费和单位时间费用</td></tr><tr><td>第 3 课 · 45 分钟</td><td>以图表和新情境检查对线性关系的理解</td><td>说明不同表征中同一参数的含义</td></tr>'}</tbody></table><h3>关键任务</h3>${quote()}<p>衔接依据：先备假设是能读表并比较数值差；后续可研究不同线性关系的比较。这里是设计推断，原型没有查询 LC 图。</p>${s.revised?'<p class="notice">本次改动：合并变化率与初始值的探究，减少重复情境练习。课堂时间与学习机会仍须通过真实任务试做检查；本页不声称压缩已经可行。</p>':''}`;}
-function draft(s){return `<h3>变化率与初始值 · 草稿 v${s.version}</h3><p>目标：从两组对应值求变化率，解释每小时费用，并由一点回推起步费。预期学生已能计算差和识别单位。</p>${quote()}<table><tbody><tr><th>读题与估计</th><td>5 分钟</td></tr><tr><th>独立尝试、同伴比较</th><td>15 分钟</td></tr><tr><th>全班讨论：3 美元与 6 美元分别是什么</th><td>${s.revised?15:10} 分钟</td></tr><tr><th>迁移练习</th><td>${s.revised?5:10} 分钟</td></tr><tr><th>离堂检查</th><td>5 分钟</td></tr></tbody></table><p>离堂任务：某项服务在 1 小时时收费 10 美元，4 小时时收费 22 美元，固定按小时收费。求每小时费用与起步费，并解释单位。</p>${s.revised?'<p class="notice">已将 5 分钟重复练习调到讨论，总时长仍为 45 分钟。当前仍是草稿，是否生成由你的下一步决定。</p>':''}`;}
-function materialTabs(s){return `<div class="tabs" role="group" aria-label="材料受众"><button data-view="student" aria-pressed="${s.view==='student'}">学生材料</button><button data-view="teacher" aria-pressed="${s.view==='teacher'}">教师指南</button></div>`;}
-function materials(s){return materialTabs(s)+(s.view==='student'?`<article lang="en"><h3>Rates and starting fees</h3>${quote()}<p>Show how the two changes are related. Include the units in your explanation.</p><div class="blank"></div><div class="blank"></div><p>Write a rule for the rental cost C after h hours. Explain each number in your rule.</p><div class="blank"></div></article>`:`<h3>教师指南 · 内容样本 v${s.version}</h3><p>费率：(21 − 12) ÷ (5 − 2) = 3 美元／小时；起步费：12 − 3 × 2 = 6 美元。关系为 C = 3h + 6。总费用除以小时数把起步费也平均进去了。</p><p>讨论用 ${s.revised?'15':'10'} 分钟：比较“C = 3h”和“C = 3h + 6”，让学生分别代回两组条件检验。不要把它写成已观察到的真实学生错误。</p><p>离堂题结果：每小时 4 美元，起步费 6 美元；检查学生能否解释费用差与时间差，而非仅算出数值。</p><p class="muted">这是节选，未包含可交付教案所需的全部材料。正式系统需要实际检查、可编辑源与渲染结果。</p>`);}
-function adaptation(s){return `<h3>本次适配材料包 · 节选</h3>${quote()}<p><b>共同核心：</b>原题、目标和情境保持；这些是提供给教师的支持说明，不把能力层级贴在学生材料上。</p><h3>支持任务</h3><p>先在表格旁记录“增加了多少小时”和“增加了多少费用”，再解释它们的关系。允许用箭头和单位标注；不直接给出所需除法或答案。</p><h3>拓展任务</h3><p>另一个租车点没有起步费，但每小时收费 5 美元。以租用 1、3、5 小时为例说明应选哪个，并解释费用相同的时长。</p><h3>教师说明</h3><p>原题费率 3、起步费 6；拓展在 3 小时均为 15 美元。支持是否还需要，根据当前任务表现调整；本样本没有学生掌握度证据。</p><p class="notice">${s.partial?'支持任务已接受；教师说明与拓展尚未接受。':'本页展示材料包节选，走查接受对象为这个样本包。生产审阅必须能读取当前版本的全部相关材料。'}</p>`;}
-function prep(s){if(s.stage==='try')return `<h3>先一起看原题</h3>${quote()}<p>请试做，再给出一个你认为“接近正确但仍有关键缺口”的学生回应，指出它缺在哪里。正常路径先听你的分析，再展开系统的分析。</p><p class="muted">尚未展示答案和近似正确回应；可要求先示范，或结束本次工作。</p>`;return `<h3>${s.stage==='closed'?'备课便签 · 节选':'围绕原题的讨论'}</h3><p>关键区别是“变化率正确”不代表“完整表达了收费关系”。代回两组数据，可以同时检查费率与起步费。</p>${s.contribution?`<p><b>来自本次教师示例的贡献：</b>${esc(s.contribution)}</p>`:'<p><b>按你的要求提供的系统示例：</b>“费率是 3，所以 C = 3h”漏掉固定费用。这不是教师自己提出的分析。</p>'}<p><b>讨论时：</b>让学生将 C = 3h 分别代入 2 小时与 5 小时，指出两次都少了 6 美元，再说明这个相同差额表示什么。</p><p><b>观察时：</b>区分学生只是算出 3，还是能说明美元／小时，并解释起步费。这里只是教学预案，不是学习效果结论。</p>`;}
-function check(s){if(s.stage==='focus')return '<h3>本次建议检查什么</h3><p><b>学生能否根据两组对应值求变化率、解释单位，并区分“两个量的变化之比”与“某一点的两个数之比”。</b></p><p>理由：它能帮助判断学生是否理解恒定变化，而不只是碰巧套对公式。</p><p>限制：给出两组值和恒定变化条件；不把识别非线性关系纳入本轮。当前尚未出题，可以采用这个焦点或明确调整。</p>';return materialTabs(s)+(s.view==='student'?`<article lang="en"><h3>Check your reasoning</h3><p>A tank is filled at a constant rate. At 2 minutes it contains 12 liters; at 5 minutes it contains 21 liters. What is the filling rate?</p>${s.revised?'<p>Show your reasoning and include the units. Explain why 12 ÷ 2 is not the filling rate.</p>':'<p>A. 3 liters/minute　 B. 6 liters/minute<br>C. 9 liters/minute　 D. 1/3 liter/minute</p><p>Explain your choice using both observations.</p>'}<div class="blank"></div><div class="blank"></div></article>`:'<h3>回应解释 · 节选</h3><p>正确速率为 (21 − 12) ÷ (5 − 2) = 3 升／分钟。题设明确恒定注水；初始水量不作为本题所求。</p><p>6 可能来自单点 12 ÷ 2；9 可能只求水量差；1/3 可能倒置两个差。它们是待验证的推理假设；应结合学生解释判断，不能只凭选项确诊。</p><p class="notice">原型没有运行两道验证。正式交付前必须对实际学生页和教师指南验证答案唯一可辩护性，以及错误选项是否可由相应学生推理得到。</p>');}
-function body(s){if(s.stage==='new')return `<h3>从一个具体教学需求开始</h3><p>已知条件来自外部产品提供的本次上下文，教师只需补充需求。下面的文字可直接用来走查；更改成任意文本时，本原型只记录原文。</p>${s.key==='prep'||s.key==='adaptation'?quote():''}`;if(s.stage==='cancelled')return '<h3>本次示例已取消</h3><p>不会继续生成或把迟到结果变成当前内容。下方保留已提交的原文；正式系统还需保存已有内容版本。本原型可从侧栏“重新走查”开始一份新示例。</p>';return ({curriculum:blueprint,creation:s.stage==='draft'?draft:materials,adaptation,prep,cfu:check})[s.key](s);}
-function stageLabel(s){return ({new:'等待需求',draft:'等待草稿回应',review:'材料已展示 · 等待审阅',try:'等待你的尝试',discussion:'讨论中',focus:'等待焦点决定',result:'本轮结果样本',closed:'本轮示例结束',cancelled:'已取消'})[s.stage];}
-function prompt(s){if(s.stage==='new')return '你希望完成什么？';if(s.stage==='draft')return '可以提出修改，或告诉我按哪版生成材料';if(s.stage==='review')return '本次材料哪些可以，哪些还要改？';if(s.stage==='try')return '你的尝试与近似正确回应';if(s.stage==='discussion')return '继续讨论，或按已有内容结束';if(s.stage==='focus')return '采用或调整这个焦点';return '还需要怎样调整？';}
+function commit(reason,patch,changes){const v={...clone(latest()),...patch,rev:latest().rev+1,reason,changes};state.versions.push(v);state.viewRev=null;return v;}
+function head(title,sub,actionHTML=''){return '<div class="page-head"><h1>'+title+'</h1><div class="actions">'+actionHTML+'</div></div><p class="subtitle">'+sub+'</p>';}
+function meta(){return '<div class="meta">'+button('工作版本 v'+snapshot().rev,'versions','','small')+button('条件与依据','context','','small')+chip('CCSS 数学')+(snapshot().contextChanged?chip('教学条件已改，材料待复核',true):'')+'</div>';}
+function localAction(scope){return isOld()?'':button('修改这一部分','revise',scope,'quiet small');}
+function sectionHead(title,scope){return '<div class="section-head"><h2>'+title+'</h2>'+localAction(scope)+'</div>';}
+function changesNotice(){return snapshot().changes.length?'<div class="change"><b>本版改动：</b>'+snapshot().changes.map(esc).join('；')+'。'+button('查看版本记录','versions','','quiet small')+'</div>':'';}
+function subnav(items){return '<nav class="subnav" aria-label="当前内容">'+items.map(([id,label])=>'<button data-action="tab" data-value="'+id+'"'+(state.route.tab===id?' aria-current="page"':'')+'>'+label+'</button>').join('')+'</nav>';}
+function standards(){
+ return '<section class="section"><h2>目标分配与学习机会</h2><p class="subtitle">以下是全年候选中的标准分配摘要。分配到计划与形成实际学习机会分别核对。</p><div class="table-wrap"><table><thead><tr><th>CCSS 范围</th><th>承担单元</th><th>当前材料</th></tr></thead><tbody>'+units.map(u=>'<tr><td>'+u.codes+'</td><td>'+button(u.title,'unit',u.id,'quiet small')+'</td><td>'+(u.id===5?'三课交互样本':'只有单元概览')+'</td></tr>').join('')+'</tbody></table></div><h3>数学实践</h3><p class="reading">全年设计同时考虑 MP1–MP8。实践目标必须落实到学生实际做的推理、建模、解释与检验中；原型仅演示其呈现位置，未进行完整覆盖检查。</p><div class="info">实际知识身份、原文和关系由本地 Learning Commons 提供。本页没有查询 LC，也不展示虚构的覆盖分数。</div></section>';
+}
+function yearPage(){
+ let body=head('八年级数学','全年课程方案 · 180 课时，每课 '+snapshot().contextMinutes+' 分钟',isOld()?'':button('调整全年方案','revise','year','primary'))+meta()+subnav([['overview','课程方案'],['standards','目标与学习机会']]);
+ if(state.route.tab==='standards')return body+standards();
+ return body+changesNotice()+'<section class="section">'+sectionHead('全年设计与衔接','year-narrative')+'<div class="reading"><p>从几何中的关系出发，逐步连接代数、函数与数据建模。每个单元承担明确的数学工作，并为后续单元提供可继续使用的表征和推理经验。</p><p>常规教学、练习与评测共 160 课时；保留 20 课时用于根据实际教学调整节奏。这里展示候选安排，尚未完成全年课时材料。</p></div>'+(snapshot().bridging?'<div class="change">单元 5 的课段 B 已补入表格、式与图之间的衔接说明；在原有 18 课时内调整，相关材料需复核。</div>':'')+'</section><section class="section"><div class="section-head"><div><h2>单元安排</h2><p class="subtitle">选择单元查看设计；单元 5 可深入课段与三课材料。</p></div></div><div class="unit-list">'+units.map(u=>'<div class="unit-row"><span class="unit-number">单元 '+u.id+'</span><div>'+button(u.title,'unit',u.id,'unit-title')+'<p>'+u.goal+'</p><span class="tag">'+u.codes+'</span></div><div class="unit-side"><span class="num">'+u.periods+' 课时</span><span class="tag">'+(u.id===5?'已有 3 课材料样本':'单元概览')+'</span></div></div>').join('')+'</div></section><section class="section"><h3>弹性安排 · 20 课时</h3><p class="subtitle">留给实际诊断后的支持、复习与校历变化。本样本没有真实学生掌握度数据。</p></section>';
+}
+function lessonsList(sec){return '<div>'+Array.from({length:sec.end-sec.start+1},(_,i)=>sec.start+i).map(n=>'<div class="lesson-row"><span class="tag">第 '+n+' 课</span><div>'+button(lessonNames[n-1],'lesson',n,'unit-title')+'<p>'+([6,7,8].includes(n)?['比较两个量的变化，并解释单位','连接表、式、图中的变化率和初始值','在同一情境中比较和检验两个模型'][n-6]:'规划中的课时职责；具体材料尚未展开')+'</p></div>'+chip(ready(n)?'材料样本':'已规划')+'</div>').join('')+'</div>';}
+function unitPage(){
+ const u=unitFor();let body=head(u.title,'单元 '+u.id+' · '+u.periods+' 课时 · '+u.codes,isOld()?'':button('继续设计单元','start-unit',u.id,'primary'))+meta()+changesNotice();
+ body+='<section class="section">'+sectionHead('单元设计与前后联系','unit-narrative')+'<div class="reading"><p>'+u.goal+'</p><p>'+(u.id===5?'先使用已经接触过的表格、数值差与函数表征，再把两组数据转化为有情境意义的模型。后续可用于比较关系和解释共同解。':'这是全年候选中的单元职责摘要。原型尚未展开本单元的全部课段和课时。')+'</p></div></section>';
+ if(u.id!==5)return body+'<section class="section empty"><h2>课段与材料尚未展开</h2><p>可以记录继续设计的需求；本次交互原型的完整路径在单元 5。</p><div class="actions">'+button('查看单元 5 的完整路径','unit',5,'primary')+'</div></section>';
+ return body+'<section class="section">'+sectionHead('课段与课时','unit-plan')+'<p class="subtitle">18 课已规划，3 课有材料样本。各课段的目标、进程与材料准备情况分别可查。</p>'+(snapshot().bridging?'<div class="change">本版在课段 B 增加表征衔接：先比较变化，随后标注表格与图中的同一对量，再解释式中的参数。</div>':'')+'<div class="section-list">'+sections.map(s=>'<section><div class="section-head"><div><h3>课段 '+s.id+' · '+s.title+'</h3><p class="subtitle">'+s.goal+'</p></div>'+button('查看课段','section',s.id,'small')+'</div>'+lessonsList(s)+'</section>').join('')+'</div></section>';
+}
+function sectionPage(){
+ const sec=sections.find(s=>s.id===state.route.section);
+ return head('课段 '+sec.id+' · '+sec.title,'单元 5 · 第 '+sec.start+'–'+sec.end+' 课',isOld()?'':button('设计本课段','start-section',sec.id,'primary'))+meta()+changesNotice()+'<section class="section">'+sectionHead('学习进程与设计理由','section-narrative')+'<div class="reading"><p>'+sec.goal+'</p><p>'+(sec.id==='B'?'第 6 课从两组数据的差建立变化率；第 7 课追问初始值并连接表、式与图；第 8 课比较方案，让学生用模型解释选择。':'这一课段目前仅有任务安排，具体教学任务与学习证据仍待设计。')+'</p>'+(snapshot().bridging&&sec.id==='B'?'<p class="change">修订后增加衔接：在第 6 课的讨论中标出两组对应值，第 7 课继续使用相同数据解释图中的位置与变化。</p>':'')+'</div></section><section class="section"><h2>课时安排</h2>'+lessonsList(sec)+'</section>';
+}
+function plot(compare=false){
+ let svg='<svg class="plot" role="img" aria-labelledby="plot-title plot-desc" viewBox="0 0 500 300"><title id="plot-title">Rental cost and time</title><desc id="plot-desc">Horizontal axis: time in hours, from zero to six. Vertical axis: cost in dollars, from zero to thirty. Rental A costs three dollars per hour plus a six-dollar starting fee.'+(compare?' Rental B costs five dollars per hour. They meet at three hours and fifteen dollars.':'')+'</desc>';
+ for(let y=0;y<=30;y+=6)svg+='<path d="M50 '+(240-y*6)+'H420" stroke="#dbe3dc" fill="none"/><text x="40" y="'+(245-y*6)+'" text-anchor="end" font-size="13" fill="#33483b">'+y+'</text>';
+ for(let x=0;x<=6;x++)svg+='<path d="M'+(50+x*60)+' 60V240" stroke="#e4eae4" fill="none"/><text x="'+(50+x*60)+'" y="260" text-anchor="middle" font-size="13" fill="#33483b">'+x+'</text>';
+ svg+='<path d="M50 50V240H430" fill="none" stroke="#33483b" stroke-width="1.5"/><path d="M50 204L410 96" fill="none" stroke="#256149" stroke-width="3"/><text x="12" y="29" font-size="14" fill="#22352f">Cost ($)</text><text x="345" y="286" font-size="14" fill="#22352f">Time (hours)</text>';
+ if(compare)svg+='<path d="M50 240L410 60" fill="none" stroke="#79552b" stroke-width="2.5" stroke-dasharray="8 5"/><text x="430" y="101" font-size="13" fill="#256149">A</text><text x="430" y="64" font-size="13" fill="#79552b">B</text>';
+ else svg+='<circle cx="170" cy="168" r="4" fill="#256149"/><text x="110" y="148" font-size="13" fill="#22352f">(2, 12)</text><circle cx="350" cy="114" r="4" fill="#256149"/><text x="313" y="98" font-size="13" fill="#22352f">(5, 21)</text>';
+ return svg+'</svg>';
+}
+function lessonOverview(n){
+ if(!ready(n))return '<section class="section empty"><h2>本课只有规划</h2><p>本课位于课段 '+sectionFor(n).id+'，尚没有可审阅的任务或师生材料。原型深入第 6–8 课，其他课时可记录需求。</p><div class="actions">'+button('进入第 6 课材料','lesson',6,'primary')+button('记录本课设计需求','create',n)+'</div></section>';
+ return '<section class="section">'+sectionHead('本课目标与衔接','lesson-narrative')+'<div class="reading"><p>'+['根据两组对应值求变化率，解释单位，并由一点回推初始值。','用同一组租车数据连接表、式与图，说明参数在不同表征中的意义。','比较带起步费与无起步费的方案，用数据和图解释选择。'][n-6]+'</p><p>'+['入口：已能读表、计算数值差和识别单位。后续：把计算与图形、式子连接。','入口：前一课得到每小时费用与起步费。后续：用模型比较方案。','入口：前两课连接了变化率、初始值和表征。后续：在新情境中独立建模。'][n-6]+'</p></div></section><section class="section">'+sectionHead('核心任务','lesson-task')+'<div class="task-text" lang="en">'+coreTask+'</div><p class="muted">原型的共享任务样本。学生页、教师指南与备课使用同一原题。</p></section><section class="section">'+sectionHead('课堂安排','lesson-timing')+timingTable()+'</section><section class="section"><h2>围绕这节课继续工作</h2><div class="actions">'+button('课时与材料设计','create',n)+button('教学适配','adapt',n)+button('教师备课','prep',n)+button('理解度检查','cfu',n)+'</div></section>';
+}
+function lessonTiming(n=state.route.lesson){return snapshot().timings[n]||{discussion:10,practice:20};}
+function timingTable(override){const v=snapshot(), timing=override||lessonTiming();return '<div class="table-wrap"><table><thead><tr><th>学生与教师的工作</th><th>分钟</th></tr></thead><tbody><tr><td>读题与估计</td><td>5</td></tr><tr><td>独立尝试与同伴交流</td><td>10</td></tr><tr><td>全班讨论：比较方法，解释单位与固定费用</td><td>'+timing.discussion+'</td></tr><tr><td>迁移练习</td><td>'+timing.practice+'</td></tr><tr><td>离堂检查</td><td>5</td></tr><tr><th>材料中的总时长</th><th>50</th></tr></tbody></table></div>'+(v.contextChanged?'<div class="notice">当前任务条件为 '+v.contextMinutes+' 分钟，已有材料仍按 50 分钟安排；需修订并复核后才能交付。</div>':'');}
+function studentMaterials(n){
+ let questions=n===6?'<li>Find the hourly fee. Show how the changes in cost and time are related.</li><li>Find the starting fee. Explain why 12 ÷ 2 is not the hourly fee.</li>':n===7?'<li>Write a rule for cost C after h hours. Explain what each number means.</li><li>Explain how the table, rule and graph describe the same relationship.</li>':'<li>Rental B has no starting fee and costs $5 per hour. Which rental would you choose for 1, 3 and 5 hours? Explain.</li><li>When do the two rentals cost the same? Use two representations to justify your answer.</li>';
+ return '<article class="student-page" lang="en"><h2>'+['Rates and starting fees','One relationship, three representations','Comparing rental plans'][n-6]+'</h2><p>Name: ____________________　Date: __________</p><div class="task-text">'+coreTask+'</div>'+(n===7?'<div class="table-wrap"><table><caption>Rental A</caption><thead><tr><th>Time (hours)</th><th>Cost ($)</th></tr></thead><tbody><tr><td>2</td><td>12</td></tr><tr><td>5</td><td>21</td></tr></tbody></table></div>':'')+(n>6?plot(n===8):'')+'<ol>'+questions+'</ol>'+(snapshot().taskNotes[n]?'<p>'+esc(snapshot().taskNotes[n])+'</p>':'')+'<p>Show your reasoning. Include units where appropriate.</p><div class="answer-space"></div><div class="answer-space"></div><div class="answer-space"></div></article>';
+}
+function teacherGuide(n){
+ return '<section class="section">'+sectionHead('解法与讨论','lesson-guide')+'<div class="reading"><p>变化率：(21 − 12) ÷ (5 − 2) = 3 美元／小时。初始值：12 − 3 × 2 = 6 美元。收费关系为 C = 3h + 6。</p><p>请学生说明为什么要比较两个量的变化，再将关系代回两组数据检验。总费用除以小时数会将固定费用也平均分配。</p>'+(n===8?'<p>另一方案 C = 5h。在 3 小时时均为 15 美元；较短时长选择 B，较长时长选择 A。比较应保留相同时间与单位。</p>':'')+'<p>讨论用 '+lessonTiming(n).discussion+' 分钟。对“C = 3h”这样的回应，让学生检查两组条件是否成立，再解释固定差额。它是教学预案，不能当作已经发生的学生错误。</p></div></section><section class="section"><h2>时间与学习检查</h2>'+timingTable()+'<p class="reading">离堂任务样本：某服务在 1 小时时收费 10 美元，4 小时时收费 22 美元，按恒定费率收费。解释每小时费用和起步费。教师参考：4 美元／小时、起步费 6 美元。</p></section>';
+}
+function checksPage(){
+ return '<section class="section"><h2>对应当前版本的检查与依据</h2><div class="notice">这里展示检查记录的交互形式。原型未运行数学验证、LC 查询、材料渲染检查或教师审阅。</div><ul class="check-list"><li><b>数学与任务：</b>应核对实际题目、解法、表征及推理要求。</li><li><b>材料一致性：</b>应确认学生页、教师指南和当前内容版本一致。</li><li><b>课堂可用性：</b>'+ (snapshot().contextChanged?'当前条件与材料时长不一致，需修订。':'尚未验证时间安排与真实课堂工作量。')+'</li><li><b>上层衔接：</b>'+(snapshot().bridging?'修订涉及课段 B、单元 5 与全年摘要，相关版本待复核。':'应检查先备机会和后续目标，不能只看标准编号。')+'</li></ul><h3>来源范围</h3><p class="subtitle">全年目录来自既有原创实验；课段与材料为合成交互样本。没有真实学校条件、学生证据或本次知识查询记录。</p></section>';
+}
+function lessonPage(){
+ const n=state.route.lesson;
+ let body=head('第 '+n+' 课 · '+lessonNames[n-1],'单元 5 · 课段 '+sectionFor(n).id+' · '+(ready(n)?'50 分钟材料样本':'仅有规划'),isOld()?'':button('修改本课','revise','lesson','primary'))+meta()+subnav([['overview','准备概览'],['student','学生材料'],['teacher','教师指南'],['checks','检查与依据']])+changesNotice();
+ if(!ready(n))return body+lessonOverview(n);
+ if(state.route.tab==='student')return body+studentMaterials(n);
+ if(state.route.tab==='teacher')return body+teacherGuide(n);
+ if(state.route.tab==='checks')return body+checksPage();
+ return body+(snapshot().lessonNotes[n]?'<div class="change">'+esc(snapshot().lessonNotes[n])+'</div>':'')+(snapshot().taskNotes[n]?'<div class="change">本课任务新增说明：'+esc(snapshot().taskNotes[n])+'</div>':'')+lessonOverview(n);
+}
+function newPage(){
+ return head('开始一份课程设计','先明确要完成的范围，已有条件直接带入。')+'<section class="section"><h2>本次设计</h2><p class="subtitle">八年级全年蓝图 · CCSS 数学内容与实践标准</p><div class="field"><label for="new-instruction">你希望完成什么？</label><textarea id="new-instruction">设计八年级数学全年方案，分配目标、单元职责和课时，说明各单元的前后衔接。</textarea></div><div class="field"><label for="new-minutes">每课分钟数</label><input id="new-minutes" type="number" value="50" min="20" max="90"></div><div class="field"><label for="new-conditions">学校条件与补充要求</label><textarea id="new-conditions">180 课时，其中 160 课时用于常规教学，20 课时留作弹性安排。纸笔、方格纸和投影，无需每名学生配备设备。</textarea><small>这是演示设定。实际系统使用外部提供的条件，必要时再补问。</small></div><div class="actions">'+button('开始设计','submit-year','','primary')+'</div><div class="info">本页使用预置全年样本演示提交、进度和结果。更改需求或条件后可以记录原文；当前原型不会自动解释并生成新课程。</div></section>';
+}
+function independentPage(){
+ return head('独立教学任务','可从已有原课，或明确的标准与目标开始。')+'<section class="section"><h2>本次使用的原课</h2><p class="subtitle">载入同一租车任务作为外部原课样本，不要求先建立全年课程。</p><div class="task-text" lang="en">'+coreTask+'</div><div class="actions">'+button('设计课时与材料','ind-create','','primary')+button('基于原课适配','ind-adapt')+button('围绕原课备课','ind-prep')+'</div></section><section class="section"><h2>从标准与目标开始</h2><p class="reading">CCSS 8.F.B.4 · 判断学生能否根据两组对应值求变化率并解释单位。</p><div class="actions">'+button('创建理解度检查','ind-cfu')+'</div><p class="subtitle">理解度检查无需先提供教案。焦点已经明确时，实际系统可直接使用。</p></section>';
+}
+function taskSeed(kind,scope){
+ if(kind==='year')return '设计八年级数学全年方案，分配目标、单元职责和课时，说明各单元的前后衔接。';
+ if(kind==='revise'&&scope==='lesson-task')return '在本课任务后补充：请用两组数据说明理由，并标明单位。';
+ if(kind==='revise'&&scope==='lesson-narrative')return '补充本课与前后课的衔接说明，保持目标与课时不变。';
+ if(kind==='revise')return scope==='lesson-timing'||scope==='lesson'||scope==='lesson-guide'?'把全班讨论增加五分钟，从迁移练习中调配，保持本课总时长不变。':'请核查课段 B 中表格、式与图的学习衔接，在现有课时范围内补充说明并同步相关层级。';
+ if(kind==='create')return '先给我看这节变化率与初始值的课时草稿，总共 50 分钟。';
+ if(kind==='adapt')return '沿用租车原题，根据演示观察增加比较两个量变化的支持和一个拓展，生成后让我审阅。';
+ if(kind==='prep')return '帮我准备这道租车题，先让我自己尝试，再讨论接近正确但仍有缺口的回应。';
+ if(kind==='cfu')return '设计一个变化率的理解度检查，帮助我确定下一节课需要补充什么。';
+ return '展开这个单元的课段进程，并为第 6–8 课生成可审阅的材料。';
+}
+function startTask(kind,scope='',route=state.route,seedOverride){
+ if(isOld()){announce('正在查看旧版本，请先返回当前版本。');return;}
+ const t={id:++state.serial,kind,scope,route:clone(route),base:latest().rev,status:'draft',stage:'start',label:({year:'全年课程设计',revise:'局部修订',create:'课时与材料',adapt:'教学适配',prep:'教师备课',cfu:'理解度检查',unit:'单元设计'})[kind]||'课程设计',seed:seedOverride||taskSeed(kind,scope),draft:seedOverride||taskSeed(kind,scope),history:[],message:'',progress:'',partial:false,contribution:'',resultRev:null,phase:0};
+ state.tasks.push(t);state.activeTask=t.id;state.panel='task';render();focusPanel();
+}
+function currentTask(){return state.tasks.find(t=>t.id===state.activeTask);}
+function focusPanel(){const el=document.querySelector('#panel h2');if(el){el.tabIndex=-1;el.focus({preventScroll:true});}if(window.innerWidth<1100)document.querySelector('#panel').scrollIntoView({block:'start',behavior:'instant'});}
+function revealTask(t){
+ if(!['create','adapt','prep','cfu'].includes(t.kind)||state.activeTask!==t.id||state.panel!=='task')return;
+ const r=state.route, origin=t.route;
+ if(r.type==='task'||r.type===origin.type&&r.unit===origin.unit&&r.lesson===origin.lesson)state.route={type:'task',unit:origin.unit,section:origin.section,lesson:origin.lesson,tab:'overview'};
+}
+function simulate(t,phases,finish){
+ t.status='running';t.phases=phases;t.finish=finish;t.phase=0;t.progress=phases[0];t.message='';render();announce('开始模拟执行：'+t.label);
+ const step=()=>{if(t.status!=='running')return;t.phase++;if(t.phase<phases.length){t.progress=phases[t.phase];render();t.timer=setTimeout(step,1100);}else{if(t.base!==latest().rev&&['revise','create'].includes(t.kind)){t.status='cancelled';t.message='执行期间内容已变更，结果未写入。请在当前版本重新发起工作。';render();announce(t.message);return;}finish();revealTask(t);t.progress='';render();announce(t.label+'：'+statusLabel(t));}};
+ t.step=step;t.timer=setTimeout(step,1100);
+}
+function taskStart(t){
+ if(t.route.type==='unit'&&t.route.unit!==5||t.route.type==='lesson'&&!ready(t.route.lesson)){
+  t.message='需求已记录。本原型只展开单元 5 的第 6–8 课，其余内容尚无演示结果。';return;
+ }
+ if(t.kind==='create'){simulate(t,['正在组织本课任务','正在准备可审阅草稿'],()=>{t.status='waiting';t.stage='creation-draft';});return;}
+ if(t.kind==='prep'){simulate(t,['正在读取原题与备课目标','正在准备本次讨论'],()=>{t.status='waiting';t.stage='prep-try';});return;}
+ if(t.kind==='cfu'){simulate(t,['正在明确本次检查范围'],()=>{t.status='waiting';t.stage='cfu-focus';});return;}
+ if(t.kind==='adapt'){simulate(t,['正在核对原课与支持需要','正在组织支持与拓展材料'],()=>{t.status='waiting';t.stage='adapt-review';});return;}
+ if(t.kind==='revise'){
+  simulate(t,['正在核对当前对象与版本','正在整理修改及影响','正在记录对应版本的待复核项'],()=>{
+   const n=t.route.lesson||6; let patch,changes,reason;
+   if(t.scope==='lesson-task'){patch={taskNotes:{...latest().taskNotes,[n]:'Use both observations to explain your reasoning. Label the units.'}};changes=['第 '+n+' 课任务说明'];reason='补充当前任务的作答说明';}
+   else if(t.scope==='lesson-narrative'){patch={lessonNotes:{...latest().lessonNotes,[n]:'本课先沿用两组对应值解释变化，再将结果交给后续课时连接表、式与图；目标与课时保持。'}};changes=['第 '+n+' 课衔接说明'];reason='补充本课前后衔接';}
+   else if(t.scope.startsWith('lesson')){patch={timings:{...clone(latest().timings),[n]:{discussion:15,practice:15}}};changes=['第 '+n+' 课讨论 10 → 15 分钟','本课迁移练习 20 → 15 分钟；其他课时未改'];reason='调整本课讨论与练习时间';}
+   else{patch={bridging:true};changes=['课段 B 的表征衔接说明','单元 5 与全年摘要','第 6–8 课列入复核范围'];reason='补充表征衔接';}
+   const v=commit(reason,patch,changes);t.status='done';t.stage='result';t.resultRev=v.rev;t.message='演示修订已形成工作版本 v'+v.rev+'。实际检查尚未运行，公共课程基线尚未采用。';
+  });return;
+ }
+
+ simulate(t,['正在整理本次目标与条件','正在组织课程进程','正在整理方案与未完成内容'],()=>{t.status='done';t.stage='result';t.resultRev=latest().rev;t.message='已载入全年与单元的演示方案。其他单元仍只有概览；本次没有真实模型生成或质量验证。';if(state.route.type==='new')state.route={type:'year',unit:5,section:'B',lesson:6,tab:'overview'};});
+}
+function statusLabel(t){return ({draft:'待提交',running:'执行中 · 模拟',waiting:'需要你的回应',done:'本次演示结束',stopped:'已停止，可续作',cancelled:'已取消'})[t.status]||t.status;}
+function reply(t,action,text){
+ t.history.push(text);t.message='';
+ if(action==='creation-only'){t.draftTiming={discussion:15,practice:15};t.draftRev=(t.draftRev||1)+1;t.message='草稿 d'+t.draftRev+' 已修改；已有材料保持原版，仍等待生成指令。';t.stage='creation-draft';return;}
+ if(action==='creation-generate'){
+  simulate(t,['正在沿当前草稿组织师生材料','正在演示材料检查与结果交接'],()=>{
+   const n=t.route.lesson||6;
+   const v=commit('根据当前草稿形成材料样本',{timings:{...clone(latest().timings),[n]:t.draftTiming||lessonTiming(n)}},['第 '+n+' 课师生材料样本']);
+   t.status='done';t.stage='creation-result';t.resultRev=v.rev;t.message='已载入当前草稿对应的材料样本；实际材料验证尚未运行。';
+  });return;
+ }
+ if(action==='creation-revise-generate'){t.draftTiming={discussion:15,practice:15};reply(t,'creation-generate','按修改后的草稿生成材料。');return;}
+ if(action==='adapt-partial'){t.partial=true;t.message='已记录支持任务的接受；教师说明与拓展仍待审阅。';return;}
+ if(action==='adapt-all'){t.status='done';t.stage='adapt-result';t.message='已接受当前整个演示材料包，本次协作结束。';return;}
+ if(action==='end'){t.status='done';t.stage=t.kind==='prep'?'prep-notes':t.stage;t.message=t.kind==='prep'?'已按本次讨论形成备课便签。':'按明确要求结束；未审阅部分不记为已接受。';return;}
+ if(action==='prep-contribution'||action==='prep-example'){
+  t.contribution=action==='prep-contribution'?text:'';t.status='waiting';t.stage='prep-discussion';t.message=action==='prep-example'?'按要求先提供系统示例，未记为教师自己提出。':'演示回应已采纳；下方讨论保留了具体贡献。';return;
+ }
+ if(action==='cfu-accept'||action==='cfu-open'){
+  t.openResponse=action==='cfu-open';simulate(t,['正在构建学生页与教师指南','正在演示学生独立读题检查','正在演示错误推理与作答核对'],()=>{t.status='done';t.stage='cfu-result';t.message='两道验证的顺序已演示。没有执行真实验证，不能据此判断材料质量。';});return;
+ }
+}
+function submitTask(){
+ const t=currentTask();const input=document.querySelector('#task-input');if(!t||!input)return;
+ const text=input.value.trim();t.draft=text;if(!text){t.message='请先写下需求或回应。';render();return;}
+ if(t.base!==latest().rev&&t.status!=='draft'){t.history.push(text);t.message='你回应的是 v'+t.base+'，当前工作版本已变更。原文已保存，请核对新内容后重新发起相应工作。';render();return;}
+ if(t.stage==='start'){
+  t.history.push(text);
+  if(text!==t.seed){t.message='原文已保存，尚未解释或采纳。静态原型不能处理任意自然语言；可载入演示文本继续走查。';render();return;}
+  taskStart(t);
+ }else if(t.stage==='prep-try'&&text===prepSample)reply(t,'prep-contribution',text);
+ else{t.history.push(text);t.message='原文已保存，尚未解释或采纳。可使用当前明确动作继续演示；正式系统由模型理解自然语言。';}
+ render();
+}
+function controls(t){
+ if(t.status==='cancelled')return '<div class="notice">本任务已取消。已有内容与输入记录保留，迟到结果不会提交。</div>';
+ if(t.status==='stopped')return '<div class="notice">模拟执行已停止，已有内容保留。</div><div class="actions">'+button('从保存位置继续','resume-task','','primary')+'</div>';
+ if(t.status==='running')return '<div class="status-line running" role="status"><span class="dot"></span><span>'+esc(t.progress)+'</span></div><p class="muted">正在播放执行过程的模拟状态。</p><div class="actions">'+button('停止并保留','stop-task')+button('取消任务','cancel-task','','quiet')+'</div>';
+ let body='';
+ if(t.stage==='start')body='<div class="field"><label for="task-input">需求与修改要求</label><textarea id="task-input">'+esc(t.draft)+'</textarea></div><div class="actions">'+button('提交需求','send-task','','primary')+(t.kind==='create'&&(t.route.type==='independent'||ready(t.route.lesson))?button('直接生成材料','reply-action','creation-generate'):'')+(t.kind==='cfu'?button('按已有变化率焦点生成','reply-action','cfu-accept'):'')+'</div>';
+ if(t.stage==='creation-draft')body='<div class="request"><h3>请看当前课时草稿</h3><p>下方主内容已显示原题和 '+snapshot().materialMinutes+' 分钟的安排。只改草稿与改后生成按你的意图分别处理。</p></div><div class="actions">'+button('只改草稿：讨论增加 5 分钟','reply-action','creation-only')+button('改好并生成材料','reply-action','creation-revise-generate','primary')+button('按当前草稿生成','reply-action','creation-generate')+'</div>';
+ if(t.stage==='adapt-review')body='<div class="request"><h3>审阅当前适配包</h3><p>本次包含支持任务、拓展任务与教师说明。'+(t.partial?'支持已接受，另外两部分待审阅。':'请分别判断需要修改的部分。')+'</p></div><div class="actions">'+button('支持可以，其余待审','reply-action','adapt-partial')+button('接受当前整套材料','reply-action','adapt-all','primary')+button('先结束，稍后再审','reply-action','end','quiet')+'</div>';
+ if(t.stage==='prep-try')body='<div class="request"><h3>先试做，再分析一种回应</h3><p>请阅读下方原题，给出你的解法，再描述一个接近正确但仍有关键缺口的学生回应。</p></div><div class="field"><label for="task-input">你的尝试与分析</label><textarea id="task-input" placeholder="写下你的解法，以及你想讨论的学生思考">'+esc(t.draft===t.seed?'':t.draft)+'</textarea></div><div class="actions">'+button('提交尝试','send-task','','primary')+button('请先给我示范','reply-action','prep-example')+button('结束备课','reply-action','end','quiet')+'</div>';
+ if(t.stage==='prep-discussion')body='<div class="request"><h3>继续讨论或整理便签</h3><p>本次讨论围绕原题和已提供的贡献展开。</p></div><div class="actions">'+button('整理为备课便签','reply-action','end','primary')+'</div>';
+ if(t.stage==='cfu-focus')body='<div class="request"><h3>确定本次检查焦点</h3><p>根据两组对应值求变化率、解释单位，并区分变化之比与单点比值。</p><p>先固定这个焦点，再构建实际学生页与教师指南。</p></div><div class="actions">'+button('采用这个焦点','reply-action','cfu-accept','primary')+button('采用焦点，要求写出推理','reply-action','cfu-open')+'</div>';
+ if(t.status==='done'){
+  body+='<div class="actions">'+button('回到相关内容','task-origin','','primary')+'</div>';
+  if(t.kind==='cfu'||t.kind==='adapt'||t.kind==='prep')body+=button('查看本次结果','task-result','','quiet');
+ }
+ if(t.status==='waiting'&&!['prep-try'].includes(t.stage))body+='<div class="field"><label for="task-input">也可以用文字回应</label><textarea id="task-input" placeholder="补充意见或提出修改">'+esc(t.draft===t.seed?'':t.draft)+'</textarea></div><div class="actions">'+button('发送文字回应','send-task')+'</div>';
+ if(t.status==='waiting')body+='<div class="actions">'+button('取消本次工作','cancel-task','','quiet')+'</div>';
+ return body;
+}
+function taskPanel(t){
+ let html='<div class="aside-head"><h2>'+t.label+'</h2>'+button('收起','close-panel','','quiet small')+'</div><p class="task-origin">'+esc(routeName(t.route))+' · 基于 v'+t.base+'</p>'+button('查看相关内容','task-origin','','quiet small')+chip(statusLabel(t),t.status==='waiting')+(t.message?'<div class="info" role="status">'+esc(t.message)+'</div>':'')+controls(t);
+ if(t.status==='draft'||t.stage==='prep-try')html+='<details class="help"><summary>演示文本</summary><p>只有这段预置文本会展示对应的模拟结果。任意输入仍会保留原文。</p>'+button(t.stage==='prep-try'?'填入教师回应样本':'载入演示需求','fill-sample','','small')+'</details>';
+ if(t.history.length)html+='<details class="help"><summary>本次输入记录 · '+t.history.length+' 条</summary>'+t.history.map(h=>'<p class="raw">'+esc(h)+'</p>').join('')+'</details>';
+ return html;
+}
+function taskResultBody(t){
+ if(t.kind==='prep')return '<section class="section"><h2>'+(t.stage==='prep-notes'?'备课便签':'围绕原题的讨论')+'</h2><div class="task-text" lang="en">'+coreTask+'</div>'+(t.stage==='prep-try'?'<p class="reading">请先给出自己的尝试与分析。模型的答案与近似正确回应在这一正常路径中暂不展示。</p>':'<div class="reading"><p><b>'+(t.contribution?'本次教师示例的贡献：':'按要求提供的系统示例：')+'</b>'+esc(t.contribution||'“每小时 3 美元，所以 C = 3h”漏掉了固定起步费。')+'</p><p>让学生将 C = 3h 分别代入 2 小时和 5 小时，比较两次都少了多少，再解释固定差额。</p><p>观察学生能否同时解释变化率的单位和起步费。便签是教学预案，不是已经取得的学习证据。</p></div>')+'</section>';
+ if(t.kind==='adapt')return '<section class="section"><h2>本次班级适配 · 样本包</h2><p class="subtitle">合成观察：部分学生用总费用除以小时数。没有真实学生数据；这次修改不会改变公共课程基线。</p><div class="task-text" lang="en">'+coreTask+'</div><h3>支持任务</h3><p class="reading">在表格旁标出增加的小时数与费用，用箭头和单位说明两个变化之间的关系，再自主选择计算方法。</p><div class="section"><h3>拓展任务</h3><p class="reading">另一租车点无起步费，每小时 5 美元。比较租用 1、3、5 小时的费用，解释何时相同。</p></div><div class="section"><h3>教师说明</h3><p class="reading">共同目标和原题保留。原题每小时 3 美元、起步费 6 美元；两方案在 3 小时时均为 15 美元。支持按实际需要调整，不能据此宣称掌握。</p></div>'+(t.partial?'<div class="info">支持任务已接受；教师说明与拓展的审阅分别记录。</div>':'')+'</section>';
+ if(t.kind==='cfu')return '<section class="section"><h2>理解度检查</h2>'+(t.stage==='cfu-focus'?'<p class="reading">当前尚未出题。先确定旁边的检查焦点；已有本次有效焦点时，正式系统直接使用。</p>':'<article class="student-page" lang="en"><h3>Student page</h3><div class="task-text">A tank is filled at a constant rate. At 2 minutes it contains 12 liters; at 5 minutes it contains 21 liters. What is the filling rate?</div><p>'+(t.openResponse?'Show your reasoning and include units. Explain why 12 ÷ 2 is not the filling rate.':'A. 3 L/min　B. 6 L/min　C. 9 L/min　D. 1/3 L/min<br>Explain your choice using both observations.')+'</p><div class="answer-space"></div><div class="answer-space"></div></article><section class="section"><h3>教师指南</h3><p>速率为 (21 − 12) ÷ (5 − 2) = 3 升／分钟。6 可能来自单点比值，9 可能仅求水量差，1/3 可能倒置两个差；这些解释要结合学生实际推理核对。</p><div class="notice">仅演示学生页与教师指南的生成、双重验证顺序；本原型未执行真实验证。</div></section>')+'</section>';
+ return '<section class="section"><h2>当前课时草稿</h2><div class="task-text" lang="en">'+coreTask+'</div>'+timingTable(t.draftTiming||lessonTiming(t.route.lesson||6))+'</section>'+(t.stage==='creation-result'?'<section class="section">'+studentMaterials(t.route.lesson||6)+'</section>':'');
+}
+function renderPanel(){
+ const p=document.querySelector('#panel');p.hidden=!state.panel;document.querySelector('#workspace').classList.toggle('with-panel',!!state.panel);if(!state.panel)return;
+ const close=button('收起','close-panel','','quiet small');
+ if(state.panel==='task'){const t=currentTask();p.innerHTML=t?taskPanel(t):'';}
+ if(state.panel==='tasks')p.innerHTML='<div class="aside-head"><h2>我的任务</h2>'+close+'</div><p class="muted">浏览其他内容不会取消任务或丢失已输入的文字。</p>'+(state.tasks.length?state.tasks.slice().reverse().map(t=>'<div class="task-list-item">'+button(t.label+' · '+statusLabel(t),'select-task',t.id)+'<small>'+esc(routeName(t.route))+'</small></div>').join(''):'<div class="empty"><p>尚无任务。从当前内容发起设计或修改。</p></div>');
+ if(state.panel==='versions')p.innerHTML='<div class="aside-head"><h2>版本记录</h2>'+close+'</div><p class="muted">工作版本与外部公共课程基线分别记录。</p>'+state.versions.slice().reverse().map(v=>'<div class="version-item"><h3>v'+v.rev+(v.rev===latest().rev?' · 当前工作版':'')+'</h3><p>'+esc(v.reason)+'</p>'+v.changes.map(c=>'<p>'+esc(c)+'</p>').join('')+button(v.rev===snapshot().rev?'正在查看':'查看这一版','view-version',v.rev,'small')+'</div>').join('');
+ if(state.panel==='context')p.innerHTML='<div class="aside-head"><h2>条件与依据</h2>'+close+'</div><p class="muted">当前课程工作版本 v'+snapshot().rev+' 的演示条件。</p><div class="section"><h3>已知条件</h3><p>八年级 · CCSS 数学<br>180 课时，含 20 课时弹性安排<br>每课 '+snapshot().contextMinutes+' 分钟</p></div><div class="field"><label for="context-minutes">调整每课分钟数</label><input id="context-minutes" type="number" min="20" max="90" value="'+snapshot().contextMinutes+'"'+(isOld()?' disabled':'')+'></div><div class="field"><label for="context-notes">资源与补充条件</label><textarea id="context-notes"'+(isOld()?' disabled':'')+'>'+esc(snapshot().contextNotes)+'</textarea></div>'+(isOld()?'':button('保存条件变更','save-context','','primary'))+'<p class="muted">变更会形成工作版本，并标记既有材料待复核；不会静默改写材料。</p><div class="section"><h3>依据范围</h3><p>全年目录为既有实验的概览；单元和材料为合成演示。未查询 LC，未导入真实学生信息。</p></div>';
+}
+function curriculumTree(){
+ const r=state.route.type==='task'&&currentTask()?currentTask().route:state.route;
+ const belongs=['year','unit','section','lesson'].includes(r.type);
+ const link=(label,action,value,active,detail='')=>'<button data-action="tree-go" data-kind="'+action+'" data-value="'+value+'"'+(active?' aria-current="page"':'')+'>'+esc(label)+(detail?'<small>'+esc(detail)+'</small>':'')+'</button>';
+ const expanded=(key,fallback)=>Object.hasOwn(state.navOpen,key)?state.navOpen[key]:fallback;
+ let html=link('八年级全年方案','year','',r.type==='year','9 个单元 · 候选安排');
+ for(const u of units){
+  if(u.id!==5){html+=link('单元 '+u.id+' · '+u.title,'unit',u.id,belongs&&r.type==='unit'&&r.unit===u.id,'仅有单元概览');continue;}
+  html+='<details data-tree-key="unit-5"'+(expanded('unit-5',belongs&&r.type!=='year'&&r.unit===5)?' open':'')+'><summary>单元 5 · '+u.title+'</summary>'+link('单元设计与全部课时','unit',5,r.type==='unit'&&r.unit===5,'18 课规划 · 3 课材料样本');
+  for(const sec of sections){
+   html+='<details data-tree-key="section-'+sec.id+'"'+(expanded('section-'+sec.id,belongs&&['section','lesson'].includes(r.type)&&r.section===sec.id)?' open':'')+'><summary>课段 '+sec.id+' · '+sec.title+'</summary>'+link('课段设计与衔接','section',sec.id,r.type==='section'&&r.section===sec.id)+'<div class="tree-lessons">';
+   for(let n=sec.start;n<=sec.end;n++)html+=link('第 '+n+' 课 · '+lessonNames[n-1],'lesson',n,r.type==='lesson'&&r.lesson===n,ready(n)?'材料样本':'仅有规划');
+   html+='</div></details>';
+  }
+  html+='</details>';
+ }
+ return '<nav class="curriculum-tree" aria-label="全年课程层级">'+html+'</nav>';
+}
+function renderCourseNav(){
+ document.querySelector('#authoring').classList.toggle('nav-collapsed',state.navCollapsed);
+ document.querySelector('#course-nav').innerHTML='<div class="course-nav-head"><h2>课程结构</h2>'+button('收起','collapse-nav','','quiet small')+'</div><p>规划与材料分别标明；不表示已通过检查。</p>'+curriculumTree();
+ const nav=document.querySelector('#course-nav'),active=nav.querySelector('[aria-current=page]');if(active)nav.scrollTop=Math.max(0,active.offsetTop-280);
+}
 function render(){
- const s=state,f=flows[s.key],opts=options(s),active=!['closed','cancelled'].includes(s.stage);
- document.querySelector('#nav').innerHTML=Object.entries(flows).map(([k,v])=>`<button data-flow="${k}" aria-pressed="${s.key===k}">${v.name}</button>`).join('')+'<small>选择一种教学工作即可。切换会开始新的预置示例。</small><button id="reset">重新走查当前能力</button>';
- document.querySelector('#app').innerHTML=`<div class="head"><div><small>${f.role}的任务</small><h2>${f.scope}</h2></div><span class="pill" role="status">${stageLabel(s)}</span></div><div class="context">${f.context}</div><section class="content">${body(s)}</section>${s.message?`<p class="invalid" role="alert">${esc(s.message)}</p>`:''}${active?`<section class="composer"><label for="input">${prompt(s)}</label><textarea id="input" placeholder="写下你的需求或回应；预置示例见走查辅助">${s.stage==='new'?esc(f.seed):''}</textarea><div class="actions"><button id="send" class="primary">${s.stage==='new'?'提交需求':'发送回应'}</button>${s.stage!=='new'?'<button id="cancel" class="quiet">取消本次工作</button>':''}</div></section>`:`<p class="notice">${esc(s.lastAction)}。示例结束与真实课堂采用、质量通过分别记录。</p>`}<p class="step-note" aria-live="polite">${esc(s.lastAction)}</p><details><summary>走查辅助 · 预置回应，不属于教师工作步骤</summary><p>本原型不调用 LLM。点击只填入走查文本，再按“发送”；正式产品接受自然语言，不要求记住这些句子。</p><div class="actions">${opts.map((o,i)=>`<button data-fill="${i}">${esc(o.text)}</button>`).join('')||'<span>当前示例已结束，可重新走查。</span>'}</div></details><details><summary>已提交的原文 · ${s.history.length} 条</summary>${s.history.map(t=>`<p class="reply">${esc(t)}</p>`).join('')||'<p>尚无输入。</p>'}</details><details><summary>开发映射 · 不属于教师操作</summary><dl class="tech"><dt>接口所在环节</dt><dd>${s.stage==='new'?'<code>POST /v1/tasks</code> 创建需求':s.stage==='result'?'<code>GET /v1/tasks/{id}</code> 查看结果；修改进入 <code>revisions</code>':'<code>replies</code> 绑定本次待答对象；<code>GET</code> 查询权威状态'}。取消使用 <code>cancellations</code>。</dd><dt>模型与程序分别做什么</dt><dd>模型取得实际规则、任务和知识，理解意图并调用工具完成教学工作。程序保存真实回应、核对对象与授权、保护有效提交并承载等待恢复。检查发现问题交回模型修订。界面不控制内部每一步。</dd><dt>对应实现票</dt><dd>${f.ticket}；共享运行保障随依赖接入。当前页面没有实现这些 API，也不验证模型理解、持久化或质量。</dd></dl></details>`;
- document.querySelectorAll('[data-flow]').forEach(b=>b.onclick=()=>{state=reduce(state,{type:'reset',key:b.dataset.flow});render()});
- document.querySelector('#reset').onclick=()=>{state=reduce(state,{type:'reset'});render()};
- document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{state=reduce(state,{type:'view',view:b.dataset.view});render()});
- document.querySelectorAll('[data-fill]').forEach(b=>b.onclick=()=>{const input=document.querySelector('#input');input.value=opts[Number(b.dataset.fill)].text;input.focus()});
- const cancel=document.querySelector('#cancel');if(cancel)cancel.onclick=()=>{state=reduce(state,{type:'cancel'});render()};
- const send=document.querySelector('#send');if(send)send.onclick=()=>{const text=document.querySelector('#input').value.trim();if(!text)return;const choice=opts.find(o=>o.text===text);state=reduce(state,choice?{type:'submit',...choice}:{type:'unrecognized',text});render()};
+ const formIds=['new-instruction','new-minutes','new-conditions','context-minutes','context-notes'];
+ for(const id of formIds){const el=document.getElementById(id);if(el&&!el.disabled)state.formDrafts[id]=el.value;}
+ const actualRoute=state.route, r=actualRoute.type==='task'&&currentTask()?currentTask().route:actualRoute;
+ let crumb=button('课程目录','directory','','small');
+ if(r.type!=='independent')crumb+='<span class="sep" aria-hidden="true">/</span>'+button('八年级数学','home','','quiet');
+ if(['unit','section','lesson'].includes(r.type))crumb+='<span class="sep" aria-hidden="true">/</span>'+button('单元 '+r.unit,'unit',r.unit,'quiet');
+ if(['section','lesson'].includes(r.type))crumb+='<span class="sep" aria-hidden="true">/</span>'+button('课段 '+r.section,'section',r.section,'quiet');
+ if(r.type==='lesson')crumb+='<span class="sep" aria-hidden="true">/</span><span class="current">第 '+r.lesson+' 课</span>';
+ if(['independent','new','task'].includes(r.type))crumb+='<span class="sep" aria-hidden="true">/</span><span class="current">'+({independent:'独立教学任务',new:'新建设计',task:'教学工作'})[r.type]+'</span>';
+ if(actualRoute.type==='task')crumb+='<span class="sep" aria-hidden="true">/</span><span class="current">'+esc(currentTask().label)+'</span>';
+ document.querySelector('#crumbs').innerHTML=crumb;
+ let body=({year:yearPage,unit:unitPage,section:sectionPage,lesson:lessonPage,new:newPage,independent:independentPage,task:()=>{const t=currentTask();return t?head(t.label,routeName(t.route)+' · 本次任务基于 v'+t.base)+taskResultBody(t):independentPage();}})[actualRoute.type]();
+ if(isOld())body='<div class="old-banner">正在查看历史工作版本 v'+snapshot().rev+'，修改请返回当前版本。'+button('返回当前版本','current-version','','small')+'</div>'+body;
+ if(state.notice)body='<div class="info" role="status">'+esc(state.notice)+'</div>'+body;
+ document.querySelector('#content').innerHTML=body;renderPanel();renderCourseNav();
+ for(const id of formIds){const el=document.getElementById(id);if(el&&!el.disabled&&Object.hasOwn(state.formDrafts,id))el.value=state.formDrafts[id];}
+ const pending=state.tasks.filter(t=>['running','waiting','stopped'].includes(t.status)).length;document.querySelector('#tasks-toggle').textContent='我的任务'+(pending?' · '+pending:'');
 }
+let directoryReturn=null;
+function showDirectory(){
+ directoryReturn=document.activeElement;const d=document.querySelector('#directory');d.hidden=false;state.drawer=true;
+ d.innerHTML='<div class="drawer-inner"><div class="drawer-head"><h2 id="directory-title">课程目录</h2>'+button('关闭目录','close-directory','','small')+'</div>'+curriculumTree()+'</div>';
+ d.querySelector('button').focus();document.body.style.overflow='hidden';
+}
+function hideDirectory(){document.querySelector('#directory').hidden=true;state.drawer=false;document.body.style.overflow='';if(directoryReturn&&directoryReturn.isConnected)directoryReturn.focus();}
+document.addEventListener('toggle',e=>{if(e.target.matches('details[data-tree-key]')&&e.target.isConnected)state.navOpen[e.target.dataset.treeKey]=e.target.open;},true);
+document.addEventListener('input',e=>{if(e.target.id==='task-input'){const t=currentTask();if(t)t.draft=e.target.value;}});
+document.addEventListener('click',e=>{
+ const b=e.target.closest('[data-action]');if(!b)return;const a=b.dataset.action,v=b.dataset.value||'';const t=currentTask();
+ if(a==='home')return go('year');
+ if(a==='unit'||a==='section'||a==='lesson')return go(a,v);
+ if(a==='tab'){state.route.tab=v;render();return;}
+ if(a==='new'){state.panel=null;return go('new');}
+ if(a==='independent'){state.panel=null;return go('independent');}
+ if(a==='directory'){if(window.innerWidth>=1000){state.navCollapsed=false;render();document.querySelector('#course-nav button').focus();return;}return showDirectory();}
+ if(a==='collapse-nav'){state.navCollapsed=true;render();document.querySelector('[data-action=directory]').focus();return;}
+ if(a==='tree-go'){if(state.drawer)hideDirectory();return go(b.dataset.kind,v);}
+ if(a==='close-directory')return hideDirectory();
+ if(a.startsWith('drawer-')){hideDirectory();return go(a==='drawer-year'?'year':a.slice(7),v);}
+ if(a==='close-panel'){state.panel=null;render();return;}
+ if(a==='tasks'||a==='versions'||a==='context'){state.panel=a;render();focusPanel();return;}
+ if(a==='view-version'){state.viewRev=Number(v);render();announce('正在查看版本 v'+v);return;}
+ if(a==='current-version'){state.viewRev=null;render();return;}
+ if(a==='select-task'){state.activeTask=Number(v);state.panel='task';const selected=currentTask();if(selected&&['create','adapt','prep','cfu'].includes(selected.kind)&&selected.stage!=='start')state.route={type:'task',unit:5,section:'B',lesson:selected.route.lesson||6,tab:'overview'};render();focusPanel();return;}
+ if(a==='revise')return startTask('revise',v);
+ if(a==='start-unit'||a==='start-section')return startTask('unit',v);
+ if(['create','adapt','prep','cfu'].includes(a)){startTask(a,v);return;}
+ if(a.startsWith('ind-')){startTask(a.slice(4),'external',{type:'independent',unit:5,section:'B',lesson:6,tab:'overview'});return;}
+ if(a==='submit-year'){
+  const text=document.querySelector('#new-instruction').value.trim(),minutes=Number(document.querySelector('#new-minutes').value),conditions=document.querySelector('#new-conditions').value.trim();
+  if(!text||minutes<20||minutes>90){state.notice='请填写设计需求，并将每课时长设为 20–90 分钟。';announce(state.notice);render();return;}
+  startTask('year','year',{type:'year',unit:5,section:'B',lesson:6,tab:'overview'});const nt=currentTask();nt.history.push(text);nt.conditions=conditions;
+  if(text!==nt.seed||minutes!==50||conditions!=='180 课时，其中 160 课时用于常规教学，20 课时留作弹性安排。纸笔、方格纸和投影，无需每名学生配备设备。'){nt.draft=text;nt.message='需求和条件已记录。该组合没有预置结果；静态原型未解释这些输入。';}
+  else taskStart(nt);render();return;
+ }
+ if(a==='save-context'){
+  const mins=Number(document.querySelector('#context-minutes').value),notes=document.querySelector('#context-notes').value.trim();
+  if(mins<20||mins>90){announce('每课时长须为 20–90 分钟。');document.querySelector('#context-minutes').setCustomValidity('请填写 20–90 分钟');document.querySelector('#context-minutes').reportValidity();return;}
+  commit('更新教学条件；材料仍待复核',{contextMinutes:mins,contextNotes:notes,contextChanged:true},['教学条件已更新，现有材料未自动改写']);state.notice='条件已保存为新版本。请核对受影响材料后继续设计。';render();return;
+ }
+ if(a==='send-task')return submitTask();
+ if(a==='fill-sample'&&t){t.draft=t.stage==='prep-try'?prepSample:t.seed;render();document.querySelector('#task-input').focus();return;}
+ if(a==='reply-action'&&t){if(t.base!==latest().rev){t.message='当前内容已有新版本。旧回应不能直接采纳，请核对新内容后重新发起相应工作。';render();return;}reply(t,v,b.textContent);t.draft='';render();if(t.status==='waiting'||t.stage==='creation-result'){state.route={type:'task',unit:t.route.unit,section:t.route.section,lesson:t.route.lesson||6,tab:'overview'};render();}return;}
+ if(a==='task-origin'&&t){state.viewRev=null;state.route=clone(t.route);if(state.route.type==='new')state.route.type='year';render();return;}
+ if(a==='task-result'&&t){state.route={type:'task',unit:t.route.unit,section:t.route.section,lesson:t.route.lesson||6,tab:'overview'};render();return;}
+ if(a==='cancel-task'&&t){clearTimeout(t.timer);t.status='cancelled';t.message='已取消本任务，已有内容与回应保留。';render();return;}
+ if(a==='stop-task'&&t){clearTimeout(t.timer);t.status='stopped';t.message='执行已停止，当前步骤与内容已保留。';render();return;}
+ if(a==='resume-task'&&t&&t.status==='stopped'){t.status='running';t.message='';render();t.timer=setTimeout(t.step,1100);return;}
+});
+document.querySelector('#directory').addEventListener('click',e=>{if(e.target.id==='directory')hideDirectory();});
+document.addEventListener('keydown',e=>{
+ if(!state.drawer)return;if(e.key==='Escape'){e.preventDefault();hideDirectory();return;}
+ if(e.key==='Tab'){const els=[...document.querySelectorAll('#directory button, #directory summary')].filter(el=>el.getClientRects().length),first=els[0],last=els[els.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
+});
+
 render();
 </script>
+</body>
 </html>

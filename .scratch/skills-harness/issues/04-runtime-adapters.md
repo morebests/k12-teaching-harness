@@ -28,6 +28,12 @@ Learning Commons 已本地化且可用。围绕标准与 LC、方向不同的进
 
 ## Comments
 
+### 2026-09-15：当前内容工具采用文件化工作稿
+
+用户明确现阶段不借鉴另一项目的 authoring，自行定义格式，暂不上数据库、不做内容版本历史。采用 [JSON 工作源、Markdown／LaTeX 正文与独立图件](../../math-harness-delivery/content-system-design.md)，只维护当前稿与当前检查；内容指纹用于核对检查和回应适用性，不保证旧指纹可回取历史内容。随后核查确认运行状态直接使用 LangGraph／Agent Server dev 的保存与恢复，不另建文件任务状态机。
+
+这是当前阶段对原存储时点的调整，覆盖早期“首版不可变历史”表达；上游共享题面、各能力教学流程、实际数学与渲染检查继续保留。最小文件格式随真实切片落实，不再将 authoring 评估或完整编辑器／数据库设计作为前置。LangChain／LangGraph／Agent Server／LangSmith 方向和后续生产恢复要求保留，文件任务不冒称框架 checkpoint。
+
 ### Resolution：复用模型循环，以实际资源和工具结果落实教学执行（2026-09-15）
 
 在已确定的技术方向与连续推进授权内，完成 [模型、知识与产物工具的实现选择](../assets/model-knowledge-artifact-design.md)。本票解决实现职责与接入路线，不将方案当作已经运行的生产能力。
