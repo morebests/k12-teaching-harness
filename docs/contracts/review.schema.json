@@ -1,0 +1,115 @@
+{
+  "$defs": {
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "criterion": {
+          "enum": [
+            "coverage",
+            "mathematics",
+            "progression",
+            "conditions",
+            "evidence",
+            "sources"
+          ],
+          "title": "Criterion",
+          "type": "string"
+        },
+        "target": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Target",
+          "type": "string"
+        },
+        "detail": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Detail",
+          "type": "string"
+        },
+        "blocking": {
+          "title": "Blocking",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "criterion",
+        "target",
+        "detail",
+        "blocking"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "ReviewEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "coverage": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Coverage",
+          "type": "string"
+        },
+        "mathematics": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Mathematics",
+          "type": "string"
+        },
+        "progression": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Progression",
+          "type": "string"
+        },
+        "conditions": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Conditions",
+          "type": "string"
+        },
+        "evidence": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Evidence",
+          "type": "string"
+        },
+        "sources": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Sources",
+          "type": "string"
+        }
+      },
+      "required": [
+        "coverage",
+        "mathematics",
+        "progression",
+        "conditions",
+        "evidence",
+        "sources"
+      ],
+      "title": "ReviewEvidence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "evidence": {
+      "$ref": "#/$defs/ReviewEvidence"
+    }
+  },
+  "required": [
+    "findings",
+    "evidence"
+  ],
+  "title": "Review",
+  "type": "object"
+}

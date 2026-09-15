@@ -1,0 +1,242 @@
+{
+  "$defs": {
+    "ExternalContent": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-zA-Z0-9_-]{1,80}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        },
+        "content": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          ],
+          "title": "Content"
+        },
+        "fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Fingerprint",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "content",
+        "fingerprint"
+      ],
+      "title": "ExternalContent",
+      "type": "object"
+    },
+    "Limits": {
+      "additionalProperties": false,
+      "properties": {
+        "model_calls": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Model Calls",
+          "type": "integer"
+        },
+        "tool_calls": {
+          "maximum": 300,
+          "minimum": 1,
+          "title": "Tool Calls",
+          "type": "integer"
+        },
+        "total_tokens": {
+          "maximum": 2000000,
+          "minimum": 1000,
+          "title": "Total Tokens",
+          "type": "integer"
+        },
+        "seconds": {
+          "maximum": 7200,
+          "minimum": 1,
+          "title": "Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "model_calls",
+        "tool_calls",
+        "total_tokens",
+        "seconds"
+      ],
+      "title": "Limits",
+      "type": "object"
+    },
+    "School": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/Source"
+        },
+        "lesson_count": {
+          "maximum": 10,
+          "minimum": 1,
+          "title": "Lesson Count",
+          "type": "integer"
+        },
+        "minutes_per_lesson": {
+          "maximum": 120,
+          "minimum": 15,
+          "title": "Minutes Per Lesson",
+          "type": "integer"
+        },
+        "class_size": {
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Class Size",
+          "type": "integer"
+        },
+        "resources": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 30,
+          "minItems": 1,
+          "title": "Resources",
+          "type": "array"
+        },
+        "learner_context": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Learner Context",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "lesson_count",
+        "minutes_per_lesson",
+        "class_size",
+        "resources",
+        "learner_context"
+      ],
+      "title": "School",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        },
+        "origin": {
+          "enum": [
+            "caller",
+            "synthetic"
+          ],
+          "title": "Origin",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "version",
+        "origin"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "event_id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "title": "Event Id",
+      "type": "string"
+    },
+    "capability": {
+      "const": "curriculum_design",
+      "default": "curriculum_design",
+      "title": "Capability",
+      "type": "string"
+    },
+    "grade": {
+      "const": 8,
+      "default": 8,
+      "title": "Grade",
+      "type": "integer"
+    },
+    "scope": {
+      "const": "section",
+      "default": "section",
+      "title": "Scope",
+      "type": "string"
+    },
+    "instruction": {
+      "maxLength": 20000,
+      "minLength": 1,
+      "title": "Instruction",
+      "type": "string"
+    },
+    "target_codes": {
+      "items": {
+        "pattern": "^8\\.(?:F|EE)\\.[A-C]\\.[1-9]$",
+        "type": "string"
+      },
+      "maxItems": 6,
+      "minItems": 1,
+      "title": "Target Codes",
+      "type": "array"
+    },
+    "school": {
+      "$ref": "#/$defs/School"
+    },
+    "external_content": {
+      "items": {
+        "$ref": "#/$defs/ExternalContent"
+      },
+      "maxItems": 5,
+      "title": "External Content",
+      "type": "array"
+    },
+    "limits": {
+      "$ref": "#/$defs/Limits"
+    },
+    "language": {
+      "const": "zh-CN",
+      "default": "zh-CN",
+      "title": "Language",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "instruction",
+    "target_codes",
+    "school",
+    "limits"
+  ],
+  "title": "TaskRequest",
+  "type": "object"
+}

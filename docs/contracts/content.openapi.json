@@ -1,0 +1,1063 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "数学教学内容契约",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/v1/contracts": {
+      "get": {
+        "summary": "Contracts",
+        "operationId": "contracts_v1_contracts_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Contracts V1 Contracts Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/threads/{thread_id}/content": {
+      "get": {
+        "summary": "Content",
+        "operationId": "content_v1_threads__thread_id__content_get",
+        "parameters": [
+          {
+            "name": "thread_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Thread Id"
+            }
+          },
+          {
+            "name": "expected_fingerprint",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Expected Fingerprint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskView"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/threads/{thread_id}/reading": {
+      "get": {
+        "summary": "Reading",
+        "operationId": "reading_v1_threads__thread_id__reading_get",
+        "parameters": [
+          {
+            "name": "thread_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Thread Id"
+            }
+          },
+          {
+            "name": "expected_fingerprint",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Expected Fingerprint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/threads/{thread_id}/evidence": {
+      "get": {
+        "summary": "Evidence",
+        "operationId": "evidence_v1_threads__thread_id__evidence_get",
+        "parameters": [
+          {
+            "name": "thread_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Thread Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Evidence V1 Threads  Thread Id  Evidence Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Block": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "markdown",
+              "table",
+              "image"
+            ],
+            "title": "Type"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "default": ""
+          },
+          "headers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Headers"
+          },
+          "rows": {
+            "items": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Rows"
+          },
+          "src": {
+            "type": "string",
+            "title": "Src",
+            "default": ""
+          },
+          "alt": {
+            "type": "string",
+            "title": "Alt",
+            "default": ""
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "Block"
+      },
+      "CheckRecord": {
+        "properties": {
+          "findings": {
+            "items": {
+              "$ref": "#/components/schemas/Finding"
+            },
+            "type": "array",
+            "title": "Findings"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/ReviewEvidence"
+          },
+          "fingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Fingerprint"
+          },
+          "rules_fingerprint": {
+            "type": "string",
+            "title": "Rules Fingerprint"
+          },
+          "method": {
+            "type": "string",
+            "title": "Method"
+          },
+          "applicable": {
+            "type": "boolean",
+            "title": "Applicable"
+          },
+          "passed": {
+            "type": "boolean",
+            "title": "Passed"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "findings",
+          "evidence",
+          "fingerprint",
+          "rules_fingerprint",
+          "method",
+          "applicable",
+          "passed"
+        ],
+        "title": "CheckRecord"
+      },
+      "Curriculum": {
+        "properties": {
+          "schema_version": {
+            "type": "integer",
+            "const": 1,
+            "title": "Schema Version",
+            "default": 1
+          },
+          "id": {
+            "type": "string",
+            "const": "curriculum",
+            "title": "Id",
+            "default": "curriculum"
+          },
+          "kind": {
+            "type": "string",
+            "const": "section",
+            "title": "Kind",
+            "default": "section"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "narrative": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Narrative"
+          },
+          "goals": {
+            "items": {
+              "$ref": "#/components/schemas/Goal"
+            },
+            "type": "array",
+            "maxItems": 6,
+            "minItems": 1,
+            "title": "Goals"
+          },
+          "prerequisites": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Prerequisites"
+          },
+          "successors": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Successors"
+          },
+          "lessons": {
+            "items": {
+              "$ref": "#/components/schemas/LessonIntent"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "minItems": 1,
+            "title": "Lessons"
+          },
+          "tasks": {
+            "items": {
+              "$ref": "#/components/schemas/KeyTask"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Tasks"
+          },
+          "practice_connections": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Practice Connections"
+          },
+          "teacher_preparation": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Teacher Preparation"
+          },
+          "assumptions": {
+            "items": {
+              "type": "string",
+              "maxLength": 20000,
+              "minLength": 1
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Assumptions"
+          },
+          "limitations": {
+            "items": {
+              "type": "string",
+              "maxLength": 20000,
+              "minLength": 1
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Limitations"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "title",
+          "narrative",
+          "goals",
+          "prerequisites",
+          "successors",
+          "lessons",
+          "tasks",
+          "practice_connections",
+          "teacher_preparation",
+          "assumptions",
+          "limitations"
+        ],
+        "title": "Curriculum"
+      },
+      "ExternalContent": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,80}$",
+            "title": "Id"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              }
+            ],
+            "title": "Content"
+          },
+          "fingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Fingerprint"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "content",
+          "fingerprint"
+        ],
+        "title": "ExternalContent"
+      },
+      "Finding": {
+        "properties": {
+          "criterion": {
+            "type": "string",
+            "enum": [
+              "coverage",
+              "mathematics",
+              "progression",
+              "conditions",
+              "evidence",
+              "sources"
+            ],
+            "title": "Criterion"
+          },
+          "target": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Target"
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Detail"
+          },
+          "blocking": {
+            "type": "boolean",
+            "title": "Blocking"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "criterion",
+          "target",
+          "detail",
+          "blocking"
+        ],
+        "title": "Finding"
+      },
+      "Goal": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Code"
+          },
+          "responsibility": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Responsibility"
+          },
+          "task_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 20000,
+              "minLength": 1
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Task Ids"
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Evidence"
+          },
+          "knowledge_use": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Knowledge Use"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "responsibility",
+          "task_ids",
+          "evidence",
+          "knowledge_use"
+        ],
+        "title": "Goal"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "KeyTask": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_-]{1,60}$",
+            "title": "Id"
+          },
+          "purpose": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Purpose"
+          },
+          "prompt": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Prompt"
+          },
+          "solution": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Solution"
+          },
+          "student_work": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Student Work"
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Evidence"
+          },
+          "anticipated_response": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Anticipated Response"
+          },
+          "support": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Support"
+          },
+          "blocks": {
+            "items": {
+              "$ref": "#/components/schemas/Block"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "title": "Blocks"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "purpose",
+          "prompt",
+          "solution",
+          "student_work",
+          "evidence",
+          "anticipated_response",
+          "support"
+        ],
+        "title": "KeyTask"
+      },
+      "LessonIntent": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "understanding_shift": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Understanding Shift"
+          },
+          "task_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 20000,
+              "minLength": 1
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Task Ids"
+          },
+          "student_minutes": {
+            "type": "integer",
+            "maximum": 120.0,
+            "minimum": 1.0,
+            "title": "Student Minutes"
+          },
+          "discussion_minutes": {
+            "type": "integer",
+            "maximum": 120.0,
+            "minimum": 1.0,
+            "title": "Discussion Minutes"
+          },
+          "other_minutes": {
+            "type": "integer",
+            "maximum": 120.0,
+            "minimum": 0.0,
+            "title": "Other Minutes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "title",
+          "understanding_shift",
+          "task_ids",
+          "student_minutes",
+          "discussion_minutes",
+          "other_minutes"
+        ],
+        "title": "LessonIntent"
+      },
+      "Limits": {
+        "properties": {
+          "model_calls": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Model Calls"
+          },
+          "tool_calls": {
+            "type": "integer",
+            "maximum": 300.0,
+            "minimum": 1.0,
+            "title": "Tool Calls"
+          },
+          "total_tokens": {
+            "type": "integer",
+            "maximum": 2000000.0,
+            "minimum": 1000.0,
+            "title": "Total Tokens"
+          },
+          "seconds": {
+            "type": "integer",
+            "maximum": 7200.0,
+            "minimum": 1.0,
+            "title": "Seconds"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "model_calls",
+          "tool_calls",
+          "total_tokens",
+          "seconds"
+        ],
+        "title": "Limits"
+      },
+      "ReviewEvidence": {
+        "properties": {
+          "coverage": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Coverage"
+          },
+          "mathematics": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Mathematics"
+          },
+          "progression": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Progression"
+          },
+          "conditions": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Conditions"
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Evidence"
+          },
+          "sources": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Sources"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "coverage",
+          "mathematics",
+          "progression",
+          "conditions",
+          "evidence",
+          "sources"
+        ],
+        "title": "ReviewEvidence"
+      },
+      "School": {
+        "properties": {
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "lesson_count": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "Lesson Count"
+          },
+          "minutes_per_lesson": {
+            "type": "integer",
+            "maximum": 120.0,
+            "minimum": 15.0,
+            "title": "Minutes Per Lesson"
+          },
+          "class_size": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Class Size"
+          },
+          "resources": {
+            "items": {
+              "type": "string",
+              "maxLength": 20000,
+              "minLength": 1
+            },
+            "type": "array",
+            "maxItems": 30,
+            "minItems": 1,
+            "title": "Resources"
+          },
+          "learner_context": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Learner Context"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "source",
+          "lesson_count",
+          "minutes_per_lesson",
+          "class_size",
+          "resources",
+          "learner_context"
+        ],
+        "title": "School"
+      },
+      "Source": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Label"
+          },
+          "version": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Version"
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "caller",
+              "synthetic"
+            ],
+            "title": "Origin"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "label",
+          "version",
+          "origin"
+        ],
+        "title": "Source"
+      },
+      "TaskRequest": {
+        "properties": {
+          "schema_version": {
+            "type": "integer",
+            "const": 1,
+            "title": "Schema Version",
+            "default": 1
+          },
+          "event_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Event Id"
+          },
+          "capability": {
+            "type": "string",
+            "const": "curriculum_design",
+            "title": "Capability",
+            "default": "curriculum_design"
+          },
+          "grade": {
+            "type": "integer",
+            "const": 8,
+            "title": "Grade",
+            "default": 8
+          },
+          "scope": {
+            "type": "string",
+            "const": "section",
+            "title": "Scope",
+            "default": "section"
+          },
+          "instruction": {
+            "type": "string",
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Instruction"
+          },
+          "target_codes": {
+            "items": {
+              "type": "string",
+              "pattern": "^8\\.(?:F|EE)\\.[A-C]\\.[1-9]$"
+            },
+            "type": "array",
+            "maxItems": 6,
+            "minItems": 1,
+            "title": "Target Codes"
+          },
+          "school": {
+            "$ref": "#/components/schemas/School"
+          },
+          "external_content": {
+            "items": {
+              "$ref": "#/components/schemas/ExternalContent"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "title": "External Content"
+          },
+          "limits": {
+            "$ref": "#/components/schemas/Limits"
+          },
+          "language": {
+            "type": "string",
+            "const": "zh-CN",
+            "title": "Language",
+            "default": "zh-CN"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "event_id",
+          "instruction",
+          "target_codes",
+          "school",
+          "limits"
+        ],
+        "title": "TaskRequest"
+      },
+      "TaskView": {
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "title": "Task Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "running",
+              "completed",
+              "incomplete",
+              "stopped",
+              "cancelled",
+              "failed"
+            ],
+            "title": "Status"
+          },
+          "native_status": {
+            "type": "string",
+            "title": "Native Status"
+          },
+          "request": {
+            "$ref": "#/components/schemas/TaskRequest"
+          },
+          "request_fingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Request Fingerprint"
+          },
+          "unresolved": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Unresolved"
+          },
+          "usage": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Usage"
+          },
+          "content": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Curriculum"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fingerprint": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fingerprint"
+          },
+          "assets": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Assets"
+          },
+          "checks": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CheckRecord"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rendered": {
+            "type": "boolean",
+            "title": "Rendered",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "task_id",
+          "status",
+          "native_status",
+          "request",
+          "request_fingerprint",
+          "unresolved",
+          "usage",
+          "content",
+          "fingerprint",
+          "checks"
+        ],
+        "title": "TaskView"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

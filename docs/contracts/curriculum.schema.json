@@ -1,0 +1,349 @@
+{
+  "$defs": {
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "markdown",
+            "table",
+            "image"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "text": {
+          "default": "",
+          "title": "Text",
+          "type": "string"
+        },
+        "headers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Headers",
+          "type": "array"
+        },
+        "rows": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Rows",
+          "type": "array"
+        },
+        "src": {
+          "default": "",
+          "title": "Src",
+          "type": "string"
+        },
+        "alt": {
+          "default": "",
+          "title": "Alt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "Goal": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "responsibility": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Responsibility",
+          "type": "string"
+        },
+        "task_ids": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Task Ids",
+          "type": "array"
+        },
+        "evidence": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Evidence",
+          "type": "string"
+        },
+        "knowledge_use": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Knowledge Use",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "responsibility",
+        "task_ids",
+        "evidence",
+        "knowledge_use"
+      ],
+      "title": "Goal",
+      "type": "object"
+    },
+    "KeyTask": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9_-]{1,60}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "purpose": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Purpose",
+          "type": "string"
+        },
+        "prompt": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Prompt",
+          "type": "string"
+        },
+        "solution": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Solution",
+          "type": "string"
+        },
+        "student_work": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Student Work",
+          "type": "string"
+        },
+        "evidence": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Evidence",
+          "type": "string"
+        },
+        "anticipated_response": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Anticipated Response",
+          "type": "string"
+        },
+        "support": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Support",
+          "type": "string"
+        },
+        "blocks": {
+          "items": {
+            "$ref": "#/$defs/Block"
+          },
+          "maxItems": 20,
+          "title": "Blocks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "purpose",
+        "prompt",
+        "solution",
+        "student_work",
+        "evidence",
+        "anticipated_response",
+        "support"
+      ],
+      "title": "KeyTask",
+      "type": "object"
+    },
+    "LessonIntent": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "understanding_shift": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Understanding Shift",
+          "type": "string"
+        },
+        "task_ids": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Task Ids",
+          "type": "array"
+        },
+        "student_minutes": {
+          "maximum": 120,
+          "minimum": 1,
+          "title": "Student Minutes",
+          "type": "integer"
+        },
+        "discussion_minutes": {
+          "maximum": 120,
+          "minimum": 1,
+          "title": "Discussion Minutes",
+          "type": "integer"
+        },
+        "other_minutes": {
+          "maximum": 120,
+          "minimum": 0,
+          "title": "Other Minutes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "title",
+        "understanding_shift",
+        "task_ids",
+        "student_minutes",
+        "discussion_minutes",
+        "other_minutes"
+      ],
+      "title": "LessonIntent",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "id": {
+      "const": "curriculum",
+      "default": "curriculum",
+      "title": "Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "section",
+      "default": "section",
+      "title": "Kind",
+      "type": "string"
+    },
+    "title": {
+      "maxLength": 20000,
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "narrative": {
+      "maxLength": 20000,
+      "minLength": 1,
+      "title": "Narrative",
+      "type": "string"
+    },
+    "goals": {
+      "items": {
+        "$ref": "#/$defs/Goal"
+      },
+      "maxItems": 6,
+      "minItems": 1,
+      "title": "Goals",
+      "type": "array"
+    },
+    "prerequisites": {
+      "maxLength": 20000,
+      "minLength": 1,
+      "title": "Prerequisites",
+      "type": "string"
+    },
+    "successors": {
+      "maxLength": 20000,
+      "minLength": 1,
+      "title": "Successors",
+      "type": "string"
+    },
+    "lessons": {
+      "items": {
+        "$ref": "#/$defs/LessonIntent"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "title": "Lessons",
+      "type": "array"
+    },
+    "tasks": {
+      "items": {
+        "$ref": "#/$defs/KeyTask"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "title": "Tasks",
+      "type": "array"
+    },
+    "practice_connections": {
+      "maxLength": 20000,
+      "minLength": 1,
+      "title": "Practice Connections",
+      "type": "string"
+    },
+    "teacher_preparation": {
+      "maxLength": 20000,
+      "minLength": 1,
+      "title": "Teacher Preparation",
+      "type": "string"
+    },
+    "assumptions": {
+      "items": {
+        "maxLength": 20000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "maxLength": 20000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Limitations",
+      "type": "array"
+    }
+  },
+  "required": [
+    "title",
+    "narrative",
+    "goals",
+    "prerequisites",
+    "successors",
+    "lessons",
+    "tasks",
+    "practice_connections",
+    "teacher_preparation",
+    "assumptions",
+    "limitations"
+  ],
+  "title": "Curriculum",
+  "type": "object"
+}
