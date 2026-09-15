@@ -1,0 +1,140 @@
+{
+  "status": "candidate_ready",
+  "task": "blind",
+  "started_at": "2026-09-15T02:29:25.831927+00:00",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "high",
+  "temperature": 1.0,
+  "max_output_tokens": 32768,
+  "max_retries": 0,
+  "tracing": "local only",
+  "limits": {
+    "model_calls": 12,
+    "tools": 40,
+    "seconds": 1200
+  },
+  "model_calls": 6,
+  "tool_calls": 6,
+  "usage": [
+    {
+      "input_tokens": 15855,
+      "output_tokens": 1110,
+      "total_tokens": 16965,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 896
+      }
+    },
+    {
+      "input_tokens": 17358,
+      "output_tokens": 597,
+      "total_tokens": 17955,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 451
+      }
+    },
+    {
+      "input_tokens": 18244,
+      "output_tokens": 1939,
+      "total_tokens": 20183,
+      "input_token_details": {
+        "cache_read": 12239
+      },
+      "output_token_details": {
+        "reasoning": 1689
+      }
+    },
+    {
+      "input_tokens": 20655,
+      "output_tokens": 3672,
+      "total_tokens": 24327,
+      "input_token_details": {
+        "cache_read": 16318
+      },
+      "output_token_details": {
+        "reasoning": 3523
+      }
+    },
+    {
+      "input_tokens": 24625,
+      "output_tokens": 22621,
+      "total_tokens": 47246,
+      "input_token_details": {
+        "cache_read": 20402
+      },
+      "output_token_details": {
+        "reasoning": 10276
+      }
+    },
+    {
+      "input_tokens": 47382,
+      "output_tokens": 793,
+      "total_tokens": 48175,
+      "input_token_details": {
+        "cache_read": 24522
+      },
+      "output_token_details": {
+        "reasoning": 470
+      }
+    }
+  ],
+  "artifacts": {
+    "independent-solutions.md": {
+      "version": 1,
+      "sha256": "73ea0af9880b09d9bef29412f9824a40d44495f13dfe413b7777b3923cade851",
+      "bytes": 32632
+    }
+  },
+  "parent_artifacts": {
+    "lesson6_7_8_student_materials.md": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "0f46338febff2cf81105cfc98b050ed882bde046c2b9445e18dd70f1f703c508",
+      "bytes": 19666
+    },
+    "lesson7_reservoir_models.svg": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "edaddec06e1d9c033f2969b9ad0d992c7731e4b699f9649e7bbd278e8a55bcc3",
+      "bytes": 6153
+    },
+    "lesson8_scaled_graphs.svg": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+      "bytes": 9596
+    }
+  },
+  "input_files": {
+    "inputs/blind-task.md": "b5657de0209cfd7826c29c64299c5b3090b003ac46b11b11b333f489c19947d8"
+  },
+  "errors": [],
+  "quality_status": "not_externally_evaluated",
+  "tools": [
+    "write_artifact",
+    "read_artifact",
+    "calculate",
+    "finish_candidate"
+  ],
+  "implementation_sha256": "d4cdb17674ad5d1c8a3b6ab6e6d8b537d2745eb95458a84b4e9c9477515e179e",
+  "knowledge_implementation_sha256": "e9912000caef1f194fc3c377b658e8a7d7501c385a2be08da63302bb66090341",
+  "requirements_sha256": "aba794c715cea4d00642527249662a794b80b646849fb7e7b75bc62944ee1b66",
+  "evaluation_sha256": "3260d11a994f8d32aaa2cfe3c48341ee6e699a1af879cb013e91e32dd42fa443",
+  "elapsed_seconds": 85.183,
+  "delivery": {
+    "summary": "Completed an autonomous independent mathematical read and audit of all student-visible tasks across Lessons 6, 7, and 8 in lesson6_7_8_student_materials.md and their accompanying SVG graphics (lesson7_reservoir_models.svg and lesson8_scaled_graphs.svg). Every task and sub-question was independently solved with step-by-step derivations, numerical verifications, unit consistency checks, and graphic coordinate validations. Discovered minor text-graphic issues: a missing visual sketch referenced in TASK-8.1, a grid terminology discrepancy in PRAC-8 Problem 1, and rate spoilers in the Figure 7.1 legend. All solutions, findings, and a complete 100% task coverage inventory are documented in independent-solutions.md.",
+    "deliverables": [
+      "independent-solutions.md"
+    ],
+    "remaining_limits": [
+      "Evaluation is an autonomous model-based reading and computational verification; it does not constitute human expert review or empirical classroom observations.",
+      "PRAC-8 Problem 1 text references a 'clean grid intersection' at (20, 235) which is mathematically off-grid for the stated $50 grid line spacing; the problem is algebraically solvable, but visual representation on that specific grid would show an intermediate point.",
+      "TASK-8.1 text says 'Look at the small sketch below:' but provides bullet points rather than an embedded SVG or graphic sketch; students must rely on the written bullet text alone."
+    ]
+  }
+}

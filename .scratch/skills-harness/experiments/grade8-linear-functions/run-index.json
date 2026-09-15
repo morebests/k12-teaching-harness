@@ -1,0 +1,202 @@
+[
+  {
+    "run": "20260915T021550Z-overall",
+    "status": "assembled_only",
+    "limits": {
+      "model_calls": 12,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 0,
+    "tool_calls": 0,
+    "elapsed_seconds": 0.01,
+    "usage_summed_across_calls": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0
+    },
+    "cache_read_tokens": 0,
+    "actual_cost": "unknown",
+    "artifact_count": 0
+  },
+  {
+    "run": "20260915T021611Z-overall",
+    "status": "budget_exhausted",
+    "limits": {
+      "model_calls": 12,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 12,
+    "tool_calls": 12,
+    "elapsed_seconds": 60.277,
+    "usage_summed_across_calls": {
+      "input_tokens": 520078,
+      "output_tokens": 11077,
+      "total_tokens": 531155
+    },
+    "cache_read_tokens": 428912,
+    "actual_cost": "unknown",
+    "artifact_count": 0
+  },
+  {
+    "run": "20260915T021738Z-overall",
+    "status": "candidate_ready",
+    "limits": {
+      "model_calls": 12,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 12,
+    "tool_calls": 17,
+    "elapsed_seconds": 165.531,
+    "usage_summed_across_calls": {
+      "input_tokens": 686072,
+      "output_tokens": 35886,
+      "total_tokens": 721958
+    },
+    "cache_read_tokens": 580086,
+    "actual_cost": "unknown",
+    "artifact_count": 4
+  },
+  {
+    "run": "20260915T022426Z-unit",
+    "status": "budget_exhausted",
+    "limits": {
+      "model_calls": 12,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 12,
+    "tool_calls": 12,
+    "elapsed_seconds": 73.541,
+    "usage_summed_across_calls": {
+      "input_tokens": 736013,
+      "output_tokens": 22287,
+      "total_tokens": 758300
+    },
+    "cache_read_tokens": 641820,
+    "actual_cost": "unknown",
+    "artifact_count": 4
+  },
+  {
+    "run": "20260915T022559Z-unit",
+    "status": "candidate_ready",
+    "limits": {
+      "model_calls": 24,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 22,
+    "tool_calls": 22,
+    "elapsed_seconds": 179.74,
+    "usage_summed_across_calls": {
+      "input_tokens": 1820201,
+      "output_tokens": 53251,
+      "total_tokens": 1873452
+    },
+    "cache_read_tokens": 1643242,
+    "actual_cost": "unknown",
+    "artifact_count": 7
+  },
+  {
+    "run": "20260915T022925Z-blind",
+    "status": "candidate_ready",
+    "limits": {
+      "model_calls": 12,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 6,
+    "tool_calls": 6,
+    "elapsed_seconds": 85.183,
+    "usage_summed_across_calls": {
+      "input_tokens": 144119,
+      "output_tokens": 30732,
+      "total_tokens": 174851
+    },
+    "cache_read_tokens": 73481,
+    "actual_cost": "unknown",
+    "artifact_count": 1
+  },
+  {
+    "run": "20260915T023107Z-repair",
+    "status": "candidate_ready",
+    "limits": {
+      "model_calls": 24,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 22,
+    "tool_calls": 22,
+    "elapsed_seconds": 321.853,
+    "usage_summed_across_calls": {
+      "input_tokens": 2972705,
+      "output_tokens": 79913,
+      "total_tokens": 3052618
+    },
+    "cache_read_tokens": 2646774,
+    "actual_cost": "unknown",
+    "artifact_count": 14
+  },
+  {
+    "run": "20260915T023658Z-repair",
+    "status": "budget_exhausted",
+    "limits": {
+      "model_calls": 24,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 24,
+    "tool_calls": 24,
+    "elapsed_seconds": 301.282,
+    "usage_summed_across_calls": {
+      "input_tokens": 3273084,
+      "output_tokens": 60666,
+      "total_tokens": 3333750
+    },
+    "cache_read_tokens": 2875567,
+    "actual_cost": "unknown",
+    "artifact_count": 14
+  },
+  {
+    "run": "20260915T024257Z-blind",
+    "status": "candidate_ready",
+    "limits": {
+      "model_calls": 12,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 10,
+    "tool_calls": 10,
+    "elapsed_seconds": 120.997,
+    "usage_summed_across_calls": {
+      "input_tokens": 261545,
+      "output_tokens": 39130,
+      "total_tokens": 300675
+    },
+    "cache_read_tokens": 179481,
+    "actual_cost": "unknown",
+    "artifact_count": 1
+  },
+  {
+    "run": "20260915T024257Z-revision",
+    "status": "candidate_ready",
+    "limits": {
+      "model_calls": 24,
+      "tools": 40,
+      "seconds": 1200
+    },
+    "model_calls": 20,
+    "tool_calls": 20,
+    "elapsed_seconds": 249.527,
+    "usage_summed_across_calls": {
+      "input_tokens": 2990454,
+      "output_tokens": 69923,
+      "total_tokens": 3060377
+    },
+    "cache_read_tokens": 2643169,
+    "actual_cost": "unknown",
+    "artifact_count": 14
+  }
+]

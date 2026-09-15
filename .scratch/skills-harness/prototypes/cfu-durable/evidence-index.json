@@ -1,0 +1,37 @@
+{
+  "scope": "limited runtime probes; fixed model outputs",
+  "reports": {
+    "faults": {
+      "path": "runs/20260915T032753757782Z-faults/results.json",
+      "sha256": "4ec43da8df51a5a5c34748b62cee94e4917a1bde14bbcda3da7de66134cf31f1"
+    },
+    "real_reply": {
+      "path": "runs/real-review/real-recovery.json",
+      "sha256": "7d6d7b8c6b1b82cfcf853a53b761a529bea2d4d66deb3ab24e72f62bd72b3186"
+    },
+    "agent_server": {
+      "path": "server-probe.json",
+      "sha256": "502588ad3021c7862aa55a3ea217d67ef6582e4d40793ea5a0ea61d3af84d410"
+    },
+    "langsmith_sdk": {
+      "path": "runs/20260915T032913870963Z-trace/sdk-transport.json",
+      "sha256": "77966028851a06d0978ed30a8819db03c6e1a828d4031548ff80bf39207496b7"
+    }
+  },
+  "sources": {
+    "runtime_prototype.py": "160afc334272a985e01fbd6c2973ec034272b9b97c7f38116b5e4e0016506983",
+    "runtime-before-path-guard.snapshot.py": "b68bf2bc1abdcd7b91d085886cb7a3a58dc22796503af6a363e30a0072f0d1ae",
+    "exercise.prototype.py": "6c3a85a7efc6a8f646b84d4d52c34a7c38064600705c176ea7ff946bbca03da9",
+    "server_exercise.prototype.py": "0ced206cf5ca8ab62917fa0aac6f8640f244d7c521ce8b0c988751f8940b24e0",
+    "trace_exercise.prototype.py": "7ccfe44bb7b169a89959147839aeb13478e54dc30a0e18d0a844a67a39be05ad",
+    "requirements.prototype.lock": "1ec2c14a781667810dc02c2b82901935782b229cf18eb76316f69a58a5c615e9",
+    "langgraph.json": "66f644fe4e0d99e0fdc1866d1a859b586f7c9ccd825810e9760ae7b59331ec70",
+    "standard-source.json": "9191d9b8f7d6761ee3f323b29b9801a3d97ec7d5e28ea66464d8b7e0e9846b5f",
+    "real-request.json": "293f00416734cfb8268123f4641f8ba62e2af8d5c14f0d95c01eabc2d795c3a9",
+    "real-reply.json": "f37581932dae53b5e8ba03bc32eb986f04184f6bb0222bd7ee17cf4446a0f024"
+  },
+  "fault_cases": 13,
+  "real_events": 1,
+  "server": "dev graceful restart only",
+  "langsmith": "SDK -> localhost recorder only"
+}

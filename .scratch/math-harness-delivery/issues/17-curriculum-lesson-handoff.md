@@ -1,0 +1,25 @@
+# 从全年蓝图交接到连续三课
+
+Status: ready-for-agent
+Blocked by: [生成覆盖完整八年级 CCSS 的全年蓝图](15-full-year-blueprint.md)、[直接生成一课的真实师生材料并检查修订](03-continuous-lessons-and-materials.md)
+Size: M/L — 复用逐课生成，新增真实上层交接与跨课连续性检查。
+
+## What to build
+
+从实际全年方案中的线性函数单元，取得上层目标、Narrative 和时间安排，设计并完成一个连续三课的课段。检查先前任务如何支持后续学习，以及逐课试做如何反馈上层。
+
+## Acceptance criteria
+
+- [ ] 使用全年蓝图的实际不可变版本；不能用测试替身、首票临时课段或模型记忆冒充正式上层交接。
+- [ ] 三课各有明确职责、入口／出口与实际材料；上层目标分配、设计理由和前后联系进入模型 Context 并可追查。
+- [ ] 每课使用已实现的数学、受众和渲染检查；跨课检查表征／单位含义、学习机会、练习和评测衔接，不重新写一个平行教案生成器。
+- [ ] 下层任务试做暴露冲突时能返回具体上层问题并在当前设计授权内修正；用户在已交付版本上提出新修改的通用接口由跨层修订票负责。
+- [ ] 实际内容与层级关系、产物和检查版本同步保存；后续修改可以定位旧关系和检查对象。
+- [ ] 全部三课实际渲染并完成页面走查，有明确质量及容量记录；只有三课就声明三课，不能视为完整单元。
+- [ ] 经 API 演示实际蓝图→课段→三课内容，保存质量、消耗和未解决项，供完整单元工作包收口；不将单课测试通过直接外推。
+
+## Reading and boundaries
+
+读 [规格](../spec.md)、[课程设计](../../skills-harness/assets/curriculum-design-capability.md)、[Context](../../skills-harness/assets/context-and-llm-design.md) 与 [创建详细流程](../../skills-harness/assets/lesson-creation-execution-design.md)。本例可用已有完整生成授权，不需要先完成草稿协作；首条完整产品链的门槛仍包含真实 HITL。
+
+## Comments

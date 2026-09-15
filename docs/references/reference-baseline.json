@@ -1,0 +1,193 @@
+{
+  "purpose": "研究证据定位与变更检测；不是完整资料快照、运行时配置或固定数据库接口",
+  "capturedOn": "2026-09-14",
+  "externalRepository": {
+    "localPath": "/Users/libo/Mathematics/k12-learning",
+    "headAtCapture": "3f8adf06eb43d9cddd2f2a96584eba74449bf957",
+    "identityNote": "文件内容以逐文件SHA-256为准；HEAD不代表未提交文件内容。"
+  },
+  "files": [
+    {
+      "pathRelativeToExternalRepository": "docs/research/illustrative-mathematics-design-methodology-humanized.md",
+      "sha256": "a3ae756182ffa3d2746bfe7c719744be88c217c828e50402feb1cd547580b727",
+      "bytes": 138521
+    },
+    {
+      "pathRelativeToExternalRepository": ".scratch/im-v360-content-import/research/01-source-scope-rights-and-completeness.md",
+      "sha256": "4c1ff77d9bb820a838e472e9836c286b35590189976fa9c5819893c054d4a81c",
+      "bytes": 33635
+    },
+    {
+      "pathRelativeToExternalRepository": ".scratch/im-v360-content-import/research/02-lc-structure-and-accessim-schema-drift-audit.md",
+      "sha256": "f3257ef69b948a9c9af53d6d1563c8a348b041b9b3d30fa09b068ed6d79f78c7",
+      "bytes": 10175
+    },
+    {
+      "pathRelativeToExternalRepository": "research/learning-commons/README.md",
+      "sha256": "9cfc81f4c9bc051a0475cd22d60244dca9ad14616d741e796a12b36ffacb9f19",
+      "bytes": 5889
+    },
+    {
+      "pathRelativeToExternalRepository": "research/learning-commons/01-system-and-lineage.md",
+      "sha256": "22b905417a50633283f06425703f0618894ff032268256c1956b953eec5e98fd",
+      "bytes": 6003
+    },
+    {
+      "pathRelativeToExternalRepository": "research/learning-commons/04-relationship-topology.md",
+      "sha256": "082ef3fb961af88530b6a4500f6d5a82b191e6419457ff6749bacbd9a7337804",
+      "bytes": 6822
+    },
+    {
+      "pathRelativeToExternalRepository": "research/learning-commons/15-unmaterialized-relationships.md",
+      "sha256": "b7b007acd1bd365f64aee185d7f755e1ba2192b755322834f650a233aa465d32",
+      "bytes": 15041
+    },
+    {
+      "pathRelativeToExternalRepository": "research/learning-commons/16-ccss-learning-component-coverage.md",
+      "sha256": "6d3d967f1cd70b604f11d41b27c4afc79ab105eef1ccf6d7b926f9710d52c123",
+      "bytes": 4789
+    }
+  ],
+  "localDataObservation": {
+    "pathRelativeToExternalRepository": "learning-data/sqlite/lc-v1.11.0.db",
+    "readOnly": true,
+    "snapshot": {
+      "namespace": "lc",
+      "version": "v1.11.0",
+      "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+      "relsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "provider": "Learning Commons",
+      "zeroInfoFields": "{\"audience\":\"[\\\"Teacher\\\",\\\"Student\\\",\\\"Family\\\"]\",\"isCurrent\":\"true\",\"license\":\"https://creativecommons.org/licenses/by/4.0/\",\"lmsLoadingGuidance\":\"unspecified\",\"provider\":\"Learning Commons\"}",
+      "typecastVersion": "v1",
+      "cleaningVersion": "v2",
+      "schemaVersion": 2,
+      "loadedAt": "2026-08-19T02:21:52+00:00"
+    },
+    "sourceHashEvidence": "nodesSha256和relsSha256读取自snapshot元数据，本轮未重新计算原始JSONL摘要。",
+    "queries": {
+      "course_languages": {
+        "sql": "SELECT inLanguage,count(*) AS count FROM node_Course GROUP BY inLanguage",
+        "rows": [
+          {
+            "inLanguage": "en-US",
+            "count": 18
+          }
+        ]
+      },
+      "out_of_tree_activities": {
+        "sql": "WITH RECURSIVE tree(id) AS (SELECT identifier FROM node_Course UNION SELECT p.targetIdentifier FROM rel_hasPart p JOIN tree t ON p.sourceIdentifier=t.id) SELECT count(*) AS total,sum(CASE WHEN EXISTS(SELECT 1 FROM rel_hasReference r WHERE (r.sourceIdentifier=a.identifier AND r.targetIdentifier IN (SELECT id FROM tree)) OR (r.targetIdentifier=a.identifier AND r.sourceIdentifier IN (SELECT id FROM tree))) THEN 1 ELSE 0 END) AS referenced_from_or_to_tree FROM node_Activity a WHERE a.identifier NOT IN (SELECT id FROM tree)",
+        "rows": [
+          {
+            "total": 59,
+            "referenced_from_or_to_tree": 58
+          }
+        ]
+      },
+      "out_of_tree_names": {
+        "sql": "WITH RECURSIVE tree(id) AS (SELECT identifier FROM node_Course UNION SELECT p.targetIdentifier FROM rel_hasPart p JOIN tree t ON p.sourceIdentifier=t.id) SELECT identifier,name,educationalUse FROM node_Activity WHERE identifier NOT IN (SELECT id FROM tree) ORDER BY identifier LIMIT 3",
+        "rows": [
+          {
+            "identifier": "im:009aee2b-b205-549e-abe1-f75e2fcb3b14",
+            "name": "A New Container",
+            "educationalUse": "instruction"
+          },
+          {
+            "identifier": "im:060c5135-773f-555b-ab61-8be7101aace5",
+            "name": "How Much Water?",
+            "educationalUse": "instruction"
+          },
+          {
+            "identifier": "im:0850eacb-bd1a-5344-99a1-daedfe37732f",
+            "name": "Exponential Situations",
+            "educationalUse": "instruction"
+          }
+        ]
+      },
+      "geometry_identity": {
+        "sql": "SELECT identifier,caseIdentifierUUID,statementCode,description FROM node_StandardsFrameworkItem WHERE identifier='c14e392d-1c27-5aca-9bef-259a8403dd60'",
+        "rows": [
+          {
+            "identifier": "c14e392d-1c27-5aca-9bef-259a8403dd60",
+            "caseIdentifierUUID": "6b9bd535-d7cc-11e8-824f-0242ac160002",
+            "statementCode": "1.G.A.1",
+            "description": "Distinguish between defining attributes (e.g., triangles are closed and three-sided) versus non-defining attributes (e.g., color, orientation, overall size); build and draw shapes to possess defining attributes."
+          }
+        ]
+      },
+      "alignment_roles": {
+        "sql": "SELECT alignmentType,curriculumAlignmentType,count(*) AS count FROM rel_hasEducationalAlignment GROUP BY alignmentType,curriculumAlignmentType",
+        "rows": [
+          {
+            "alignmentType": "assess",
+            "curriculumAlignmentType": "practicing",
+            "count": 112
+          },
+          {
+            "alignmentType": "teaches",
+            "curriculumAlignmentType": "addressing",
+            "count": 33179
+          },
+          {
+            "alignmentType": "teaches",
+            "curriculumAlignmentType": "building_on",
+            "count": 8995
+          },
+          {
+            "alignmentType": "teaches",
+            "curriculumAlignmentType": "building_toward",
+            "count": 10521
+          }
+        ]
+      },
+      "framework_names": {
+        "sql": "SELECT identifier,name,caseIdentifierUUID FROM node_StandardsFramework WHERE name LIKE 'Common Core%' ORDER BY name",
+        "rows": [
+          {
+            "identifier": "b78c2e2e-69b0-526f-8368-050af867b38e",
+            "name": "Common Core State Standards for ELA",
+            "caseIdentifierUUID": "c64961be-d7cb-11e8-824f-0242ac160002"
+          },
+          {
+            "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+            "name": "Common Core State Standards for Math",
+            "caseIdentifierUUID": "c6496676-d7cb-11e8-824f-0242ac160002"
+          }
+        ]
+      },
+      "framework_physical_columns": {
+        "sql": "PRAGMA table_info(node_StandardsFramework)",
+        "columns": [
+          "identifier",
+          "academicSubject",
+          "adoptionStatus",
+          "attributionId",
+          "author",
+          "caseIdentifierURI",
+          "caseIdentifierUUID",
+          "dateModified",
+          "description",
+          "inLanguage",
+          "jurisdiction",
+          "name",
+          "notes",
+          "descriptionSha256",
+          "notesSha256",
+          "nameSha256"
+        ]
+      }
+    }
+  },
+  "officialPagesRechecked": [
+    "https://docs.learningcommons.org/knowledge-graph/schema-reference/standards",
+    "https://docs.learningcommons.org/knowledge-graph/schema-reference/learning-progressions",
+    "https://docs.learningcommons.org/knowledge-graph/schema-reference/curriculum",
+    "https://docs.learningcommons.org/knowledge-graph/schema-reference/instructional-practices",
+    "https://lvp.digitalpromiseglobal.org/model"
+  ],
+  "limits": [
+    "数据观察只代表lc/v1.11.0及本地schemaVersion=2投影，不是未来服务的固定全集。",
+    "未重新导入数据；未证明AccessIM全部内容与LC逐对象等价。",
+    "网页地址是本轮核查入口，不代表已保存网页内容快照。"
+  ]
+}

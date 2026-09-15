@@ -1,0 +1,288 @@
+{
+  "status": "candidate_ready",
+  "task": "blind",
+  "started_at": "2026-09-15T02:42:57.527368+00:00",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "high",
+  "temperature": 1.0,
+  "max_output_tokens": 32768,
+  "max_retries": 0,
+  "tracing": "local only",
+  "limits": {
+    "model_calls": 12,
+    "tools": 40,
+    "seconds": 1200
+  },
+  "model_calls": 10,
+  "tool_calls": 10,
+  "usage": [
+    {
+      "input_tokens": 13744,
+      "output_tokens": 2888,
+      "total_tokens": 16632,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 2738
+      }
+    },
+    {
+      "input_tokens": 16926,
+      "output_tokens": 1122,
+      "total_tokens": 18048,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 944
+      }
+    },
+    {
+      "input_tokens": 18402,
+      "output_tokens": 100,
+      "total_tokens": 18502,
+      "input_token_details": {
+        "cache_read": 16311
+      },
+      "output_token_details": {
+        "reasoning": 71
+      }
+    },
+    {
+      "input_tokens": 18585,
+      "output_tokens": 1713,
+      "total_tokens": 20298,
+      "input_token_details": {
+        "cache_read": 16303
+      },
+      "output_token_details": {
+        "reasoning": 1634
+      }
+    },
+    {
+      "input_tokens": 20491,
+      "output_tokens": 3142,
+      "total_tokens": 23633,
+      "input_token_details": {
+        "cache_read": 16303
+      },
+      "output_token_details": {
+        "reasoning": 3065
+      }
+    },
+    {
+      "input_tokens": 23809,
+      "output_tokens": 2500,
+      "total_tokens": 26309,
+      "input_token_details": {
+        "cache_read": 20384
+      },
+      "output_token_details": {
+        "reasoning": 2433
+      }
+    },
+    {
+      "input_tokens": 26472,
+      "output_tokens": 2065,
+      "total_tokens": 28537,
+      "input_token_details": {
+        "cache_read": 20386
+      },
+      "output_token_details": {
+        "reasoning": 2035
+      }
+    },
+    {
+      "input_tokens": 28621,
+      "output_tokens": 11671,
+      "total_tokens": 40292,
+      "input_token_details": {
+        "cache_read": 24463
+      },
+      "output_token_details": {
+        "reasoning": 11593
+      }
+    },
+    {
+      "input_tokens": 40465,
+      "output_tokens": 13427,
+      "total_tokens": 53892,
+      "input_token_details": {
+        "cache_read": 28571
+      },
+      "output_token_details": {
+        "reasoning": 983
+      }
+    },
+    {
+      "input_tokens": 54030,
+      "output_tokens": 502,
+      "total_tokens": 54532,
+      "input_token_details": {
+        "cache_read": 36760
+      },
+      "output_token_details": {
+        "reasoning": 259
+      }
+    }
+  ],
+  "artifacts": {
+    "independent-solutions.md": {
+      "version": 1,
+      "sha256": "15ab31ea411d1e108240a0b15dcdc0c9653f32290426129a908ea0e049ff98fe",
+      "bytes": 33797
+    }
+  },
+  "parent_artifacts": {
+    "lesson6_7_8_student_materials.md": {
+      "run": "20260915T023658Z-repair",
+      "version": 2,
+      "sha256": "b113a7fbac7645e12490bccf078214a36f6fbcfc7d32b8d7206556690699bc93",
+      "bytes": 25101
+    },
+    "lesson7_reservoir_models.svg": {
+      "run": "20260915T023658Z-repair",
+      "version": 0,
+      "sha256": "296601cd63fc178200ad453e07454462332d803b290f6bdea9f7e8ed18583e60",
+      "bytes": 6176,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "296601cd63fc178200ad453e07454462332d803b290f6bdea9f7e8ed18583e60",
+        "bytes": 6176
+      }
+    },
+    "lesson8_scaled_graphs.svg": {
+      "run": "20260915T023658Z-repair",
+      "version": 0,
+      "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+      "bytes": 9596,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 0,
+        "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+        "bytes": 9596,
+        "inherited_from": {
+          "run": "20260915T022559Z-unit",
+          "version": 1,
+          "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+          "bytes": 9596
+        }
+      }
+    },
+    "cfu8_snow_graph.svg": {
+      "run": "20260915T023658Z-repair",
+      "version": 0,
+      "sha256": "b37a1809026b89354eaf3f78334f97f695d323d1ab22e457901329cea008b5e5",
+      "bytes": 5606,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "b37a1809026b89354eaf3f78334f97f695d323d1ab22e457901329cea008b5e5",
+        "bytes": 5606
+      }
+    },
+    "task8_1_trap_sketch.svg": {
+      "run": "20260915T023658Z-repair",
+      "version": 0,
+      "sha256": "b1217c715088468635f11dc7938d59f7ce2920861cb3a19a556c5f8ca6e935c5",
+      "bytes": 4386,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "b1217c715088468635f11dc7938d59f7ce2920861cb3a19a556c5f8ca6e935c5",
+        "bytes": 4386
+      }
+    }
+  },
+  "input_files": {
+    "inputs/blind-task.md": "b5657de0209cfd7826c29c64299c5b3090b003ac46b11b11b333f489c19947d8"
+  },
+  "errors": [],
+  "quality_status": "not_externally_evaluated",
+  "parent_status": {
+    "run": "20260915T023658Z-repair",
+    "status": "budget_exhausted",
+    "incomplete_explicitly_allowed": true
+  },
+  "rendered_inputs": {
+    "lesson7_reservoir_models.svg": {
+      "sha256": "08fa44fba6eaeea4bda2cf045cbc7f45dfe41514766ba2cf967312a76f0bdc8a",
+      "renderer_sha256": "45163aed83385616db7adca67bc3500524dace6e49783faaae1031463f9fff6d",
+      "metadata": {
+        "sharp": "0.35.4",
+        "format": "png",
+        "width": 1600,
+        "height": 1257,
+        "channels": 3,
+        "premultiplied": false,
+        "hasAlpha": false,
+        "size": 148088
+      }
+    },
+    "lesson8_scaled_graphs.svg": {
+      "sha256": "fe6192d4b23653ff504c7275f0ad43ba0967f0a55925dacd0b45cda2f66227ce",
+      "renderer_sha256": "45163aed83385616db7adca67bc3500524dace6e49783faaae1031463f9fff6d",
+      "metadata": {
+        "sharp": "0.35.4",
+        "format": "png",
+        "width": 1600,
+        "height": 817,
+        "channels": 3,
+        "premultiplied": false,
+        "hasAlpha": false,
+        "size": 92607
+      }
+    },
+    "cfu8_snow_graph.svg": {
+      "sha256": "e391e5d88117977edc8bb234f28b170c0c74183d7d28f5acbb5a8235d178975c",
+      "renderer_sha256": "45163aed83385616db7adca67bc3500524dace6e49783faaae1031463f9fff6d",
+      "metadata": {
+        "sharp": "0.35.4",
+        "format": "png",
+        "width": 1600,
+        "height": 1164,
+        "channels": 3,
+        "premultiplied": false,
+        "hasAlpha": false,
+        "size": 103772
+      }
+    },
+    "task8_1_trap_sketch.svg": {
+      "sha256": "3348f70124670b53e4eb5761cfaf701f12a375f06674560ead55f92f462198ba",
+      "renderer_sha256": "45163aed83385616db7adca67bc3500524dace6e49783faaae1031463f9fff6d",
+      "metadata": {
+        "sharp": "0.35.4",
+        "format": "png",
+        "width": 1600,
+        "height": 1216,
+        "channels": 3,
+        "premultiplied": false,
+        "hasAlpha": false,
+        "size": 91368
+      }
+    }
+  },
+  "tools": [
+    "write_artifact",
+    "read_artifact",
+    "calculate",
+    "finish_candidate"
+  ],
+  "implementation_sha256": "96569e6a765928b62c7db7630bd9c4ffabb6794f62b5165ebf7db3f9340dc223",
+  "knowledge_implementation_sha256": "e9912000caef1f194fc3c377b658e8a7d7501c385a2be08da63302bb66090341",
+  "requirements_sha256": "aba794c715cea4d00642527249662a794b80b646849fb7e7b75bc62944ee1b66",
+  "evaluation_sha256": "3260d11a994f8d32aaa2cfe3c48341ee6e699a1af879cb013e91e32dd42fa443",
+  "elapsed_seconds": 120.997,
+  "delivery": {
+    "summary": "Completed an independent mathematical reading audit and full solution key for Lessons 6, 7, and 8 student materials (lesson6_7_8_student_materials.md) and all four accompanying SVG figures. Every task across the 3-lesson sequence was solved independently from the student perspective, with calculations verified via symbolic computation. Documented all mathematical steps, contextual interpretations, coordinate readings, and identified two specific visual/reading anomalies in Figure 8.0 and Figure 8.2. Saved the comprehensive report as independent-solutions.md.",
+    "deliverables": [
+      "independent-solutions.md"
+    ],
+    "remaining_limits": [
+      "This deliverable represents an autonomous AI model independent reading and mathematical verification audit. It does not replace human expert pedagogical review, curriculum panel validation, or empirical classroom observation with middle school students.",
+      "Visual text collision in task8_1_trap_sketch.svg and coordinate readability / tick labeling anomalies in cfu8_snow_graph.svg are documented as external audit findings on immutable parent artifacts; SVG source code was withheld by the environment tool and not rewritten in this run."
+    ]
+  }
+}

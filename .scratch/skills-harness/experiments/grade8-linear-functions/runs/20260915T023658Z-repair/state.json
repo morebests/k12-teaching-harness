@@ -1,0 +1,858 @@
+{
+  "status": "budget_exhausted",
+  "task": "repair",
+  "started_at": "2026-09-15T02:36:58.314228+00:00",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "high",
+  "temperature": 1.0,
+  "max_output_tokens": 32768,
+  "max_retries": 0,
+  "tracing": "local only",
+  "limits": {
+    "model_calls": 24,
+    "tools": 40,
+    "seconds": 1200
+  },
+  "model_calls": 24,
+  "tool_calls": 24,
+  "usage": [
+    {
+      "input_tokens": 97273,
+      "output_tokens": 1048,
+      "total_tokens": 98321,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 1021
+      }
+    },
+    {
+      "input_tokens": 99746,
+      "output_tokens": 158,
+      "total_tokens": 99904,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 131
+      }
+    },
+    {
+      "input_tokens": 100146,
+      "output_tokens": 64,
+      "total_tokens": 100210,
+      "input_token_details": {
+        "cache_read": 94128
+      },
+      "output_token_details": {
+        "reasoning": 38
+      }
+    },
+    {
+      "input_tokens": 100568,
+      "output_tokens": 99,
+      "total_tokens": 100667,
+      "input_token_details": {
+        "cache_read": 98211
+      },
+      "output_token_details": {
+        "reasoning": 73
+      }
+    },
+    {
+      "input_tokens": 100907,
+      "output_tokens": 31,
+      "total_tokens": 100938,
+      "input_token_details": {
+        "cache_read": 98201
+      },
+      "output_token_details": {
+        "reasoning": 11
+      }
+    },
+    {
+      "input_tokens": 101174,
+      "output_tokens": 53,
+      "total_tokens": 101227,
+      "input_token_details": {
+        "cache_read": 98192
+      },
+      "output_token_details": {
+        "reasoning": 28
+      }
+    },
+    {
+      "input_tokens": 101463,
+      "output_tokens": 40,
+      "total_tokens": 101503,
+      "input_token_details": {
+        "cache_read": 98183
+      },
+      "output_token_details": {
+        "reasoning": 16
+      }
+    },
+    {
+      "input_tokens": 101746,
+      "output_tokens": 757,
+      "total_tokens": 102503,
+      "input_token_details": {
+        "cache_read": 98173
+      },
+      "output_token_details": {
+        "reasoning": 724
+      }
+    },
+    {
+      "input_tokens": 109274,
+      "output_tokens": 4076,
+      "total_tokens": 113350,
+      "input_token_details": {
+        "cache_read": 98173
+      },
+      "output_token_details": {
+        "reasoning": 4043
+      }
+    },
+    {
+      "input_tokens": 123798,
+      "output_tokens": 1098,
+      "total_tokens": 124896,
+      "input_token_details": {
+        "cache_read": 106362
+      },
+      "output_token_details": {
+        "reasoning": 1066
+      }
+    },
+    {
+      "input_tokens": 128914,
+      "output_tokens": 523,
+      "total_tokens": 129437,
+      "input_token_details": {
+        "cache_read": 126813
+      },
+      "output_token_details": {
+        "reasoning": 491
+      }
+    },
+    {
+      "input_tokens": 133347,
+      "output_tokens": 352,
+      "total_tokens": 133699,
+      "input_token_details": {
+        "cache_read": 126809
+      },
+      "output_token_details": {
+        "reasoning": 326
+      }
+    },
+    {
+      "input_tokens": 139028,
+      "output_tokens": 9882,
+      "total_tokens": 148910,
+      "input_token_details": {
+        "cache_read": 130897
+      },
+      "output_token_details": {
+        "reasoning": 3390
+      }
+    },
+    {
+      "input_tokens": 149058,
+      "output_tokens": 53,
+      "total_tokens": 149111,
+      "input_token_details": {
+        "cache_read": 134991
+      },
+      "output_token_details": {
+        "reasoning": 26
+      }
+    },
+    {
+      "input_tokens": 149447,
+      "output_tokens": 7411,
+      "total_tokens": 156858,
+      "input_token_details": {
+        "cache_read": 94078
+      },
+      "output_token_details": {
+        "reasoning": 924
+      }
+    },
+    {
+      "input_tokens": 157003,
+      "output_tokens": 48,
+      "total_tokens": 157051,
+      "input_token_details": {
+        "cache_read": 147254
+      },
+      "output_token_details": {
+        "reasoning": 21
+      }
+    },
+    {
+      "input_tokens": 157289,
+      "output_tokens": 3926,
+      "total_tokens": 161215,
+      "input_token_details": {
+        "cache_read": 151335
+      },
+      "output_token_details": {
+        "reasoning": 140
+      }
+    },
+    {
+      "input_tokens": 161359,
+      "output_tokens": 49,
+      "total_tokens": 161408,
+      "input_token_details": {
+        "cache_read": 155421
+      },
+      "output_token_details": {
+        "reasoning": 23
+      }
+    },
+    {
+      "input_tokens": 161647,
+      "output_tokens": 11721,
+      "total_tokens": 173368,
+      "input_token_details": {
+        "cache_read": 159502
+      },
+      "output_token_details": {
+        "reasoning": 1273
+      }
+    },
+    {
+      "input_tokens": 173511,
+      "output_tokens": 51,
+      "total_tokens": 173562,
+      "input_token_details": {
+        "cache_read": 159509
+      },
+      "output_token_details": {
+        "reasoning": 24
+      }
+    },
+    {
+      "input_tokens": 173802,
+      "output_tokens": 4655,
+      "total_tokens": 178457,
+      "input_token_details": {
+        "cache_read": 167680
+      },
+      "output_token_details": {
+        "reasoning": 717
+      }
+    },
+    {
+      "input_tokens": 178603,
+      "output_tokens": 7443,
+      "total_tokens": 186046,
+      "input_token_details": {
+        "cache_read": 171767
+      },
+      "output_token_details": {
+        "reasoning": 389
+      }
+    },
+    {
+      "input_tokens": 186180,
+      "output_tokens": 37,
+      "total_tokens": 186217,
+      "input_token_details": {
+        "cache_read": 175858
+      },
+      "output_token_details": {
+        "reasoning": 17
+      }
+    },
+    {
+      "input_tokens": 187801,
+      "output_tokens": 7091,
+      "total_tokens": 194892,
+      "input_token_details": {
+        "cache_read": 184030
+      },
+      "output_token_details": {
+        "reasoning": 388
+      }
+    }
+  ],
+  "artifacts": {
+    "upstream_blueprint_corrections.md": {
+      "version": 0,
+      "sha256": "37a005c37c0577c525c167d8c1b9307a27f63e0c61166557f03853b327cc0cdf",
+      "bytes": 6759,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 0,
+        "sha256": "37a005c37c0577c525c167d8c1b9307a27f63e0c61166557f03853b327cc0cdf",
+        "bytes": 6759,
+        "inherited_from": {
+          "run": "20260915T022559Z-unit",
+          "version": 1,
+          "sha256": "37a005c37c0577c525c167d8c1b9307a27f63e0c61166557f03853b327cc0cdf",
+          "bytes": 6759
+        }
+      }
+    },
+    "unit5_linear_functions_skeleton.md": {
+      "version": 0,
+      "sha256": "baa4cd794a0c0053ecd1fa0f80d3aa4ebca7d8be6b05b28d9a66e85987babb1d",
+      "bytes": 15831,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "baa4cd794a0c0053ecd1fa0f80d3aa4ebca7d8be6b05b28d9a66e85987babb1d",
+        "bytes": 15831
+      }
+    },
+    "lesson7_reservoir_models.svg": {
+      "version": 0,
+      "sha256": "296601cd63fc178200ad453e07454462332d803b290f6bdea9f7e8ed18583e60",
+      "bytes": 6176,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "296601cd63fc178200ad453e07454462332d803b290f6bdea9f7e8ed18583e60",
+        "bytes": 6176
+      }
+    },
+    "lesson8_scaled_graphs.svg": {
+      "version": 0,
+      "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+      "bytes": 9596,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 0,
+        "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+        "bytes": 9596,
+        "inherited_from": {
+          "run": "20260915T022559Z-unit",
+          "version": 1,
+          "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+          "bytes": 9596
+        }
+      }
+    },
+    "lesson6_7_8_student_materials.md": {
+      "version": 2,
+      "sha256": "b113a7fbac7645e12490bccf078214a36f6fbcfc7d32b8d7206556690699bc93",
+      "bytes": 25101
+    },
+    "lesson6_7_8_teacher_guides.md": {
+      "version": 1,
+      "sha256": "49ebb71b3189cd53b197b59ec6f30623d8b9a6181e1831743adc7544bbb9b0b9",
+      "bytes": 32116
+    },
+    "candidate_design_and_verification_report.md": {
+      "version": 1,
+      "sha256": "76c213e24d0f3a41870e3fe2aeb249e565712f3588169ebf523fe8b38d4a0397",
+      "bytes": 12534
+    },
+    "probe1_slope_triangles.svg": {
+      "version": 0,
+      "sha256": "d4eb51f4225644babd399ca4323a3cf6738bff947a9e439d85017601c45ba1d1",
+      "bytes": 5850,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "d4eb51f4225644babd399ca4323a3cf6738bff947a9e439d85017601c45ba1d1",
+        "bytes": 5850
+      }
+    },
+    "probe2_water_tank.svg": {
+      "version": 0,
+      "sha256": "7514a925838387d4d4a74c05c2e80da82c42735b10a591d037d312a3e96643aa",
+      "bytes": 4730,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "7514a925838387d4d4a74c05c2e80da82c42735b10a591d037d312a3e96643aa",
+        "bytes": 4730
+      }
+    },
+    "grade8_curriculum_blueprint.md": {
+      "version": 0,
+      "sha256": "b576f943335ffb24607de1c6259d3665e60415f34b4980189faf506965f0e6c4",
+      "bytes": 39413,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "b576f943335ffb24607de1c6259d3665e60415f34b4980189faf506965f0e6c4",
+        "bytes": 39413
+      }
+    },
+    "probe_tasks_student_and_teacher.md": {
+      "version": 1,
+      "sha256": "7be6369dc73b5e5bed6fe2a452424b0587228f1b2a948ddc6467f7a1c74d7ed4",
+      "bytes": 12660
+    },
+    "cfu8_snow_graph.svg": {
+      "version": 0,
+      "sha256": "b37a1809026b89354eaf3f78334f97f695d323d1ab22e457901329cea008b5e5",
+      "bytes": 5606,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "b37a1809026b89354eaf3f78334f97f695d323d1ab22e457901329cea008b5e5",
+        "bytes": 5606
+      }
+    },
+    "task8_1_trap_sketch.svg": {
+      "version": 0,
+      "sha256": "b1217c715088468635f11dc7938d59f7ce2920861cb3a19a556c5f8ca6e935c5",
+      "bytes": 4386,
+      "inherited_from": {
+        "run": "20260915T023107Z-repair",
+        "version": 1,
+        "sha256": "b1217c715088468635f11dc7938d59f7ce2920861cb3a19a556c5f8ca6e935c5",
+        "bytes": 4386
+      }
+    },
+    "repair-report.md": {
+      "version": 2,
+      "sha256": "ac15280621abd7effa1a18eebe4327afc23fd803eb2a1df32a6ca954f4fb5689",
+      "bytes": 25409
+    }
+  },
+  "parent_artifacts": {
+    "upstream_blueprint_corrections.md": {
+      "run": "20260915T023107Z-repair",
+      "version": 0,
+      "sha256": "37a005c37c0577c525c167d8c1b9307a27f63e0c61166557f03853b327cc0cdf",
+      "bytes": 6759,
+      "inherited_from": {
+        "run": "20260915T022559Z-unit",
+        "version": 1,
+        "sha256": "37a005c37c0577c525c167d8c1b9307a27f63e0c61166557f03853b327cc0cdf",
+        "bytes": 6759
+      }
+    },
+    "unit5_linear_functions_skeleton.md": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "baa4cd794a0c0053ecd1fa0f80d3aa4ebca7d8be6b05b28d9a66e85987babb1d",
+      "bytes": 15831
+    },
+    "lesson7_reservoir_models.svg": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "296601cd63fc178200ad453e07454462332d803b290f6bdea9f7e8ed18583e60",
+      "bytes": 6176
+    },
+    "lesson8_scaled_graphs.svg": {
+      "run": "20260915T023107Z-repair",
+      "version": 0,
+      "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+      "bytes": 9596,
+      "inherited_from": {
+        "run": "20260915T022559Z-unit",
+        "version": 1,
+        "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+        "bytes": 9596
+      }
+    },
+    "lesson6_7_8_student_materials.md": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "aef851df2de0ba83d3195b8a2974dbd40a2455c69feb7857d374a45645238dc7",
+      "bytes": 25083
+    },
+    "lesson6_7_8_teacher_guides.md": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "217850bffe7564bda9a952410fff2228a3cfe55795aaba359e38b80d15994378",
+      "bytes": 31115
+    },
+    "candidate_design_and_verification_report.md": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "967592aca85f3573089fc8f01cbd0c0b2615d8020efd4b0aba4d0ed9efe85e66",
+      "bytes": 11357
+    },
+    "probe1_slope_triangles.svg": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "d4eb51f4225644babd399ca4323a3cf6738bff947a9e439d85017601c45ba1d1",
+      "bytes": 5850
+    },
+    "probe2_water_tank.svg": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "7514a925838387d4d4a74c05c2e80da82c42735b10a591d037d312a3e96643aa",
+      "bytes": 4730
+    },
+    "grade8_curriculum_blueprint.md": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "b576f943335ffb24607de1c6259d3665e60415f34b4980189faf506965f0e6c4",
+      "bytes": 39413
+    },
+    "probe_tasks_student_and_teacher.md": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "bd5eae29a4f103f8cedc06739d8e39ee1f204e15da226da1ad87872705d062d0",
+      "bytes": 12662
+    },
+    "cfu8_snow_graph.svg": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "b37a1809026b89354eaf3f78334f97f695d323d1ab22e457901329cea008b5e5",
+      "bytes": 5606
+    },
+    "task8_1_trap_sketch.svg": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "b1217c715088468635f11dc7938d59f7ce2920861cb3a19a556c5f8ca6e935c5",
+      "bytes": 4386
+    },
+    "repair-report.md": {
+      "run": "20260915T023107Z-repair",
+      "version": 1,
+      "sha256": "6315de1ea0f37b46f281b119d629c50b388df87d1754b2f2f25b13ed26236278",
+      "bytes": 19396
+    }
+  },
+  "input_files": {
+    "inputs/common.md": "4da1a4fec508878bbe5635dda939c8a5f34ffca5311f5c8e93fc5f62b785799d",
+    "inputs/repair-task.md": "e57ca50c9c162a1a71982f01bbd181bd67ab5dc3cfe0f09dd8dbd0843df761cc",
+    "resources/ccss-grade8.json": "c2d192410cb5e8535729c5aef73528bcf00798d5e160b47961ef9e185c42a3dd",
+    "resources/ccss-practices.json": "75caaa1cd1ca95739b089e30c1d8930acf80e42f944b70e91c51859e3509ff2d",
+    "resources/ccss-grade8-introduction.md": "4f0cf331cc7c8d0a3842a4ce0cb306b230b72dae940dc6069dc44c41014f648f",
+    "inputs/material-review-2.md": "4e840a03bdbae18e3341114477d75458b842a89601a75351262e0937f97c4f0b"
+  },
+  "errors": [],
+  "quality_status": "not_externally_evaluated",
+  "tools": [
+    "lookup_knowledge",
+    "write_artifact",
+    "read_artifact",
+    "calculate",
+    "check_rendering",
+    "request_human",
+    "finish_candidate"
+  ],
+  "implementation_sha256": "4a9add792d871eb8ecbead9db3373faeea67b800dcecf606ee935aa6f4860076",
+  "knowledge_implementation_sha256": "e9912000caef1f194fc3c377b658e8a7d7501c385a2be08da63302bb66090341",
+  "requirements_sha256": "aba794c715cea4d00642527249662a794b80b646849fb7e7b75bc62944ee1b66",
+  "evaluation_sha256": "3260d11a994f8d32aaa2cfe3c48341ee6e699a1af879cb013e91e32dd42fa443",
+  "elapsed_seconds": 301.282,
+  "render_checks": [
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "lesson6_7_8_student_materials.md",
+      "source_sha256": "aef851df2de0ba83d3195b8a2974dbd40a2455c69feb7857d374a45645238dc7",
+      "output": "lesson6_7_8_student_materials.html",
+      "output_sha256": "fe5913607ca7ebb3fb1270ceec7d026b10c3719e6308705739c1feb1271b8249",
+      "math_errors": [
+        {
+          "formula": "\\text{Rate } = \\text{________ gallons per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 22: …Rate } = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "\\text{Rate } = \\text{________ gallons per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 22: …Rate } = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "\\text{Initial Volume } b = \\text{________ gallons}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 34: …me } b = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "m = \\text{________ dollars per hour}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: m = \\text{_̲_______ dollars…"
+        },
+        {
+          "formula": "b = \\$\\text{________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 13: b = \\$\\text{_̲_______}"
+        },
+        {
+          "formula": "C = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: C = \\text{_̲_______________…"
+        },
+        {
+          "formula": "\\text{Total Charge} = \\$\\text{________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 31: …rge} = \\$\\text{_̲_______}"
+        },
+        {
+          "formula": "m_A = \\frac{\\Delta V}{\\Delta t} = \\text{________ gallons per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 41: …lta t} = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "V_A = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 13: V_A = \\text{_̲_______________…"
+        },
+        {
+          "formula": "m_B = \\frac{\\Delta V}{\\Delta t} = \\text{________ gallons per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 41: …lta t} = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "V_B = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 13: V_B = \\text{_̲_______________…"
+        },
+        {
+          "formula": "\\text{Rate of change } m = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 34: …ge } m = \\text{_̲_______________…"
+        },
+        {
+          "formula": "b = \\text{________ gallons}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: b = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "V = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: V = \\text{_̲_______________…"
+        },
+        {
+          "formula": "m = \\frac{\\Delta A}{\\Delta t} = \\text{________ meters per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 39: …lta t} = \\text{_̲_______ meters …"
+        },
+        {
+          "formula": "A = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: A = \\text{_̲_______________…"
+        },
+        {
+          "formula": "A(11) = \\text{________ meters}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 15: A(11) = \\text{_̲_______ meters}"
+        },
+        {
+          "formula": "m = \\frac{\\Delta F}{\\Delta d} = \\text{________ gallons per mile}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 39: …lta d} = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "F = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: F = \\text{_̲_______________…"
+        },
+        {
+          "formula": "S = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: S = \\text{_̲_______________…"
+        },
+        {
+          "formula": "\\text{Depth after 15 hours} = \\text{________ inches}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 37: …hours} = \\text{_̲_______ inches}"
+        },
+        {
+          "formula": "\\$\\text{________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 9: \\$\\text{_̲_______}"
+        }
+      ]
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "lesson6_7_8_teacher_guides.md",
+      "source_sha256": "217850bffe7564bda9a952410fff2228a3cfe55795aaba359e38b80d15994378",
+      "output": "lesson6_7_8_teacher_guides.html",
+      "output_sha256": "684ecc22397234a377bb7963b051b396dd9c123267c1b00494cee7cac8e094d7",
+      "math_errors": []
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "probe_tasks_student_and_teacher.md",
+      "source_sha256": "bd5eae29a4f103f8cedc06739d8e39ee1f204e15da226da1ad87872705d062d0",
+      "output": "probe_tasks_student_and_teacher.html",
+      "output_sha256": "4221abb3f302f23c97ebdb9cc6be7404ba3a1c24d77489cf0336e6022e7453c0",
+      "math_errors": [
+        {
+          "formula": "\\text{Rate of Change } m = \\frac{\\Delta D}{\\Delta t} = \\text{________ inches per hour}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 62: …lta t} = \\text{_̲_______ inches …"
+        },
+        {
+          "formula": "D = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: D = \\text{_̲_______________…"
+        }
+      ]
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "candidate_design_and_verification_report.md",
+      "source_sha256": "967592aca85f3573089fc8f01cbd0c0b2615d8020efd4b0aba4d0ed9efe85e66",
+      "output": "candidate_design_and_verification_report.html",
+      "output_sha256": "d715826f79aa868e23b1ba78f2f1c04e7e64e3ec6114be4684269e59ada61b59",
+      "math_errors": []
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "repair-report.md",
+      "source_sha256": "6315de1ea0f37b46f281b119d629c50b388df87d1754b2f2f25b13ed26236278",
+      "output": "repair-report.html",
+      "output_sha256": "2e74076b349a6c6dbb04b236d21408de997c6315ab4d9a694ff356dc167453c7",
+      "math_errors": []
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "unit5_linear_functions_skeleton.md",
+      "source_sha256": "baa4cd794a0c0053ecd1fa0f80d3aa4ebca7d8be6b05b28d9a66e85987babb1d",
+      "output": "unit5_linear_functions_skeleton.html",
+      "output_sha256": "a039c74bedb38cb29f458136fba92c9675a4c922f549cc00db2e1fc51b717b3c",
+      "math_errors": []
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "grade8_curriculum_blueprint.md",
+      "source_sha256": "b576f943335ffb24607de1c6259d3665e60415f34b4980189faf506965f0e6c4",
+      "output": "grade8_curriculum_blueprint.html",
+      "output_sha256": "973765b44143771253d429e1edd7da5039c891c1567042d23aaa8828410c0ca9",
+      "math_errors": []
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "lesson6_7_8_student_materials.md",
+      "source_sha256": "d0d53c45bdd282c42a31d545a4797e53089b2ea3bb08d8f3f5ea225e5464892a",
+      "output": "lesson6_7_8_student_materials.html",
+      "output_sha256": "a1310118869715db37bca88e5bc3a88a10355d5536d1ea5176e234bae03a6b19",
+      "math_errors": [
+        {
+          "formula": "________________________\n3. Write the linear equation representing total cost $C$ in terms of hours $h$:  \n   $C =$ ________________________\n4. If a repair job takes 8 hours, what will the total charge be?  \n   Total Charge $= \\",
+          "error": "ParseError: KaTeX parse error: Expected group after '_' at position 1: _̲_______________…"
+        }
+      ]
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "lesson6_7_8_student_materials.md",
+      "source_sha256": "b113a7fbac7645e12490bccf078214a36f6fbcfc7d32b8d7206556690699bc93",
+      "output": "lesson6_7_8_student_materials.html",
+      "output_sha256": "6cc14330ee3ea504fa2c33dbed1c09ca1ab2dc4aa8101fe702829dde100f406c",
+      "math_errors": []
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "probe_tasks_student_and_teacher.md",
+      "source_sha256": "7be6369dc73b5e5bed6fe2a452424b0587228f1b2a948ddc6467f7a1c74d7ed4",
+      "output": "probe_tasks_student_and_teacher.html",
+      "output_sha256": "63abbef2268d28e551a903b2bbf89def4ebcfe97e280d9886041a13d703f19e5",
+      "math_errors": []
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "lesson6_7_8_teacher_guides.md",
+      "source_sha256": "49ebb71b3189cd53b197b59ec6f30623d8b9a6181e1831743adc7544bbb9b0b9",
+      "output": "lesson6_7_8_teacher_guides.html",
+      "output_sha256": "8b051bc958e8daa469c630468447be60bc2ee03f25051a6c00cb1e3eff0f6099",
+      "math_errors": []
+    },
+    {
+      "scope": "math parsing only",
+      "katex": "0.18.7",
+      "source": "repair-report.md",
+      "source_sha256": "cebb8008607dc9eaf9cfe19af5bd83317ed64743027714348a79eb47a17d5a9b",
+      "output": "repair-report.html",
+      "output_sha256": "8e1e6d52ef5bab23babd79520e299f2d317881d68b354d9b51b69a58640222dc",
+      "math_errors": [
+        {
+          "formula": "\\text{Rate } = \\text{________ gallons per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 22: …Rate } = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "\\text{Rate } = \\text{________ gallons per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 22: …Rate } = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "\\text{Rate } = \\text{________ gallons per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 22: …Rate } = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "\\text{Initial Volume } b = \\text{________ gallons}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 34: …me } b = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "m = \\text{________ dollars per hour}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: m = \\text{_̲_______ dollars…"
+        },
+        {
+          "formula": "b = \\$\\text{________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 13: b = \\$\\text{_̲_______}"
+        },
+        {
+          "formula": "C = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: C = \\text{_̲_______________…"
+        },
+        {
+          "formula": "\\text{Total Charge} = \\$\\text{________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 31: …rge} = \\$\\text{_̲_______}"
+        },
+        {
+          "formula": "m_A = \\frac{\\Delta V}{\\Delta t} = \\text{________ gallons per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 41: …lta t} = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "V_A = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 13: V_A = \\text{_̲_______________…"
+        },
+        {
+          "formula": "m_B = \\frac{\\Delta V}{\\Delta t} = \\text{________ gallons per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 41: …lta t} = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "V_B = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 13: V_B = \\text{_̲_______________…"
+        },
+        {
+          "formula": "\\text{Rate of change } m = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 34: …ge } m = \\text{_̲_______________…"
+        },
+        {
+          "formula": "b = \\text{________ gallons}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: b = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "V = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: V = \\text{_̲_______________…"
+        },
+        {
+          "formula": "m = \\frac{\\Delta A}{\\Delta t} = \\text{________ meters per minute}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 39: …lta t} = \\text{_̲_______ meters …"
+        },
+        {
+          "formula": "A = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: A = \\text{_̲_______________…"
+        },
+        {
+          "formula": "A(11) = \\text{________ meters}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 15: A(11) = \\text{_̲_______ meters}"
+        },
+        {
+          "formula": "m = \\frac{\\Delta F}{\\Delta d} = \\text{________ gallons per mile}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 39: …lta d} = \\text{_̲_______ gallons…"
+        },
+        {
+          "formula": "F = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: F = \\text{_̲_______________…"
+        },
+        {
+          "formula": "S = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: S = \\text{_̲_______________…"
+        },
+        {
+          "formula": "\\text{Depth after 15 hours} = \\text{________ inches}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 37: …hours} = \\text{_̲_______ inches}"
+        },
+        {
+          "formula": "\\text{Rate of Change } m = \\frac{\\Delta D}{\\Delta t} = \\text{________ inches per hour}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 62: …lta t} = \\text{_̲_______ inches …"
+        },
+        {
+          "formula": "D = \\text{________________________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 11: D = \\text{_̲_______________…"
+        },
+        {
+          "formula": "\\$\\text{________}",
+          "error": "ParseError: KaTeX parse error: Expected 'EOF', got '_' at position 9: \\$\\text{_̲_______}"
+        }
+      ]
+    }
+  ]
+}

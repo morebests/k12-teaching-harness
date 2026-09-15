@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教学工作区 · 交互原型</title>
+<style>
+:root{color-scheme:light;--ink:#22352f;--muted:#65766e;--line:#dbe3dd;--accent:#256149;--wash:#eff5f0}*{box-sizing:border-box}body{margin:0;background:#f7f8f4;color:var(--ink);font:16px/1.65 system-ui,-apple-system,sans-serif}button,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:white;color:var(--ink);border-radius:8px;padding:8px 14px}button:hover{border-color:var(--accent);background:var(--wash)}button:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #80ab90;outline-offset:3px}button.primary{background:var(--accent);color:white;border-color:var(--accent)}button:disabled{opacity:.5;cursor:default}a{color:var(--accent)}.wrap{max-width:1180px;margin:auto;padding:24px}.intro{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:24px}.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}h1{font-size:28px;letter-spacing:-.03em;margin:4px 0 8px}h2{font-size:20px;margin:0 0 12px}h3{font-size:17px;margin:16px 0 8px}p{margin:8px 0}.muted,small{color:var(--muted)}.notice{background:#fff4dc;border:1px solid #ecd6a3;border-radius:8px;padding:10px 14px;font-size:14px}.layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:28px}.nav{display:grid;gap:8px;align-content:start}.nav button{text-align:left}.nav button[aria-pressed=true]{background:var(--wash);border-color:var(--accent);font-weight:650}.nav small{padding:8px}.workspace{background:white;border:1px solid var(--line);border-radius:12px;padding:28px;min-width:0}.head{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:20px}.pill{display:inline-block;padding:3px 10px;border-radius:20px;background:var(--wash);font-size:13px;white-space:nowrap}.context{background:#f6f8f5;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:14px}.content{border-top:1px solid var(--line);padding:20px 0}.content blockquote{margin:12px 0;border-left:3px solid #a9c4b2;padding:8px 16px;background:#fafbf9}.content ul{padding-left:24px}.content table{border-collapse:collapse;width:100%;font-size:14px}.content th,.content td{border-bottom:1px solid var(--line);padding:8px;text-align:left}.composer{border-top:1px solid var(--line);padding-top:20px}.composer label{display:block;font-weight:600;margin-bottom:8px}textarea{display:block;width:100%;min-height:110px;padding:12px;border:1px solid #b8c9bd;border-radius:8px;resize:vertical;background:white;color:var(--ink)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions .quiet{margin-left:auto;color:var(--muted)}.tabs{display:flex;gap:6px;margin-bottom:18px}.tabs button[aria-pressed=true]{border-color:var(--accent);background:var(--wash)}.step-note{font-size:14px;color:var(--muted);margin-top:12px}.reply{white-space:pre-wrap;background:var(--wash);padding:10px 14px;border-radius:8px;font-size:14px}.invalid{color:#88491d;background:#fff5e7;padding:12px;border-radius:8px}.footer{margin-top:20px;font-size:14px}details{padding:12px 0;border-top:1px solid var(--line)}summary{cursor:pointer;font-weight:600}code{background:#f1f3ef;padding:2px 4px;overflow-wrap:anywhere}.tech{display:grid;gap:10px}.tech dt{font-weight:600}.tech dd{margin:0}.blank{border-bottom:1px solid #aab8ae;height:40px;margin:12px 0}svg{display:block;max-width:100%;height:auto;margin:16px auto} @media(max-width:760px){.wrap{padding:16px}.layout{grid-template-columns:1fr;gap:16px}.nav{grid-template-columns:repeat(2,1fr)}.nav small{grid-column:1/-1}.workspace{padding:18px}.head{flex-wrap:wrap}.actions .quiet{margin-left:0}h1{font-size:25px}}
+</style>
+<div class="wrap">
+<header class="intro">
+<div class="eyebrow">PROTOTYPE · 2026-09-15 · 候选，待确认</div>
+<h1>围绕教学内容，把工作做下去</h1>
+<p>走查问题：课程负责人和教师能否在一个工作区里提交需求、查看内容并回应，而不用记住内部场景？</p>
+<div class="notice">这是一次性交互原型。全部内容与处理结果均为预置样本，无模型、知识服务或后端连接；刷新即重置。只验证交互，不证明课程质量或运行可靠性。中文用于本次讨论，不更改美国 K–12／CCSS 语境。</div>
+</header>
+<div class="layout">
+<nav class="nav" aria-label="教学能力示例" id="nav"></nav>
+<main class="workspace" id="app"></main>
+</div>
+<footer class="footer"><a href="../prototype-baseline.md">交互基准与维护约定</a> · <a href="../dependencies.md">实现票依赖图</a> · 这些示例对应五种教学工作，不是必经的五个步骤。</footer>
+</div>
+<script>
+// THROWAWAY: fixed fixtures, no language parser or production workflow implementation.
+const taskText='A bike rental charges a fixed starting fee and a constant fee per hour. Renting for 2 hours costs $12; renting for 5 hours costs $21. What is the hourly fee? What is the starting fee? Explain why dividing 12 by 2 does not give the hourly fee.';
+const flows={
+ curriculum:{name:'课程体系设计',role:'课程负责人',scope:'八年级 · 线性函数 · 有限课段方案',context:'CCSS 8.F.B.4 · 原型学校条件：3 × 45 分钟 · 暂定独立课段，全年衔接未建立',seed:'设计一个三课时的线性函数课段，包含目标、进程、关键任务和学习检查。请在这个范围内直接完成。',first:'result',ticket:'01、15、17、06、07'},
+ creation:{name:'课时与材料',role:'教师',scope:'八年级 · 变化率与初始值 · 一课',context:'CCSS 8.F.B.4 · 45 分钟 · 已知先备：读表、量的单位与数值差',seed:'先给我看一节变化率与初始值的课时草稿，总共 45 分钟。',first:'draft',ticket:'03、02、16'},
+ adaptation:{name:'教学适配',role:'教师',scope:'同一租车任务 · 本次班级支持',context:'原课：本原型中的租车任务 · 合成教师观察：部分学生用总费用除以小时数 · 无真实学生数据',seed:'沿用租车原题，增加看懂两个量的变化的支持和一个拓展，生成后让我审阅本次材料。',first:'review',ticket:'08、02'},
+ prep:{name:'教师备课',role:'教师',scope:'明天的租车任务 · 亲做与讨论',context:'原课：下方完整租车题 · 沿原课备课，不在这里重写课程',seed:'帮我准备讲这道租车题，我想先自己做，再讨论学生接近正确但仍有缺口的回应。',first:'try',ticket:'09、02'},
+ cfu:{name:'理解度检查',role:'教师',scope:'八年级 · 变化率 · 一个检查焦点',context:'CCSS 8.F.B.4 · 仅提供标准与用途即可开始，无需先有教案',seed:'做一个变化率的理解度检查，帮助我判断下一节课要补什么。',first:'focus',ticket:'10、02'}
+};
+const state0=key=>({key,stage:'new',version:1,view:'student',revised:false,partial:false,history:[],message:'',lastAction:'尚未提交示例需求',contribution:''});
+function reduce(s,a){
+ if(a.type==='reset')return state0(a.key||s.key);
+ if(a.type==='view')return {...s,view:a.view};
+ if(a.type==='unrecognized')return {...s,history:[...s.history,a.text],message:'原文已在本页记录，但未被解释或采纳。本原型不理解任意自然语言；请使用下方“走查辅助”提供的示例继续。',lastAction:'仅记录原文；未推进工作'};
+ if(a.type==='cancel')return {...s,stage:'cancelled',message:'',lastAction:'已取消本页示例，保留此前内容和回应记录'};
+ return {...s,...a.patch,history:[...s.history,a.text],message:'',lastAction:a.note};
+}
+let state=state0('curriculum');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const quote=()=>`<blockquote lang="en">${taskText}</blockquote>`;
+function options(s){
+ const f=flows[s.key];
+ if(s.stage==='new')return [{text:f.seed,patch:{stage:f.first},note:'载入预置处理结果；正式系统在这里查询依据并进行模型工作'}];
+ if(s.stage==='cancelled'||s.stage==='closed')return [];
+ if(s.key==='curriculum')return [{text:'把三课时压缩到两课时，保留变化率和初始值的目标。',patch:{revised:true,version:s.version+1,stage:'result'},note:'展示预置的压缩修订；正式系统需用实际任务核对容量与依赖，不能只改课时数'}];
+ if(s.key==='creation'&&s.stage==='draft')return [
+ {text:'把全班讨论增加五分钟，从重复练习里调配，只改草稿。',patch:{revised:true,version:s.version+1},note:'只修订草稿，仍等待生成指令'},
+ {text:'把全班讨论增加五分钟，从重复练习里调配，改好直接生成。',patch:{revised:true,version:s.version+1,stage:'result'},note:'指定修改及生成授权一起生效；预置样本直接展示材料，无额外确认'},
+ {text:'按当前草稿生成材料。',patch:{stage:'result'},note:'沿当前草稿展示师生材料样本'}];
+ if(s.key==='creation')return [{text:'查看本课草稿，继续修改。',patch:{stage:'draft'},note:'回到当前内容草稿，保留任务与讨论安排'}];
+ if(s.key==='adaptation')return [
+ {text:'支持任务可以，教师说明和拓展还需要看。',patch:{partial:true},note:'只记录支持任务的接受，整套尚未接受'},
+ {text:'这次整套材料都可以。',patch:{stage:'closed'},note:'接受针对当前材料包；正常协作结束'},
+ {text:'到这里结束，剩下的我稍后再审。',patch:{stage:'closed'},note:'按明确要求结束；未审部分不记为满意'}];
+ if(s.key==='prep'&&s.stage==='try')return [
+ {text:'每小时 3 美元，起步费 6 美元。近似正确的回应是“每小时 3 美元，所以费用是 3h”；它算对了变化率，但遗漏了起步费。',patch:{stage:'discussion',contribution:'教师示例指出：变化率算对，但把总费用写成 3h，遗漏起步费。'},note:'采纳走查用的教师贡献，后续便签将保留这一具体分析'},
+ {text:'先给我一个近似正确回应的示范。',patch:{stage:'discussion',contribution:''},note:'教师明确要求先示范，走例外路径；不记录为教师自己提出'}];
+ if(s.key==='prep')return [{text:'够了，请把刚才讨论的要点整理成便签。',patch:{stage:'closed'},note:'按明确结束指令形成便签，不追加结束确认'}];
+ if(s.key==='cfu'&&s.stage==='focus')return [
+ {text:'采用这个焦点。',patch:{stage:'result'},note:'采用当前焦点；正式系统构建并验证两份实际材料后才交付'},
+ {text:'保留两组数据求变化率，但改为要求学生写出推理过程。',patch:{stage:'result',revised:true},note:'采用明确改向，展示开放作答样本，不重复确认焦点'}];
+ if(s.key==='cfu')return [{text:'改成要求学生写出推理过程。',patch:{revised:true,version:s.version+1},note:'展示修改样本；正式系统需重做本版两道实物验证'}];
+ return [];
+}
+function blueprint(s){return `<h3>${s.revised?'两课时修订方案':'三课时方案'} · 内容样本 v${s.version}</h3><p>主线：从两个量的变化发现固定费率，再区分固定起步费与按时计费。以下只有课段设计样本，尚无全年覆盖或完整课时材料。</p><table><thead><tr><th>安排</th><th>学生的数学工作</th><th>要观察的证据</th></tr></thead><tbody>${s.revised?'<tr><td>第 1 课 · 45 分钟</td><td>比较两组租车费用，解释变化率及单位，回推起步费</td><td>能区分费用差／时间差与总费用／时间</td></tr><tr><td>第 2 课 · 45 分钟</td><td>用表、式、图解释同一收费关系，再换一个情境检验</td><td>解释系数的情境意义，而非只写公式</td></tr>':'<tr><td>第 1 课 · 45 分钟</td><td>用租车数据解释两种量的变化</td><td>变化率分子、分母及单位的解释</td></tr><tr><td>第 2 课 · 45 分钟</td><td>由变化率回推初始值，连接表与式</td><td>区分起步费和单位时间费用</td></tr><tr><td>第 3 课 · 45 分钟</td><td>以图表和新情境检查对线性关系的理解</td><td>说明不同表征中同一参数的含义</td></tr>'}</tbody></table><h3>关键任务</h3>${quote()}<p>衔接依据：先备假设是能读表并比较数值差；后续可研究不同线性关系的比较。这里是设计推断，原型没有查询 LC 图。</p>${s.revised?'<p class="notice">本次改动：合并变化率与初始值的探究，减少重复情境练习。课堂时间与学习机会仍须通过真实任务试做检查；本页不声称压缩已经可行。</p>':''}`;}
+function draft(s){return `<h3>变化率与初始值 · 草稿 v${s.version}</h3><p>目标：从两组对应值求变化率，解释每小时费用，并由一点回推起步费。预期学生已能计算差和识别单位。</p>${quote()}<table><tbody><tr><th>读题与估计</th><td>5 分钟</td></tr><tr><th>独立尝试、同伴比较</th><td>15 分钟</td></tr><tr><th>全班讨论：3 美元与 6 美元分别是什么</th><td>${s.revised?15:10} 分钟</td></tr><tr><th>迁移练习</th><td>${s.revised?5:10} 分钟</td></tr><tr><th>离堂检查</th><td>5 分钟</td></tr></tbody></table><p>离堂任务：某项服务在 1 小时时收费 10 美元，4 小时时收费 22 美元，固定按小时收费。求每小时费用与起步费，并解释单位。</p>${s.revised?'<p class="notice">已将 5 分钟重复练习调到讨论，总时长仍为 45 分钟。当前仍是草稿，是否生成由你的下一步决定。</p>':''}`;}
+function materialTabs(s){return `<div class="tabs" role="group" aria-label="材料受众"><button data-view="student" aria-pressed="${s.view==='student'}">学生材料</button><button data-view="teacher" aria-pressed="${s.view==='teacher'}">教师指南</button></div>`;}
+function materials(s){return materialTabs(s)+(s.view==='student'?`<article lang="en"><h3>Rates and starting fees</h3>${quote()}<p>Show how the two changes are related. Include the units in your explanation.</p><div class="blank"></div><div class="blank"></div><p>Write a rule for the rental cost C after h hours. Explain each number in your rule.</p><div class="blank"></div></article>`:`<h3>教师指南 · 内容样本 v${s.version}</h3><p>费率：(21 − 12) ÷ (5 − 2) = 3 美元／小时；起步费：12 − 3 × 2 = 6 美元。关系为 C = 3h + 6。总费用除以小时数把起步费也平均进去了。</p><p>讨论用 ${s.revised?'15':'10'} 分钟：比较“C = 3h”和“C = 3h + 6”，让学生分别代回两组条件检验。不要把它写成已观察到的真实学生错误。</p><p>离堂题结果：每小时 4 美元，起步费 6 美元；检查学生能否解释费用差与时间差，而非仅算出数值。</p><p class="muted">这是节选，未包含可交付教案所需的全部材料。正式系统需要实际检查、可编辑源与渲染结果。</p>`);}
+function adaptation(s){return `<h3>本次适配材料包 · 节选</h3>${quote()}<p><b>共同核心：</b>原题、目标和情境保持；这些是提供给教师的支持说明，不把能力层级贴在学生材料上。</p><h3>支持任务</h3><p>先在表格旁记录“增加了多少小时”和“增加了多少费用”，再解释它们的关系。允许用箭头和单位标注；不直接给出所需除法或答案。</p><h3>拓展任务</h3><p>另一个租车点没有起步费，但每小时收费 5 美元。以租用 1、3、5 小时为例说明应选哪个，并解释费用相同的时长。</p><h3>教师说明</h3><p>原题费率 3、起步费 6；拓展在 3 小时均为 15 美元。支持是否还需要，根据当前任务表现调整；本样本没有学生掌握度证据。</p><p class="notice">${s.partial?'支持任务已接受；教师说明与拓展尚未接受。':'本页展示材料包节选，走查接受对象为这个样本包。生产审阅必须能读取当前版本的全部相关材料。'}</p>`;}
+function prep(s){if(s.stage==='try')return `<h3>先一起看原题</h3>${quote()}<p>请试做，再给出一个你认为“接近正确但仍有关键缺口”的学生回应，指出它缺在哪里。正常路径先听你的分析，再展开系统的分析。</p><p class="muted">尚未展示答案和近似正确回应；可要求先示范，或结束本次工作。</p>`;return `<h3>${s.stage==='closed'?'备课便签 · 节选':'围绕原题的讨论'}</h3><p>关键区别是“变化率正确”不代表“完整表达了收费关系”。代回两组数据，可以同时检查费率与起步费。</p>${s.contribution?`<p><b>来自本次教师示例的贡献：</b>${esc(s.contribution)}</p>`:'<p><b>按你的要求提供的系统示例：</b>“费率是 3，所以 C = 3h”漏掉固定费用。这不是教师自己提出的分析。</p>'}<p><b>讨论时：</b>让学生将 C = 3h 分别代入 2 小时与 5 小时，指出两次都少了 6 美元，再说明这个相同差额表示什么。</p><p><b>观察时：</b>区分学生只是算出 3，还是能说明美元／小时，并解释起步费。这里只是教学预案，不是学习效果结论。</p>`;}
+function check(s){if(s.stage==='focus')return '<h3>本次建议检查什么</h3><p><b>学生能否根据两组对应值求变化率、解释单位，并区分“两个量的变化之比”与“某一点的两个数之比”。</b></p><p>理由：它能帮助判断学生是否理解恒定变化，而不只是碰巧套对公式。</p><p>限制：给出两组值和恒定变化条件；不把识别非线性关系纳入本轮。当前尚未出题，可以采用这个焦点或明确调整。</p>';return materialTabs(s)+(s.view==='student'?`<article lang="en"><h3>Check your reasoning</h3><p>A tank is filled at a constant rate. At 2 minutes it contains 12 liters; at 5 minutes it contains 21 liters. What is the filling rate?</p>${s.revised?'<p>Show your reasoning and include the units. Explain why 12 ÷ 2 is not the filling rate.</p>':'<p>A. 3 liters/minute　 B. 6 liters/minute<br>C. 9 liters/minute　 D. 1/3 liter/minute</p><p>Explain your choice using both observations.</p>'}<div class="blank"></div><div class="blank"></div></article>`:'<h3>回应解释 · 节选</h3><p>正确速率为 (21 − 12) ÷ (5 − 2) = 3 升／分钟。题设明确恒定注水；初始水量不作为本题所求。</p><p>6 可能来自单点 12 ÷ 2；9 可能只求水量差；1/3 可能倒置两个差。它们是待验证的推理假设；应结合学生解释判断，不能只凭选项确诊。</p><p class="notice">原型没有运行两道验证。正式交付前必须对实际学生页和教师指南验证答案唯一可辩护性，以及错误选项是否可由相应学生推理得到。</p>');}
+function body(s){if(s.stage==='new')return `<h3>从一个具体教学需求开始</h3><p>已知条件来自外部产品提供的本次上下文，教师只需补充需求。下面的文字可直接用来走查；更改成任意文本时，本原型只记录原文。</p>${s.key==='prep'||s.key==='adaptation'?quote():''}`;if(s.stage==='cancelled')return '<h3>本次示例已取消</h3><p>不会继续生成或把迟到结果变成当前内容。下方保留已提交的原文；正式系统还需保存已有内容版本。本原型可从侧栏“重新走查”开始一份新示例。</p>';return ({curriculum:blueprint,creation:s.stage==='draft'?draft:materials,adaptation,prep,cfu:check})[s.key](s);}
+function stageLabel(s){return ({new:'等待需求',draft:'等待草稿回应',review:'材料已展示 · 等待审阅',try:'等待你的尝试',discussion:'讨论中',focus:'等待焦点决定',result:'本轮结果样本',closed:'本轮示例结束',cancelled:'已取消'})[s.stage];}
+function prompt(s){if(s.stage==='new')return '你希望完成什么？';if(s.stage==='draft')return '可以提出修改，或告诉我按哪版生成材料';if(s.stage==='review')return '本次材料哪些可以，哪些还要改？';if(s.stage==='try')return '你的尝试与近似正确回应';if(s.stage==='discussion')return '继续讨论，或按已有内容结束';if(s.stage==='focus')return '采用或调整这个焦点';return '还需要怎样调整？';}
+function render(){
+ const s=state,f=flows[s.key],opts=options(s),active=!['closed','cancelled'].includes(s.stage);
+ document.querySelector('#nav').innerHTML=Object.entries(flows).map(([k,v])=>`<button data-flow="${k}" aria-pressed="${s.key===k}">${v.name}</button>`).join('')+'<small>选择一种教学工作即可。切换会开始新的预置示例。</small><button id="reset">重新走查当前能力</button>';
+ document.querySelector('#app').innerHTML=`<div class="head"><div><small>${f.role}的任务</small><h2>${f.scope}</h2></div><span class="pill" role="status">${stageLabel(s)}</span></div><div class="context">${f.context}</div><section class="content">${body(s)}</section>${s.message?`<p class="invalid" role="alert">${esc(s.message)}</p>`:''}${active?`<section class="composer"><label for="input">${prompt(s)}</label><textarea id="input" placeholder="写下你的需求或回应；预置示例见走查辅助">${s.stage==='new'?esc(f.seed):''}</textarea><div class="actions"><button id="send" class="primary">${s.stage==='new'?'提交需求':'发送回应'}</button>${s.stage!=='new'?'<button id="cancel" class="quiet">取消本次工作</button>':''}</div></section>`:`<p class="notice">${esc(s.lastAction)}。示例结束与真实课堂采用、质量通过分别记录。</p>`}<p class="step-note" aria-live="polite">${esc(s.lastAction)}</p><details><summary>走查辅助 · 预置回应，不属于教师工作步骤</summary><p>本原型不调用 LLM。点击只填入走查文本，再按“发送”；正式产品接受自然语言，不要求记住这些句子。</p><div class="actions">${opts.map((o,i)=>`<button data-fill="${i}">${esc(o.text)}</button>`).join('')||'<span>当前示例已结束，可重新走查。</span>'}</div></details><details><summary>已提交的原文 · ${s.history.length} 条</summary>${s.history.map(t=>`<p class="reply">${esc(t)}</p>`).join('')||'<p>尚无输入。</p>'}</details><details><summary>开发映射 · 不属于教师操作</summary><dl class="tech"><dt>接口所在环节</dt><dd>${s.stage==='new'?'<code>POST /v1/tasks</code> 创建需求':s.stage==='result'?'<code>GET /v1/tasks/{id}</code> 查看结果；修改进入 <code>revisions</code>':'<code>replies</code> 绑定本次待答对象；<code>GET</code> 查询权威状态'}。取消使用 <code>cancellations</code>。</dd><dt>模型与程序分别做什么</dt><dd>模型取得实际规则、任务和知识，理解意图并调用工具完成教学工作。程序保存真实回应、核对对象与授权、保护有效提交并承载等待恢复。检查发现问题交回模型修订。界面不控制内部每一步。</dd><dt>对应实现票</dt><dd>${f.ticket}；共享运行保障随依赖接入。当前页面没有实现这些 API，也不验证模型理解、持久化或质量。</dd></dl></details>`;
+ document.querySelectorAll('[data-flow]').forEach(b=>b.onclick=()=>{state=reduce(state,{type:'reset',key:b.dataset.flow});render()});
+ document.querySelector('#reset').onclick=()=>{state=reduce(state,{type:'reset'});render()};
+ document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{state=reduce(state,{type:'view',view:b.dataset.view});render()});
+ document.querySelectorAll('[data-fill]').forEach(b=>b.onclick=()=>{const input=document.querySelector('#input');input.value=opts[Number(b.dataset.fill)].text;input.focus()});
+ const cancel=document.querySelector('#cancel');if(cancel)cancel.onclick=()=>{state=reduce(state,{type:'cancel'});render()};
+ const send=document.querySelector('#send');if(send)send.onclick=()=>{const text=document.querySelector('#input').value.trim();if(!text)return;const choice=opts.find(o=>o.text===text);state=reduce(state,choice?{type:'submit',...choice}:{type:'unrecognized',text});render()};
+}
+render();
+</script>
+</html>

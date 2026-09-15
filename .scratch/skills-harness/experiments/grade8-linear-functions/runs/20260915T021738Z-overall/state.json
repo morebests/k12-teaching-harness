@@ -1,0 +1,217 @@
+{
+  "status": "candidate_ready",
+  "task": "overall",
+  "started_at": "2026-09-15T02:17:38.709613+00:00",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "high",
+  "temperature": 1.0,
+  "max_output_tokens": 32768,
+  "max_retries": 0,
+  "tracing": "local only",
+  "limits": {
+    "model_calls": 12,
+    "tools": 40,
+    "seconds": 1200
+  },
+  "model_calls": 12,
+  "tool_calls": 17,
+  "usage": [
+    {
+      "input_tokens": 29115,
+      "output_tokens": 891,
+      "total_tokens": 30006,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 805
+      }
+    },
+    {
+      "input_tokens": 37269,
+      "output_tokens": 278,
+      "total_tokens": 37547,
+      "input_token_details": {
+        "cache_read": 28605
+      },
+      "output_token_details": {
+        "reasoning": 191
+      }
+    },
+    {
+      "input_tokens": 46988,
+      "output_tokens": 6642,
+      "total_tokens": 53630,
+      "input_token_details": {
+        "cache_read": 36775
+      },
+      "output_token_details": {
+        "reasoning": 6499
+      }
+    },
+    {
+      "input_tokens": 53943,
+      "output_tokens": 255,
+      "total_tokens": 54198,
+      "input_token_details": {
+        "cache_read": 44946
+      },
+      "output_token_details": {
+        "reasoning": 180
+      }
+    },
+    {
+      "input_tokens": 54370,
+      "output_tokens": 807,
+      "total_tokens": 55177,
+      "input_token_details": {
+        "cache_read": 49024
+      },
+      "output_token_details": {
+        "reasoning": 725
+      }
+    },
+    {
+      "input_tokens": 55368,
+      "output_tokens": 333,
+      "total_tokens": 55701,
+      "input_token_details": {
+        "cache_read": 53103
+      },
+      "output_token_details": {
+        "reasoning": 269
+      }
+    },
+    {
+      "input_tokens": 55844,
+      "output_tokens": 5034,
+      "total_tokens": 60878,
+      "input_token_details": {
+        "cache_read": 53094
+      },
+      "output_token_details": {
+        "reasoning": 1556
+      }
+    },
+    {
+      "input_tokens": 60951,
+      "output_tokens": 3247,
+      "total_tokens": 64198,
+      "input_token_details": {
+        "cache_read": 53099
+      },
+      "output_token_details": {
+        "reasoning": 137
+      }
+    },
+    {
+      "input_tokens": 64336,
+      "output_tokens": 3016,
+      "total_tokens": 67352,
+      "input_token_details": {
+        "cache_read": 57183
+      },
+      "output_token_details": {
+        "reasoning": 586
+      }
+    },
+    {
+      "input_tokens": 67494,
+      "output_tokens": 10489,
+      "total_tokens": 77983,
+      "input_token_details": {
+        "cache_read": 61266
+      },
+      "output_token_details": {
+        "reasoning": 489
+      }
+    },
+    {
+      "input_tokens": 78124,
+      "output_tokens": 4000,
+      "total_tokens": 82124,
+      "input_token_details": {
+        "cache_read": 65367
+      },
+      "output_token_details": {
+        "reasoning": 212
+      }
+    },
+    {
+      "input_tokens": 82270,
+      "output_tokens": 894,
+      "total_tokens": 83164,
+      "input_token_details": {
+        "cache_read": 77624
+      },
+      "output_token_details": {
+        "reasoning": 540
+      }
+    }
+  ],
+  "artifacts": {
+    "probe1_slope_triangles.svg": {
+      "version": 1,
+      "sha256": "3c2a14b27f5ec7552dbb52df6e60545b04edbe3ff32bde356aec2e9e403432fc",
+      "bytes": 6160
+    },
+    "probe2_water_tank.svg": {
+      "version": 1,
+      "sha256": "783cc510628be8a31544627f0c1e3efbbf90c4332f187440af8b667a19c3911d",
+      "bytes": 4696
+    },
+    "grade8_curriculum_blueprint.md": {
+      "version": 1,
+      "sha256": "d76ae9800345f278bac4b43b0c3e3d95d5887fbbfff0a047ddcd3b693f46283a",
+      "bytes": 38323
+    },
+    "probe_tasks_student_and_teacher.md": {
+      "version": 1,
+      "sha256": "2093f8c29e8b0acdb4c2ab62f3a94b4dcbb05e44c2f7016b12571150b2e60b10",
+      "bytes": 12566
+    }
+  },
+  "parent_artifacts": {},
+  "input_files": {
+    "inputs/common.md": "4da1a4fec508878bbe5635dda939c8a5f34ffca5311f5c8e93fc5f62b785799d",
+    "inputs/overall-task.md": "f5a9904b38c041f64cc6a793c8e91c3fcdabeefab0267464a3b47f6dc475f243",
+    "resources/ccss-grade8.json": "c2d192410cb5e8535729c5aef73528bcf00798d5e160b47961ef9e185c42a3dd",
+    "resources/ccss-practices.json": "75caaa1cd1ca95739b089e30c1d8930acf80e42f944b70e91c51859e3509ff2d",
+    "resources/ccss-grade8-introduction.md": "4f0cf331cc7c8d0a3842a4ce0cb306b230b72dae940dc6069dc44c41014f648f"
+  },
+  "errors": [
+    {
+      "tool": "write_artifact",
+      "error_type": "ValueError",
+      "error": "External references or active SVG content are not supported"
+    }
+  ],
+  "quality_status": "not_externally_evaluated",
+  "tools": [
+    "lookup_knowledge",
+    "write_artifact",
+    "read_artifact",
+    "calculate",
+    "request_human",
+    "finish_candidate"
+  ],
+  "implementation_sha256": "9c920191e717426b37f1e931b2bf8aa40582ec49a0b0b9937d62dd78c6082f3e",
+  "knowledge_implementation_sha256": "e9912000caef1f194fc3c377b658e8a7d7501c385a2be08da63302bb66090341",
+  "requirements_sha256": "aba794c715cea4d00642527249662a794b80b646849fb7e7b75bc62944ee1b66",
+  "evaluation_sha256": "3260d11a994f8d32aaa2cfe3c48341ee6e699a1af879cb013e91e32dd42fa443",
+  "elapsed_seconds": 165.531,
+  "delivery": {
+    "summary": "Delivered a complete, mathematically verified Grade 8 Mathematics Curriculum Blueprint (Task A) aligned with CCSS-M and SMPs for a 180-period school year (160 regular instructional/assessment periods + 20 strategically scheduled flex/buffer periods). The blueprint establishes a coherent 9-unit progression structured into three developmental arcs. It provides 100% coverage of all Grade 8 content standards and sub-items (with accurate hierarchy accounting), fully operationalizes Mathematical Practices MP1–MP8, delivers a comprehensive hand-off specification for Unit 5: Linear Functions and Contextual Modeling (anchored on 8.F.B.4 and 8.F.B.5 across 18 periods), and includes two standalone self-contained SVG graphics and three fully solved, SymPy-verified feasibility probes with student task sheets and teacher observation matrices.",
+    "deliverables": [
+      "grade8_curriculum_blueprint.md",
+      "probe_tasks_student_and_teacher.md",
+      "probe1_slope_triangles.svg",
+      "probe2_water_tank.svg"
+    ],
+    "remaining_limits": [
+      "Candidate curriculum blueprint status; not yet evaluated in live classroom empirical trials or peer teacher review.",
+      "Student responses and diagnostic frequencies in the evaluation guides are predicted based on research literature, not measured classroom cohort data.",
+      "Detailed lesson-by-lesson plans and slide decks are fully specified for the hand-off unit (Unit 5) and probe tasks, but remaining units (Units 1-4, 6-9) require full task expansion by downstream unit designers."
+    ]
+  }
+}

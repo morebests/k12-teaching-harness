@@ -1,0 +1,3474 @@
+{
+  "capturedAt": "2026-09-15T02:11:56.725848+00:00",
+  "scope": "Organizer-only bounded HTTP fact probe; not generation input, adapter, or teaching-quality evidence.",
+  "contractSha256": "94e75a78a619069bf2d604b459d2c975d464682dc3d4698a8479608c35c9d3d5",
+  "baseUrl": "http://127.0.0.1:8000/api/browse",
+  "fixedFramework": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+  "fixedSnapshot": "lc/v1.11.0",
+  "requests": [
+    {
+      "path": "/nodes/StandardsFramework/6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/search",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "q": "8.F.B.4",
+        "kind": "StandardsFrameworkItem",
+        "limit": 10
+      },
+      "status": 200
+    },
+    {
+      "path": "/search",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "q": "8.F.B.4",
+        "kind": "StandardsFrameworkItem",
+        "limit": 10,
+        "cursorSha256": "61d0eb63462999436c53513ea4808459fe4ebaa80de12ddd1876b26bd819a42b"
+      },
+      "status": 200
+    },
+    {
+      "path": "/search",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "q": "8.F.B.4",
+        "kind": "StandardsFrameworkItem",
+        "limit": 10,
+        "cursorSha256": "172ebdea17f3adf7b945836871e25acb8c33d9bf400d25d4574a95ca9d12647d"
+      },
+      "status": 200
+    },
+    {
+      "path": "/search",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "q": "8.F.B.4",
+        "kind": "StandardsFrameworkItem",
+        "limit": 10,
+        "cursorSha256": "61224d3090c67356a833f3f14b69d4841e63e88ec710d8bd4b4e151ae9d17e18"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items/0ff0d447-960a-5116-9fde-5989f4fc88fc/membership",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/standards/items/0ff0d447-960a-5116-9fde-5989f4fc88fc/learning-components",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "lcVersion": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/5f3a9252-5252-54ed-9c00-f4c910b3b9a4",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/411f2a23-973d-5338-9a16-93f6c252b221",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/443d082c-df90-5586-8d15-fc375f4a8b4f",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/c8e759d8-4ed5-597d-a8ae-6a20147a354d",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/e1ce9802-e05b-541d-ae86-641087a49faf",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/1944c542-6fe1-5883-beee-d6fe87cc5e7f",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/c6f0747b-6ee8-5e35-95d9-d25d8f5debc6",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/dd4d95c3-4e5b-511f-b490-f0bf52638e99",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/6c340f89-4534-5ed4-acee-bb1e959071d4",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/b2a9431b-e28d-5c7c-8a46-e0012eef91b8",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/dab9e9b0-faa3-5080-9f2e-ac82c0ba0346",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/5f3a9252-5252-54ed-9c00-f4c910b3b9a4",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 2
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 2,
+        "cursorSha256": "1d9c8a84c16bbf8ef2831a946f55aca6444459ba7def46e26cc1b79b0accef7a"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 2,
+        "cursorSha256": "0cca5f35c8db808269be60ad4c045c5ec09b986508e89da6a237734950c58280"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 2,
+        "cursorSha256": "3bbf86f0697d80dcaf7e9fb6520d10e2742345bebf3a6ab93cd75f397b4f76db"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 2,
+        "cursorSha256": "b329e19da3d5821775f31db81611fdafe0b1b807619ced06f8fa34e9f1bf4924"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 2,
+        "cursorSha256": "658d142c68b9c85bc053447c2c047413873e766cbcb5296388a53bb7fe3d3ae9"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 100
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "incoming",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 2
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "incoming",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 100
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/6086f1c2-b335-57fc-b575-6e2e4210c727/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/6086f1c2-b335-57fc-b575-6e2e4210c727",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/534ca674-79cd-5a7e-b7e0-b9258b338e8c/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/534ca674-79cd-5a7e-b7e0-b9258b338e8c",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "outgoing",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 2
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "outgoing",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 2,
+        "cursorSha256": "a069351f41575c2a893c6b05bc0a4a60b8c19b5677df88615a720e22a34b2c90"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "outgoing",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 2,
+        "cursorSha256": "44a2702e9372c584c53ddba0476840b91cdc6c04c68c793fd3062ccfebac85bb"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "outgoing",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 2,
+        "cursorSha256": "9a75419983edf29f556066c4f922de9d5af3d6de3b410527349c685dbaddf354"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "outgoing",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 100
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/9a0fdd78-5f2d-573b-a3b0-965a37b79252/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/9a0fdd78-5f2d-573b-a3b0-965a37b79252",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/4c04dc94-6389-5bd8-ab25-d42e38404eb8/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/4c04dc94-6389-5bd8-ab25-d42e38404eb8",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/3f028ef1-85eb-5a3d-ad58-00d688a03626/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/3f028ef1-85eb-5a3d-ad58-00d688a03626",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/042c432f-410c-5dd9-a87f-e6413634a266/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/042c432f-410c-5dd9-a87f-e6413634a266",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/4f10105d-975b-5a0a-b751-dd77893c8242/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/4f10105d-975b-5a0a-b751-dd77893c8242",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/eef22ac1-43c3-5771-bc43-448f3e117f97/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/eef22ac1-43c3-5771-bc43-448f3e117f97",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/7bf83ce5-c739-5d93-aef9-fc92540518d5/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/7bf83ce5-c739-5d93-aef9-fc92540518d5",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/942e06f7-6c45-53e5-9d0b-96dfbfcebaa6/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/942e06f7-6c45-53e5-9d0b-96dfbfcebaa6",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/search",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "q": "8.G.B.7",
+        "kind": "StandardsFrameworkItem",
+        "limit": 10
+      },
+      "status": 200
+    },
+    {
+      "path": "/search",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "q": "8.G.B.7",
+        "kind": "StandardsFrameworkItem",
+        "limit": 10,
+        "cursorSha256": "7c85a65f2cd5977b31ec7c62cdb9febc8522f44ed2e235b3e4a4610f57fe1fad"
+      },
+      "status": 200
+    },
+    {
+      "path": "/search",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "q": "8.G.B.7",
+        "kind": "StandardsFrameworkItem",
+        "limit": 10,
+        "cursorSha256": "f321f143b96dd3c3b59de70d5b7726890fd6710c4ae88e8b12f39a7a6a4d72c0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items/baa2ebfe-b4ae-5424-b435-0978cbda8219/membership",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/standards/items/baa2ebfe-b4ae-5424-b435-0978cbda8219/learning-components",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "lcVersion": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/cac68ba0-c28f-5299-9d54-7f50cb346eba",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/b922397f-cc7a-5149-801c-9baf206a4efd",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/LearningComponent/cac68ba0-c28f-5299-9d54-7f50cb346eba",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 2
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 100
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "incoming",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 2
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "incoming",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 100
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "outgoing",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 2
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "outgoing",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 2,
+        "cursorSha256": "0f3b5d67ffc84fdcf8e8eae8da63ead6f2fd93d5f436dbaee6ea6e25b8e726b7"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "outgoing",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 100
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/4b576e40-8317-5342-99a9-f84b32754936/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/4b576e40-8317-5342-99a9-f84b32754936",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/7d4b0f0b-04e2-50aa-a0c1-0a690ded7b09/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/7d4b0f0b-04e2-50aa-a0c1-0a690ded7b09",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/c19d1d86-6056-5558-82a1-e8bc0f04654b/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/c19d1d86-6056-5558-82a1-e8bc0f04654b",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/74df37a8-5572-588b-a649-6045601c2aab/root-paths",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/74df37a8-5572-588b-a649-6045601c2aab",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "supports",
+        "direction": "incoming",
+        "endpointKind": "LearningComponent",
+        "limit": 1
+      },
+      "status": 200
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "incoming",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 1,
+        "cursorSha256": "d126d6b37c7e2a8d5857f86e17c082627f6872666f5b36ee3b2060465c108971"
+      },
+      "status": 400
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc",
+      "query": {
+        "sourceSnapshot": "lc/v0.0.0"
+      },
+      "status": 409
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/6ba063cb-d7cc-11e8-824f-0242ac160002",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 404
+    }
+  ],
+  "targets": [
+    {
+      "code": "8.F.B.4",
+      "search": {
+        "total": 31,
+        "pages": [
+          {
+            "count": 10,
+            "hasMore": true,
+            "nextCursorPresent": true
+          },
+          {
+            "count": 10,
+            "hasMore": true,
+            "nextCursorPresent": true
+          },
+          {
+            "count": 10,
+            "hasMore": true,
+            "nextCursorPresent": true
+          },
+          {
+            "count": 1,
+            "hasMore": false,
+            "nextCursorPresent": false
+          }
+        ],
+        "frameworkCandidates": 1,
+        "exactCodeCandidates": 1
+      },
+      "standardDetail": {
+        "ref": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFrameworkItem",
+          "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+        },
+        "publisher": {
+          "value": "Common Good Learning Tools",
+          "projection": null
+        },
+        "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+        "gradeLevels": [
+          "8"
+        ],
+        "fields": [
+          {
+            "value": "Mathematics",
+            "projection": {
+              "text": "数学",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            },
+            "name": "academicSubject"
+          },
+          {
+            "value": "Adopted",
+            "projection": {
+              "text": "已采纳",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            },
+            "name": "adoptionStatus"
+          },
+          {
+            "value": "8.F.4",
+            "projection": null,
+            "name": "alternateStatementCode"
+          },
+          {
+            "value": "Common Good Learning Tools",
+            "projection": null,
+            "name": "author"
+          },
+          {
+            "value": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ef36a-d7cc-11e8-824f-0242ac160002",
+            "projection": null,
+            "name": "caseIdentifierURI"
+          },
+          {
+            "value": "6b9ef36a-d7cc-11e8-824f-0242ac160002",
+            "projection": null,
+            "name": "caseIdentifierUUID"
+          },
+          {
+            "value": "2025-02-05",
+            "projection": null,
+            "name": "dateModified"
+          },
+          {
+            "value": "Construct a function to model a linear relationship between two quantities. Determine the rate of change and initial value of the function from a description of a relationship or from two (x, y) values, including reading these from a table or from a graph. Interpret the rate of change and initial value of a linear function in terms of the situation it models, and in terms of its graph or a table of values.",
+            "projection": {
+              "text": "构建一个函数来建模两个量之间的线性关系。根据关系的描述或两个 (x, y) 值（包括从表格或图形中读取这些值）确定函数的变化率和初始值。在函数所建模的情境中，以及在其图形或数值表中，解释线性函数的变化率和初始值。",
+              "kind": "machine_translation",
+              "reviewStatus": "machine"
+            },
+            "name": "description"
+          },
+          {
+            "value": "en-US",
+            "projection": null,
+            "name": "inLanguage"
+          },
+          {
+            "value": "Multi-State",
+            "projection": {
+              "text": "多州",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            },
+            "name": "jurisdiction"
+          },
+          {
+            "value": "Standard",
+            "projection": null,
+            "name": "normalizedstatementtype"
+          },
+          {
+            "value": null,
+            "projection": null,
+            "name": "notes"
+          },
+          {
+            "value": "8.F.B.4",
+            "projection": null,
+            "name": "statementCode"
+          },
+          {
+            "value": "Standard",
+            "projection": {
+              "text": "标准",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            },
+            "name": "statementType"
+          },
+          {
+            "value": null,
+            "projection": null,
+            "name": "notessha256"
+          }
+        ]
+      },
+      "rootPaths": {
+        "node": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFrameworkItem",
+          "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+        },
+        "sourceSnapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "sourceSnapshotId": "lc/v1.11.0",
+        "structureRelation": "hasChild",
+        "paths": [
+          {
+            "steps": [
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFramework",
+                  "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+                },
+                "display": {
+                  "value": "Common Core State Standards for Math",
+                  "projection": {
+                    "text": "数学共同核心州标准",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "name"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "957d5d34-22eb-5ec5-b50a-80d9d95a0678"
+                },
+                "display": {
+                  "value": "Standards for Math Content",
+                  "projection": {
+                    "text": "数学内容标准",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+                },
+                "display": {
+                  "value": "Grade 8",
+                  "projection": {
+                    "text": "8年级",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "ff2b2fbc-89b4-55d1-a47b-7f9c096b4c3a"
+                },
+                "display": {
+                  "value": "Functions",
+                  "projection": {
+                    "text": "函数",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "185e9d9f-ac74-5621-aced-81909baa4077"
+                },
+                "display": {
+                  "value": "8.F.B",
+                  "projection": null
+                },
+                "displayField": "statementCode"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+                },
+                "display": {
+                  "value": "8.F.B.4",
+                  "projection": null
+                },
+                "displayField": "statementCode"
+              }
+            ]
+          }
+        ],
+        "isComplete": true,
+        "truncatedBy": null
+      },
+      "membership": {
+        "projection": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "projectionKind": "gradeLevelMetadata",
+          "sourceField": "gradeLevel",
+          "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+          "grade": "8"
+        },
+        "item": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFrameworkItem",
+          "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+        },
+        "inProjection": true,
+        "sourceSnapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "sourceSnapshotId": "lc/v1.11.0"
+      },
+      "relationships": {
+        "supports_incoming": {
+          "count": 11,
+          "pages": [
+            {
+              "count": 2,
+              "hasMore": true,
+              "nextCursorPresent": true
+            },
+            {
+              "count": 2,
+              "hasMore": true,
+              "nextCursorPresent": true
+            },
+            {
+              "count": 2,
+              "hasMore": true,
+              "nextCursorPresent": true
+            },
+            {
+              "count": 2,
+              "hasMore": true,
+              "nextCursorPresent": true
+            },
+            {
+              "count": 2,
+              "hasMore": true,
+              "nextCursorPresent": true
+            },
+            {
+              "count": 1,
+              "hasMore": false,
+              "nextCursorPresent": false
+            }
+          ],
+          "limit100Equivalent": true,
+          "appliedType": "supports",
+          "appliedDirection": "incoming",
+          "appliedEndpointKind": "LearningComponent",
+          "publishers": {
+            "Achievement Network": 11
+          },
+          "omittedResponseKeys": [
+            "groups",
+            "endpointRelationshipGroups",
+            "endpointPlatformProjection",
+            "endpointPlatformGroupsComplete"
+          ],
+          "edgeSample": {
+            "identifier": "1932b475-1141-5389-98b2-daa66a76718c",
+            "relationshipType": "supports",
+            "direction": "incoming",
+            "provenance": "source_fact",
+            "endpoint": {
+              "display": {
+                "value": "Determine the initial value of a function from a mathematical context presented in a table or graph",
+                "projection": {
+                  "text": "根据以表格或图形呈现的数学情境，确定函数的初始值",
+                  "kind": "machine_translation",
+                  "reviewStatus": "machine"
+                }
+              },
+              "displayField": "description",
+              "ref": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "5f3a9252-5252-54ed-9c00-f4c910b3b9a4"
+              },
+              "frameworkName": null
+            },
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "identifierRepaired": false,
+            "upstreamIdentifier": null,
+            "qualifiers": [
+              {
+                "value": "Achievement Network",
+                "projection": null,
+                "name": "author"
+              },
+              {
+                "value": "2025-04-01",
+                "projection": null,
+                "name": "dateCreated"
+              },
+              {
+                "value": "2025-04-01",
+                "projection": null,
+                "name": "dateModified"
+              },
+              {
+                "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                "projection": {
+                  "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                  "kind": "machine_translation",
+                  "reviewStatus": "reviewed"
+                },
+                "name": "description"
+              },
+              {
+                "value": false,
+                "projection": null,
+                "name": "identifierRepaired"
+              },
+              {
+                "value": null,
+                "projection": null,
+                "name": "upstreamIdentifier"
+              }
+            ]
+          },
+          "edgeRecords": [
+            {
+              "identifier": "1932b475-1141-5389-98b2-daa66a76718c",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "5f3a9252-5252-54ed-9c00-f4c910b3b9a4"
+                },
+                "display": {
+                  "value": "Determine the initial value of a function from a mathematical context presented in a table or graph",
+                  "projection": {
+                    "text": "根据以表格或图形呈现的数学情境，确定函数的初始值",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "2e2c34c6-f349-553b-a8bc-c2859e43b7f0",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "b2a9431b-e28d-5c7c-8a46-e0012eef91b8"
+                },
+                "display": {
+                  "value": "Interpret the rate of change of a linear function in the context of the situation it models",
+                  "projection": {
+                    "text": "解释线性函数在其所建模情境中的变化率",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "4bb4e78d-aa05-5eba-85ac-229dc12a1ae2",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "dab9e9b0-faa3-5080-9f2e-ac82c0ba0346"
+                },
+                "display": {
+                  "value": "Model a linear relationship between two quantities with a function",
+                  "projection": {
+                    "text": "用函数对两个量之间的线性关系进行建模",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "6263d962-f3bf-50d4-b75f-81215f0dbb10",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "411f2a23-973d-5338-9a16-93f6c252b221"
+                },
+                "display": {
+                  "value": "Determine the initial value of a function from a mathematical context presented with a verbal description",
+                  "projection": {
+                    "text": "根据以口头描述呈现的数学情境，确定函数的初始值",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "6bc4a027-9827-5133-8764-3f7a143cb297",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "c6f0747b-6ee8-5e35-95d9-d25d8f5debc6"
+                },
+                "display": {
+                  "value": "Determine the rate of change of a function from a real-world context presented in a table or graph",
+                  "projection": {
+                    "text": "根据以表格或图形形式呈现的实际情境，确定函数的变化率",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "8d4a8511-65b2-5962-a77f-7c886bf55649",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "dd4d95c3-4e5b-511f-b490-f0bf52638e99"
+                },
+                "display": {
+                  "value": "Determine the rate of change of a function from a real-world context presented with a verbal description",
+                  "projection": {
+                    "text": "根据以口头描述形式呈现的实际情境，确定函数的变化率",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "8ec78835-9e15-53dc-9e3d-9ab6e5caa04e",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "e1ce9802-e05b-541d-ae86-641087a49faf"
+                },
+                "display": {
+                  "value": "Determine the rate of change of a function from a mathematical context presented in a table or graph",
+                  "projection": {
+                    "text": "从以表格或图形呈现的数学情境中确定函数的变化率",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "b7e1b08a-6165-5096-a5aa-6cbb64c6a91e",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "c8e759d8-4ed5-597d-a8ae-6a20147a354d"
+                },
+                "display": {
+                  "value": "Determine the initial value of a function from a real-world context presented with a verbal description",
+                  "projection": {
+                    "text": "根据以口头描述呈现的实际情境，确定函数的初始值",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "c2275122-5f8c-506e-a739-c59f57b92ba4",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "6c340f89-4534-5ed4-acee-bb1e959071d4"
+                },
+                "display": {
+                  "value": "Interpret the initial value of a linear function in the context of the situation it models",
+                  "projection": {
+                    "text": "解释线性函数在它所建模的情境中的初始值",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "d9f26f66-9f75-590b-95ac-c6c490a5ce24",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "443d082c-df90-5586-8d15-fc375f4a8b4f"
+                },
+                "display": {
+                  "value": "Determine the initial value of a function from a real-world context presented in a table or graph",
+                  "projection": {
+                    "text": "根据以表格或图形形式呈现的实际情境，确定函数的初始值",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "f771ca12-d210-5bba-b1bc-d43fa3510649",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "1944c542-6fe1-5883-beee-d6fe87cc5e7f"
+                },
+                "display": {
+                  "value": "Determine the rate of change of a function from a mathematical context presented with a verbal description",
+                  "projection": {
+                    "text": "根据以口头描述呈现的数学情境，确定函数的变化率",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            }
+          ]
+        },
+        "buildsTowards_incoming": {
+          "count": 2,
+          "pages": [
+            {
+              "count": 2,
+              "hasMore": false,
+              "nextCursorPresent": false
+            }
+          ],
+          "limit100Equivalent": true,
+          "appliedType": "buildsTowards",
+          "appliedDirection": "incoming",
+          "appliedEndpointKind": "StandardsFrameworkItem",
+          "publishers": {
+            "Student Achievement Partners": 2
+          },
+          "omittedResponseKeys": [
+            "groups",
+            "endpointRelationshipGroups",
+            "endpointPlatformProjection",
+            "endpointPlatformGroupsComplete"
+          ],
+          "edgeSample": {
+            "identifier": "2bb06fbf-7d35-5c9b-8494-49b12738a766",
+            "relationshipType": "buildsTowards",
+            "direction": "incoming",
+            "provenance": "source_fact",
+            "endpoint": {
+              "display": {
+                "value": "7.RP.A.2",
+                "projection": null
+              },
+              "displayField": "statementCode",
+              "ref": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "6086f1c2-b335-57fc-b575-6e2e4210c727"
+              },
+              "frameworkName": null
+            },
+            "publisher": {
+              "value": "Student Achievement Partners",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+            "identifierRepaired": false,
+            "upstreamIdentifier": null,
+            "qualifiers": [
+              {
+                "value": "Student Achievement Partners",
+                "projection": null,
+                "name": "author"
+              },
+              {
+                "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                "projection": {
+                  "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                  "kind": "machine_translation",
+                  "reviewStatus": "reviewed"
+                },
+                "name": "description"
+              },
+              {
+                "value": false,
+                "projection": null,
+                "name": "identifierRepaired"
+              },
+              {
+                "value": null,
+                "projection": null,
+                "name": "upstreamIdentifier"
+              }
+            ]
+          },
+          "edgeRecords": [
+            {
+              "identifier": "2bb06fbf-7d35-5c9b-8494-49b12738a766",
+              "relationshipType": "buildsTowards",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "6086f1c2-b335-57fc-b575-6e2e4210c727"
+                },
+                "display": {
+                  "value": "7.RP.A.2",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "a8bb6ab4-5e2f-5adb-9f42-c74f6a4e7c9d",
+              "relationshipType": "buildsTowards",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "534ca674-79cd-5a7e-b7e0-b9258b338e8c"
+                },
+                "display": {
+                  "value": "8.F.A.3",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            }
+          ]
+        },
+        "buildsTowards_outgoing": {
+          "count": 8,
+          "pages": [
+            {
+              "count": 2,
+              "hasMore": true,
+              "nextCursorPresent": true
+            },
+            {
+              "count": 2,
+              "hasMore": true,
+              "nextCursorPresent": true
+            },
+            {
+              "count": 2,
+              "hasMore": true,
+              "nextCursorPresent": true
+            },
+            {
+              "count": 2,
+              "hasMore": false,
+              "nextCursorPresent": false
+            }
+          ],
+          "limit100Equivalent": true,
+          "appliedType": "buildsTowards",
+          "appliedDirection": "outgoing",
+          "appliedEndpointKind": "StandardsFrameworkItem",
+          "publishers": {
+            "Student Achievement Partners": 8
+          },
+          "omittedResponseKeys": [
+            "groups",
+            "endpointRelationshipGroups",
+            "endpointPlatformProjection",
+            "endpointPlatformGroupsComplete"
+          ],
+          "edgeSample": {
+            "identifier": "1333480b-6231-5094-b193-ed1d74f51802",
+            "relationshipType": "buildsTowards",
+            "direction": "outgoing",
+            "provenance": "source_fact",
+            "endpoint": {
+              "display": {
+                "value": "HSF-BF.A.2",
+                "projection": null
+              },
+              "displayField": "statementCode",
+              "ref": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "9a0fdd78-5f2d-573b-a3b0-965a37b79252"
+              },
+              "frameworkName": null
+            },
+            "publisher": {
+              "value": "Student Achievement Partners",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+            "identifierRepaired": false,
+            "upstreamIdentifier": null,
+            "qualifiers": [
+              {
+                "value": "Student Achievement Partners",
+                "projection": null,
+                "name": "author"
+              },
+              {
+                "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                "projection": {
+                  "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                  "kind": "machine_translation",
+                  "reviewStatus": "reviewed"
+                },
+                "name": "description"
+              },
+              {
+                "value": false,
+                "projection": null,
+                "name": "identifierRepaired"
+              },
+              {
+                "value": null,
+                "projection": null,
+                "name": "upstreamIdentifier"
+              }
+            ]
+          },
+          "edgeRecords": [
+            {
+              "identifier": "1333480b-6231-5094-b193-ed1d74f51802",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "9a0fdd78-5f2d-573b-a3b0-965a37b79252"
+                },
+                "display": {
+                  "value": "HSF-BF.A.2",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "17bb66bf-2f99-5b5f-b153-360b6b29488b",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "4c04dc94-6389-5bd8-ab25-d42e38404eb8"
+                },
+                "display": {
+                  "value": "HSS-ID.C.7",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "433c549f-d251-513d-b1db-2ba360c8fe5f",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "3f028ef1-85eb-5a3d-ad58-00d688a03626"
+                },
+                "display": {
+                  "value": "HSF-BF.A.1.a",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "50072a3f-9726-568a-b9c3-4a6f739f863a",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "042c432f-410c-5dd9-a87f-e6413634a266"
+                },
+                "display": {
+                  "value": "HSF-LE.B.5",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "680a571f-6a0d-53b5-bf0f-1640593352a0",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "4f10105d-975b-5a0a-b751-dd77893c8242"
+                },
+                "display": {
+                  "value": "HSF-LE.A.2",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "9516c389-064a-5dcd-b673-b5fdcc2b5007",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "eef22ac1-43c3-5771-bc43-448f3e117f97"
+                },
+                "display": {
+                  "value": "HSF-IF.B.6",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "c92f3dd7-8722-55ae-8a6b-257b04651748",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "7bf83ce5-c739-5d93-aef9-fc92540518d5"
+                },
+                "display": {
+                  "value": "HSA-CED.A.2",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "f58c8dfc-2b4b-5b2d-a6f4-1b95209d00a4",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "942e06f7-6c45-53e5-9d0b-96dfbfcebaa6"
+                },
+                "display": {
+                  "value": "HSF-LE.A.1",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            }
+          ]
+        }
+      },
+      "components": {
+        "lcVersionId": "lc/v1.11.0",
+        "count": 11,
+        "summaryAuthors": {
+          "Achievement Network": 11
+        },
+        "details": [
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "5f3a9252-5252-54ed-9c00-f4c910b3b9a4"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "411f2a23-973d-5338-9a16-93f6c252b221"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "443d082c-df90-5586-8d15-fc375f4a8b4f"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "c8e759d8-4ed5-597d-a8ae-6a20147a354d"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "e1ce9802-e05b-541d-ae86-641087a49faf"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "1944c542-6fe1-5883-beee-d6fe87cc5e7f"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "c6f0747b-6ee8-5e35-95d9-d25d8f5debc6"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "dd4d95c3-4e5b-511f-b490-f0bf52638e99"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "6c340f89-4534-5ed4-acee-bb1e959071d4"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "b2a9431b-e28d-5c7c-8a46-e0012eef91b8"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "dab9e9b0-faa3-5080-9f2e-ac82c0ba0346"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          }
+        ],
+        "summarySample": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "LearningComponent",
+            "identifier": "5f3a9252-5252-54ed-9c00-f4c910b3b9a4"
+          },
+          "description": {
+            "value": "Determine the initial value of a function from a mathematical context presented in a table or graph",
+            "projection": {
+              "text": "根据以表格或图形呈现的数学情境，确定函数的初始值",
+              "kind": "machine_translation",
+              "reviewStatus": "machine"
+            }
+          },
+          "academicSubject": {
+            "value": "Mathematics",
+            "projection": {
+              "text": "数学",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            }
+          },
+          "author": {
+            "value": "Achievement Network",
+            "projection": null
+          },
+          "standard": {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "StandardsFrameworkItem",
+              "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+            },
+            "statementCode": {
+              "value": "8.F.B.4",
+              "projection": null
+            },
+            "description": {
+              "value": "Construct a function to model a linear relationship between two quantities. Determine the rate of change and initial value of the function from a description of a relationship or from two (x, y) values, including reading these from a table or from a graph. Interpret the rate of change and initial value of a linear function in terms of the situation it models, and in terms of its graph or a table of values.",
+              "projection": {
+                "text": "构建一个函数来建模两个量之间的线性关系。根据关系的描述或两个 (x, y) 值（包括从表格或图形中读取这些值）确定函数的变化率和初始值。在函数所建模的情境中，以及在其图形或数值表中，解释线性函数的变化率和初始值。",
+                "kind": "machine_translation",
+                "reviewStatus": "machine"
+              }
+            },
+            "frameworkName": {
+              "value": null,
+              "projection": null
+            }
+          }
+        },
+        "detailSample": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "LearningComponent",
+            "identifier": "5f3a9252-5252-54ed-9c00-f4c910b3b9a4"
+          },
+          "publisher": {
+            "value": "Achievement Network",
+            "projection": null
+          },
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+          "gradeLevels": [],
+          "fields": [
+            {
+              "value": "Mathematics",
+              "projection": {
+                "text": "数学",
+                "kind": "controlled_vocabulary",
+                "reviewStatus": "confirmed"
+              },
+              "name": "academicSubject"
+            },
+            {
+              "value": "Achievement Network",
+              "projection": null,
+              "name": "author"
+            },
+            {
+              "value": "2025-04-01",
+              "projection": null,
+              "name": "dateCreated"
+            },
+            {
+              "value": "2025-04-01",
+              "projection": null,
+              "name": "dateModified"
+            },
+            {
+              "value": "Determine the initial value of a function from a mathematical context presented in a table or graph",
+              "projection": {
+                "text": "根据以表格或图形呈现的数学情境，确定函数的初始值",
+                "kind": "machine_translation",
+                "reviewStatus": "machine"
+              },
+              "name": "description"
+            },
+            {
+              "value": "[]",
+              "projection": null,
+              "name": "examples"
+            },
+            {
+              "value": "en-US",
+              "projection": null,
+              "name": "inLanguage"
+            },
+            {
+              "value": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+              "projection": null,
+              "name": "examplessha256"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "code": "8.G.B.7",
+      "search": {
+        "total": 26,
+        "pages": [
+          {
+            "count": 10,
+            "hasMore": true,
+            "nextCursorPresent": true
+          },
+          {
+            "count": 10,
+            "hasMore": true,
+            "nextCursorPresent": true
+          },
+          {
+            "count": 6,
+            "hasMore": false,
+            "nextCursorPresent": false
+          }
+        ],
+        "frameworkCandidates": 1,
+        "exactCodeCandidates": 1
+      },
+      "standardDetail": {
+        "ref": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFrameworkItem",
+          "identifier": "baa2ebfe-b4ae-5424-b435-0978cbda8219"
+        },
+        "publisher": {
+          "value": "Common Good Learning Tools",
+          "projection": null
+        },
+        "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+        "gradeLevels": [
+          "8"
+        ],
+        "fields": [
+          {
+            "value": "Mathematics",
+            "projection": {
+              "text": "数学",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            },
+            "name": "academicSubject"
+          },
+          {
+            "value": "Adopted",
+            "projection": {
+              "text": "已采纳",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            },
+            "name": "adoptionStatus"
+          },
+          {
+            "value": "8.G.7",
+            "projection": null,
+            "name": "alternateStatementCode"
+          },
+          {
+            "value": "Common Good Learning Tools",
+            "projection": null,
+            "name": "author"
+          },
+          {
+            "value": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba063cb-d7cc-11e8-824f-0242ac160002",
+            "projection": null,
+            "name": "caseIdentifierURI"
+          },
+          {
+            "value": "6ba063cb-d7cc-11e8-824f-0242ac160002",
+            "projection": null,
+            "name": "caseIdentifierUUID"
+          },
+          {
+            "value": "2025-02-05",
+            "projection": null,
+            "name": "dateModified"
+          },
+          {
+            "value": "Apply the Pythagorean Theorem to determine unknown side lengths in right triangles in real-world and mathematical problems in two and three dimensions.",
+            "projection": {
+              "text": "应用勾股定理，在二维和三维的实际问题和数学问题中确定直角三角形的未知边长。",
+              "kind": "machine_translation",
+              "reviewStatus": "machine"
+            },
+            "name": "description"
+          },
+          {
+            "value": "en-US",
+            "projection": null,
+            "name": "inLanguage"
+          },
+          {
+            "value": "Multi-State",
+            "projection": {
+              "text": "多州",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            },
+            "name": "jurisdiction"
+          },
+          {
+            "value": "Standard",
+            "projection": null,
+            "name": "normalizedstatementtype"
+          },
+          {
+            "value": null,
+            "projection": null,
+            "name": "notes"
+          },
+          {
+            "value": "8.G.B.7",
+            "projection": null,
+            "name": "statementCode"
+          },
+          {
+            "value": "Standard",
+            "projection": {
+              "text": "标准",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            },
+            "name": "statementType"
+          },
+          {
+            "value": null,
+            "projection": null,
+            "name": "notessha256"
+          }
+        ]
+      },
+      "rootPaths": {
+        "node": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFrameworkItem",
+          "identifier": "baa2ebfe-b4ae-5424-b435-0978cbda8219"
+        },
+        "sourceSnapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "sourceSnapshotId": "lc/v1.11.0",
+        "structureRelation": "hasChild",
+        "paths": [
+          {
+            "steps": [
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFramework",
+                  "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+                },
+                "display": {
+                  "value": "Common Core State Standards for Math",
+                  "projection": {
+                    "text": "数学共同核心州标准",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "name"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "957d5d34-22eb-5ec5-b50a-80d9d95a0678"
+                },
+                "display": {
+                  "value": "Standards for Math Content",
+                  "projection": {
+                    "text": "数学内容标准",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+                },
+                "display": {
+                  "value": "Grade 8",
+                  "projection": {
+                    "text": "8年级",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "d9e48f2b-8a24-52ae-b418-79c6172fd473"
+                },
+                "display": {
+                  "value": "Geometry",
+                  "projection": {
+                    "text": "几何",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "a5cb12bf-64a7-5154-b546-2f40b149168a"
+                },
+                "display": {
+                  "value": "8.G.B",
+                  "projection": null
+                },
+                "displayField": "statementCode"
+              },
+              {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "baa2ebfe-b4ae-5424-b435-0978cbda8219"
+                },
+                "display": {
+                  "value": "8.G.B.7",
+                  "projection": null
+                },
+                "displayField": "statementCode"
+              }
+            ]
+          }
+        ],
+        "isComplete": true,
+        "truncatedBy": null
+      },
+      "membership": {
+        "projection": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "projectionKind": "gradeLevelMetadata",
+          "sourceField": "gradeLevel",
+          "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+          "grade": "8"
+        },
+        "item": {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFrameworkItem",
+          "identifier": "baa2ebfe-b4ae-5424-b435-0978cbda8219"
+        },
+        "inProjection": true,
+        "sourceSnapshot": {
+          "namespace": "lc",
+          "version": "v1.11.0",
+          "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+          "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+          "schemaVersion": 2,
+          "cleaningVersion": "v2"
+        },
+        "sourceSnapshotId": "lc/v1.11.0"
+      },
+      "relationships": {
+        "supports_incoming": {
+          "count": 2,
+          "pages": [
+            {
+              "count": 2,
+              "hasMore": false,
+              "nextCursorPresent": false
+            }
+          ],
+          "limit100Equivalent": true,
+          "appliedType": "supports",
+          "appliedDirection": "incoming",
+          "appliedEndpointKind": "LearningComponent",
+          "publishers": {
+            "Achievement Network": 2
+          },
+          "omittedResponseKeys": [
+            "groups",
+            "endpointRelationshipGroups",
+            "endpointPlatformProjection",
+            "endpointPlatformGroupsComplete"
+          ],
+          "edgeSample": {
+            "identifier": "24bbd19b-57bb-5f3b-9e47-24b2f692ed4c",
+            "relationshipType": "supports",
+            "direction": "incoming",
+            "provenance": "source_fact",
+            "endpoint": {
+              "display": {
+                "value": "Use the Pythagorean Theorem to solve for an unknown side length in right triangles in real-world problems in two and three dimensions",
+                "projection": {
+                  "text": "在二维和三维的实际问题中，利用勾股定理求解直角三角形中未知边的长度",
+                  "kind": "machine_translation",
+                  "reviewStatus": "machine"
+                }
+              },
+              "displayField": "description",
+              "ref": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "LearningComponent",
+                "identifier": "b922397f-cc7a-5149-801c-9baf206a4efd"
+              },
+              "frameworkName": null
+            },
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "identifierRepaired": false,
+            "upstreamIdentifier": null,
+            "qualifiers": [
+              {
+                "value": "Achievement Network",
+                "projection": null,
+                "name": "author"
+              },
+              {
+                "value": "2025-04-01",
+                "projection": null,
+                "name": "dateCreated"
+              },
+              {
+                "value": "2025-04-01",
+                "projection": null,
+                "name": "dateModified"
+              },
+              {
+                "value": "A supports relationship links one entity to another, indicating that the first contributes to the understanding, mastery, or achievement of the goals defined by the second",
+                "projection": {
+                  "text": "supports 关系将一个实体连接到另一个实体，表示前者有助于理解、掌握或达成后者所定义的目标。",
+                  "kind": "machine_translation",
+                  "reviewStatus": "reviewed"
+                },
+                "name": "description"
+              },
+              {
+                "value": false,
+                "projection": null,
+                "name": "identifierRepaired"
+              },
+              {
+                "value": null,
+                "projection": null,
+                "name": "upstreamIdentifier"
+              }
+            ]
+          },
+          "edgeRecords": [
+            {
+              "identifier": "24bbd19b-57bb-5f3b-9e47-24b2f692ed4c",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "b922397f-cc7a-5149-801c-9baf206a4efd"
+                },
+                "display": {
+                  "value": "Use the Pythagorean Theorem to solve for an unknown side length in right triangles in real-world problems in two and three dimensions",
+                  "projection": {
+                    "text": "在二维和三维的实际问题中，利用勾股定理求解直角三角形中未知边的长度",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            },
+            {
+              "identifier": "8783fbac-04a2-5491-929e-2ed82078910c",
+              "relationshipType": "supports",
+              "direction": "incoming",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Achievement Network",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "LearningComponent",
+                  "identifier": "cac68ba0-c28f-5299-9d54-7f50cb346eba"
+                },
+                "display": {
+                  "value": "Use the Pythagorean Theorem to solve for an unknown side length in right triangles in mathematical problems in two and three dimensions",
+                  "projection": {
+                    "text": "在二维和三维的数学问题中，利用勾股定理求解直角三角形中未知的边长",
+                    "kind": "machine_translation",
+                    "reviewStatus": "machine"
+                  }
+                },
+                "displayField": "description",
+                "frameworkName": null
+              },
+              "author": "Achievement Network"
+            }
+          ]
+        },
+        "buildsTowards_incoming": {
+          "count": 0,
+          "pages": [
+            {
+              "count": 0,
+              "hasMore": false,
+              "nextCursorPresent": false
+            }
+          ],
+          "limit100Equivalent": true,
+          "appliedType": "buildsTowards",
+          "appliedDirection": "incoming",
+          "appliedEndpointKind": "StandardsFrameworkItem",
+          "publishers": {},
+          "omittedResponseKeys": [
+            "groups",
+            "endpointRelationshipGroups",
+            "endpointPlatformProjection",
+            "endpointPlatformGroupsComplete"
+          ],
+          "edgeSample": null,
+          "edgeRecords": []
+        },
+        "buildsTowards_outgoing": {
+          "count": 4,
+          "pages": [
+            {
+              "count": 2,
+              "hasMore": true,
+              "nextCursorPresent": true
+            },
+            {
+              "count": 2,
+              "hasMore": false,
+              "nextCursorPresent": false
+            }
+          ],
+          "limit100Equivalent": true,
+          "appliedType": "buildsTowards",
+          "appliedDirection": "outgoing",
+          "appliedEndpointKind": "StandardsFrameworkItem",
+          "publishers": {
+            "Student Achievement Partners": 4
+          },
+          "omittedResponseKeys": [
+            "groups",
+            "endpointRelationshipGroups",
+            "endpointPlatformProjection",
+            "endpointPlatformGroupsComplete"
+          ],
+          "edgeSample": {
+            "identifier": "a4134107-84d0-592f-b494-11a732a92c5f",
+            "relationshipType": "buildsTowards",
+            "direction": "outgoing",
+            "provenance": "source_fact",
+            "endpoint": {
+              "display": {
+                "value": "HSF-TF.A.3",
+                "projection": null
+              },
+              "displayField": "statementCode",
+              "ref": {
+                "sourceSnapshotId": "lc/v1.11.0",
+                "kind": "StandardsFrameworkItem",
+                "identifier": "4b576e40-8317-5342-99a9-f84b32754936"
+              },
+              "frameworkName": null
+            },
+            "publisher": {
+              "value": "Student Achievement Partners",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+            "identifierRepaired": false,
+            "upstreamIdentifier": null,
+            "qualifiers": [
+              {
+                "value": "Student Achievement Partners",
+                "projection": null,
+                "name": "author"
+              },
+              {
+                "value": "A buildsTowards relationship indicates that proficiency in one entity supports the likelihood of success in another, capturing a directional progression without requiring strict prerequisite order.",
+                "projection": {
+                  "text": "buildsTowards 关系表示，对一个实体的熟练掌握会提高在另一实体上取得成功的可能性；它表达有方向的学习进阶，但不要求严格的先修顺序。",
+                  "kind": "machine_translation",
+                  "reviewStatus": "reviewed"
+                },
+                "name": "description"
+              },
+              {
+                "value": false,
+                "projection": null,
+                "name": "identifierRepaired"
+              },
+              {
+                "value": null,
+                "projection": null,
+                "name": "upstreamIdentifier"
+              }
+            ]
+          },
+          "edgeRecords": [
+            {
+              "identifier": "a4134107-84d0-592f-b494-11a732a92c5f",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "4b576e40-8317-5342-99a9-f84b32754936"
+                },
+                "display": {
+                  "value": "HSF-TF.A.3",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "a54d16fc-7db3-5ca3-8f0a-85a889961233",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "7d4b0f0b-04e2-50aa-a0c1-0a690ded7b09"
+                },
+                "display": {
+                  "value": "HSG-SRT.C.8",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "b9db050c-4bdf-56ce-baf9-e421ccb9939a",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "c19d1d86-6056-5558-82a1-e8bc0f04654b"
+                },
+                "display": {
+                  "value": "HSF-TF.C.8",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            },
+            {
+              "identifier": "bba4e32b-c9f8-5d4a-8bc4-1d3b302cfe71",
+              "relationshipType": "buildsTowards",
+              "direction": "outgoing",
+              "provenance": "source_fact",
+              "publisher": {
+                "value": "Student Achievement Partners",
+                "projection": null
+              },
+              "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning progressions under CC0 from Student Achievement Partners.",
+              "identifierRepaired": false,
+              "upstreamIdentifier": null,
+              "endpoint": {
+                "ref": {
+                  "sourceSnapshotId": "lc/v1.11.0",
+                  "kind": "StandardsFrameworkItem",
+                  "identifier": "74df37a8-5572-588b-a649-6045601c2aab"
+                },
+                "display": {
+                  "value": "8.G.B.8",
+                  "projection": null
+                },
+                "displayField": "statementCode",
+                "frameworkName": null
+              },
+              "author": "Student Achievement Partners"
+            }
+          ]
+        }
+      },
+      "components": {
+        "lcVersionId": "lc/v1.11.0",
+        "count": 2,
+        "summaryAuthors": {
+          "Achievement Network": 2
+        },
+        "details": [
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "cac68ba0-c28f-5299-9d54-7f50cb346eba"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          },
+          {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "LearningComponent",
+              "identifier": "b922397f-cc7a-5149-801c-9baf206a4efd"
+            },
+            "author": "Achievement Network",
+            "publisher": {
+              "value": "Achievement Network",
+              "projection": null
+            },
+            "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+            "academicSubject": "Mathematics",
+            "fieldNames": [
+              "academicSubject",
+              "author",
+              "dateCreated",
+              "dateModified",
+              "description",
+              "examples",
+              "inLanguage",
+              "examplessha256"
+            ]
+          }
+        ],
+        "summarySample": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "LearningComponent",
+            "identifier": "cac68ba0-c28f-5299-9d54-7f50cb346eba"
+          },
+          "description": {
+            "value": "Use the Pythagorean Theorem to solve for an unknown side length in right triangles in mathematical problems in two and three dimensions",
+            "projection": {
+              "text": "在二维和三维的数学问题中，利用勾股定理求解直角三角形中未知的边长",
+              "kind": "machine_translation",
+              "reviewStatus": "machine"
+            }
+          },
+          "academicSubject": {
+            "value": "Mathematics",
+            "projection": {
+              "text": "数学",
+              "kind": "controlled_vocabulary",
+              "reviewStatus": "confirmed"
+            }
+          },
+          "author": {
+            "value": "Achievement Network",
+            "projection": null
+          },
+          "standard": {
+            "ref": {
+              "sourceSnapshotId": "lc/v1.11.0",
+              "kind": "StandardsFrameworkItem",
+              "identifier": "baa2ebfe-b4ae-5424-b435-0978cbda8219"
+            },
+            "statementCode": {
+              "value": "8.G.B.7",
+              "projection": null
+            },
+            "description": {
+              "value": "Apply the Pythagorean Theorem to determine unknown side lengths in right triangles in real-world and mathematical problems in two and three dimensions.",
+              "projection": {
+                "text": "应用勾股定理，在二维和三维的实际问题和数学问题中确定直角三角形的未知边长。",
+                "kind": "machine_translation",
+                "reviewStatus": "machine"
+              }
+            },
+            "frameworkName": {
+              "value": null,
+              "projection": null
+            }
+          }
+        },
+        "detailSample": {
+          "ref": {
+            "sourceSnapshotId": "lc/v1.11.0",
+            "kind": "LearningComponent",
+            "identifier": "cac68ba0-c28f-5299-9d54-7f50cb346eba"
+          },
+          "publisher": {
+            "value": "Achievement Network",
+            "projection": null
+          },
+          "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Learning Commons received learning components under CC BY-4.0 from Achievement Network.",
+          "gradeLevels": [],
+          "fields": [
+            {
+              "value": "Mathematics",
+              "projection": {
+                "text": "数学",
+                "kind": "controlled_vocabulary",
+                "reviewStatus": "confirmed"
+              },
+              "name": "academicSubject"
+            },
+            {
+              "value": "Achievement Network",
+              "projection": null,
+              "name": "author"
+            },
+            {
+              "value": "2025-04-01",
+              "projection": null,
+              "name": "dateCreated"
+            },
+            {
+              "value": "2025-04-01",
+              "projection": null,
+              "name": "dateModified"
+            },
+            {
+              "value": "Use the Pythagorean Theorem to solve for an unknown side length in right triangles in mathematical problems in two and three dimensions",
+              "projection": {
+                "text": "在二维和三维的数学问题中，利用勾股定理求解直角三角形中未知的边长",
+                "kind": "machine_translation",
+                "reviewStatus": "machine"
+              },
+              "name": "description"
+            },
+            {
+              "value": "[]",
+              "projection": null,
+              "name": "examples"
+            },
+            {
+              "value": "en-US",
+              "projection": null,
+              "name": "inLanguage"
+            },
+            {
+              "value": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+              "projection": null,
+              "name": "examplessha256"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "negativeProbes": [
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/relationships",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0",
+        "type": "buildsTowards",
+        "direction": "incoming",
+        "endpointKind": "StandardsFrameworkItem",
+        "limit": 1,
+        "cursorSha256": "d126d6b37c7e2a8d5857f86e17c082627f6872666f5b36ee3b2060465c108971"
+      },
+      "status": 400,
+      "body": {
+        "error": {
+          "code": "INVALID_CURSOR",
+          "message": "The cursor was issued for another source snapshot or another set of filters. Cursors are bound to one snapshot and one query; restart the listing without a cursor."
+        }
+      }
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc",
+      "query": {
+        "sourceSnapshot": "lc/v0.0.0"
+      },
+      "status": 409,
+      "body": {
+        "error": {
+          "code": "SNAPSHOT_MISMATCH",
+          "message": "This Studio is pinned to source snapshot lc/v1.11.0, but the request asks for lc/v0.0.0. Point the configuration at that generation, or open the entity in the current one."
+        }
+      }
+    },
+    {
+      "path": "/nodes/StandardsFrameworkItem/6ba063cb-d7cc-11e8-824f-0242ac160002",
+      "query": {
+        "sourceSnapshot": "lc/v1.11.0"
+      },
+      "status": 404,
+      "body": {
+        "error": {
+          "code": "NODE_NOT_FOUND",
+          "message": "Source snapshot lc/v1.11.0 holds no StandardsFrameworkItem with identifier 6ba063cb-d7cc-11e8-824f-0242ac160002."
+        }
+      }
+    }
+  ],
+  "sourceSnapshot": {
+    "namespace": "lc",
+    "version": "v1.11.0",
+    "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+    "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+    "schemaVersion": 2,
+    "cleaningVersion": "v2"
+  },
+  "framework": {
+    "ref": {
+      "sourceSnapshotId": "lc/v1.11.0",
+      "kind": "StandardsFramework",
+      "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+    },
+    "fields": {
+      "academicSubject": "Mathematics",
+      "adoptionStatus": "Adopted",
+      "author": "Common Good Learning Tools",
+      "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFDocuments/c6496676-d7cb-11e8-824f-0242ac160002",
+      "caseIdentifierUUID": "c6496676-d7cb-11e8-824f-0242ac160002",
+      "dateModified": "2025-02-11",
+      "description": null,
+      "inLanguage": "en-US",
+      "jurisdiction": "Multi-State",
+      "name": "Common Core State Standards for Math",
+      "notes": "These Standards define what students should understand and be able to do in their study of mathematics. Asking a student to understand something means asking a teacher to assess whether the student has understood it. But what does mathematical understanding look like? One hallmark of mathematical understanding is the ability to justify, in a way appropriate to the student's mathematical maturity, why a particular mathematical statement is true or where a mathematical rule comes from. There is a world of difference between a student who can summon a mnemonic device to expand a product such as (a + b)(x + y) and a student who can explain where the mnemonic comes from. The student who can explain the rule understands the mathematics, and may have a better chance to succeed at a less familiar task such as expanding (a + b + c)(x + y). Mathematical understanding and procedural skill are equally important, and both are assessable using mathematical tasks of sufficient richness.\n\n**Suggested Citation:** National Governors Association Center for Best Practices & Council of Chief State School Officers. (2010). *Common Core State Standards for mathematics.*\n\n**Source for Associations with WIDA framework:** Shafer Willner, L. (2022). *Correspondences [Associations] between the Common Core State Standards for Mathematics and the WIDA English Language Development Standards Framework, 2020 Edition: Kindergarten-grade 12.* Board of Regents of the University of Wisconsin System. \n",
+      "notessha256": "8c608bf69ed0c9726d07075290298307539599417f6c5abf9bc648ff52151a2d"
+    },
+    "publisher": {
+      "value": "Common Good Learning Tools",
+      "projection": null
+    },
+    "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf."
+  },
+  "progressionEndpoints": [
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "6086f1c2-b335-57fc-b575-6e2e4210c727"
+      },
+      "statementCode": "7.RP.A.2",
+      "caseIdentifierUUID": "6b9d7951-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "534ca674-79cd-5a7e-b7e0-b9258b338e8c"
+      },
+      "statementCode": "8.F.A.3",
+      "caseIdentifierUUID": "6b9e5396-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "9a0fdd78-5f2d-573b-a3b0-965a37b79252"
+      },
+      "statementCode": "HSF-BF.A.2",
+      "caseIdentifierUUID": "6b9d974a-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "4c04dc94-6389-5bd8-ab25-d42e38404eb8"
+      },
+      "statementCode": "HSS-ID.C.7",
+      "caseIdentifierUUID": "6ba08773-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "3f028ef1-85eb-5a3d-ad58-00d688a03626"
+      },
+      "statementCode": "HSF-BF.A.1.a",
+      "caseIdentifierUUID": "6ba15907-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "042c432f-410c-5dd9-a87f-e6413634a266"
+      },
+      "statementCode": "HSF-LE.B.5",
+      "caseIdentifierUUID": "6b9f97c6-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "4f10105d-975b-5a0a-b751-dd77893c8242"
+      },
+      "statementCode": "HSF-LE.A.2",
+      "caseIdentifierUUID": "6b9d9ca7-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "eef22ac1-43c3-5771-bc43-448f3e117f97"
+      },
+      "statementCode": "HSF-IF.B.6",
+      "caseIdentifierUUID": "6ba00b75-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "7bf83ce5-c739-5d93-aef9-fc92540518d5"
+      },
+      "statementCode": "HSA-CED.A.2",
+      "caseIdentifierUUID": "6b9d8f41-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "942e06f7-6c45-53e5-9d0b-96dfbfcebaa6"
+      },
+      "statementCode": "HSF-LE.A.1",
+      "caseIdentifierUUID": "6b9c644f-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "4b576e40-8317-5342-99a9-f84b32754936"
+      },
+      "statementCode": "HSF-TF.A.3",
+      "caseIdentifierUUID": "6b9e6a3a-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "7d4b0f0b-04e2-50aa-a0c1-0a690ded7b09"
+      },
+      "statementCode": "HSG-SRT.C.8",
+      "caseIdentifierUUID": "6ba0c5dc-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "c19d1d86-6056-5558-82a1-e8bc0f04654b"
+      },
+      "statementCode": "HSF-TF.C.8",
+      "caseIdentifierUUID": "6ba0bf6b-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "74df37a8-5572-588b-a649-6045601c2aab"
+      },
+      "statementCode": "8.G.B.8",
+      "caseIdentifierUUID": "6ba0b50b-d7cc-11e8-824f-0242ac160002",
+      "jurisdiction": "Multi-State",
+      "frameworkVerified": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "rootPathsComplete": true,
+      "rootPathCount": 1,
+      "rootFrameworkRefs": [
+        {
+          "sourceSnapshotId": "lc/v1.11.0",
+          "kind": "StandardsFramework",
+          "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+        }
+      ]
+    }
+  ],
+  "requestStatusCounts": {
+    "200": 81,
+    "400": 1,
+    "409": 1,
+    "404": 1
+  },
+  "sanitization": "Raw response groups, endpointRelationshipGroups and graph projection groups were discarded before persistence and were not printed. Only fixed-CCSS standards, Achievement Network LC and their supports edges, and Student Achievement Partners buildsTowards edges are retained. Samples remain organizer-only. Full edge qualifiers are retained for one sample per nonempty target/type/direction; remaining edges retain identity, direction and source metadata."
+}

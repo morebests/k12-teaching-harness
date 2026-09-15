@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 500" width="100%" height="100%">
+  <style>
+    .grid-line { stroke: #d1d5db; stroke-width: 1; stroke-dasharray: 2,2; }
+    .axis { stroke: #111827; stroke-width: 2; }
+    .line-p { stroke: #4b5563; stroke-width: 2; stroke-dasharray: 4,3; }
+    .line-q { stroke: #111827; stroke-width: 2.5; }
+    .label { font-family: sans-serif; font-size: 12px; fill: #111827; }
+    .axis-title { font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #111827; }
+    .point { fill: #111827; }
+    .point-p { fill: #4b5563; }
+    .legend-box { fill: #ffffff; stroke: #111827; stroke-width: 1.2; rx: 4; }
+    .callout { stroke: #6b7280; stroke-width: 1; stroke-dasharray: 2,2; }
+  </style>
+
+  <!-- Title -->
+  <text x="325" y="26" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#111827">Water Depth Comparison: Tank P vs. Tank Q</text>
+
+  <!-- Coordinate Grid: x in [0, 6], y in [0, 30] -->
+  <!-- Origin at (80, 440). X scale: 75 px per unit. Y scale: 12 px per depth unit (60 px per 5 units) -->
+
+  <!-- Vertical grid lines: x = 1, 2, 3, 4, 5, 6 -->
+  <g class="grid-line">
+    <line x1="155" y1="50" x2="155" y2="440" />
+    <line x1="230" y1="50" x2="230" y2="440" />
+    <line x1="305" y1="50" x2="305" y2="440" />
+    <line x1="380" y1="50" x2="380" y2="440" />
+    <line x1="455" y1="50" x2="455" y2="440" />
+    <line x1="530" y1="50" x2="530" y2="440" />
+  </g>
+
+  <!-- Horizontal grid lines: y = 5, 10, 15, 20, 25, 30 -->
+  <g class="grid-line">
+    <line x1="80" y1="380" x2="560" y2="380" />
+    <line x1="80" y1="320" x2="560" y2="320" />
+    <line x1="80" y1="260" x2="560" y2="260" />
+    <line x1="80" y1="200" x2="560" y2="200" />
+    <line x1="80" y1="140" x2="560" y2="140" />
+    <line x1="80" y1="80" x2="560" y2="80" />
+  </g>
+
+  <!-- Axes -->
+  <line x1="80" y1="440" x2="570" y2="440" class="axis" />
+  <polyline points="565,436 575,440 565,444" fill="#111827" />
+  <line x1="80" y1="440" x2="80" y2="40" class="axis" />
+  <polyline points="76,48 80,38 84,48" fill="#111827" />
+
+  <!-- X-Axis Ticks and Labels -->
+  <text x="80" y="458" class="label" text-anchor="middle">0</text>
+  <text x="155" y="458" class="label" text-anchor="middle">1</text>
+  <text x="230" y="458" class="label" text-anchor="middle">2</text>
+  <text x="305" y="458" class="label" text-anchor="middle">3</text>
+  <text x="380" y="458" class="label" text-anchor="middle">4</text>
+  <text x="455" y="458" class="label" text-anchor="middle">5</text>
+  <text x="530" y="458" class="label" text-anchor="middle">6</text>
+  <text x="325" y="485" class="axis-title" text-anchor="middle">Time t (minutes)</text>
+
+  <!-- Y-Axis Ticks and Labels -->
+  <text x="72" y="384" class="label" text-anchor="end">5</text>
+  <text x="72" y="324" class="label" text-anchor="end">10</text>
+  <text x="72" y="264" class="label" text-anchor="end">15</text>
+  <text x="72" y="204" class="label" text-anchor="end">20</text>
+  <text x="72" y="144" class="label" text-anchor="end">25</text>
+  <text x="72" y="84" class="label" text-anchor="end">30</text>
+  <text x="75" y="32" class="axis-title" text-anchor="start">Water Depth D (cm)</text>
+
+  <!-- Line Tank P: D = 4t (from t=0, D=0 to t=6, D=24) -->
+  <!-- (0, 0) -> (80, 440); (6, 24) -> (530, 440 - 24*12 = 152) -->
+  <line x1="80" y1="440" x2="550" y2="128" class="line-p" />
+
+  <!-- Line Tank Q: D = 4t + 6 (from t=0, D=6 to t=6, D=30) -->
+  <!-- (0, 6) -> (80, 440 - 6*12 = 368); (6, 30) -> (530, 440 - 30*12 = 80) -->
+  <line x1="80" y1="368" x2="530" y2="80" class="line-q" />
+
+  <!-- Data Points Tank P -->
+  <circle cx="80" cy="440" r="4" class="point-p" />
+  <circle cx="155" cy="392" r="4" class="point-p" />
+  <circle cx="230" cy="344" r="4" class="point-p" />
+  <circle cx="305" cy="296" r="4" class="point-p" />
+  <circle cx="455" cy="200" r="4" class="point-p" />
+
+  <!-- Data Points Tank Q -->
+  <circle cx="80" cy="368" r="4.5" class="point" />
+  <text x="92" y="372" class="label" font-weight="bold">(0, 6)</text>
+  <circle cx="155" cy="320" r="4.5" class="point" />
+  <text x="165" y="316" class="label">(1, 10)</text>
+  <circle cx="230" cy="272" r="4.5" class="point" />
+  <text x="240" y="268" class="label">(2, 14)</text>
+  <circle cx="305" cy="224" r="4.5" class="point" />
+  <text x="315" y="220" class="label">(3, 18)</text>
+  <circle cx="455" cy="128" r="4.5" class="point" />
+  <text x="465" y="124" class="label">(5, 26)</text>
+
+  <!-- Legend Box -->
+  <g transform="translate(370, 315)">
+    <rect width="180" height="95" class="legend-box" />
+    <text x="12" y="22" font-family="sans-serif" font-size="12" font-weight="bold" fill="#111827">Graph Legend</text>
+    <line x1="12" y1="42" x2="45" y2="42" class="line-p" />
+    <circle cx="28" cy="42" r="3.5" class="point-p" />
+    <text x="52" y="46" class="label">Tank P (starts empty)</text>
+    <line x1="12" y1="68" x2="45" y2="68" class="line-q" />
+    <circle cx="28" cy="68" r="4" class="point" />
+    <text x="52" y="72" class="label">Tank Q (starts at 6 cm)</text>
+    <text x="12" y="88" font-family="sans-serif" font-size="10" fill="#4b5563">Both fill at 4 cm/min</text>
+  </g>
+</svg>

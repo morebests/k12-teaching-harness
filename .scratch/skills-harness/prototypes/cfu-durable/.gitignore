@@ -1,0 +1,6 @@
+# Local Agent Server dev state, not portable evidence. JSON records remain available.
+.langgraph_api/
+# Local probe databases and process locks; retain portable JSON evidence and source.
+runs/**/*.sqlite
+runs/**/*.sqlite-*
+runs/**/*.driver.lock

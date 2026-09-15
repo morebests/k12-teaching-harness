@@ -1,0 +1,848 @@
+{
+  "artifactVersion": 1,
+  "purpose": "Finite CCSS standards input for the Grade 8 original-design experiment; not a curriculum sequence or a local copy of the knowledge library.",
+  "sourceSnapshotId": "lc/v1.11.0",
+  "sourceSnapshot": {
+    "namespace": "lc",
+    "version": "v1.11.0",
+    "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+    "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+    "schemaVersion": 2,
+    "cleaningVersion": "v2"
+  },
+  "retrievedAt": "2026-09-15T02:01:59.855668+00:00",
+  "framework": {
+    "ref": {
+      "sourceSnapshotId": "lc/v1.11.0",
+      "kind": "StandardsFramework",
+      "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+    },
+    "sourceFields": {
+      "academicSubject": "Mathematics",
+      "adoptionStatus": "Adopted",
+      "author": "Common Good Learning Tools",
+      "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFDocuments/c6496676-d7cb-11e8-824f-0242ac160002",
+      "caseIdentifierUUID": "c6496676-d7cb-11e8-824f-0242ac160002",
+      "dateModified": "2025-02-11",
+      "description": null,
+      "inLanguage": "en-US",
+      "jurisdiction": "Multi-State",
+      "name": "Common Core State Standards for Math"
+    },
+    "publisher": "Common Good Learning Tools",
+    "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+    "sourceDetailQuery": "Q001"
+  },
+  "grade": "8",
+  "sourceLanguage": "en-US",
+  "contentPolicy": "Only original source field values from this CCSS framework. No translations, browser groups, curriculum metadata, IM content, LC or progression records. Preserve description and notes together.",
+  "hierarchyPolicy": "Parent and child identifiers record this API's Grade 8 projection, whose roots have null parent. They are navigation evidence, not standalone source relationship records or a curriculum arrangement.",
+  "orderingPolicy": "API statement_code ordering is a platform projection. Record order and standard numbering do not prescribe teaching order.",
+  "fieldPolicy": "sourceFields retains the exact field names returned by node details, including normalizedstatementtype and notessha256. Absent fields are not synthesized. classification is this collector's interpretation, not a source field.",
+  "companionFiles": [
+    "ccss-grade8.json",
+    "ccss-practices.json"
+  ],
+  "auditFile": "ccss-input-audit.md",
+  "scope": "Eight general mathematical practices with full notes, eight distinct Grade 8 practice statements, and their two source grouping nodes",
+  "practiceIdentityPolicy": "MP1-MP8 and 8.MP1-8.MP8 are distinct source nodes with distinct canonical and CASE identities. Their same-number descriptions match; no alias or equivalence source relationship has been queried or invented. Use general MP description plus notes for the detailed requirements; grade-specific nodes have notes=null. These are two source representations, not a claim of sixteen independent practices.",
+  "counts": {
+    "hierarchy_or_context": 2,
+    "mathematical_practice": 8,
+    "grade_specific_practice_statement": 8
+  },
+  "records": [
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9b08e6-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9b08e6-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Standards for Mathematical Practice",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": null,
+        "notes": null,
+        "statementCode": null,
+        "statementType": null,
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        null
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "3b1f7006-2d44-5097-86b6-7ac05d0de3ac",
+        "6a0b0b39-d910-5b38-8d8d-6c1b1e22a351",
+        "f0dc8000-e9bd-5e45-8268-684ccf49c304",
+        "4493563c-595c-53a2-a21a-5c027c6d4dc4",
+        "abdd678e-c221-5e70-ae72-5397fd27c4f2",
+        "e87ba523-1aec-5c4d-a894-b21036323a93",
+        "4d9707ed-235e-543a-b90f-87c54d740e46",
+        "da2c7ffe-57fa-5b44-85ef-342e76a5820e"
+      ],
+      "sourceDetailQuery": "Q030"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "3b1f7006-2d44-5097-86b6-7ac05d0de3ac"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "mathematical_practice",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ca36a-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9ca36a-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Make sense of problems and persevere in solving them.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": "Mathematically proficient students start by explaining to themselves the meaning of a problem and looking for entry points to its solution. They analyze givens, constraints, relationships, and goals. They make conjectures about the form and meaning of the solution and plan a solution pathway rather than simply jumping into a solution attempt. They consider analogous problems, and try special cases and simpler forms of the original problem in order to gain insight into its solution. They monitor and evaluate their progress and change course if necessary. Older students might, depending on the context of the problem, transform algebraic expressions or change the viewing window on their graphing calculator to get the information they need. Mathematically proficient students can explain correspondences between equations, verbal descriptions, tables, and graphs or draw diagrams of important features and relationships, graph data, and search for regularity or trends. Younger students might rely on using concrete objects or pictures to help conceptualize and solve a problem. Mathematically proficient students check their answers to problems using a different method, and they continually ask themselves, \"Does this make sense?\" They can understand the approaches of others to solving complex problems and identify correspondences between different approaches.",
+        "statementCode": "MP1",
+        "statementType": "Standard",
+        "notessha256": "8003695ddb877a5292e7de99c69b4cc818a793b35d315e87e3525eac69ec83af"
+      },
+      "gradeLevels": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q032"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "6a0b0b39-d910-5b38-8d8d-6c1b1e22a351"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "mathematical_practice",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9dd3bc-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9dd3bc-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Reason abstractly and quantitatively.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": "Mathematically proficient students make sense of quantities and their relationships in problem situations. They bring two complementary abilities to bear on problems involving quantitative relationships: the ability to decontextualize—to abstract a given situation and represent it symbolically and manipulate the representing symbols as if they have a life of their own, without necessarily attending to their referents—and the ability to contextualize, to pause as needed during the manipulation process in order to probe into the referents for the symbols involved. Quantitative reasoning entails habits of creating a coherent representation of the problem at hand; considering the units involved; attending to the meaning of quantities, not just how to compute them; and knowing and flexibly using different properties of operations and objects.",
+        "statementCode": "MP2",
+        "statementType": "Standard",
+        "notessha256": "4e3fa6e74e9a05a581094266e86f62a52e6ad5b0b1e8a609164ce78216acdaf6"
+      },
+      "gradeLevels": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q033"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "f0dc8000-e9bd-5e45-8268-684ccf49c304"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "mathematical_practice",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9e9614-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9e9614-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Construct viable arguments and critique the reasoning of others.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": "Mathematically proficient students understand and use stated assumptions, definitions, and previously established results in constructing arguments. They make conjectures and build a logical progression of statements to explore the truth of their conjectures. They are able to analyze situations by breaking them into cases, and can recognize and use counterexamples. They justify their conclusions, communicate them to others, and respond to the arguments of others. They reason inductively about data, making plausible arguments that take into account the context from which the data arose. Mathematically proficient students are also able to compare the effectiveness of two plausible arguments, distinguish correct logic or reasoning from that which is flawed, and—if there is a flaw in an argument—explain what it is. Elementary students can construct arguments using concrete referents such as objects, drawings, diagrams, and actions. Such arguments can make sense and be correct, even though they are not generalized or made formal until later grades. Later, students learn to determine domains to which an argument applies. Students at all grades can listen or read the arguments of others, decide whether they make sense, and ask useful questions to clarify or improve the arguments.",
+        "statementCode": "MP3",
+        "statementType": "Standard",
+        "notessha256": "c4a940d5331b465bf81cc5c57c643959461a4e46f7964cc68493503995b4366c"
+      },
+      "gradeLevels": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q034"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "4493563c-595c-53a2-a21a-5c027c6d4dc4"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "mathematical_practice",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9f345f-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9f345f-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Model with mathematics.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": "Mathematically proficient students can apply the mathematics they know to solve problems arising in everyday life, society, and the workplace. In early grades, this might be as simple as writing an addition equation to describe a situation. In middle grades, a student might apply proportional reasoning to plan a school event or analyze a problem in the community. By high school, a student might use geometry to solve a design problem or use a function to describe how one quantity of interest depends on another. Mathematically proficient students who can apply what they know are comfortable making assumptions and approximations to simplify a complicated situation, realizing that these may need revision later. They are able to identify important quantities in a practical situation and map their relationships using such tools as diagrams, two-way tables, graphs, flowcharts and formulas. They can analyze those relationships mathematically to draw conclusions. They routinely interpret their mathematical results in the context of the situation and reflect on whether the results make sense, possibly improving the model if it has not served its purpose.",
+        "statementCode": "MP4",
+        "statementType": "Standard",
+        "notessha256": "02f8d7c0058bc4c86816e4d8497c655f1724c0d43d8371e314197488ff9a324e"
+      },
+      "gradeLevels": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q035"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "abdd678e-c221-5e70-ae72-5397fd27c4f2"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "mathematical_practice",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9fca17-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9fca17-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Use appropriate tools strategically.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": "Mathematically proficient students consider the available tools when solving a mathematical problem. These tools might include pencil and paper, concrete models, a ruler, a protractor, a calculator, a spreadsheet, a computer algebra system, a statistical package, or dynamic geometry software. Proficient students are sufficiently familiar with tools appropriate for their grade or course to make sound decisions about when each of these tools might be helpful, recognizing both the insight to be gained and their limitations. For example, mathematically proficient high school students analyze graphs of functions and solutions generated using a graphing calculator. They detect possible errors by strategically using estimation and other mathematical knowledge. When making mathematical models, they know that technology can enable them to visualize the results of varying assumptions, explore consequences, and compare predictions with data. Mathematically proficient students at various grade levels are able to identify relevant external mathematical resources, such as digital content located on a website, and use them to pose or solve problems. They are able to use technological tools to explore and deepen their understanding of concepts.",
+        "statementCode": "MP5",
+        "statementType": "Standard",
+        "notessha256": "0de5fff60b4af1e4629542127872fc99789d9034744cb09b7254c7065b9ccf59"
+      },
+      "gradeLevels": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q036"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "e87ba523-1aec-5c4d-a894-b21036323a93"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "mathematical_practice",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba033ff-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba033ff-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Attend to precision.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": "Mathematically proficient students try to communicate precisely to others. They try to use clear definitions in discussion with others and in their own reasoning. They state the meaning of the symbols they choose, including using the equal sign consistently and appropriately. They are careful about specifying units of measure, and labeling axes to clarify the correspondence with quantities in a problem. They calculate accurately and efficiently, express numerical answers with a degree of precision appropriate for the problem context. In the elementary grades, students give carefully formulated explanations to each other. By the time they reach high school they have learned to examine claims and make explicit use of definitions.",
+        "statementCode": "MP6",
+        "statementType": "Standard",
+        "notessha256": "852909be8f69430cc2ee5d7179412402d65498276c25e987e9afdb772b6d0b29"
+      },
+      "gradeLevels": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q037"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "4d9707ed-235e-543a-b90f-87c54d740e46"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "mathematical_practice",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba09141-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba09141-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-06",
+        "description": "Look for and make use of structure.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": "Mathematically proficient students look closely to discern a pattern or structure. Young students, for example, might notice that three and seven more is the same amount as seven and three more, or they may sort a collection of shapes according to how many sides the shapes have. Later, students will see $7 \\times 8$ equals the well remembered $7 \\times 5 + 7 \\times 3$, in preparation for learning about the distributive property. In the expression $x^2 + 9x + 14$, older students can see the $14$ as $2 \\times 7$ and the $9$ as $2 + 7$. They recognize the significance of an existing line in a geometric figure and can use the strategy of drawing an auxiliary line for solving problems. They also can step back for an overview and shift perspective. They can see complicated things, such as some algebraic expressions, as single objects or as being composed of several objects. For example, they can see $5 – 3{(x – y)^{2}}$ as 5 minus a positive number times a square and use that to realize that its value cannot be more than $5$ for any real numbers x and y.",
+        "statementCode": "MP7",
+        "statementType": "Standard",
+        "notessha256": "d092a6fa5d819bc808606db4854691b866e3611d2862500a52e8f9153a95b5cd"
+      },
+      "gradeLevels": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q038"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "da2c7ffe-57fa-5b44-85ef-342e76a5820e"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "mathematical_practice",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba0d653-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba0d653-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-07",
+        "description": "Look for and express regularity in repeated reasoning.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": "Mathematically proficient students notice if calculations are repeated, and look both for general methods and for shortcuts. Upper elementary students might notice when dividing 25 by 11 that they are repeating the same calculations over and over again, and conclude they have a repeating decimal. By paying attention to the calculation of slope as they repeatedly check whether points are on the line through (1, 2) with slope 3, middle school students might abstract the equation $\\frac{(y – 2)}{(x – 1)} = 3$. Noticing the regularity in the way terms cancel when expanding $(x – 1)(x + 1)$, $(x – 1)(x^{2} + x + 1)$, and $(x – 1)(x^{3} + x^{2} + x + 1)$ might lead them to the general formula for the sum of a geometric series. As they work to solve a problem, mathematically proficient students maintain oversight of the process, while attending to the details. They continually evaluate the reasonableness of their intermediate results.",
+        "statementCode": "MP8",
+        "statementType": "Standard",
+        "notessha256": "2a84f4bb5b3b30cfde731647f2bdd53c6940dd917d2feef4672bc0845654aa87"
+      },
+      "gradeLevels": [
+        "1",
+        "10",
+        "11",
+        "12",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q039"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/603def9b-9696-4721-aaf7-464f4d4cdc48",
+        "caseIdentifierUUID": "603def9b-9696-4721-aaf7-464f4d4cdc48",
+        "dateModified": "2025-02-05",
+        "description": "Standards for Mathematical Practice: Grade 8",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": null,
+        "notes": null,
+        "statementCode": null,
+        "statementType": null,
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "3d45bc79-6517-51e1-aef8-435cedc7bd42",
+        "30d5f421-351b-5d45-b251-1bd15b2e6e0f",
+        "c3575094-d44c-54b4-9dd8-d675dd76c738",
+        "9cacbba9-1d93-5069-8302-4437624c056f",
+        "d3ae7e6e-a12f-513d-b829-f83c43882511",
+        "15cb90d9-4e84-5a7d-b673-754766ca7e9e",
+        "e3e3ccb9-148f-5bc4-bb0a-608e462cba5c",
+        "4a9f78a4-d08a-5584-aff3-0b62d582e84c"
+      ],
+      "sourceDetailQuery": "Q043"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "3d45bc79-6517-51e1-aef8-435cedc7bd42"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "grade_specific_practice_statement",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/8fed1d2f-2a46-4cb2-8b40-57bb732e5a33",
+        "caseIdentifierUUID": "8fed1d2f-2a46-4cb2-8b40-57bb732e5a33",
+        "dateModified": "2025-02-05",
+        "description": "Make sense of problems and persevere in solving them.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.MP1",
+        "statementType": "Content Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q054"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "30d5f421-351b-5d45-b251-1bd15b2e6e0f"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "grade_specific_practice_statement",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/e57ffc4d-badc-4c62-85f8-df6d2599019c",
+        "caseIdentifierUUID": "e57ffc4d-badc-4c62-85f8-df6d2599019c",
+        "dateModified": "2025-02-05",
+        "description": "Reason abstractly and quantitatively.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.MP2",
+        "statementType": "Content Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q055"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "c3575094-d44c-54b4-9dd8-d675dd76c738"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "grade_specific_practice_statement",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/5e5d9d9e-6a24-4499-b6f9-6b9c6c7e0333",
+        "caseIdentifierUUID": "5e5d9d9e-6a24-4499-b6f9-6b9c6c7e0333",
+        "dateModified": "2025-02-05",
+        "description": "Construct viable arguments and critique the reasoning of others.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.MP3",
+        "statementType": "Content Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q056"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "9cacbba9-1d93-5069-8302-4437624c056f"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "grade_specific_practice_statement",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/c3a3d5d0-62c5-403a-82b8-508b41ca9590",
+        "caseIdentifierUUID": "c3a3d5d0-62c5-403a-82b8-508b41ca9590",
+        "dateModified": "2025-02-05",
+        "description": "Model with mathematics.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.MP4",
+        "statementType": "Content Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q057"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "d3ae7e6e-a12f-513d-b829-f83c43882511"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "grade_specific_practice_statement",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/26bb6ade-7f0f-4ee3-bff0-ad7d977c7a26",
+        "caseIdentifierUUID": "26bb6ade-7f0f-4ee3-bff0-ad7d977c7a26",
+        "dateModified": "2025-02-05",
+        "description": "Use appropriate tools strategically.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.MP5",
+        "statementType": "Content Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q058"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "15cb90d9-4e84-5a7d-b673-754766ca7e9e"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "grade_specific_practice_statement",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/36efbbc0-b8fa-4608-b8f9-ef74b24c9c25",
+        "caseIdentifierUUID": "36efbbc0-b8fa-4608-b8f9-ef74b24c9c25",
+        "dateModified": "2025-02-05",
+        "description": "Attend to precision.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.MP6",
+        "statementType": "Content Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q059"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "e3e3ccb9-148f-5bc4-bb0a-608e462cba5c"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "grade_specific_practice_statement",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/3d43e565-fca4-4bb3-8449-c1748f9a0e80",
+        "caseIdentifierUUID": "3d43e565-fca4-4bb3-8449-c1748f9a0e80",
+        "dateModified": "2025-02-05",
+        "description": "Look for and make use of structure.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.MP7",
+        "statementType": "Content Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q060"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "4a9f78a4-d08a-5584-aff3-0b62d582e84c"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "grade_specific_practice_statement",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/35743102-a5ef-4b85-93f1-592e35bf0a31",
+        "caseIdentifierUUID": "35743102-a5ef-4b85-93f1-592e35bf0a31",
+        "dateModified": "2025-02-05",
+        "description": "Look for and express regularity in repeated reasoning.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.MP8",
+        "statementType": "Content Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q061"
+    }
+  ]
+}

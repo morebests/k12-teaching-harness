@@ -1,0 +1,223 @@
+{
+  "status": "budget_exhausted",
+  "task": "unit",
+  "started_at": "2026-09-15T02:24:26.617768+00:00",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "high",
+  "temperature": 1.0,
+  "max_output_tokens": 32768,
+  "max_retries": 0,
+  "tracing": "local only",
+  "limits": {
+    "model_calls": 12,
+    "tools": 40,
+    "seconds": 1200
+  },
+  "model_calls": 12,
+  "tool_calls": 12,
+  "usage": [
+    {
+      "input_tokens": 50243,
+      "output_tokens": 2792,
+      "total_tokens": 53035,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 2764
+      }
+    },
+    {
+      "input_tokens": 53693,
+      "output_tokens": 61,
+      "total_tokens": 53754,
+      "input_token_details": {
+        "cache_read": 49087
+      },
+      "output_token_details": {
+        "reasoning": 32
+      }
+    },
+    {
+      "input_tokens": 56597,
+      "output_tokens": 49,
+      "total_tokens": 56646,
+      "input_token_details": {
+        "cache_read": 53171
+      },
+      "output_token_details": {
+        "reasoning": 21
+      }
+    },
+    {
+      "input_tokens": 57271,
+      "output_tokens": 2858,
+      "total_tokens": 60129,
+      "input_token_details": {
+        "cache_read": 53163
+      },
+      "output_token_details": {
+        "reasoning": 2764
+      }
+    },
+    {
+      "input_tokens": 60339,
+      "output_tokens": 366,
+      "total_tokens": 60705,
+      "input_token_details": {
+        "cache_read": 57248
+      },
+      "output_token_details": {
+        "reasoning": 294
+      }
+    },
+    {
+      "input_tokens": 60875,
+      "output_tokens": 875,
+      "total_tokens": 61750,
+      "input_token_details": {
+        "cache_read": 57239
+      },
+      "output_token_details": {
+        "reasoning": 791
+      }
+    },
+    {
+      "input_tokens": 61936,
+      "output_tokens": 769,
+      "total_tokens": 62705,
+      "input_token_details": {
+        "cache_read": 57232
+      },
+      "output_token_details": {
+        "reasoning": 671
+      }
+    },
+    {
+      "input_tokens": 62915,
+      "output_tokens": 426,
+      "total_tokens": 63341,
+      "input_token_details": {
+        "cache_read": 57224
+      },
+      "output_token_details": {
+        "reasoning": 380
+      }
+    },
+    {
+      "input_tokens": 63455,
+      "output_tokens": 2344,
+      "total_tokens": 65799,
+      "input_token_details": {
+        "cache_read": 61303
+      },
+      "output_token_details": {
+        "reasoning": 903
+      }
+    },
+    {
+      "input_tokens": 65942,
+      "output_tokens": 3719,
+      "total_tokens": 69661,
+      "input_token_details": {
+        "cache_read": 61299
+      },
+      "output_token_details": {
+        "reasoning": 1090
+      }
+    },
+    {
+      "input_tokens": 69805,
+      "output_tokens": 2994,
+      "total_tokens": 72799,
+      "input_token_details": {
+        "cache_read": 65385
+      },
+      "output_token_details": {
+        "reasoning": 190
+      }
+    },
+    {
+      "input_tokens": 72942,
+      "output_tokens": 5034,
+      "total_tokens": 77976,
+      "input_token_details": {
+        "cache_read": 69469
+      },
+      "output_token_details": {
+        "reasoning": 2035
+      }
+    }
+  ],
+  "artifacts": {
+    "blueprint_patch_and_clarifications.md": {
+      "version": 1,
+      "sha256": "04398c55e19827e905272f401143af1cb950ab561f8256283163b03cdc174aa4",
+      "bytes": 6363
+    },
+    "unit5_lesson2_rate_vs_ratio.svg": {
+      "version": 1,
+      "sha256": "bbaf0616290560c80eee67fc014317c6ed1e7525966c10bb5d31357bf7951133",
+      "bytes": 5188
+    },
+    "unit5_lesson3_initial_value.svg": {
+      "version": 1,
+      "sha256": "d6f959a8e7ce64508a3ebcf3993889f4a9a1340c3ca1e159e2ce74a3974fefcf",
+      "bytes": 5424
+    },
+    "unit5_lesson4_context_model.svg": {
+      "version": 1,
+      "sha256": "e55625832a622ae4714a1cda7c3f727e3d376e7c26d6ea3446b54f35f12bdbfd",
+      "bytes": 5814
+    }
+  },
+  "parent_artifacts": {
+    "probe1_slope_triangles.svg": {
+      "run": "20260915T021738Z-overall",
+      "version": 1,
+      "sha256": "3c2a14b27f5ec7552dbb52df6e60545b04edbe3ff32bde356aec2e9e403432fc",
+      "bytes": 6160
+    },
+    "probe2_water_tank.svg": {
+      "run": "20260915T021738Z-overall",
+      "version": 1,
+      "sha256": "783cc510628be8a31544627f0c1e3efbbf90c4332f187440af8b667a19c3911d",
+      "bytes": 4696
+    },
+    "grade8_curriculum_blueprint.md": {
+      "run": "20260915T021738Z-overall",
+      "version": 1,
+      "sha256": "d76ae9800345f278bac4b43b0c3e3d95d5887fbbfff0a047ddcd3b693f46283a",
+      "bytes": 38323
+    },
+    "probe_tasks_student_and_teacher.md": {
+      "run": "20260915T021738Z-overall",
+      "version": 1,
+      "sha256": "2093f8c29e8b0acdb4c2ab62f3a94b4dcbb05e44c2f7016b12571150b2e60b10",
+      "bytes": 12566
+    }
+  },
+  "input_files": {
+    "inputs/common.md": "4da1a4fec508878bbe5635dda939c8a5f34ffca5311f5c8e93fc5f62b785799d",
+    "inputs/unit-task.md": "b206fa18ced20eebf551683fc3748739b95e515a1cd78523051e8ededa564af8",
+    "resources/ccss-grade8.json": "c2d192410cb5e8535729c5aef73528bcf00798d5e160b47961ef9e185c42a3dd",
+    "resources/ccss-practices.json": "75caaa1cd1ca95739b089e30c1d8930acf80e42f944b70e91c51859e3509ff2d",
+    "resources/ccss-grade8-introduction.md": "4f0cf331cc7c8d0a3842a4ce0cb306b230b72dae940dc6069dc44c41014f648f",
+    "inputs/handoff-review.md": "c5d49998bad848f96f2c99371174b52372cd48971ca16c3f0e9d2086e040ff6f"
+  },
+  "errors": [],
+  "quality_status": "not_externally_evaluated",
+  "tools": [
+    "lookup_knowledge",
+    "write_artifact",
+    "read_artifact",
+    "calculate",
+    "request_human",
+    "finish_candidate"
+  ],
+  "implementation_sha256": "ef66d9e2bb2ead6491a5d0436b663168e5d2428d721e8177322528617504ae0b",
+  "knowledge_implementation_sha256": "e9912000caef1f194fc3c377b658e8a7d7501c385a2be08da63302bb66090341",
+  "requirements_sha256": "aba794c715cea4d00642527249662a794b80b646849fb7e7b75bc62944ee1b66",
+  "evaluation_sha256": "3260d11a994f8d32aaa2cfe3c48341ee6e699a1af879cb013e91e32dd42fa443",
+  "elapsed_seconds": 73.541
+}

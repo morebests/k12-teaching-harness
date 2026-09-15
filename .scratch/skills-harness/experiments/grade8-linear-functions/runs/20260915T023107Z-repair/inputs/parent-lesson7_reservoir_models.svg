@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 550" width="100%" height="100%">
+  <style>
+    .grid-line { stroke: #e5e7eb; stroke-width: 1; stroke-dasharray: 2,2; }
+    .axis { stroke: #111827; stroke-width: 2; }
+    .line-a { stroke: #1f2937; stroke-width: 2.5; }
+    .line-b { stroke: #4b5563; stroke-width: 2.5; stroke-dasharray: 6,4; }
+    .line-shutoff { stroke: #9ca3af; stroke-width: 1.5; stroke-dasharray: 3,3; }
+    .label { font-family: sans-serif; font-size: 13px; fill: #111827; }
+    .axis-title { font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #111827; }
+    .point { fill: #111827; }
+    .point-b { fill: #4b5563; }
+    .point-shared { fill: #111827; stroke: #111827; stroke-width: 2; }
+    .point-label { font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #111827; }
+    .legend-text { font-family: sans-serif; font-size: 12px; fill: #111827; }
+  </style>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#111827">Community Reservoir: Water Volume in Storage Tanks</text>
+
+  <!-- Vertical Grid Lines (t = 2, 4, 6, 8, 10, 12, 14, 16, 18 min) -->
+  <g class="grid-line">
+    <line x1="144" y1="90" x2="144" y2="480" />
+    <line x1="208" y1="90" x2="208" y2="480" />
+    <line x1="272" y1="90" x2="272" y2="480" />
+    <line x1="336" y1="90" x2="336" y2="480" />
+    <line x1="400" y1="90" x2="400" y2="480" />
+    <line x1="464" y1="90" x2="464" y2="480" />
+    <line x1="528" y1="90" x2="528" y2="480" />
+    <line x1="592" y1="90" x2="592" y2="480" />
+    <line x1="656" y1="90" x2="656" y2="480" />
+  </g>
+
+  <!-- Horizontal Grid Lines (V = 40, 80, 120, 160, 200, 240, 280, 320, 360 gal) -->
+  <g class="grid-line">
+    <line x1="80" y1="440" x2="656" y2="440" />
+    <line x1="80" y1="400" x2="656" y2="400" />
+    <line x1="80" y1="360" x2="656" y2="360" />
+    <line x1="80" y1="320" x2="656" y2="320" />
+    <line x1="80" y1="280" x2="656" y2="280" />
+    <line x1="80" y1="240" x2="656" y2="240" />
+    <line x1="80" y1="200" x2="656" y2="200" />
+    <line x1="80" y1="160" x2="656" y2="160" />
+    <line x1="80" y1="120" x2="656" y2="120" />
+  </g>
+
+  <!-- Axes -->
+  <line x1="80" y1="480" x2="675" y2="480" class="axis" />
+  <polyline points="670,475 680,480 670,485" fill="#111827" />
+  <line x1="80" y1="480" x2="80" y2="70" class="axis" />
+  <polyline points="75,75 80,65 85,75" fill="#111827" />
+
+  <!-- Horizontal Ticks and Labels (Time t in minutes) -->
+  <text x="80" y="500" class="label" text-anchor="middle">0</text>
+  <text x="144" y="500" class="label" text-anchor="middle">2</text>
+  <text x="208" y="500" class="label" text-anchor="middle">4</text>
+  <text x="272" y="500" class="label" text-anchor="middle">6</text>
+  <text x="336" y="500" class="label" text-anchor="middle">8</text>
+  <text x="400" y="500" class="label" text-anchor="middle">10</text>
+  <text x="464" y="500" class="label" text-anchor="middle">12</text>
+  <text x="528" y="500" class="label" text-anchor="middle">14</text>
+  <text x="592" y="500" class="label" text-anchor="middle">16</text>
+  <text x="656" y="500" class="label" text-anchor="middle">18</text>
+  <text x="368" y="530" class="axis-title" text-anchor="middle">Elapsed Time t (minutes)</text>
+
+  <!-- Vertical Ticks and Labels (Volume V in gallons) -->
+  <text x="70" y="484" class="label" text-anchor="end">0</text>
+  <text x="70" y="444" class="label" text-anchor="end">40</text>
+  <text x="70" y="404" class="label" text-anchor="end">80</text>
+  <text x="70" y="364" class="label" text-anchor="end">120</text>
+  <text x="70" y="324" class="label" text-anchor="end">160</text>
+  <text x="70" y="284" class="label" text-anchor="end">200</text>
+  <text x="70" y="244" class="label" text-anchor="end">240</text>
+  <text x="70" y="204" class="label" text-anchor="end">280</text>
+  <text x="70" y="164" class="label" text-anchor="end">320</text>
+  <text x="70" y="124" class="label" text-anchor="end">360</text>
+  <text x="75" y="55" class="axis-title" text-anchor="start">Volume V (gallons)</text>
+
+  <!-- Tank A Plot: Solid line from (0, 40) to (14, 250) -->
+  <line x1="80" y1="440" x2="528" y2="230" class="line-a" />
+  <!-- Tank A Capacity Shutoff line: t=14 to 18 at V=250 -->
+  <line x1="528" y1="230" x2="656" y2="230" class="line-shutoff" />
+
+  <!-- Tank B Plot: Dashed line from (0, 320) to (16, 480) -->
+  <line x1="80" y1="160" x2="592" y2="480" class="line-b" />
+
+  <!-- Points for Tank A -->
+  <circle cx="80" cy="440" r="4.5" class="point" />
+  <text x="92" y="435" class="point-label">A₀(0, 40)</text>
+
+  <circle cx="208" cy="380" r="4.5" class="point" />
+  <text x="218" y="375" class="point-label">(4, 100)</text>
+
+  <circle cx="464" cy="260" r="4.5" class="point" />
+  <text x="474" y="255" class="point-label">(12, 220)</text>
+
+  <circle cx="528" cy="230" r="4.5" class="point" />
+  <text x="538" y="225" class="point-label">Full: (14, 250)</text>
+
+  <!-- Points for Tank B -->
+  <circle cx="80" cy="160" r="4.5" class="point-b" />
+  <text x="92" y="155" class="point-label">B₀(0, 320)</text>
+
+  <circle cx="208" cy="240" r="4.5" class="point-b" />
+  <text x="218" y="235" class="point-label">(4, 240)</text>
+
+  <circle cx="464" cy="400" r="4.5" class="point-b" />
+  <text x="474" y="395" class="point-label">(12, 80)</text>
+
+  <circle cx="592" cy="480" r="4.5" class="point-b" />
+  <text x="575" y="470" class="point-label">Empty: (16, 0)</text>
+
+  <!-- Intersection Point (8, 160) -->
+  <circle cx="336" cy="320" r="6" fill="#ffffff" stroke="#111827" stroke-width="2.5" />
+  <circle cx="336" cy="320" r="3" fill="#111827" />
+  <text x="348" y="315" class="point-label" font-size="12">Shared: (8, 160)</text>
+
+  <!-- Legend Box -->
+  <rect x="440" y="80" width="220" height="70" fill="#ffffff" stroke="#111827" stroke-width="1.2" rx="4" />
+  <line x1="455" y1="102" x2="495" y2="102" class="line-a" />
+  <text x="505" y="106" class="legend-text">Tank A (Filling: +15 gal/min)</text>
+  <line x1="455" y1="128" x2="495" y2="128" class="line-b" />
+  <text x="505" y="132" class="legend-text">Tank B (Draining: -20 gal/min)</text>
+</svg>

@@ -1,0 +1,109 @@
+{
+  "date": "2026-09-15",
+  "scope": "All runs with state.json; connectivity probes have no teaching HITL interface and are excluded. assembled_only is a dry run.",
+  "method": "Parse each messages.json list, count data.tool_calls with name=request_human; inspect state.human_request and status. No new model calls or human replies.",
+  "runner_sha256": "96569e6a765928b62c7db7630bd9c4ffabb6794f62b5165ebf7db3f9340dc223",
+  "record_count": 10,
+  "executed_run_count": 9,
+  "request_human_call_count": 0,
+  "recorded_human_request_count": 0,
+  "resume_interface_implemented": false,
+  "resume_evidence": "Source inspection: CLI choices overall/unit/repair/revision/blind; request_human only records a request and sets awaiting_human. No reply/resume command. Parent artifact handoff is not resume.",
+  "records": [
+    {
+      "run": "20260915T021550Z-overall",
+      "status": "assembled_only",
+      "message_count": 2,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "9602f392223299809d0e2e740bd739905ab7e52b1a9145fed5274f4a0249f996",
+      "messages_sha256": "9dc416aa8b5e1c5ce152980f5dc4faea0cb71509730519ccea829de4489a703a"
+    },
+    {
+      "run": "20260915T021611Z-overall",
+      "status": "budget_exhausted",
+      "message_count": 26,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "f24ef816b468646aa984ae0ef30033d0963e0997d9b1f06d9c2444b1ff5c070b",
+      "messages_sha256": "b8772a86aaeb1d63267a28435b69500cb3d209d5c18d49fef42ecaf078f0c1a4"
+    },
+    {
+      "run": "20260915T021738Z-overall",
+      "status": "candidate_ready",
+      "message_count": 31,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "186bb6c6fe8548e2fc52fc04192d1204928da9d76a51d687218fede4fafc9463",
+      "messages_sha256": "dd223748d50cfebfb82d4abbc61c8cc869de0e2185066dac7982db5dd380b4e9"
+    },
+    {
+      "run": "20260915T022426Z-unit",
+      "status": "budget_exhausted",
+      "message_count": 26,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "b8e15760c6f30078a36e2b281e348f4fdfa3a398743241c0b8c9411e3d962a2d",
+      "messages_sha256": "5be235f85455d27e0cfe93bbc074ac0800d63ea1635f87341714bf9be74bf751"
+    },
+    {
+      "run": "20260915T022559Z-unit",
+      "status": "candidate_ready",
+      "message_count": 46,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "0605e8783f1040a65829465d4456a87ba5269150fa438a6578cc5122d94f9975",
+      "messages_sha256": "9a77d8aff0ed5d2cedf8357b67404954ab8a3c2252856198371ad7a553c3b1aa"
+    },
+    {
+      "run": "20260915T022925Z-blind",
+      "status": "candidate_ready",
+      "message_count": 14,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "a584bfa199055b5400f8f5199815c3a06ad519f29c4c0ccfd491a56681d469d7",
+      "messages_sha256": "77a9d8172b46668acafd5d8e69e6dca2a9dcd11ec9721fc6041d38eae8566400"
+    },
+    {
+      "run": "20260915T023107Z-repair",
+      "status": "candidate_ready",
+      "message_count": 46,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "efaabb1ea04bd05e1a8832e0ff6be98dfafed981f47a80dfa62dc9cb60fabc99",
+      "messages_sha256": "ab07b6cb5515a3f03f7fa3c800f442e6a9d4b546a5d90681d15b7595c9739fd0"
+    },
+    {
+      "run": "20260915T023658Z-repair",
+      "status": "budget_exhausted",
+      "message_count": 50,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "138aeedea5df460790c0150c4172f09cf1ba6f2b94ec1e6f92c93d096e8a44ff",
+      "messages_sha256": "f8c3d75b83c62f1de2c20d377ffa1565bd50341672fc0bca96f86bb2e34ebd17"
+    },
+    {
+      "run": "20260915T024257Z-blind",
+      "status": "candidate_ready",
+      "message_count": 22,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "49602b70d0b901ae80d137ec977a98d8588603306472443ed567110a1db52b86",
+      "messages_sha256": "a0f38843d7553e9e75799d3f1b536a155619bf3925bfd2baf1da143f55cc9b61"
+    },
+    {
+      "run": "20260915T024257Z-revision",
+      "status": "candidate_ready",
+      "message_count": 42,
+      "request_human_calls": 0,
+      "human_request_present": false,
+      "state_sha256": "01638580178e1cfe98fa8db036f114673f1164a955ec469e08a6b5cab25c95ec",
+      "messages_sha256": "a8ba3df281326c0a961500dbea3700491e83440f68e9d26834a94e1be5488fd3"
+    }
+  ],
+  "limitations": [
+    "No authentic teacher participation or product reply/resume was exercised.",
+    "Simulated compression demands and organizer-authored review files are not responses to persisted human requests.",
+    "HTML simulated state exercise does not validate server recovery."
+  ]
+}

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 480" width="100%" height="100%">
+  <style>
+    .grid-line { stroke: #e5e7eb; stroke-width: 1; stroke-dasharray: 2,2; }
+    .grid-line-major { stroke: #d1d5db; stroke-width: 1.2; }
+    .axis { stroke: #111827; stroke-width: 2; }
+    .line { stroke: #1f2937; stroke-width: 2.5; }
+    .label { font-family: sans-serif; font-size: 12px; fill: #111827; }
+    .axis-title { font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #111827; }
+    .graph-title { font-family: sans-serif; font-size: 15px; font-weight: bold; fill: #111827; }
+    .point { fill: #111827; }
+    .point-tag { font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #111827; }
+  </style>
+
+  <!-- Title -->
+  <text x="340" y="28" class="graph-title" text-anchor="middle">Mountain Pass: Snow Depth Over Time</text>
+
+  <!-- Vertical Grid Lines (t = 2, 4, 6, 8, 10, 12, 14, 16 hours) -->
+  <!-- Origin at (80, 420). Step in t = 2 hrs -> 64 px (32 px/hr) -->
+  <g class="grid-line">
+    <line x1="144" y1="60" x2="144" y2="420" />
+    <line x1="208" y1="60" x2="208" y2="420" class="grid-line-major" />
+    <line x1="272" y1="60" x2="272" y2="420" />
+    <line x1="336" y1="60" x2="336" y2="420" class="grid-line-major" />
+    <line x1="400" y1="60" x2="400" y2="420" />
+    <line x1="464" y1="60" x2="464" y2="420" class="grid-line-major" />
+    <line x1="528" y1="60" x2="528" y2="420" />
+    <line x1="592" y1="60" x2="592" y2="420" class="grid-line-major" />
+  </g>
+
+  <!-- Horizontal Grid Lines (S = 2 to 40 inches in steps of 2 inches = 18 px) -->
+  <g class="grid-line">
+    <!-- S = 2, 4 -->
+    <line x1="80" y1="402" x2="600" y2="402" />
+    <line x1="80" y1="384" x2="600" y2="384" />
+    <!-- S = 6 (major) -->
+    <line x1="80" y1="366" x2="600" y2="366" class="grid-line-major" />
+    <!-- S = 8, 10 -->
+    <line x1="80" y1="348" x2="600" y2="348" />
+    <line x1="80" y1="330" x2="600" y2="330" />
+    <!-- S = 12 (major) -->
+    <line x1="80" y1="312" x2="600" y2="312" class="grid-line-major" />
+    <!-- S = 14 -->
+    <line x1="80" y1="294" x2="600" y2="294" />
+    <!-- S = 16 -->
+    <line x1="80" y1="276" x2="600" y2="276" />
+    <!-- S = 18 (major) -->
+    <line x1="80" y1="258" x2="600" y2="258" class="grid-line-major" />
+    <!-- S = 20, 22 -->
+    <line x1="80" y1="240" x2="600" y2="240" />
+    <line x1="80" y1="222" x2="600" y2="222" />
+    <!-- S = 24 (major) -->
+    <line x1="80" y1="204" x2="600" y2="204" class="grid-line-major" />
+    <!-- S = 26 -->
+    <line x1="80" y1="186" x2="600" y2="186" />
+    <!-- S = 28 -->
+    <line x1="80" y1="168" x2="600" y2="168" />
+    <!-- S = 30 (major) -->
+    <line x1="80" y1="150" x2="600" y2="150" class="grid-line-major" />
+    <!-- S = 32, 34 -->
+    <line x1="80" y1="132" x2="600" y2="132" />
+    <line x1="80" y1="114" x2="600" y2="114" />
+    <!-- S = 36 (major) -->
+    <line x1="80" y1="96" x2="600" y2="96" class="grid-line-major" />
+    <!-- S = 38, 40 -->
+    <line x1="80" y1="78" x2="600" y2="78" />
+    <line x1="80" y1="60" x2="600" y2="60" class="grid-line-major" />
+  </g>
+
+  <!-- Axes -->
+  <line x1="80" y1="420" x2="620" y2="420" class="axis" />
+  <polyline points="615,416 623,420 615,424" fill="#111827" />
+  <line x1="80" y1="420" x2="80" y2="45" class="axis" />
+  <polyline points="76,50 80,42 84,50" fill="#111827" />
+
+  <!-- Horizontal Axis Ticks & Labels -->
+  <text x="80" y="438" class="label" text-anchor="middle">0</text>
+  <text x="144" y="438" class="label" text-anchor="middle">2</text>
+  <text x="208" y="438" class="label" text-anchor="middle">4</text>
+  <text x="272" y="438" class="label" text-anchor="middle">6</text>
+  <text x="336" y="438" class="label" text-anchor="middle">8</text>
+  <text x="400" y="438" class="label" text-anchor="middle">10</text>
+  <text x="464" y="438" class="label" text-anchor="middle">12</text>
+  <text x="528" y="438" class="label" text-anchor="middle">14</text>
+  <text x="592" y="438" class="label" text-anchor="middle">16</text>
+  <text x="340" y="465" class="axis-title" text-anchor="middle">Elapsed Time t (hours)</text>
+
+  <!-- Vertical Axis Ticks & Labels -->
+  <text x="72" y="424" class="label" text-anchor="end">0</text>
+  <text x="72" y="370" class="label" text-anchor="end">6</text>
+  <text x="72" y="316" class="label" text-anchor="end">12</text>
+  <text x="72" y="262" class="label" text-anchor="end">18</text>
+  <text x="72" y="208" class="label" text-anchor="end">24</text>
+  <text x="72" y="154" class="label" text-anchor="end">30</text>
+  <text x="72" y="100" class="label" text-anchor="end">36</text>
+  <text x="72" y="64" class="label" text-anchor="end">40</text>
+  <text x="75" y="35" class="axis-title" text-anchor="start">Snow Depth S (inches)</text>
+
+  <!-- The Snow Depth Line: S = 2.5t + 6 -->
+  <!-- From (t=0, S=6) -> (80, 366) to (t=13.6, S=40) -> (515.2, 60) -->
+  <line x1="80" y1="366" x2="515.2" y2="60" class="line" />
+
+  <!-- Data Points Marked along the Line (No coordinate numbers printed, to test reading ability) -->
+  <!-- Point P0 at t=0, S=6 -->
+  <circle cx="80" cy="366" r="5" class="point" />
+  <text x="92" y="362" class="point-tag">P₀</text>
+
+  <!-- Point P1 at t=4, S=16 -->
+  <circle cx="208" cy="276" r="5" class="point" />
+  <text x="218" y="272" class="point-tag">P₁</text>
+
+  <!-- Point P2 at t=8, S=26 -->
+  <circle cx="336" cy="186" r="5" class="point" />
+  <text x="346" y="182" class="point-tag">P₂</text>
+
+  <!-- Point P3 at t=12, S=36 -->
+  <circle cx="464" cy="96" r="5" class="point" />
+  <text x="474" y="92" class="point-tag">P₃</text>
+</svg>

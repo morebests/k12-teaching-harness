@@ -1,0 +1,27 @@
+{
+  "model_requested": "gemini-3.8-flash",
+  "started_at": "2026-09-15T02:10:49.011558+00:00",
+  "purpose": "forced tool call and tool result continuation; not a teaching quality test",
+  "tracing": "local only",
+  "model_calls": 1,
+  "usage": [
+    {
+      "input_tokens": 91,
+      "output_tokens": 29,
+      "total_tokens": 120,
+      "input_token_details": {
+        "cache_read": 0
+      }
+    }
+  ],
+  "first_metadata": {
+    "finish_reason": "STOP",
+    "model_name": "gemini-3.8-flash",
+    "safety_ratings": [],
+    "model_provider": "google_genai"
+  },
+  "status": "failed",
+  "error_type": "ValueError",
+  "error": "Unexpected tool request",
+  "elapsed_seconds": 3.005
+}

@@ -1,0 +1,23 @@
+{
+  "scope": "Endpoint geometry, allowing <=0.1 px coordinate rounding; not exact algebraic equality or full visual QA",
+  "geometry": [
+    {
+      "file": "probe1_slope_triangles.svg",
+      "actual_slope": 2.0,
+      "expected": 2,
+      "endpoint_vertical_error_px": 0.0,
+      "tolerance_px": 0.1,
+      "matches_within_svg_rounding": true,
+      "sha256": "d4eb51f4225644babd399ca4323a3cf6738bff947a9e439d85017601c45ba1d1"
+    },
+    {
+      "file": "probe2_water_tank.svg",
+      "actual_slope": 2.9997857295907435,
+      "expected": 3,
+      "endpoint_vertical_error_px": 0.020000000000038654,
+      "tolerance_px": 0.1,
+      "matches_within_svg_rounding": true,
+      "sha256": "7514a925838387d4d4a74c05c2e80da82c42735b10a591d037d312a3e96643aa"
+    }
+  ]
+}

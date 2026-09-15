@@ -1,0 +1,43 @@
+{
+  "status": "assembled_only",
+  "task": "overall",
+  "started_at": "2026-09-15T02:15:50.671834+00:00",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "high",
+  "temperature": 1.0,
+  "max_output_tokens": 32768,
+  "max_retries": 0,
+  "tracing": "local only",
+  "limits": {
+    "model_calls": 12,
+    "tools": 40,
+    "seconds": 1200
+  },
+  "model_calls": 0,
+  "tool_calls": 0,
+  "usage": [],
+  "artifacts": {},
+  "parent_artifacts": {},
+  "input_files": {
+    "inputs/common.md": "4da1a4fec508878bbe5635dda939c8a5f34ffca5311f5c8e93fc5f62b785799d",
+    "inputs/overall-task.md": "f5a9904b38c041f64cc6a793c8e91c3fcdabeefab0267464a3b47f6dc475f243",
+    "resources/ccss-grade8.json": "c2d192410cb5e8535729c5aef73528bcf00798d5e160b47961ef9e185c42a3dd",
+    "resources/ccss-practices.json": "75caaa1cd1ca95739b089e30c1d8930acf80e42f944b70e91c51859e3509ff2d",
+    "resources/ccss-grade8-introduction.md": "4f0cf331cc7c8d0a3842a4ce0cb306b230b72dae940dc6069dc44c41014f648f"
+  },
+  "errors": [],
+  "quality_status": "not_externally_evaluated",
+  "tools": [
+    "lookup_knowledge",
+    "write_artifact",
+    "read_artifact",
+    "calculate",
+    "request_human",
+    "finish_candidate"
+  ],
+  "implementation_sha256": "a49c2c369dff1aab00d2eb83921a27eb8960aa651b565b40200bb60343728551",
+  "knowledge_implementation_sha256": "e9912000caef1f194fc3c377b658e8a7d7501c385a2be08da63302bb66090341",
+  "requirements_sha256": "aba794c715cea4d00642527249662a794b80b646849fb7e7b75bc62944ee1b66",
+  "evaluation_sha256": "3260d11a994f8d32aaa2cfe3c48341ee6e699a1af879cb013e91e32dd42fa443",
+  "elapsed_seconds": 0.01
+}

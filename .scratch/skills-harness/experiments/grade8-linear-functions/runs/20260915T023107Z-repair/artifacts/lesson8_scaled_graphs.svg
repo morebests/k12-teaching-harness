@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 490" width="100%" height="100%">
+  <style>
+    .grid-line { stroke: #e5e7eb; stroke-width: 1; stroke-dasharray: 2,2; }
+    .axis { stroke: #111827; stroke-width: 2; }
+    .line { stroke: #1f2937; stroke-width: 2.5; }
+    .triangle-leg { stroke: #4b5563; stroke-width: 2; stroke-dasharray: 4,3; }
+    .triangle-fill { fill: #f3f4f6; opacity: 0.7; }
+    .label { font-family: sans-serif; font-size: 12px; fill: #111827; }
+    .axis-title { font-family: sans-serif; font-size: 13px; font-weight: bold; fill: #111827; }
+    .graph-title { font-family: sans-serif; font-size: 15px; font-weight: bold; fill: #111827; }
+    .point { fill: #111827; }
+    .point-label { font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #111827; }
+    .math-text { font-family: sans-serif; font-size: 11px; fill: #1f2937; }
+  </style>
+
+  <!-- ==================== PANEL 1: GRAPH 8A (DRONE ASCENT) ==================== -->
+  <g id="panel1">
+    <text x="240" y="30" class="graph-title" text-anchor="middle">Graph 8A: Drone Ascent Over Time</text>
+
+    <!-- Vertical Grid lines (t = 1 to 12) -->
+    <g class="grid-line">
+      <line x1="90" y1="80" x2="90" y2="400" />
+      <line x1="120" y1="80" x2="120" y2="400" />
+      <line x1="150" y1="80" x2="150" y2="400" />
+      <line x1="180" y1="80" x2="180" y2="400" />
+      <line x1="210" y1="80" x2="210" y2="400" />
+      <line x1="240" y1="80" x2="240" y2="400" />
+      <line x1="270" y1="80" x2="270" y2="400" />
+      <line x1="300" y1="80" x2="300" y2="400" />
+      <line x1="330" y1="80" x2="330" y2="400" />
+      <line x1="360" y1="80" x2="360" y2="400" />
+      <line x1="390" y1="80" x2="390" y2="400" />
+      <line x1="420" y1="80" x2="420" y2="400" />
+    </g>
+
+    <!-- Horizontal Grid lines (A = 25 to 300) -->
+    <g class="grid-line">
+      <line x1="60" y1="375" x2="430" y2="375" />
+      <line x1="60" y1="350" x2="430" y2="350" />
+      <line x1="60" y1="325" x2="430" y2="325" />
+      <line x1="60" y1="300" x2="430" y2="300" />
+      <line x1="60" y1="275" x2="430" y2="275" />
+      <line x1="60" y1="250" x2="430" y2="250" />
+      <line x1="60" y1="225" x2="430" y2="225" />
+      <line x1="60" y1="200" x2="430" y2="200" />
+      <line x1="60" y1="175" x2="430" y2="175" />
+      <line x1="60" y1="150" x2="430" y2="150" />
+      <line x1="60" y1="125" x2="430" y2="125" />
+      <line x1="60" y1="100" x2="430" y2="100" />
+    </g>
+
+    <!-- Slope Triangle Polygon -->
+    <polygon points="120,300 240,300 240,200" class="triangle-fill" />
+    <line x1="120" y1="300" x2="240" y2="300" class="triangle-leg" />
+    <line x1="240" y1="300" x2="240" y2="200" class="triangle-leg" />
+    <polyline points="230,300 230,290 240,290" fill="none" stroke="#4b5563" stroke-width="1.2" />
+
+    <!-- Slope Triangle Labels -->
+    <text x="180" y="316" class="math-text" text-anchor="middle" font-weight="bold">&#916;t = 4 min</text>
+    <text x="246" y="255" class="math-text" text-anchor="start" font-weight="bold">&#916;A = 100 m</text>
+
+    <!-- Axes -->
+    <line x1="60" y1="400" x2="445" y2="400" class="axis" />
+    <polyline points="440,396 448,400 440,404" fill="#111827" />
+    <line x1="60" y1="400" x2="60" y2="65" class="axis" />
+    <polyline points="56,70 60,62 64,70" fill="#111827" />
+
+    <!-- Ticks & Labels -->
+    <text x="60" y="418" class="label" text-anchor="middle">0</text>
+    <text x="120" y="418" class="label" text-anchor="middle">2</text>
+    <text x="180" y="418" class="label" text-anchor="middle">4</text>
+    <text x="240" y="418" class="label" text-anchor="middle">6</text>
+    <text x="300" y="418" class="label" text-anchor="middle">8</text>
+    <text x="360" y="418" class="label" text-anchor="middle">10</text>
+    <text x="420" y="418" class="label" text-anchor="middle">12</text>
+    <text x="240" y="445" class="axis-title" text-anchor="middle">Time t (minutes)</text>
+
+    <text x="52" y="404" class="label" text-anchor="end">0</text>
+    <text x="52" y="354" class="label" text-anchor="end">50</text>
+    <text x="52" y="304" class="label" text-anchor="end">100</text>
+    <text x="52" y="254" class="label" text-anchor="end">150</text>
+    <text x="52" y="204" class="label" text-anchor="end">200</text>
+    <text x="52" y="154" class="label" text-anchor="end">250</text>
+    <text x="52" y="104" class="label" text-anchor="end">300</text>
+    <text x="55" y="55" class="axis-title" text-anchor="start">Altitude A (meters)</text>
+
+    <!-- Function Line A = 25t + 50 -->
+    <line x1="60" y1="350" x2="384" y2="80" class="line" />
+
+    <!-- Points -->
+    <circle cx="60" cy="350" r="4.5" class="point" />
+    <text x="70" y="345" class="point-label">(0, 50)</text>
+
+    <circle cx="120" cy="300" r="4.5" class="point" />
+    <text x="110" y="292" class="point-label" text-anchor="end">(2, 100)</text>
+
+    <circle cx="240" cy="200" r="4.5" class="point" />
+    <text x="230" y="192" class="point-label" text-anchor="end">(6, 200)</text>
+
+    <circle cx="360" cy="100" r="4.5" class="point" />
+    <text x="350" y="92" class="point-label" text-anchor="end">(10, 300)</text>
+  </g>
+
+  <!-- ==================== PANEL 2: GRAPH 8B (TRUCK FUEL) ==================== -->
+  <g id="panel2">
+    <text x="730" y="30" class="graph-title" text-anchor="middle">Graph 8B: Delivery Truck Fuel Remaining</text>
+
+    <!-- Vertical Grid lines (d = 20 to 240) -->
+    <g class="grid-line">
+      <line x1="580" y1="80" x2="580" y2="400" />
+      <line x1="610" y1="80" x2="610" y2="400" />
+      <line x1="640" y1="80" x2="640" y2="400" />
+      <line x1="670" y1="80" x2="670" y2="400" />
+      <line x1="700" y1="80" x2="700" y2="400" />
+      <line x1="730" y1="80" x2="730" y2="400" />
+      <line x1="760" y1="80" x2="760" y2="400" />
+      <line x1="790" y1="80" x2="790" y2="400" />
+      <line x1="820" y1="80" x2="820" y2="400" />
+      <line x1="850" y1="80" x2="850" y2="400" />
+      <line x1="880" y1="80" x2="880" y2="400" />
+      <line x1="910" y1="80" x2="910" y2="400" />
+    </g>
+
+    <!-- Horizontal Grid lines (F = 2.5 to 30) -->
+    <g class="grid-line">
+      <line x1="550" y1="375" x2="920" y2="375" />
+      <line x1="550" y1="350" x2="920" y2="350" />
+      <line x1="550" y1="325" x2="920" y2="325" />
+      <line x1="550" y1="300" x2="920" y2="300" />
+      <line x1="550" y1="275" x2="920" y2="275" />
+      <line x1="550" y1="250" x2="920" y2="250" />
+      <line x1="550" y1="225" x2="920" y2="225" />
+      <line x1="550" y1="200" x2="920" y2="200" />
+      <line x1="550" y1="175" x2="920" y2="175" />
+      <line x1="550" y1="150" x2="920" y2="150" />
+      <line x1="550" y1="125" x2="920" y2="125" />
+      <line x1="550" y1="100" x2="920" y2="100" />
+    </g>
+
+    <!-- Slope Triangle Polygon -->
+    <polygon points="610,200 730,200 730,280" class="triangle-fill" />
+    <line x1="610" y1="200" x2="730" y2="200" class="triangle-leg" />
+    <line x1="730" y1="200" x2="730" y2="280" class="triangle-leg" />
+    <polyline points="720,200 720,210 730,210" fill="none" stroke="#4b5563" stroke-width="1.2" />
+
+    <!-- Slope Triangle Labels -->
+    <text x="670" y="190" class="math-text" text-anchor="middle" font-weight="bold">&#916;d = 80 mi</text>
+    <text x="736" y="245" class="math-text" text-anchor="start" font-weight="bold">&#916;F = -8 gal</text>
+
+    <!-- Axes -->
+    <line x1="550" y1="400" x2="935" y2="400" class="axis" />
+    <polyline points="930,396 938,400 930,404" fill="#111827" />
+    <line x1="550" y1="400" x2="550" y2="65" class="axis" />
+    <polyline points="546,70 550,62 554,70" fill="#111827" />
+
+    <!-- Ticks & Labels -->
+    <text x="550" y="418" class="label" text-anchor="middle">0</text>
+    <text x="610" y="418" class="label" text-anchor="middle">40</text>
+    <text x="670" y="418" class="label" text-anchor="middle">80</text>
+    <text x="730" y="418" class="label" text-anchor="middle">120</text>
+    <text x="790" y="418" class="label" text-anchor="middle">160</text>
+    <text x="850" y="418" class="label" text-anchor="middle">200</text>
+    <text x="910" y="418" class="label" text-anchor="middle">240</text>
+    <text x="730" y="445" class="axis-title" text-anchor="middle">Distance Traveled d (miles)</text>
+
+    <text x="542" y="404" class="label" text-anchor="end">0</text>
+    <text x="542" y="354" class="label" text-anchor="end">5</text>
+    <text x="542" y="304" class="label" text-anchor="end">10</text>
+    <text x="542" y="254" class="label" text-anchor="end">15</text>
+    <text x="542" y="204" class="label" text-anchor="end">20</text>
+    <text x="542" y="154" class="label" text-anchor="end">25</text>
+    <text x="542" y="104" class="label" text-anchor="end">30</text>
+    <text x="545" y="55" class="axis-title" text-anchor="start">Fuel Remaining F (gallons)</text>
+
+    <!-- Function Line F = -0.1d + 24 -->
+    <line x1="550" y1="160" x2="910" y2="400" class="line" />
+
+    <!-- Points -->
+    <circle cx="550" cy="160" r="4.5" class="point" />
+    <text x="560" y="155" class="point-label">(0, 24)</text>
+
+    <circle cx="610" cy="200" r="4.5" class="point" />
+    <text x="600" y="192" class="point-label" text-anchor="end">(40, 20)</text>
+
+    <circle cx="730" cy="280" r="4.5" class="point" />
+    <text x="720" y="272" class="point-label" text-anchor="end">(120, 12)</text>
+
+    <circle cx="850" cy="360" r="4.5" class="point" />
+    <text x="840" y="352" class="point-label" text-anchor="end">(200, 4)</text>
+
+    <circle cx="910" cy="400" r="4.5" class="point" />
+    <text x="915" y="392" class="point-label">(240, 0)</text>
+  </g>
+</svg>

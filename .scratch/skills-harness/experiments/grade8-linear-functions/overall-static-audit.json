@@ -1,0 +1,37 @@
+{
+  "object": "20260915T021738Z-overall",
+  "checks": {
+    "required_content_codes": 36,
+    "missing_codes": [],
+    "unit_periods": [
+      16,
+      18,
+      16,
+      14,
+      18,
+      18,
+      22,
+      20,
+      18
+    ],
+    "regular_sum": 160,
+    "regular_limit": 160
+  },
+  "limits": "Code presence and time arithmetic only; no claim of full learning opportunities or feasibility.",
+  "svg_geometry_checks": [
+    {
+      "file": "probe1_slope_triangles.svg",
+      "drawn_line_slope": 2.0652173913043477,
+      "expected_slope": 2,
+      "drawn_intercept": 1.0,
+      "matches": false
+    },
+    {
+      "file": "probe2_water_tank.svg",
+      "drawn_line_slope": 3.0434782608695654,
+      "expected_slope": 3,
+      "drawn_intercept": 8.0,
+      "matches": false
+    }
+  ]
+}

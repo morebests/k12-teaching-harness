@@ -1,0 +1,366 @@
+{
+  "status": "candidate_ready",
+  "task": "unit",
+  "started_at": "2026-09-15T02:25:59.870970+00:00",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "high",
+  "temperature": 1.0,
+  "max_output_tokens": 32768,
+  "max_retries": 0,
+  "tracing": "local only",
+  "limits": {
+    "model_calls": 24,
+    "tools": 40,
+    "seconds": 1200
+  },
+  "model_calls": 22,
+  "tool_calls": 22,
+  "usage": [
+    {
+      "input_tokens": 50243,
+      "output_tokens": 1019,
+      "total_tokens": 51262,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 991
+      }
+    },
+    {
+      "input_tokens": 51920,
+      "output_tokens": 68,
+      "total_tokens": 51988,
+      "input_token_details": {
+        "cache_read": 49084
+      },
+      "output_token_details": {
+        "reasoning": 39
+      }
+    },
+    {
+      "input_tokens": 54831,
+      "output_tokens": 86,
+      "total_tokens": 54917,
+      "input_token_details": {
+        "cache_read": 49079
+      },
+      "output_token_details": {
+        "reasoning": 57
+      }
+    },
+    {
+      "input_tokens": 63723,
+      "output_tokens": 5152,
+      "total_tokens": 68875,
+      "input_token_details": {
+        "cache_read": 53172
+      },
+      "output_token_details": {
+        "reasoning": 5078
+      }
+    },
+    {
+      "input_tokens": 69041,
+      "output_tokens": 219,
+      "total_tokens": 69260,
+      "input_token_details": {
+        "cache_read": 61350
+      },
+      "output_token_details": {
+        "reasoning": 150
+      }
+    },
+    {
+      "input_tokens": 69410,
+      "output_tokens": 491,
+      "total_tokens": 69901,
+      "input_token_details": {
+        "cache_read": 65431
+      },
+      "output_token_details": {
+        "reasoning": 397
+      }
+    },
+    {
+      "input_tokens": 70097,
+      "output_tokens": 396,
+      "total_tokens": 70493,
+      "input_token_details": {
+        "cache_read": 65423
+      },
+      "output_token_details": {
+        "reasoning": 312
+      }
+    },
+    {
+      "input_tokens": 70672,
+      "output_tokens": 1008,
+      "total_tokens": 71680,
+      "input_token_details": {
+        "cache_read": 65414
+      },
+      "output_token_details": {
+        "reasoning": 922
+      }
+    },
+    {
+      "input_tokens": 71863,
+      "output_tokens": 1376,
+      "total_tokens": 73239,
+      "input_token_details": {
+        "cache_read": 69495
+      },
+      "output_token_details": {
+        "reasoning": 1301
+      }
+    },
+    {
+      "input_tokens": 73404,
+      "output_tokens": 3246,
+      "total_tokens": 76650,
+      "input_token_details": {
+        "cache_read": 69489
+      },
+      "output_token_details": {
+        "reasoning": 1796
+      }
+    },
+    {
+      "input_tokens": 76795,
+      "output_tokens": 4807,
+      "total_tokens": 81602,
+      "input_token_details": {
+        "cache_read": 69486
+      },
+      "output_token_details": {
+        "reasoning": 770
+      }
+    },
+    {
+      "input_tokens": 81744,
+      "output_tokens": 4918,
+      "total_tokens": 86662,
+      "input_token_details": {
+        "cache_read": 73574
+      },
+      "output_token_details": {
+        "reasoning": 1794
+      }
+    },
+    {
+      "input_tokens": 86801,
+      "output_tokens": 6829,
+      "total_tokens": 93630,
+      "input_token_details": {
+        "cache_read": 77662
+      },
+      "output_token_details": {
+        "reasoning": 2019
+      }
+    },
+    {
+      "input_tokens": 93772,
+      "output_tokens": 1028,
+      "total_tokens": 94800,
+      "input_token_details": {
+        "cache_read": 85841
+      },
+      "output_token_details": {
+        "reasoning": 878
+      }
+    },
+    {
+      "input_tokens": 95088,
+      "output_tokens": 343,
+      "total_tokens": 95431,
+      "input_token_details": {
+        "cache_read": 89921
+      },
+      "output_token_details": {
+        "reasoning": 276
+      }
+    },
+    {
+      "input_tokens": 95581,
+      "output_tokens": 384,
+      "total_tokens": 95965,
+      "input_token_details": {
+        "cache_read": 89913
+      },
+      "output_token_details": {
+        "reasoning": 316
+      }
+    },
+    {
+      "input_tokens": 96135,
+      "output_tokens": 399,
+      "total_tokens": 96534,
+      "input_token_details": {
+        "cache_read": 93991
+      },
+      "output_token_details": {
+        "reasoning": 346
+      }
+    },
+    {
+      "input_tokens": 96664,
+      "output_tokens": 6201,
+      "total_tokens": 102865,
+      "input_token_details": {
+        "cache_read": 93983
+      },
+      "output_token_details": {
+        "reasoning": 360
+      }
+    },
+    {
+      "input_tokens": 103009,
+      "output_tokens": 9968,
+      "total_tokens": 112977,
+      "input_token_details": {
+        "cache_read": 93988
+      },
+      "output_token_details": {
+        "reasoning": 403
+      }
+    },
+    {
+      "input_tokens": 113126,
+      "output_tokens": 4385,
+      "total_tokens": 117511,
+      "input_token_details": {
+        "cache_read": 102173
+      },
+      "output_token_details": {
+        "reasoning": 866
+      }
+    },
+    {
+      "input_tokens": 117654,
+      "output_tokens": 300,
+      "total_tokens": 117954,
+      "input_token_details": {
+        "cache_read": 110347
+      },
+      "output_token_details": {
+        "reasoning": 290
+      }
+    },
+    {
+      "input_tokens": 118628,
+      "output_tokens": 628,
+      "total_tokens": 119256,
+      "input_token_details": {
+        "cache_read": 114426
+      },
+      "output_token_details": {
+        "reasoning": 175
+      }
+    }
+  ],
+  "artifacts": {
+    "upstream_blueprint_corrections.md": {
+      "version": 1,
+      "sha256": "37a005c37c0577c525c167d8c1b9307a27f63e0c61166557f03853b327cc0cdf",
+      "bytes": 6759
+    },
+    "unit5_linear_functions_skeleton.md": {
+      "version": 1,
+      "sha256": "f8388124a01ca62df977181d07ee1660ad310079f1cd29de602cfb222d7d9dfe",
+      "bytes": 15662
+    },
+    "lesson7_reservoir_models.svg": {
+      "version": 1,
+      "sha256": "edaddec06e1d9c033f2969b9ad0d992c7731e4b699f9649e7bbd278e8a55bcc3",
+      "bytes": 6153
+    },
+    "lesson8_scaled_graphs.svg": {
+      "version": 1,
+      "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+      "bytes": 9596
+    },
+    "lesson6_7_8_student_materials.md": {
+      "version": 1,
+      "sha256": "0f46338febff2cf81105cfc98b050ed882bde046c2b9445e18dd70f1f703c508",
+      "bytes": 19666
+    },
+    "lesson6_7_8_teacher_guides.md": {
+      "version": 1,
+      "sha256": "2def7726999c5e024e3c5f2da6335682334463a5406b78b2f179755798f43523",
+      "bytes": 28600
+    },
+    "candidate_design_and_verification_report.md": {
+      "version": 1,
+      "sha256": "5657bf81e974e7bcfba10da221a103842a63c6f77e226ec69d8b61dfcab00a2a",
+      "bytes": 11708
+    }
+  },
+  "parent_artifacts": {
+    "probe1_slope_triangles.svg": {
+      "run": "20260915T021738Z-overall",
+      "version": 1,
+      "sha256": "3c2a14b27f5ec7552dbb52df6e60545b04edbe3ff32bde356aec2e9e403432fc",
+      "bytes": 6160
+    },
+    "probe2_water_tank.svg": {
+      "run": "20260915T021738Z-overall",
+      "version": 1,
+      "sha256": "783cc510628be8a31544627f0c1e3efbbf90c4332f187440af8b667a19c3911d",
+      "bytes": 4696
+    },
+    "grade8_curriculum_blueprint.md": {
+      "run": "20260915T021738Z-overall",
+      "version": 1,
+      "sha256": "d76ae9800345f278bac4b43b0c3e3d95d5887fbbfff0a047ddcd3b693f46283a",
+      "bytes": 38323
+    },
+    "probe_tasks_student_and_teacher.md": {
+      "run": "20260915T021738Z-overall",
+      "version": 1,
+      "sha256": "2093f8c29e8b0acdb4c2ab62f3a94b4dcbb05e44c2f7016b12571150b2e60b10",
+      "bytes": 12566
+    }
+  },
+  "input_files": {
+    "inputs/common.md": "4da1a4fec508878bbe5635dda939c8a5f34ffca5311f5c8e93fc5f62b785799d",
+    "inputs/unit-task.md": "b206fa18ced20eebf551683fc3748739b95e515a1cd78523051e8ededa564af8",
+    "resources/ccss-grade8.json": "c2d192410cb5e8535729c5aef73528bcf00798d5e160b47961ef9e185c42a3dd",
+    "resources/ccss-practices.json": "75caaa1cd1ca95739b089e30c1d8930acf80e42f944b70e91c51859e3509ff2d",
+    "resources/ccss-grade8-introduction.md": "4f0cf331cc7c8d0a3842a4ce0cb306b230b72dae940dc6069dc44c41014f648f",
+    "inputs/handoff-review.md": "c5d49998bad848f96f2c99371174b52372cd48971ca16c3f0e9d2086e040ff6f"
+  },
+  "errors": [],
+  "quality_status": "not_externally_evaluated",
+  "tools": [
+    "lookup_knowledge",
+    "write_artifact",
+    "read_artifact",
+    "calculate",
+    "request_human",
+    "finish_candidate"
+  ],
+  "implementation_sha256": "d09f5581032accc8e4bd02b64332ff6a0a1e80113474dc6315190e4f01fd067f",
+  "knowledge_implementation_sha256": "e9912000caef1f194fc3c377b658e8a7d7501c385a2be08da63302bb66090341",
+  "requirements_sha256": "aba794c715cea4d00642527249662a794b80b646849fb7e7b75bc62944ee1b66",
+  "evaluation_sha256": "3260d11a994f8d32aaa2cfe3c48341ee6e699a1af879cb013e91e32dd42fa443",
+  "elapsed_seconds": 179.74,
+  "delivery": {
+    "summary": "Delivered a partially expanded unit candidate (Candidate v1.1) for Grade 8 Unit 5 (Linear Functions and Contextual Modeling) based on the patched curriculum blueprint. Reconciled all five concrete issues raised in the Organizer Review (equipment restrictions, strict 18-period schedule without flex reliance, calibrated epistemic tone on probes, sampled assessment claims, and separated student/teacher materials). Provided the full 18-period unit skeleton with target-evidence alignment, and deeply developed a continuous three-lesson sequence (Lessons 6, 7, and 8) covering irregular tables, applied contextual modeling of filling/draining reservoir systems, and scaled coordinate graphs. Delivered separated student task materials, detailed teacher lesson plans with anticipated misconceptions and diagnostic rubrics, verified mathematical solutions via SymPy, and two self-contained black-and-white SVGs.",
+    "deliverables": [
+      "upstream_blueprint_corrections.md",
+      "unit5_linear_functions_skeleton.md",
+      "lesson6_7_8_student_materials.md",
+      "lesson6_7_8_teacher_guides.md",
+      "lesson7_reservoir_models.svg",
+      "lesson8_scaled_graphs.svg",
+      "candidate_design_and_verification_report.md"
+    ],
+    "remaining_limits": [
+      "Lessons 1-5 and Lessons 9-18 remain at the 18-period target-evidence skeleton level; they have not yet been expanded into detailed student worksheets and teacher guides.",
+      "All student materials and teacher guides are formatted in Markdown with self-contained vector SVGs; physical print rendering and page pagination on standard 8.5x11 inch black-and-white copies have not been physically verified.",
+      "Pedagogical timing (50-minute blocks) and anticipated student misconceptions are design predictions grounded in mathematical analysis and CCSS progressions, not observed empirical classroom results or student performance data.",
+      "No human teacher approval, student diagnostics, or district sign-off is claimed; this is an unobserved research candidate (Candidate v1.1)."
+    ]
+  }
+}

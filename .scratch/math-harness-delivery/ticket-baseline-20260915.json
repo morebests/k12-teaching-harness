@@ -1,0 +1,127 @@
+{
+  "purpose": "逐票规模与依赖复核之前的14票身份、内容指纹与依赖快照；不是已完成工作记录",
+  "tickets": [
+    {
+      "file": "01-live-curriculum-task.md",
+      "title": "从任务接口生成真实 CCSS 全年蓝图",
+      "sha256": "3f593907bb23eb205e282a2c1e0c2c60dc472e0b167ccd389b97773b3a007294",
+      "blockers": []
+    },
+    {
+      "file": "02-human-decision-and-resume.md",
+      "title": "让真实教学决定跨进程等待并恢复执行",
+      "sha256": "35d639aaa43070529680fd07a4b02fa99cd46106d385da38f4835ef9dd4a7f44",
+      "blockers": [
+        "01-live-curriculum-task.md"
+      ]
+    },
+    {
+      "file": "03-continuous-lessons-and-materials.md",
+      "title": "将课程蓝图落实为连续课时和真实师生材料",
+      "sha256": "efdc3aaacc62c1bdcdbec0edcf5b9a3e9435bae006b8ec4ed85e57dc11391dbd",
+      "blockers": [
+        "02-human-decision-and-resume.md"
+      ]
+    },
+    {
+      "file": "04-tracing-and-quality-regressions.md",
+      "title": "用真实任务建立 LangSmith 追踪与质量回归",
+      "sha256": "cb9efd0c69ac49fa8710d83b693d04b08da66b96efb7e3ac0bd13bf779546cc5",
+      "blockers": [
+        "01-live-curriculum-task.md"
+      ]
+    },
+    {
+      "file": "05-stop-cancel-and-recovery.md",
+      "title": "让教学任务在取消、触限和崩溃后保持一致",
+      "sha256": "66126441f82296a80915e76c2986aed63e5906a45c57fdbf47b02c15b8bf5af8",
+      "blockers": [
+        "02-human-decision-and-resume.md"
+      ]
+    },
+    {
+      "file": "06-complete-linear-functions-unit.md",
+      "title": "完成线性函数整个单元的教学内容与检查",
+      "sha256": "f8b566bc16fd00ccf63874058a1e805a46811a5d71f3e9c48d22d614ad72402a",
+      "blockers": [
+        "03-continuous-lessons-and-materials.md"
+      ]
+    },
+    {
+      "file": "07-scoped-curriculum-revision.md",
+      "title": "按自然语言修改课程并重查受影响内容",
+      "sha256": "e545f7c17ba1bd01620583529a8c74c97f5ae35adfcea1bb3162bc3c483608d0",
+      "blockers": [
+        "03-continuous-lessons-and-materials.md",
+        "05-stop-cancel-and-recovery.md"
+      ]
+    },
+    {
+      "file": "08-lesson-adaptation.md",
+      "title": "根据学习证据适配真实数学课时",
+      "sha256": "c67e75cbfe007ee9af8f51fc590751a1774017a22034e3f569ad7eef8847ca2f",
+      "blockers": [
+        "03-continuous-lessons-and-materials.md"
+      ]
+    },
+    {
+      "file": "09-teacher-preparation.md",
+      "title": "围绕真实任务完成教师参与的备课",
+      "sha256": "81eab4e3d66cb0bfb56961bd3d08543337182e6fb777d3ba3597eab51c0ef78c",
+      "blockers": [
+        "03-continuous-lessons-and-materials.md"
+      ]
+    },
+    {
+      "file": "10-check-for-understanding.md",
+      "title": "生成并双重验证数学理解度检查",
+      "sha256": "64455215848ca386334de0182f9c099fc75d4333320759aac6ccb219c3946bd8",
+      "blockers": [
+        "03-continuous-lessons-and-materials.md"
+      ]
+    },
+    {
+      "file": "11-skills-comparison.md",
+      "title": "建立四项教学能力与 Skills 的可复现对照",
+      "sha256": "12031e0274c8f4411a9a9fc61aa94258c08cb7f8e96d0f4f73afbfaf5238a7cb",
+      "blockers": [
+        "04-tracing-and-quality-regressions.md",
+        "08-lesson-adaptation.md",
+        "09-teacher-preparation.md",
+        "10-check-for-understanding.md"
+      ]
+    },
+    {
+      "file": "12-frozen-unit-comparison.md",
+      "title": "冻结原创单元并建立 IM 匿名内容对照",
+      "sha256": "2fb487a4fffe492953bc268cd222973813e0ffec083e59c19eee48d5f27d069b",
+      "blockers": [
+        "04-tracing-and-quality-regressions.md",
+        "06-complete-linear-functions-unit.md",
+        "07-scoped-curriculum-revision.md"
+      ]
+    },
+    {
+      "file": "13-production-runtime-package.md",
+      "title": "交付持久部署包与运维验收入口",
+      "sha256": "b7824d6e32ca9d3a9cafbb917084367586929714144761615cfa8288bac4d7f5",
+      "blockers": [
+        "04-tracing-and-quality-regressions.md",
+        "05-stop-cancel-and-recovery.md"
+      ]
+    },
+    {
+      "file": "14-backend-integration.md",
+      "title": "从外部后端调用五项能力并核对交付边界",
+      "sha256": "ebfce4344cf91cffa1fe20b7b7f473f5ad4df94b9620cae067512395d29001c3",
+      "blockers": [
+        "06-complete-linear-functions-unit.md",
+        "07-scoped-curriculum-revision.md",
+        "08-lesson-adaptation.md",
+        "09-teacher-preparation.md",
+        "10-check-for-understanding.md",
+        "13-production-runtime-package.md"
+      ]
+    }
+  ]
+}

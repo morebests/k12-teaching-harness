@@ -1,0 +1,468 @@
+{
+  "status": "candidate_ready",
+  "task": "repair",
+  "started_at": "2026-09-15T02:31:07.971544+00:00",
+  "model": "gemini-3.8-flash",
+  "thinking_level": "high",
+  "temperature": 1.0,
+  "max_output_tokens": 32768,
+  "max_retries": 0,
+  "tracing": "local only",
+  "limits": {
+    "model_calls": 24,
+    "tools": 40,
+    "seconds": 1200
+  },
+  "model_calls": 22,
+  "tool_calls": 22,
+  "usage": [
+    {
+      "input_tokens": 85058,
+      "output_tokens": 473,
+      "total_tokens": 85531,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 452
+      }
+    },
+    {
+      "input_tokens": 87784,
+      "output_tokens": 3422,
+      "total_tokens": 91206,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 3284
+      }
+    },
+    {
+      "input_tokens": 91482,
+      "output_tokens": 812,
+      "total_tokens": 92294,
+      "input_token_details": {
+        "cache_read": 85939
+      },
+      "output_token_details": {
+        "reasoning": 731
+      }
+    },
+    {
+      "input_tokens": 92478,
+      "output_tokens": 7045,
+      "total_tokens": 99523,
+      "input_token_details": {
+        "cache_read": 90023
+      },
+      "output_token_details": {
+        "reasoning": 6925
+      }
+    },
+    {
+      "input_tokens": 99774,
+      "output_tokens": 3036,
+      "total_tokens": 102810,
+      "input_token_details": {
+        "cache_read": 90020
+      },
+      "output_token_details": {
+        "reasoning": 200
+      }
+    },
+    {
+      "input_tokens": 102955,
+      "output_tokens": 2662,
+      "total_tokens": 105617,
+      "input_token_details": {
+        "cache_read": 98198
+      },
+      "output_token_details": {
+        "reasoning": 498
+      }
+    },
+    {
+      "input_tokens": 105763,
+      "output_tokens": 3502,
+      "total_tokens": 109265,
+      "input_token_details": {
+        "cache_read": 102282
+      },
+      "output_token_details": {
+        "reasoning": 384
+      }
+    },
+    {
+      "input_tokens": 109407,
+      "output_tokens": 3588,
+      "total_tokens": 112995,
+      "input_token_details": {
+        "cache_read": 102277
+      },
+      "output_token_details": {
+        "reasoning": 618
+      }
+    },
+    {
+      "input_tokens": 113136,
+      "output_tokens": 2764,
+      "total_tokens": 115900,
+      "input_token_details": {
+        "cache_read": 106363
+      },
+      "output_token_details": {
+        "reasoning": 315
+      }
+    },
+    {
+      "input_tokens": 116046,
+      "output_tokens": 981,
+      "total_tokens": 117027,
+      "input_token_details": {
+        "cache_read": 110448
+      },
+      "output_token_details": {
+        "reasoning": 951
+      }
+    },
+    {
+      "input_tokens": 127276,
+      "output_tokens": 10584,
+      "total_tokens": 137860,
+      "input_token_details": {
+        "cache_read": 114543
+      },
+      "output_token_details": {
+        "reasoning": 400
+      }
+    },
+    {
+      "input_tokens": 138006,
+      "output_tokens": 396,
+      "total_tokens": 138402,
+      "input_token_details": {
+        "cache_read": 126818
+      },
+      "output_token_details": {
+        "reasoning": 364
+      }
+    },
+    {
+      "input_tokens": 142447,
+      "output_tokens": 4110,
+      "total_tokens": 146557,
+      "input_token_details": {
+        "cache_read": 134996
+      },
+      "output_token_details": {
+        "reasoning": 317
+      }
+    },
+    {
+      "input_tokens": 146700,
+      "output_tokens": 520,
+      "total_tokens": 147220,
+      "input_token_details": {
+        "cache_read": 139082
+      },
+      "output_token_details": {
+        "reasoning": 489
+      }
+    },
+    {
+      "input_tokens": 151482,
+      "output_tokens": 4185,
+      "total_tokens": 155667,
+      "input_token_details": {
+        "cache_read": 143170
+      },
+      "output_token_details": {
+        "reasoning": 114
+      }
+    },
+    {
+      "input_tokens": 155804,
+      "output_tokens": 7666,
+      "total_tokens": 163470,
+      "input_token_details": {
+        "cache_read": 151347
+      },
+      "output_token_details": {
+        "reasoning": 1122
+      }
+    },
+    {
+      "input_tokens": 163613,
+      "output_tokens": 838,
+      "total_tokens": 164451,
+      "input_token_details": {
+        "cache_read": 155438
+      },
+      "output_token_details": {
+        "reasoning": 805
+      }
+    },
+    {
+      "input_tokens": 174251,
+      "output_tokens": 10930,
+      "total_tokens": 185181,
+      "input_token_details": {
+        "cache_read": 159532
+      },
+      "output_token_details": {
+        "reasoning": 707
+      }
+    },
+    {
+      "input_tokens": 185323,
+      "output_tokens": 489,
+      "total_tokens": 185812,
+      "input_token_details": {
+        "cache_read": 171808
+      },
+      "output_token_details": {
+        "reasoning": 457
+      }
+    },
+    {
+      "input_tokens": 189556,
+      "output_tokens": 3818,
+      "total_tokens": 193374,
+      "input_token_details": {
+        "cache_read": 184076
+      },
+      "output_token_details": {
+        "reasoning": 129
+      }
+    },
+    {
+      "input_tokens": 193513,
+      "output_tokens": 7198,
+      "total_tokens": 200711,
+      "input_token_details": {
+        "cache_read": 188162
+      },
+      "output_token_details": {
+        "reasoning": 2104
+      }
+    },
+    {
+      "input_tokens": 200851,
+      "output_tokens": 894,
+      "total_tokens": 201745,
+      "input_token_details": {
+        "cache_read": 192252
+      },
+      "output_token_details": {
+        "reasoning": 279
+      }
+    }
+  ],
+  "artifacts": {
+    "upstream_blueprint_corrections.md": {
+      "version": 0,
+      "sha256": "37a005c37c0577c525c167d8c1b9307a27f63e0c61166557f03853b327cc0cdf",
+      "bytes": 6759,
+      "inherited_from": {
+        "run": "20260915T022559Z-unit",
+        "version": 1,
+        "sha256": "37a005c37c0577c525c167d8c1b9307a27f63e0c61166557f03853b327cc0cdf",
+        "bytes": 6759
+      }
+    },
+    "unit5_linear_functions_skeleton.md": {
+      "version": 1,
+      "sha256": "baa4cd794a0c0053ecd1fa0f80d3aa4ebca7d8be6b05b28d9a66e85987babb1d",
+      "bytes": 15831
+    },
+    "lesson7_reservoir_models.svg": {
+      "version": 1,
+      "sha256": "296601cd63fc178200ad453e07454462332d803b290f6bdea9f7e8ed18583e60",
+      "bytes": 6176
+    },
+    "lesson8_scaled_graphs.svg": {
+      "version": 0,
+      "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+      "bytes": 9596,
+      "inherited_from": {
+        "run": "20260915T022559Z-unit",
+        "version": 1,
+        "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+        "bytes": 9596
+      }
+    },
+    "lesson6_7_8_student_materials.md": {
+      "version": 1,
+      "sha256": "aef851df2de0ba83d3195b8a2974dbd40a2455c69feb7857d374a45645238dc7",
+      "bytes": 25083
+    },
+    "lesson6_7_8_teacher_guides.md": {
+      "version": 1,
+      "sha256": "217850bffe7564bda9a952410fff2228a3cfe55795aaba359e38b80d15994378",
+      "bytes": 31115
+    },
+    "candidate_design_and_verification_report.md": {
+      "version": 1,
+      "sha256": "967592aca85f3573089fc8f01cbd0c0b2615d8020efd4b0aba4d0ed9efe85e66",
+      "bytes": 11357
+    },
+    "probe1_slope_triangles.svg": {
+      "version": 1,
+      "sha256": "d4eb51f4225644babd399ca4323a3cf6738bff947a9e439d85017601c45ba1d1",
+      "bytes": 5850
+    },
+    "probe2_water_tank.svg": {
+      "version": 1,
+      "sha256": "7514a925838387d4d4a74c05c2e80da82c42735b10a591d037d312a3e96643aa",
+      "bytes": 4730
+    },
+    "grade8_curriculum_blueprint.md": {
+      "version": 1,
+      "sha256": "b576f943335ffb24607de1c6259d3665e60415f34b4980189faf506965f0e6c4",
+      "bytes": 39413
+    },
+    "probe_tasks_student_and_teacher.md": {
+      "version": 1,
+      "sha256": "bd5eae29a4f103f8cedc06739d8e39ee1f204e15da226da1ad87872705d062d0",
+      "bytes": 12662
+    },
+    "cfu8_snow_graph.svg": {
+      "version": 1,
+      "sha256": "b37a1809026b89354eaf3f78334f97f695d323d1ab22e457901329cea008b5e5",
+      "bytes": 5606
+    },
+    "task8_1_trap_sketch.svg": {
+      "version": 1,
+      "sha256": "b1217c715088468635f11dc7938d59f7ce2920861cb3a19a556c5f8ca6e935c5",
+      "bytes": 4386
+    },
+    "repair-report.md": {
+      "version": 1,
+      "sha256": "6315de1ea0f37b46f281b119d629c50b388df87d1754b2f2f25b13ed26236278",
+      "bytes": 19396
+    }
+  },
+  "parent_artifacts": {
+    "upstream_blueprint_corrections.md": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "37a005c37c0577c525c167d8c1b9307a27f63e0c61166557f03853b327cc0cdf",
+      "bytes": 6759
+    },
+    "unit5_linear_functions_skeleton.md": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "f8388124a01ca62df977181d07ee1660ad310079f1cd29de602cfb222d7d9dfe",
+      "bytes": 15662
+    },
+    "lesson7_reservoir_models.svg": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "edaddec06e1d9c033f2969b9ad0d992c7731e4b699f9649e7bbd278e8a55bcc3",
+      "bytes": 6153
+    },
+    "lesson8_scaled_graphs.svg": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "f0e609e956f1e52424f8c6bef56cb2e95e234fecf657465dedb026546d2780e5",
+      "bytes": 9596
+    },
+    "lesson6_7_8_student_materials.md": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "0f46338febff2cf81105cfc98b050ed882bde046c2b9445e18dd70f1f703c508",
+      "bytes": 19666
+    },
+    "lesson6_7_8_teacher_guides.md": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "2def7726999c5e024e3c5f2da6335682334463a5406b78b2f179755798f43523",
+      "bytes": 28600
+    },
+    "candidate_design_and_verification_report.md": {
+      "run": "20260915T022559Z-unit",
+      "version": 1,
+      "sha256": "5657bf81e974e7bcfba10da221a103842a63c6f77e226ec69d8b61dfcab00a2a",
+      "bytes": 11708
+    },
+    "probe1_slope_triangles.svg": {
+      "run": "20260915T021738Z-overall",
+      "original_name": "probe1_slope_triangles.svg",
+      "role": "upstream",
+      "version": 1,
+      "sha256": "3c2a14b27f5ec7552dbb52df6e60545b04edbe3ff32bde356aec2e9e403432fc",
+      "bytes": 6160
+    },
+    "probe2_water_tank.svg": {
+      "run": "20260915T021738Z-overall",
+      "original_name": "probe2_water_tank.svg",
+      "role": "upstream",
+      "version": 1,
+      "sha256": "783cc510628be8a31544627f0c1e3efbbf90c4332f187440af8b667a19c3911d",
+      "bytes": 4696
+    },
+    "grade8_curriculum_blueprint.md": {
+      "run": "20260915T021738Z-overall",
+      "original_name": "grade8_curriculum_blueprint.md",
+      "role": "upstream",
+      "version": 1,
+      "sha256": "d76ae9800345f278bac4b43b0c3e3d95d5887fbbfff0a047ddcd3b693f46283a",
+      "bytes": 38323
+    },
+    "probe_tasks_student_and_teacher.md": {
+      "run": "20260915T021738Z-overall",
+      "original_name": "probe_tasks_student_and_teacher.md",
+      "role": "upstream",
+      "version": 1,
+      "sha256": "2093f8c29e8b0acdb4c2ab62f3a94b4dcbb05e44c2f7016b12571150b2e60b10",
+      "bytes": 12566
+    }
+  },
+  "input_files": {
+    "inputs/common.md": "4da1a4fec508878bbe5635dda939c8a5f34ffca5311f5c8e93fc5f62b785799d",
+    "inputs/repair-task.md": "e57ca50c9c162a1a71982f01bbd181bd67ab5dc3cfe0f09dd8dbd0843df761cc",
+    "resources/ccss-grade8.json": "c2d192410cb5e8535729c5aef73528bcf00798d5e160b47961ef9e185c42a3dd",
+    "resources/ccss-practices.json": "75caaa1cd1ca95739b089e30c1d8930acf80e42f944b70e91c51859e3509ff2d",
+    "resources/ccss-grade8-introduction.md": "4f0cf331cc7c8d0a3842a4ce0cb306b230b72dae940dc6069dc44c41014f648f",
+    "inputs/material-review-1.md": "efe4f0c23da4fe8a69d7780f851921e4b49ae99304ea2f73a91a72ad11f60501"
+  },
+  "errors": [],
+  "quality_status": "not_externally_evaluated",
+  "tools": [
+    "lookup_knowledge",
+    "write_artifact",
+    "read_artifact",
+    "calculate",
+    "request_human",
+    "finish_candidate"
+  ],
+  "implementation_sha256": "b5d1cbfef5702c7d6b523afbb1741438dbc681b0db4231272ad64aad9731bec0",
+  "knowledge_implementation_sha256": "e9912000caef1f194fc3c377b658e8a7d7501c385a2be08da63302bb66090341",
+  "requirements_sha256": "aba794c715cea4d00642527249662a794b80b646849fb7e7b75bc62944ee1b66",
+  "evaluation_sha256": "3260d11a994f8d32aaa2cfe3c48341ee6e699a1af879cb013e91e32dd42fa443",
+  "elapsed_seconds": 321.853,
+  "delivery": {
+    "summary": "Completed comprehensive repairs addressing all seven findings from Actual-material review 1. Created cfu8_snow_graph.svg to replace the problematic ASCII sketch with an authentic coordinate graph requiring scale reading, and created task8_1_trap_sketch.svg for TASK-8.1. Reconciled PRAC-8.1 text. Removed premature rate answers from the Tank A/B SVG legend and pre-filled equations from student Task 7.3. Resolved all 58 KaTeX math rendering errors by eliminating unescaped underscores in math mode, fixed literal newline tokens in teacher diagnostic tables, and provided designated workspace boxes. Reconciled classroom resource constraints by replacing colored-pencil guidance with pencil circling/boxing, added the two-column difference bracket visual scaffold to the student sheet, and designated PRAC items as selectable/optional practice within the self-contained 50-minute lesson envelope. Calibrated evaluative claims from 'complete mastery' to current proficiency on sampled targets, and expanded diagnostic rubrics to include multi-cause interpretations. Qualified mathematical statements regarding box counting, initial altitude reference datums, percentage points per hour, and motion graph types. Directly amended grade8_curriculum_blueprint.md and repaired geometric pixel endpoint errors on probe1_slope_triangles.svg (slope exact 2.0) and probe2_water_tank.svg (slope exact 3.0), while removing answer disclosures. Documented all findings, dispositions, checks, and limitations in repair-report.md and candidate_design_and_verification_report.md.",
+    "deliverables": [
+      "repair-report.md",
+      "lesson6_7_8_student_materials.md",
+      "lesson6_7_8_teacher_guides.md",
+      "cfu8_snow_graph.svg",
+      "task8_1_trap_sketch.svg",
+      "lesson7_reservoir_models.svg",
+      "lesson8_scaled_graphs.svg",
+      "probe1_slope_triangles.svg",
+      "probe2_water_tank.svg",
+      "probe_tasks_student_and_teacher.md",
+      "unit5_linear_functions_skeleton.md",
+      "grade8_curriculum_blueprint.md",
+      "candidate_design_and_verification_report.md"
+    ],
+    "remaining_limits": [
+      "Materials are delivered in Markdown and vector SVG formats; physical pagination and multi-page print breaks have not been tested on photocopier hardware.",
+      "Lessons 1–5 and 9–18 remain articulated at the 18-period target-evidence skeleton level and have not yet been expanded into full student worksheets.",
+      "Pacing allocations (50 minutes per period) and anticipated student misconceptions are grounded in cognitive research and mathematical design, but have not undergone empirical classroom trials or student longitudinal testing."
+    ]
+  }
+}

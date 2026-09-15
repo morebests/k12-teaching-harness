@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>课程修订：什么仍然有效？｜逻辑原型</title>
+<style>
+:root{color-scheme:light;--ink:#202b2b;--muted:#5d6b69;--line:#dce3de;--accent:#246650;--soft:#edf4ef;--paper:#fff;--bg:#f5f6f2}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,-apple-system,"PingFang SC",sans-serif}main{max-width:1260px;margin:auto;padding:36px 28px 64px}h1{font-size:32px;line-height:1.3;margin:12px 0}h2{font-size:21px;margin:0 0 12px}h3{font-size:16px;margin:0 0 8px}p{margin:8px 0}small,.muted{color:var(--muted)}.eyebrow{font-size:12px;font-weight:650;letter-spacing:.12em;color:var(--accent)}.intro{max-width:950px}.note{padding:12px 16px;border-left:3px solid var(--accent);background:var(--soft)}.bar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.chip{border:1px solid var(--line);padding:6px 10px;background:white;border-radius:6px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}.panel{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:20px;min-width:0}.task{padding:12px 14px;background:#f7f8f5;margin:12px 0;border-radius:6px}.task p{margin:4px 0}.task svg{display:block;width:100%;max-width:370px;height:80px}.drawing{border:1px dashed #aab8b0;position:relative;height:72px;margin:8px 0;display:flex;align-items:center;justify-content:center;color:var(--muted)}.drawing.large{height:115px}.drawing svg{height:65px}.row{display:grid;grid-template-columns:112px 1fr;gap:10px;padding:7px 0;border-bottom:1px solid #edf0eb}.row:last-child{border:0}.row>span:first-child{color:var(--muted)}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;vertical-align:top;padding:10px 8px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:550}td:first-child{min-width:130px}button,select{font:inherit;color:inherit;background:white;border:1px solid #bacac0;border-radius:6px;padding:8px 12px;cursor:pointer}button:hover{background:var(--soft)}button:focus-visible,select:focus-visible{outline:3px solid #aac8ba;outline-offset:2px}.buttons{display:flex;flex-wrap:wrap;gap:8px}.buttons button{font-size:13px}.primary{background:var(--accent);color:white}.primary:hover{background:#194e3d}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.tabs button[aria-selected=true]{background:var(--accent);color:white;border-color:var(--accent)}.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:16px 0}.steps button{text-align:left}.steps .current{border:2px solid var(--accent)}.steps .visited::after{content:" · 已点";color:var(--muted)}.events{max-height:240px;overflow:auto;padding-left:23px}.events li{margin:6px 0}.status{font-weight:650;color:var(--accent)}details{margin:12px 0}summary{cursor:pointer;font-weight:550}#notice{position:sticky;top:0;z-index:2;box-shadow:0 2px 8px #00000008}a{color:var(--accent)}footer{margin-top:20px;font-size:13px;color:var(--muted)}@media(max-width:820px){main{padding:22px 14px}.grid{grid-template-columns:1fr}h1{font-size:26px}.panel{padding:15px}.row{grid-template-columns:94px 1fr}table{font-size:12px}th,td{padding:8px 4px}}
+</style>
+<main>
+<header class="intro"><div class="eyebrow">WAYFINDER / THROWAWAY PROTOTYPE / 2026-09-14</div><h1>课程修订：什么仍然有效？</h1>
+<p>删除一课、改变任务或更新个人支持后，能否保留有效内容，定位必须重查的部分，并在真正需要教学决定时停下来？用一个几何课程片段，检验这些状态能否同时说清。</p>
+<p><strong>这页供项目设计者走查。</strong>下方按钮模拟模型、系统和人类各自的动作。教师在实际产品中提出教学需求、回应必要取舍、查看和修改结果，不需要记住场景编号，也不需要手动运行检查或处理事件重传。</p>
+<p class="muted">这是控制逻辑演示，所有课程、检查结论、权限和教师回应均为模拟。未接入模型、真实学生数据或 Agent 后端，状态只在浏览器内存中，刷新即重置。此页面不是课程生成器，也不证明教学质量。</p></header>
+<section class="panel" style="margin:18px 0" aria-label="从需求到执行的说明">
+<h2>这页位于哪一段流程？</h2>
+<p>初次课程设计与课时展开 → <strong>已有课程 U1</strong> → 收到修改需求 → <strong>候选修改 ⇄ 检查／修复 → 必要的人类取舍 → 重新检查 → 交付</strong>。</p>
+<p>本页从预设 U1 开始，演示加粗的修订控制。自然语言入口、Context 装配、LLM 设计、真实工具及后端持久化还没有接入。按钮用预设结果代替这些工作；<strong>一个按钮不等于一次模型调用，也不等于一个 LangGraph 节点。</strong></p>
+<details><summary>展开：从“把两课压成一课”到模型与程序执行</summary>
+<ol>
+<li><strong>人提出需求：</strong>“把这两课调整成一课，只有 20 分钟，辨认和自行构造图形的目标都保留。”也可以通过表单选择这些条件。</li>
+<li><strong>Web 后端接收：</strong>连同所选课程、U1 版本、提交者和已授权范围传给 Harness。课程身份、权限与事件来源不靠模型猜。</li>
+<li><strong>Harness 装配 Context：</strong>本能力与数学规则、原始需求、U1 的实际任务／评测／Narrative、相关知识依据、时间与支持条件，以及本阶段允许的工具。</li>
+<li><strong>调用 LLM：</strong>模型根据指令和具体内容设计重排，必要时提出读取、查图或计算的工具调用；程序执行并将结果返回，模型继续。模型产出的是候选修改与依据，尚不是正式交付。</li>
+<li><strong>检查与修订：</strong>教学判断需读取实际任务；程序核对对象、版本、引用和有依据的时间约束。发现问题后先在授权内修复，确需新取舍才保存请求并停止计算。</li>
+<li><strong>人回应后继续：</strong>自然语言可由模型解释，明确选项可直接解析；程序核对回应者、请求、版本与范围，再恢复修订、检查和交付。</li>
+</ol>
+<p class="note">“删去 L2”专门模拟一个可能不合格的候选，用来检验后续能否拦住它。真实系统并不规定收到“少一课”就删除 L2，也不规定压缩课时一定失败、一定要问人。</p>
+<p><strong>Prompt 示意（尚未执行，也不是完整提示资源）：</strong>“在保留 U1 两个目标的前提下，尝试把教学安排压缩到给定时间。读取实际任务和评测，优先调整冗余；对候选给出改动、学习机会及时间依据。目标或授权外时间必须改变时，提出具体取舍，不宣称已获批准。”模型还必须取得上一条中的实际内容和工具结果，不能只收到这段文字。</p>
+</details></section>
+<div id="notice" class="note" role="status" aria-live="polite"></div>
+<div id="overview"></div>
+<section class="grid" aria-label="数学任务对照"><article class="panel" id="original"></article><article class="panel" id="candidate"></article></section>
+<section class="panel"><h2>检查是否仍适用</h2><p class="muted">每项检查保留自己的输入依据；内容版本变化不等于全部失效。下列结果由预设案例提供，不是 LLM 的判断。</p><table><thead><tr><th>检查对象</th><th>当前结论</th><th>依据与原因</th></tr></thead><tbody id="checks"></tbody></table></section>
+<section class="grid"><article class="panel" id="human"></article><article class="panel" id="context"></article></section>
+<section class="grid"><article class="panel" id="delivery"></article><article class="panel"><h2>发生了什么</h2><ol class="events" id="events"></ol><details><summary>历史内容、检查与回应</summary><div id="history"></div></details></article></section>
+<section class="panel"><h2>自由尝试</h2><p class="muted">可以任意顺序点击，包括不合法的下一步；程序会显示阻止原因。修改按钮代表模拟输入或候选动作，不把按钮标签当作真实语义检查。</p><div id="freeplay" class="buttons"></div></section>
+<section class="panel" style="margin-top:18px"><h2>开发者按场景走查</h2><p class="muted">这些场景用于检验系统如何承担复杂性，不是教师的功能菜单。选择场景会重置演示状态；下面先说明现实情况，再用按钮模拟各方动作，观察内容、检查、等待和交付。</p><div id="tabs" class="tabs" role="tablist" aria-label="走查场景"></div><div id="walkthrough" role="tabpanel"></div></section>
+<footer>设计依据：<a href="../assets/execution-structure-design.md">执行结构</a> · <a href="../assets/hitl-design.md">HITL 语义</a> · <a href="../issues/14-curriculum-state-prototype.md">原型问题与记录</a>。示例目标参考既有 1.G.A.1 研究，具体任务和时长为自编演示；不据此固定项目首个教学主题。</footer>
+</main>
+<script id="logic">
+/* THROWAWAY: deterministic scenario reducer, no DOM, I/O, real semantic checker or authority service. */
+const CurriculumDemo = (() => {
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const kinds = {math:'数学任务',opportunity:'学习机会与评测',time:'课时容量',narrative:'设计叙述',layout:'学生页版式',impact:'依赖影响范围'};
+  const current = s => s.revisions[s.revisions.length - 1];
+  const place = c => c.l2 ? 'L2' : c.moved ? 'L1' : '无';
+  const taskBasis = c => JSON.stringify([c.mode,place(c)]);
+  const requestBasis = (r,c) => r.kind === 'capacity' ? JSON.stringify([taskBasis(c),c.cap1,c.maxMinutes]) : taskBasis(c);
+  const signatures = c => ({math:JSON.stringify([c.mode,place(c)]),opportunity:JSON.stringify([c.mode,place(c)]),time:JSON.stringify([c.l2,c.moved,c.cap1,c.maxMinutes]),narrative:JSON.stringify([c.narrative,place(c),c.mode]),layout:JSON.stringify([c.l2,c.moved,c.mode,c.space]),impact:JSON.stringify([c.known,c.impactEpoch,c.l2,c.moved,c.mode])});
+  function findings(c) {
+    const has = place(c) !== '无', builds = has && c.mode === 'self', fits = (20 + (c.moved ? 10 : 0) <= c.cap1) && (20 + (has ? 10 : 0) <= c.maxMinutes);
+    return {
+      math:[true,'本案例的分类与作图题面无数学事实错误；描轮廓的目标缺口由学习机会检查报告。'],
+      opportunity:[builds,builds ? '存在自行构造、说明属性并检验的机会；与阶段评测相配。' : has ? '描轮廓提供了形状，不能作为自行构造并检验的充分学习机会。' : 'L2 被删除，构造目标仍在评测中，但没有相应学习机会。'],
+      time:[fits,fits ? '按演示给定时长可容纳任务；真实课堂可教性尚未评估。' : `L1 任务需 ${20+(c.moved?10:0)} 分钟，可用 ${c.cap1} 分钟；本次总时长上限 ${c.maxMinutes} 分钟。`],
+      narrative:[c.narrative === place(c) && builds,`设计叙述称“在 ${c.narrative} 自行构造并检验”，实际机会位于 ${place(c)}，要求为${c.mode === 'self' ? '自行构造' : '描轮廓'}。`],
+      layout:[true,'模拟版式检查已针对当前题面、作图区和课时组成运行；未渲染真实教学文件。'],
+      impact:[c.known,c.known ? '在演示限定的目标、任务、评测与 Narrative 内已核对依赖；不代表真实课程图完整。' : '已知依赖遍历不能排除未记录关系，影响范围仍未知。']
+    };
+  }
+  function checkRows(s) {
+    const sig = signatures(current(s));
+    return Object.keys(kinds).map(key => {
+      const all = s.checks.filter(x => x.key === key), last = all[all.length-1], match = all.slice().reverse().find(x => x.signature === sig[key]);
+      return {key,label:kinds[key],record:match || null,previous:last || null};
+    });
+  }
+  function initial(policy='owner') {
+    const c = {id:'U1',parent:null,reason:'初始模拟课程',l2:true,moved:false,mode:'self',space:'normal',cap1:20,maxMinutes:30,narrative:'L2',known:true,impactEpoch:1};
+    const s = {revisions:[c],adopted:'U1',scope:'course',checks:[],requests:[],responses:[],decisions:[],policy,gate:false,stop:null,remaining:20,spent:0,events:['载入模拟 U1：两课、目标和评测已形成；初始检查与旧交付均为预设。'],notice:'先看具体数学任务，再选择下方场景。',deliveries:[{object:'课程 U1',revision:'U1',scope:'course',seed:true}],learner:{version:1,adoptedEvidence:'E1',availableEvidence:'E1',support:'可口述说明，教师如实记录；保留自行构造任务。',checks:[]}};
+    const f = findings(c), sig = signatures(c);
+    for(const key of Object.keys(kinds)) s.checks.push({key,revision:c.id,signature:sig[key],pass:f[key][0],detail:f[key][1],seed:true});
+    return s;
+  }
+  function note(s,text) {s.notice=text;s.events.push(text);return s;}
+  function work(s) {
+    if(s.stop){note(s,`未启动工作：${s.stop}；旧结果和预算累计记录保留。`);return false;}
+    if(s.gate){note(s,'未启动模型工作：仍需有效教学决定；等待不消耗预算。');return false;}
+    if(s.remaining<1){s.stop='预算耗尽，本次修订未完成';note(s,s.stop);return false;}
+    s.remaining--;s.spent++;return true;
+  }
+  function revise(s,patch,reason) {
+    if(Object.entries(patch).every(([key,value])=>current(s)[key]===value))return current(s);
+    const previousBasis=taskBasis(current(s));
+    const acceptedBefore=s.decisions.some(d=>d.type==='内容接受' && !d.revoked && d.basis===previousBasis);
+    const c={...current(s),...patch,parent:current(s).id,id:`U${s.revisions.length+1}`,reason};s.revisions.push(c);
+    for(const r of s.requests) if(r.status==='待回应' && r.basis!==requestBasis(r,c)){r.status='已被实质修订取代';}
+    // Scope validity is derived; historical decisions are never rewritten as having seen this revision.
+    if(acceptedBefore && previousBasis!==taskBasis(c)) s.gate=true;
+    return c;
+  }
+  function ask(s,kind='review') {
+    const old=s.requests.find(r=>r.status==='待回应');
+    if(old){note(s,`仍在等待 ${old.id}，不新建同义请求。`);return;}
+    const c=current(s),r={id:`R${s.requests.length+1}`,version:c.id,kind,status:'待回应',basis:'',question:kind==='capacity'?'L1 已需 30 分钟，可用 20 分钟。保留两课，或授权这一课延长 10 分钟？演示回应采用后者。':'已展示实际任务：是否保留当前数学任务并继续生成？这里只请求任务决定，不表示已审阅所有页面。'};
+    r.basis=requestBasis(r,c);s.requests.push(r);s.gate=true;note(s,`已展示 ${c.id} 并保存 ${r.id}；停止计算，等待模拟回应。`);
+  }
+  const raw={approve:'接受这版数学任务，继续生成。',extend:'这一课增加 10 分钟，保留构造目标，改好直接生成。',modify:'只把作图区扩大，先看修改后的草稿。',modifyGo:'作图区扩大，改好直接生成。',withdraw:'我改主意了，暂停生成，待重新决定。',reject:'我不同意继续生成。'};
+  function response(s,action) {
+    let event;
+    if(action==='duplicate' || action==='tamper'){
+      const approvals=s.responses.filter(e=>e.action==='approve');
+      const first=approvals.filter(e=>e.result==='已采纳').slice(-1)[0]||approvals.slice(-1)[0];if(!first)return note(s,'尚无可重放的回应，请先展示并回应草稿。');
+      event={id:first.id,request:first.request,actor:first.actor,action:action==='tamper'?'reject':first.action,raw:action==='tamper'?raw.reject:first.raw};
+    } else {
+      const r=action==='stale'?s.requests[0]:s.requests[s.requests.length-1];
+      if(!r)return note(s,'没有实际展示并保存的请求，不能凭一个“同意”创建接受事实。');
+      const a=action==='stale'||action==='other'?'approve':action;
+      event={id:`E${s.responses.length+1}`,request:r.id,actor:action==='other'||action==='reject'?'乙':'甲',action:a,raw:raw[a]};
+    }
+    const prior=s.responses.find(e=>e.id===event.id);
+    if(prior) return note(s,JSON.stringify([prior.request,prior.actor,prior.action,prior.raw])===JSON.stringify([event.request,event.actor,event.action,event.raw]) ? `重复事件 ${event.id}：返回原处理记录，没有新增决定或交付。` : `事件 ${event.id} 身份冲突：同一 ID 的内容不同，拒绝覆盖原记录。`);
+    const e={...event,result:'收到'};s.responses.push(e);
+    const r=s.requests.find(x=>x.id===e.request),c=current(s);
+    if(s.policy==='owner'&&e.actor!=='甲'){e.result='无本次决定权';return note(s,'乙的回应已保留；外部模拟规则指定甲负责，未据此放行。');}
+    if(s.stop){e.result='停止后的回应，仅保留';return note(s,'收到迟到回应；运行已停止，不恢复工作、不补预算、不写成已交付。');}
+    if(['已被实质修订取代','已取消'].includes(r.status)||r.basis!==requestBasis(r,c)){e.result='旧对象，不适用于当前候选';return note(s,`回应针对 ${r.id} / ${r.version}，当前为 ${c.id} 且教学依据已变；未批准当前候选。`);}
+    if(s.policy==='missing'){e.result='缺少多人决定规则';s.gate=true;return note(s,'甲乙均可能有权，但外部尚未给决定规则；保留回应并等待规则，先到者不获优先权。');}
+    if(s.policy==='joint'){
+      const votes=s.responses.filter(x=>x.request===r.id && ['approve','reject'].includes(x.action));
+      const latest=who=>votes.filter(x=>x.actor===who).slice(-1)[0];
+      const a=latest('甲'),b=latest('乙');
+      if(a?.action==='reject'||b?.action==='reject'){
+        e.result='决定冲突';s.gate=true;r.status='存在争议';
+        for(const d of s.decisions)if(d.request===r.id)d.revoked=true;
+        return note(s,'共同决定规则下存在反对回应；争议对象暂停推进，不按先后或模型判断裁决。');
+      }
+      if(!a||!b){e.result='等待另一位决定者';s.gate=true;return note(s,'已收到一方同意；共同决定规则要求甲乙均回应，继续等待。');}
+    }
+    if(e.action==='withdraw'||e.action==='reject'){
+      for(const d of s.decisions) if(d.request===r.id)d.revoked=true;
+      e.result='新的不同意见，暂停';r.status='需重新决定';s.gate=true;return note(s,'这是新事件中的改意，不能按旧请求已处理而丢弃。后续生成暂停，历史交付保留。');
+    }
+    if(r.status==='已回应' && e.action==='approve'){e.result='同一决定的再次表达，无新动作';return note(s,'保存新的同意表达，已有同范围决定仍适用；不再触发生成。');}
+    if(e.action==='extend' && (r.kind!=='capacity'||!c.moved||c.l2)){e.result='回应与问题不匹配';return note(s,'增加课时回应不匹配当前请求，未扩大授权。');}
+    if(['modify','modifyGo'].includes(e.action) && r.kind!=='review'){e.result='回应与问题不匹配';return note(s,'版式修改回应不能替代课时容量取舍。');}
+    if(e.action==='approve' && r.kind==='capacity'){e.result='取舍未明确';return note(s,'容量问题包含两种方案，“接受”未选定方案，仍需具体取舍。');}
+    r.status='已回应';e.result='已采纳';s.gate=false;
+    if(e.action==='approve'){
+      s.decisions.push({type:'内容接受',request:r.id,version:r.version,basis:taskBasis(c),text:'接受展示过的数学任务；不包括新版页面审阅。',revoked:false});
+      s.decisions.push({type:'执行授权',request:r.id,version:r.version,basis:taskBasis(c),text:'按当前数学任务继续生成；仍需有效检查。',revoked:false});
+      return note(s,`${r.id} 回应已采纳；任务决定适用，检查及交付另行成立。`);
+    }
+    s.decisions.push({type:'执行授权',request:r.id,version:r.version,basis:taskBasis(c),text:e.raw,revoked:false});
+    if(e.action==='extend')revise(s,{cap1:30,maxMinutes:30},'模拟人类明确增加 10 分钟');
+    if(['modify','modifyGo'].includes(e.action))revise(s,{space:'large'},'模拟人类指定扩大作图区');
+    if(e.action==='modify'){ask(s);return note(s,'只修改：已扩大作图区并重新展示；继续等待生成决定。');}
+    return note(s,'明确修改后直接生成：已落实指定改动，无需重复确认；仍须修复、检查并交付。');
+  }
+  const responseActions=['approve','extend','modify','modifyGo','withdraw','reject','stale','other','duplicate','tamper'];
+  function reduce(state,action) {
+    const s=clone(state),c=current(s);
+    if(responseActions.includes(action))return response(s,action);
+    if(action==='cancel'){s.stop='用户明确取消';for(const r of s.requests)if(r.status==='待回应')r.status='已取消';return note(s,'已取消；不追加生成，已有交付仍留在历史中。');}
+    if(action==='exhaust'){s.spent+=s.remaining;s.remaining=0;s.stop='预算耗尽，本次修订未完成';return note(s,'模拟累计预算已用尽：冻结工作，保留候选、未完成检查及已有材料。');}
+    if(action==='evidence'){s.learner.availableEvidence='E2';return note(s,'外部出现模拟证据 E2；本次仍采用 E1，不自动改变支持或课程基线。');}
+    if(action==='request'||action==='capacity'){
+      if(s.stop)return note(s,'运行已经停止，不新发请求；保留当前内容及原请求。');
+      if(action==='capacity' && (!c.moved||c.l2||c.cap1>=30))return note(s,'当前不存在本场景的 L1 容量冲突，不能凭空要求增加课时。');
+      ask(s,action==='capacity'?'capacity':'review');return s;
+    }
+    if(action==='check'){
+      if(!work(s))return s;
+      const f=findings(c),sig=signatures(c);
+      for(const row of checkRows(s))if(!row.record)s.checks.push({key:row.key,revision:c.id,signature:sig[row.key],pass:f[row.key][0],detail:f[row.key][1],seed:false});
+      if(s.scope==='learner')s.learner.checks.push({version:s.learner.version,basis:taskBasis(c),evidence:s.learner.adoptedEvidence,pass:true});
+      return note(s,'已运行预设案例检查；失败结果保持失败，未受影响的检查保留来源版本。');
+    }
+    if(action==='deliver'){
+      const rows=checkRows(s),personal=s.scope==='learner',obj=personal?`学习者 A / P${s.learner.version} @ ${c.id}`:`课程 ${c.id}`;
+      if(s.stop||s.gate)return note(s,'交付被阻止：运行已停止或仍缺有效决定。旧交付不代表本次请求完成。');
+      if(rows.some(x=>!x.record?.pass))return note(s,'交付被阻止：仍有失败、失效或未知检查；不能降低标准通过。');
+      if(personal&&!s.learner.checks.some(x=>x.version===s.learner.version&&x.basis===taskBasis(c)&&x.evidence===s.learner.adoptedEvidence))return note(s,'个人适配尚未按采用的学习证据、支持和数学任务检查，不能交付。');
+      if(s.deliveries.some(x=>x.object===obj))return note(s,'本对象已有模拟交付记录，不重复生成或记账。');
+      if(!work(s))return s;
+      s.deliveries.push({object:obj,revision:c.id,scope:s.scope,seed:false});if(!personal)s.adopted=c.id;
+      return note(s,`已固定模拟交付：${obj}。${personal?'课程基线不变。':'旧版本与旧交付保留。'}这不是外部发布或真实教学包。`);
+    }
+    // External candidate changes may arrive while a human request is pending; they do not simulate a polling LLM.
+    if(s.stop)return note(s,`未修改内容：${s.stop}。`);
+    if(s.remaining<1){s.stop='预算耗尽，本次修订未完成';return note(s,s.stop);}
+    const patches={delete:{l2:false,moved:false,maxMinutes:20},move:{moved:true},trace:{mode:'trace'},restore:{mode:'self'},layout:{space:'large'},narrative:{narrative:place(c)},unknown:{known:false,impactEpoch:c.impactEpoch+1},audit:{known:true,impactEpoch:c.impactEpoch+1}};
+    const reasons={delete:'模拟删去 L2，压缩为一课且保持目标',move:'模拟将构造任务移至 L1',trace:'输入声称仅改版式，实际换成描轮廓',restore:'恢复自行构造与检验',layout:'仅扩大作图区，题面及认知任务不变',narrative:'依据当前实际机会修订设计叙述',unknown:'模拟发现依赖记录缺失',audit:'模拟补查原任务、评测与相邻课，补全本例依赖'};
+    if(action==='move' && (c.l2||c.moved))return note(s,'只在已删 L2、尚未安排构造机会时，才把该任务移入 L1。');
+    if(action==='support'){
+      if(s.learner.availableEvidence===s.learner.adoptedEvidence)return note(s,'没有待采用的新证据；不虚构学习者变化。');
+      s.remaining--;s.spent++;s.learner.version++;s.learner.adoptedEvidence=s.learner.availableEvidence;s.learner.support='保留口述作答；教师逐句读题并留出回应时间，仍由学生自行构造及说明。';s.scope='learner';
+      return note(s,'采用模拟 E2，为学习者 A 形成 P2 支持。未推断新诊断、未撤掉口述支持，课程基线不变。');
+    }
+    if(!patches[action])return note(s,'本原型未实现此动作。');
+    if(Object.entries(patches[action]).every(([key,value])=>c[key]===value))return note(s,'没有新的内容变化，不生成空修订或消耗预算。');
+    s.remaining--;s.spent++;revise(s,patches[action],reasons[action]);return note(s,`${current(s).id}：${reasons[action]}。旧内容与检查保留，适用性重新计算。`);
+  }
+  function status(s) {
+    if(s.stop)return s.stop;
+    if(s.gate)return '等待有效教学决定，已停止计算';
+    const object=s.scope==='learner'?`学习者 A / P${s.learner.version} @ ${current(s).id}`:`课程 ${current(s).id}`;
+    return s.deliveries.some(d=>d.object===object&&!d.seed)?'本次范围已模拟交付；可发起新修订':'可继续设计／检查；交付另行判定';
+  }
+  return {initial,reduce,current,checkRows,place,taskBasis,status};
+})();
+</script>
+<script id="view">
+const D=CurriculumDemo;
+const labels={delete:'删去唯一构造课 L2',move:'把构造任务移入 L1',capacity:'呈现容量冲突并等待',extend:'模拟回应：加时后直接生成',narrative:'同步设计叙述',trace:'把自行构造改成描轮廓',restore:'恢复自行构造',layout:'只扩大作图区',request:'呈现任务，等待生成决定',approve:'模拟甲：接受并继续',modify:'模拟甲：只修改，先看草稿',modifyGo:'模拟甲：修改后直接生成',stale:'送达最初请求的同意',duplicate:'重放同一回应事件',tamper:'同一事件 ID 换成不同内容',withdraw:'模拟甲改意：暂停生成',other:'模拟乙：同意生成',reject:'模拟乙：反对生成',unknown:'模拟发现依赖缺失',audit:'模拟完成影响范围补查',evidence:'模拟外部证据更新 E2',support:'采用 E2，更新个人支持',check:'运行模拟检查',deliver:'尝试固定交付',exhaust:'模拟累计预算耗尽',cancel:'模拟明确取消'};
+const scenarios=[
+ {name:'删课与容量',text:'删除唯一构造机会后，仅把目标挂回邻课不够。任务移入 L1 将需要 30 分钟；明确加时授权之后，还需同步 Narrative 并重查。',steps:['delete','check','move','check','capacity','extend','narrative','check','deliver'],expect:'预期：一课 30 分钟、仍由学生自行构造；新版本交付，U1 保留。'},
+ {name:'描轮廓的陷阱',text:'改动自称“版式优化”，实际把自行构造换成描轮廓。检查器在这里使用预设发现；真实 LLM 能否发现这一点是后续质量验证问题。',steps:['trace','check','deliver','restore','check','deliver'],expect:'预期：描轮廓版本无法兑现构造目标；恢复原任务后才能继续。'},
+ {name:'只改作图区',text:'先展示任务，再扩大作图区，随后收到原请求的同意。任务决定仍可适用，但不代表人审阅过新版页面。',steps:['request','layout','approve','deliver','check','deliver'],expect:'预期：数学任务检查和决定可复用；新版式未检查前不可交付。'},
+ {name:'只改／改后生成',text:'“只修改，先看草稿”保留等待；下一次“修改后直接生成”已有执行授权，不再要求确认同一个修改。',steps:['request','modify','deliver','modifyGo','check','deliver'],expect:'预期：两种自然语言意图在原型中以预设事件区分；没有把执行授权写成内容接受。'},
+ {name:'单个学习者',text:'采用一个虚构学习者的新证据，只修改其读题支持；保留口述支持和共同数学目标。外部数据到达与本次采用分开。',steps:['evidence','support','deliver','check','deliver'],expect:'预期：交付个人适配 P2，课程仍为 U1；E2 不是模型新诊断。'},
+ {name:'旧版与重复',text:'语义改变后，旧同意不能批准新任务。重新呈现并决定后，同事件重传不重复执行；新的改意不能被当成重复丢弃。',steps:['request','trace','stale','request','approve','duplicate','tamper','withdraw','deliver'],expect:'预期：旧回应和身份冲突均有记录；新改意暂停后续生成。'},
+ {name:'多人规则缺失',policy:'missing',text:'外部告知甲乙都可能参与，但未明确谁有最终决定权。程序不把先到的同意当作解决规则的依据。',steps:['request','approve','other','deliver'],expect:'预期：保留两次真实含义不同的事件，仍等待外部决定规则。'},
+ {name:'共同决定冲突',policy:'joint',text:'外部明确甲乙共同决定；甲先同意，乙反对。不能因第一条同意已到达就忽略后一条不同意见。',steps:['request','approve','reject','deliver'],expect:'预期：缺一方时继续等待；冲突出现时暂停争议对象。'},
+ {name:'依赖未知',text:'依赖记录不完整时，遍历没有命中不构成无影响证据。补查也只是本例的模拟输入。',steps:['unknown','check','deliver','audit','check','deliver'],expect:'预期：未知影响阻止交付，不能通过“没有依赖”自动放行。'},
+ {name:'耗尽与迟到',text:'候选页面已变、仍待决定和版式检查时，累计预算耗尽。迟到同意既不补预算，也不把旧包变成本次完成。',steps:['request','layout','exhaust','approve','check','deliver'],expect:'预期：保留未完成 U2、U1 历史交付和迟到回应，计算保持停止。'},
+ {name:'取消后回应',text:'明确取消后不追加工作。已经展示的请求及以后到达的回应仍有可追溯对象。',steps:['request','cancel','approve','deliver'],expect:'预期：不以迟到的同意恢复取消任务；原交付不被抹掉。'}
+];
+const scenarioContexts=[
+ ['压缩课时','课程负责人要求“少上一课，目标保持”。','仅在目标和时间确实无法兼顾时，回答具体取舍；不需要自己移动目标链接。','尝试重排实际任务、核对容量、更新 Narrative，并重查。'],
+ ['修改学生任务','教师建议“让学生描线，比自己画简单”。','看见这一改动会失去什么数学工作；需要改变目标时，由有权者作决定。','发现认知要求变化，在目标不变的范围内修订或提供替代支持，不能按“版式”标签放行。'],
+ ['放大作答空间','教师已要求先看任务草稿，随后提出“作图区大一点”。','提出修改即可；已有任务决定仍适用时，不必重复认可同一数学任务。','保留任务与决定，只重新检查受影响的页面。'],
+ ['表达不同后续意图','教师说“改好先给我看”，或“按这个改，直接生成”。','像正常协作一样表达下一步想做什么，无需选择内部状态。','区分继续审阅与允许生成，保留具体指令及范围。'],
+ ['为一个学生调整支持','外部学习证据更新：学生 A 需要读题支持。','按任务需要提供或审阅支持意见，不必手动处理证据版本。','核对并采用本次证据，保留已有口述支持与共同目标，只更新个人适配。'],
+ ['迟到回复或重复提交','教师回复了旧草稿，或网络重试送来了同一次回复。','通常无额外操作；旧决定已不适用且仍需决定时，只看实际差异再回应。','识别原对象与重复事件；保留不同的新意见，避免重复执行。'],
+ ['没有确定负责人','外部学校流程未说明这次由谁作最终决定。','由外部产品向课程负责人或管理员补齐责任安排，不让任课教师理解事件规则。','暂停相关放行并报告缺项，不能把先回复的人当作负责人。'],
+ ['协作者意见冲突','已确定共同决定，两个有权参与者给出相反意见。','只处理有争议的具体内容；按学校既定责任安排解决。','保留双方意见并遵守外部决定规则，不让模型自行投票裁决。'],
+ ['课程依赖记录有缺口','修订时发现本课程自己的跨课依赖未记全，无法判断后课是否受影响。','通常不用参与；无法自行补查且涉及教学取舍时，才看具体问题。','查知识依据及相邻课实际任务，补充影响证据并重查；不是让教师点击“补全依赖”。'],
+ ['生成任务停止','本次计算额度用尽，此时才收到先前请求的回复。','看见已完成、未完成和后续选项，不把停算提示当作教学批准。','保留工作；额度和恢复按外部有效配置或授权处理，迟到回复不会自动补预算。'],
+ ['取消本次工作','用户说“取消，这次不用继续了”，之后旧回复才送达。','取消即可，无需另外撤销每一个内部请求。','停止后续动作，保留历史，旧回复不把已取消任务重新启动。']
+];
+const technicalSteps={
+ delete:['模型提出候选后，程序保存','模型依据完整需求和 U1 设计候选；程序核对变更范围，保存新版本并分析检查适用性。这里特意演示删去唯一构造课的失败候选。','reduce(state, "delete") 直接将 l2 设为 false，将本例总时长上限设为 20，经 revise() 保存 U2；未理解自然语言或生成教学内容。'],
+ move:['模型针对检查发现提出修订','模型读到构造机会缺失后，尝试把实际任务安排进 L1；程序保存内容与引用。是否可教、怎样安排仍需判断和检查。','reduce(state, "move") 将 moved 设为 true；页面模板把原构造题显示到 L1，未调用生成模型。'],
+ check:['Harness 按阶段发起检查','装配当前实际内容和适用检查规则；模型／工具完成语义与数学检查，程序完成确定性校验并记录证据。教学时长需有课堂依据，不能只算数字。','reduce(state, "check") 调用预设 findings()，按输入签名写入检查记录；20／10 分钟及教学发现均为演示给定值。'],
+ capacity:['模型提出必要取舍，程序核验并等待','在授权内的合理修订仍不能满足约束时，形成有内容、有代价的选项。程序保存展示快照与请求，停止当前计算，由 Web 产品呈现。','reduce(state, "capacity") 调用 ask()，写入模拟 R1 并设置 gate；没有数据库、通知或后台等待进程。'],
+ extend:['有权课程负责人真实提交回应','产品提交原始回应、请求与展示版本。自由文本可由 LLM 解释；程序验证权限、对象与范围后采用加时授权，恢复修订。','reduce(state, "extend") 使用写死的“增加 10 分钟”模拟回应，response() 校验本例对象后更新 cap1／maxMinutes；没有调用 LLM。'],
+ narrative:['模型继续修订相关内容','按照已明确的加时授权和新课时安排，重写相关 Narrative、教师指导及材料，保留未变化内容；同一次已明确取舍不再询问。','reduce(state, "narrative") 将 narrative 指向当前构造机会位置；页面使用固定文本模板，未生成真实教案。'],
+ deliver:['程序判断交付条件并固定结果','核对本次全部产物、当前检查、必要决定和运行状态；固定可追溯交付清单，返回产品。模型说“完成”不直接产生交付事实。','reduce(state, "deliver") 检查停止、等待及当前检查，在内存 deliveries 中追加记录并更新采用版本；没有文件制作或发布。']
+};
+let state=D.initial(),selected=0,visited=[],lastAction=null;
+const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const row=(label,value)=>`<div class="row"><span>${label}</span><span>${value}</span></div>`;
+function explainAction(){
+ if(!lastAction)return '<div class="task" id="technical-step"><h3>当前从哪里开始</h3><p>已有 U1 是预设起点，前面的需求提交和模型设计尚未运行。点击步骤后，这里会区分计划中的真实技术操作与本页实际执行的代码。</p></div>';
+ const info=technicalSteps[lastAction];
+ return `<div class="task" id="technical-step"><h3>刚才的“${labels[lastAction]}”代表什么</h3>${info?row('真实触发者',esc(info[0]))+row('计划中的操作',esc(info[1]))+row('本页实际代码',esc(info[2])):row('本页实际代码',`按钮发出预设动作 ${esc(lastAction)}，由 reduce() 更新内存状态并重绘。没有模型、网络提交或真实人类事件；本场景的实际参与者见上方说明。`)}<small>上面解释动作意图；动作是否被允许、实际结果及阻止原因，以本次“发生了什么”的记录为准。</small></div>`;
+}
+function figures(){return `<svg viewBox="0 0 370 80" role="img" aria-label="五个供学生分类的图形：A 三条直边闭合，B 旋转的三条直边闭合，C 三条边但未闭合，D 含一条曲边的闭合图形，E 四条直边闭合"><g fill="none" stroke="#334e41" stroke-width="2"><path d="M10 52 L34 10 L58 52 Z"/><path d="M82 14 L126 27 L92 54 Z"/><path d="M150 53 L168 12 L190 53 L163 53"/><path d="M214 53 L237 12 Q274 40 259 53 Z"/><path d="M289 53 L297 14 L340 14 L349 53 Z"/></g><g font-size="11" fill="#334e41"><text x="30" y="74">A</text><text x="99" y="74">B</text><text x="165" y="74">C</text><text x="233" y="74">D</text><text x="315" y="74">E</text></g></svg>`;}
+function course(c,title){const where=D.place(c);return `<h2>${title} · ${c.id}</h2><p class="muted">${esc(c.reason)}</p><p><strong>目标：</strong>依据属性辨认三角形；自行构造并检验。</p><div class="task"><h3>L1 · 哪些是三角形？</h3>${figures()}<p>选出所有三角形，解释为什么。朝向改变后，你的判断会改变吗？</p><small>演示预计：比较、解释与讨论 20 分钟。</small></div>${where!=='无'?`<div class="task"><h3>${where} · ${c.mode==='self'?'自己构造并检验':'沿轮廓描画'}</h3><p>${c.mode==='self'?'在空白处画一个三角形。说明你怎样确保它是三角形，再检验自己的图。':'沿给定三角形轮廓描一遍。描完后说出图形名称。'}</p><div class="drawing ${c.space==='large'?'large':''}">${c.mode==='trace'?'<svg viewBox="0 0 200 65" role="img" aria-label="供描画的三角形轮廓"><path d="M55 54 L100 6 L145 54 Z" fill="none" stroke="#7b8e82" stroke-width="2"/></svg>':'学生作图区 · 无预置轮廓'}</div><small>演示预计 10 分钟；空间：${c.space==='large'?'已扩大':'原大小'}。</small></div>`:'<div class="task"><strong>L2 已删除。</strong><p>当前没有构造活动，构造目标与评测仍保留。</p></div>'}<p><strong>阶段评测：</strong>自行画出一个朝向不同的三角形，依据边和封闭性说明理由。</p><p><strong>Narrative：</strong>比较不同外观后，在 ${c.narrative} 通过自行构造及检验巩固属性判断。</p><p class="muted">L1 可用 ${c.cap1} 分钟 · 本次总时长上限 ${c.maxMinutes} 分钟 · ${c.l2?'两课':'一课'}</p>`;}
+function render(){const s=state,c=D.current(s),pending=s.requests.slice(-1)[0];
+ document.getElementById('notice').textContent=s.notice;
+ document.getElementById('overview').innerHTML=`<div class="bar"><span class="chip status">${esc(D.status(s))}</span><span class="chip">当前候选 ${c.id} · 已采用课程 ${s.adopted}</span><span class="chip">演示预算余 ${s.remaining} / 20 · 累计 ${s.spent}</span></div><small>额度和动作消耗仅为演示；不对应生产调用次数、时长或费用。外部回应的确定性修改不模拟 LLM 消耗。</small>`;
+ document.getElementById('original').innerHTML=course(s.revisions[0],'原始课程（保留）');
+ document.getElementById('candidate').innerHTML=course(c,'当前候选');
+ document.getElementById('checks').innerHTML=D.checkRows(s).map(x=>`<tr><td>${x.label}</td><td><strong>${!x.record?'待重查':x.record.pass?'通过（模拟）':'失败（模拟）'}</strong><br><small>${x.record?`${x.record.revision}${x.record.revision!==c.id?' 的结果仍适用':''}`:x.previous?`${x.previous.revision} 检查不覆盖本次输入`:'无检查'}</small></td><td>${esc(x.record?.detail||'相关输入已变化，需要针对当前内容取得检查证据。')}</td></tr>`).join('');
+ const valid=s.decisions.filter(d=>!d.revoked&&d.basis===D.taskBasis(c));
+ const lastResponse=pending?s.responses.filter(e=>e.request===pending.id).slice(-1)[0]:null;
+ const requestState=s.stop?'请求留作记录，本轮已停止':lastResponse?.result==='缺少多人决定规则'?'已有回应，等待外部决定规则':lastResponse?.result==='等待另一位决定者'?'已有一方回应，等待另一位决定者':pending?.status;
+ const waitText=s.stop?'本轮已停止；保留未满足条件，不等待自动恢复':s.gate?(s.policy==='missing'&&lastResponse?'等待外部决定规则；已有回应保留':'仍需有效决定；不消耗等待预算'):'当前没有必须等待的决定';
+ document.getElementById('human').innerHTML=`<h2>人类请求与决定（模拟）</h2>${row('决定规则',s.policy==='owner'?'外部指定甲负责本次决定':s.policy==='joint'?'外部要求甲乙共同决定':'甲乙可能有权，外部未给最终规则')}${row('当前等待',waitText)}${pending?row('最近请求',`${pending.id} · 展示 ${pending.version} · ${requestState}<p>${esc(pending.question)}</p>`):row('最近请求','无；初始范围允许在目标和时长内设计')}<h3 style="margin-top:14px">当前适用的决定</h3>${valid.length?valid.map(d=>`<p><strong>${d.type}</strong> · 原对象 ${d.version}<br>${esc(d.text)}</p>`).join(''):'<p class="muted">没有已记录且适用于当前任务的人类接受。初始设计授权仍有自己的范围。</p>'}<small>点击演示按钮不是本项目的真实教师批准。自然语言解释与外部权限均为固定案例。</small>`;
+ const l=s.learner,lc=l.checks.find(x=>x.version===l.version&&x.basis===D.taskBasis(c)&&x.evidence===l.adoptedEvidence);
+ document.getElementById('context').innerHTML=`<h2>本次使用的 Context</h2>${row('能力与目的','独立数学课程片段修订；保持辨认、构造及检验目标')}${row('内容依据',`${c.id} 的实际题面、L1 / L2 安排、阶段评测和 Narrative；未用主题摘要替代`)}${row('知识依据','既有 1.G.A.1 研究作为目标背景；本页无 LC 查询。关系和检查为演示案例，不虚构图节点 ID。')}${row('依赖范围',(c.known?'本例目标 → 构造机会 → 阶段评测；Narrative 依赖实际安排':'存在缺失：影响未知，不能声称全范围无影响')+`<br>本例影响依据 I${c.impactEpoch}`)}${row('学生可见内容','上方题面、图形及图形文字说明；没有额外答案键。本页未运行隔离读题。')}${row('学习者 A',`虚构个人实例 · P${l.version}<br>可用证据 ${l.availableEvidence}；本次采用 ${l.adoptedEvidence}<p>${esc(l.support)}</p>${s.scope==='learner'?`个人检查：${lc?'通过（模拟）':'待检查'}`:'尚无本次个人适配请求'}`)}<small>共同建模结构＋个人证据／状态；不是把所有因素表示成掌握率。E2 仅模拟新增读题支持需要。</small>`;
+ document.getElementById('delivery').innerHTML=`<h2>交付与未完成事项</h2>${row('本次对象',s.scope==='learner'?`学习者 A 的 P${l.version}，依据 ${c.id}`:`课程候选 ${c.id}`)}${row('候选检查',D.checkRows(s).filter(x=>!x.record?.pass).map(x=>x.label).join('、')||'课程范围无未通过检查（模拟）')}${row('个人检查',s.scope==='learner'?(lc?'当前个人支持已模拟检查':'当前支持仍待检查'):'不适用')}${row('停止／等待',s.stop||(s.gate?'等待决定；已有内容可审阅':'无'))}<h3 style="margin-top:14px">不可变的交付记录</h3>${s.deliveries.map(d=>`<p>${esc(d.object)} · ${d.seed?'初始预设旧交付':'本次模拟交付'}</p>`).join('')}<small>交付记录只演示状态，没有生成外部教学文件。旧包存在不等于当前修订已完成。</small>`;
+ document.getElementById('events').innerHTML=s.events.slice().reverse().map(e=>`<li>${esc(e)}</li>`).join('');
+ document.getElementById('history').innerHTML=`<h3>内容快照</h3>${s.revisions.map(v=>`<details><summary>${v.id} ← ${v.parent||'初始'} · ${esc(v.reason)}</summary>${course(v,'历史内容')}</details>`).join('')}<h3>原始模拟回应</h3>${s.responses.map(e=>`<p>${e.id} / ${e.request} / ${e.actor}：“${esc(e.raw)}”<br>${esc(e.result)}</p>`).join('')||'<p>尚无回应</p>'}<h3>全部决定</h3>${s.decisions.map(d=>`<p>${d.type} · ${d.version} · ${d.revoked?'已撤回':d.basis===D.taskBasis(c)?'适用':'教学依据改变，不适用'}<br>${esc(d.text)}</p>`).join('')||'<p>尚无决定</p>'}<h3>全部检查记录</h3>${s.checks.map(x=>`<p>${x.revision} · ${esc(x.key)} · ${x.pass?'通过':'失败'}（模拟）</p>`).join('')}`;
+ const real=scenarioContexts[selected];
+ document.getElementById('walkthrough').innerHTML=`<h3>${real[0]}</h3>${row('现实情况',real[1])}${row('人怎样参与',real[2])}${row('系统负责',real[3])}<p>${scenarios[selected].text}</p><small>以下按钮是开发者模拟步骤，包含各方动作，不是教师要依次执行的流程。</small><div class="steps">${scenarios[selected].steps.map((a,i)=>`<button data-step="${i}" class="${visited.includes(i)?'visited':visited.length===i?'current':''}">${i+1}. ${labels[a]}</button>`).join('')}</div>${explainAction()}<p class="note">${scenarios[selected].expect}</p><button data-reset>重置当前场景</button>`;
+ document.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>{const i=Number(b.dataset.step);lastAction=scenarios[selected].steps[i];state=D.reduce(state,lastAction);if(!visited.includes(i))visited.push(i);render();});
+ document.querySelector('[data-reset]').onclick=()=>select(selected);
+}
+function select(i){selected=i;visited=[];lastAction=null;state=D.initial(scenarios[i].policy||'owner');document.querySelectorAll('[data-scenario]').forEach(b=>b.setAttribute('aria-selected',String(Number(b.dataset.scenario)===i)));render();}
+document.getElementById('freeplay').innerHTML=Object.entries(labels).map(([a,label])=>`<button data-action="${a}">${label}</button>`).join('');
+document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{lastAction=b.dataset.action;state=D.reduce(state,lastAction);render();});
+document.getElementById('tabs').innerHTML=scenarios.map((s,i)=>`<button role="tab" data-scenario="${i}" aria-selected="${i===0}">${i+1}. ${s.name}</button>`).join('');
+document.querySelectorAll('[data-scenario]').forEach(b=>b.onclick=()=>select(Number(b.dataset.scenario)));
+render();
+</script>
+</html>

@@ -1,0 +1,2585 @@
+{
+  "scope": "actual LangSmith SDK HTTP serialization into a local recorder; no LangSmith backend",
+  "results": [
+    {
+      "case": "capture",
+      "http_status": 200,
+      "phase": "runtime_probe_complete",
+      "task_id": "capture",
+      "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+      "artifact_hashes": {
+        "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+        "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+      },
+      "delivery_exists": true
+    },
+    {
+      "case": "unavailable",
+      "http_status": 503,
+      "phase": "runtime_probe_complete",
+      "task_id": "unavailable",
+      "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+      "artifact_hashes": {
+        "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+        "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+      },
+      "delivery_exists": true
+    }
+  ],
+  "request_count": 56,
+  "run_types": [
+    "chain",
+    "llm",
+    "tool"
+  ],
+  "private_canary_absent": true,
+  "inputs_hidden": true,
+  "metadata_allowlist": [
+    "request_snapshot",
+    "task_id",
+    "thread_id"
+  ],
+  "correlated_runs": 14,
+  "payloads": [
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "start_time": "2026-09-15T03:29:13.878948+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.878948+00:00"
+          }
+        ],
+        "tags": [],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "LangGraph",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92a9-7110-a82a-28be9b0225f4",
+        "start_time": "2026-09-15T03:29:13.897384+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.897384+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "tags": [
+          "graph:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913897384Z01a0a31c-92a9-7110-a82a-28be9b0225f4",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "propose",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92a9-7110-a82a-28be9b0225f4",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92a9-7110-a82a-28be9b0225f4",
+        "name": "propose",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913897384Z01a0a31c-92a9-7110-a82a-28be9b0225f4",
+        "tags": [
+          "graph:step:1"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.897384+00:00",
+        "end_time": "2026-09-15T03:29:13.901372+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.897384+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.901372+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92ae-7d81-8ecc-ae98376b4d8b",
+        "start_time": "2026-09-15T03:29:13.902721+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.902721+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "tags": [
+          "graph:step:2"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913902721Z01a0a31c-92ae-7d81-8ecc-ae98376b4d8b",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "await_focus",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92ae-7d81-8ecc-ae98376b4d8b",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92ae-7d81-8ecc-ae98376b4d8b",
+        "name": "await_focus",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913902721Z01a0a31c-92ae-7d81-8ecc-ae98376b4d8b",
+        "tags": [
+          "graph:step:2"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.902721+00:00",
+        "end_time": "2026-09-15T03:29:13.904334+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.902721+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.904334+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92b1-76e2-a9e1-c4e92ac5137d",
+        "start_time": "2026-09-15T03:29:13.905663+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.905663+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "tags": [
+          "graph:step:3"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "build",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92b7-7222-a055-34b4391f444e",
+        "start_time": "2026-09-15T03:29:13.911636+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.911636+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92b1-76e2-a9e1-c4e92ac5137d",
+        "tags": [
+          "seq:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "LangGraph",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92b9-7150-b43c-4caeddaa7927",
+        "start_time": "2026-09-15T03:29:13.913683+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.913683+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92b7-7222-a055-34b4391f444e",
+        "tags": [
+          "graph:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913913683Z01a0a31c-92b9-7150-b43c-4caeddaa7927",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "model",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92ba-7182-a49f-ff258f22ca40",
+        "start_time": "2026-09-15T03:29:13.914773+00:00",
+        "extra": {
+          "invocation_params": {
+            "_type": "fixed-runtime-fixture",
+            "stop": null
+          },
+          "options": {
+            "stop": null
+          },
+          "batch_size": 1,
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "serialized": {
+          "lc": 1,
+          "type": "not_implemented",
+          "id": [
+            "runtime_prototype",
+            "FixedToolModel"
+          ],
+          "repr": "FixedToolModel(metadata={'lc_versions': {'langchain-core': '1.6.3', 'langchain': '1.4.0'}}, focus='rate', work='/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032913870963Z-trace', task='capture')",
+          "name": "FixedToolModel"
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.914773+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92b9-7150-b43c-4caeddaa7927",
+        "tags": [
+          "seq:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913913683Z01a0a31c-92b9-7150-b43c-4caeddaa7927.20260915T032913914773Z01a0a31c-92ba-7182-a49f-ff258f22ca40",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "FixedToolModel",
+        "inputs": {},
+        "run_type": "llm"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92ba-7182-a49f-ff258f22ca40",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92ba-7182-a49f-ff258f22ca40",
+        "name": "FixedToolModel",
+        "run_type": "llm",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-92b9-7150-b43c-4caeddaa7927",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913913683Z01a0a31c-92b9-7150-b43c-4caeddaa7927.20260915T032913914773Z01a0a31c-92ba-7182-a49f-ff258f22ca40",
+        "tags": [
+          "seq:step:1"
+        ],
+        "extra": {
+          "invocation_params": {
+            "_type": "fixed-runtime-fixture",
+            "stop": null
+          },
+          "options": {
+            "stop": null
+          },
+          "batch_size": 1,
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          },
+          "tool_call_count": 1
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.914773+00:00",
+        "end_time": "2026-09-15T03:29:13.917051+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.914773+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.917051+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92b9-7150-b43c-4caeddaa7927",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92b9-7150-b43c-4caeddaa7927",
+        "name": "model",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-92b7-7222-a055-34b4391f444e",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913913683Z01a0a31c-92b9-7150-b43c-4caeddaa7927",
+        "tags": [
+          "graph:step:1"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.913683+00:00",
+        "end_time": "2026-09-15T03:29:13.918175+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.913683+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.918175+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92bf-7a41-a746-26f3e32a1707",
+        "start_time": "2026-09-15T03:29:13.919699+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.919699+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92b7-7222-a055-34b4391f444e",
+        "tags": [
+          "graph:step:2"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913919699Z01a0a31c-92bf-7a41-a746-26f3e32a1707",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "tools",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92c0-7fa1-85ef-878e27f4dd02",
+        "start_time": "2026-09-15T03:29:13.920955+00:00",
+        "extra": {
+          "color": "green",
+          "tool_call_id": "fixed-calculation",
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.920955+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92bf-7a41-a746-26f3e32a1707",
+        "tags": [
+          "seq:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913919699Z01a0a31c-92bf-7a41-a746-26f3e32a1707.20260915T032913920955Z01a0a31c-92c0-7fa1-85ef-878e27f4dd02",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "check_arithmetic",
+        "inputs": {},
+        "run_type": "tool"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92c0-7fa1-85ef-878e27f4dd02",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92c0-7fa1-85ef-878e27f4dd02",
+        "name": "check_arithmetic",
+        "run_type": "tool",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-92bf-7a41-a746-26f3e32a1707",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913919699Z01a0a31c-92bf-7a41-a746-26f3e32a1707.20260915T032913920955Z01a0a31c-92c0-7fa1-85ef-878e27f4dd02",
+        "tags": [
+          "seq:step:1"
+        ],
+        "extra": {
+          "color": "green",
+          "tool_call_id": "fixed-calculation",
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.920955+00:00",
+        "end_time": "2026-09-15T03:29:13.925110+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.920955+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.925110+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92bf-7a41-a746-26f3e32a1707",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92bf-7a41-a746-26f3e32a1707",
+        "name": "tools",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-92b7-7222-a055-34b4391f444e",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913919699Z01a0a31c-92bf-7a41-a746-26f3e32a1707",
+        "tags": [
+          "graph:step:2"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.919699+00:00",
+        "end_time": "2026-09-15T03:29:13.926094+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.919699+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.926094+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92c7-7db0-bafb-0840ef02c444",
+        "start_time": "2026-09-15T03:29:13.927418+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.927418+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92b7-7222-a055-34b4391f444e",
+        "tags": [
+          "graph:step:3"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913927418Z01a0a31c-92c7-7db0-bafb-0840ef02c444",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "model",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92c8-71d2-bde1-01b007868a0e",
+        "start_time": "2026-09-15T03:29:13.928257+00:00",
+        "extra": {
+          "invocation_params": {
+            "_type": "fixed-runtime-fixture",
+            "stop": null
+          },
+          "options": {
+            "stop": null
+          },
+          "batch_size": 1,
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "serialized": {
+          "lc": 1,
+          "type": "not_implemented",
+          "id": [
+            "runtime_prototype",
+            "FixedToolModel"
+          ],
+          "repr": "FixedToolModel(metadata={'lc_versions': {'langchain-core': '1.6.3', 'langchain': '1.4.0'}}, focus='rate', work='/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032913870963Z-trace', task='capture')",
+          "name": "FixedToolModel"
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.928257+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92c7-7db0-bafb-0840ef02c444",
+        "tags": [
+          "seq:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913927418Z01a0a31c-92c7-7db0-bafb-0840ef02c444.20260915T032913928257Z01a0a31c-92c8-71d2-bde1-01b007868a0e",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "FixedToolModel",
+        "inputs": {},
+        "run_type": "llm"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92c8-71d2-bde1-01b007868a0e",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92c8-71d2-bde1-01b007868a0e",
+        "name": "FixedToolModel",
+        "run_type": "llm",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-92c7-7db0-bafb-0840ef02c444",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913927418Z01a0a31c-92c7-7db0-bafb-0840ef02c444.20260915T032913928257Z01a0a31c-92c8-71d2-bde1-01b007868a0e",
+        "tags": [
+          "seq:step:1"
+        ],
+        "extra": {
+          "invocation_params": {
+            "_type": "fixed-runtime-fixture",
+            "stop": null
+          },
+          "options": {
+            "stop": null
+          },
+          "batch_size": 1,
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.928257+00:00",
+        "end_time": "2026-09-15T03:29:13.929762+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.928257+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.929762+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92c7-7db0-bafb-0840ef02c444",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92c7-7db0-bafb-0840ef02c444",
+        "name": "model",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-92b7-7222-a055-34b4391f444e",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e.20260915T032913927418Z01a0a31c-92c7-7db0-bafb-0840ef02c444",
+        "tags": [
+          "graph:step:3"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.927418+00:00",
+        "end_time": "2026-09-15T03:29:13.930643+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.927418+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.930643+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92b7-7222-a055-34b4391f444e",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92b7-7222-a055-34b4391f444e",
+        "name": "LangGraph",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-92b1-76e2-a9e1-c4e92ac5137d",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d.20260915T032913911636Z01a0a31c-92b7-7222-a055-34b4391f444e",
+        "tags": [
+          "seq:step:1"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.911636+00:00",
+        "end_time": "2026-09-15T03:29:13.931888+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.911636+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.931888+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92b1-76e2-a9e1-c4e92ac5137d",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92b1-76e2-a9e1-c4e92ac5137d",
+        "name": "build",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913905663Z01a0a31c-92b1-76e2-a9e1-c4e92ac5137d",
+        "tags": [
+          "graph:step:3"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.905663+00:00",
+        "end_time": "2026-09-15T03:29:13.932566+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.905663+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.932566+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92cd-7473-88e1-eb336a92fcef",
+        "start_time": "2026-09-15T03:29:13.933679+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.933679+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "tags": [
+          "graph:step:4"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913933679Z01a0a31c-92cd-7473-88e1-eb336a92fcef",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "write_pair",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92cd-7473-88e1-eb336a92fcef",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92cd-7473-88e1-eb336a92fcef",
+        "name": "write_pair",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913933679Z01a0a31c-92cd-7473-88e1-eb336a92fcef",
+        "tags": [
+          "graph:step:4"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.933679+00:00",
+        "end_time": "2026-09-15T03:29:13.935865+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.933679+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.935865+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92d0-7d12-9cf8-cb7c2fe035d4",
+        "start_time": "2026-09-15T03:29:13.936967+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.936967+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "tags": [
+          "graph:step:5"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913936967Z01a0a31c-92d0-7d12-9cf8-cb7c2fe035d4",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "verify",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92d0-7d12-9cf8-cb7c2fe035d4",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92d0-7d12-9cf8-cb7c2fe035d4",
+        "name": "verify",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913936967Z01a0a31c-92d0-7d12-9cf8-cb7c2fe035d4",
+        "tags": [
+          "graph:step:5"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.936967+00:00",
+        "end_time": "2026-09-15T03:29:13.938513+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.936967+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.938513+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92d3-7671-8496-9a3a9d91a38e",
+        "start_time": "2026-09-15T03:29:13.939604+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.939604+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "tags": [
+          "graph:step:6"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913939604Z01a0a31c-92d3-7671-8496-9a3a9d91a38e",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "deliver",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92d3-7671-8496-9a3a9d91a38e",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-92d3-7671-8496-9a3a9d91a38e",
+        "name": "deliver",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a.20260915T032913939604Z01a0a31c-92d3-7671-8496-9a3a9d91a38e",
+        "tags": [
+          "graph:step:6"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.939604+00:00",
+        "end_time": "2026-09-15T03:29:13.941376+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.939604+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.941376+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-9296-7da3-9327-9f0ecec0483a",
+      "method": "PATCH",
+      "status": 200,
+      "body": {
+        "id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "name": "LangGraph",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "parent_run_id": null,
+        "dotted_order": "20260915T032913878948Z01a0a31c-9296-7da3-9327-9f0ecec0483a",
+        "tags": [],
+        "extra": {
+          "metadata": {
+            "task_id": "capture",
+            "thread_id": "capture",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.878948+00:00",
+        "end_time": "2026-09-15T03:29:13.942578+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.878948+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.942578+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "start_time": "2026-09-15T03:29:13.948442+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.948442+00:00"
+          }
+        ],
+        "tags": [],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "LangGraph",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92df-75a1-b449-7114023840eb",
+        "start_time": "2026-09-15T03:29:13.951244+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.951244+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "tags": [
+          "graph:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913951244Z01a0a31c-92df-75a1-b449-7114023840eb",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "propose",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92df-75a1-b449-7114023840eb",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92df-75a1-b449-7114023840eb",
+        "name": "propose",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913951244Z01a0a31c-92df-75a1-b449-7114023840eb",
+        "tags": [
+          "graph:step:1"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.951244+00:00",
+        "end_time": "2026-09-15T03:29:13.953761+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.951244+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.953761+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92e2-7e53-8ae0-e6745a9bbe68",
+        "start_time": "2026-09-15T03:29:13.954764+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.954764+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "tags": [
+          "graph:step:2"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913954764Z01a0a31c-92e2-7e53-8ae0-e6745a9bbe68",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "await_focus",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92e2-7e53-8ae0-e6745a9bbe68",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92e2-7e53-8ae0-e6745a9bbe68",
+        "name": "await_focus",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913954764Z01a0a31c-92e2-7e53-8ae0-e6745a9bbe68",
+        "tags": [
+          "graph:step:2"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.954764+00:00",
+        "end_time": "2026-09-15T03:29:13.956498+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.954764+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.956498+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92e5-7662-a784-808f2a28a082",
+        "start_time": "2026-09-15T03:29:13.957821+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.957821+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "tags": [
+          "graph:step:3"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "build",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "start_time": "2026-09-15T03:29:13.962217+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.962217+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92e5-7662-a784-808f2a28a082",
+        "tags": [
+          "seq:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "LangGraph",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92ec-70b2-a643-7f7e9aa0b7da",
+        "start_time": "2026-09-15T03:29:13.964285+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.964285+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "tags": [
+          "graph:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913964285Z01a0a31c-92ec-70b2-a643-7f7e9aa0b7da",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "model",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92ed-7723-9ba6-68346fdcdfdd",
+        "start_time": "2026-09-15T03:29:13.965232+00:00",
+        "extra": {
+          "invocation_params": {
+            "_type": "fixed-runtime-fixture",
+            "stop": null
+          },
+          "options": {
+            "stop": null
+          },
+          "batch_size": 1,
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "serialized": {
+          "lc": 1,
+          "type": "not_implemented",
+          "id": [
+            "runtime_prototype",
+            "FixedToolModel"
+          ],
+          "repr": "FixedToolModel(metadata={'lc_versions': {'langchain-core': '1.6.3', 'langchain': '1.4.0'}}, focus='rate', work='/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032913870963Z-trace', task='unavailable')",
+          "name": "FixedToolModel"
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.965232+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92ec-70b2-a643-7f7e9aa0b7da",
+        "tags": [
+          "seq:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913964285Z01a0a31c-92ec-70b2-a643-7f7e9aa0b7da.20260915T032913965232Z01a0a31c-92ed-7723-9ba6-68346fdcdfdd",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "FixedToolModel",
+        "inputs": {},
+        "run_type": "llm"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92ed-7723-9ba6-68346fdcdfdd",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92ed-7723-9ba6-68346fdcdfdd",
+        "name": "FixedToolModel",
+        "run_type": "llm",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92ec-70b2-a643-7f7e9aa0b7da",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913964285Z01a0a31c-92ec-70b2-a643-7f7e9aa0b7da.20260915T032913965232Z01a0a31c-92ed-7723-9ba6-68346fdcdfdd",
+        "tags": [
+          "seq:step:1"
+        ],
+        "extra": {
+          "invocation_params": {
+            "_type": "fixed-runtime-fixture",
+            "stop": null
+          },
+          "options": {
+            "stop": null
+          },
+          "batch_size": 1,
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          },
+          "tool_call_count": 1
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.965232+00:00",
+        "end_time": "2026-09-15T03:29:13.966614+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.965232+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.966614+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92ec-70b2-a643-7f7e9aa0b7da",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92ec-70b2-a643-7f7e9aa0b7da",
+        "name": "model",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913964285Z01a0a31c-92ec-70b2-a643-7f7e9aa0b7da",
+        "tags": [
+          "graph:step:1"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.964285+00:00",
+        "end_time": "2026-09-15T03:29:13.967413+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.964285+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.967413+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f0-7d11-8bc4-52daa3987bc0",
+        "start_time": "2026-09-15T03:29:13.968497+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.968497+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "tags": [
+          "graph:step:2"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913968497Z01a0a31c-92f0-7d11-8bc4-52daa3987bc0",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "tools",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f1-7683-a48f-cf29b11f63c2",
+        "start_time": "2026-09-15T03:29:13.969398+00:00",
+        "extra": {
+          "color": "green",
+          "tool_call_id": "fixed-calculation",
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.969398+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92f0-7d11-8bc4-52daa3987bc0",
+        "tags": [
+          "seq:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913968497Z01a0a31c-92f0-7d11-8bc4-52daa3987bc0.20260915T032913969398Z01a0a31c-92f1-7683-a48f-cf29b11f63c2",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "check_arithmetic",
+        "inputs": {},
+        "run_type": "tool"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92f1-7683-a48f-cf29b11f63c2",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f1-7683-a48f-cf29b11f63c2",
+        "name": "check_arithmetic",
+        "run_type": "tool",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92f0-7d11-8bc4-52daa3987bc0",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913968497Z01a0a31c-92f0-7d11-8bc4-52daa3987bc0.20260915T032913969398Z01a0a31c-92f1-7683-a48f-cf29b11f63c2",
+        "tags": [
+          "seq:step:1"
+        ],
+        "extra": {
+          "color": "green",
+          "tool_call_id": "fixed-calculation",
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.969398+00:00",
+        "end_time": "2026-09-15T03:29:13.970581+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.969398+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.970581+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92f0-7d11-8bc4-52daa3987bc0",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f0-7d11-8bc4-52daa3987bc0",
+        "name": "tools",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913968497Z01a0a31c-92f0-7d11-8bc4-52daa3987bc0",
+        "tags": [
+          "graph:step:2"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.968497+00:00",
+        "end_time": "2026-09-15T03:29:13.971312+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.968497+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.971312+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f4-7dd3-812d-8e3ba8659cdc",
+        "start_time": "2026-09-15T03:29:13.972435+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.972435+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "tags": [
+          "graph:step:3"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913972435Z01a0a31c-92f4-7dd3-812d-8e3ba8659cdc",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "model",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f5-77f3-bc12-13f27712b680",
+        "start_time": "2026-09-15T03:29:13.973092+00:00",
+        "extra": {
+          "invocation_params": {
+            "_type": "fixed-runtime-fixture",
+            "stop": null
+          },
+          "options": {
+            "stop": null
+          },
+          "batch_size": 1,
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "serialized": {
+          "lc": 1,
+          "type": "not_implemented",
+          "id": [
+            "runtime_prototype",
+            "FixedToolModel"
+          ],
+          "repr": "FixedToolModel(metadata={'lc_versions': {'langchain-core': '1.6.3', 'langchain': '1.4.0'}}, focus='rate', work='/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032913870963Z-trace', task='unavailable')",
+          "name": "FixedToolModel"
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.973092+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92f4-7dd3-812d-8e3ba8659cdc",
+        "tags": [
+          "seq:step:1"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913972435Z01a0a31c-92f4-7dd3-812d-8e3ba8659cdc.20260915T032913973092Z01a0a31c-92f5-77f3-bc12-13f27712b680",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "FixedToolModel",
+        "inputs": {},
+        "run_type": "llm"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92f5-77f3-bc12-13f27712b680",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f5-77f3-bc12-13f27712b680",
+        "name": "FixedToolModel",
+        "run_type": "llm",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92f4-7dd3-812d-8e3ba8659cdc",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913972435Z01a0a31c-92f4-7dd3-812d-8e3ba8659cdc.20260915T032913973092Z01a0a31c-92f5-77f3-bc12-13f27712b680",
+        "tags": [
+          "seq:step:1"
+        ],
+        "extra": {
+          "invocation_params": {
+            "_type": "fixed-runtime-fixture",
+            "stop": null
+          },
+          "options": {
+            "stop": null
+          },
+          "batch_size": 1,
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.973092+00:00",
+        "end_time": "2026-09-15T03:29:13.974315+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.973092+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.974315+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92f4-7dd3-812d-8e3ba8659cdc",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f4-7dd3-812d-8e3ba8659cdc",
+        "name": "model",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e.20260915T032913972435Z01a0a31c-92f4-7dd3-812d-8e3ba8659cdc",
+        "tags": [
+          "graph:step:3"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.972435+00:00",
+        "end_time": "2026-09-15T03:29:13.975035+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.972435+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.975035+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "name": "LangGraph",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92e5-7662-a784-808f2a28a082",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082.20260915T032913962217Z01a0a31c-92ea-74a1-b8c6-4b08ba76544e",
+        "tags": [
+          "seq:step:1"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.962217+00:00",
+        "end_time": "2026-09-15T03:29:13.976218+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.962217+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.976218+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92e5-7662-a784-808f2a28a082",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92e5-7662-a784-808f2a28a082",
+        "name": "build",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913957821Z01a0a31c-92e5-7662-a784-808f2a28a082",
+        "tags": [
+          "graph:step:3"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.957821+00:00",
+        "end_time": "2026-09-15T03:29:13.976888+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.957821+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.976888+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f9-7610-bff5-47e5e7f45a90",
+        "start_time": "2026-09-15T03:29:13.977998+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.977998+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "tags": [
+          "graph:step:4"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913977998Z01a0a31c-92f9-7610-bff5-47e5e7f45a90",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "write_pair",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92f9-7610-bff5-47e5e7f45a90",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92f9-7610-bff5-47e5e7f45a90",
+        "name": "write_pair",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913977998Z01a0a31c-92f9-7610-bff5-47e5e7f45a90",
+        "tags": [
+          "graph:step:4"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.977998+00:00",
+        "end_time": "2026-09-15T03:29:13.980587+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.977998+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.980587+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92fd-74d1-8fd7-548f9e1f0201",
+        "start_time": "2026-09-15T03:29:13.981848+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.981848+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "tags": [
+          "graph:step:5"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913981848Z01a0a31c-92fd-74d1-8fd7-548f9e1f0201",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "verify",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92fd-74d1-8fd7-548f9e1f0201",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92fd-74d1-8fd7-548f9e1f0201",
+        "name": "verify",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913981848Z01a0a31c-92fd-74d1-8fd7-548f9e1f0201",
+        "tags": [
+          "graph:step:5"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.981848+00:00",
+        "end_time": "2026-09-15T03:29:13.983218+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.981848+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.983218+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs",
+      "method": "POST",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-9300-7203-9bea-e1dec43ca716",
+        "start_time": "2026-09-15T03:29:13.984722+00:00",
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.984722+00:00"
+          }
+        ],
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "tags": [
+          "graph:step:6"
+        ],
+        "attachments": {},
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913984722Z01a0a31c-9300-7203-9bea-e1dec43ca716",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "outputs": {},
+        "session_name": "local-sdk-transport-probe",
+        "name": "deliver",
+        "inputs": {},
+        "run_type": "chain"
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-9300-7203-9bea-e1dec43ca716",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-9300-7203-9bea-e1dec43ca716",
+        "name": "deliver",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8.20260915T032913984722Z01a0a31c-9300-7203-9bea-e1dec43ca716",
+        "tags": [
+          "graph:step:6"
+        ],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.984722+00:00",
+        "end_time": "2026-09-15T03:29:13.986658+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.984722+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.986658+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/runs/01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+      "method": "PATCH",
+      "status": 503,
+      "body": {
+        "id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "name": "LangGraph",
+        "run_type": "chain",
+        "trace_id": "01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "parent_run_id": null,
+        "dotted_order": "20260915T032913948442Z01a0a31c-92dc-77a2-a9ff-51263cf70ac8",
+        "tags": [],
+        "extra": {
+          "metadata": {
+            "task_id": "unavailable",
+            "thread_id": "unavailable",
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "runtime": {
+            "library_version": "1.6.3",
+            "library": "langchain-core",
+            "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+            "runtime": "python",
+            "runtime_version": "3.13.5"
+          }
+        },
+        "session_id": null,
+        "session_name": "local-sdk-transport-probe",
+        "start_time": "2026-09-15T03:29:13.948442+00:00",
+        "end_time": "2026-09-15T03:29:13.988068+00:00",
+        "inputs": {},
+        "outputs": {},
+        "events": [
+          {
+            "name": "start",
+            "time": "2026-09-15T03:29:13.948442+00:00"
+          },
+          {
+            "name": "end",
+            "time": "2026-09-15T03:29:13.988068+00:00"
+          }
+        ]
+      }
+    }
+  ]
+}

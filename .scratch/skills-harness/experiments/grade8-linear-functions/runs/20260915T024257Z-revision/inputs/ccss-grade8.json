@@ -1,0 +1,2097 @@
+{
+  "artifactVersion": 1,
+  "purpose": "Finite CCSS standards input for the Grade 8 original-design experiment; not a curriculum sequence or a local copy of the knowledge library.",
+  "sourceSnapshotId": "lc/v1.11.0",
+  "sourceSnapshot": {
+    "namespace": "lc",
+    "version": "v1.11.0",
+    "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+    "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+    "schemaVersion": 2,
+    "cleaningVersion": "v2"
+  },
+  "retrievedAt": "2026-09-15T02:01:59.855668+00:00",
+  "framework": {
+    "ref": {
+      "sourceSnapshotId": "lc/v1.11.0",
+      "kind": "StandardsFramework",
+      "identifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7"
+    },
+    "sourceFields": {
+      "academicSubject": "Mathematics",
+      "adoptionStatus": "Adopted",
+      "author": "Common Good Learning Tools",
+      "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFDocuments/c6496676-d7cb-11e8-824f-0242ac160002",
+      "caseIdentifierUUID": "c6496676-d7cb-11e8-824f-0242ac160002",
+      "dateModified": "2025-02-11",
+      "description": null,
+      "inLanguage": "en-US",
+      "jurisdiction": "Multi-State",
+      "name": "Common Core State Standards for Math"
+    },
+    "publisher": "Common Good Learning Tools",
+    "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+    "sourceDetailQuery": "Q001"
+  },
+  "grade": "8",
+  "sourceLanguage": "en-US",
+  "contentPolicy": "Only original source field values from this CCSS framework. No translations, browser groups, curriculum metadata, IM content, LC or progression records. Preserve description and notes together.",
+  "hierarchyPolicy": "Parent and child identifiers record this API's Grade 8 projection, whose roots have null parent. They are navigation evidence, not standalone source relationship records or a curriculum arrangement.",
+  "orderingPolicy": "API statement_code ordering is a platform projection. Record order and standard numbering do not prescribe teaching order.",
+  "fieldPolicy": "sourceFields retains the exact field names returned by node details, including normalizedstatementtype and notessha256. Absent fields are not synthesized. classification is this collector's interpretation, not a source field.",
+  "companionFiles": [
+    "ccss-grade8.json",
+    "ccss-practices.json"
+  ],
+  "auditFile": "ccss-input-audit.md",
+  "scope": "Grade 8 content standards and subitems, with their source hierarchy; practice records are in the companion file",
+  "counts": {
+    "hierarchy_or_context": 17,
+    "numbered_content_standard": 28,
+    "content_subitem": 8
+  },
+  "records": [
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "957d5d34-22eb-5ec5-b50a-80d9d95a0678"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9cbaef-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9cbaef-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Standards for Math Content",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": null,
+        "notes": null,
+        "statementCode": null,
+        "statementType": null,
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "K"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        null
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+      ],
+      "sourceDetailQuery": "Q029"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba0d99c-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba0d99c-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Grade 8",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": null,
+        "statementType": "Grade Level",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "957d5d34-22eb-5ec5-b50a-80d9d95a0678"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "e0d847f6-991b-5dc0-a66b-0deb99ce53dc",
+        "ff2b2fbc-89b4-55d1-a47b-7f9c096b4c3a",
+        "d9e48f2b-8a24-52ae-b418-79c6172fd473",
+        "e1203a0b-ace1-5f1a-b540-8ad4fc404824",
+        "34f2fead-a380-5f6e-b5bf-73382066e42f",
+        "8c6472f2-dbaf-572d-a5f6-5f4db1523ce7"
+      ],
+      "sourceDetailQuery": "Q031"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "e0d847f6-991b-5dc0-a66b-0deb99ce53dc"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ce2d3-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9ce2d3-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Expressions & Equations",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": null,
+        "statementType": "Domain",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "995dd00c-c6f3-56b7-9870-5392bc1cffa0",
+        "7102e92a-5e93-5103-b719-d6e6946b7741",
+        "aca5ec40-e19f-51bc-9b2a-8eaf9b29b0a4"
+      ],
+      "sourceDetailQuery": "Q040"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "ff2b2fbc-89b4-55d1-a47b-7f9c096b4c3a"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9deced-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9deced-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Functions",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": null,
+        "statementType": "Domain",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "51403b34-cc8d-5ba7-b9cf-9f02a5e636d4",
+        "185e9d9f-ac74-5621-aced-81909baa4077"
+      ],
+      "sourceDetailQuery": "Q041"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "d9e48f2b-8a24-52ae-b418-79c6172fd473"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9eaf0c-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9eaf0c-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Geometry",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": null,
+        "statementType": "Domain",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "4ad73579-5cf8-50bc-a385-33085176f7df",
+        "a5cb12bf-64a7-5154-b546-2f40b149168a",
+        "a8d71370-4be0-5801-9d5f-042508c0a2bf"
+      ],
+      "sourceDetailQuery": "Q042"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "34f2fead-a380-5f6e-b5bf-73382066e42f"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9f4d1b-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9f4d1b-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Statistics & Probability",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": null,
+        "statementType": "Domain",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "1ae7700c-15cc-5f51-8fee-f7240611ac5d"
+      ],
+      "sourceDetailQuery": "Q044"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "8c6472f2-dbaf-572d-a5f6-5f4db1523ce7"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9b28b4-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9b28b4-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "The Number System",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": null,
+        "statementType": "Domain",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "a81d1c5d-4b13-58e1-ab79-b95a72cd6792"
+      ],
+      "sourceDetailQuery": "Q045"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "995dd00c-c6f3-56b7-9870-5392bc1cffa0"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9bb323-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9bb323-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Work with radicals and integer exponents.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.EE.A",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e0d847f6-991b-5dc0-a66b-0deb99ce53dc"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "549d72b8-68e2-527f-a3fa-c8fb033fe4a2",
+        "3bebaa64-eeef-5329-b3cc-dddc8e68f0a1",
+        "85e37e84-850b-55bb-8e2c-db84016e7e56",
+        "11610aaf-64f0-518d-b9c1-95070a8a7001"
+      ],
+      "sourceDetailQuery": "Q046"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "7102e92a-5e93-5103-b719-d6e6946b7741"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d165f-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9d165f-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Understand the connections between proportional relationships, lines, and linear equations.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.EE.B",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e0d847f6-991b-5dc0-a66b-0deb99ce53dc"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "0b02d60f-6a4e-5cf6-9a46-91ba5bfe5b7d",
+        "f42ff582-c718-5196-917c-9178b1fb2c91"
+      ],
+      "sourceDetailQuery": "Q047"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "aca5ec40-e19f-51bc-9b2a-8eaf9b29b0a4"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9e0511-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9e0511-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Analyze and solve linear equations and pairs of simultaneous linear equations.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.EE.C",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "e0d847f6-991b-5dc0-a66b-0deb99ce53dc"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "b686895b-8c12-52ff-84c5-1acd55ee9e34",
+        "15f1b8b4-b836-5750-866a-f7d5f377a296"
+      ],
+      "sourceDetailQuery": "Q048"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "51403b34-cc8d-5ba7-b9cf-9f02a5e636d4"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9bb669-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9bb669-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Define, evaluate, and compare functions.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.F.A",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "ff2b2fbc-89b4-55d1-a47b-7f9c096b4c3a"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "e4de5a68-0b5a-5a21-bfe2-2924f3a7e70e",
+        "9f8337d3-e4d7-51cc-a27c-f8403bca7ad1",
+        "534ca674-79cd-5a7e-b7e0-b9258b338e8c"
+      ],
+      "sourceDetailQuery": "Q049"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "185e9d9f-ac74-5621-aced-81909baa4077"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d18e7-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9d18e7-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Use functions to model relationships between quantities.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.F.B",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "ff2b2fbc-89b4-55d1-a47b-7f9c096b4c3a"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "0ff0d447-960a-5116-9fde-5989f4fc88fc",
+        "9d3c6a12-46a7-5285-a425-df2570bc7764"
+      ],
+      "sourceDetailQuery": "Q050"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "4ad73579-5cf8-50bc-a385-33085176f7df"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9bb97b-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9bb97b-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Understand congruence and similarity using physical models, transparencies, or geometry software.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.G.A",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "d9e48f2b-8a24-52ae-b418-79c6172fd473"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "785dbfaa-3ede-5681-91dc-23574d49a09e",
+        "01283b43-9bb8-5430-aff3-c10cf3d29937",
+        "cf8f294e-a741-5295-8441-39a8caeeb802",
+        "1f9fc8f9-d21d-51be-8078-d50b4365fc87",
+        "29523042-4921-5e17-85a7-caadeab205ce"
+      ],
+      "sourceDetailQuery": "Q051"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "a5cb12bf-64a7-5154-b546-2f40b149168a"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d1b5c-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9d1b5c-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Understand and apply the Pythagorean Theorem.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.G.B",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "d9e48f2b-8a24-52ae-b418-79c6172fd473"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "52aff65f-f9bf-51bb-99c0-0a53063975ae",
+        "baa2ebfe-b4ae-5424-b435-0978cbda8219",
+        "74df37a8-5572-588b-a649-6045601c2aab"
+      ],
+      "sourceDetailQuery": "Q052"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "a8d71370-4be0-5801-9d5f-042508c0a2bf"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9e072c-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9e072c-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Solve real-world and mathematical problems involving volume of cylinders, cones, and spheres.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.G.C",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "d9e48f2b-8a24-52ae-b418-79c6172fd473"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "75acceb6-cebe-5b1b-be1c-a9d7dc230f94"
+      ],
+      "sourceDetailQuery": "Q053"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "1ae7700c-15cc-5f51-8fee-f7240611ac5d"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9bbfac-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9bbfac-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Investigate patterns of association in bivariate data.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.SP.A",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "34f2fead-a380-5f6e-b5bf-73382066e42f"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "56b722c3-4a4c-50c9-bc55-a152ee3b276d",
+        "2ef2cd57-bb44-5bc3-a5e3-081de809894f",
+        "98da3d52-b694-59f6-be1f-912861048cdc",
+        "13130cb1-c8cf-5460-a77e-04115ef91419"
+      ],
+      "sourceDetailQuery": "Q062"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "a81d1c5d-4b13-58e1-ab79-b95a72cd6792"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "hierarchy_or_context",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": null,
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9bbc94-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9bbc94-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Know that there are numbers that are not rational, and approximate them by rational numbers.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard Grouping",
+        "notes": null,
+        "statementCode": "8.NS.A",
+        "statementType": "Cluster",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "8c6472f2-dbaf-572d-a5f6-5f4db1523ce7"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "ab19383d-8a81-5766-909c-92569f412a7a",
+        "10204309-7113-5913-aa66-6d95f9338f05"
+      ],
+      "sourceDetailQuery": "Q063"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "549d72b8-68e2-527f-a3fa-c8fb033fe4a2"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.1",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9c4078-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9c4078-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-06",
+        "description": "Know and apply the properties of integer exponents to generate equivalent numerical expressions. *For example, $3^{2} \\times 3^{-5} = 3^{-3} = {{\\frac{1}{3}}^3} = {\\frac{1}{27}}$.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.A.1",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "995dd00c-c6f3-56b7-9870-5392bc1cffa0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q064"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "3bebaa64-eeef-5329-b3cc-dddc8e68f0a1"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.2",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d7eb3-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9d7eb3-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-06",
+        "description": "Use square root and cube root symbols to represent solutions to equations of the form $x^{2} = p$ and $x^3 = p$, where $p$ is a positive rational number. Evaluate square roots of small perfect squares and cube roots of small perfect cubes. Know that $\\sqrt{2}$ is irrational.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.A.2",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "995dd00c-c6f3-56b7-9870-5392bc1cffa0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q065"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "85e37e84-850b-55bb-8e2c-db84016e7e56"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.3",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9e5169-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9e5169-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-06",
+        "description": "Use numbers expressed in the form of a single digit times an integer power of 10 to estimate very large or very small quantities, and to express how many times as much one is than the other. *For example, estimate the population of the United States as $3 \\times 10^{8}$ and the population of the world as $7 \\times 10^{9}$, and determine that the world population is more than 20 times larger.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.A.3",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "995dd00c-c6f3-56b7-9870-5392bc1cffa0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q066"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "11610aaf-64f0-518d-b9c1-95070a8a7001"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.4",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ef0eb-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9ef0eb-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Perform operations with numbers expressed in scientific notation, including problems where both decimal and scientific notation are used. Use scientific notation and choose units of appropriate size for measurements of very large or very small quantities (e.g., use millimeters per year for seafloor spreading). Interpret scientific notation that has been generated by technology.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.A.4",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "995dd00c-c6f3-56b7-9870-5392bc1cffa0"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q067"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "0b02d60f-6a4e-5cf6-9a46-91ba5bfe5b7d"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.5",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9f8362-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9f8362-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Graph proportional relationships, interpreting the unit rate as the slope of the graph. Compare two different proportional relationships represented in different ways. *For example, compare a distance-time graph to a distance-time equation to determine which of two moving objects has greater speed.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.B.5",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "7102e92a-5e93-5103-b719-d6e6946b7741"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q068"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "f42ff582-c718-5196-917c-9178b1fb2c91"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.6",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9fff6f-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9fff6f-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Use similar triangles to explain why the slope m is the same between any two distinct points on a non-vertical line in the coordinate plane; derive the equation y = mx for a line through the origin and the equation y = mx + b for a line intercepting the vertical axis at b.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.B.6",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "7102e92a-5e93-5103-b719-d6e6946b7741"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q069"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "b686895b-8c12-52ff-84c5-1acd55ee9e34"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.7",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba0609c-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba0609c-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Solve linear equations in one variable.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.C.7",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "aca5ec40-e19f-51bc-9b2a-8eaf9b29b0a4"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "e4fb1b8a-aa7d-559f-a28b-47500a5c1a61",
+        "8d03e081-fa8a-554a-ab0f-ce2b978d9da4"
+      ],
+      "sourceDetailQuery": "Q070"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "15f1b8b4-b836-5750-866a-f7d5f377a296"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.8",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba0b1df-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba0b1df-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Analyze and solve pairs of simultaneous linear equations.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.C.8",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "aca5ec40-e19f-51bc-9b2a-8eaf9b29b0a4"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "45845725-c424-5979-935e-799020ffdbdb",
+        "edc37a90-fbc4-5141-a96c-743419e57327",
+        "c7c0e167-bb2b-525b-89f7-0bea1608513c"
+      ],
+      "sourceDetailQuery": "Q071"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "e4de5a68-0b5a-5a21-bfe2-2924f3a7e70e"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.F.1",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9c4367-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9c4367-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Understand that a function is a rule that assigns to each input exactly one output. The graph of a function is the set of ordered pairs consisting of an input and the corresponding output.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": "Function notation is not required in Grade 8.",
+        "statementCode": "8.F.A.1",
+        "statementType": "Standard",
+        "notessha256": "bbc5f385069e16478daa783b4ffb54bc40e8fc26fb1ec773369d2ae4b33f8bfd"
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "51403b34-cc8d-5ba7-b9cf-9f02a5e636d4"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q072"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "9f8337d3-e4d7-51cc-a27c-f8403bca7ad1"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.F.2",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d816d-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9d816d-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in tables, or by verbal descriptions). *For example, given a linear function represented by a table of values and a linear function represented by an algebraic expression, determine which function has the greater rate of change.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.F.A.2",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "51403b34-cc8d-5ba7-b9cf-9f02a5e636d4"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q073"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "534ca674-79cd-5a7e-b7e0-b9258b338e8c"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.F.3",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9e5396-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9e5396-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-07",
+        "description": "Interpret the equation y = mx + b as defining a linear function, whose graph is a straight line; give examples of functions that are not linear. *For example, the function $A = s^{2}$ giving the area of a square as a function of its side length is not linear because its graph contains the points (1,1), (2,4) and (3,9), which are not on a straight line.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.F.A.3",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "51403b34-cc8d-5ba7-b9cf-9f02a5e636d4"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q074"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.F.4",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ef36a-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9ef36a-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Construct a function to model a linear relationship between two quantities. Determine the rate of change and initial value of the function from a description of a relationship or from two (x, y) values, including reading these from a table or from a graph. Interpret the rate of change and initial value of a linear function in terms of the situation it models, and in terms of its graph or a table of values.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.F.B.4",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "185e9d9f-ac74-5621-aced-81909baa4077"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q075"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "9d3c6a12-46a7-5285-a425-df2570bc7764"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.F.5",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9f86d5-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9f86d5-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Describe qualitatively the functional relationship between two quantities by analyzing a graph (e.g., where the function is increasing or decreasing, linear or nonlinear). Sketch a graph that exhibits the qualitative features of a function that has been described verbally.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.F.B.5",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "185e9d9f-ac74-5621-aced-81909baa4077"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q076"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "785dbfaa-3ede-5681-91dc-23574d49a09e"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.1",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9c465b-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9c465b-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Verify experimentally the properties of rotations, reflections, and translations:",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.A.1",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "4ad73579-5cf8-50bc-a385-33085176f7df"
+      ],
+      "gradeProjectionChildIdentifiers": [
+        "ab3f9261-b89d-58c9-aae6-ab8312d688c7",
+        "19bac67b-648d-5cb8-8dd5-ecbba72a895c",
+        "f2a92de7-8237-5af3-aa9c-cb854c54a493"
+      ],
+      "sourceDetailQuery": "Q077"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "01283b43-9bb8-5430-aff3-c10cf3d29937"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.2",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d8424-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9d8424-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Understand that a two-dimensional figure is congruent to another if the second can be obtained from the first by a sequence of rotations, reflections, and translations; given two congruent figures, describe a sequence that exhibits the congruence between them.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.A.2",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "4ad73579-5cf8-50bc-a385-33085176f7df"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q078"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "cf8f294e-a741-5295-8441-39a8caeeb802"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.3",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9e55c9-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9e55c9-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Describe the effect of dilations, translations, rotations, and reflections on two-dimensional figures using coordinates.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.A.3",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "4ad73579-5cf8-50bc-a385-33085176f7df"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q079"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "1f9fc8f9-d21d-51be-8078-d50b4365fc87"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.4",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ef5f0-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9ef5f0-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Understand that a two-dimensional figure is similar to another if the second can be obtained from the first by a sequence of rotations, reflections, translations, and dilations; given two similar two-dimensional figures, describe a sequence that exhibits the similarity between them.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.A.4",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "4ad73579-5cf8-50bc-a385-33085176f7df"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q080"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "29523042-4921-5e17-85a7-caadeab205ce"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.5",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9f89a0-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9f89a0-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Use informal arguments to establish facts about the angle sum and exterior angle of triangles, about the angles created when parallel lines are cut by a transversal, and the angle-angle criterion for similarity of triangles. *For example, arrange three copies of the same triangle so that the sum of the three angles appears to form a line, and give an argument in terms of transversals why this is so.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.A.5",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "4ad73579-5cf8-50bc-a385-33085176f7df"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q081"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "52aff65f-f9bf-51bb-99c0-0a53063975ae"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.6",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba0026f-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba0026f-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Explain a proof of the Pythagorean Theorem and its converse.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.B.6",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "a5cb12bf-64a7-5154-b546-2f40b149168a"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q082"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "baa2ebfe-b4ae-5424-b435-0978cbda8219"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.7",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba063cb-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba063cb-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Apply the Pythagorean Theorem to determine unknown side lengths in right triangles in real-world and mathematical problems in two and three dimensions.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.B.7",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "a5cb12bf-64a7-5154-b546-2f40b149168a"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q083"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "74df37a8-5572-588b-a649-6045601c2aab"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.8",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba0b50b-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba0b50b-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Apply the Pythagorean Theorem to find the distance between two points in a coordinate system.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.B.8",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "a5cb12bf-64a7-5154-b546-2f40b149168a"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q084"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "75acceb6-cebe-5b1b-be1c-a9d7dc230f94"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.9",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba0e7f4-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba0e7f4-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Know the formulas for the volumes of cones, cylinders, and spheres and use them to solve real-world and mathematical problems.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.C.9",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "a8d71370-4be0-5801-9d5f-042508c0a2bf"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q085"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "56b722c3-4a4c-50c9-bc55-a152ee3b276d"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.SP.1",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9c4d6c-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9c4d6c-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Construct and interpret scatter plots for bivariate measurement data to investigate patterns of association between two quantities. Describe patterns such as clustering, outliers, positive or negative association, linear association, and nonlinear association.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.SP.A.1",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "1ae7700c-15cc-5f51-8fee-f7240611ac5d"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q086"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "2ef2cd57-bb44-5bc3-a5e3-081de809894f"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.SP.2",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d89d9-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9d89d9-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Know that straight lines are widely used to model relationships between two quantitative variables. For scatter plots that suggest a linear association, informally fit a straight line, and informally assess the model fit by judging the closeness of the data points to the line.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.SP.A.2",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "1ae7700c-15cc-5f51-8fee-f7240611ac5d"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q087"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "98da3d52-b694-59f6-be1f-912861048cdc"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.SP.3",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9e5802-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9e5802-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Use the equation of a linear model to solve problems in the context of bivariate measurement data, interpreting the slope and intercept. *For example, in a linear model for a biology experiment, interpret a slope of 1.5 cm/hr as meaning that an additional hour of sunlight each day is associated with an additional 1.5 cm in mature plant height.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.SP.A.3",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "1ae7700c-15cc-5f51-8fee-f7240611ac5d"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q088"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "13130cb1-c8cf-5460-a77e-04115ef91419"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.SP.4",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9ef861-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9ef861-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Understand that patterns of association can also be seen in bivariate categorical data by displaying frequencies and relative frequencies in a two-way table. Construct and interpret a two-way table summarizing data on two categorical variables collected from the same subjects. Use relative frequencies calculated for rows or columns to describe possible association between the two variables. *For example, collect data from students in your class on whether or not they have a curfew on school nights and whether or not they have assigned chores at home. Is there evidence that those who have a curfew also tend to have chores?*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.SP.A.4",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "1ae7700c-15cc-5f51-8fee-f7240611ac5d"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q089"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "ab19383d-8a81-5766-909c-92569f412a7a"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.NS.1",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9c4a58-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9c4a58-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Know that numbers that are not rational are called irrational. Understand informally that every number has a decimal expansion; for rational numbers show that the decimal expansion repeats eventually, and convert a decimal expansion which repeats eventually into a rational number.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.NS.A.1",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "a81d1c5d-4b13-58e1-ab79-b95a72cd6792"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q090"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "10204309-7113-5913-aa66-6d95f9338f05"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "numbered_content_standard",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.NS.2",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6b9d86d6-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6b9d86d6-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Use rational approximations of irrational numbers to compare the size of irrational numbers, locate them approximately on a number line diagram, and estimate the value of expressions (e.g., ${\\pi}^{2}$). *For example, by truncating the decimal expansion of $\\sqrt{2}$, show that $\\sqrt{2}$ is between 1 and 2, then between 1.4 and 1.5, and explain how to continue on to get better approximations.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.NS.A.2",
+        "statementType": "Standard",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "a81d1c5d-4b13-58e1-ab79-b95a72cd6792"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q091"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "e4fb1b8a-aa7d-559f-a28b-47500a5c1a61"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "content_subitem",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.7.a",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba1486b-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba1486b-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Give examples of linear equations in one variable with one solution, infinitely many solutions, or no solutions. Show which of these possibilities is the case by successively transforming the given equation into simpler forms, until an equivalent equation of the form x = a, a = a, or a = b results (where a and b are different numbers).",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.C.7.a",
+        "statementType": "Component",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "b686895b-8c12-52ff-84c5-1acd55ee9e34"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q092"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "8d03e081-fa8a-554a-ab0f-ce2b978d9da4"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "content_subitem",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.7.b",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba1c7ad-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba1c7ad-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Solve linear equations with rational number coefficients, including equations whose solutions require expanding expressions using the distributive property and collecting like terms.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.C.7.b",
+        "statementType": "Component",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "b686895b-8c12-52ff-84c5-1acd55ee9e34"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q093"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "45845725-c424-5979-935e-799020ffdbdb"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "content_subitem",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.8.a",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba14b22-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba14b22-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Understand that solutions to a system of two linear equations in two variables correspond to points of intersection of their graphs, because points of intersection satisfy both equations simultaneously.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.C.8.a",
+        "statementType": "Component",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "15f1b8b4-b836-5750-866a-f7d5f377a296"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q094"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "edc37a90-fbc4-5141-a96c-743419e57327"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "content_subitem",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.8.b",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba1caa3-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba1caa3-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Solve systems of two linear equations in two variables algebraically, and estimate solutions by graphing the equations. Solve simple cases by inspection. *For example, 3x + 2y = 5 and 3x + 2y = 6 have no solution because 3x + 2y cannot simultaneously be 5 and 6.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.C.8.b",
+        "statementType": "Component",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "15f1b8b4-b836-5750-866a-f7d5f377a296"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q095"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "c7c0e167-bb2b-525b-89f7-0bea1608513c"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "content_subitem",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.EE.8.c",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba23117-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba23117-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-05",
+        "description": "Solve real-world and mathematical problems leading to two linear equations in two variables. *For example, given coordinates for two pairs of points, determine whether the line through the first pair of points intersects the line through the second pair.*",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.EE.C.8.c",
+        "statementType": "Component",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "15f1b8b4-b836-5750-866a-f7d5f377a296"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q096"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "ab3f9261-b89d-58c9-aae6-ab8312d688c7"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "content_subitem",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.1.a",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba14dd9-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba14dd9-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-06",
+        "description": "*Verify experimentally the properties of rotations, reflections, and translations:* lines are taken to lines, and line segments to line segments of the same length.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.A.1.a",
+        "statementType": "Component",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "785dbfaa-3ede-5681-91dc-23574d49a09e"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q097"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "19bac67b-648d-5cb8-8dd5-ecbba72a895c"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "content_subitem",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.1.b",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba1cd94-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba1cd94-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-06",
+        "description": "*Verify experimentally the properties of rotations, reflections, and translations* angles are taken to angles of the same measure.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.A.1.b",
+        "statementType": "Component",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "785dbfaa-3ede-5681-91dc-23574d49a09e"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q098"
+    },
+    {
+      "ref": {
+        "sourceSnapshotId": "lc/v1.11.0",
+        "kind": "StandardsFrameworkItem",
+        "identifier": "f2a92de7-8237-5af3-aa9c-cb854c54a493"
+      },
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "classification": "content_subitem",
+      "classificationOrigin": "collector_interpretation",
+      "sourceFields": {
+        "academicSubject": "Mathematics",
+        "adoptionStatus": "Adopted",
+        "alternateStatementCode": "8.G.1.c",
+        "author": "Common Good Learning Tools",
+        "caseIdentifierURI": "https://satchelcommons.com/ims/case/v1p0/CFItems/6ba2342b-d7cc-11e8-824f-0242ac160002",
+        "caseIdentifierUUID": "6ba2342b-d7cc-11e8-824f-0242ac160002",
+        "dateModified": "2025-02-06",
+        "description": "*Verify experimentally the properties of rotations, reflections, and translations* parallel lines are taken to parallel lines.",
+        "inLanguage": "en-US",
+        "jurisdiction": "Multi-State",
+        "normalizedstatementtype": "Standard",
+        "notes": null,
+        "statementCode": "8.G.A.1.c",
+        "statementType": "Component",
+        "notessha256": null
+      },
+      "gradeLevels": [
+        "8"
+      ],
+      "publisher": "Common Good Learning Tools",
+      "attribution": "Knowledge Graph is provided by Learning Commons under the CC BY-4.0 license. Common Core Mathematics standards provided by Common Good Learning Tools available at https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf.",
+      "gradeProjectionParentIdentifiers": [
+        "785dbfaa-3ede-5681-91dc-23574d49a09e"
+      ],
+      "gradeProjectionChildIdentifiers": [],
+      "sourceDetailQuery": "Q099"
+    }
+  ]
+}

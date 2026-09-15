@@ -1,0 +1,6 @@
+{
+  "at": "2026-09-15T02:40:10.844961+00:00",
+  "sha256": "c5eb807c5923f739c56e75a4406953dceb4908cfdaa86006c09dd360992903b1",
+  "reason": "One parser failure after student repair was a renderer bug: escaped currency dollar plus closing delimiter was misread as opening display math. Corrected display delimiter regex; this is not a student math error. All previous source, check and model messages remain.",
+  "observed_failure_at_model_call": 14
+}

@@ -1,0 +1,4177 @@
+{
+  "run": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults",
+  "source_sha256": "b68bf2bc1abdcd7b91d085886cb7a3a58dc22796503af6a363e30a0072f0d1ae",
+  "event_origin": "fixture",
+  "model": "FixedToolModel via LangChain create_agent; no external model",
+  "checkpoint": "SQLite sync; process exits, not machine power failure",
+  "cases": [
+    {
+      "name": "fresh_process_wait_resume_and_duplicate",
+      "passed": true,
+      "evidence": {
+        "first_pid": 39295,
+        "resume_pid": 39378,
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        }
+      }
+    },
+    {
+      "name": "explicit_redirection_without_second_confirmation",
+      "passed": true,
+      "evidence": {
+        "arithmetic_tool": 1,
+        "artifact_created": 2,
+        "build_entered": 1,
+        "candidate_committed": 1,
+        "event_accepted": 1,
+        "fixture_model_call": 2,
+        "proposal_entered": 1,
+        "verification_resource_read": 1,
+        "wait_node_entered": 2
+      }
+    },
+    {
+      "name": "after_event_hard_crash_recovered",
+      "passed": true,
+      "evidence": {
+        "stopped_next": [
+          "await_focus"
+        ],
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        }
+      }
+    },
+    {
+      "name": "after_student_hard_crash_recovered",
+      "passed": true,
+      "evidence": {
+        "stopped_next": [
+          "write_pair"
+        ],
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "artifact_reused": 1,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        }
+      }
+    },
+    {
+      "name": "after_teacher_hard_crash_recovered",
+      "passed": true,
+      "evidence": {
+        "stopped_next": [
+          "write_pair"
+        ],
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "artifact_reused": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        }
+      }
+    },
+    {
+      "name": "missing_material_blocks_handoff_and_resource_read",
+      "passed": true,
+      "evidence": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "repaired": "same exact bytes restored"
+      }
+    },
+    {
+      "name": "altered_material_blocks_handoff_and_resource_read",
+      "passed": true,
+      "evidence": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "repaired": "same exact bytes restored"
+      }
+    },
+    {
+      "name": "new_material_cannot_reuse_old_check",
+      "passed": true,
+      "evidence": {
+        "delivery": null
+      }
+    },
+    {
+      "name": "superseded_proposal_rejects_old_reply",
+      "passed": true,
+      "evidence": {
+        "accepted_events": 0
+      }
+    },
+    {
+      "name": "cancelled_result_not_promoted",
+      "passed": true,
+      "evidence": {
+        "delivery": null
+      }
+    },
+    {
+      "name": "existing_scoped_event_skips_interrupt",
+      "passed": true,
+      "evidence": {
+        "arithmetic_tool": 1,
+        "artifact_created": 2,
+        "build_entered": 1,
+        "candidate_committed": 1,
+        "event_accepted": 1,
+        "fixture_model_call": 2,
+        "proposal_entered": 1,
+        "verification_resource_read": 1,
+        "wait_node_entered": 1
+      }
+    },
+    {
+      "name": "concurrent_duplicate_cli_reply_serialized",
+      "passed": true,
+      "evidence": {
+        "arithmetic_tool": 1,
+        "artifact_created": 2,
+        "build_entered": 1,
+        "candidate_committed": 1,
+        "event_accepted": 1,
+        "fixture_model_call": 2,
+        "proposal_entered": 1,
+        "verification_resource_read": 1,
+        "wait_node_entered": 2
+      }
+    },
+    {
+      "name": "unsupported_behavior_is_explicitly_rejected",
+      "passed": true,
+      "evidence": {
+        "scope": "application guard, not deployment migration"
+      }
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal",
+        "--task",
+        "normal"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39295,
+        "request": {
+          "id": "normal:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "normal:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "normal",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal",
+        "--task",
+        "normal"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39296,
+        "request": {
+          "id": "normal:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "normal:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "normal",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "resume",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal",
+        "--task",
+        "normal"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "still_waiting_for_real_event",
+        "pid": 39344
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal",
+        "--task",
+        "normal",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal-reply-3.json"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "normal:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal/artifacts/normal/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal/artifacts/normal/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "normal:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "normal:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": "accepted",
+        "pid": 39378,
+        "request": {
+          "id": "normal:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "normal:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "normal:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal/artifacts/normal/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal/artifacts/normal/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "request": {
+            "id": "normal:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "normal",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal",
+        "--task",
+        "normal",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal-reply-3.json"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "normal:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal/artifacts/normal/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal/artifacts/normal/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "normal:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "normal:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": "duplicate",
+        "pid": 39379,
+        "request": {
+          "id": "normal:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "normal:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "normal:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal/artifacts/normal/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal/artifacts/normal/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "request": {
+            "id": "normal:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "normal",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal",
+        "--task",
+        "normal",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/normal-reply-5.json"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "event_id_payload_conflict",
+        "pid": 39408
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/redirect",
+        "--task",
+        "redirect"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39409,
+        "request": {
+          "id": "redirect:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "redirect:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "redirect",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/redirect"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/redirect",
+        "--task",
+        "redirect",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/redirect-reply-7.json"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d8a6c2b812bb486ade3743419c14a5b62e1c3e4f35c9ca24ea6a8f7d3e3333da",
+              "teacher.md": "7edc06375dde90fe86fecc8c2dcfbb54264a5f2a83eb0c8867d0b065b13673c8"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "redirect:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/redirect/artifacts/redirect/383a63cd9f0f3d79/student.md",
+              "sha256": "d8a6c2b812bb486ade3743419c14a5b62e1c3e4f35c9ca24ea6a8f7d3e3333da",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/redirect/artifacts/redirect/383a63cd9f0f3d79/teacher.md",
+              "sha256": "7edc06375dde90fe86fecc8c2dcfbb54264a5f2a83eb0c8867d0b065b13673c8",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "initial",
+            "id": "redirect:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：改为初始值",
+            "request_id": "redirect:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": "accepted",
+        "pid": 39411,
+        "request": {
+          "id": "redirect:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n一项租借费用随时间线性变化：2 小时费用 11 元，5 小时费用 23 元。求 0 小时时的费用并解释；说明为什么不是 11 元。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n一项租借费用随时间线性变化：2 小时费用 11 元，5 小时费用 23 元。求 0 小时时的费用并解释；说明为什么不是 11 元。\n\n每小时增加 (23−11)/(5−2)=4 元；0 小时费用为 11−2×4=3 元。11 元已包含 2 小时的增加量。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d8a6c2b812bb486ade3743419c14a5b62e1c3e4f35c9ca24ea6a8f7d3e3333da",
+              "teacher.md": "7edc06375dde90fe86fecc8c2dcfbb54264a5f2a83eb0c8867d0b065b13673c8"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "initial",
+            "id": "redirect:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：改为初始值",
+            "request_id": "redirect:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/redirect/artifacts/redirect/383a63cd9f0f3d79/student.md",
+              "sha256": "d8a6c2b812bb486ade3743419c14a5b62e1c3e4f35c9ca24ea6a8f7d3e3333da",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/redirect/artifacts/redirect/383a63cd9f0f3d79/teacher.md",
+              "sha256": "7edc06375dde90fe86fecc8c2dcfbb54264a5f2a83eb0c8867d0b065b13673c8",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "request": {
+            "id": "redirect:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "redirect",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/redirect"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event",
+        "--task",
+        "after_event"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39419,
+        "request": {
+          "id": "after_event:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "after_event:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "after_event",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event",
+        "--task",
+        "after_event",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event-reply-9.json"
+      ],
+      "returncode": 86,
+      "result": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event",
+        "--task",
+        "after_event"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "event_accepted": 1,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_event:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_event:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39439,
+        "request": {
+          "id": "after_event:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "after_event:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "after_event",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "resume",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event",
+        "--task",
+        "after_event"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "after_event:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event/artifacts/after_event/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event/artifacts/after_event/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_event:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_event:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": null,
+        "pid": 39447,
+        "request": {
+          "id": "after_event:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_event:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_event:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event/artifacts/after_event/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event/artifacts/after_event/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "request": {
+            "id": "after_event:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "after_event",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_event"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student",
+        "--task",
+        "after_student"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39448,
+        "request": {
+          "id": "after_student:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "after_student:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "after_student",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student",
+        "--task",
+        "after_student",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student-reply-13.json"
+      ],
+      "returncode": 86,
+      "result": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student",
+        "--task",
+        "after_student"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 1,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_student:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_student:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "write_pair"
+        ],
+        "outcome": null,
+        "pid": 39458,
+        "request": {
+          "id": "after_student:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_student:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_student:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "phase": "built",
+          "request": {
+            "id": "after_student:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "after_student",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "verify",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student",
+        "--task",
+        "after_student"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "pair_manifest_incomplete",
+        "pid": 39459
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "resume",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student",
+        "--task",
+        "after_student"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "artifact_reused": 1,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "after_student:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student/artifacts/after_student/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student/artifacts/after_student/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_student:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_student:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": null,
+        "pid": 39479,
+        "request": {
+          "id": "after_student:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_student:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_student:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student/artifacts/after_student/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student/artifacts/after_student/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "request": {
+            "id": "after_student:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "after_student",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_student"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher",
+        "--task",
+        "after_teacher"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39489,
+        "request": {
+          "id": "after_teacher:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "after_teacher:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "after_teacher",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher",
+        "--task",
+        "after_teacher",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher-reply-18.json"
+      ],
+      "returncode": 86,
+      "result": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher",
+        "--task",
+        "after_teacher"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_teacher:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_teacher:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "write_pair"
+        ],
+        "outcome": null,
+        "pid": 39491,
+        "request": {
+          "id": "after_teacher:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_teacher:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_teacher:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "phase": "built",
+          "request": {
+            "id": "after_teacher:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "after_teacher",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "verify",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher",
+        "--task",
+        "after_teacher"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "pair_manifest_incomplete",
+        "pid": 39499
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "resume",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher",
+        "--task",
+        "after_teacher"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "artifact_reused": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "after_teacher:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher/artifacts/after_teacher/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher/artifacts/after_teacher/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_teacher:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_teacher:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": null,
+        "pid": 39519,
+        "request": {
+          "id": "after_teacher:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "after_teacher:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "after_teacher:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher/artifacts/after_teacher/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher/artifacts/after_teacher/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "request": {
+            "id": "after_teacher:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "after_teacher",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/after_teacher"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing",
+        "--task",
+        "missing"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39520,
+        "request": {
+          "id": "missing:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "missing",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing",
+        "--task",
+        "missing",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing-reply-23.json"
+      ],
+      "returncode": 86,
+      "result": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing",
+        "--task",
+        "missing"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "missing:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "deliver"
+        ],
+        "outcome": null,
+        "pid": 39532,
+        "request": {
+          "id": "missing:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "missing:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing/artifacts/missing/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing/artifacts/missing/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "checked",
+          "request": {
+            "id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "missing",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "deliver",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing",
+        "--task",
+        "missing"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "material_missing",
+        "pid": 39533
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "verify",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing",
+        "--task",
+        "missing"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "material_missing",
+        "pid": 39556
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing",
+        "--task",
+        "missing"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "missing:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "deliver"
+        ],
+        "outcome": null,
+        "pid": 39560,
+        "request": {
+          "id": "missing:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "missing:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing/artifacts/missing/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing/artifacts/missing/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "checked",
+          "request": {
+            "id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "missing",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "resume",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing",
+        "--task",
+        "missing"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "missing:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing/artifacts/missing/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing/artifacts/missing/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "missing:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": null,
+        "pid": 39561,
+        "request": {
+          "id": "missing:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "missing:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing/artifacts/missing/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing/artifacts/missing/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "request": {
+            "id": "missing:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "missing",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/missing"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered",
+        "--task",
+        "altered"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39570,
+        "request": {
+          "id": "altered:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "altered",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered",
+        "--task",
+        "altered",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered-reply-30.json"
+      ],
+      "returncode": 86,
+      "result": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered",
+        "--task",
+        "altered"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "altered:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "deliver"
+        ],
+        "outcome": null,
+        "pid": 39572,
+        "request": {
+          "id": "altered:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "altered:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered/artifacts/altered/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered/artifacts/altered/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "checked",
+          "request": {
+            "id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "altered",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "deliver",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered",
+        "--task",
+        "altered"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "material_snapshot_or_hash_mismatch",
+        "pid": 39597
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "verify",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered",
+        "--task",
+        "altered"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "material_snapshot_or_hash_mismatch",
+        "pid": 39599
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered",
+        "--task",
+        "altered"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "altered:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "deliver"
+        ],
+        "outcome": null,
+        "pid": 39600,
+        "request": {
+          "id": "altered:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "altered:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered/artifacts/altered/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered/artifacts/altered/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "checked",
+          "request": {
+            "id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "altered",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "resume",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered",
+        "--task",
+        "altered"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "altered:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered/artifacts/altered/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered/artifacts/altered/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "altered:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": null,
+        "pid": 39608,
+        "request": {
+          "id": "altered:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "altered:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered/artifacts/altered/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered/artifacts/altered/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "request": {
+            "id": "altered:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "altered",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/altered"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck",
+        "--task",
+        "oldcheck"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39611,
+        "request": {
+          "id": "oldcheck:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "oldcheck:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "oldcheck",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck",
+        "--task",
+        "oldcheck",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck-reply-37.json"
+      ],
+      "returncode": 86,
+      "result": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck",
+        "--task",
+        "oldcheck"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "oldcheck:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "oldcheck:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "deliver"
+        ],
+        "outcome": null,
+        "pid": 39639,
+        "request": {
+          "id": "oldcheck:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "oldcheck:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "oldcheck:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck/artifacts/oldcheck/383a63cd9f0f3d79/student.md",
+              "sha256": "c76bff0c388db5086b5c63ef19eaaf5f37bd00698b4081beaa5654dfa0f895d2",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck/artifacts/oldcheck/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "checked",
+          "request": {
+            "id": "oldcheck:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "oldcheck",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "fault_injection": "update checkpoint using public graph API",
+      "task": "oldcheck",
+      "changes": {
+        "manifest": {
+          "student.md": {
+            "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck/artifacts/oldcheck/383a63cd9f0f3d79/student.md",
+            "sha256": "c76bff0c388db5086b5c63ef19eaaf5f37bd00698b4081beaa5654dfa0f895d2",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "teacher.md": {
+            "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck/artifacts/oldcheck/383a63cd9f0f3d79/teacher.md",
+            "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        }
+      }
+    },
+    {
+      "command": [
+        "deliver",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck",
+        "--task",
+        "oldcheck"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "check_is_for_another_material_version",
+        "pid": 39640
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck",
+        "--task",
+        "oldcheck"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "oldcheck:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "oldcheck:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "deliver"
+        ],
+        "outcome": null,
+        "pid": 39641,
+        "request": {
+          "id": "oldcheck:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "oldcheck:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "oldcheck:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck/artifacts/oldcheck/383a63cd9f0f3d79/student.md",
+              "sha256": "c76bff0c388db5086b5c63ef19eaaf5f37bd00698b4081beaa5654dfa0f895d2",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck/artifacts/oldcheck/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "checked",
+          "request": {
+            "id": "oldcheck:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "oldcheck",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldcheck"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldreply",
+        "--task",
+        "oldreply"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39647,
+        "request": {
+          "id": "oldreply:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "oldreply:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "oldreply",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldreply"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "supersede",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldreply",
+        "--task",
+        "oldreply"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39650,
+        "request": {
+          "id": "oldreply:focus:2",
+          "snapshot": "e4a911d27561cdfabd67a7cd3b2836374999ad5091295a95861796e447d18351",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 2
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "oldreply:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "oldreply",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldreply"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldreply",
+        "--task",
+        "oldreply",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldreply-reply-43.json"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "reply_targets_old_snapshot",
+        "pid": 39669
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldreply",
+        "--task",
+        "oldreply"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39677,
+        "request": {
+          "id": "oldreply:focus:2",
+          "snapshot": "e4a911d27561cdfabd67a7cd3b2836374999ad5091295a95861796e447d18351",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 2
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "oldreply:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "oldreply",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/oldreply"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled",
+        "--task",
+        "cancelled"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39680,
+        "request": {
+          "id": "cancelled:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "cancelled:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "cancelled",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reply",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled",
+        "--task",
+        "cancelled",
+        "--event",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled-reply-47.json"
+      ],
+      "returncode": 86,
+      "result": null,
+      "stderr": ""
+    },
+    {
+      "command": [
+        "cancel",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled",
+        "--task",
+        "cancelled"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "cancelled:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "cancelled:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "deliver"
+        ],
+        "outcome": null,
+        "pid": 39684,
+        "request": {
+          "id": "cancelled:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "cancelled:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "cancelled:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled/artifacts/cancelled/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled/artifacts/cancelled/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "checked",
+          "request": {
+            "id": "cancelled:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "cancelled",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled"
+        },
+        "status": "cancelled"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "deliver",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled",
+        "--task",
+        "cancelled"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "cancelled_no_promotion",
+        "pid": 39708
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "resume",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled",
+        "--task",
+        "cancelled"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "cancelled_no_resume",
+        "pid": 39709
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled",
+        "--task",
+        "cancelled"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "hard_exit": 1,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": null,
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "cancelled:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "cancelled:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [
+          "deliver"
+        ],
+        "outcome": null,
+        "pid": 39716,
+        "request": {
+          "id": "cancelled:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "cancelled:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "cancelled:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled/artifacts/cancelled/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled/artifacts/cancelled/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "checked",
+          "request": {
+            "id": "cancelled:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "cancelled",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/cancelled"
+        },
+        "status": "cancelled"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/preselected",
+        "--task",
+        "preselected",
+        "--preselected",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/preselected-reply-52.json"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "preselected:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/preselected/artifacts/preselected/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/preselected/artifacts/preselected/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "preselected:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "preselected:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": null,
+        "pid": 39720,
+        "request": {
+          "id": "preselected:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "preselected:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "preselected:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/preselected/artifacts/preselected/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/preselected/artifacts/preselected/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "preselected": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "preselected:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "preselected:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "request": {
+            "id": "preselected:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "preselected",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/preselected"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race",
+        "--task",
+        "race"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "proposal_entered": 1,
+          "wait_node_entered": 1
+        },
+        "delivery": null,
+        "events": [],
+        "next": [
+          "await_focus"
+        ],
+        "outcome": null,
+        "pid": 39723,
+        "request": {
+          "id": "race:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "phase": "proposed",
+          "request": {
+            "id": "race:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "race",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "concurrent_cli_replies": [
+        {
+          "counts": {
+            "arithmetic_tool": 1,
+            "artifact_created": 2,
+            "build_entered": 1,
+            "candidate_committed": 1,
+            "event_accepted": 1,
+            "fixture_model_call": 2,
+            "proposal_entered": 1,
+            "verification_resource_read": 1,
+            "wait_node_entered": 2
+          },
+          "delivery": {
+            "check": {
+              "hashes": {
+                "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+                "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+              },
+              "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+              "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+              "scope": "fixture integrity; not pedagogical gate evaluation"
+            },
+            "event_id": "race:reply",
+            "manifest": {
+              "student.md": {
+                "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/student.md",
+                "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+                "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+              },
+              "teacher.md": {
+                "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/teacher.md",
+                "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+                "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+              }
+            },
+            "teaching_quality": "not_evaluated"
+          },
+          "events": [
+            {
+              "actor": "fixture-user",
+              "focus": "rate",
+              "id": "race:reply",
+              "origin": "fixture",
+              "raw": "测试脚本：采用变化率",
+              "request_id": "race:focus:1",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          ],
+          "next": [],
+          "outcome": "duplicate",
+          "pid": 39749,
+          "request": {
+            "id": "race:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "state": {
+            "actor": "fixture-user",
+            "behavior": "cfu-durable-prototype-v1",
+            "built": {
+              "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+              "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+            },
+            "check": {
+              "hashes": {
+                "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+                "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+              },
+              "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+              "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+              "scope": "fixture integrity; not pedagogical gate evaluation"
+            },
+            "decision": {
+              "actor": "fixture-user",
+              "focus": "rate",
+              "id": "race:reply",
+              "origin": "fixture",
+              "raw": "测试脚本：采用变化率",
+              "request_id": "race:focus:1",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "manifest": {
+              "student.md": {
+                "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/student.md",
+                "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+                "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+              },
+              "teacher.md": {
+                "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/teacher.md",
+                "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+                "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+              }
+            },
+            "phase": "runtime_probe_complete",
+            "request": {
+              "id": "race:focus:1",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+              "visible": {
+                "alternatives": {
+                  "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                  "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+                },
+                "fixture": true,
+                "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+                "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+                "standard": "CCSS.Math.Content.8.F.B.4",
+                "version": 1
+              }
+            },
+            "task": "race",
+            "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race"
+          },
+          "status": "active"
+        },
+        {
+          "counts": {
+            "arithmetic_tool": 1,
+            "artifact_created": 2,
+            "build_entered": 1,
+            "candidate_committed": 1,
+            "event_accepted": 1,
+            "fixture_model_call": 2,
+            "proposal_entered": 1,
+            "verification_resource_read": 1,
+            "wait_node_entered": 2
+          },
+          "delivery": {
+            "check": {
+              "hashes": {
+                "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+                "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+              },
+              "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+              "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+              "scope": "fixture integrity; not pedagogical gate evaluation"
+            },
+            "event_id": "race:reply",
+            "manifest": {
+              "student.md": {
+                "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/student.md",
+                "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+                "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+              },
+              "teacher.md": {
+                "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/teacher.md",
+                "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+                "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+              }
+            },
+            "teaching_quality": "not_evaluated"
+          },
+          "events": [
+            {
+              "actor": "fixture-user",
+              "focus": "rate",
+              "id": "race:reply",
+              "origin": "fixture",
+              "raw": "测试脚本：采用变化率",
+              "request_id": "race:focus:1",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          ],
+          "next": [],
+          "outcome": "accepted",
+          "pid": 39750,
+          "request": {
+            "id": "race:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "state": {
+            "actor": "fixture-user",
+            "behavior": "cfu-durable-prototype-v1",
+            "built": {
+              "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+              "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+            },
+            "check": {
+              "hashes": {
+                "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+                "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+              },
+              "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+              "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+              "scope": "fixture integrity; not pedagogical gate evaluation"
+            },
+            "decision": {
+              "actor": "fixture-user",
+              "focus": "rate",
+              "id": "race:reply",
+              "origin": "fixture",
+              "raw": "测试脚本：采用变化率",
+              "request_id": "race:focus:1",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "manifest": {
+              "student.md": {
+                "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/student.md",
+                "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+                "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+              },
+              "teacher.md": {
+                "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/teacher.md",
+                "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+                "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+              }
+            },
+            "phase": "runtime_probe_complete",
+            "request": {
+              "id": "race:focus:1",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+              "visible": {
+                "alternatives": {
+                  "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                  "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+                },
+                "fixture": true,
+                "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+                "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+                "standard": "CCSS.Math.Content.8.F.B.4",
+                "version": 1
+              }
+            },
+            "task": "race",
+            "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race"
+          },
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "command": [
+        "status",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race",
+        "--task",
+        "race"
+      ],
+      "returncode": 0,
+      "result": {
+        "counts": {
+          "arithmetic_tool": 1,
+          "artifact_created": 2,
+          "build_entered": 1,
+          "candidate_committed": 1,
+          "event_accepted": 1,
+          "fixture_model_call": 2,
+          "proposal_entered": 1,
+          "verification_resource_read": 1,
+          "wait_node_entered": 2
+        },
+        "delivery": {
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "event_id": "race:reply",
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "teaching_quality": "not_evaluated"
+        },
+        "events": [
+          {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "race:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "race:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          }
+        ],
+        "next": [],
+        "outcome": null,
+        "pid": 39752,
+        "request": {
+          "id": "race:focus:1",
+          "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+          "visible": {
+            "alternatives": {
+              "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+              "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+            },
+            "fixture": true,
+            "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+            "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+            "standard": "CCSS.Math.Content.8.F.B.4",
+            "version": 1
+          }
+        },
+        "state": {
+          "actor": "fixture-user",
+          "behavior": "cfu-durable-prototype-v1",
+          "built": {
+            "student.md": "# 运行验证用固定题面\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n",
+            "teacher.md": "# 运行验证用固定教师说明\n\n水箱按恒定速率进水。开始时有 3 L，2 分钟时有 7 L，5 分钟时有 13 L。求进水速率并解释单位；说明为什么不能用 7÷2。\n\n速率为 (13−7)/(5−2)=2 L/min；7÷2 包含原有的 3 L，不能代表新增水量的速率。\n\n追问学生如何区分起始量与变化量。本材料未做完整教学质量评测。\n"
+          },
+          "check": {
+            "hashes": {
+              "student.md": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "teacher.md": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922"
+            },
+            "request_snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "rule_sha256": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+            "scope": "fixture integrity; not pedagogical gate evaluation"
+          },
+          "decision": {
+            "actor": "fixture-user",
+            "focus": "rate",
+            "id": "race:reply",
+            "origin": "fixture",
+            "raw": "测试脚本：采用变化率",
+            "request_id": "race:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+          },
+          "manifest": {
+            "student.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/student.md",
+              "sha256": "d1ba428528f1e2b19df0db8bc5e669d12268fd588bcd1395d8a375343f9b1881",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            },
+            "teacher.md": {
+              "path": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race/artifacts/race/383a63cd9f0f3d79/teacher.md",
+              "sha256": "2595e4b64feb3d6cdf6c1ca4ba2bb6732001e1852ad45a036afeccc52542f922",
+              "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887"
+            }
+          },
+          "phase": "runtime_probe_complete",
+          "request": {
+            "id": "race:focus:1",
+            "snapshot": "383a63cd9f0f3d79aa0b2ca126fc8eecb58b2153290ee32f79c113ce8add3887",
+            "visible": {
+              "alternatives": {
+                "initial": "根据线性关系的两组对应值求初始值，并解释 x=0 的意义；区分已知时刻的值与初始值。",
+                "rate": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。"
+              },
+              "fixture": true,
+              "focus": "根据线性关系的两组对应值求变化率，并用单位解释它；区分 Δy/Δx 与 y/x。",
+              "reason": "它检验学生是否用两个量的变化来解释速率，而非直接相除。",
+              "standard": "CCSS.Math.Content.8.F.B.4",
+              "version": 1
+            }
+          },
+          "task": "race",
+          "work": "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/race"
+        },
+        "status": "active"
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "start",
+        "--work",
+        "/Users/libo/Mathematics/k12-teaching-harness/.scratch/skills-harness/prototypes/cfu-durable/runs/20260915T032500314168Z-faults/badbehavior",
+        "--task",
+        "badbehavior",
+        "--behavior",
+        "unsupported-prototype-v0"
+      ],
+      "returncode": 2,
+      "result": {
+        "error": "unsupported_behavior_version",
+        "pid": 39753
+      },
+      "stderr": ""
+    }
+  ]
+}

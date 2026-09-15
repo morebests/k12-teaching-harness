@@ -1,0 +1,89 @@
+[
+  {
+    "description": "Save or revise a flat .md, .json or self-contained .svg artifact in this run.\n\nKeep teacher explanations/answers separate from student materials; use common task\nIDs. This saves a content version, not a quality approval. Previous versions remain.",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "content": {
+        "title": "Content",
+        "type": "string"
+      }
+    },
+    "required": [
+      "name",
+      "content"
+    ],
+    "title": "write_artifact",
+    "type": "object"
+  },
+  {
+    "description": "Read actual artifact content, or list available names when name is empty.\n\nOnly current-run files and explicitly handed-off parent artifacts are available.\nParent files are immutable; proposed changes must be saved as current artifacts.",
+    "properties": {
+      "name": {
+        "default": "",
+        "title": "Name",
+        "type": "string"
+      },
+      "source": {
+        "default": "current",
+        "enum": [
+          "current",
+          "parent"
+        ],
+        "title": "Source",
+        "type": "string"
+      }
+    },
+    "title": "read_artifact",
+    "type": "object"
+  },
+  {
+    "description": "Evaluate up to 20 arithmetic/symbolic expressions without arbitrary Python.\n\nSyntax: + - * / **, symbols x y z m b t r h d, lists, and functions sqrt, Abs,\nRational, Eq, solve, simplify, expand, factor, N. Examples: (7-3)/(4-2),\nsolve(Eq(2*x+3,11),x), solve([Eq(y,2*x+1),Eq(y,-x+4)],[x,y]).\nComputation verifies only these expressions, not the teaching meaning.",
+    "properties": {
+      "expressions": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Expressions",
+        "type": "array"
+      }
+    },
+    "required": [
+      "expressions"
+    ],
+    "title": "calculate",
+    "type": "object"
+  },
+  {
+    "description": "End this bounded task with existing candidate artifacts and truthful limits.\n\nThis is a handoff for external checking, not proof of teaching quality or human\napproval. Missing mandatory work must be named in remaining_limits.",
+    "properties": {
+      "summary": {
+        "title": "Summary",
+        "type": "string"
+      },
+      "deliverables": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Deliverables",
+        "type": "array"
+      },
+      "remaining_limits": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Remaining Limits",
+        "type": "array"
+      }
+    },
+    "required": [
+      "summary",
+      "deliverables",
+      "remaining_limits"
+    ],
+    "title": "finish_candidate",
+    "type": "object"
+  }
+]
