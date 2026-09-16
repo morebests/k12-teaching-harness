@@ -31,7 +31,7 @@
 | 能力质量与比较评测 | [交付验证路线](validation-and-release-route.md)、[质量验证决策票](../issues/05-capability-validation.md)、[上游评测说明](../../../k12-teacher-skills/evals/README.md)、[LangSmith 评测与人工标注](langsmith-observability-evaluation-research.md) 及所评能力的流程与 rubric | 可比条件、真实内容和交互证据、规则适用性，以及替代机制的效果验证；人工标注不替代产品 HITL |
 | 八年级线性函数的隔离原创实验 | [实验讨论方案](grade8-linear-functions-validation-design.md)、[独立官方标准](grade8-linear-functions-standards.md)、[具体输入与评价准备](../experiments/grade8-linear-functions/README.md) 及 [质量验证票](../issues/05-capability-validation.md) | 组织者核对两层范围、允许资源、冻结与匿名评阅；原创只加载允许的任务／知识文件和实际交接，不能沿开发路由加载 IM 及其派生内容 |
 
-进入实现或评审时，还需读取 [五项能力的交付规格](../../math-harness-delivery/spec.md)、[实现路线与任务](../../math-harness-delivery/README.md) 中对应实现票和关联决定；[逐票规模与依赖复核](../../math-harness-delivery/ticket-sizing-review.md) 解释当前拆分与待收口工作包。候选研究提供依据，不能自动替代已确定的验收要求。规格和实现票已经形成，实际实施与质量验收尚未开始。
+进入实现或评审时，还需读取 [五项能力的交付规格](../../math-harness-delivery/spec.md)、[实现路线与任务](../../math-harness-delivery/README.md) 中对应实现票和关联决定；[逐票规模与依赖复核](../../math-harness-delivery/ticket-sizing-review.md) 解释当前拆分与待收口工作包。候选研究提供依据，不能自动替代已确定的验收要求。首票已完成有限工程验证，正式课程体系、完整 Lesson 与 Skills 质量对照尚未交付。
 
 ## 当前设计与研究
 
@@ -44,7 +44,10 @@
 | [数学课程与教学设计 Harness：架构与可行性结论](architecture-conclusion.md) | 汇总采用结构、职责、首个实现顺序及规格交接 | 本轮 Wayfinder 已收敛；生产、完整单元及 Skills 质量尚未通过，不代表已证明最优 |
 | [模型、知识与产物工具的实现选择](model-knowledge-artifact-design.md) | 原生循环、实际运行资源、browse 映射、工具职责与上游渲染源码复用 | 技术选择及源码／官方依据；真实模型与原生服务合并、全部模型与生产恢复仍待验收 |
 | [ReAct Agent 与 LangGraph 工作流的职责边界](react-and-workflow-boundaries.md) | 首票实现后核对官方 Agent／workflow 分工、直接部署、子图恢复、middleware 与调用关联；关联 [实际工具顺序](../../math-harness-delivery/evidence/01-live-curriculum/tool-sequence-review.md) | 现有外层单节点没有表达已知业务阶段，日志不能完整还原一次 Agent 执行；该文保存当时的复核与建议；维护者诊断和阶段拆分现已另行实施，实际结果见首票及目标图证据 |
-| [有限课段任务的目标执行图](../../math-harness-delivery/ticket-01-graph-refactor-design.md) | 五个主阶段、静态作者／审阅子图、送审对象、条件修订、累计用量和恢复位置的具体设计 | 2026-09-16 已采用并实施；静态子图回取、消息隔离、阶段接续及计量已有限验证；真实样本因资源边界停止、排版未通过，见[重构证据](../../math-harness-delivery/evidence/01-live-curriculum/graph-refactor/README.md) |
+| [有限课段任务的目标执行图](../../math-harness-delivery/ticket-01-graph-refactor-design.md) | 五个主阶段、静态作者／审阅子图、送审对象、条件修订、累计用量和恢复位置的具体设计 | 2026-09-16 已采用并实施；原资源停止与公式问题保留在重构证据，随后已修复并完成[真实修订和阅读稿走查](../../math-harness-delivery/evidence/01-live-curriculum/render-repair/README.md)；不代表完整 Lesson 或教师使用验收 |
+| [首票范围、消耗与 Skills 对照复核](../../math-harness-delivery/ticket-01-scope-and-comparison-review.md) | 复核 Section 实现与全年／Lesson 职责差距、三次运行续作与实际缓存分项 | 当前是工程验证样本；不以格式通过替代教学交付，不把修订消耗当从零生成基线 |
+| [Gemini API、会话延续与缓存核查](gemini-api-and-caching-audit.md) | 核对当前官方 Interactions／generateContent、自动与显式缓存及锁定适配器源码 | 当前仍用 generateContent，真实缓存分项另有审计；未实施 API 迁移、显式缓存或费用实验 |
+| [上游 Skills 真实运行与同条件比较方法](skills-comparison-runbook.md) | 固定原版、完整材料、宿主和知识条件、rubric 与实际执行步骤 | 已准备[共同单课输入](../../math-harness-delivery/comparisons/lesson-creation-01/brief.md)；未运行基线或 A/B；当前 Section 不能冒充同任务 Lesson |
 | [从架构可行到教学交付的验证路线](validation-and-release-route.md) | 完整单元、五项能力、Skills／IM 分开比较、运行和教师使用门槛；先质量、随任务记录消耗、后优化预算 | 方法与交接已定；预算优化不作首版前置，不重写原始失败或宣称模型／教师质量已通过 |
 | [CFU 持久执行：真实回应、故障恢复与服务接口实测](cfu-durable-prototype-results.md) | 13 项固定事件故障探针、一次真实原型焦点回应及跨进程恢复、Agent Server dev 重启、LangSmith SDK 本地发送与 503 解耦 | 固定模型／材料，完整教学检查未实现；不是生产恢复、LangSmith 云端集成、任意自然语言理解或学校试用证据 |
 | [教学 Harness 的主执行链、调用与运行承载](main-execution-design.md) | 将自然语言任务、实际版本与 Context、模型／工具、检查修订、五项 HITL 位置和框架责任连成主链 | 调用语义已由关联决定收敛，含六项操作、回执／采纳／续作、范围化结果及静态示例；正式 Schema、生产实现和任意自然语言质量尚未验证 |

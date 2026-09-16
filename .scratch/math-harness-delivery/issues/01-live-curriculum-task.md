@@ -82,3 +82,9 @@ Size: L — 首次贯通真实模型、知识、原生开发服务与当前内�
 用户指出此前已约定先完成高质量任务再观察消耗，且格式问题应参照 Skills 修源、重渲染、核对实际输出。撤销示例的累计 token 阈值和按字节预留逻辑，默认仅累计供应商实际用量；兼容调用方显式阈值，不拦截已经完成审阅后的纯程序检查提交。Gemini adapter 的 `count_tokens` 能力已核对源码、官方资料并实际调用，文本探针为 13 tokens。
 
 根因是同段 `$$` 被错误匹配成行内公式，随后中文被交给 KaTeX；已修复解析，并把源字段、公式和原因反馈给作者。未闭合公式和常见命令重复转义的补充反例也有具体反馈。真实草稿重渲染、真实 Gemini＋LC 修订、独立审阅及浏览器检查已完成；最后一稿含 120 个 MathML 公式、20 个分式、1 张表格和1个 SVG，在所查桌面视口无横向溢出。格式修复任务用 410,455 tokens，走查后的内容修订用 533,823 tokens，均未设置累计 token 预算；不会把两次接续修订的用量说成从零生成成本。完整结果、工具请求／返回、审查与局限见[修复证据](../evidence/01-live-curriculum/render-repair/README.md)。
+
+### 2026-09-16：纠正当前产物的产品定位，准备原 Skills 对照
+
+用户指出独立课段混入完整题目细节，缺少全年体系和可直接使用的 Lesson。核查确认：当前只有 Section 和简化 LessonIntent，正式 Grade／Unit／Lesson 交接未实现。本票完成的是有限工程验证，不是五项能力或完整课时材料交付；阅读稿格式通过也不能作为教师可用性结论。后续落实既定全年蓝图、单课材料与跨层交接，不继续扩展孤立课段报告。详见 [范围复核](../ticket-01-scope-and-comparison-review.md)。
+
+真实 trace 确认自动缓存已命中，原失败／格式修复／内容修订的输入缓存比例分别为 81.3%／55.7%／64.8%。410,455 tokens 的修复以旧 JSON 草稿新建任务，未恢复旧 Agent 对话；不能当作从零生成优化结果。[官方 API 与锁定适配器核查](../../skills-harness/assets/gemini-api-and-caching-audit.md)、[原 Skill 执行方法](../../skills-harness/assets/skills-comparison-runbook.md) 和 [共同单课输入](../comparisons/lesson-creation-01/brief.md) 已准备。本轮未运行基线、迁移 API 或新增付费模型调用。

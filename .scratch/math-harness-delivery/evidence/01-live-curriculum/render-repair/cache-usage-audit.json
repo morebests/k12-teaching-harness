@@ -1,0 +1,446 @@
+{
+  "说明": "从原生trace的完整AIMessage.usage_metadata提取；cached包含于input，不是额外token；费用尚未用供应商账单核对。",
+  "runs": [
+    {
+      "task": "原始失败",
+      "model_calls": 30,
+      "cache_hit_calls": 28,
+      "input_tokens": 1569550,
+      "cache_read_tokens": 1275512,
+      "output_tokens": 85802,
+      "reasoning_tokens": 32964,
+      "total_tokens": 1655352,
+      "calls": [
+        {
+          "phase": "author",
+          "input_tokens": 30842,
+          "cache_read_tokens": 0,
+          "output_tokens": 335,
+          "reasoning_tokens": 324,
+          "total_tokens": 31177
+        },
+        {
+          "phase": "author",
+          "input_tokens": 31199,
+          "cache_read_tokens": 28610,
+          "output_tokens": 1524,
+          "reasoning_tokens": 1447,
+          "total_tokens": 32723
+        },
+        {
+          "phase": "author",
+          "input_tokens": 32861,
+          "cache_read_tokens": 28604,
+          "output_tokens": 1032,
+          "reasoning_tokens": 1005,
+          "total_tokens": 33893
+        },
+        {
+          "phase": "author",
+          "input_tokens": 33906,
+          "cache_read_tokens": 28598,
+          "output_tokens": 45,
+          "reasoning_tokens": 21,
+          "total_tokens": 33951
+        },
+        {
+          "phase": "author",
+          "input_tokens": 33964,
+          "cache_read_tokens": 28590,
+          "output_tokens": 753,
+          "reasoning_tokens": 725,
+          "total_tokens": 34717
+        },
+        {
+          "phase": "author",
+          "input_tokens": 34730,
+          "cache_read_tokens": 32667,
+          "output_tokens": 50,
+          "reasoning_tokens": 25,
+          "total_tokens": 34780
+        },
+        {
+          "phase": "author",
+          "input_tokens": 34794,
+          "cache_read_tokens": 32658,
+          "output_tokens": 539,
+          "reasoning_tokens": 511,
+          "total_tokens": 35333
+        },
+        {
+          "phase": "author",
+          "input_tokens": 35345,
+          "cache_read_tokens": 32650,
+          "output_tokens": 9365,
+          "reasoning_tokens": 1693,
+          "total_tokens": 44710
+        },
+        {
+          "phase": "author",
+          "input_tokens": 52573,
+          "cache_read_tokens": 32682,
+          "output_tokens": 7866,
+          "reasoning_tokens": 222,
+          "total_tokens": 60439
+        },
+        {
+          "phase": "author",
+          "input_tokens": 60467,
+          "cache_read_tokens": 49032,
+          "output_tokens": 57,
+          "reasoning_tokens": 46,
+          "total_tokens": 60524
+        },
+        {
+          "phase": "author",
+          "input_tokens": 60546,
+          "cache_read_tokens": 57195,
+          "output_tokens": 7631,
+          "reasoning_tokens": 46,
+          "total_tokens": 68177
+        },
+        {
+          "phase": "author",
+          "input_tokens": 68280,
+          "cache_read_tokens": 57204,
+          "output_tokens": 63,
+          "reasoning_tokens": 52,
+          "total_tokens": 68343
+        },
+        {
+          "phase": "author",
+          "input_tokens": 76156,
+          "cache_read_tokens": 65384,
+          "output_tokens": 2832,
+          "reasoning_tokens": 161,
+          "total_tokens": 78988
+        },
+        {
+          "phase": "reviewer",
+          "input_tokens": 38280,
+          "cache_read_tokens": 0,
+          "output_tokens": 507,
+          "reasoning_tokens": 480,
+          "total_tokens": 38787
+        },
+        {
+          "phase": "reviewer",
+          "input_tokens": 38800,
+          "cache_read_tokens": 32721,
+          "output_tokens": 6745,
+          "reasoning_tokens": 5617,
+          "total_tokens": 45545
+        },
+        {
+          "phase": "author",
+          "input_tokens": 41191,
+          "cache_read_tokens": 28632,
+          "output_tokens": 1638,
+          "reasoning_tokens": 1627,
+          "total_tokens": 42829
+        },
+        {
+          "phase": "author",
+          "input_tokens": 51955,
+          "cache_read_tokens": 40907,
+          "output_tokens": 808,
+          "reasoning_tokens": 782,
+          "total_tokens": 52763
+        },
+        {
+          "phase": "author",
+          "input_tokens": 52776,
+          "cache_read_tokens": 49080,
+          "output_tokens": 204,
+          "reasoning_tokens": 177,
+          "total_tokens": 52980
+        },
+        {
+          "phase": "author",
+          "input_tokens": 52992,
+          "cache_read_tokens": 49071,
+          "output_tokens": 2558,
+          "reasoning_tokens": 2417,
+          "total_tokens": 55550
+        },
+        {
+          "phase": "author",
+          "input_tokens": 55692,
+          "cache_read_tokens": 49066,
+          "output_tokens": 12155,
+          "reasoning_tokens": 4310,
+          "total_tokens": 67847
+        },
+        {
+          "phase": "author",
+          "input_tokens": 67875,
+          "cache_read_tokens": 53164,
+          "output_tokens": 26,
+          "reasoning_tokens": 15,
+          "total_tokens": 67901
+        },
+        {
+          "phase": "author",
+          "input_tokens": 77025,
+          "cache_read_tokens": 65436,
+          "output_tokens": 7915,
+          "reasoning_tokens": 73,
+          "total_tokens": 84940
+        },
+        {
+          "phase": "author",
+          "input_tokens": 85037,
+          "cache_read_tokens": 73618,
+          "output_tokens": 121,
+          "reasoning_tokens": 110,
+          "total_tokens": 85158
+        },
+        {
+          "phase": "author",
+          "input_tokens": 94389,
+          "cache_read_tokens": 81801,
+          "output_tokens": 36,
+          "reasoning_tokens": 25,
+          "total_tokens": 94425
+        },
+        {
+          "phase": "author",
+          "input_tokens": 103656,
+          "cache_read_tokens": 94074,
+          "output_tokens": 1291,
+          "reasoning_tokens": 683,
+          "total_tokens": 104947
+        },
+        {
+          "phase": "reviewer",
+          "input_tokens": 38360,
+          "cache_read_tokens": 28638,
+          "output_tokens": 1822,
+          "reasoning_tokens": 1795,
+          "total_tokens": 40182
+        },
+        {
+          "phase": "reviewer",
+          "input_tokens": 40195,
+          "cache_read_tokens": 36813,
+          "output_tokens": 2627,
+          "reasoning_tokens": 1257,
+          "total_tokens": 42822
+        },
+        {
+          "phase": "author",
+          "input_tokens": 41772,
+          "cache_read_tokens": 28632,
+          "output_tokens": 319,
+          "reasoning_tokens": 308,
+          "total_tokens": 42091
+        },
+        {
+          "phase": "author",
+          "input_tokens": 51558,
+          "cache_read_tokens": 40906,
+          "output_tokens": 642,
+          "reasoning_tokens": 511,
+          "total_tokens": 52200
+        },
+        {
+          "phase": "author",
+          "input_tokens": 52334,
+          "cache_read_tokens": 49079,
+          "output_tokens": 14296,
+          "reasoning_tokens": 6499,
+          "total_tokens": 66630
+        }
+      ],
+      "uncached_input_tokens": 294038,
+      "cached_input_share": 0.8127,
+      "source_trace": "work/graph-refactor-live/trace.jsonl",
+      "source_sha256": "257f54b495734039749c1a75d5af4a9ff4be7e1d13b6ebf6d5c437584cc1450f"
+    },
+    {
+      "task": "格式修复",
+      "model_calls": 8,
+      "cache_hit_calls": 5,
+      "input_tokens": 388801,
+      "cache_read_tokens": 216664,
+      "output_tokens": 21654,
+      "reasoning_tokens": 11222,
+      "total_tokens": 410455,
+      "calls": [
+        {
+          "phase": "author",
+          "input_tokens": 39129,
+          "cache_read_tokens": 0,
+          "output_tokens": 1025,
+          "reasoning_tokens": 916,
+          "total_tokens": 40154
+        },
+        {
+          "phase": "author",
+          "input_tokens": 40370,
+          "cache_read_tokens": 36795,
+          "output_tokens": 4760,
+          "reasoning_tokens": 4661,
+          "total_tokens": 45130
+        },
+        {
+          "phase": "author",
+          "input_tokens": 45175,
+          "cache_read_tokens": 36775,
+          "output_tokens": 10004,
+          "reasoning_tokens": 2215,
+          "total_tokens": 55179
+        },
+        {
+          "phase": "author",
+          "input_tokens": 55292,
+          "cache_read_tokens": 44959,
+          "output_tokens": 51,
+          "reasoning_tokens": 40,
+          "total_tokens": 55343
+        },
+        {
+          "phase": "author",
+          "input_tokens": 63274,
+          "cache_read_tokens": 53139,
+          "output_tokens": 2119,
+          "reasoning_tokens": 554,
+          "total_tokens": 65393
+        },
+        {
+          "phase": "reviewer",
+          "input_tokens": 46600,
+          "cache_read_tokens": 0,
+          "output_tokens": 2841,
+          "reasoning_tokens": 2810,
+          "total_tokens": 49441
+        },
+        {
+          "phase": "reviewer",
+          "input_tokens": 49454,
+          "cache_read_tokens": 0,
+          "output_tokens": 41,
+          "reasoning_tokens": 14,
+          "total_tokens": 49495
+        },
+        {
+          "phase": "reviewer",
+          "input_tokens": 49507,
+          "cache_read_tokens": 44996,
+          "output_tokens": 813,
+          "reasoning_tokens": 12,
+          "total_tokens": 50320
+        }
+      ],
+      "uncached_input_tokens": 172137,
+      "cached_input_share": 0.5573,
+      "source_trace": "work/render-repair-live/trace.jsonl",
+      "source_sha256": "f2a0543cfce412609fa43854bc463d1c4b1326f8417946bbd9529dbc3fb84dd7"
+    },
+    {
+      "task": "内容修订",
+      "model_calls": 11,
+      "cache_hit_calls": 9,
+      "input_tokens": 510181,
+      "cache_read_tokens": 330708,
+      "output_tokens": 23642,
+      "reasoning_tokens": 13338,
+      "total_tokens": 533823,
+      "calls": [
+        {
+          "phase": "author",
+          "input_tokens": 39292,
+          "cache_read_tokens": 0,
+          "output_tokens": 401,
+          "reasoning_tokens": 390,
+          "total_tokens": 39693
+        },
+        {
+          "phase": "author",
+          "input_tokens": 39715,
+          "cache_read_tokens": 18261,
+          "output_tokens": 257,
+          "reasoning_tokens": 181,
+          "total_tokens": 39972
+        },
+        {
+          "phase": "author",
+          "input_tokens": 39993,
+          "cache_read_tokens": 18258,
+          "output_tokens": 133,
+          "reasoning_tokens": 59,
+          "total_tokens": 40126
+        },
+        {
+          "phase": "author",
+          "input_tokens": 40147,
+          "cache_read_tokens": 36784,
+          "output_tokens": 84,
+          "reasoning_tokens": 12,
+          "total_tokens": 40231
+        },
+        {
+          "phase": "author",
+          "input_tokens": 40365,
+          "cache_read_tokens": 36775,
+          "output_tokens": 5083,
+          "reasoning_tokens": 4977,
+          "total_tokens": 45448
+        },
+        {
+          "phase": "author",
+          "input_tokens": 45494,
+          "cache_read_tokens": 36758,
+          "output_tokens": 71,
+          "reasoning_tokens": 24,
+          "total_tokens": 45565
+        },
+        {
+          "phase": "author",
+          "input_tokens": 45589,
+          "cache_read_tokens": 40826,
+          "output_tokens": 11300,
+          "reasoning_tokens": 3112,
+          "total_tokens": 56889
+        },
+        {
+          "phase": "author",
+          "input_tokens": 57000,
+          "cache_read_tokens": 44930,
+          "output_tokens": 108,
+          "reasoning_tokens": 97,
+          "total_tokens": 57108
+        },
+        {
+          "phase": "author",
+          "input_tokens": 65436,
+          "cache_read_tokens": 53110,
+          "output_tokens": 1492,
+          "reasoning_tokens": 505,
+          "total_tokens": 66928
+        },
+        {
+          "phase": "reviewer",
+          "input_tokens": 47230,
+          "cache_read_tokens": 0,
+          "output_tokens": 2677,
+          "reasoning_tokens": 2654,
+          "total_tokens": 49907
+        },
+        {
+          "phase": "reviewer",
+          "input_tokens": 49920,
+          "cache_read_tokens": 45006,
+          "output_tokens": 2036,
+          "reasoning_tokens": 1327,
+          "total_tokens": 51956
+        }
+      ],
+      "uncached_input_tokens": 179473,
+      "cached_input_share": 0.6482,
+      "source_trace": "work/render-repair-final/trace.jsonl",
+      "source_sha256": "64dceefe92887051c5257b13162b7e1a7a847e5159083d3444e6c5d72eb7590a"
+    }
+  ],
+  "提取方法": "仅取 updates|author:*／updates|reviewer:* 的 data.model.messages 中完整 AIMessage，按 message.id 去重；保留实际出现顺序；不累加 messages 流分片。原始 trace 本地保存、不入版本库，以下记录源文件 SHA-256。"
+}

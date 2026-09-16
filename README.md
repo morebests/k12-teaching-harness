@@ -14,9 +14,11 @@
 
 当前运行时继续使用 **LangGraph＋Agent Server，以 `langgraph dev` 本地开发模式运行**。会话、run、状态保存、流式、取消及 HITL 恢复直接复用框架，前端使用原生 API／SDK；不另造后台任务、队列、SSE 或文件运行状态机。教学内容仍用 JSON／图件保存，不建业务数据库或内容历史；框架内部 checkpoint 保留。具体见 [简化运行时](.scratch/math-harness-delivery/content-system-design.md#运行时也从简)。当前无需独立 PostgreSQL／Redis 服务，生产部署与完整故障验收后置。
 
-## 当前可运行切片
+## 当前可运行切片：工程验证范围
 
 已支持八年级 CCSS 的有限课段设计：真实 Gemini＋本地 LC、原生任务 API／进度流、JSON／图件／教师阅读稿、独立检查与反馈修订。运行 `uv sync --frozen`、`npm ci --ignore-scripts` 后，按 [配置与调用说明](docs/runtime.md) 启动 `uv run python scripts/dev.py --port 2024`。正式类型和导出契约位于 `src/teaching_harness/contracts.py` 与 `docs/contracts/`。
+
+**当前产物是工程验证样本，尚未交付正式课程体系或可直接授课的 Lesson 材料包。** 当前实现把多课任务和解答集中保存在独立 Section 中，缺少正式全年／单元定位、独立 Lesson 及师生材料交接。课段应承担单元内部的理解进程、表征变化和检查位置，具体题面、解答、教师组织与学生材料应落在 Lesson；上层可保留代表任务及引用。修复阅读稿和程序检查通过不能替代这些职责。后续回到全年蓝图、单课材料和跨层交接主线，不继续把孤立课段报告打磨成独立产品。详见 [首票范围与对照复核](.scratch/math-harness-delivery/ticket-01-scope-and-comparison-review.md)。
 
 维护者可通过原生流查看模型／工具请求、返回与错误，并保存本地诊断记录。开发脚本默认开启诊断能力，读取仍须服务配置的维护者身份及任务访问权；生产直接启动默认关闭，可由管理员显式开启。普通教学订阅继续只提供教学进度、草稿与结果。LangSmith 追踪尊重服务端显式配置，平台关联和观察故障仍由后续票验收；配置与回放方法见 [维护者诊断](docs/runtime.md#维护者诊断)。
 
