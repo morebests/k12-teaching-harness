@@ -32,6 +32,8 @@ Status: ready-for-agent
 
 工程首步仅用一个有明确范围的真实课程设计任务贯通模型、知识、任务与内容契约，再分别交付完整全年、一课材料及其连续交接。任务规模和依赖的复核见 [逐票分析](ticket-sizing-review.md)。它改变实施颗粒度，不降低首条全年到课时链或五项能力的验收范围；远端工作包需依据真实产出收口后才转为可执行票。
 
+**当前推进位置（2026-09-16）：**01 有限工程范围已完成，下一项内容主线是 15 全年蓝图，随后是 03 单课材料与 17 正式连续交接。必要 HITL、即时检查和受控恢复随首条链落实；完整故障恢复和生产建设后置。全部票的职责、交接与阶段冲突见 [整体推进路径复核](delivery-path-audit.md)，不将票号、硬依赖已满足或单项技术通过当作优先级。
+
 | 能力 | 输入与实际工作 | 交付与自身完成条件 |
 | --- | --- | --- |
 | 课程体系设计 | 真实 CCSS 范围、学校条件及适用学习上下文；设计 Grade／Unit／Section／Lesson 的目标分配、学习进程、Narrative、任务与证据，允许下层试做反馈上层 | 按请求范围交付可检查的设计与材料、覆盖和依赖说明；全年蓝图可以单独交付，但不能声称已有全年课时材料；完整单元必须包含全部课时与必要材料 |
@@ -119,7 +121,9 @@ LVN 研究因素和策略可在适用时补充，但不是所有任务的必需�
 
 ### 4. 任务级调用约定
 
-接口版本采用 `/v1`。调用方是受信 Web 后端；身份与授权来自服务认证上下文，不信任正文中自称的教师、管理员或租户角色。未启用能力、格式和不合法范围返回明确错误。传入外部材料应可解析为有权限的不可变内容快照，不能只保存一个会变化的“最新”链接。
+调用方是受信 Web 后端；身份与授权来自服务认证上下文，不信任正文中自称的教师、管理员或租户角色。未启用能力、格式和不合法范围返回明确错误。传入外部材料应可解析为有权限的本次实际内容及指纹，不能只保存一个会变化的“最新”链接。
+
+**当前阶段使用 Agent Server 原生 API／SDK。** 下表保留此前 `/v1/tasks` 的业务操作与 HTTP 命名参考，用于解释教学语义；不要求当前另建同名任务服务、队列或 SSE。实际已支持操作、类型与调用方式以运行说明和随能力交付的契约为准。当前内容指纹标识所用正文，不承诺回取任意历史版本。
 
 | 操作 | HTTP 入口 | 最小请求语义 | 可观察行为 |
 | --- | --- | --- | --- |
@@ -225,7 +229,7 @@ CFU 在学生页与教师指南实际写入后执行两道检查：独立读者�
 
 本规格中的传输命名、实现切片和测试组织是依据已定行为作出的实施选择，不伪称用户逐字段批准。用户已确认整体路线并要求持续推进；无需为例行拆票再开展一次访谈。若实施发现接口不足或存在更有效教学机制，应依据具体证据更新规格与相关决定；不得静默改变项目目标。
 
-当前没有生产实现、完整单元通过、Skills 非劣结论或真实学校试用。本次仅完成从架构到实施的交接。既有研究及不成功实验继续保存，完整依据按 [研究索引的任务路由](../skills-harness/assets/index.md) 读取，以下为本规格的主要来源：
+规格交接后，01 已完成有限 dev 实现；正式全年、完整 Lesson、完整单元、Skills 非劣结论、生产保证及真实学校试用仍未交付。既有研究及不成功实验继续保存，完整依据按 [研究索引的任务路由](../skills-harness/assets/index.md) 读取，以下为本规格的主要来源：
 
 - 范围与运行：[能力约定](../skills-harness/issues/01-capability-contract.md)、[调用决定](../skills-harness/issues/02-execution-interface.md)、[执行结构](../skills-harness/issues/03-execution-structure.md)、[模型／工具](../skills-harness/issues/04-runtime-adapters.md)、[主执行设计](../skills-harness/assets/main-execution-design.md)、[知识与产物设计](../skills-harness/assets/model-knowledge-artifact-design.md)。
 - 教学设计：[课程体系](../skills-harness/assets/curriculum-design-capability.md)、[Context](../skills-harness/assets/context-and-llm-design.md)、[课时创建](../skills-harness/assets/lesson-creation-execution-design.md)、[适配与备课](../skills-harness/assets/execution-contract-draft.md)、[CFU](../skills-harness/assets/cfu-execution-design.md)、[HITL](../skills-harness/assets/hitl-design.md)。

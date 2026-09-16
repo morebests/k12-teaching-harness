@@ -88,3 +88,7 @@ Size: L — 首次贯通真实模型、知识、原生开发服务与当前内�
 用户指出独立课段混入完整题目细节，缺少全年体系和可直接使用的 Lesson。核查确认：当前只有 Section 和简化 LessonIntent，正式 Grade／Unit／Lesson 交接未实现。本票完成的是有限工程验证，不是五项能力或完整课时材料交付；阅读稿格式通过也不能作为教师可用性结论。后续落实既定全年蓝图、单课材料与跨层交接，不继续扩展孤立课段报告。详见 [范围复核](../ticket-01-scope-and-comparison-review.md)。
 
 真实 trace 确认自动缓存已命中，原失败／格式修复／内容修订的输入缓存比例分别为 81.3%／55.7%／64.8%。410,455 tokens 的修复以旧 JSON 草稿新建任务，未恢复旧 Agent 对话；不能当作从零生成优化结果。[官方 API 与锁定适配器核查](../../skills-harness/assets/gemini-api-and-caching-audit.md)、[原 Skill 执行方法](../../skills-harness/assets/skills-comparison-runbook.md) 和 [共同单课输入](../comparisons/lesson-creation-01/brief.md) 已准备。本轮未运行基线、迁移 API 或新增付费模型调用。
+
+### 2026-09-16：按完整规格和全部票复核主次
+
+用户要求先明确基本推进路径，再核对整个项目安排。[整体复核](../delivery-path-audit.md) 已逐票核对 22 项和 38 条依赖，并追查原 01 全年任务拆成 01／15 的依据。本票服务于课程体系设计的首个有限工程闭环；代表任务试做不等于完整 Lesson，也不替代全年内容。既有有限结果保留，当前应接续 [15 全年蓝图](15-full-year-blueprint.md)，随后通过 03 和 17 落实课时及真实层级交接，不继续扩大孤立课段或将单课对照准备改为下一内容主线。

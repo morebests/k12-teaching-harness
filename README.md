@@ -20,6 +20,8 @@
 
 **当前产物是工程验证样本，尚未交付正式课程体系或可直接授课的 Lesson 材料包。** 当前实现把多课任务和解答集中保存在独立 Section 中，缺少正式全年／单元定位、独立 Lesson 及师生材料交接。课段应承担单元内部的理解进程、表征变化和检查位置，具体题面、解答、教师组织与学生材料应落在 Lesson；上层可保留代表任务及引用。修复阅读稿和程序检查通过不能替代这些职责。后续回到全年蓝图、单课材料和跨层交接主线，不继续把孤立课段报告打磨成独立产品。详见 [首票范围与对照复核](.scratch/math-harness-delivery/ticket-01-scope-and-comparison-review.md)。
 
+**当前下一项内容主线是 [全年蓝图（15）](.scratch/math-harness-delivery/issues/15-full-year-blueprint.md)**，随后推进 [一课材料（03）](.scratch/math-harness-delivery/issues/03-continuous-lessons-and-materials.md) 和 [全年到连续三课（17）](.scratch/math-harness-delivery/issues/17-curriculum-lesson-handoff.md)。01 的有限工程范围已完成；当前不继续扩大孤立课段，也不以 Skills 对照准备替代尚未交付的课程内容。必要交互、检查和运行保障随教学链接入。完整规格、22 张票及拆分依据的核对见 [整体推进路径复核](.scratch/math-harness-delivery/delivery-path-audit.md)。
+
 维护者可通过原生流查看模型／工具请求、返回与错误，并保存本地诊断记录。开发脚本默认开启诊断能力，读取仍须服务配置的维护者身份及任务访问权；生产直接启动默认关闭，可由管理员显式开启。普通教学订阅继续只提供教学进度、草稿与结果。LangSmith 追踪尊重服务端显式配置，平台关联和观察故障仍由后续票验收；配置与回放方法见 [维护者诊断](docs/runtime.md#维护者诊断)。
 
 首票此前真实结果为 3 课时、6 项关键任务，检查通过；不代表完整全年、正式三课上层、课堂成效或生产保证。当前已采用[五阶段执行图](.scratch/math-harness-delivery/ticket-01-graph-refactor-design.md)：作者与审阅用静态 Agent，其余阶段用普通 Python。已保存阶段可按框架检查点接续，未确认的外部调用仍保守停止；取消后公开续作与生产恢复后置。重构后的三课时样本曾因自设 token 拦截及公式解析问题未完成，[失败证据](.scratch/math-harness-delivery/evidence/01-live-curriculum/graph-refactor/README.md)保留。现已撤销默认累计 token 预算、修复公式解析与具体错误反馈，并完成真实修订、独立审阅及桌面浏览器走查；[最终阅读稿](.scratch/math-harness-delivery/evidence/01-live-curriculum/render-repair/final/output/curriculum.html)与[实际消耗和验证范围](.scratch/math-harness-delivery/evidence/01-live-curriculum/render-repair/README.md)可直接核对。此次通过不代表教师校准、打印成套课时材料或课堂成效。
@@ -117,7 +119,7 @@ Learning Commons 的本地化已由另一项目完成；[已有数据研究](../
 | [规划材料索引](.scratch/skills-harness/assets/index.md) | 按任务类型选择研究、详细流程和候选设计 | 分析、实现或评审相关教学与运行能力前 |
 | [知识使用约定](docs/references/knowledge-consumption-contract.md) 与 [证据基线](docs/references/reference-baseline.json) | 知识消费责任，以及可核对的来源文件与数据样本 | 设计或实现知识查询、Context、来源追溯及其评测时 |
 | [CONTEXT.md](CONTEXT.md) 与 `docs/adr/` | 领域词汇与适用架构决定；ADR 按需建立 | 使用或调整领域概念、核对相关架构决定时 |
-| [交付规格](.scratch/math-harness-delivery/spec.md)、[实现路线与任务](.scratch/math-harness-delivery/README.md) | 五项能力的行为、接口、范围、依赖及验收要求；[逐票复核](.scratch/math-harness-delivery/ticket-sizing-review.md) 说明拆分理由 | 实现或评审任务前；当前先执行无依赖的有限真实课程任务 |
+| [交付规格](.scratch/math-harness-delivery/spec.md)、[实现路线与任务](.scratch/math-harness-delivery/README.md) | 五项能力的行为、接口、范围、依赖及验收要求；[逐票复核](.scratch/math-harness-delivery/ticket-sizing-review.md) 说明拆分理由 | 实现或评审任务前；当前由已完成的有限任务接续全年蓝图 |
 
 **开发 Agent 的文档读取与产品 LLM 的运行时 Context 都要落实。** AGENTS.md 负责引导项目工作读取上述资料；产品运行时则需要在执行规格中明确各阶段加载的教学规则、数据、产物和验证资源及其版本，并由 Harness 实际装配和检查。写入 README 不代表运行时模型已经取得这些信息。
 

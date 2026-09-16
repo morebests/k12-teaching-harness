@@ -46,6 +46,7 @@
 | [ReAct Agent 与 LangGraph 工作流的职责边界](react-and-workflow-boundaries.md) | 首票实现后核对官方 Agent／workflow 分工、直接部署、子图恢复、middleware 与调用关联；关联 [实际工具顺序](../../math-harness-delivery/evidence/01-live-curriculum/tool-sequence-review.md) | 现有外层单节点没有表达已知业务阶段，日志不能完整还原一次 Agent 执行；该文保存当时的复核与建议；维护者诊断和阶段拆分现已另行实施，实际结果见首票及目标图证据 |
 | [有限课段任务的目标执行图](../../math-harness-delivery/ticket-01-graph-refactor-design.md) | 五个主阶段、静态作者／审阅子图、送审对象、条件修订、累计用量和恢复位置的具体设计 | 2026-09-16 已采用并实施；原资源停止与公式问题保留在重构证据，随后已修复并完成[真实修订和阅读稿走查](../../math-harness-delivery/evidence/01-live-curriculum/render-repair/README.md)；不代表完整 Lesson 或教师使用验收 |
 | [首票范围、消耗与 Skills 对照复核](../../math-harness-delivery/ticket-01-scope-and-comparison-review.md) | 复核 Section 实现与全年／Lesson 职责差距、三次运行续作与实际缓存分项 | 当前是工程验证样本；不以格式通过替代教学交付，不把修订消耗当从零生成基线 |
+| [整体推进路径与 22 张实现票核对](../../math-harness-delivery/delivery-path-audit.md) | 从五类教学产物和首条内容链核对完整 spec、全部票、38 条依赖与原首票拆分；明确当前先接续全年蓝图 | 未实现后续能力；保留现有票身份与硬依赖，区分教学优先级、阶段保障和生产门槛 |
 | [Gemini API、会话延续与缓存核查](gemini-api-and-caching-audit.md) | 核对当前官方 Interactions／generateContent、自动与显式缓存及锁定适配器源码 | 当前仍用 generateContent，真实缓存分项另有审计；未实施 API 迁移、显式缓存或费用实验 |
 | [上游 Skills 真实运行与同条件比较方法](skills-comparison-runbook.md) | 固定原版、完整材料、宿主和知识条件、rubric 与实际执行步骤 | 已准备[共同单课输入](../../math-harness-delivery/comparisons/lesson-creation-01/brief.md)；未运行基线或 A/B；当前 Section 不能冒充同任务 Lesson |
 | [从架构可行到教学交付的验证路线](validation-and-release-route.md) | 完整单元、五项能力、Skills／IM 分开比较、运行和教师使用门槛；先质量、随任务记录消耗、后优化预算 | 方法与交接已定；预算优化不作首版前置，不重写原始失败或宣称模型／教师质量已通过 |
