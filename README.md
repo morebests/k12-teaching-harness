@@ -22,6 +22,8 @@
 
 **当前先闭合全年课程规划的质量与执行方法，暂停向 03／17／06 推进。** 用户于 2026-09-16 明确要求全年规划达到 IM 可观察的规划水平，不能以展开课时替代解决全年问题。15 已有工程实现、全年稿及真实运行证据，但其教学规划质量仍需改进和验证。当前按[全年阶段设计](.scratch/math-harness-delivery/curriculum-progression-workflow-design.md)，依次夯实目标与条件、全年主线与布局、各单元规划进程、跨单元综合检查及修订，再用[同尺度 IM 评估机制](.scratch/math-harness-delivery/year-planning-evaluation.md)比较固定候选。后续 Lesson、连续课段和完整单元保留原交付范围；[整体推进路径复核](.scratch/math-harness-delivery/delivery-path-audit.md)中的“下一项为 03”已被本次明确纠正覆盖。
 
+**先用全年规划蹚路，再让其他生成任务受益。** 用户进一步确认，全年规划是结构化教学生成方法的首个验证对象。当前随真实全年工作沉淀阶段成果交接、Context 装配、图与动态 Agent 分工、工具使用、检查修订及可复核评估；经过验证的机制再用于课时、材料、适配、备课与理解度检查。各能力保留自己的教学流程、参与要求和质量判据，迁移后按该能力验证效果；共享机制从实际需要中提炼。
+
 **旧 Section 的层级混杂仍待修正。** 当前 `Curriculum` 把完整题面、解答和教学支持集中到课段，不能作为正式课段模型沿用。03 首先建立独立 Lesson 与师生材料契约，17 以表达学习进程、各课职责和实际 Lesson 引用的 Section 完成替代。旧样本保留为证据，不能直接补上全年父 ID 就视为已经接入课程体系；具体承接和工具编排复核见 [层级与执行职责审查](.scratch/math-harness-delivery/section-and-execution-boundary-review.md)。
 
 全年工作采用“阶段成果检查后交接、按当前问题装配 Context、阶段内按需探索”的设计方向。LangGraph 管理阶段依赖、版本和回修，LLM 负责教学设计和判断，动态 Agent 处理局部补查与试做。具体流程、工具缺口及评估见上述设计；尚未实现或证明新方法的质量优势。[初次审阅消息审计](.scratch/math-harness-delivery/comparisons/year-review-session-audit.md)确认作者对话未传给审阅者，但作者整稿、解答和依据共享；会话隔离不能代替有效检查。
