@@ -41,7 +41,8 @@
 
 | 材料 | 已完成的工作 | 使用边界 |
 | --- | --- | --- |
-| [当前全年蓝图与 IM 八年级指南对照](../../math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md) | 核读固定全年产物、官方范围顺序及相关单元／课时，指出学习进程、相邻单元职责和阅读层级差距；附[官方来源核查](../../math-harness-delivery/comparisons/im-grade8-scope-and-sequence-source-review.md) | 用户明确要求提前开展的全年内容审查；原稿未改，未做匿名或课堂比较，后续参考影响须记录；03→17 主线保留 |
+| [把课程进程落实为可检查的教学工作](../../math-harness-delivery/curriculum-progression-workflow-design.md) | 结合代码、真实漏检和 IM 对照，明确进程、关键试做、材料与跨层回查的产物和修订路由；提出 Context 与显式控制分开比较的方法 | 下一内容切片的重构建议，尚未实现或做模型对照；不证明 Graph 必然提高教学质量，不替代各能力自己的流程 |
+| [当前全年蓝图与 IM 八年级指南对照](../../math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md) | 核读固定产物及官方材料，整理可吸收的全年联系、分层叙述、表征与语言、练习评价和教师使用方式；纠正将 Unit 2／3 局部案例作为主线的评审偏差；附[官方来源核查](../../math-harness-delivery/comparisons/im-grade8-scope-and-sequence-source-review.md) | 用户明确要求提前开展的全年内容审查；原稿未改，未做匿名或课堂比较，后续参考影响须记录；03→17 主线保留 |
 | [数学课程与教学设计 Harness：架构与可行性结论](architecture-conclusion.md) | 汇总采用结构、职责、首个实现顺序及规格交接 | 本轮 Wayfinder 已收敛；生产、完整单元及 Skills 质量尚未通过，不代表已证明最优 |
 | [模型、知识与产物工具的实现选择](model-knowledge-artifact-design.md) | 原生循环、实际运行资源、browse 映射、工具职责与上游渲染源码复用 | 技术选择及源码／官方依据；真实模型与原生服务合并、全部模型与生产恢复仍待验收 |
 | [ReAct Agent 与 LangGraph 工作流的职责边界](react-and-workflow-boundaries.md) | 首票实现后核对官方 Agent／workflow 分工、直接部署、子图恢复、middleware 与调用关联；关联 [实际工具顺序](../../math-harness-delivery/evidence/01-live-curriculum/tool-sequence-review.md) | 现有外层单节点没有表达已知业务阶段，日志不能完整还原一次 Agent 执行；该文保存当时的复核与建议；维护者诊断和阶段拆分现已另行实施，实际结果见首票及目标图证据 |

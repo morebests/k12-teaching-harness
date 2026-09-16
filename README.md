@@ -24,6 +24,8 @@
 
 **旧 Section 的层级混杂仍待修正。** 当前 `Curriculum` 把完整题面、解答和教学支持集中到课段，不能作为正式课段模型沿用。03 首先建立独立 Lesson 与师生材料契约，17 以表达学习进程、各课职责和实际 Lesson 引用的 Section 完成替代。旧样本保留为证据，不能直接补上全年父 ID 就视为已经接入课程体系；具体承接和工具编排复核见 [层级与执行职责审查](.scratch/math-harness-delivery/section-and-execution-boundary-review.md)。
 
+针对 IM 对照暴露的设计与验收问题，[课程进程工作流建议](.scratch/math-harness-delivery/curriculum-progression-workflow-design.md)进一步核对了当前整稿生成／审阅的局限：下一切片应落实目标单元进程、关键任务试做、真实材料与跨层回查，检查下层是否兑现上层设计。文档给出阶段产物、修订路由及公平比较方法；属于待实现、待验证的重构建议，不将显式 Graph 的教学质量优势写成事实。现行运行结构和各票完成范围仍按实际证据记录。
+
 维护者可通过原生流查看模型／工具请求、返回与错误，并保存本地诊断记录。开发脚本默认开启诊断能力，读取仍须服务配置的维护者身份及任务访问权；生产直接启动默认关闭，可由管理员显式开启。普通教学订阅继续只提供教学进度、草稿与结果。LangSmith 追踪尊重服务端显式配置，平台关联和观察故障仍由后续票验收；配置与回放方法见 [维护者诊断](docs/runtime.md#维护者诊断)。
 
 首票此前真实结果为 3 课时、6 项关键任务，检查通过；不代表完整全年、正式三课上层、课堂成效或生产保证。当前已采用[五阶段执行图](.scratch/math-harness-delivery/ticket-01-graph-refactor-design.md)：作者与审阅用静态 Agent，其余阶段用普通 Python。已保存阶段可按框架检查点接续，未确认的外部调用仍保守停止；取消后公开续作与生产恢复后置。重构后的三课时样本曾因自设 token 拦截及公式解析问题未完成，[失败证据](.scratch/math-harness-delivery/evidence/01-live-curriculum/graph-refactor/README.md)保留。现已撤销默认累计 token 预算、修复公式解析与具体错误反馈，并完成真实修订、独立审阅及桌面浏览器走查；[最终阅读稿](.scratch/math-harness-delivery/evidence/01-live-curriculum/render-repair/final/output/curriculum.html)与[实际消耗和验证范围](.scratch/math-harness-delivery/evidence/01-live-curriculum/render-repair/README.md)可直接核对。此次通过不代表教师校准、打印成套课时材料或课堂成效。
@@ -65,7 +67,7 @@
 
 原 Skills 与 IM 的用途需要分别判断：独立课程结构不意味着舍弃已有教学执行经验；参考原 Skill 流程也不意味着必须复制 IM 的课程体系。
 
-**2026-09-16 比较范围补充：**用户明确要求将当前全年稿与指定的 IM 八年级 Scope and Sequence 对照，因此在完整单元生成前开展了[全年内容审查](.scratch/math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md)。此前全年原稿及检查保持固定；本次是提前对照，不是完整单元匿名评测。后续受本次参考影响的内容须如实记录，不能称为未接触目标 IM 的原创盲测。审查发现单元内部进程、Unit 2／3 职责和教师阅读层级仍需完善；沿 03→17 落实，不把蓝图工程完成当作这些问题已经解决。
+**2026-09-16 比较范围补充：**用户明确要求将当前全年稿与指定的 IM 八年级 Scope and Sequence 对照，因此在完整单元生成前开展了[全年内容审查](.scratch/math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md)。此前全年原稿及检查保持固定；本次是提前对照，不是完整单元匿名评测。后续受本次参考影响的内容须如实记录，不能称为未接触目标 IM 的原创盲测。应吸收全年数学联系、各层 Narrative、表征与语言发展、练习评价进程和教师使用方式，沿 03→17 落实到实际内容并验证。此前过度强调的 Unit 2／3 问题保留为局部待核对案例，不作为推进主线或通用前置。
 
 Learning Commons 的本地化已由另一项目完成；[已有数据研究](../k12-learning/research/learning-commons/README.md) 和本仓库的 [实际用法核查](.scratch/skills-harness/assets/learning-commons-integration.md) 是使用入口。图提供设计依据，教学设计仍需判断任务、学习者条件和课堂可实施性。
 
