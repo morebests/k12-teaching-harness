@@ -65,6 +65,8 @@
 
 原 Skills 与 IM 的用途需要分别判断：独立课程结构不意味着舍弃已有教学执行经验；参考原 Skill 流程也不意味着必须复制 IM 的课程体系。
 
+**2026-09-16 比较范围补充：**用户明确要求将当前全年稿与指定的 IM 八年级 Scope and Sequence 对照，因此在完整单元生成前开展了[全年内容审查](.scratch/math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md)。此前全年原稿及检查保持固定；本次是提前对照，不是完整单元匿名评测。后续受本次参考影响的内容须如实记录，不能称为未接触目标 IM 的原创盲测。审查发现单元内部进程、Unit 2／3 职责和教师阅读层级仍需完善；沿 03→17 落实，不把蓝图工程完成当作这些问题已经解决。
+
 Learning Commons 的本地化已由另一项目完成；[已有数据研究](../k12-learning/research/learning-commons/README.md) 和本仓库的 [实际用法核查](.scratch/skills-harness/assets/learning-commons-integration.md) 是使用入口。图提供设计依据，教学设计仍需判断任务、学习者条件和课堂可实施性。
 
 知识身份、框架版本、关系语义、来源与推断及内容使用范围，执行时遵守 [知识使用约定](docs/references/knowledge-consumption-contract.md)；具体查阅版本与只读样本记录在 [证据基线](docs/references/reference-baseline.json)，不把快照计数或物理字段写死为接口。IM 方法论的新增教学依据及数学内部差异见 [转用研究](.scratch/skills-harness/assets/im-design-methodology-transfer.md)，原 Skills 的流程参考继续保留。
