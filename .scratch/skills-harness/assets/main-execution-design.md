@@ -1,5 +1,7 @@
 # 教学 Harness 的主执行链、调用与运行承载
 
+**当前实施读取说明（2026-09-16）：**本文保留当时的详细分析、候选与实验条件；当前全年阶段、参考使用时点、文件化和原生运行要求已进入 [规格正文](../../math-harness-delivery/spec.md)及 [全年工作流](../../math-harness-delivery/curriculum-progression-workflow-design.md)。先读其中教学问题与选择理由，再用本文核对细节；旧原创隔离、三课优先和生产时点不作为当前全年工作的要求。
+
 日期：2026-09-15。关联[调用接口](../issues/02-execution-interface.md)与[运行架构研究](../issues/11-agent-server-stack-research.md)。本文将既定教学语义和有限实验收敛成执行设计。调用语义的采用范围见关联决定；操作名及示例字段用于规格交接，尚非发布的 API。模型／工具的具体实现继续由对应票收敛，不改变各项能力的完成条件。
 
 依据：[README](../../../README.md)、[执行结构决定](../issues/03-execution-structure.md)、[人类参与决定](../issues/07-hitl-protocol.md)、[Context 详细设计](context-and-llm-design.md)、[课程与课时的双向交接](curriculum-design-capability.md)。各能力的完整原流程继续按[索引](index.md#按任务读取)读取，本文不替代它们。总体交接见 [架构结论](architecture-conclusion.md)，模型／知识／产物细节见 [实现选择](model-knowledge-artifact-design.md)，交付门槛见 [验证路线](validation-and-release-route.md)。

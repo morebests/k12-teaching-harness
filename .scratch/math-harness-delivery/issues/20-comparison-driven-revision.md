@@ -1,12 +1,16 @@
 # 根据匿名评阅意见修订并复核完整课程
 
 Status: needs-triage
-Blocked by: [冻结原创单元并完成匿名对照的第一轮评阅](12-frozen-unit-comparison.md)、[按自然语言修改课程并重查受影响内容](07-scoped-curriculum-revision.md)
+Blocked by: [固定完整单元并完成同尺度的首轮评阅](12-frozen-unit-comparison.md)、[按自然语言修改课程并重查受影响内容](07-scoped-curriculum-revision.md)
 Size: 待评阅结果确定 — 这是有实际输入的内容修订，不能提前用固定轮数估计。
 
 ## Ready condition
 
 取得真实首轮意见后，核对来源、具体对象、分歧与修改授权，明确本轮采纳范围及检查清单。模型评阅可作为明示的初步意见，不冒充专家；重要授权外取舍按 HITL 处理。此后转为 `ready-for-agent`，按实际影响决定是否进一步拆分。
+
+## 为什么做
+
+收到评语不意味着课程变好；本票要把成立的问题落实为完整单元内容变化，并检查没有损伤其他学习机会。它保留后续单元范围，当前全年弱项的回修由 24／25／26 负责，不能移交到本票拖后处理。
 
 ## What to build
 

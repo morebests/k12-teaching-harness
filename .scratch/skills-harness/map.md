@@ -19,6 +19,8 @@ Labels: wayfinder:map
 
 ## Decisions so far
 
+- [全年优先及 WHY 导向的实施重整](issues/06-architecture-conclusion.md#当前采用2026-09-16)：全年目标、学习进程及检查尚未充分成立，当前先用 23–26 验证方法与质量；以教学理由决定阶段和工具，后续迁移各自验收。现行要求在 [规格](../math-harness-delivery/spec.md)，旧三课优先及原创禁读时点保留历史身份。
+
 - [当前存储与运行阶段调整](issues/06-architecture-conclusion.md#2026-09-15用户收缩当前存储阶段)：JSON 当前稿、Markdown／LaTeX 正文和独立图件；不上业务数据库、不做内容历史、不参考外部 authoring。运行继续用 LangGraph＋Agent Server dev，复用本地 checkpoint、流式、取消和 HITL，不自建运行状态机或队列；完整生产部署后置。详见 [文件化与运行约定](../math-harness-delivery/content-system-design.md)。
 
 - [课程体系与教学能力的范围和质量基线是什么](issues/01-capability-contract.md)：独立课程体系设计纳入核心；数学优先，IM／Skills 为可取舍参考，本地 KG 由外部提供；具体设计和实现验证继续推进。

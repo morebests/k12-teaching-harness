@@ -1,6 +1,6 @@
 # 规划材料索引
 
-整理日期：2026-09-15。所属地图：[课程与教学设计 Harness 架构地图](../map.md)。
+更新：2026-09-16。所属地图：[课程与教学设计 Harness 架构地图](../map.md)。
 
 本页是 `assets/` 的统一入口及任务读取路由。项目目标、实施路线与原则统一以 [README](../../../README.md) 为准；下文区分候选设计、上游详细参考和框架研究。研究完成不表示生成能力或教学效果已验证。
 
@@ -31,18 +31,18 @@
 | 能力质量与比较评测 | [交付验证路线](validation-and-release-route.md)、[质量验证决策票](../issues/05-capability-validation.md)、[上游评测说明](../../../k12-teacher-skills/evals/README.md)、[LangSmith 评测与人工标注](langsmith-observability-evaluation-research.md) 及所评能力的流程与 rubric | 可比条件、真实内容和交互证据、规则适用性，以及替代机制的效果验证；人工标注不替代产品 HITL |
 | 八年级线性函数的隔离原创实验 | [实验讨论方案](grade8-linear-functions-validation-design.md)、[独立官方标准](grade8-linear-functions-standards.md)、[具体输入与评价准备](../experiments/grade8-linear-functions/README.md) 及 [质量验证票](../issues/05-capability-validation.md) | 组织者核对两层范围、允许资源、冻结与匿名评阅；原创只加载允许的任务／知识文件和实际交接，不能沿开发路由加载 IM 及其派生内容 |
 
-进入实现或评审时，还需读取 [五项能力的交付规格](../../math-harness-delivery/spec.md)、[实现路线与任务](../../math-harness-delivery/README.md) 中对应实现票和关联决定；[逐票规模与依赖复核](../../math-harness-delivery/ticket-sizing-review.md) 解释当前拆分与待收口工作包。候选研究提供依据，不能自动替代已确定的验收要求。01 已完成有限工程验证、15 已交付全年蓝图；完整 Lesson、正式课段交接与 Skills 质量对照尚未交付。
+进入实现或评审时，还需读取 [五项能力的交付规格](../../math-harness-delivery/spec.md)、[实现路线与任务](../../math-harness-delivery/README.md) 中对应实现票和关联决定；[逐票规模与依赖复核](../../math-harness-delivery/ticket-sizing-review.md) 解释当前拆分与待收口工作包。候选研究提供依据，不能自动替代已确定的验收要求。01／15 已有有限工程成果；当前按 [23–26 的全年路线](../../math-harness-delivery/README.md)先验证年度方法与质量，再恢复后续能力。具体问题、教学价值、方法假设和承接变更见 [规格](../../math-harness-delivery/spec.md)与 [重整记录](../../math-harness-delivery/year-planning-replan.md)。
 
 ## 当前设计与研究
 
-当前采用 [文件化内容格式](../../math-harness-delivery/content-system-design.md)。涉及内容保存、公式／表格／图片、修改、检查、渲染或制作前后端接合时，须与本表相关分支一起读取。按用户最新范围，JSON 保存当前工作源，正文允许 Markdown／LaTeX，图件另存；暂不上数据库，不建设内容版本历史，也不再以外部 authoring 为参考。该阶段约定覆盖旧设计中首版存储的时点，完整运行方向与教学质量要求保留；最小字段及实际往返仍待实现验证。
+当前采用 [文件化内容格式](../../math-harness-delivery/content-system-design.md)。涉及内容保存、公式／表格／图片、修改、检查、渲染或制作前后端接合时，须与本表相关分支一起读取。按用户最新范围，JSON 保存当前工作源，正文允许 Markdown／LaTeX，图件另存；暂不上数据库，不建设内容版本历史，也不再以外部 authoring 为参考。该阶段约定覆盖旧设计中首版存储的时点，完整运行方向与教学质量要求保留；已有有限内容及往返实现；新全年阶段成果和交接仍待 24／25 验证。
 
 运行继续采用 **LangGraph＋Agent Server dev**，直接复用 thread／run、本地 checkpoint、流式、取消和真实中断恢复；不自建后台协程调度、文件运行状态机或 SSE 服务。不上业务数据库及不做内容历史，不表示停用框架状态保存；此前停用 Agent Server 的候选已撤回，生产部署专项仍后置。
 
 | 材料 | 已完成的工作 | 使用边界 |
 | --- | --- | --- |
-| [全年规划：阶段成果、Context、执行与检查](../../math-harness-delivery/curriculum-progression-workflow-design.md) | 按用户纠正聚焦全年目标、布局、各单元规划进程及综合核查，明确图、动态 Agent、阶段 Context、工具与反馈；[会话审计](../../math-harness-delivery/comparisons/year-review-session-audit.md)核对真实初次审阅 | 当前暂停向 03／17／06 推进；新方法尚未实现或证明质量优势 |
-| [全年规划与 IM 的评估机制](../../math-harness-delivery/year-planning-evaluation.md) | 明确同尺度证据、八维判据、对象级检查、重大失败、评分分歧及优劣裁定；提供[规则数据](../../math-harness-delivery/year-planning-rubric.json) | 设计稿，未校准或正式评分；不将加权总分、模型自评或不可观察项冒充客观优越性 |
+| [全年规划：阶段成果、Context、执行与检查](../../math-harness-delivery/curriculum-progression-workflow-design.md) | 按用户纠正聚焦全年目标、布局、各单元规划进程及综合核查，明确图、动态 Agent、阶段 Context、工具与反馈；[会话审计](../../math-harness-delivery/comparisons/year-review-session-audit.md)核对真实初次审阅 | 以教学问题、取舍与反证说明方法；23–26 待实现，当前暂停向 03／17／06 推进 |
+| [全年规划与 IM 的评估机制](../../math-harness-delivery/year-planning-evaluation.md) | 明确同尺度证据、八维判据、对象级检查、重大失败、评分分歧及优劣裁定；提供[规则数据](../../math-harness-delivery/year-planning-rubric.json) | 23／26 承接实施；各维说明为何保护年度决定，尚未校准或评分，不将总分冒充客观优越性 |
 | [当前全年蓝图与 IM 八年级指南对照](../../math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md) | 核读固定产物及官方材料，整理可吸收的全年联系、分层叙述、表征与语言、练习评价和教师使用方式；纠正将 Unit 2／3 局部案例作为主线的评审偏差；附[官方来源核查](../../math-harness-delivery/comparisons/im-grade8-scope-and-sequence-source-review.md) | 用户明确要求提前开展的全年内容审查；原稿未改，参考影响须记录；后续用户明确要求先闭合全年质量，旧 03→17 当前推进建议已撤回 |
 | [数学课程与教学设计 Harness：架构与可行性结论](architecture-conclusion.md) | 汇总采用结构、职责、首个实现顺序及规格交接 | 本轮 Wayfinder 已收敛；生产、完整单元及 Skills 质量尚未通过，不代表已证明最优 |
 | [模型、知识与产物工具的实现选择](model-knowledge-artifact-design.md) | 原生循环、实际运行资源、browse 映射、工具职责与上游渲染源码复用 | 技术选择及源码／官方依据；真实模型与原生服务合并、全部模型与生产恢复仍待验收 |
@@ -57,7 +57,7 @@
 | [从架构可行到教学交付的验证路线](validation-and-release-route.md) | 完整单元、五项能力、Skills／IM 分开比较、运行和教师使用门槛；先质量、随任务记录消耗、后优化预算 | 方法与交接已定；预算优化不作首版前置，不重写原始失败或宣称模型／教师质量已通过 |
 | [CFU 持久执行：真实回应、故障恢复与服务接口实测](cfu-durable-prototype-results.md) | 13 项固定事件故障探针、一次真实原型焦点回应及跨进程恢复、Agent Server dev 重启、LangSmith SDK 本地发送与 503 解耦 | 固定模型／材料，完整教学检查未实现；不是生产恢复、LangSmith 云端集成、任意自然语言理解或学校试用证据 |
 | [教学 Harness 的主执行链、调用与运行承载](main-execution-design.md) | 将自然语言任务、实际版本与 Context、模型／工具、检查修订、五项 HITL 位置和框架责任连成主链 | 调用语义已由关联决定收敛，含六项操作、回执／采纳／续作、范围化结果及静态示例；正式 Schema、生产实现和任意自然语言质量尚未验证 |
-| [八年级实验的输入、运行与验证](../experiments/grade8-linear-functions/README.md) | 完整年级 CCSS／实践输入、共同规范、两类任务书、39 条 rubric 取用；真实蓝图与三课、两轮材料修订、像素读题及一次跨层压缩 | 有限取样链已走完；材料可读性和压缩可行性仍有未通过项。尚未达到 Skills；三课不代替完整单元，原创全单元冻结前不看对应 IM |
+| [八年级实验的输入、运行与验证](../experiments/grade8-linear-functions/README.md) | 完整年级 CCSS／实践输入、共同规范、两类任务书、39 条 rubric 取用；真实蓝图与三课、两轮材料修订、像素读题及一次跨层压缩 | 有限取样链已走完；材料可读性和压缩可行性仍有未通过项。尚未达到 Skills；三课不代替完整单元；原隔离条件属于当时实验，当前全年参考授权见规格 |
 | [真实 Gemini 运行与修订记录](../experiments/grade8-linear-functions/runtime-notes.md) | LangChain 适配器、本地 browse 语义工具、有界循环、实际版本交接、预算失败、独立读题、图形／渲染及问题反馈 | 记录失败与改动；12／24 次是探索预算，非生产结论；未验证完整服务、真实人类恢复或课堂效果 |
 | [实际材料质量裁定](../experiments/grade8-linear-functions/quality-review.md) | 按 E1–E10 核对原稿、修订稿、视觉模型误报与真实缺陷、18→14 跨层修订及后续验证对象 | 模型自报与检查轨迹分别处理；零解析错误、课时算术和文件同步不代表教学质量通过 |
 | [数学图形与可视材料：从教学用途到可修订产物](math-visual-materials-design.md) | 评估单列专业模块；用途说明、关键图早期试做、数学描述与绘制、局部精修、受众版本和教学包集成 | 已后置，非当前下一项任务；未新增生产模块或运行对照。按主线依赖重新进入时先针对函数图 |
