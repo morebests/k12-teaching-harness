@@ -1,0 +1,125 @@
+{
+  "baseline": "2e29ec27e90021968c2787615961b5c516f7eba0",
+  "kind_schema_probe": {
+    "const_only_source": {
+      "const": "grade",
+      "default": "grade",
+      "title": "Kind",
+      "type": "string"
+    },
+    "const_only_converted": {
+      "type": "STRING"
+    },
+    "current_source": {
+      "const": "grade",
+      "default": "grade",
+      "enum": [
+        "grade"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "current_converted": {
+      "enum": [
+        "grade"
+      ],
+      "type": "STRING"
+    }
+  },
+  "runs": [
+    {
+      "label": "initial",
+      "tools": {
+        "browse": 9,
+        "plot_linear": 1,
+        "calculate_math": 4,
+        "read_curriculum": 3,
+        "save_year_blueprint": 3
+      },
+      "save_failures": [
+        {
+          "tool_order": 15,
+          "type": "schema_validation",
+          "error_suffix": " content.id: Input should be 'curriculum'\ncontent.kind: Input should be 'grade'\n Please fix the error and try again."
+        },
+        {
+          "tool_order": 16,
+          "type": "render_errors",
+          "count": 1,
+          "locations": [
+            "tasks.3.solution"
+          ]
+        }
+      ],
+      "input_sizes_utf8_bytes_not_tokens": {
+        "request_including_external_source": 1454,
+        "prepared_knowledge": 139134
+      }
+    },
+    {
+      "label": "revision",
+      "tools": {
+        "plot_linear": 1,
+        "read_curriculum": 5,
+        "browse": 11,
+        "save_year_blueprint": 4,
+        "calculate_math": 4
+      },
+      "save_failures": [
+        {
+          "tool_order": 6,
+          "type": "render_errors",
+          "count": 18,
+          "locations": [
+            "goals.0.allocations.0.evidence",
+            "goals.1.allocations.0.evidence",
+            "goals.5.allocations.0.evidence",
+            "goals.14.allocations.0.evidence",
+            "goals.25.allocations.0.evidence",
+            "goals.25.allocations.0.evidence",
+            "goals.28.allocations.0.opportunity",
+            "handoff_guidance",
+            "handoff_guidance",
+            "handoff_guidance",
+            "tasks.0.solution",
+            "tasks.0.solution",
+            "tasks.1.solution",
+            "tasks.1.solution",
+            "tasks.1.solution",
+            "tasks.1.solution",
+            "tasks.2.solution",
+            "tasks.3.solution"
+          ]
+        }
+      ],
+      "input_sizes_utf8_bytes_not_tokens": {
+        "request_including_external_source": 71933,
+        "prepared_knowledge": 139134
+      }
+    },
+    {
+      "label": "final",
+      "tools": {
+        "plot_linear": 3,
+        "read_curriculum": 6,
+        "browse": 9,
+        "save_year_blueprint": 3
+      },
+      "save_failures": [
+        {
+          "tool_order": 4,
+          "type": "render_errors",
+          "count": 1,
+          "locations": [
+            "tasks.2.anticipated_response"
+          ]
+        }
+      ],
+      "input_sizes_utf8_bytes_not_tokens": {
+        "request_including_external_source": 76983,
+        "prepared_knowledge": 139134
+      }
+    }
+  ],
+  "scope": "本次只读代码和已有真实记录，Schema 探针未调用模型；字节数不是 token 估算，也未运行 Agent/API 质量对照。"
+}

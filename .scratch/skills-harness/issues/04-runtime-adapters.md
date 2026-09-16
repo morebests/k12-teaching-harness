@@ -28,6 +28,12 @@ Learning Commons 已本地化且可用。围绕标准与 LC、方向不同的进
 
 ## Comments
 
+### 2026-09-16：Agent、确定编排与直接模型调用的验证边界
+
+用户质疑生成／审阅是否需要 Agent，以及工具和 Context 是否应由程序组织。新增 [官方核查](../assets/agent-workflow-api-comparison.md) 与 [实际代码／轨迹复核](../../math-harness-delivery/section-and-execution-boundary-review.md)：工具本就由本地执行，固定步骤不应依赖模型决定是否调用；Context 可由 middleware 或显式模型节点装配。生成／审阅不按名称固定为 Agent，是否保留动态循环取决于实际补查、试做需要。
+
+`const` 丢失是适配契约问题，公式错误在多轮复发；既有修复与可进一步清偿的工程职责分别记录。保留 LangGraph／Agent Server 的采用方向，尚未决定整体改用原生 Gemini SDK，也未证明直接调用质量更高。比较应先修好共同缺陷，以同模型、证据和检查隔离控制／Context／传输因素，不另建两套完整系统或挤占课时主线。
+
 ### 2026-09-15：当前内容工具采用文件化工作稿
 
 用户明确现阶段不借鉴另一项目的 authoring，自行定义格式，暂不上数据库、不做内容版本历史。采用 [JSON 工作源、Markdown／LaTeX 正文与独立图件](../../math-harness-delivery/content-system-design.md)，只维护当前稿与当前检查；内容指纹用于核对检查和回应适用性，不保证旧指纹可回取历史内容。随后核查确认运行状态直接使用 LangGraph／Agent Server dev 的保存与恢复，不另建文件任务状态机。

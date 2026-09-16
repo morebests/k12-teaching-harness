@@ -22,6 +22,8 @@
 
 **当前下一项内容主线是 [一课材料（03）](.scratch/math-harness-delivery/issues/03-continuous-lessons-and-materials.md)**：使用 15 已交付的实际线性函数单元，完成一课及真实师生材料；随后推进 [全年到连续三课（17）](.scratch/math-harness-delivery/issues/17-curriculum-lesson-handoff.md)。01 与 15 已完成各自范围；当前不继续扩大孤立课段，也不以 Skills 对照准备替代尚未交付的课程内容。必要交互、检查和运行保障随教学链接入。完整规格、22 张票及拆分依据的核对见 [整体推进路径复核](.scratch/math-harness-delivery/delivery-path-audit.md)。
 
+**旧 Section 的层级混杂仍待修正。** 当前 `Curriculum` 把完整题面、解答和教学支持集中到课段，不能作为正式课段模型沿用。03 首先建立独立 Lesson 与师生材料契约，17 以表达学习进程、各课职责和实际 Lesson 引用的 Section 完成替代。旧样本保留为证据，不能直接补上全年父 ID 就视为已经接入课程体系；具体承接和工具编排复核见 [层级与执行职责审查](.scratch/math-harness-delivery/section-and-execution-boundary-review.md)。
+
 维护者可通过原生流查看模型／工具请求、返回与错误，并保存本地诊断记录。开发脚本默认开启诊断能力，读取仍须服务配置的维护者身份及任务访问权；生产直接启动默认关闭，可由管理员显式开启。普通教学订阅继续只提供教学进度、草稿与结果。LangSmith 追踪尊重服务端显式配置，平台关联和观察故障仍由后续票验收；配置与回放方法见 [维护者诊断](docs/runtime.md#维护者诊断)。
 
 首票此前真实结果为 3 课时、6 项关键任务，检查通过；不代表完整全年、正式三课上层、课堂成效或生产保证。当前已采用[五阶段执行图](.scratch/math-harness-delivery/ticket-01-graph-refactor-design.md)：作者与审阅用静态 Agent，其余阶段用普通 Python。已保存阶段可按框架检查点接续，未确认的外部调用仍保守停止；取消后公开续作与生产恢复后置。重构后的三课时样本曾因自设 token 拦截及公式解析问题未完成，[失败证据](.scratch/math-harness-delivery/evidence/01-live-curriculum/graph-refactor/README.md)保留。现已撤销默认累计 token 预算、修复公式解析与具体错误反馈，并完成真实修订、独立审阅及桌面浏览器走查；[最终阅读稿](.scratch/math-harness-delivery/evidence/01-live-curriculum/render-repair/final/output/curriculum.html)与[实际消耗和验证范围](.scratch/math-harness-delivery/evidence/01-live-curriculum/render-repair/README.md)可直接核对。此次通过不代表教师校准、打印成套课时材料或课堂成效。
