@@ -57,6 +57,81 @@ def sample_content():
     }
 
 
+def sample_year():
+    return {
+        "kind": "grade",
+        "title": "合成全年方案",
+        "narrative": "先比较数量，再解释关系。",
+        "units": [
+            {
+                "id": "u1",
+                "title": "数量关系",
+                "lesson_count": 160,
+                "narrative": "通过表征发展模型理解。",
+                "prerequisite_units": [],
+                "entry": "以任务检查比例知识，不假定已掌握。",
+                "exit": "解释变化率与初始值。",
+                "assessment_plan": "从新数据建模并解释参数。",
+            }
+        ],
+        "goals": [
+            {
+                "code": "8.F.B.4",
+                "allocations": [
+                    {
+                        "unit_id": "u1",
+                        "role": "teach",
+                        "opportunity": "比较数据与函数表征。",
+                        "evidence": "解释变化率与初始值。",
+                    }
+                ],
+            }
+        ],
+        "practices": [
+            {
+                "code": f"MP{i}",
+                "unit_ids": ["u1"],
+                "student_actions": "核验模型适用条件。",
+                "evidence": "解释限制。",
+            }
+            for i in range(1, 9)
+        ],
+        "tasks": [
+            {
+                **sample_content()["tasks"][0],
+                "unit_ids": ["u1"],
+                "design_consequence": "先诊断比例关系，再进入非比例关系。",
+            }
+        ],
+        "knowledge_uses": [
+            {
+                "code": "8.F.B.4",
+                "operation": "components",
+                "record_ids": ["lc1"],
+                "unit_ids": ["u1"],
+                "decision": "组件提示变化率和初始值分别检查。",
+            },
+            {
+                "code": "8.F.B.4",
+                "operation": "prerequisites",
+                "record_ids": ["edge1"],
+                "unit_ids": ["u1"],
+                "decision": "支持联系仅作为进入诊断的理由。",
+            },
+        ],
+        "design_inferences": ["单元排序为本设计推断。"],
+        "prerequisites": "前序年级经历待诊断。",
+        "successors": "为后续建模提供依据。",
+        "reserve_lessons": 20,
+        "reserve_plan": "机动课时按进入诊断安排，不重复计算。",
+        "focus_unit_id": "u1",
+        "handoff_guidance": "保留目标；课段和逐课材料尚待展开。",
+        "teacher_preparation": "方格纸与黑白打印。",
+        "assumptions": ["合成学校条件。"],
+        "limitations": ["尚无完整 Lesson 材料或课堂验证。"],
+    }
+
+
 class TestModel(BaseChatModel):
     async def _agenerate(self, messages, stop=None, run_manager=None, **kwargs):
         await asyncio.sleep(0.1)
@@ -70,7 +145,8 @@ class TestModel(BaseChatModel):
         return self
 
     def _generate(self, messages, stop=None, run_manager=None, **kwargs):
-        review = str(messages[0].content).startswith("# 有限课段检查规则")
+        year = json.loads(messages[1].content)["request"].get("scope") == "year"
+        review = str(messages[0].content).startswith(("# 有限课段检查规则", "# 全年蓝图检查规则"))
         calls = []
         if review:
             calls = [
@@ -93,19 +169,31 @@ class TestModel(BaseChatModel):
                     },
                 }
             ]
+        elif year and not any(isinstance(m, ToolMessage) for m in messages):
+            calls = [
+                {"name": "browse", "id": op, "args": {"code": "8.F.B.4", "operation": op}}
+                for op in ["components", "prerequisites"]
+            ]
         elif not any(isinstance(m, ToolMessage) for m in messages):
             expression = (
                 "1/0" if "验证失败工具追踪" in str(messages[1].content) else "(23-11)/(6-2)"
             )
             calls = [{"name": "calculate_math", "id": "math", "args": {"expression": expression}}]
-        elif not any(isinstance(m, ToolMessage) and m.name == "save_curriculum" for m in messages):
+        elif not any(
+            isinstance(m, ToolMessage) and m.name in {"save_curriculum", "save_year_blueprint"}
+            for m in messages
+        ):
             payload = json.loads(messages[1].content)
+
+            candidate = sample_year() if year else sample_content()
+            if year and "缺少目标" in payload["request"]["instruction"]:
+                candidate["goals"][0]["code"] = "8.F.B.5"
             calls = [
                 {
-                    "name": "save_curriculum",
+                    "name": "save_year_blueprint" if year else "save_curriculum",
                     "id": "save",
                     "args": {
-                        "content": sample_content(),
+                        "content": candidate,
                         "expected_fingerprint": payload["current"]["fingerprint"],
                     },
                 }
@@ -119,6 +207,19 @@ class TestModel(BaseChatModel):
 
 
 class TestKnowledge(Knowledge):
+    async def prepare_year(self, grade):
+        self.identity = {"namespace": "test", "version": "1"}
+        return {"year_scope": {"complete": True, "target_codes": ["8.F.B.4"], "parent_codes": []}}
+
+    async def lookup(self, code, operation):
+        result = {
+            "code": code,
+            "operation": operation,
+            "records": [{"id": "lc1" if operation == "components" else "edge1"}],
+        }
+        self.records.append(result)
+        return result
+
     async def prepare(self, targets: list[str]) -> dict[str, Any]:
         if targets == ["8.F.A.2"]:
             raise KnowledgeError("测试知识源缺失目标")

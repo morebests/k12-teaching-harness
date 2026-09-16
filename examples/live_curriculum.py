@@ -14,7 +14,7 @@ from teaching_harness.contracts import TaskRequest, fingerprint
 
 
 async def main() -> None:
-    parser = argparse.ArgumentParser(description="通过原生服务生成有限课段")
+    parser = argparse.ArgumentParser(description="通过原生服务生成课程方案")
     parser.add_argument("--url", default="http://127.0.0.1:2024")
     parser.add_argument("--event", required=True)
     parser.add_argument("--query", help="仅查询已有 task_id，不发起生成")
@@ -22,6 +22,7 @@ async def main() -> None:
     parser.add_argument("--source", help="调用方已规范化的实际 JSON 内容文件")
     parser.add_argument("--instruction", help="本次课程设计的具体要求")
     parser.add_argument("--identity", help="使用本地凭据配置中的指定身份")
+    parser.add_argument("--request", help="完整任务 JSON；可用于全年蓝图，event 由 --event 指定")
     parser.add_argument(
         "--diagnostics", help="维护者：为新运行订阅详细原生流并保存到新的 JSONL 文件"
     )
@@ -58,6 +59,10 @@ async def main() -> None:
             },
         }
     )
+    if args.request:
+        request = TaskRequest.model_validate(
+            {**json.loads(Path(args.request).read_text()), "event_id": args.event}
+        )
     if args.source:
         source = json.loads(Path(args.source).read_text())
         request = TaskRequest.model_validate(

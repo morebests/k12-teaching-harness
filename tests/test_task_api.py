@@ -12,6 +12,102 @@ from teaching_harness.content import ContentStore
 from teaching_harness.contracts import TaskRequest, task_id
 
 
+async def test_单元交接带出实际图件与分配在其他单元的必要父标准(server, request_data, work_root):
+    from teaching_harness.contracts import YearBlueprint
+
+    request_data.update(event_id="完整单元交接材料", scope="year", target_codes=[])
+    request_data["school"].update(lesson_count=180, reserve_lessons=20)
+    async with HarnessClient(server, "测试调用方", "test-token") as client:
+        receipt = await client.submit(TaskRequest.model_validate(request_data))
+        await client.native.runs.join(receipt.task_id, receipt.run_id)
+        result = await client.query(receipt.task_id)
+        store = ContentStore(work_root, receipt.task_id)
+        c = result["content"]
+        c["units"][0]["lesson_count"] = 100
+        c["units"].append({**c["units"][0], "id": "u2", "lesson_count": 60})
+        c["goals"].extend(
+            [
+                {
+                    "code": "8.EE.C.7",
+                    "allocations": [{**c["goals"][0]["allocations"][0], "unit_id": "u1"}],
+                },
+                {
+                    "code": "8.EE.C.7.a",
+                    "allocations": [{**c["goals"][0]["allocations"][0], "unit_id": "u2"}],
+                },
+            ]
+        )
+        asset = store.plot_linear(
+            "handoff", slope=3, intercept=5, x_max=8, y_max=30, x_label="分钟", y_label="升"
+        )
+        c["tasks"][0]["unit_ids"] = ["u2"]
+        c["tasks"][0]["blocks"] = [{"type": "image", "src": asset["src"], "alt": "合成水量图"}]
+        current = store.save(YearBlueprint.model_validate(c), result["fingerprint"])
+
+        def add_scope(value):
+            value["package"]["year_scope"]["nodes"] = [
+                {
+                    "detail": {
+                        "ref": {"identifier": "parent"},
+                        "source_fields": {"statementCode": "8.EE.C.7", "description": "完整父标准"},
+                    },
+                    "parent_ids": [],
+                },
+                {
+                    "detail": {
+                        "ref": {"identifier": "child"},
+                        "source_fields": {"statementCode": "8.EE.C.7.a", "description": "实际子项"},
+                    },
+                    "parent_ids": ["parent"],
+                },
+            ]
+
+        store.update_record("knowledge.json", add_scope)
+        response = await client.http.get(
+            f"/v1/threads/{receipt.task_id}/units/u2",
+            params={"expected_fingerprint": current["fingerprint"]},
+        )
+        assert response.status_code == 200, response.text
+        data = response.json()
+        assert data["assets"][asset["src"]]["fingerprint"] == asset["fingerprint"]
+        assert "<svg" in data["assets"][asset["src"]]["svg"]
+        assert data["assets"][asset["src"]]["parameters"]["slope"] == 3
+        assert {n["detail"]["source_fields"]["statementCode"] for n in data["standards"]} == {
+            "8.EE.C.7",
+            "8.EE.C.7.a",
+        }
+        assert data["standards"][1]["parent_ids"] == ["parent"]
+        assert data["status"] == "incomplete" and not data["checks"]["passed"]
+
+
+async def test_全年由同一任务接口交付且单元交接绑定实际版本与身份(server, request_data):
+    request_data.update(event_id="全年交接", scope="year", target_codes=[])
+    request_data["school"].update(lesson_count=180, reserve_lessons=20)
+    async with HarnessClient(server, "测试调用方", "test-token") as client:
+        receipt = await client.submit(TaskRequest.model_validate(request_data))
+        await client.native.runs.join(receipt.task_id, receipt.run_id)
+        result = await client.query(receipt.task_id)
+        assert result["status"] == "completed" and result["checks"]["passed"]
+        path = f"/v1/threads/{receipt.task_id}/units/u1"
+        handoff = await client.http.get(
+            path, params={"expected_fingerprint": result["fingerprint"]}
+        )
+        assert handoff.status_code == 200, handoff.text
+        data = handoff.json()
+        assert data["parent_fingerprint"] == result["fingerprint"]
+        assert data["unit"] == result["content"]["units"][0]
+        assert data["school"]["source"]["origin"] == "synthetic"
+        assert data["goals"][0]["code"] == "8.F.B.4"
+        assert (
+            await client.http.get(path, params={"expected_fingerprint": "旧版本"})
+        ).status_code == 409
+    async with HarnessClient(server, "其他学校", "other-token") as other:
+        response = await other.http.get(
+            path, params={"expected_fingerprint": result["fingerprint"]}
+        )
+        assert response.status_code in {403, 404}
+
+
 @pytest.mark.asyncio
 async def test_重送同一发起事件取得同一任务且不同正文冲突(server, request_data):
     async with HarnessClient(server, "测试调用方", "test-token") as client:

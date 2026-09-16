@@ -9,7 +9,7 @@ import httpx
 from langchain.tools import ToolRuntime, tool
 from langchain_core.tools import BaseTool
 
-from teaching_harness.contracts import Curriculum
+from teaching_harness.contracts import Curriculum, YearBlueprint
 from teaching_harness.execution import AgentContext, Ledger, TeachingAgentState
 from teaching_harness.knowledge import Knowledge, Operation
 from teaching_harness.mathematics import calculate
@@ -53,13 +53,14 @@ def author_tools(knowledge_factory: Callable[[httpx.AsyncClient], Knowledge]) ->
         """读取当前实际课程与指纹；当前无内容时 fingerprint 为 null。"""
         return await asyncio.to_thread(Ledger(runtime.state["work"]).store.snapshot)
 
-    @tool
-    async def save_curriculum(
-        content: Curriculum,
+    async def save(
+        content: Curriculum | YearBlueprint,
         expected_fingerprint: str | None,
         runtime: ToolRuntime[AgentContext, TeachingAgentState],
     ) -> dict[str, Any]:
-        """保存完整当前课段草稿；须用刚读取的指纹，首次保存用 null。"""
+        scope = runtime.state["work"]["request"].get("scope", "section")
+        if (scope == "year") != isinstance(content, YearBlueprint):
+            raise ValueError("内容层级与当前任务范围不符，请使用对应的保存工具")
         result = await asyncio.to_thread(
             Ledger(runtime.state["work"]).store.save, content, expected_fingerprint
         )
@@ -77,6 +78,24 @@ def author_tools(knowledge_factory: Callable[[httpx.AsyncClient], Knowledge]) ->
             "render_errors": result.get("render_errors", []),
             "message": "当前草稿已保存；rendered=false 时按 render_errors 修复源后再次保存，成功后送审",
         }
+
+    @tool
+    async def save_curriculum(
+        content: Curriculum,
+        expected_fingerprint: str | None,
+        runtime: ToolRuntime[AgentContext, TeachingAgentState],
+    ) -> dict[str, Any]:
+        """保存完整当前课段草稿；须用刚读取的指纹，首次保存用 null。"""
+        return await save(content, expected_fingerprint, runtime)
+
+    @tool
+    async def save_year_blueprint(
+        content: YearBlueprint,
+        expected_fingerprint: str | None,
+        runtime: ToolRuntime[AgentContext, TeachingAgentState],
+    ) -> dict[str, Any]:
+        """保存完整全年蓝图；含单元组织、全部内容和实践目标、知识采用与探查。首次指纹为 null。"""
+        return await save(content, expected_fingerprint, runtime)
 
     @tool
     async def plot_linear(
@@ -107,4 +126,11 @@ def author_tools(knowledge_factory: Callable[[httpx.AsyncClient], Knowledge]) ->
             expected_fingerprint=expected_fingerprint,
         )
 
-    return [browse, calculate_math, read_curriculum, save_curriculum, plot_linear]
+    return [
+        browse,
+        calculate_math,
+        read_curriculum,
+        save_curriculum,
+        save_year_blueprint,
+        plot_linear,
+    ]

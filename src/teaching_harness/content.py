@@ -13,7 +13,14 @@ from subprocess import TimeoutExpired
 from typing import Any
 from uuid import UUID
 
-from teaching_harness.contracts import Curriculum, RenderIssue, Review, fingerprint
+from teaching_harness.contracts import (
+    Curriculum,
+    RenderIssue,
+    Review,
+    YearBlueprint,
+    fingerprint,
+    parse_content,
+)
 from teaching_harness.rendering import RenderingError, linear_svg, render_curriculum
 
 
@@ -72,7 +79,7 @@ class ContentStore:
         content = self._json("content/curriculum.json")
         if content is None:
             return {"content": None, "fingerprint": None, "checks": None}
-        curriculum = Curriculum.model_validate(content)
+        curriculum = parse_content(content)
         assets: dict[str, str] = {}
         for task in curriculum.tasks:
             for block in task.blocks:
@@ -130,7 +137,7 @@ class ContentStore:
         with self.locked():
             return self._snapshot()
 
-    def save(self, content: Curriculum, expected: str | None) -> dict[str, Any]:
+    def save(self, content: Curriculum | YearBlueprint, expected: str | None) -> dict[str, Any]:
         with self.locked():
             previous = self._snapshot()
             if previous["fingerprint"] != expected:

@@ -1,0 +1,1835 @@
+{
+  "说明": "真实本地同一知识适配器使用 page_size=7 的分页预检；正式任务依同一算法使用默认100，并非硬编码节点数。",
+  "source_snapshot": {
+    "namespace": "lc",
+    "version": "v1.11.0",
+    "nodesSha256": "ffc142f72450c9692a9e547207cba3e0cd4012eb00c1d1be6aaced165c4139c5",
+    "relationshipsSha256": "74389d5e438e7a7f23e1128539827533ae08acacc73c9f3e4c81cc07a8916b21",
+    "schemaVersion": 2,
+    "cleaningVersion": "v2"
+  },
+  "projection": {
+    "ref": {
+      "sourceSnapshotId": "lc/v1.11.0",
+      "projectionKind": "gradeLevelMetadata",
+      "sourceField": "gradeLevel",
+      "frameworkIdentifier": "6becf2d7-2232-5ead-983f-9f0a4de24ab7",
+      "grade": "8"
+    },
+    "itemCount": 71
+  },
+  "target_codes": [
+    "8.EE.A.1",
+    "8.EE.A.2",
+    "8.EE.A.3",
+    "8.EE.A.4",
+    "8.EE.B.5",
+    "8.EE.B.6",
+    "8.EE.C.7.a",
+    "8.EE.C.7.b",
+    "8.EE.C.8.a",
+    "8.EE.C.8.b",
+    "8.EE.C.8.c",
+    "8.F.A.1",
+    "8.F.A.2",
+    "8.F.A.3",
+    "8.F.B.4",
+    "8.F.B.5",
+    "8.G.A.1.a",
+    "8.G.A.1.b",
+    "8.G.A.1.c",
+    "8.G.A.2",
+    "8.G.A.3",
+    "8.G.A.4",
+    "8.G.A.5",
+    "8.G.B.6",
+    "8.G.B.7",
+    "8.G.B.8",
+    "8.G.C.9",
+    "8.NS.A.1",
+    "8.NS.A.2",
+    "8.SP.A.1",
+    "8.SP.A.2",
+    "8.SP.A.3",
+    "8.SP.A.4"
+  ],
+  "parent_codes": [
+    "8.EE.C.7",
+    "8.EE.C.8",
+    "8.G.A.1"
+  ],
+  "node_count": 71,
+  "pages_with_more": [
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      },
+      "response_fingerprint": "bc619597fd890715a5053c3cf8013276b052a8ad172888beda5bf99250ad0d65",
+      "has_more": true,
+      "next_cursor": "eyJ2IjoxLCJiIjoiMWQ0MDIxZDRlZGU2ZjgxNyIsImsiOlswLCJNUDciLDAsIkxvb2sgZm9yIGFuZCBtYWtlIHVzZSBvZiBzdHJ1Y3R1cmUuIiwiNGQ5NzA3ZWQtMjM1ZS01NDNhLWI5MGYtODdjNTRkNzQwZTQ2Il19"
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      },
+      "response_fingerprint": "22f0f7ad2790c2c96a7b09935a7ad562042cbcc90e8b04391a92ddfc499db4cb",
+      "has_more": true,
+      "next_cursor": "eyJ2IjoxLCJiIjoiMTFlMWM2YTg5Y2NjNjg4MCIsImsiOlswLCI4Lk1QNyIsMCwiTG9vayBmb3IgYW5kIG1ha2UgdXNlIG9mIHN0cnVjdHVyZS4iLCJlM2UzY2NiOS0xNDhmLTViYzQtYmIwYS02MDhlNDYyY2JhNWMiXX0"
+    }
+  ],
+  "audit": [
+    {
+      "path": "frameworks/directory",
+      "params": {},
+      "response_fingerprint": "3b081bd96295575b8cb9bb2beb058efa51a861e12fa0de3ef00078d6116edeec",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels",
+      "params": {},
+      "response_fingerprint": "5083e8186b5ff058cd5c8ceb31dc6eaca5bd0571503db79563f138c6dc7ccd8c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7
+      },
+      "response_fingerprint": "4d621292f3648b77754959f19ce0b30c3285c882b05946d12a2bd932e65a321b",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/957d5d34-22eb-5ec5-b50a-80d9d95a0678/root-paths",
+      "params": {},
+      "response_fingerprint": "669611a73dd4ef4487277dd37276e25e16fb576df89e207f5f8fca117639da17",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/957d5d34-22eb-5ec5-b50a-80d9d95a0678",
+      "params": {},
+      "response_fingerprint": "e99b474fd0c59414ebbb8bf2b272487b61b77d19f20dc68300d53d3a78d5d8a8",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/37a2cfc1-5201-59d9-84ad-6455a88b7bc0/root-paths",
+      "params": {},
+      "response_fingerprint": "79f8597e8456e0c71ec2298345040538a9e825716a7885000921c28e733137d9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/37a2cfc1-5201-59d9-84ad-6455a88b7bc0",
+      "params": {},
+      "response_fingerprint": "2ebdce3d2d6663533587e4a3fad334f27b99d8257b891cac59193c5f180ede70",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "957d5d34-22eb-5ec5-b50a-80d9d95a0678"
+      },
+      "response_fingerprint": "49cc4a640ea73b9a63c9db1428c6aed962e0f218dea1d5d5a78cb2a0200d1784",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7c83b999-ae43-5ee3-9bad-97660ab97ff2/root-paths",
+      "params": {},
+      "response_fingerprint": "c59c42e71c0037e77d4ab3969b23dbdbeabe691287b758b71515e24f948bc0b9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7c83b999-ae43-5ee3-9bad-97660ab97ff2",
+      "params": {},
+      "response_fingerprint": "d6bbd7e8725e8641ed3f8cbf40332a20d5c3696271ed0483c43599b6902584ad",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      },
+      "response_fingerprint": "bc619597fd890715a5053c3cf8013276b052a8ad172888beda5bf99250ad0d65",
+      "has_more": true,
+      "next_cursor": "eyJ2IjoxLCJiIjoiMWQ0MDIxZDRlZGU2ZjgxNyIsImsiOlswLCJNUDciLDAsIkxvb2sgZm9yIGFuZCBtYWtlIHVzZSBvZiBzdHJ1Y3R1cmUuIiwiNGQ5NzA3ZWQtMjM1ZS01NDNhLWI5MGYtODdjNTRkNzQwZTQ2Il19"
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "cursor": "eyJ2IjoxLCJiIjoiMWQ0MDIxZDRlZGU2ZjgxNyIsImsiOlswLCJNUDciLDAsIkxvb2sgZm9yIGFuZCBtYWtlIHVzZSBvZiBzdHJ1Y3R1cmUuIiwiNGQ5NzA3ZWQtMjM1ZS01NDNhLWI5MGYtODdjNTRkNzQwZTQ2Il19",
+        "parent": "37a2cfc1-5201-59d9-84ad-6455a88b7bc0"
+      },
+      "response_fingerprint": "eab9270643db9327cc85aec5666e8b44e9cbcf8dd00f7480c731565335a30f2f",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3b1f7006-2d44-5097-86b6-7ac05d0de3ac/root-paths",
+      "params": {},
+      "response_fingerprint": "25d6a69242abf969ffbfbb19918db80e727b2e7217d723d3d45e9f15f9b07527",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3b1f7006-2d44-5097-86b6-7ac05d0de3ac",
+      "params": {},
+      "response_fingerprint": "c5fcb2838e570e834890ec19dd6d9fcd644c4c764436a4f86a4def920b013d08",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/6a0b0b39-d910-5b38-8d8d-6c1b1e22a351/root-paths",
+      "params": {},
+      "response_fingerprint": "70b8fde86b54647b41144ad603087a1bb30be36c63c43a55e22846b30efa60af",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/6a0b0b39-d910-5b38-8d8d-6c1b1e22a351",
+      "params": {},
+      "response_fingerprint": "0b32248c683ff61f5c24d655e4c54ebfdc0718e2f972d5f248d99c85a54b62c2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f0dc8000-e9bd-5e45-8268-684ccf49c304/root-paths",
+      "params": {},
+      "response_fingerprint": "5c4a9918248358cd0f69340ba8a889d24543165d01b3faf3463684ac6512abde",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f0dc8000-e9bd-5e45-8268-684ccf49c304",
+      "params": {},
+      "response_fingerprint": "bc81bffb10c8773d90477f00685a4a9372df1aced6b1de1088fd2cd71d852027",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4493563c-595c-53a2-a21a-5c027c6d4dc4/root-paths",
+      "params": {},
+      "response_fingerprint": "cbb36f77e6f125c46c87d6f5c571e7f5840590007579bd4dfa94dacf3f930869",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4493563c-595c-53a2-a21a-5c027c6d4dc4",
+      "params": {},
+      "response_fingerprint": "a192472ab6b19d4659d226b2126cb64ab1fa4ad58b750f083a7a3a32f513e956",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/abdd678e-c221-5e70-ae72-5397fd27c4f2/root-paths",
+      "params": {},
+      "response_fingerprint": "c67a14bb1dd4a469f75ca60b1987c8f3ac1d9301ce37ef2667943332602f4e79",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/abdd678e-c221-5e70-ae72-5397fd27c4f2",
+      "params": {},
+      "response_fingerprint": "bad5881b9a2efd51d028edb0e3192724a463dcdf40bc16f49298bcbeadd9eb20",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e87ba523-1aec-5c4d-a894-b21036323a93/root-paths",
+      "params": {},
+      "response_fingerprint": "51f027c6184021b51d946a9f879edb868bfde6b875c62ccea5985a50c2caffec",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e87ba523-1aec-5c4d-a894-b21036323a93",
+      "params": {},
+      "response_fingerprint": "2923e4556b4a2cd32172b5becfc19a03127a5e8a89ff0c4a9a869e5dc1c0c4f9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4d9707ed-235e-543a-b90f-87c54d740e46/root-paths",
+      "params": {},
+      "response_fingerprint": "fe0ff9aac7a294c824de0b9b7790f15ba0e82cd4a30cb5fb332432ba74a3b98e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4d9707ed-235e-543a-b90f-87c54d740e46",
+      "params": {},
+      "response_fingerprint": "39ddd2d90070d1abb0024e68bf895e42b610740a6e1f0892fa9c4f853185a96f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/da2c7ffe-57fa-5b44-85ef-342e76a5820e/root-paths",
+      "params": {},
+      "response_fingerprint": "a063857f7675c2b0a5fda8e7f9c684f6d733b7c434ddba5d3ff5b87e0c95159a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/da2c7ffe-57fa-5b44-85ef-342e76a5820e",
+      "params": {},
+      "response_fingerprint": "ffb9e68b458a737944e9d47a1cb6011b67ad45bda95126577304cf5b3f07589a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "7c83b999-ae43-5ee3-9bad-97660ab97ff2"
+      },
+      "response_fingerprint": "9756ab7bebb70236430e664802cb5b2c9d2880ad3f6eeb2c665e981cca55b3a8",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e0d847f6-991b-5dc0-a66b-0deb99ce53dc/root-paths",
+      "params": {},
+      "response_fingerprint": "bcc5d801bbb115a59eaf327b28c49fdaf5e8470351bc4e95c7a8154f1b1ebad4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e0d847f6-991b-5dc0-a66b-0deb99ce53dc",
+      "params": {},
+      "response_fingerprint": "02e35582ccda4551a5b0ca1972f35a0c95c7f9001619f847f34368cc6f79b85b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ff2b2fbc-89b4-55d1-a47b-7f9c096b4c3a/root-paths",
+      "params": {},
+      "response_fingerprint": "06fe69a08404b44ef90f7ad5624cc144f58100e5c98134083d316814183f25a7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ff2b2fbc-89b4-55d1-a47b-7f9c096b4c3a",
+      "params": {},
+      "response_fingerprint": "96d13059f296428d0420ef5d2bb4c3058366308c69b0f262d970896c753ef875",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d9e48f2b-8a24-52ae-b418-79c6172fd473/root-paths",
+      "params": {},
+      "response_fingerprint": "dd4c623cd59e7aec83edff427de6c3a76259d04891a41e496946bc42f42bb85a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d9e48f2b-8a24-52ae-b418-79c6172fd473",
+      "params": {},
+      "response_fingerprint": "e4c93bf215d81ac04c7eb29167f86493c4b2ab5f27aed5a835b2295f0658934e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e1203a0b-ace1-5f1a-b540-8ad4fc404824/root-paths",
+      "params": {},
+      "response_fingerprint": "61f7f09f1fa3cec6b609c1a7319d5e8af53b15ba6fedb2cf93634fff6d57aac4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e1203a0b-ace1-5f1a-b540-8ad4fc404824",
+      "params": {},
+      "response_fingerprint": "449d424d94f2ddda088f0d03ba24722a12d83cff49a6ab27cc233fab0d255f6b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/34f2fead-a380-5f6e-b5bf-73382066e42f/root-paths",
+      "params": {},
+      "response_fingerprint": "c99d8afe464c594b47b25ac3d8c2134d4e5dc8e74015dfcc902ec4bcd1353954",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/34f2fead-a380-5f6e-b5bf-73382066e42f",
+      "params": {},
+      "response_fingerprint": "867f037dc861b0559e725311baadf50d533d9bb0f9a471f7a4c92f44551a2fa5",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/8c6472f2-dbaf-572d-a5f6-5f4db1523ce7/root-paths",
+      "params": {},
+      "response_fingerprint": "af385c54429da5b8ea898e6b750a0429de0f6572038e9547f203cef0f5c0ade8",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/8c6472f2-dbaf-572d-a5f6-5f4db1523ce7",
+      "params": {},
+      "response_fingerprint": "eb88036718e6a4db2042853bd5bad63e429a72d1f4e23316709db6a849571664",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "3b1f7006-2d44-5097-86b6-7ac05d0de3ac"
+      },
+      "response_fingerprint": "bc953b604a15630c7bf985d5ac12bb9af00e7586e17d7fef37acdbc074f5de3c",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "6a0b0b39-d910-5b38-8d8d-6c1b1e22a351"
+      },
+      "response_fingerprint": "9d7d0f5e7309da08d97a71fb3194b69d0808abbeb509e5266ce96f5f601a4d16",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "f0dc8000-e9bd-5e45-8268-684ccf49c304"
+      },
+      "response_fingerprint": "851ce9cb0891815d15f2b2d294fa0fc23068ec6848caed749c57ec95e0008ca1",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "4493563c-595c-53a2-a21a-5c027c6d4dc4"
+      },
+      "response_fingerprint": "f85ae2992ae42eb8bb878c4fed54c95f0d90f4ae3dd054047f811bb822258e4d",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "abdd678e-c221-5e70-ae72-5397fd27c4f2"
+      },
+      "response_fingerprint": "4affffe13fde021f52733ab010581a762dadbcda6e0cc42c6133313824e4e18e",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "e87ba523-1aec-5c4d-a894-b21036323a93"
+      },
+      "response_fingerprint": "abe72d4f9480ea6d6d4bda8343d4fc25f18abdc8044a56fba905e00692b89b4c",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "4d9707ed-235e-543a-b90f-87c54d740e46"
+      },
+      "response_fingerprint": "2aab12d742adeffecc0cbea48b434b6bccc0ef16c76f4b64138c23b884d24bc5",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "da2c7ffe-57fa-5b44-85ef-342e76a5820e"
+      },
+      "response_fingerprint": "be6b23ba9cb0415569deb6941ff7544026222079c083ff8421d04a0e59f9d56a",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "e0d847f6-991b-5dc0-a66b-0deb99ce53dc"
+      },
+      "response_fingerprint": "04e25ef1353d10d7c567906bd326e715849edd540bc0fc24d945f3d3fc56648a",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/995dd00c-c6f3-56b7-9870-5392bc1cffa0/root-paths",
+      "params": {},
+      "response_fingerprint": "df3cb449ef6bb367cb69774958a357a2ef5726c6dbf0c0a8c111caf675dea235",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/995dd00c-c6f3-56b7-9870-5392bc1cffa0",
+      "params": {},
+      "response_fingerprint": "dd3adb341cf52008f6150963fde2e45263ca1ada9cf20bcc4268b7395581205c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7102e92a-5e93-5103-b719-d6e6946b7741/root-paths",
+      "params": {},
+      "response_fingerprint": "207ff8b140041397aa7ed36ca456691229b12feef79867831d8872e974971345",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/7102e92a-5e93-5103-b719-d6e6946b7741",
+      "params": {},
+      "response_fingerprint": "11854293c4badb1e4520027b38271f4f8aab19fea05c6d4d796785ad8a7275b7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/aca5ec40-e19f-51bc-9b2a-8eaf9b29b0a4/root-paths",
+      "params": {},
+      "response_fingerprint": "f0719a924112fdb00acf878fa96dd2ac997386b43325dc01e37e69cd282f98e6",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/aca5ec40-e19f-51bc-9b2a-8eaf9b29b0a4",
+      "params": {},
+      "response_fingerprint": "b1409bf00dc5330723419c870e09b2a6cf5201a055eaa8e2fb52c390e8746ab7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "ff2b2fbc-89b4-55d1-a47b-7f9c096b4c3a"
+      },
+      "response_fingerprint": "d3f2b537eb21b8a55b71da9c2c260d31ad17870dc57a958562d603599ac3b59d",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/51403b34-cc8d-5ba7-b9cf-9f02a5e636d4/root-paths",
+      "params": {},
+      "response_fingerprint": "82e4569345f95c7527150471ebb9ab31576cf50cea32bd503bc1c3759c4b3700",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/51403b34-cc8d-5ba7-b9cf-9f02a5e636d4",
+      "params": {},
+      "response_fingerprint": "d03627880d8013762856d1412a373025f4e9080671b4cccbd0ecd15fb2e21b3e",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/185e9d9f-ac74-5621-aced-81909baa4077/root-paths",
+      "params": {},
+      "response_fingerprint": "670ed293b55140d5acbf93f89a3eb94923e0e3f1141ca68264bb04c5f2c0e70c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/185e9d9f-ac74-5621-aced-81909baa4077",
+      "params": {},
+      "response_fingerprint": "d335e1c60c0c25d693952ac83cf47cb65c898c886819807ccff8257d7f7e023d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "d9e48f2b-8a24-52ae-b418-79c6172fd473"
+      },
+      "response_fingerprint": "bcbb217ed66867572120ada21a1e027d16020a48884c1e6343b63c5e675c0b76",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4ad73579-5cf8-50bc-a385-33085176f7df/root-paths",
+      "params": {},
+      "response_fingerprint": "277f2b6299398e6062aa13cfdc770c2e2d266198fb3db4b86a3252cb4576f5da",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4ad73579-5cf8-50bc-a385-33085176f7df",
+      "params": {},
+      "response_fingerprint": "eb5dd7a8223048a9ed4f97978f9b611137ddedf28c19d475737e12f2f4bd0185",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a5cb12bf-64a7-5154-b546-2f40b149168a/root-paths",
+      "params": {},
+      "response_fingerprint": "41865dc9b5b3dead896d264b96d8ae1348367d8dbd42ff2c72c3a02ecf25c3f3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a5cb12bf-64a7-5154-b546-2f40b149168a",
+      "params": {},
+      "response_fingerprint": "a77e38dd9d4485ad83f7d736069324955d19c8699e7190ddf900d9e6f445346f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a8d71370-4be0-5801-9d5f-042508c0a2bf/root-paths",
+      "params": {},
+      "response_fingerprint": "fc7df9f5f54ba66b8525829d784fe1c383ac169bb89963fc3ad3e09c3be7529a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a8d71370-4be0-5801-9d5f-042508c0a2bf",
+      "params": {},
+      "response_fingerprint": "f6d2eb836efd02f8714c578f5471e94769af10b89c5a619b9bc81164dd8939f2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      },
+      "response_fingerprint": "22f0f7ad2790c2c96a7b09935a7ad562042cbcc90e8b04391a92ddfc499db4cb",
+      "has_more": true,
+      "next_cursor": "eyJ2IjoxLCJiIjoiMTFlMWM2YTg5Y2NjNjg4MCIsImsiOlswLCI4Lk1QNyIsMCwiTG9vayBmb3IgYW5kIG1ha2UgdXNlIG9mIHN0cnVjdHVyZS4iLCJlM2UzY2NiOS0xNDhmLTViYzQtYmIwYS02MDhlNDYyY2JhNWMiXX0"
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "cursor": "eyJ2IjoxLCJiIjoiMTFlMWM2YTg5Y2NjNjg4MCIsImsiOlswLCI4Lk1QNyIsMCwiTG9vayBmb3IgYW5kIG1ha2UgdXNlIG9mIHN0cnVjdHVyZS4iLCJlM2UzY2NiOS0xNDhmLTViYzQtYmIwYS02MDhlNDYyY2JhNWMiXX0",
+        "parent": "e1203a0b-ace1-5f1a-b540-8ad4fc404824"
+      },
+      "response_fingerprint": "674cff09305ef7386471347b5a4158cb65bfd9c5c07266701f81a9397c7181db",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3d45bc79-6517-51e1-aef8-435cedc7bd42/root-paths",
+      "params": {},
+      "response_fingerprint": "a9931a82d73a40ac2683cee761e9b7c54ee142321d57fdd90dc155410f946f13",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3d45bc79-6517-51e1-aef8-435cedc7bd42",
+      "params": {},
+      "response_fingerprint": "2f2883ceae0fee65696ef7b420d80ce0fca9a1c70317e4a6fd4376bd36a1438c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/30d5f421-351b-5d45-b251-1bd15b2e6e0f/root-paths",
+      "params": {},
+      "response_fingerprint": "9a28fe6aae5d676c0e1da758aaa5afca314c46cd123ea4d23f21bc844269b23b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/30d5f421-351b-5d45-b251-1bd15b2e6e0f",
+      "params": {},
+      "response_fingerprint": "d934ff81173b4a08331794cd29047a0c35f850ef4663eb2f17608fb2db559064",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c3575094-d44c-54b4-9dd8-d675dd76c738/root-paths",
+      "params": {},
+      "response_fingerprint": "b4a8d32eb97bb41dd9c27f7b28127430e2494be90bdd3644024687fed78f9508",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c3575094-d44c-54b4-9dd8-d675dd76c738",
+      "params": {},
+      "response_fingerprint": "efab959d6c998e56335e0294e79914b4a045f48ac20130187e6eeb54a5962e03",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9cacbba9-1d93-5069-8302-4437624c056f/root-paths",
+      "params": {},
+      "response_fingerprint": "76009b217ceeff4a5d5fa9adfc5f8dc00dfd53d455a9ddc1e00d13cb9f2084de",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9cacbba9-1d93-5069-8302-4437624c056f",
+      "params": {},
+      "response_fingerprint": "081e9f24cf4d6756ca61b85efe9f2dd8e9b92bcb25a9a61df579b6f2f699792d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d3ae7e6e-a12f-513d-b829-f83c43882511/root-paths",
+      "params": {},
+      "response_fingerprint": "9f5e8bf69826f4088e8ed2bbb5ff733f65f57a541085a3d454760254f082d002",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/d3ae7e6e-a12f-513d-b829-f83c43882511",
+      "params": {},
+      "response_fingerprint": "e9efcae2cfdfdcd099b7001cf8712792db00bb22ef977edf244271a59e59850c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/15cb90d9-4e84-5a7d-b673-754766ca7e9e/root-paths",
+      "params": {},
+      "response_fingerprint": "b3fba8a931e3187a966986928f36aefd7452b81acaf377e465e2da8ae42324e1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/15cb90d9-4e84-5a7d-b673-754766ca7e9e",
+      "params": {},
+      "response_fingerprint": "31afa4ebc23620a08d821c9fd7ae3a8a850352403f543789714f0d749ee62d34",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e3e3ccb9-148f-5bc4-bb0a-608e462cba5c/root-paths",
+      "params": {},
+      "response_fingerprint": "8189620e5773157e94f718732066ea0a6e5aea7774083643cb20f88e68cc190b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e3e3ccb9-148f-5bc4-bb0a-608e462cba5c",
+      "params": {},
+      "response_fingerprint": "7d22245116077c11d51c77d8d7a10ece519be260f08b47b267bb745ae5804c3a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4a9f78a4-d08a-5584-aff3-0b62d582e84c/root-paths",
+      "params": {},
+      "response_fingerprint": "01a92fca7fdbf4e44d3846a61a2da1e3873dd1a59f9a8136420d947c7ad4f202",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/4a9f78a4-d08a-5584-aff3-0b62d582e84c",
+      "params": {},
+      "response_fingerprint": "f21b806e50b13c9388d83158e4c9ecc3d43bfd836b3cb231ec06de5b89236710",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "34f2fead-a380-5f6e-b5bf-73382066e42f"
+      },
+      "response_fingerprint": "da80f8e051f212872cb4b5caeabb7ef7807e429088832ba0c15f38d625139818",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/1ae7700c-15cc-5f51-8fee-f7240611ac5d/root-paths",
+      "params": {},
+      "response_fingerprint": "9e8481f87865081880c0d1f5d7999f8d6c5e684fa17dd29dfecd3123aa27c196",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/1ae7700c-15cc-5f51-8fee-f7240611ac5d",
+      "params": {},
+      "response_fingerprint": "82483e4c44bf8b23cfd2d8c9cf25055684e7473a7fc9aeb356dcfa75e8b95ca3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "8c6472f2-dbaf-572d-a5f6-5f4db1523ce7"
+      },
+      "response_fingerprint": "47ef8535d1fcf5f816af135b2bb0cf58cd57af1e6fadb151c6df0ad39aa0fb2a",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a81d1c5d-4b13-58e1-ab79-b95a72cd6792/root-paths",
+      "params": {},
+      "response_fingerprint": "8c0dc8ed821e0aa8c88dcd7ad8e62f7bbfbd17dd4ddd04152548cb44adf8b1a0",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/a81d1c5d-4b13-58e1-ab79-b95a72cd6792",
+      "params": {},
+      "response_fingerprint": "6e81a50027e6f27ddf896f3c8801cde630ba90b17d5f5b4e44d641ba5af0a7e4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "995dd00c-c6f3-56b7-9870-5392bc1cffa0"
+      },
+      "response_fingerprint": "e1cbbb0da66ab07037dcebf57c89c1a8555334dfa2bb71cacc445a490b1a4c3d",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/549d72b8-68e2-527f-a3fa-c8fb033fe4a2/root-paths",
+      "params": {},
+      "response_fingerprint": "507f330115cbbc1af01f51b72d858677b0fe30c785204b8dcd313b9eaee75753",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/549d72b8-68e2-527f-a3fa-c8fb033fe4a2",
+      "params": {},
+      "response_fingerprint": "6ae4da87237874f8cec2e582e0651572ffa61279d8b0d1cb9efd8abfc61b5eac",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3bebaa64-eeef-5329-b3cc-dddc8e68f0a1/root-paths",
+      "params": {},
+      "response_fingerprint": "feb27f53b8375e24dfe24301af33419b7a54bc5c4c9ded7d57b750c53916e3ab",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/3bebaa64-eeef-5329-b3cc-dddc8e68f0a1",
+      "params": {},
+      "response_fingerprint": "609c95911414d57c4e268f300b62b056c10c37dbf8989991172ad30bac14c04d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/85e37e84-850b-55bb-8e2c-db84016e7e56/root-paths",
+      "params": {},
+      "response_fingerprint": "42d18e2bbaee4b9882bfca7e615dce3fbd2abcb83925b6bb9b0f93d35734489a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/85e37e84-850b-55bb-8e2c-db84016e7e56",
+      "params": {},
+      "response_fingerprint": "442270af003800207152dabe76290faeac0ce7b26d0f1d206388e3ad81db954f",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/11610aaf-64f0-518d-b9c1-95070a8a7001/root-paths",
+      "params": {},
+      "response_fingerprint": "cad898e6c84317e4964f5e837134b060b027bc4c39aa52fb31f34dd08dcce090",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/11610aaf-64f0-518d-b9c1-95070a8a7001",
+      "params": {},
+      "response_fingerprint": "422981b12c06944013acd7f57d70d9695acf33ce3dab059f0f61b88a391c4d68",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "7102e92a-5e93-5103-b719-d6e6946b7741"
+      },
+      "response_fingerprint": "e216d3e8fe16d02c5046c8c4af540fa9846341b6607c7569908f344a962935ac",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0b02d60f-6a4e-5cf6-9a46-91ba5bfe5b7d/root-paths",
+      "params": {},
+      "response_fingerprint": "d693b4de0fff8441373459c73f726b6f0a88545855c3a50e55647a0d50365636",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0b02d60f-6a4e-5cf6-9a46-91ba5bfe5b7d",
+      "params": {},
+      "response_fingerprint": "094dce9e0630bcdaab98d6699e28632c9e3f47c2ecf6af3e712ebf25280822b6",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f42ff582-c718-5196-917c-9178b1fb2c91/root-paths",
+      "params": {},
+      "response_fingerprint": "b155d817769d80c0276cc197116760e6a974d37c35ed8e8c0389428b5a77c12b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f42ff582-c718-5196-917c-9178b1fb2c91",
+      "params": {},
+      "response_fingerprint": "c8c57007a0cda0befaf3f802f28fcfe66d0744330661a1d360bf675b333607eb",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "aca5ec40-e19f-51bc-9b2a-8eaf9b29b0a4"
+      },
+      "response_fingerprint": "6768d34f57df7df4011c76872c1f82413304651cf5c826abd30883eec4945525",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/b686895b-8c12-52ff-84c5-1acd55ee9e34/root-paths",
+      "params": {},
+      "response_fingerprint": "561816c89f953b59763d7581106f160b2dfee4adfe040d76e04d88c50c3bddda",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/b686895b-8c12-52ff-84c5-1acd55ee9e34",
+      "params": {},
+      "response_fingerprint": "1431dc6e79583a7977fabb4dc39d987b89bb70b242143b8629845be4bb7a6da0",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/15f1b8b4-b836-5750-866a-f7d5f377a296/root-paths",
+      "params": {},
+      "response_fingerprint": "67aa03b2918c08ebe8081e9642b8606684c72a8049a7577a3e9a34e679682e8d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/15f1b8b4-b836-5750-866a-f7d5f377a296",
+      "params": {},
+      "response_fingerprint": "0048d5c17ed8f81541a750572a3f34c9a81a41927781fbafa935921cf6cb952c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "51403b34-cc8d-5ba7-b9cf-9f02a5e636d4"
+      },
+      "response_fingerprint": "3b6398b6b51ea0c5160a18ba3d8b4f90429b89b836dd0481608629cd0e6105d3",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e4de5a68-0b5a-5a21-bfe2-2924f3a7e70e/root-paths",
+      "params": {},
+      "response_fingerprint": "6da9e55a7ba315eb48964fdf97134980a96f86d332a490cdc01de7aae56f0ef8",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e4de5a68-0b5a-5a21-bfe2-2924f3a7e70e",
+      "params": {},
+      "response_fingerprint": "044f814901e288418d894ad398eaa7a8c6c792fa4b61b77c91ab02e376beafd7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9f8337d3-e4d7-51cc-a27c-f8403bca7ad1/root-paths",
+      "params": {},
+      "response_fingerprint": "11034b6fa15376dfba1ee473c389e1c70ba7b154f1528164c1eb386e8aeadb09",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9f8337d3-e4d7-51cc-a27c-f8403bca7ad1",
+      "params": {},
+      "response_fingerprint": "1b508326f2eb041d8b9411c6078bc571c4e20016a8fd2d60aa964f3ddbd291a1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/534ca674-79cd-5a7e-b7e0-b9258b338e8c/root-paths",
+      "params": {},
+      "response_fingerprint": "2df462c25a33dd839c4e578f0d56f011dec619f8e071810c3cd6d13a07785cea",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/534ca674-79cd-5a7e-b7e0-b9258b338e8c",
+      "params": {},
+      "response_fingerprint": "9222d01eee52bf15d10c70101d1c843906f82897b3b970b068696a26cdd97dd4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "185e9d9f-ac74-5621-aced-81909baa4077"
+      },
+      "response_fingerprint": "7bc1f59eee229474e57697fff82a854f1c908edacb844bf3393c1878d7e19490",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc/root-paths",
+      "params": {},
+      "response_fingerprint": "1354c010ccb5f7a22a696fe274be31c9468f6658e34acbdfb09c3db400801bf8",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/0ff0d447-960a-5116-9fde-5989f4fc88fc",
+      "params": {},
+      "response_fingerprint": "6044c6ad4b250171218a01477480f0590ec0b91ebae302c6ba133f572e5e9e41",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9d3c6a12-46a7-5285-a425-df2570bc7764/root-paths",
+      "params": {},
+      "response_fingerprint": "1817f4c9cd4fc12f71b4d3f006ed7b85e6a33e1f498ae6e79d4628349f766534",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/9d3c6a12-46a7-5285-a425-df2570bc7764",
+      "params": {},
+      "response_fingerprint": "81099edbd1957ed97fa01d02439c04e8cda97a9a05b8042ba4e63994de182789",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "4ad73579-5cf8-50bc-a385-33085176f7df"
+      },
+      "response_fingerprint": "35371dce03228bb704914bf71006fdc0f49cb3de3c3083339ee375c6db4be71c",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/785dbfaa-3ede-5681-91dc-23574d49a09e/root-paths",
+      "params": {},
+      "response_fingerprint": "34726e33dbae8f74aea893428729265b5dd3e685506fcdc27aed96e7dc5daeb1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/785dbfaa-3ede-5681-91dc-23574d49a09e",
+      "params": {},
+      "response_fingerprint": "27d5c3900844c179d3a2f185ce8c18fa197243b9221b30e57c04e0e6936aed16",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/01283b43-9bb8-5430-aff3-c10cf3d29937/root-paths",
+      "params": {},
+      "response_fingerprint": "ea3bf0a406e71331e0e66fc955f0301d0b783ac41d10ec3b5efae806ed151722",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/01283b43-9bb8-5430-aff3-c10cf3d29937",
+      "params": {},
+      "response_fingerprint": "df1eb97a5566fbcdb220380800db0562436ca4b706a1d1746023e934d2cc0fe3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/cf8f294e-a741-5295-8441-39a8caeeb802/root-paths",
+      "params": {},
+      "response_fingerprint": "94b7b351f5f749b97c04b0c49f923be7712889536afd2cc334c6881b113a5025",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/cf8f294e-a741-5295-8441-39a8caeeb802",
+      "params": {},
+      "response_fingerprint": "757d03130bae154ac08be05319bcd411798a15c610ab48c5db01adcc480c7dec",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/1f9fc8f9-d21d-51be-8078-d50b4365fc87/root-paths",
+      "params": {},
+      "response_fingerprint": "68e5a7fc051e3f3a63bd08b81e4dc00901af741f2ae47c1c50b0a2d4c906eca0",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/1f9fc8f9-d21d-51be-8078-d50b4365fc87",
+      "params": {},
+      "response_fingerprint": "e223af5fcd41f4133baf452a1f34fe6715431f79e4208a67938f034d385b202d",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/29523042-4921-5e17-85a7-caadeab205ce/root-paths",
+      "params": {},
+      "response_fingerprint": "26e44a4cbcb4b2b065bbee0a2cf770a77d21c2a948b224b574f528352b06a8e6",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/29523042-4921-5e17-85a7-caadeab205ce",
+      "params": {},
+      "response_fingerprint": "64a12c25c999b384220517a4b6b304c6a79d4afbb9b4ec8c7acdc2067ed3c8bf",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "a5cb12bf-64a7-5154-b546-2f40b149168a"
+      },
+      "response_fingerprint": "0202d2f82529c91c051bffbc297c455244515d7cc583e363135038e09f0617b4",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/52aff65f-f9bf-51bb-99c0-0a53063975ae/root-paths",
+      "params": {},
+      "response_fingerprint": "586a5103ff68a378d4c88960506434c1e61294415f4a0e0a8787fb24803e09fd",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/52aff65f-f9bf-51bb-99c0-0a53063975ae",
+      "params": {},
+      "response_fingerprint": "2565cded46b0c8f83fe9304cc316c46429b133aaa37a1513706a400889ca0e0b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219/root-paths",
+      "params": {},
+      "response_fingerprint": "40063f00b4413f7adb0f8babd75ba4e85a0286a52e82f9d2e2797f212594a64b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/baa2ebfe-b4ae-5424-b435-0978cbda8219",
+      "params": {},
+      "response_fingerprint": "4f350ba67751e9ce8ad799c695ab60416dda21b4cdf1712a430df26f425ecab4",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/74df37a8-5572-588b-a649-6045601c2aab/root-paths",
+      "params": {},
+      "response_fingerprint": "918c3791ddd36994df722f4aab5d96edc7fe9976b289907fa99c509c44948eac",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/74df37a8-5572-588b-a649-6045601c2aab",
+      "params": {},
+      "response_fingerprint": "d5c78d9d83f93b784affd331784e30f41b521c139278563e292d14d4b1364197",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "a8d71370-4be0-5801-9d5f-042508c0a2bf"
+      },
+      "response_fingerprint": "110b77b044e6f020d9dfa0669f4647133054519fbfbf17cd67b9b110803a2257",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/75acceb6-cebe-5b1b-be1c-a9d7dc230f94/root-paths",
+      "params": {},
+      "response_fingerprint": "2d8fc915f6d6537400c17ff4fc56b7e0713bc0b5219d5a3071405d7742051d6c",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/75acceb6-cebe-5b1b-be1c-a9d7dc230f94",
+      "params": {},
+      "response_fingerprint": "21e25da40cf477e5b44d20c14e2827ba31b394fa2093efd7d543920dc7aca4f7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "3d45bc79-6517-51e1-aef8-435cedc7bd42"
+      },
+      "response_fingerprint": "003671149a4b3d7f30c860c3635b43244b43cbd4073c785a6d017f3777ecdc85",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "30d5f421-351b-5d45-b251-1bd15b2e6e0f"
+      },
+      "response_fingerprint": "77853a010ac27f7e573dc28ab2263e0e3fa12616a1e9f95fec419047dc38a886",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "c3575094-d44c-54b4-9dd8-d675dd76c738"
+      },
+      "response_fingerprint": "7369ff58acba96b49af48481fcf007334038b00975d0cf873e656082cf0a5283",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "9cacbba9-1d93-5069-8302-4437624c056f"
+      },
+      "response_fingerprint": "e7d103a80dc57e7afede689dbb8b2f770634a0006f5a97ed592dc08ce5e7f655",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "d3ae7e6e-a12f-513d-b829-f83c43882511"
+      },
+      "response_fingerprint": "e020c45e9651450b78695bdeaf4ed50cfc1cd94bccd31d5813526d58497e3e03",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "15cb90d9-4e84-5a7d-b673-754766ca7e9e"
+      },
+      "response_fingerprint": "bf20b2046de357fbf682a69a6f8d57066892145f461dfb3b64779102f8aa2532",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "e3e3ccb9-148f-5bc4-bb0a-608e462cba5c"
+      },
+      "response_fingerprint": "6899ae67c1fe0560b1df1078cc3bce5ee2e0900cbf8cf90296c612f0b75f2df8",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "4a9f78a4-d08a-5584-aff3-0b62d582e84c"
+      },
+      "response_fingerprint": "2689f77b5b3b993c6168a8ee0ea3436a36da289d91c61f87f935d829b3963e06",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "1ae7700c-15cc-5f51-8fee-f7240611ac5d"
+      },
+      "response_fingerprint": "71cddd41ae2fcd8f8399a2d3ac66cd1e1a8dc31fb53f42e598905ee1fd6d18aa",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/56b722c3-4a4c-50c9-bc55-a152ee3b276d/root-paths",
+      "params": {},
+      "response_fingerprint": "88ed2cc456acbba16c9f07d84e172d95d401112695c3e7e771d9e458ec652726",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/56b722c3-4a4c-50c9-bc55-a152ee3b276d",
+      "params": {},
+      "response_fingerprint": "31b22bef3e554def6c74b7fd873809f657c5bd69e2165fafd776a7c15d6a6a91",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2ef2cd57-bb44-5bc3-a5e3-081de809894f/root-paths",
+      "params": {},
+      "response_fingerprint": "310f785f79e24b1b8083f0edc586f1a118524ea1075cb69c6f6ae1e4eca82df9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/2ef2cd57-bb44-5bc3-a5e3-081de809894f",
+      "params": {},
+      "response_fingerprint": "c5b37fbfe4e204a2914b529083c35ca7bab67bb9c3c6f2527833e411fec6d049",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/98da3d52-b694-59f6-be1f-912861048cdc/root-paths",
+      "params": {},
+      "response_fingerprint": "96246e2a8384679b6f1312baf048a3852205fde12ad41b1ea851fcda93e36883",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/98da3d52-b694-59f6-be1f-912861048cdc",
+      "params": {},
+      "response_fingerprint": "2d6ddad132816f4bebba1601afcec90ab3757fdfed0047ee6b3b6d24ce175129",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/13130cb1-c8cf-5460-a77e-04115ef91419/root-paths",
+      "params": {},
+      "response_fingerprint": "ffa7e55dbb3b59fd50a667cec88ef7605c2aa51235d6e954a85d12a9031369e7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/13130cb1-c8cf-5460-a77e-04115ef91419",
+      "params": {},
+      "response_fingerprint": "073c8b6bb71d088b235ebfd8105e65f371f2e5747441b10fcadd44c3e3607b5b",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "a81d1c5d-4b13-58e1-ab79-b95a72cd6792"
+      },
+      "response_fingerprint": "75d1fc9637c866bd23f3a72300e204f09b103bcaf55ccf7ae8d81e32e1c4e3ce",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ab19383d-8a81-5766-909c-92569f412a7a/root-paths",
+      "params": {},
+      "response_fingerprint": "0a67ee178e3f250b519a65989caba5cffebccf85d520f813202e5a1de8c07b36",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ab19383d-8a81-5766-909c-92569f412a7a",
+      "params": {},
+      "response_fingerprint": "b75e73b880369f678490e3815359a55d610d8cb54ad878abf7f790b041ad1131",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/10204309-7113-5913-aa66-6d95f9338f05/root-paths",
+      "params": {},
+      "response_fingerprint": "4317c070d54cdf8a32b483b52719242263dc8f1acf285431f01b4dc99d4e09fc",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/10204309-7113-5913-aa66-6d95f9338f05",
+      "params": {},
+      "response_fingerprint": "c45fc2a1737f12028f1af3e0c5dd51310faf148b6caf29e4e26c7c4f90374353",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "549d72b8-68e2-527f-a3fa-c8fb033fe4a2"
+      },
+      "response_fingerprint": "ebd5c23ea0e978a24fd68c96b9d81d07fdc3c43161d75a25cd293b25d22bfff3",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "3bebaa64-eeef-5329-b3cc-dddc8e68f0a1"
+      },
+      "response_fingerprint": "fc77ec384b0ea966a46c4141192f70726a84020b80b0d9cf85de5969741a9c3f",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "85e37e84-850b-55bb-8e2c-db84016e7e56"
+      },
+      "response_fingerprint": "a0ef3c35989b74d19f59feee2074d0a9bcf669646d58495134ef7dae66d1bd76",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "11610aaf-64f0-518d-b9c1-95070a8a7001"
+      },
+      "response_fingerprint": "bf148a3e5d4624cb5b0ef4403c9bd9d57d9ab295ffe33211f66da615dbd53916",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "0b02d60f-6a4e-5cf6-9a46-91ba5bfe5b7d"
+      },
+      "response_fingerprint": "8d940ad9897f5541896d078f7b516ca7a415f4cfc5e7e79239d9f78922fbb064",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "f42ff582-c718-5196-917c-9178b1fb2c91"
+      },
+      "response_fingerprint": "0700002e85d3923a9b9dd1bcebeb90724ec8594d29f4a8c4a0304138ee28b613",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "b686895b-8c12-52ff-84c5-1acd55ee9e34"
+      },
+      "response_fingerprint": "5a39337475205ef10affa63d7f374cbee19af00866ca400d90156e6ffef32535",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e4fb1b8a-aa7d-559f-a28b-47500a5c1a61/root-paths",
+      "params": {},
+      "response_fingerprint": "bbc7f5a38954e65808c61993d88fc88acae55d70394f634b2253d10ca9cc1f30",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/e4fb1b8a-aa7d-559f-a28b-47500a5c1a61",
+      "params": {},
+      "response_fingerprint": "493262483973c002cabec059ef72bcf282714b8a9abc3d83402565851026168a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/8d03e081-fa8a-554a-ab0f-ce2b978d9da4/root-paths",
+      "params": {},
+      "response_fingerprint": "ae32e0fa639c9a6e7e55264f898f8d285aaa5d041a5ddae02356be5513d8e32a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/8d03e081-fa8a-554a-ab0f-ce2b978d9da4",
+      "params": {},
+      "response_fingerprint": "198d1f480d37a78ffae883fe52bbaf1d4b7cf720343844a66b8c193d51683ce1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "15f1b8b4-b836-5750-866a-f7d5f377a296"
+      },
+      "response_fingerprint": "f8982cf93401147df36f33e26879d7f24def43fdc50007ecc5d4f59e483b860f",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/45845725-c424-5979-935e-799020ffdbdb/root-paths",
+      "params": {},
+      "response_fingerprint": "b6fbf98d4a8259df52df1cce2048030f2b74d62b73557895286d6fb704b6eabe",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/45845725-c424-5979-935e-799020ffdbdb",
+      "params": {},
+      "response_fingerprint": "da5219cbe881da25cb38634bf24c0e8672f04f1862e9c440a758980394cac5b2",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/edc37a90-fbc4-5141-a96c-743419e57327/root-paths",
+      "params": {},
+      "response_fingerprint": "6f9fe3ae55841391c599eff721f8335d688846b1d978f3dda78962a7b15f6e9a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/edc37a90-fbc4-5141-a96c-743419e57327",
+      "params": {},
+      "response_fingerprint": "637b84cb4209a2df2ab4fea272a399f842d2aa7f6c73a7ae235ebf9f29df32d3",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c7c0e167-bb2b-525b-89f7-0bea1608513c/root-paths",
+      "params": {},
+      "response_fingerprint": "68013cd82891dcb7fbfa82997cb03372773e0a0225993eea4e2d5673d8bdc383",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/c7c0e167-bb2b-525b-89f7-0bea1608513c",
+      "params": {},
+      "response_fingerprint": "ab7a986dfe449f03521a6e31fdf3a1e27c2606f290446b42f10a8978c9e487e1",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "e4de5a68-0b5a-5a21-bfe2-2924f3a7e70e"
+      },
+      "response_fingerprint": "7af5cce09ca5c828ebbfadd9d38407ea7a2a31ea0fd86f561a1bc1352dab0f6b",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "9f8337d3-e4d7-51cc-a27c-f8403bca7ad1"
+      },
+      "response_fingerprint": "15332eaf45cbd334a79f34eeaa2c11c3708b91a98ecf77b3de32d4c4a6ec9bd4",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "534ca674-79cd-5a7e-b7e0-b9258b338e8c"
+      },
+      "response_fingerprint": "fcd0d157d9edf1ef1328a6ed714c0161872587414192198c457918a696a7a01c",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "0ff0d447-960a-5116-9fde-5989f4fc88fc"
+      },
+      "response_fingerprint": "611cf784296589a7832c281ba4e9d84742dea19edf7ef628200e7c973e624c80",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "9d3c6a12-46a7-5285-a425-df2570bc7764"
+      },
+      "response_fingerprint": "775017e2744d2c92e5be415f122057a153511ee116597a00f24f36510ed2e2a2",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "785dbfaa-3ede-5681-91dc-23574d49a09e"
+      },
+      "response_fingerprint": "9bad140ff5046105cc3e4eb8a6f03592c374af59e2cfa7e93a216bdc1a069e2f",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ab3f9261-b89d-58c9-aae6-ab8312d688c7/root-paths",
+      "params": {},
+      "response_fingerprint": "754f9ca4997fe6ee8fe60440fe81bca58985517fa06a25add312b80b3e55b690",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/ab3f9261-b89d-58c9-aae6-ab8312d688c7",
+      "params": {},
+      "response_fingerprint": "8c83109245ae6716a5c12db430cae3d194846da24221cc29e4ce2676b1f0901a",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/19bac67b-648d-5cb8-8dd5-ecbba72a895c/root-paths",
+      "params": {},
+      "response_fingerprint": "9833c288731f41128cbb49c11b2a44d8996afcba4175e565b8ec34917a820ed7",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/19bac67b-648d-5cb8-8dd5-ecbba72a895c",
+      "params": {},
+      "response_fingerprint": "4d29b4bac36f040a41a338fbb34bacc20426d00f3f3b6958be4f7644ababec04",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f2a92de7-8237-5af3-aa9c-cb854c54a493/root-paths",
+      "params": {},
+      "response_fingerprint": "4526f4e52190dc9d865d74e812b419633fa6474f8f019da6202f97d6a7113b59",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "nodes/StandardsFrameworkItem/f2a92de7-8237-5af3-aa9c-cb854c54a493",
+      "params": {},
+      "response_fingerprint": "f35a5fee55433abab482986da01cfe7a59115f35b9203dbb510f81ee028400a9",
+      "has_more": null,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "01283b43-9bb8-5430-aff3-c10cf3d29937"
+      },
+      "response_fingerprint": "b3dbf683d107917245c3b16a706789ee80f863e21e7a1e56f7bc8c618e7bb207",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "cf8f294e-a741-5295-8441-39a8caeeb802"
+      },
+      "response_fingerprint": "ea27a6b15a8ffcde004df34ac8b0d4cdf01bca4001d01e0aa6d7441fef19045a",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "1f9fc8f9-d21d-51be-8078-d50b4365fc87"
+      },
+      "response_fingerprint": "018fe107f36e76793a368dc8a60021c2291d4e4c0db8b20edd15ac3ad72e0623",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "29523042-4921-5e17-85a7-caadeab205ce"
+      },
+      "response_fingerprint": "bf35d496833e2410f560eefa34d062eec51a278d79fe23c67f0d9b33096e283d",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "52aff65f-f9bf-51bb-99c0-0a53063975ae"
+      },
+      "response_fingerprint": "15d42b5a3b54d84dd019b4c95240c45121cf682eaa22942de89f8130681e75de",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "baa2ebfe-b4ae-5424-b435-0978cbda8219"
+      },
+      "response_fingerprint": "c21fa5b23390edad564fa43e1d202690d81670d6a963535a39ffcfd2e7efe9b4",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "74df37a8-5572-588b-a649-6045601c2aab"
+      },
+      "response_fingerprint": "e7cfd275c34d0e545a5d4e476d3c9a8adedead192f6078c07135094ea3c4701d",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "75acceb6-cebe-5b1b-be1c-a9d7dc230f94"
+      },
+      "response_fingerprint": "37fe12b3109b3796534c5ec246f2a782e51480cf5881eccc51d2ee482e2f24b9",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "56b722c3-4a4c-50c9-bc55-a152ee3b276d"
+      },
+      "response_fingerprint": "abfb59c52133a259464ba6c810f92a62b21bd8abccd11bc1253ac5572364170b",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "2ef2cd57-bb44-5bc3-a5e3-081de809894f"
+      },
+      "response_fingerprint": "bcbc8152426075cf27cefa9896875967ddf6b5fd69da602c0b967920ae247dc2",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "98da3d52-b694-59f6-be1f-912861048cdc"
+      },
+      "response_fingerprint": "b974a7e800ace9e4a8f258eb2c43763659c036ce73f8dc2cdfe23c89a10f624c",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "13130cb1-c8cf-5460-a77e-04115ef91419"
+      },
+      "response_fingerprint": "5dff0470aa20ce2f41c44ec8e49348d6d97da1daa31cbbca3844a9823cfc734a",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "ab19383d-8a81-5766-909c-92569f412a7a"
+      },
+      "response_fingerprint": "107f4538eab3e29b729447d75ff66b6257364a98a1e2cf472e5ef2feaa7490b1",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "10204309-7113-5913-aa66-6d95f9338f05"
+      },
+      "response_fingerprint": "3b4d2b077ba11a83a8f99f7b5fb68aab4f113986b6861767fd4ebefc9b0b7755",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "e4fb1b8a-aa7d-559f-a28b-47500a5c1a61"
+      },
+      "response_fingerprint": "9c4b3be44d3f98f493f210d0d9015b67bc4281a29d84b98859059356495496e1",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "8d03e081-fa8a-554a-ab0f-ce2b978d9da4"
+      },
+      "response_fingerprint": "e672e1b8d8ada32f57b40b60c606a45bc667cd9bee05f91fd059101326385bac",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "45845725-c424-5979-935e-799020ffdbdb"
+      },
+      "response_fingerprint": "462be7f17e72f29f5336103c852aadd0047c7be787c8655836bcb7cd3c31944e",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "edc37a90-fbc4-5141-a96c-743419e57327"
+      },
+      "response_fingerprint": "b56c77da8aea73147afb803e9e00405d380bf51b50c446490a1ea57f81d4ecc9",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "c7c0e167-bb2b-525b-89f7-0bea1608513c"
+      },
+      "response_fingerprint": "9f831246d5b56b0b299d6234038306a778002dd4d904737635ecac77a070ca88",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "ab3f9261-b89d-58c9-aae6-ab8312d688c7"
+      },
+      "response_fingerprint": "c839c929aea260a581b6f8efb57921d403adfc001b7171dd97a8031d86951245",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "19bac67b-648d-5cb8-8dd5-ecbba72a895c"
+      },
+      "response_fingerprint": "f1699a4294784f94427735086266e804c4dfacddcd9fa92fc092b55ac82c0b10",
+      "has_more": false,
+      "next_cursor": null
+    },
+    {
+      "path": "frameworks/6becf2d7-2232-5ead-983f-9f0a4de24ab7/grade-levels/8/items",
+      "params": {
+        "limit": 7,
+        "parent": "f2a92de7-8237-5af3-aa9c-cb854c54a493"
+      },
+      "response_fingerprint": "840bbe7c00793742817a90144ea7c3a12dd89997f68ef5d6a2c1e88a2142c511",
+      "has_more": false,
+      "next_cursor": null
+    }
+  ]
+}

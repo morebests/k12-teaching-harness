@@ -22,7 +22,15 @@ from langgraph.config import get_stream_writer
 from langgraph.graph import END, START, StateGraph
 
 from teaching_harness.content import ContentError
-from teaching_harness.contracts import Curriculum, Finding, Review, TaskRequest, fingerprint
+from teaching_harness.contracts import (
+    Curriculum,
+    Finding,
+    Review,
+    TaskRequest,
+    YearBlueprint,
+    fingerprint,
+    parse_content,
+)
 from teaching_harness.curriculum_tools import author_tools, calculate_math
 from teaching_harness.execution import (
     WORKFLOW_VERSION,
@@ -32,8 +40,17 @@ from teaching_harness.execution import (
     ResourceStop,
 )
 from teaching_harness.knowledge import Knowledge
+from teaching_harness.year import check_year
 
 RESOURCES = Path(__file__).with_name("resources")
+
+
+def rule_files(scope: str) -> list[tuple[str, str]]:
+    return (
+        [("curriculum", "year.md"), ("review", "year-review.md")]
+        if scope == "year"
+        else [("curriculum", "curriculum.md"), ("review", "review.md")]
+    )
 
 
 class State(TypedDict, total=False):
@@ -86,7 +103,7 @@ async def stage(ledger: Ledger) -> AsyncIterator[None]:
                 "step": ledger.stage,
                 "message": {
                     "prepare_task": "正在核对本次 CCSS、组件与前后联系",
-                    "author": "正在生成或修订当前课段",
+                    "author": "正在生成或修订当前课程方案",
                     "prepare_review": "正在固定实际送审内容",
                     "reviewer": "正在独立核对数学、目标与课堂条件",
                     "record_review": "正在核对版本并提交检查",
@@ -195,7 +212,7 @@ def gemini() -> BaseChatModel:
         model=os.environ.get("HARNESS_MODEL", "gemini-3.8-flash"),
         api_key=os.environ.get("GEMINI_API_KEY"),
         max_retries=0,
-        max_output_tokens=16000,
+        max_output_tokens=32768,
         timeout=120,
     )
 
@@ -237,7 +254,7 @@ def build_graph(
                 else:
                     rules = {
                         name: await asyncio.to_thread((RESOURCES / file).read_text)
-                        for name, file in [("curriculum", "curriculum.md"), ("review", "review.md")]
+                        for name, file in rule_files(request.scope)
                     }
                     async with httpx.AsyncClient(
                         base_url=os.environ.get("HARNESS_LC_URL", "http://127.0.0.1:8000"),
@@ -245,17 +262,27 @@ def build_graph(
                     ) as http:
                         knowledge = knowledge_factory(http)
                         try:
-                            package = await knowledge.prepare(request.target_codes)
+                            package = (
+                                await knowledge.prepare_year(request.grade)
+                                if request.scope == "year"
+                                else await knowledge.prepare(request.target_codes)
+                            )
                         finally:
                             await asyncio.to_thread(
                                 ledger.store.update_record,
                                 "knowledge.json",
-                                lambda v: v.update(audit=knowledge.audit),
+                                lambda v: v.update(
+                                    audit=knowledge.audit, preparation=knowledge.preparation
+                                ),
                             )
                     await asyncio.to_thread(
                         ledger.store.record,
                         "knowledge.json",
-                        {"package": package, "audit": knowledge.audit},
+                        {
+                            "package": package,
+                            "audit": knowledge.audit,
+                            "preparation": knowledge.preparation,
+                        },
                     )
                     prepared = {
                         "root": ledger.work["root"],
@@ -286,7 +313,7 @@ def build_graph(
                             ]
                         },
                         "model": os.environ.get("HARNESS_MODEL", "gemini-3.8-flash"),
-                        "tools_version": 2,
+                        "tools_version": 3,
                         "source_snapshot": knowledge.identity,
                         "knowledge_fingerprint": fingerprint(package),
                         "prepared_context": prepared,
@@ -354,9 +381,14 @@ def build_graph(
                 }
                 if current["fingerprint"] != state["candidate_ref"]:
                     raise ContentError("候选稿在送审前已改变，停止本次检查")
-                findings = deterministic_findings(
-                    Curriculum.model_validate(current["content"]),
-                    TaskRequest.model_validate(state["request"]),
+                content = parse_content(current["content"])
+                request = TaskRequest.model_validate(state["request"])
+                if (request.scope == "year") != isinstance(content, YearBlueprint):
+                    raise ContentError("候选内容层级与本次任务不符")
+                findings = (
+                    check_year(content, request, current["knowledge"])
+                    if isinstance(content, YearBlueprint)
+                    else deterministic_findings(content, request)
                 )
                 if not current.get("rendered"):
                     errors = current.get("render_errors") or [
@@ -422,7 +454,7 @@ def build_graph(
         ledger = Ledger(work(state, config, "record_review", root))
         try:
             async with stage(ledger):
-                for name, filename in [("curriculum", "curriculum.md"), ("review", "review.md")]:
+                for name, filename in rule_files(state["request"].get("scope", "section")):
                     current_rules = await asyncio.to_thread((RESOURCES / filename).read_text)
                     if fingerprint(current_rules) != fingerprint(
                         state["prepared_context"]["rules"][name]

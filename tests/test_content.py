@@ -53,6 +53,7 @@ def test_公式错误指向当前源字段且修复后清除(tmp_path):
         "$-x+1。",
         "$ x+1。",
         "$x^2$$。",
+        r"模型预测成绩 \hat{y}（分）",
     ],
 )
 def test_未闭合或重复转义的公式给出修订反馈(tmp_path, formula):
@@ -124,3 +125,20 @@ def test_公式表格和图件可以渲染且修改后检查失效(tmp_path):
     parameters.write_text(json.dumps(changed_parameters))
     with pytest.raises(ContentError, match="参数"):
         store.snapshot()
+
+
+def test_全年源往返保留单元目标交接且阅读稿区分层级(tmp_path):
+    from fake_graph import sample_year
+
+    from teaching_harness.contracts import YearBlueprint
+
+    store = ContentStore(tmp_path, str(uuid4()))
+    content = YearBlueprint.model_validate(sample_year())
+    saved = store.save(content, None)
+    assert saved["content"]["kind"] == "grade"
+    assert saved["content"]["units"][0]["lesson_count"] == 160
+    assert saved["rendered"]
+    html = store.rendered(saved["fingerprint"])
+    assert "全年课程蓝图" in html and "机动" in html and "目标单元交接" in html
+    assert 'id="u1"' in html and "8.F.B.4" in html
+    assert store.review_input()["content"] == saved["content"]

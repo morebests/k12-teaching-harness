@@ -2,7 +2,7 @@
 
 Status: ready-for-agent
 
-日期：2026-09-15。实施状态：首个有限课程任务已实现，详见 [首票验证报告](evidence/01-live-curriculum/README.md)；其余范围待实现。本规格承接 [项目目标与原则](../../README.md)、[架构结论](../skills-harness/assets/architecture-conclusion.md) 与 [验证路线](../skills-harness/assets/validation-and-release-route.md)。任务顺序和依赖见 [交付路线与实现票](README.md)。`ready-for-agent` 表示要求已可用于实施，不表示教学质量或生产能力已通过。
+日期：2026-09-15。实施状态更新于 2026-09-16：有限课程任务和全年蓝图已实现，详见 [首票验证报告](evidence/01-live-curriculum/README.md) 和 [全年蓝图报告](evidence/15-full-year-blueprint/README.md)；其余范围待实现。本规格承接 [项目目标与原则](../../README.md)、[架构结论](../skills-harness/assets/architecture-conclusion.md) 与 [验证路线](../skills-harness/assets/validation-and-release-route.md)。任务顺序和依赖见 [交付路线与实现票](README.md)。`ready-for-agent` 表示要求已可用于实施，不表示教学质量或生产能力已通过。
 
 实现或评审每张票前还需读 [用户交互原型基准](prototype-baseline.md)。用户于 2026-09-15 要求本轮方案定稿、提交并推送；原型作为现行交互参考随本轮保存，不再重复索取同一确认。当前按下述文件化阶段实施，原型的内容历史等后置能力不构成首阶段要求；原型不承担 Web 产品建设或真实教学质量验证。
 
@@ -32,7 +32,7 @@ Status: ready-for-agent
 
 工程首步仅用一个有明确范围的真实课程设计任务贯通模型、知识、任务与内容契约，再分别交付完整全年、一课材料及其连续交接。任务规模和依赖的复核见 [逐票分析](ticket-sizing-review.md)。它改变实施颗粒度，不降低首条全年到课时链或五项能力的验收范围；远端工作包需依据真实产出收口后才转为可执行票。
 
-**当前推进位置（2026-09-16）：**01 有限工程范围已完成，下一项内容主线是 15 全年蓝图，随后是 03 单课材料与 17 正式连续交接。必要 HITL、即时检查和受控恢复随首条链落实；完整故障恢复和生产建设后置。全部票的职责、交接与阶段冲突见 [整体推进路径复核](delivery-path-audit.md)，不将票号、硬依赖已满足或单项技术通过当作优先级。
+**当前推进位置（2026-09-16）：**01 有限工程范围和 15 全年蓝图已完成，下一项内容主线是 03 单课材料，随后是 17 正式连续交接。必要 HITL、即时检查和受控恢复随首条链落实；完整故障恢复和生产建设后置。全部票的职责、交接与阶段冲突见 [整体推进路径复核](delivery-path-audit.md)，不将票号、硬依赖已满足或单项技术通过当作优先级。
 
 | 能力 | 输入与实际工作 | 交付与自身完成条件 |
 | --- | --- | --- |
@@ -229,7 +229,7 @@ CFU 在学生页与教师指南实际写入后执行两道检查：独立读者�
 
 本规格中的传输命名、实现切片和测试组织是依据已定行为作出的实施选择，不伪称用户逐字段批准。用户已确认整体路线并要求持续推进；无需为例行拆票再开展一次访谈。若实施发现接口不足或存在更有效教学机制，应依据具体证据更新规格与相关决定；不得静默改变项目目标。
 
-规格交接后，01 已完成有限 dev 实现；正式全年、完整 Lesson、完整单元、Skills 非劣结论、生产保证及真实学校试用仍未交付。既有研究及不成功实验继续保存，完整依据按 [研究索引的任务路由](../skills-harness/assets/index.md) 读取，以下为本规格的主要来源：
+规格交接后，01 已完成有限 dev 实现，15 已交付真实全年蓝图和单元交接；完整 Lesson、完整单元、Skills 非劣结论、生产保证及真实学校试用仍未交付。既有研究及不成功实验继续保存，完整依据按 [研究索引的任务路由](../skills-harness/assets/index.md) 读取，以下为本规格的主要来源：
 
 - 范围与运行：[能力约定](../skills-harness/issues/01-capability-contract.md)、[调用决定](../skills-harness/issues/02-execution-interface.md)、[执行结构](../skills-harness/issues/03-execution-structure.md)、[模型／工具](../skills-harness/issues/04-runtime-adapters.md)、[主执行设计](../skills-harness/assets/main-execution-design.md)、[知识与产物设计](../skills-harness/assets/model-knowledge-artifact-design.md)。
 - 教学设计：[课程体系](../skills-harness/assets/curriculum-design-capability.md)、[Context](../skills-harness/assets/context-and-llm-design.md)、[课时创建](../skills-harness/assets/lesson-creation-execution-design.md)、[适配与备课](../skills-harness/assets/execution-contract-draft.md)、[CFU](../skills-harness/assets/cfu-execution-design.md)、[HITL](../skills-harness/assets/hitl-design.md)。

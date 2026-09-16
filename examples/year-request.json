@@ -1,0 +1,19 @@
+{
+  "event_id": "由调用方提供唯一事件标识",
+  "scope": "year",
+  "instruction": "生成完整八年级 CCSS 数学全年蓝图，先读取完整年级范围，再自主组织单元和跨单元进程。说明目标与数学实践的实际学习机会、时间、Narrative、进入诊断与评价职责。用关键任务探查检验决定结构的数学跨度，实际采用 Learning Components 和前后支持关系，区分图事实与设计推断。提供围绕 8.F.B.4 的实际目标单元交接，但不预设单元编号，不生成全年逐课材料。必需学习和评价在课内完成；学生有前序课程经历不表示已掌握。",
+  "school": {
+    "source": {
+      "label": "既有全年离线实验的合成学校条件",
+      "version": "2026-09-15-common-v0.1",
+      "origin": "synthetic"
+    },
+    "lesson_count": 180,
+    "reserve_lessons": 20,
+    "minutes_per_lesson": 50,
+    "class_size": 28,
+    "resources": ["纸笔", "直尺", "方格纸", "黑白打印", "教师投影", "普通计算器"],
+    "learner_context": "假设有前序年级课程经历；无班级诊断、个人掌握度、残障诊断或已确认支持记录。允许个人、同伴和小组工作。不假定学生有联网设备；必要学习与评价在课内，课后练习可选。"
+  },
+  "limits": {"model_calls": 100, "tool_calls": 300, "seconds": 7200}
+}

@@ -40,3 +40,30 @@ def test_受限算术核对不等间隔变化率并拒绝代码():
     for expression in ["__import__('os')", "2**1000000", "2**(2**12)", "(2 +"]:
         with pytest.raises(ValueError):
             calculate(expression)
+
+
+def test_全年范围来自知识遍历且机动课时单列(request_data):
+    data = {
+        **request_data,
+        "scope": "year",
+        "target_codes": [],
+        "school": {**request_data["school"], "lesson_count": 180, "reserve_lessons": 20},
+    }
+    assert TaskRequest.model_validate(data).school.reserve_lessons == 20
+    with pytest.raises(ValidationError):
+        TaskRequest.model_validate({**data, "target_codes": ["8.F.B.4"]})
+    with pytest.raises(ValidationError):
+        TaskRequest.model_validate({**data, "scope": "section"})
+
+
+def test_外部中文全年稿按实际UTF8大小接收而非六倍转义长度(request_data):
+    text = "中文" * 10000
+    request_data["external_content"] = [
+        {
+            "id": "draft",
+            "content": text,
+            "fingerprint": fingerprint(text),
+            "source": {"label": "已有中文稿", "version": "1", "origin": "caller"},
+        }
+    ]
+    assert TaskRequest.model_validate(request_data).external_content[0].content == text

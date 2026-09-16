@@ -2,6 +2,7 @@
 
 import os
 import re
+from graphlib import CycleError, TopologicalSorter
 from typing import Any, Literal
 from urllib.parse import quote
 
@@ -13,7 +14,9 @@ Operation = Literal["standard", "components", "prerequisites", "successors"]
 
 
 class KnowledgeError(ValueError):
-    pass
+    def __init__(self, message: str, result_status: str = "error") -> None:
+        super().__init__(message)
+        self.result_status = result_status
 
 
 class Knowledge:
@@ -26,6 +29,7 @@ class Knowledge:
         self.records: list[dict[str, Any]] = []
         self.audit: list[dict[str, Any]] = []
         self.cache: dict[str, Any] = {}
+        self.preparation: dict[str, Any] = {}
 
     async def initialize(self) -> None:
         response = await self.client.get("/api/health")
@@ -70,13 +74,17 @@ class Knowledge:
         self.cache[key] = data
         return data
 
-    async def pages(self, path: str, collection: str, **params: Any) -> list[dict[str, Any]]:
+    async def pages(
+        self, path: str, collection: str, *, expected: dict[str, Any] | None = None, **params: Any
+    ) -> list[dict[str, Any]]:
         cursor = None
         seen: set[str] = set()
         results: list[dict[str, Any]] = []
         # 本次查询的防失控边界；越界显式失败，不把截断当完整结果。
         for _ in range(100):
             page = await self.fetch(path, limit=self.page_size, cursor=cursor, **params)
+            if expected and any(page.get(key) != value for key, value in expected.items()):
+                raise KnowledgeError("知识分页的框架、年级或父项不符")
             if collection == "edges" and any(
                 page.get("applied" + key[0].upper() + key[1:]) != value
                 for key, value in params.items()
@@ -85,13 +93,128 @@ class Knowledge:
             results.extend(page[collection])
             if not page["hasMore"]:
                 if page.get("nextCursor"):
-                    raise KnowledgeError("终页仍有游标")
+                    raise KnowledgeError("终页仍有游标", "partial")
                 return results
             cursor = page.get("nextCursor")
             if not cursor or cursor in seen:
-                raise KnowledgeError("知识查询分页不完整或重复")
+                raise KnowledgeError("知识查询分页不完整或重复", "partial")
             seen.add(cursor)
-        raise KnowledgeError("知识分页超过上限，未取得完整结果")
+        raise KnowledgeError("知识分页超过上限，未取得完整结果", "partial")
+
+    async def grade_scope(self, grade: int) -> dict[str, Any]:
+        """遍历固定框架的年级投影；动态核对页、子项数与总数，保留原层级。"""
+        base = f"frameworks/{quote(self.framework['identifier'], safe='')}/grade-levels"
+        directory = await self.fetch(base)
+        choices = [p for p in directory["projections"] if p["ref"]["grade"] == str(grade)]
+        if directory["framework"] != self.framework or len(choices) != 1:
+            raise KnowledgeError("无法取得唯一完整的 CCSS 年级投影")
+        projection = choices[0]
+        if projection["itemCount"] <= 0:
+            raise KnowledgeError("年级投影为空，不能生成全年覆盖声明", "empty")
+        nodes: dict[str, dict[str, Any]] = {}
+        queue: list[str | None] = [None]
+        roots = []
+        for parent in queue:
+            page = await self.pages(
+                f"{base}/{grade}/items",
+                "nodes",
+                parent=parent,
+                expected={
+                    "framework": self.framework,
+                    "projection": projection["ref"],
+                    "parent": nodes[parent]["detail"]["ref"] if parent else None,
+                },
+            )
+            ids = [n["ref"]["identifier"] for n in page]
+            if len(set(ids)) != len(ids):
+                raise KnowledgeError("年级层级分页存在重复身份")
+            if parent is None:
+                roots = ids
+                if not roots:
+                    raise KnowledgeError("年级投影根为空，未取得全年范围", "empty")
+            elif len(ids) != nodes[parent]["projection_child_count"]:
+                raise KnowledgeError("年级投影缺少子项，不能把部分页当完整目标", "partial")
+            for n in page:
+                identifier = n["ref"]["identifier"]
+                if identifier not in nodes:
+                    if not await self.in_framework(n["ref"]):
+                        raise KnowledgeError("年级投影包含非 CCSS 条目")
+                    nodes[identifier] = {
+                        "detail": await self.detail(n["ref"]),
+                        "parent_ids": [],
+                        "projection_child_count": n["projectionChildCount"],
+                        "outside_child_count": n["outsideChildCount"],
+                    }
+                    queue.append(identifier)
+                if parent is not None:
+                    nodes[identifier]["parent_ids"].append(parent)
+            if len(nodes) > projection["itemCount"]:
+                raise KnowledgeError("年级投影遍历超出源声明范围")
+        if len(nodes) != projection["itemCount"]:
+            raise KnowledgeError("年级投影总范围与实际遍历不符，可能缺页或缺分支", "partial")
+        try:
+            TopologicalSorter({key: n["parent_ids"] for key, n in nodes.items()}).prepare()
+        except CycleError:
+            raise KnowledgeError("标准层级存在循环") from None
+        targets: list[str] = []
+        parents: list[str] = []
+        practices: list[dict[str, Any]] = []
+        for n in nodes.values():
+            code = n["detail"]["source_fields"].get("statementCode") or ""
+            if re.fullmatch(rf"{grade}\.[A-Z]+\.[A-Z]\.\d+(?:\.[a-z])?", code):
+                (parents if n["projection_child_count"] else targets).append(code)
+            elif re.fullmatch(rf"(?:{grade}\.)?MP[1-8]", code):
+                practices.append(n["detail"])
+        if not targets or len(targets + parents) != len(set(targets + parents)):
+            raise KnowledgeError("全年内容目标为空或标准代码身份重复")
+        return {
+            "complete": True,
+            "result_status": "complete",
+            "projection": projection,
+            "framework": self.framework,
+            "source_snapshot": self.identity,
+            "root_ids": roots,
+            "nodes": list(nodes.values()),
+            "target_codes": sorted(targets),
+            "parent_codes": sorted(parents),
+            "practices": practices,
+            "scope_note": "按年级元数据投影保留全部层级；非本年级子项以 outside_child_count 记录排除。父标准与子项不重复计数；数学实践另行承担。",
+        }
+
+    async def prepare_year(self, grade: int) -> dict[str, Any]:
+        self.preparation = {"grade": grade, "complete": False}
+        try:
+            await self.initialize()
+            scope = await self.grade_scope(grade)
+            practice_codes = {p["source_fields"]["statementCode"] for p in scope["practices"]}
+            if not {f"MP{i}" for i in range(1, 9)} <= practice_codes:
+                raise KnowledgeError("数学实践范围不完整", "partial")
+        except (KnowledgeError, httpx.HTTPError) as exc:
+            self.preparation.update(
+                result_status=exc.result_status if isinstance(exc, KnowledgeError) else "error",
+                source_snapshot=self.identity,
+                framework=self.framework,
+                error={
+                    "type": type(exc).__name__,
+                    "message": str(exc)
+                    if isinstance(exc, KnowledgeError)
+                    else "知识 HTTP 请求失败",
+                    "http_status": exc.response.status_code
+                    if isinstance(exc, httpx.HTTPStatusError)
+                    else None,
+                },
+            )
+            raise
+        self.preparation.update(
+            result_status="complete",
+            complete=True,
+            source_snapshot=self.identity,
+            framework=self.framework,
+        )
+        return {
+            "year_scope": scope,
+            "scope": "完整年级内容及实践原文；组件与前后联系由设计 Agent 按问题继续查询",
+        }
 
     async def in_framework(self, ref: dict[str, Any]) -> bool:
         if (

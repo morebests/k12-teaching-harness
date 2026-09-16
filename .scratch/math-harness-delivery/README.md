@@ -2,7 +2,7 @@
 
 日期：2026-09-15。规格：[数学课程与教学设计 Harness](spec.md)。项目目标以 [项目 README](../../README.md) 为准。每票规模、依赖证据及本次变更理由见 [逐票复核](ticket-sizing-review.md)，原 14 票依赖保存在 [复核前快照](ticket-baseline-20260915.json)。
 
-**首个有限课程任务已实现，其余 21 个工作项尚未实现。** [首票报告](evidence/01-live-curriculum/README.md) 记录真实生成、检查、反馈修订、触限与取消失败。原复核的 triage 仍为 16 个 `ready-for-agent`、6 个 `needs-triage`；triage 表示要求就绪程度，实施完成状态另记在工单及本路线中。
+**有限课程任务（01）和全年蓝图（15）已实现，其余 20 个工作项尚未实现。** [首票报告](evidence/01-live-curriculum/README.md) 与 [全年报告](evidence/15-full-year-blueprint/README.md) 记录真实生成、检查、反馈修订与局限。原复核的 triage 仍为 16 个 `ready-for-agent`、6 个 `needs-triage`；triage 表示要求就绪程度，实施完成状态另记在工单及本路线中。
 
 完整关系见 [22 票依赖图](dependencies.md)。**实现前先读 [用户交互原型基准](prototype-baseline.md)**：用户于 2026-09-15 要求本轮方案定稿、提交并推送，原型随之保存为现行交互参考，不再重复索取同一确认。旧开发原型和浏览器证据保留；静态交互仍不代表生产或教学质量通过。
 
@@ -29,7 +29,7 @@
 
 ### 当前执行位置（2026-09-16）
 
-01 已完成有限工程闭环。按现有硬依赖，02、03、04、15 均可核对进入条件；按教学价值，**下一项先做 15 全年蓝图，再推进 03 一课材料与 17 正式连续交接**。主线验证优先使用全年设计给出的真实目标单元上下文；03 的独立课时入口继续保留。
+01 已完成有限工程闭环，15 已交付完整全年蓝图及实际单元交接。按教学价值，**下一项推进 03 一课材料，再由 17 完成正式连续交接**。主线验证使用全年设计给出的第 3 单元及其实际指纹、目标、时间、Narrative、前后联系和探查；03 的独立课时入口继续保留。
 
 02／16 补齐真实回应和草稿路径，04 随任务接入观察，05 提供完整单元及跨层修订所需的主动停止／续作。18 的完整故障矩阵及生产部署后置，不因依赖图上较早可达就成为全年内容生成前置。每项教学产物自己的数学、材料与修订检查仍随交付完成。
 
@@ -42,7 +42,7 @@
 | 工作项 | 规模与就绪程度 | 硬依赖 | 独立结果 |
 | --- | --- | --- | --- |
 | [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | L；有限范围已实现并验证 | 无 | 一个真实有限课段方案；任务、知识、内容及最小访问契约 |
-| [生成覆盖完整八年级 CCSS 的全年蓝图](issues/15-full-year-blueprint.md) | M/L；边界已明确 | [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | 完整年级 CCSS、全年单元职责和 Narrative |
+| [生成覆盖完整八年级 CCSS 的全年蓝图](issues/15-full-year-blueprint.md) | M/L；本票范围已实现并验证 | [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | 完整年级 CCSS、全年单元职责和 Narrative、实际单元交接 |
 | [直接生成一课的真实师生材料并检查修订](issues/03-continuous-lessons-and-materials.md) | L；边界已明确 | [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | 一课已授权直接生成；真实师生材料与检查修订 |
 | [让真实教学决定跨进程等待并恢复执行](issues/02-human-decision-and-resume.md) | L；边界已明确 | [从任务接口完成有明确范围的真实课程设计](issues/01-live-curriculum-task.md) | 真实展示、回应、采纳事务和受控重启 |
 | [按真实草稿回应生成课时材料](issues/16-lesson-draft-review.md) | M；边界已明确 | [让真实教学决定跨进程等待并恢复执行](issues/02-human-decision-and-resume.md)、[直接生成一课的真实师生材料并检查修订](issues/03-continuous-lessons-and-materials.md) | 草稿修改与授权生成，实际任务延续 |

@@ -110,12 +110,18 @@
         "id": {
           "const": "curriculum",
           "default": "curriculum",
+          "enum": [
+            "curriculum"
+          ],
           "title": "Id",
           "type": "string"
         },
         "kind": {
           "const": "section",
           "default": "section",
+          "enum": [
+            "section"
+          ],
           "title": "Kind",
           "type": "string"
         },
@@ -346,6 +352,46 @@
       "title": "Goal",
       "type": "object"
     },
+    "GoalAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "unit_id": {
+          "pattern": "^[a-z0-9_-]{1,60}$",
+          "title": "Unit Id",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "teach",
+            "apply",
+            "revisit",
+            "assess"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "opportunity": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Opportunity",
+          "type": "string"
+        },
+        "evidence": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Evidence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "unit_id",
+        "role",
+        "opportunity",
+        "evidence"
+      ],
+      "title": "GoalAllocation",
+      "type": "object"
+    },
     "KeyTask": {
       "additionalProperties": false,
       "properties": {
@@ -416,6 +462,60 @@
         "support"
       ],
       "title": "KeyTask",
+      "type": "object"
+    },
+    "KnowledgeUse": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "operation": {
+          "enum": [
+            "components",
+            "prerequisites",
+            "successors"
+          ],
+          "title": "Operation",
+          "type": "string"
+        },
+        "record_ids": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Record Ids",
+          "type": "array"
+        },
+        "unit_ids": {
+          "items": {
+            "pattern": "^[a-z0-9_-]{1,60}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Unit Ids",
+          "type": "array"
+        },
+        "decision": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Decision",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "operation",
+        "record_ids",
+        "unit_ids",
+        "decision"
+      ],
+      "title": "KnowledgeUse",
       "type": "object"
     },
     "LessonIntent": {
@@ -517,6 +617,45 @@
       "title": "Limits",
       "type": "object"
     },
+    "PracticePlan": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "pattern": "^MP[1-8]$",
+          "title": "Code",
+          "type": "string"
+        },
+        "unit_ids": {
+          "items": {
+            "pattern": "^[a-z0-9_-]{1,60}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Unit Ids",
+          "type": "array"
+        },
+        "student_actions": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Student Actions",
+          "type": "string"
+        },
+        "evidence": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Evidence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "unit_ids",
+        "student_actions",
+        "evidence"
+      ],
+      "title": "PracticePlan",
+      "type": "object"
+    },
     "RenderIssue": {
       "additionalProperties": false,
       "properties": {
@@ -606,9 +745,16 @@
           "$ref": "#/$defs/Source"
         },
         "lesson_count": {
-          "maximum": 10,
+          "maximum": 240,
           "minimum": 1,
           "title": "Lesson Count",
+          "type": "integer"
+        },
+        "reserve_lessons": {
+          "default": 0,
+          "maximum": 240,
+          "minimum": 0,
+          "title": "Reserve Lessons",
           "type": "integer"
         },
         "minutes_per_lesson": {
@@ -712,8 +858,11 @@
           "type": "integer"
         },
         "scope": {
-          "const": "section",
           "default": "section",
+          "enum": [
+            "section",
+            "year"
+          ],
           "title": "Scope",
           "type": "string"
         },
@@ -724,12 +873,12 @@
           "type": "string"
         },
         "target_codes": {
+          "description": "课段的指定目标；全年必须留空，由固定 CCSS 年级投影确定完整范围",
           "items": {
             "pattern": "^8\\.(?:F|EE)\\.[A-C]\\.[1-9]$",
             "type": "string"
           },
           "maxItems": 6,
-          "minItems": 1,
           "title": "Target Codes",
           "type": "array"
         },
@@ -757,11 +906,372 @@
       "required": [
         "event_id",
         "instruction",
-        "target_codes",
         "school",
         "limits"
       ],
       "title": "TaskRequest",
+      "type": "object"
+    },
+    "UnitPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9_-]{1,60}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "lesson_count": {
+          "maximum": 240,
+          "minimum": 1,
+          "title": "Lesson Count",
+          "type": "integer"
+        },
+        "narrative": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Narrative",
+          "type": "string"
+        },
+        "prerequisite_units": {
+          "items": {
+            "pattern": "^[a-z0-9_-]{1,60}$",
+            "type": "string"
+          },
+          "title": "Prerequisite Units",
+          "type": "array"
+        },
+        "entry": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Entry",
+          "type": "string"
+        },
+        "exit": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Exit",
+          "type": "string"
+        },
+        "assessment_plan": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Assessment Plan",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "lesson_count",
+        "narrative",
+        "prerequisite_units",
+        "entry",
+        "exit",
+        "assessment_plan"
+      ],
+      "title": "UnitPlan",
+      "type": "object"
+    },
+    "YearBlueprint": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "id": {
+          "const": "curriculum",
+          "default": "curriculum",
+          "enum": [
+            "curriculum"
+          ],
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "grade",
+          "default": "grade",
+          "enum": [
+            "grade"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "grade": {
+          "const": 8,
+          "default": 8,
+          "title": "Grade",
+          "type": "integer"
+        },
+        "title": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "narrative": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Narrative",
+          "type": "string"
+        },
+        "units": {
+          "items": {
+            "$ref": "#/$defs/UnitPlan"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "title": "Units",
+          "type": "array"
+        },
+        "goals": {
+          "items": {
+            "$ref": "#/$defs/YearGoal"
+          },
+          "minItems": 1,
+          "title": "Goals",
+          "type": "array"
+        },
+        "practices": {
+          "items": {
+            "$ref": "#/$defs/PracticePlan"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Practices",
+          "type": "array"
+        },
+        "tasks": {
+          "items": {
+            "$ref": "#/$defs/YearProbe"
+          },
+          "maxItems": 12,
+          "minItems": 1,
+          "title": "Tasks",
+          "type": "array"
+        },
+        "knowledge_uses": {
+          "items": {
+            "$ref": "#/$defs/KnowledgeUse"
+          },
+          "minItems": 1,
+          "title": "Knowledge Uses",
+          "type": "array"
+        },
+        "design_inferences": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Design Inferences",
+          "type": "array"
+        },
+        "prerequisites": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Prerequisites",
+          "type": "string"
+        },
+        "successors": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Successors",
+          "type": "string"
+        },
+        "reserve_lessons": {
+          "maximum": 240,
+          "minimum": 0,
+          "title": "Reserve Lessons",
+          "type": "integer"
+        },
+        "reserve_plan": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Reserve Plan",
+          "type": "string"
+        },
+        "focus_unit_id": {
+          "pattern": "^[a-z0-9_-]{1,60}$",
+          "title": "Focus Unit Id",
+          "type": "string"
+        },
+        "handoff_guidance": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Handoff Guidance",
+          "type": "string"
+        },
+        "teacher_preparation": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Teacher Preparation",
+          "type": "string"
+        },
+        "assumptions": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Assumptions",
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Limitations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "title",
+        "narrative",
+        "units",
+        "goals",
+        "practices",
+        "tasks",
+        "knowledge_uses",
+        "design_inferences",
+        "prerequisites",
+        "successors",
+        "reserve_lessons",
+        "reserve_plan",
+        "focus_unit_id",
+        "handoff_guidance",
+        "teacher_preparation",
+        "assumptions",
+        "limitations"
+      ],
+      "title": "YearBlueprint",
+      "type": "object"
+    },
+    "YearGoal": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "allocations": {
+          "items": {
+            "$ref": "#/$defs/GoalAllocation"
+          },
+          "minItems": 1,
+          "title": "Allocations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "code",
+        "allocations"
+      ],
+      "title": "YearGoal",
+      "type": "object"
+    },
+    "YearProbe": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9_-]{1,60}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "purpose": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Purpose",
+          "type": "string"
+        },
+        "prompt": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Prompt",
+          "type": "string"
+        },
+        "solution": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Solution",
+          "type": "string"
+        },
+        "student_work": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Student Work",
+          "type": "string"
+        },
+        "evidence": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Evidence",
+          "type": "string"
+        },
+        "anticipated_response": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Anticipated Response",
+          "type": "string"
+        },
+        "support": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Support",
+          "type": "string"
+        },
+        "blocks": {
+          "items": {
+            "$ref": "#/$defs/Block"
+          },
+          "maxItems": 20,
+          "title": "Blocks",
+          "type": "array"
+        },
+        "unit_ids": {
+          "items": {
+            "pattern": "^[a-z0-9_-]{1,60}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Unit Ids",
+          "type": "array"
+        },
+        "design_consequence": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Design Consequence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "purpose",
+        "prompt",
+        "solution",
+        "student_work",
+        "evidence",
+        "anticipated_response",
+        "support",
+        "unit_ids",
+        "design_consequence"
+      ],
+      "title": "YearProbe",
       "type": "object"
     }
   },
@@ -811,12 +1321,27 @@
     "content": {
       "anyOf": [
         {
-          "$ref": "#/$defs/Curriculum"
+          "discriminator": {
+            "mapping": {
+              "grade": "#/$defs/YearBlueprint",
+              "section": "#/$defs/Curriculum"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Curriculum"
+            },
+            {
+              "$ref": "#/$defs/YearBlueprint"
+            }
+          ]
         },
         {
           "type": "null"
         }
-      ]
+      ],
+      "title": "Content"
     },
     "fingerprint": {
       "anyOf": [

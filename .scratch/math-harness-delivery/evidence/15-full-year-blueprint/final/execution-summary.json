@@ -1,0 +1,691 @@
+{
+  "workflow_version": "curriculum-stages-v1",
+  "usage": {
+    "model_calls": 17,
+    "tool_calls": 21,
+    "input_tokens": 2318865,
+    "output_tokens": 90763,
+    "total_tokens": 2409628,
+    "unknown_usage": false,
+    "cost": null,
+    "seconds": 257.6930730342865
+  },
+  "events": [
+    {
+      "kind": "stage_started",
+      "stage": "prepare_task",
+      "round": 0
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "prepare_task",
+      "round": 0
+    },
+    {
+      "kind": "stage_started",
+      "stage": "author",
+      "round": 0
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/5d1ef50c9dd5b6369000c5734829b6236941b0efd9fff9b71f916ca9b667c822",
+      "signature": "5d1ef50c9dd5b6369000c5734829b6236941b0efd9fff9b71f916ca9b667c822"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/5d1ef50c9dd5b6369000c5734829b6236941b0efd9fff9b71f916ca9b667c822"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_86222",
+      "signature": "57e930ca2429cf562337f1cd763a9d5ab3684460ad462da07c66ecfcc894d707"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_86222"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/85e60926faff331a137707ce06218ddb34b33b4d2a65a6410b82cb70889ff49a",
+      "signature": "85e60926faff331a137707ce06218ddb34b33b4d2a65a6410b82cb70889ff49a"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/85e60926faff331a137707ce06218ddb34b33b4d2a65a6410b82cb70889ff49a"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_96515",
+      "signature": "4376a80e1aa623c8cf450f056ebad4a5158d96340af65e322b5dda64a85badfa"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_96515"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/bc7920e608285d51f5edaaa59dcdfad32f128d6af1f04d25c508daf06892ab9a",
+      "signature": "bc7920e608285d51f5edaaa59dcdfad32f128d6af1f04d25c508daf06892ab9a"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/bc7920e608285d51f5edaaa59dcdfad32f128d6af1f04d25c508daf06892ab9a"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_145708",
+      "signature": "1bbd26716240bd8df61c4add6ed1dcb2c40226c75233f63457be20493a668bbe"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_145708"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/f61a2d57b513e92060f1b26ecee268da28df796478390e58d447ef724e791c10",
+      "signature": "f61a2d57b513e92060f1b26ecee268da28df796478390e58d447ef724e791c10"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/f61a2d57b513e92060f1b26ecee268da28df796478390e58d447ef724e791c10"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_61133",
+      "signature": "916eb9d8b958262c295b8d5a2ee3643a3b7d5ca20c7cebfc24153134626c8144"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_61133"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/108381b962445616c7d85e1408c2cad27f44bf4d873d00c0f4ff49fbec0f7b35",
+      "signature": "108381b962445616c7d85e1408c2cad27f44bf4d873d00c0f4ff49fbec0f7b35"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/108381b962445616c7d85e1408c2cad27f44bf4d873d00c0f4ff49fbec0f7b35"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_80170",
+      "signature": "4376a80e1aa623c8cf450f056ebad4a5158d96340af65e322b5dda64a85badfa"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_80170"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/0cf5026ac005d986254fb527452b37c31e6c9703a0712beaf63796b4b7289669",
+      "signature": "0cf5026ac005d986254fb527452b37c31e6c9703a0712beaf63796b4b7289669"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/0cf5026ac005d986254fb527452b37c31e6c9703a0712beaf63796b4b7289669"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_59424",
+      "signature": "1240a09435ae18ef4168a92cc3acb1f6cc28bb66ff682cfe6eccde20a98886d7"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_59424"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/083f076a9157d1feccc024011c6812d1f4e4527e56d42ec4fa195b1b1dd72bed",
+      "signature": "083f076a9157d1feccc024011c6812d1f4e4527e56d42ec4fa195b1b1dd72bed"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/083f076a9157d1feccc024011c6812d1f4e4527e56d42ec4fa195b1b1dd72bed"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_81296",
+      "signature": "4376a80e1aa623c8cf450f056ebad4a5158d96340af65e322b5dda64a85badfa"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_81296"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/41d96d79d62e88a6b02d0c2ffa8af9e18eceebe362eab053e83991a56937bd62",
+      "signature": "41d96d79d62e88a6b02d0c2ffa8af9e18eceebe362eab053e83991a56937bd62"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/41d96d79d62e88a6b02d0c2ffa8af9e18eceebe362eab053e83991a56937bd62"
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "author",
+      "round": 0
+    },
+    {
+      "kind": "stage_started",
+      "stage": "prepare_review",
+      "round": 0
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "prepare_review",
+      "round": 0
+    },
+    {
+      "kind": "stage_started",
+      "stage": "reviewer",
+      "round": 0
+    },
+    {
+      "kind": "model_started",
+      "stage": "reviewer",
+      "round": 0,
+      "operation_id": "reviewer/0/model/e529a51084fc2136adbc771d5ac62d2787d72ef9b6794dbf95f46fc8f9340c32",
+      "signature": "e529a51084fc2136adbc771d5ac62d2787d72ef9b6794dbf95f46fc8f9340c32"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "reviewer",
+      "round": 0,
+      "operation_id": "reviewer/0/model/e529a51084fc2136adbc771d5ac62d2787d72ef9b6794dbf95f46fc8f9340c32"
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "reviewer",
+      "round": 0
+    },
+    {
+      "kind": "stage_started",
+      "stage": "record_review",
+      "round": 0
+    },
+    {
+      "kind": "review_finished",
+      "stage": "record_review",
+      "round": 0,
+      "fingerprint": "b8deead4c22f105e055ac4d73efcf1bde1549b7ada5b12391a459d43673badad",
+      "program_findings": [
+        {
+          "criterion": "sources",
+          "target": "8.F.B.4",
+          "detail": "采用的组件或关系身份不在本次实际查询结果内",
+          "blocking": true
+        },
+        {
+          "criterion": "sources",
+          "target": "8.EE.B.6",
+          "detail": "采用的组件或关系身份不在本次实际查询结果内",
+          "blocking": true
+        },
+        {
+          "criterion": "sources",
+          "target": "8.EE.C.8",
+          "detail": "采用的组件或关系身份不在本次实际查询结果内",
+          "blocking": true
+        },
+        {
+          "criterion": "sources",
+          "target": "8.EE.C.7",
+          "detail": "采用的组件或关系身份不在本次实际查询结果内",
+          "blocking": true
+        },
+        {
+          "criterion": "sources",
+          "target": "8.G.A.1",
+          "detail": "采用的组件或关系身份不在本次实际查询结果内",
+          "blocking": true
+        },
+        {
+          "criterion": "sources",
+          "target": "8.G.B.6",
+          "detail": "采用的组件或关系身份不在本次实际查询结果内",
+          "blocking": true
+        },
+        {
+          "criterion": "sources",
+          "target": "8.SP.A.3",
+          "detail": "采用的组件或关系身份不在本次实际查询结果内",
+          "blocking": true
+        }
+      ],
+      "model_review": {
+        "findings": [],
+        "evidence": {
+          "coverage": "全年规划完整覆盖了 8 年级 CCSSM 的全部 33 个具体标准代码（8.EE.A.1-4, 8.EE.B.5-6, 8.EE.C.7.a-b, 8.EE.C.8.a-c, 8.F.A.1-3, 8.F.B.4-5, 8.G.A.1.a-c, 8.G.A.2-5, 8.G.B.6-8, 8.G.C.9, 8.NS.A.1-2, 8.SP.A.1-4）以及 3 个父标准整体要求（8.EE.C.7, 8.EE.C.8, 8.G.A.1），且父子目标权责分明、不重复计数。MP1 至 MP8 全部落实到具体的单元分布、学生行为特征及课堂可观察证据中。8.F.B.4 在 Unit 3 承担核心讲授，并在 Unit 8 承担经验拟合与统计解释的应用职责，教学与评价职责闭环完整。",
+          "mathematics": "所有数学任务与数据模型均经独立求解核验：Task 1 雨水桶变化率为 (160-100)/(5-2)=20 加仑/小时，截距 b=100-20(2)=60 加仑，模型 y=20x+60 (0<=x<=8)，SVG 图象参数（斜率 20、截距 60、x_max 8、y_max 240）完全一致；Task 2 共享单车联立方程 0.20x+5=0.30x 解得平衡点 x=50 分钟、y=15 美元，分段决策区间划分正确；Task 3 坐标距离 |8-2|=6、|11-3|=8，勾股定理 sqrt(6^2+8^2)=10 精确成立；Task 4 严格修复了统计模型边界：10 行合成数据范围准确限定为 1—7 小时，示意趋势线方程注明 (1<=x<=7)，斜率 6.5 严谨解释为“模型预测值相差 6.5 分”并辨析观察性关联不足以确立个体因果干预效果，截距 48 分明确为延长线数学截距、脱离样本支持区间，代入 x=6.0 算得 87 分并结合 S08 实际 85 分说明预测不等于每个实际观测，外推 x=10 算得 113 分超过满分反例成立。表格与表头公式符号 `$\\\\hat{y}$` 均规范书写。",
+          "progression": "认知进阶脉络连贯自然：从 Unit 1 刚体变换与 AA 相似三角形直观奠基，到 Unit 2 直线斜率比值恒定性证明与一元方程解分类，再跃升至 Unit 3 现代函数映射概念与 8.F.B.4 建模，进而在 Unit 4 融合为双线性函数图象交点与方程组平衡；下半学期 Unit 5 以几何直角三角形斜边度量锚定无理数产生与逼近，Unit 6 拓展整数指数法则与科学记数法，Unit 7 将开方与圆面积迁移至三维立体容积计算，最后 Unit 8 综合应用 8.F.B.4 于双变量经验拟合与列联表统计关联分析。每个承重单元均明确先备经历不等于掌握、须经前测诊断；围绕 8.F.B.4 提供了详尽的交接指引，兼具明确边界与教学调整弹性。",
+          "conditions": "课时与资源核算严格严谨：各单元常规课时分别为 Unit 1（22节）、Unit 2（22节）、Unit 3（22节）、Unit 4（18节）、Unit 5（26节）、Unit 6（16节）、Unit 7（14节）、Unit 8（20节），合计 160 节；加上预留的 20 节机动课时（明确拆分为单元前置诊断与补偿3节、单元测试精准订正8节、期中期末综合反思9节），全年总课时为精确的 180 节（每节 50 分钟），无未授权时间侵占。所有教学和必需评价均在课内完成。硬件资源严格基于学校实际条件（纸笔、直尺、方格纸、黑白打印、教师投影、普通计算器），在 Unit 1 中使用方格纸作图、直尺测量与折纸透光对齐替代描图纸；Unit 5 与 Task 3 利用方格纸天然直角网格线确定直角顶点与边长替代三角板；Unit 7 采用黑白打印几何图解与截面分解替代沙水实体容器；Unit 6 通过打印模拟屏幕图例学习科学记数法显示，未要求高级计算器。班额 28 人与离线无联网设备约束得到全面遵守。",
+          "evidence": "教学与评价设计中对学生理解水平的区分细致深入：Task 1 至 Task 4 的 anticipated_response 均细化列出了常见正确解答与 2 类以上典型认知误区（如正比例与一次函数混淆、因果干预与统计关联混淆、坐标差与斜边距离混淆等），并配备了针对性的课内干预支架（support）。单元进入与离开标准（如 handoff_guidance 中的 Entry/Exit Criteria）具体可操作，强调对差商计算、坐标读取等先备技能进行课内前测诊断，避免预设已掌握。四个关键任务探查明确作为设计推断的数学跨度检验，而非替代整单元材料或声称已验证全员掌握。",
+          "sources": "知识图谱引用真实精准，完全基于 lc/v1.11.0 事实边与组件记录：采纳了 7.RP.A.2 与 8.F.A.3 指向 8.F.B.4 的 buildsTowards 关系、8.F.B.4 指向高中标准的 8 条 outgoing 关系、8.G.A.5 buildsTowards 8.EE.B.6、8.EE.B.6 buildsTowards 8.EE.C.8、7.G.B.6 buildsTowards 8.G.B.6、8.SP.A.2 buildsTowards 8.SP.A.3，以及 Achievement Network 的 8.EE.C.7 支持组件与 8.G.A.1 的 3 条实验验证组件。所有图谱事实（source_fact）与课程设计推断（design_inferences）严格分离呈现，学校条件与班额背景如实标注为合成离线环境。"
+        }
+      }
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "record_review",
+      "round": 0
+    },
+    {
+      "kind": "stage_started",
+      "stage": "author",
+      "round": 1
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/1ff8a7a7d6ded037dff65e300c225aedf50f6cfccdc954004a2eea5f42bc641b",
+      "signature": "1ff8a7a7d6ded037dff65e300c225aedf50f6cfccdc954004a2eea5f42bc641b"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/1ff8a7a7d6ded037dff65e300c225aedf50f6cfccdc954004a2eea5f42bc641b"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93555",
+      "signature": "1bbd26716240bd8df61c4add6ed1dcb2c40226c75233f63457be20493a668bbe"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93559",
+      "signature": "bafd0eec29bd5d65c0c48171de651345bfffebd69fdeddc7a1d27b0c6177de2f"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93561",
+      "signature": "a80fa9db5c6af9653e1b1d72e6d01b014e1d5a52f0eeb0baebb67662bd0f10e4"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93565",
+      "signature": "ca7245110182a64c31fb85d1ac2fcc8a56f4528097a8953b02589e68e3733a19"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93570",
+      "signature": "a2572e813240825776671e8cd8140c12adb699d6325ca5203f8000d502eb655b"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93572",
+      "signature": "7b46596667b550026745c4e316f8349c5495dafefd08acfea335f2f869ce6aab"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93574",
+      "signature": "2db26a19907be53918cf9c9cbef90771aa688b9f1167454f0f59a3de250c7303"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93580",
+      "signature": "57e930ca2429cf562337f1cd763a9d5ab3684460ad462da07c66ecfcc894d707"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93578",
+      "signature": "904ec7783492033aabae75e8fcd97756fec69f5f0cf0680305237fa6dad2a14a"
+    },
+    {
+      "kind": "tool_error",
+      "stage": "author",
+      "round": 1,
+      "tool": "plot_linear",
+      "exception_type": "ContentError"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93580"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93574"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93555"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93578"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93561"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93559"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93570"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93572"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_93565"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/eec72a2ee9f3ddaa32828d5acf1f967f1e8ea8d953cbac6a33af6624f0c921e3",
+      "signature": "eec72a2ee9f3ddaa32828d5acf1f967f1e8ea8d953cbac6a33af6624f0c921e3"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/eec72a2ee9f3ddaa32828d5acf1f967f1e8ea8d953cbac6a33af6624f0c921e3"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_125169",
+      "signature": "4376a80e1aa623c8cf450f056ebad4a5158d96340af65e322b5dda64a85badfa"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_125169"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/25dcf0256ac4913d31dbf4fe0d638b8724112af63d9b124a74b09b88ab542edb",
+      "signature": "25dcf0256ac4913d31dbf4fe0d638b8724112af63d9b124a74b09b88ab542edb"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/25dcf0256ac4913d31dbf4fe0d638b8724112af63d9b124a74b09b88ab542edb"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_74937",
+      "signature": "51fdaf705636b41653d8877b2527bd51bf47a0f62666a4f1f109745e5e4d0b0b"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_74937"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/dc3de1996dcaa689c5b0ff17ce9ff02bf50c41d99453ff3d28ae6a41e437d05d",
+      "signature": "dc3de1996dcaa689c5b0ff17ce9ff02bf50c41d99453ff3d28ae6a41e437d05d"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/dc3de1996dcaa689c5b0ff17ce9ff02bf50c41d99453ff3d28ae6a41e437d05d"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_52059",
+      "signature": "4376a80e1aa623c8cf450f056ebad4a5158d96340af65e322b5dda64a85badfa"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_52059"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/94b8b639ffd7959eff7fc634ade5e43cd0fa09e70a8112d4974f0603ccc83702",
+      "signature": "94b8b639ffd7959eff7fc634ade5e43cd0fa09e70a8112d4974f0603ccc83702"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/94b8b639ffd7959eff7fc634ade5e43cd0fa09e70a8112d4974f0603ccc83702"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_89460",
+      "signature": "42f2d123481c18eb1778add7a97e5d4682caabcaa610de9ee7aedad1c0c42b29"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_89460"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/afa01257a76920a26f482f0c2daf8d6ce84ec7722e63f22a13feadab7389a2fb",
+      "signature": "afa01257a76920a26f482f0c2daf8d6ce84ec7722e63f22a13feadab7389a2fb"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/afa01257a76920a26f482f0c2daf8d6ce84ec7722e63f22a13feadab7389a2fb"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_50717",
+      "signature": "4376a80e1aa623c8cf450f056ebad4a5158d96340af65e322b5dda64a85badfa"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/tool/call_50717"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/6afaced7efa9da14992309056ec3c1e3c3ac354b91c98cd1ec383821229bf733",
+      "signature": "6afaced7efa9da14992309056ec3c1e3c3ac354b91c98cd1ec383821229bf733"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 1,
+      "operation_id": "author/1/model/6afaced7efa9da14992309056ec3c1e3c3ac354b91c98cd1ec383821229bf733"
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "author",
+      "round": 1
+    },
+    {
+      "kind": "stage_started",
+      "stage": "prepare_review",
+      "round": 1
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "prepare_review",
+      "round": 1
+    },
+    {
+      "kind": "stage_started",
+      "stage": "reviewer",
+      "round": 1
+    },
+    {
+      "kind": "model_started",
+      "stage": "reviewer",
+      "round": 1,
+      "operation_id": "reviewer/1/model/8650aa5c0daacdad25c00fc97e8a67a1b21e5babfe04e38feccb849dc2f5fa21",
+      "signature": "8650aa5c0daacdad25c00fc97e8a67a1b21e5babfe04e38feccb849dc2f5fa21"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "reviewer",
+      "round": 1,
+      "operation_id": "reviewer/1/model/8650aa5c0daacdad25c00fc97e8a67a1b21e5babfe04e38feccb849dc2f5fa21"
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "reviewer",
+      "round": 1
+    },
+    {
+      "kind": "stage_started",
+      "stage": "record_review",
+      "round": 1
+    },
+    {
+      "kind": "review_finished",
+      "stage": "record_review",
+      "round": 1,
+      "fingerprint": "b1351a76cc1323cbdccc0717a2e3f393943f9e7ee733fc135aaff55a047b8d2d",
+      "program_findings": [],
+      "model_review": {
+        "findings": [],
+        "evidence": {
+          "coverage": "1. 年级内容标准覆盖：对照八年级完整标准范围，全蓝图对 33 个叶子标准（8.EE.A.1—4, 8.EE.B.5—6, 8.EE.C.7.a—b, 8.EE.C.8.a—c, 8.F.A.1—3, 8.F.B.4—5, 8.G.A.1.a—c, 8.G.A.2—5, 8.G.B.6—8, 8.G.C.9, 8.NS.A.1—2, 8.SP.A.1—4）以及 3 个具有整体综合要求的父标准（8.EE.C.7, 8.EE.C.8, 8.G.A.1）进行了逐项、清晰且无遗漏的学习机会与评价职责分配，父子标准各司其职，无重复计数与标签冲突。\\n2. 数学实践标准（MP1—MP8）：MP1 至 MP8 在各单元的具体学习活动中均有明确的行为表征与评价证据对应。例如 MP1 体现在二元一次方程组与双变量统计中审题寻找切入点与回溯假设，MP2 体现在实际情境与代数解析式 y=mx+b 之间的去情境化与再情境化，MP4 体现在雨水收集桶有效定义域模型建构与共享单车资费决策，MP5 体现在方格纸直尺手动精度与普通计算器的辨识选用，全数转化为学生可观察的课内数学操作。",
+          "mathematics": "1. 探查独立验算：\\n- Task 1（雨水桶线性模型）：斜率 $m = (160-100)/(5-2) = 60/3 = 20$ 加仑/小时，初始水量 $b = 100 - 20(2) = 60$ 加仑，解析式 $y = 20x + 60$ 在 $0 \\\\le x \\\\le 8$ 内成立（$x=8$ 时 $y=220 \\\\le 240$ 未溢出；$x=15$ 时外推得 360 加仑超出水桶 240 加仑容量上限，反例严密）。\\n- Task 2（单车费用方程组）：方案 A 为 $y = 0.20x + 5$，方案 B 为 $y = 0.30x$。代入消元解得 $0.10x = 5 \\\\implies x = 50$ 分钟，对应 $y = 15$ 美元。分段决策分析严谨（$x < 50$ 选 B 划算，$x > 50$ 选 A 划算）。\\n- Task 3（坐标几何距离）：点 $A(2,3), B(8,11)$，构造直角边长 $AC = |8-2| = 6$，$BC = |11-3| = 8$，由勾股定理 $6^2 + 8^2 = 100$，斜边距离 $\\\\sqrt{100} = 10$ 单位长，计算准确无误。\\n- Task 4（双变量统计线性解释）：代入 $x = 6.0$ 得到预测值 $\\\\hat{y} = 6.5(6.0) + 48 = 87.0$ 分；对比 S08 实际成绩 85 分，明确指出残差为 -2 分；代入 $x = 10$ 得 113 分超出满分 100 分，有力说明外推局限。\\n2. 本轮修订核查与表头格式：\\n- 数据使用范围：Task 4 正文、方程、解法、证据及预判回答均严格统一限定为样本实际覆盖的 $1 \\\\le x \\\\le 7$ 小时范围；截距 48 分被明确界定为示意直线延长后的数学纵截距，处于样本范围之外，明确指出其不属于该样本支持的预测分。\\n- 数据来源标示：题干明确声明为“教学构造的 10 行合成数据及给定示意趋势线，没有实际班级调查”，彻底剔除了“从 28 名学生中抽取”或“教研组调查拟合”等误导性表述；说明示意线用于展示中心趋势，不等于最小二乘计算或实测条件均值。\\n- 斜率解释与因果边界：斜率 6.5 严谨解释为“在 1—7 小时使用范围内自变量每多 1 小时，模型预测值相差 6.5 分”，明确指出观察性关联不足以确立个体干预效果，同时说明仅凭残差散落不能证明必然没有因果，统计边界论述严密。\\n- 格式与公式标记：对照表表头已规范修补为 `模型预测成绩 $\\\\hat{y}$（分）`，整稿正文与表格均无遗漏公式标记或未转义的 LaTeX 错误，render_errors 为零。",
+          "progression": "1. 全年认知进阶主线：课程建立了从‘几何变换与相似直观’(Unit 1) -> ‘代数方程与相似斜率刻画’(Unit 2) -> ‘现代函数输入输出映射建模’(Unit 3) -> ‘双线性函数交点与方程组平衡’(Unit 4) -> ‘数系扩充至无理数与勾股空间度量’(Unit 5) -> ‘整数指数与科学记数’(Unit 6) -> ‘三维体积立体度量’(Unit 7) -> ‘双变量经验拟合与统计关联’(Unit 8) 的清晰进阶路径，各领域均衡发展，代数与几何、函数与统计相互支撑。\\n2. 先备知识与图依赖处理：前言、单元 entry 和 prerequisites 明确指出“前序年级课程经历不等于已掌握”，杜绝以学过代掌握的假设；将知识图谱中的 buildsTowards 边严格视为支持性进阶参考而非强制门槛，并在各承重单元前设计了 5 分钟课内小前测与 1 节机动课时补偿通道。\\n3. 8.F.B.4 核心单元（Unit 3）交接指引：交接指引详尽明确，清晰阐明了从 Unit 2 的几何直线轨迹到 Unit 3 函数映射的飞跃；界定了两点横坐标不同（$x_1 \\\\ne x_2$）等必要数学条件；赋予了教师根据前测投放机动课时与按单一职责分步展开多重表征练习的充足教学弹性与安全边界。",
+          "conditions": "1. 课时核算与分配：全年常规教学课时严格核算为 Unit 1 (22) + Unit 2 (22) + Unit 3 (22) + Unit 4 (18) + Unit 5 (26) + Unit 6 (16) + Unit 7 (14) + Unit 8 (20) = 160 节常规课时；另行单列 20 节依据课内诊断触发的机动课时（Reserve Lessons），合计 180 课时，与合成学校条件的 180 课时、20 节机动完全吻合，无任何课时超支或侵占。\\n2. 教学时间与可行性：每课时长 50 分钟，班额 28 人。所有练习、前测诊断与单元测试均严格闭环在课内完成，课外作业设为可选，不假定学生拥有家庭联网设备。\\n3. 资源可行性与无静默追加：教学资源严格限定在学校现有的纸笔、直尺、方格纸、黑白打印导学案、教师投影与普通计算器六类。全稿未依赖请求外的透明描图纸、三角板、实体水桶/注水容器或个人联网终端；刚体变换采用方格纸作图与折纸透光对齐比对，三维体积推导依托黑白打印截面分解图与教师投影演示，坐标距离利用方格纸天然水平与铅垂网格，科学记数法依托导学案中黑白打印印刷的模拟计算器屏幕示例。全稿无任何未经授权的学校条件追加。",
+          "evidence": "1. 诊断与区分度：规划中的前测诊断与形成性任务能有效区分学生的认知水平。例如 Task 1 能明确区分习惯正比例比率 y/x 与能准确把握增量之比 Delta y / Delta x 的学生；Task 4 能区分机械代入公式与理解统计关联非因果性、数据点散落分布及有效定义域界限的学生。\\n2. 预测回应与不确定性：各个任务探查中的预期回应（anticipated_response）均列举了典型正确反应与多层次的典型错误（如正比例混淆、倒数差商、误认残差不同即断言无因果、盲目外推等），并保留了教学效果的不确定性，明确指出任务仅作为设计假设检验的原型，真实掌握水平留待后续课段开展及课内形成性监测验证。\\n3. 达成判据具体可行：各单元 exit criteria 具有清晰的数学行为动词（如“给定横坐标不同的两点计算斜率并求截距”“结合物理量纲说明实际含义并注明有效定义域”），避免了“全员保证”或“完全掌握”等过度声明。",
+          "sources": "1. 知识图谱采纳条目真实性：蓝图引用的所有 buildsTowards、supports 和 successors 关系均来自实际 browse 记录，record_id 真实准确（如 8.F.B.4 的 2bb06fbf..., a8bb6ab4..., 8.G.B.6 的 ab2c7205..., 8.EE.C.7 支持组件 ee1a27df... 等），关系方向与定义解读准确无误。\\n2. source_fact 与设计推断清晰分离：在 knowledge_uses 与 design_inferences 中严格区分了标准图中的原始拓扑事实与课程编排团队的设计推断（例如标准图关联 8.EE.B.6 与 8.G.A.5，而将 Unit 1 置于 Unit 2 之前为斜率提供几何相似依据属于设计推断；将 Unit 4 置于 Unit 3 之后将方程组解释为函数交点亦属于设计推断）。\\n3. 条件与事实如实表达：全稿明确将学校背景标示为离线实验合成条件，将 Task 4 数据标示为教学构造合成数据，无任何虚构真实调查、人类教师接受或课堂实测验证的陈述。"
+        }
+      }
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "record_review",
+      "round": 1
+    },
+    {
+      "kind": "work_finished",
+      "stage": "record_review",
+      "round": 1
+    }
+  ],
+  "active_since": null
+}

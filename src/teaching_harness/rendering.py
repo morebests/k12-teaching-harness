@@ -4,6 +4,7 @@ import json
 import math
 import re
 import subprocess
+from collections.abc import Callable
 from html import escape
 from pathlib import Path
 from typing import Any
@@ -11,7 +12,7 @@ from typing import Any
 from markdown_it import MarkdownIt
 from mdit_py_plugins.dollarmath import dollarmath_plugin
 
-from teaching_harness.contracts import Curriculum, RenderIssue
+from teaching_harness.contracts import Curriculum, RenderIssue, YearBlueprint, YearProbe
 
 
 class RenderingError(ValueError):
@@ -58,7 +59,95 @@ def linear_svg(
     return "".join(parts)
 
 
-def render_curriculum(content: Curriculum, assets: dict[str, str]) -> str:
+def year_sections(content: YearBlueprint, text: Callable[[str, str], str]) -> list[str]:
+    pieces = [
+        f"<h1>{escape(content.title)}</h1>",
+        '<p class="scope">全年课程蓝图 · 关键任务为可行性探查，逐课材料尚待展开</p>',
+        text(content.narrative, "narrative"),
+        "<h2>单元顺序与课时</h2>",
+        "<table><thead><tr><th>单元</th><th>课时</th><th>承担目标</th></tr></thead><tbody>",
+    ]
+    for unit in content.units:
+        goals = [g.code for g in content.goals if any(a.unit_id == unit.id for a in g.allocations)]
+        pieces.append(
+            f'<tr><td><a href="#{unit.id}">{escape(unit.title)}</a></td><td>{unit.lesson_count}</td><td>{escape("、".join(goals))}</td></tr>'
+        )
+    pieces.extend(
+        [
+            f"</tbody></table><p>教学、练习与评价合计 {sum(u.lesson_count for u in content.units)} 课时；机动 {content.reserve_lessons} 课时。</p>",
+            text(content.reserve_plan, "reserve_plan"),
+            "<h2>前后年级联系</h2>",
+            text(content.prerequisites, "prerequisites"),
+            text(content.successors, "successors"),
+        ]
+    )
+    for i, unit in enumerate(content.units):
+        path = f"units.{i}"
+        pieces.append(
+            f'<section id="{unit.id}"><h2>{escape(unit.title)} · {unit.lesson_count} 课时</h2>'
+        )
+        pieces.append(text(unit.narrative, f"{path}.narrative"))
+        pieces.append(
+            f"<p>本设计先备单元：{escape('、'.join(unit.prerequisite_units) or '无；依进入检查决定支持')}</p>"
+        )
+        for label, field in [
+            ("进入条件", "entry"),
+            ("完成时的数学工作", "exit"),
+            ("练习与评价安排", "assessment_plan"),
+        ]:
+            pieces.extend([f"<h3>{label}</h3>", text(getattr(unit, field), f"{path}.{field}")])
+        pieces.append("</section>")
+    pieces.extend(
+        [
+            "<h2>目标覆盖与学习机会</h2>",
+            "<p>包含父标准的整体要求和必要子项；父子不重复计数为额外目标。下列机会须由后续课时材料兑现。</p>",
+        ]
+    )
+    roles = {"teach": "教授", "apply": "应用", "revisit": "复习", "assess": "评价"}
+    for i, goal in enumerate(content.goals):
+        pieces.append(f"<h3>{escape(goal.code)}</h3>")
+        for j, a in enumerate(goal.allocations):
+            pieces.extend(
+                [
+                    f'<p><a href="#{a.unit_id}">{escape(a.unit_id)}</a> · {roles[a.role]}</p>',
+                    text(a.opportunity, f"goals.{i}.allocations.{j}.opportunity"),
+                    text(a.evidence, f"goals.{i}.allocations.{j}.evidence"),
+                ]
+            )
+    pieces.append("<h2>八项数学实践</h2>")
+    for i, p in enumerate(content.practices):
+        pieces.extend(
+            [
+                f"<h3>{escape(p.code)} · {escape('、'.join(p.unit_ids))}</h3>",
+                text(p.student_actions, f"practices.{i}.student_actions"),
+                text(p.evidence, f"practices.{i}.evidence"),
+            ]
+        )
+    pieces.extend(
+        [
+            f'<h2>目标单元交接 · <a href="#{content.focus_unit_id}">{escape(content.focus_unit_id)}</a></h2>',
+            text(content.handoff_guidance, "handoff_guidance"),
+            "<h2>知识采用与设计推断</h2>",
+        ]
+    )
+    for i, use in enumerate(content.knowledge_uses):
+        pieces.extend(
+            [
+                f"<h3>{escape(use.code)} · {escape(use.operation)}</h3>",
+                text(use.decision, f"knowledge_uses.{i}.decision"),
+                f"<small>来源记录：{escape('、'.join(use.record_ids))}</small>",
+            ]
+        )
+    pieces.extend(
+        text(x, f"design_inferences.{i}") for i, x in enumerate(content.design_inferences)
+    )
+    pieces.append(
+        "<h2>关键任务探查</h2><p>以下探查用于检验单元职责和数学跨度，尚非完整 Lesson。</p>"
+    )
+    return pieces
+
+
+def render_curriculum(content: Curriculum | YearBlueprint, assets: dict[str, str]) -> str:
     md = (
         MarkdownIt("commonmark", {"html": False})
         .enable("table")
@@ -74,12 +163,14 @@ def render_curriculum(content: Curriculum, assets: dict[str, str]) -> str:
         remaining = state.src[state.pos :]
         # 独立的 $5 可作为金额；其它未匹配的美元定界符需修复或显式转义。
         currency = re.match(r"\$\d+(?:\.\d+)?(?=$|[\s,.;!?，。；！？：:])", remaining)
-        if (remaining.startswith("$") and not currency) or re.match(r"\\[\[\]()]", remaining):
+        if (remaining.startswith("$") and not currency) or re.match(
+            r"\\(?:[\[\]()]|(?:frac|dfrac|tfrac|hat|sqrt|Delta|times|cdot|begin|end)\b)", remaining
+        ):
             issues.append(
                 RenderIssue(
                     location=state.env["location"],
                     formula=remaining[:1000],
-                    message="公式分隔符未配对，请使用完整的 $…$、$$…$$、\\(…\\) 或 \\[…\\]；普通美元符号写作 \\$",
+                    message="公式分隔符未配对或 LaTeX 命令落在公式外，请使用完整的 $…$、$$…$$、\\(…\\) 或 \\[…\\]；普通美元符号写作 \\$",
                 )
             )
         return False
@@ -117,37 +208,40 @@ def render_curriculum(content: Curriculum, assets: dict[str, str]) -> str:
         paragraphs.append(tokens)
         return f"<!--paragraph-{len(paragraphs) - 1}-->"
 
-    pieces = [
-        f"<h1>{escape(content.title)}</h1>",
-        '<p class="scope">有限课段方案与关键任务构想 · 检查状态请查看任务结果</p>',
-        text(content.narrative, "narrative"),
-        "<h2>目标与证据</h2>",
-    ]
-    for i, goal in enumerate(content.goals):
-        pieces.extend(
-            [
-                f"<h3>{escape(goal.code)}</h3>",
-                text(goal.responsibility, f"goals.{i}.responsibility"),
-                text(goal.knowledge_use, f"goals.{i}.knowledge_use"),
-                text(goal.evidence, f"goals.{i}.evidence"),
-            ]
-        )
-    pieces.extend(
-        [
-            "<h2>先备与后续</h2>",
-            text(content.prerequisites, "prerequisites"),
-            text(content.successors, "successors"),
-            "<h2>学习进程</h2>",
+    if isinstance(content, YearBlueprint):
+        pieces = year_sections(content, text)
+    else:
+        pieces = [
+            f"<h1>{escape(content.title)}</h1>",
+            '<p class="scope">有限课段方案与关键任务构想 · 检查状态请查看任务结果</p>',
+            text(content.narrative, "narrative"),
+            "<h2>目标与证据</h2>",
         ]
-    )
-    for i, lesson in enumerate(content.lessons):
+        for i, goal in enumerate(content.goals):
+            pieces.extend(
+                [
+                    f"<h3>{escape(goal.code)}</h3>",
+                    text(goal.responsibility, f"goals.{i}.responsibility"),
+                    text(goal.knowledge_use, f"goals.{i}.knowledge_use"),
+                    text(goal.evidence, f"goals.{i}.evidence"),
+                ]
+            )
         pieces.extend(
             [
-                f"<h3>{escape(lesson.title)}</h3>",
-                text(lesson.understanding_shift, f"lessons.{i}.understanding_shift"),
-                f"<p>学生工作 {lesson.student_minutes} 分钟 · 讨论 {lesson.discussion_minutes} 分钟 · 其他 {lesson.other_minutes} 分钟</p>",
+                "<h2>先备与后续</h2>",
+                text(content.prerequisites, "prerequisites"),
+                text(content.successors, "successors"),
+                "<h2>学习进程</h2>",
             ]
         )
+        for i, lesson in enumerate(content.lessons):
+            pieces.extend(
+                [
+                    f"<h3>{escape(lesson.title)}</h3>",
+                    text(lesson.understanding_shift, f"lessons.{i}.understanding_shift"),
+                    f"<p>学生工作 {lesson.student_minutes} 分钟 · 讨论 {lesson.discussion_minutes} 分钟 · 其他 {lesson.other_minutes} 分钟</p>",
+                ]
+            )
     for i, task in enumerate(content.tasks):
         path = f"tasks.{i}"
         pieces.extend(
@@ -196,11 +290,22 @@ def render_curriculum(content: Curriculum, assets: dict[str, str]) -> str:
             ("支持", "support"),
         ]:
             pieces.extend([f"<h3>{label}</h3>", text(getattr(task, field), f"{path}.{field}")])
+        if isinstance(task, YearProbe):
+            pieces.extend(
+                [
+                    "<h3>对全年安排的影响</h3>",
+                    text(task.design_consequence, f"{path}.design_consequence"),
+                ]
+            )
         pieces.append("</section>")
     pieces.extend(
         [
             "<h2>实践与准备</h2>",
-            text(content.practice_connections, "practice_connections"),
+            *(
+                [text(content.practice_connections, "practice_connections")]
+                if isinstance(content, Curriculum)
+                else []
+            ),
             text(content.teacher_preparation, "teacher_preparation"),
             "<h2>假设与交付边界</h2>",
             *[text(x, f"assumptions.{i}") for i, x in enumerate(content.assumptions)],

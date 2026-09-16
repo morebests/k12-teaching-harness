@@ -89,9 +89,16 @@
           "$ref": "#/$defs/Source"
         },
         "lesson_count": {
-          "maximum": 10,
+          "maximum": 240,
           "minimum": 1,
           "title": "Lesson Count",
+          "type": "integer"
+        },
+        "reserve_lessons": {
+          "default": 0,
+          "maximum": 240,
+          "minimum": 0,
+          "title": "Reserve Lessons",
           "type": "integer"
         },
         "minutes_per_lesson": {
@@ -195,8 +202,11 @@
       "type": "integer"
     },
     "scope": {
-      "const": "section",
       "default": "section",
+      "enum": [
+        "section",
+        "year"
+      ],
       "title": "Scope",
       "type": "string"
     },
@@ -207,12 +217,12 @@
       "type": "string"
     },
     "target_codes": {
+      "description": "课段的指定目标；全年必须留空，由固定 CCSS 年级投影确定完整范围",
       "items": {
         "pattern": "^8\\.(?:F|EE)\\.[A-C]\\.[1-9]$",
         "type": "string"
       },
       "maxItems": 6,
-      "minItems": 1,
       "title": "Target Codes",
       "type": "array"
     },
@@ -240,7 +250,6 @@
   "required": [
     "event_id",
     "instruction",
-    "target_codes",
     "school",
     "limits"
   ],

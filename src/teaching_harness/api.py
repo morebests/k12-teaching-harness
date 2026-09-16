@@ -16,7 +16,16 @@ from starlette.responses import HTMLResponse, JSONResponse
 
 from teaching_harness.auth import authenticated_identity, diagnostics_allowed
 from teaching_harness.content import ContentError, ContentStore
-from teaching_harness.contracts import Curriculum, Review, TaskRequest, TaskView, fingerprint
+from teaching_harness.contracts import (
+    Review,
+    TaskRequest,
+    TaskView,
+    UnitHandoff,
+    YearBlueprint,
+    content_adapter,
+    fingerprint,
+)
+from teaching_harness.year import unit_handoff
 
 app = FastAPI(title="数学教学内容契约", version="0.1.0")
 
@@ -77,9 +86,10 @@ async def protect_runtime_options(request: Request, call_next: Any) -> Any:
 async def contracts() -> dict[str, Any]:
     return {
         "schema_version": 1,
-        "capabilities": ["curriculum_design:grade8:section"],
+        "capabilities": ["curriculum_design:grade8:section", "curriculum_design:grade8:year"],
         "request": TaskRequest.model_json_schema(),
-        "curriculum": Curriculum.model_json_schema(),
+        "curriculum": content_adapter.json_schema(),
+        "unit_handoff": UnitHandoff.model_json_schema(),
         "review": Review.model_json_schema(),
         "task_view": TaskView.model_json_schema(),
     }
@@ -114,7 +124,14 @@ async def content(
         raise HTTPException(409, "内容指纹已过期；当前阶段不提供历史正文")
     if snapshot["checks"]:
         current_rules = await asyncio.to_thread(
-            (Path(__file__).with_name("resources") / "review.md").read_text
+            (
+                Path(__file__).with_name("resources")
+                / (
+                    "year-review.md"
+                    if (snapshot["content"] or {}).get("kind") == "grade"
+                    else "review.md"
+                )
+            ).read_text
         )
         if snapshot["checks"]["rules_fingerprint"] != fingerprint(current_rules):
             snapshot["checks"].update(applicable=False, passed=False)
@@ -159,6 +176,34 @@ async def reading(thread_id: UUID, request: Request, expected_fingerprint: str) 
             "X-Content-Type-Options": "nosniff",
         },
     )
+
+
+@app.get("/v1/threads/{thread_id}/units/{unit_id}", response_model=UnitHandoff)
+async def handoff(
+    thread_id: UUID, unit_id: str, request: Request, expected_fingerprint: str
+) -> Any:
+    view = await content(thread_id, request, expected_fingerprint)
+    _, store = await authorized_thread(thread_id, request)
+    current = await asyncio.to_thread(store.review_input)
+    if current["fingerprint"] != expected_fingerprint:
+        raise HTTPException(409, "全年稿已改变；请重新读取当前版本")
+    if not current["content"] or current["content"].get("kind") != "grade":
+        raise HTTPException(422, "当前任务没有全年蓝图")
+    try:
+        handoff_content = unit_handoff(
+            YearBlueprint.model_validate(current["content"]),
+            unit_id,
+            expected_fingerprint,
+            TaskRequest.model_validate(view["request"]),
+            current["knowledge"],
+            {
+                src: {**asset, "fingerprint": current["assets"][src]}
+                for src, asset in current["review_assets"].items()
+            },
+        )
+        return {**handoff_content, "status": view["status"], "checks": view["checks"]}
+    except ValueError:
+        raise HTTPException(404, "全年方案中没有该单元") from None
 
 
 @app.get("/v1/threads/{thread_id}/evidence")

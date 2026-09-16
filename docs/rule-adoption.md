@@ -1,6 +1,8 @@
-# 首个有限课程切片的规则取用
+# 课程设计的规则取用
 
-运行资源为 `src/teaching_harness/resources/curriculum.md` 和 `review.md`，内容指纹写入每次任务 Context。资源只含本次实际教学要求，不把研究报告整体发给原创模型。
+课段运行资源为 `src/teaching_harness/resources/curriculum.md` 和 `review.md`；全年任务选择同目录的 `year.md` 与 `year-review.md`。实际资源内容和指纹写入每次任务 Context。资源只含本次实际教学要求，不把研究报告整体发给原创模型。
+
+全年资源另外采用 [全年任务书](../.scratch/skills-harness/experiments/grade8-linear-functions/inputs/overall-task.md) 的完整目标视图、自主单元组织、父子不重复计数、实践分工、时间核算、关键任务探查与目标单元交接。学校条件通过请求提供；下表中首票的课段边界继续适用于 `scope=section`。全年关键任务仍属可行性探查，不冒充完整 Lesson 或全年教学材料。
 
 | 依据 | 本次采用方式 | 尚不据此声明 |
 | --- | --- | --- |
@@ -13,3 +15,5 @@
 新增课程能力没有同名上游 Skill。数学教案的完整 39 条 rubric、教师备课贡献、适配接受和 CFU 两道验证由各能力票落实；本票不把有限检查伪称为这些能力的完整实现或比较结论。固定上游版本仍为 `281eb8d41fe2837d911541c9bbb870b58add804c`。
 
 数学任务、进程和修订交给模型；程序只保证当前输入、工具权限、内容引用、资源上限与必要检查。没有按每个课时、每个错误建立节点或自治 Agent。真实人类等待／回应未在首票伪造实现，超出当前授权或范围时应停止并保留未完成结果。
+
+全年实测进一步暴露：模型可能给空 findings，却漏掉请求外器材、虚构调查过程、域外预测和试做效果夸大。年度资源补充实际资源可行性、合成数据标识、定义域与关联解释、待验证学习假设的核查，具体版本保存在各次 Context；反馈和修订见 [全年报告](../.scratch/math-harness-delivery/evidence/15-full-year-blueprint/README.md)。新增程序规则只处理可确定的来源引用、覆盖、时间与格式；教学判断仍需独立审阅及后续人工校准。

@@ -1,0 +1,195 @@
+{
+  "label": "revision",
+  "task_id": "7521fbd6-dd91-531e-ac92-f763b1304507",
+  "fingerprint": "18f1e539844eade19bb5d55d3fe70e16cf65b1ad1580a2bb1ffcabae6a90779f",
+  "model_calls": 22,
+  "tool_calls": 25,
+  "input_tokens": 2979822,
+  "output_tokens": 119935,
+  "total_tokens": 3099757,
+  "unknown_usage": false,
+  "cost": null,
+  "seconds": 330.3763425350189,
+  "cache_read_tokens": 2361538,
+  "reasoning_tokens": 26639,
+  "trace": "work/year-live/revision-trace.jsonl",
+  "trace_sha256": "82f4ada8c4e053b711d44122fe17f1a655d1d82a99af94716ffd1bbc5f049384",
+  "calls": [
+    {
+      "phase": "author",
+      "input_tokens": 78519,
+      "output_tokens": 1260,
+      "total_tokens": 79779,
+      "cache_read_tokens": 0,
+      "reasoning_tokens": 1193
+    },
+    {
+      "phase": "author",
+      "input_tokens": 79915,
+      "output_tokens": 74,
+      "total_tokens": 79989,
+      "cache_read_tokens": 0,
+      "reasoning_tokens": 63
+    },
+    {
+      "phase": "author",
+      "input_tokens": 80011,
+      "output_tokens": 2515,
+      "total_tokens": 82526,
+      "cache_read_tokens": 77745,
+      "reasoning_tokens": 2488
+    },
+    {
+      "phase": "author",
+      "input_tokens": 85245,
+      "output_tokens": 53,
+      "total_tokens": 85298,
+      "cache_read_tokens": 77741,
+      "reasoning_tokens": 27
+    },
+    {
+      "phase": "author",
+      "input_tokens": 86843,
+      "output_tokens": 42,
+      "total_tokens": 86885,
+      "cache_read_tokens": 81824,
+      "reasoning_tokens": 16
+    },
+    {
+      "phase": "author",
+      "input_tokens": 89976,
+      "output_tokens": 28616,
+      "total_tokens": 118592,
+      "cache_read_tokens": 85910,
+      "reasoning_tokens": 7229
+    },
+    {
+      "phase": "author",
+      "input_tokens": 120417,
+      "output_tokens": 23540,
+      "total_tokens": 143957,
+      "cache_read_tokens": 85929,
+      "reasoning_tokens": 2118
+    },
+    {
+      "phase": "author",
+      "input_tokens": 144070,
+      "output_tokens": 47,
+      "total_tokens": 144117,
+      "cache_read_tokens": 118676,
+      "reasoning_tokens": 36
+    },
+    {
+      "phase": "author",
+      "input_tokens": 165623,
+      "output_tokens": 2202,
+      "total_tokens": 167825,
+      "cache_read_tokens": 143238,
+      "reasoning_tokens": 501
+    },
+    {
+      "phase": "reviewer",
+      "input_tokens": 105806,
+      "output_tokens": 2555,
+      "total_tokens": 108361,
+      "cache_read_tokens": 0,
+      "reasoning_tokens": 2532
+    },
+    {
+      "phase": "reviewer",
+      "input_tokens": 108375,
+      "output_tokens": 2776,
+      "total_tokens": 111151,
+      "cache_read_tokens": 102348,
+      "reasoning_tokens": 825
+    },
+    {
+      "phase": "author",
+      "input_tokens": 111839,
+      "output_tokens": 814,
+      "total_tokens": 112653,
+      "cache_read_tokens": 77781,
+      "reasoning_tokens": 652
+    },
+    {
+      "phase": "author",
+      "input_tokens": 134363,
+      "output_tokens": 866,
+      "total_tokens": 135229,
+      "cache_read_tokens": 110500,
+      "reasoning_tokens": 814
+    },
+    {
+      "phase": "author",
+      "input_tokens": 139863,
+      "output_tokens": 49,
+      "total_tokens": 139912,
+      "cache_read_tokens": 130951,
+      "reasoning_tokens": 38
+    },
+    {
+      "phase": "author",
+      "input_tokens": 163712,
+      "output_tokens": 21556,
+      "total_tokens": 185268,
+      "cache_read_tokens": 139145,
+      "reasoning_tokens": 131
+    },
+    {
+      "phase": "author",
+      "input_tokens": 185381,
+      "output_tokens": 106,
+      "total_tokens": 185487,
+      "cache_read_tokens": 163708,
+      "reasoning_tokens": 95
+    },
+    {
+      "phase": "author",
+      "input_tokens": 209287,
+      "output_tokens": 23051,
+      "total_tokens": 232338,
+      "cache_read_tokens": 184180,
+      "reasoning_tokens": 1730
+    },
+    {
+      "phase": "author",
+      "input_tokens": 232447,
+      "output_tokens": 88,
+      "total_tokens": 232535,
+      "cache_read_tokens": 208744,
+      "reasoning_tokens": 77
+    },
+    {
+      "phase": "author",
+      "input_tokens": 256227,
+      "output_tokens": 3412,
+      "total_tokens": 259639,
+      "cache_read_tokens": 229215,
+      "reasoning_tokens": 1444
+    },
+    {
+      "phase": "reviewer",
+      "input_tokens": 132406,
+      "output_tokens": 1175,
+      "total_tokens": 133581,
+      "cache_read_tokens": 81892,
+      "reasoning_tokens": 1121
+    },
+    {
+      "phase": "reviewer",
+      "input_tokens": 133615,
+      "output_tokens": 2253,
+      "total_tokens": 135868,
+      "cache_read_tokens": 131010,
+      "reasoning_tokens": 2208
+    },
+    {
+      "phase": "reviewer",
+      "input_tokens": 135882,
+      "output_tokens": 2885,
+      "total_tokens": 138767,
+      "cache_read_tokens": 131001,
+      "reasoning_tokens": 1301
+    }
+  ]
+}

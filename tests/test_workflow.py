@@ -17,6 +17,59 @@ from teaching_harness.contracts import Curriculum, Review, fingerprint
 from teaching_harness.graph import build_graph
 
 
+@pytest.mark.parametrize(
+    "fault,status", [("empty", "empty"), ("missing", "partial"), ("error", "error")]
+)
+async def test_全年准备失败的公开证据区分空集缺页与请求错误(
+    tmp_path, monkeypatch, request_data, fault, status
+):
+    import httpx
+    from test_knowledge import grade_transport
+
+    from teaching_harness.knowledge import Knowledge
+
+    monkeypatch.setenv("HARNESS_WORK_DIR", str(tmp_path))
+    request_data.update(scope="year", target_codes=[])
+    request_data["school"].update(lesson_count=180, reserve_lessons=20)
+    async with httpx.AsyncClient(
+        base_url="http://knowledge", transport=grade_transport(fault)
+    ) as http:
+        graph = build_graph(ControlledModel, lambda _: Knowledge(http, page_size=1))
+        tid = str(uuid4())
+        with pytest.raises(RuntimeError):
+            await graph.ainvoke({"request": request_data}, {"configurable": {"thread_id": tid}})
+        evidence = ContentStore(tmp_path, tid).evidence()["knowledge"]
+    assert evidence["preparation"]["result_status"] == status
+    assert evidence["preparation"]["complete"] is False
+    assert evidence["preparation"]["source_snapshot"]["namespace"] == "test"
+    assert evidence["preparation"]["error"]["message"]
+
+
+@pytest.mark.parametrize("missing", [False, True])
+async def test_全年复用正式阶段图且空模型检查不能掩盖真实范围遗漏(
+    tmp_path, monkeypatch, request_data, missing
+):
+    monkeypatch.setenv("HARNESS_WORK_DIR", str(tmp_path))
+    request_data.update(scope="year", target_codes=[])
+    request_data["school"].update(lesson_count=180, reserve_lessons=20)
+    if missing:
+        request_data["instruction"] = "缺少目标的合成故障样本"
+    graph = build_graph(ControlledModel, ControlledKnowledge)
+    result = await graph.ainvoke(
+        {"request": request_data},
+        {"configurable": {"thread_id": str(uuid4())}},
+        interrupt_after=["prepare_review"] if missing else None,
+    )
+    if missing:
+        assert any(
+            f["criterion"] == "coverage" and f["blocking"] for f in result["program_findings"]
+        )
+    else:
+        assert result["status"] == "completed"
+        assert result["review_input"]["content"]["kind"] == "grade"
+        assert len(result["review_input"]["knowledge"]["additional"]) == 2
+
+
 @pytest.mark.parametrize("token_limit", [None, 1000])
 async def test_累计token只计量且仅在调用方明确设限时停止(
     tmp_path, monkeypatch, request_data, token_limit
