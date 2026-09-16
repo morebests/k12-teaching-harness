@@ -1,0 +1,414 @@
+{
+  "workflow_version": "curriculum-stages-v1",
+  "usage": {
+    "model_calls": 11,
+    "tool_calls": 13,
+    "input_tokens": 510181,
+    "output_tokens": 23642,
+    "total_tokens": 533823,
+    "unknown_usage": false,
+    "cost": null,
+    "seconds": 82.98946475982666
+  },
+  "events": [
+    {
+      "kind": "stage_started",
+      "stage": "prepare_task",
+      "round": 0
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "prepare_task",
+      "round": 0
+    },
+    {
+      "kind": "stage_started",
+      "stage": "author",
+      "round": 0
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/cd5384c04c6109f1af52122a1dda13ee03ab6944683daa657e3cb343a2fbb340",
+      "signature": "cd5384c04c6109f1af52122a1dda13ee03ab6944683daa657e3cb343a2fbb340"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/cd5384c04c6109f1af52122a1dda13ee03ab6944683daa657e3cb343a2fbb340"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_11573",
+      "signature": "4376a80e1aa623c8cf450f056ebad4a5158d96340af65e322b5dda64a85badfa"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_11573"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/ba3db772aaa0a0edffdf8a9e966fd36e92117c4daa7de30860fffe0ad58476fe",
+      "signature": "ba3db772aaa0a0edffdf8a9e966fd36e92117c4daa7de30860fffe0ad58476fe"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/ba3db772aaa0a0edffdf8a9e966fd36e92117c4daa7de30860fffe0ad58476fe"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_23380",
+      "signature": "a456a6eb39d07656eff0a0f13a2438cb28a9c91a2d893780d6d1027a23c18787"
+    },
+    {
+      "kind": "tool_error",
+      "stage": "author",
+      "round": 0,
+      "tool": "plot_linear",
+      "exception_type": "ContentError"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_23380"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/fc411038252d98e6a7c3d59db426627741c18f079d53703ae129096ee11be656",
+      "signature": "fc411038252d98e6a7c3d59db426627741c18f079d53703ae129096ee11be656"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/fc411038252d98e6a7c3d59db426627741c18f079d53703ae129096ee11be656"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_17091",
+      "signature": "50ff7707e95be6228a50d62e0983496b35940526e87e587f259d14353ad31ad5"
+    },
+    {
+      "kind": "tool_error",
+      "stage": "author",
+      "round": 0,
+      "tool": "plot_linear",
+      "exception_type": "ContentError"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_17091"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/7f83fd391de17f92c7d9ae589052dff7cda94d0a4bedb513fb29216d19615da3",
+      "signature": "7f83fd391de17f92c7d9ae589052dff7cda94d0a4bedb513fb29216d19615da3"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/7f83fd391de17f92c7d9ae589052dff7cda94d0a4bedb513fb29216d19615da3"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_44297",
+      "signature": "b1d9f9a47925ca7096cb09e0589a6786aa252970d9c5ead00aa8c249d08ee235"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_44297"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/86e5b552743561642847f08bfedaae4c47ddc74cc28ac53da5b1994be3193546",
+      "signature": "86e5b552743561642847f08bfedaae4c47ddc74cc28ac53da5b1994be3193546"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/86e5b552743561642847f08bfedaae4c47ddc74cc28ac53da5b1994be3193546"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_2443",
+      "signature": "5baa4b4f5b8d15a17d418eef8950dfd29b31a66a17cda23e0ebd81660d3ffa67"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_2441",
+      "signature": "646154650a13bc9158721b5821f9a6e051a7883a14eaf80e23a979720b69c599"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_2439",
+      "signature": "1cbb6f1444f91625cc996874da8ec109202a054ad69dcda07e019611eb49ad6f"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_2435",
+      "signature": "4947e74d8428081daca021f245bbc6d1ec8d7c05dcff6274086cd7a4945a0812"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_2443"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_2441"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_2439"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_2435"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/ca6fbea35832e9acedfd32f1a44e1141062d790b37f5941df794afa5201264db",
+      "signature": "ca6fbea35832e9acedfd32f1a44e1141062d790b37f5941df794afa5201264db"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/ca6fbea35832e9acedfd32f1a44e1141062d790b37f5941df794afa5201264db"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_77481",
+      "signature": "c9f048ea6c44068b6087f7605f9a671c8b240d0e302224a0e3399e4e0b2b5782"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_77479",
+      "signature": "404d5b038712efd5b3928d67f0f690e6adc058d754d1a5507a9eb3866661dbbd"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_77481"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_77479"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/ba9da21cb7b837da4bdbf53a4c96ee43609eecc2c6a3dda1d7f1bd2de3f9dfb7",
+      "signature": "ba9da21cb7b837da4bdbf53a4c96ee43609eecc2c6a3dda1d7f1bd2de3f9dfb7"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/ba9da21cb7b837da4bdbf53a4c96ee43609eecc2c6a3dda1d7f1bd2de3f9dfb7"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_17179",
+      "signature": "c78f27321f7d2f84360ef4e99e2cdc2348d4377ed4a6d5316b9653489b96c405"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_17179"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/b9b3f4daca94ab39b9b7e83b528fd093c8524c301db377ec80b936c6f74e1976",
+      "signature": "b9b3f4daca94ab39b9b7e83b528fd093c8524c301db377ec80b936c6f74e1976"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/b9b3f4daca94ab39b9b7e83b528fd093c8524c301db377ec80b936c6f74e1976"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_18373",
+      "signature": "4376a80e1aa623c8cf450f056ebad4a5158d96340af65e322b5dda64a85badfa"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/tool/call_18373"
+    },
+    {
+      "kind": "model_started",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/d45159f8dd6a02ce45cf284749ed0103f7208fe64cc5fd06291350b163100c3d",
+      "signature": "d45159f8dd6a02ce45cf284749ed0103f7208fe64cc5fd06291350b163100c3d"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "author",
+      "round": 0,
+      "operation_id": "author/0/model/d45159f8dd6a02ce45cf284749ed0103f7208fe64cc5fd06291350b163100c3d"
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "author",
+      "round": 0
+    },
+    {
+      "kind": "stage_started",
+      "stage": "prepare_review",
+      "round": 0
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "prepare_review",
+      "round": 0
+    },
+    {
+      "kind": "stage_started",
+      "stage": "reviewer",
+      "round": 0
+    },
+    {
+      "kind": "model_started",
+      "stage": "reviewer",
+      "round": 0,
+      "operation_id": "reviewer/0/model/d7ffed53e7228a5daa006e6331bc3e975634a67f2c211a0869195827eeb8547d",
+      "signature": "d7ffed53e7228a5daa006e6331bc3e975634a67f2c211a0869195827eeb8547d"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "reviewer",
+      "round": 0,
+      "operation_id": "reviewer/0/model/d7ffed53e7228a5daa006e6331bc3e975634a67f2c211a0869195827eeb8547d"
+    },
+    {
+      "kind": "tool_started",
+      "stage": "reviewer",
+      "round": 0,
+      "operation_id": "reviewer/0/tool/call_22196",
+      "signature": "3a04f957913e785c8b7746e051dbe06ea8c0098b6c493c1f669d2d6816416a67"
+    },
+    {
+      "kind": "tool_finished",
+      "stage": "reviewer",
+      "round": 0,
+      "operation_id": "reviewer/0/tool/call_22196"
+    },
+    {
+      "kind": "model_started",
+      "stage": "reviewer",
+      "round": 0,
+      "operation_id": "reviewer/0/model/c7d5321fc0a330253ea55bd4e05787a94465beb68768f5832874b6d6ff6d7847",
+      "signature": "c7d5321fc0a330253ea55bd4e05787a94465beb68768f5832874b6d6ff6d7847"
+    },
+    {
+      "kind": "model_finished",
+      "stage": "reviewer",
+      "round": 0,
+      "operation_id": "reviewer/0/model/c7d5321fc0a330253ea55bd4e05787a94465beb68768f5832874b6d6ff6d7847"
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "reviewer",
+      "round": 0
+    },
+    {
+      "kind": "stage_started",
+      "stage": "record_review",
+      "round": 0
+    },
+    {
+      "kind": "review_finished",
+      "stage": "record_review",
+      "round": 0,
+      "fingerprint": "3fb1c9789e4434372ca89ecd3a61b954e22b662c06de6cf9b039ba05c58e5787",
+      "program_findings": [],
+      "model_review": {
+        "findings": [],
+        "evidence": {
+          "coverage": "8.F.B.4全部表现要求（从文字描述、数值对、数据表格、坐标图像构建模型，以及在具体情境中解释斜率与截距）均在3个任务中有明确的任务承载、学生工作与评价证据，无遗漏要求。",
+          "mathematics": "经亲自验算与工具核算：Task 1中气压计y=12x+40，水质探头(145-85)/(7-3)=15，y=15x+40；Task 2中Δy/Δx=(150-100)/(4-2)=(300-225)/(10-7)=25，b=100-2*25=50，y=25x+50，假设成立下持续12小时电量为350瓦时；Task 3中(80-20)/(5-0)=12，y=12x+20，容量92升解得x=6分钟；SVG参数（slope=12, intercept=20, x_max=5, y_max=100）及像素坐标与解析式完全数学一致。有限点一致性与外推模型假设得到准确区分。",
+          "progression": "从“文字提取”到“两点差值代数建构”，再到“非连续表格一致性检验与倒推/代数回代”，最终到“函数图像网格读取与逆向求解”，表征转换逻辑严谨，教学进阶与每课理解转变紧密契合。",
+          "conditions": "3课时（每课50分钟）预算均明确划分为学生探究与练习25分钟、全班讨论15分钟、转换与检查10分钟，合计50分钟。资源要求（纸笔、直尺、方格纸、普通计算器、黑白打印）与学校提供的合成条件完全相符，无超范围设备依赖。",
+          "evidence": "正文中彻底消除了过度断言，Narrative开篇与先备条件均将前序经验与常见困难表述为“待核对的先备与困难假设”；Task 1预判回应问题编号与题面4问（第1问文字提取、第2问文字建构、第3问两点计算、第4问两点建构与解释）保持一致；Task 2明确了有限数据点与模型相符的局限性，并将12小时外推建立在恒定速率与容量充足的假设下；Task 3题面移除了直接给出的点坐标，改为提示选取网格交点，观察证据严格基于学生的具体行为。",
+          "sources": "课标8.F.B.4及其前驱标准（7.RP.A.2通过原点的正比例直线、8.F.A.3）、后继标准（HSF-LE.A.2、HSS-ID.C.7等）与真实CCSS知识图谱严格一致；明确标明为3课时有限课段，无夸大或捏造事实。"
+        }
+      }
+    },
+    {
+      "kind": "stage_finished",
+      "stage": "record_review",
+      "round": 0
+    },
+    {
+      "kind": "work_finished",
+      "stage": "record_review",
+      "round": 0
+    }
+  ]
+}

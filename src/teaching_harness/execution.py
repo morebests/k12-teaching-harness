@@ -71,13 +71,8 @@ class Ledger:
         usage = value["usage"]
         if value.get("workflow_version") != WORKFLOW_VERSION:
             raise ResourceStop("检测到旧图执行证据，保留累计用量并停止自动重放")
-        if usage["unknown_usage"]:
-            raise ResourceStop("上次模型消耗未知，停止自动重放并保留累计用量")
-        if (
-            usage["seconds"] >= self.limits.seconds
-            or usage["total_tokens"] >= self.limits.total_tokens
-        ):
-            raise ResourceStop("达到运行资源上限，已保存的草稿保留")
+        if usage["seconds"] >= self.limits.seconds:
+            raise ResourceStop("达到活动时间上限，已保存的草稿保留")
 
     def begin_stage(self) -> None:
         def begin(value: dict[str, Any]) -> str | None:
@@ -113,7 +108,7 @@ class Ledger:
     def usage(self) -> dict[str, Any]:
         return self._update(lambda v: dict(v["usage"]))
 
-    def start(self, kind: str, key: str, signature: str, reserve: int = 0) -> dict[str, Any]:
+    def start(self, kind: str, key: str, signature: str) -> dict[str, Any]:
         operation_id = f"{self.stage}/{self.round}/{kind}/{key}"
 
         def start(value: dict[str, Any]) -> dict[str, Any]:
@@ -128,11 +123,13 @@ class Ledger:
                     return {"cached": previous["result"], "id": operation_id}
                 raise ResourceStop("该调用已有执行证据，无法确认检查点交接，停止重复调用")
             usage = value["usage"]
+            if self.limits.total_tokens is not None:
+                if usage["unknown_usage"]:
+                    raise ResourceStop("模型消耗未知，无法核对调用方明确设置的累计 token 阈值")
+                if usage["total_tokens"] >= self.limits.total_tokens:
+                    raise ResourceStop("已达到调用方设置的累计 token 阈值，停止后续调用")
             if usage[kind + "_calls"] >= getattr(self.limits, kind + "_calls"):
                 raise ResourceStop("达到模型调用上限" if kind == "model" else "达到工具调用上限")
-            remaining = self.limits.total_tokens - usage["total_tokens"] - reserve
-            if kind == "model" and remaining < 512:
-                raise ResourceStop("剩余 token 不足以安全发起下一调用")
             usage[kind + "_calls"] += 1
             value["operations"][operation_id] = {
                 "kind": kind,
@@ -140,7 +137,7 @@ class Ledger:
                 "status": "started",
             }
             self._event(value, kind + "_started", operation_id=operation_id, signature=signature)
-            return {"id": operation_id, "remaining": remaining}
+            return {"id": operation_id}
 
         return self._update(start)
 
@@ -180,22 +177,12 @@ class ExecutionMiddleware(AgentMiddleware[TeachingAgentState, AgentContext]):
         ledger = Ledger(work)
         request = request.override(system_message=SystemMessage(content=work["rules"]))
         signature = fingerprint([work["rules"], messages_to_dict(request.messages)])
-        reserve = (
-            len(str([request.system_message, request.messages, request.tools]).encode()) + 2048
-        )
-        started = await asyncio.to_thread(ledger.start, "model", signature, signature, reserve)
+        started = await asyncio.to_thread(ledger.start, "model", signature, signature)
         request.runtime.context.emit(
             {"type": "progress", "step": "model", "message": "正在推敲课程或检查实际内容"}
         )
         try:
-            result = await handler(
-                request.override(
-                    model_settings={
-                        **request.model_settings,
-                        "max_output_tokens": min(16000, started["remaining"]),
-                    }
-                )
-            )
+            result = await handler(request)
         except BaseException:
             await asyncio.to_thread(ledger.unfinished, started["id"])
             raise

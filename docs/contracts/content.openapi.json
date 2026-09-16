@@ -676,10 +676,17 @@
             "title": "Tool Calls"
           },
           "total_tokens": {
-            "type": "integer",
-            "maximum": 2000000.0,
-            "minimum": 1000.0,
-            "title": "Total Tokens"
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1000.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Tokens",
+            "description": "可选：按已完成调用的实际累计用量停止后续调用；不是硬费用上限"
           },
           "seconds": {
             "type": "integer",
@@ -693,10 +700,39 @@
         "required": [
           "model_calls",
           "tool_calls",
-          "total_tokens",
           "seconds"
         ],
         "title": "Limits"
+      },
+      "RenderIssue": {
+        "properties": {
+          "location": {
+            "type": "string",
+            "title": "Location"
+          },
+          "formula": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Formula"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "location",
+          "message"
+        ],
+        "title": "RenderIssue"
       },
       "ReviewEvidence": {
         "properties": {
@@ -1000,6 +1036,13 @@
             "type": "boolean",
             "title": "Rendered",
             "default": false
+          },
+          "render_errors": {
+            "items": {
+              "$ref": "#/components/schemas/RenderIssue"
+            },
+            "type": "array",
+            "title": "Render Errors"
           }
         },
         "additionalProperties": false,

@@ -9,11 +9,12 @@ import tempfile
 from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from pathlib import Path
+from subprocess import TimeoutExpired
 from typing import Any
 from uuid import UUID
 
-from teaching_harness.contracts import Curriculum, Review, fingerprint
-from teaching_harness.rendering import linear_svg, render_curriculum
+from teaching_harness.contracts import Curriculum, RenderIssue, Review, fingerprint
+from teaching_harness.rendering import RenderingError, linear_svg, render_curriculum
 
 
 class ContentError(ValueError):
@@ -89,6 +90,12 @@ class ContentStore:
                         raise ContentError("图件与实际数学参数不一致，必须修复后重查")
                     assets[block.src] = hashlib.sha256(svg).hexdigest()
         source_digest = fingerprint({"content": content, "assets": assets})
+        failure = self._json("output/render-errors.json")
+        errors = (
+            failure["errors"]
+            if failure and failure.get("source_fingerprint") == source_digest
+            else []
+        )
         rendering = self._json("output/render.json")
         output = self.root / "output/curriculum.html"
         output_digest = (
@@ -98,6 +105,8 @@ class ContentStore:
             rendering
             and rendering.get("source_fingerprint") == source_digest
             and rendering.get("output_fingerprint") == output_digest
+            and output_digest is not None
+            and not errors
         )
         digest = fingerprint({"content": content, "assets": assets, "output": output_digest})
         checks = self._json("checks.json")
@@ -114,6 +123,7 @@ class ContentStore:
             "assets": assets,
             "checks": checks,
             "rendered": rendered,
+            "render_errors": errors,
         }
 
     def snapshot(self) -> dict[str, Any]:
@@ -136,12 +146,6 @@ class ContentStore:
                 for b in t.blocks
                 if b.type == "image"
             }
-            try:
-                html = render_curriculum(content, asset_text).encode()
-            except (ValueError, TimeoutError, OSError):
-                # 源稿保留；旧渲染清单与新源不匹配，不会被提升为当前通过。
-                return self._snapshot()
-            self._write("output/curriculum.html", html)
             source_digest = fingerprint(
                 {
                     "content": content.model_dump(),
@@ -150,16 +154,46 @@ class ContentStore:
                     },
                 }
             )
+            try:
+                html = render_curriculum(content, asset_text).encode()
+            except (ValueError, TimeoutExpired, OSError) as exc:
+                issues = (
+                    exc.issues
+                    if isinstance(exc, RenderingError)
+                    else [
+                        RenderIssue(
+                            location="rendering",
+                            message=(
+                                str(exc)
+                                if isinstance(exc, ValueError)
+                                else "阅读稿生成服务未完成，请重新保存以重试；持续失败需维护者检查渲染服务"
+                            ),
+                        )
+                    ]
+                )
+                self._write(
+                    "output/render-errors.json",
+                    json.dumps(
+                        {
+                            "source_fingerprint": source_digest,
+                            "errors": [issue.model_dump() for issue in issues],
+                        },
+                        ensure_ascii=False,
+                    ).encode(),
+                )
+                return self._snapshot()
+            self._write("output/curriculum.html", html)
             self._write(
                 "output/render.json",
                 json.dumps(
                     {
                         "source_fingerprint": source_digest,
                         "output_fingerprint": hashlib.sha256(html).hexdigest(),
-                        "renderer_version": 1,
+                        "renderer_version": 2,
                     }
                 ).encode(),
             )
+            (self.root / "output/render-errors.json").unlink(missing_ok=True)
             return self._snapshot()
 
     def plot_linear(
@@ -175,7 +209,9 @@ class ContentStore:
         expected_fingerprint: str | None = None,
     ) -> dict[str, Any]:
         if not re.fullmatch(r"[a-z0-9_-]{1,60}", name):
-            raise ContentError("图件身份无效")
+            raise ContentError(
+                "name 只接受 1—60 位小写字母、数字、下划线或连字符，例如 rainwater_tank；不要传 assets/ 路径或 .svg 扩展名"
+            )
         parameters = {
             "slope": slope,
             "intercept": intercept,

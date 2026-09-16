@@ -1,0 +1,224 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>八年级线性函数课段：从多重表征构建线性模型与解释参数 (8.F.B.4)</title><style>body{max-width:900px;margin:36px auto;padding:0 24px;font:17px/1.7 system-ui;color:#17212a}h1{font-size:30px}h2{margin-top:36px}h3{font-size:18px}.scope{color:#586472}table{border-collapse:collapse;width:100%}td,th{border:1px solid #abb5bf;padding:8px}figure{margin:20px 0}svg{max-width:680px;width:100%;height:auto}section{border-top:1px solid #bbb;margin-top:32px}math{font-size:1.12em}@media print{body{margin:0;font-size:11pt}h2,h3{break-after:avoid}table,figure{break-inside:avoid}}</style><body><h1>八年级线性函数课段：从多重表征构建线性模型与解释参数 (8.F.B.4)</h1><p class="scope">有限课段方案与关键任务构想 · 检查状态请查看任务结果</p><p>本课段专为落实 8.F.B.4 标准而设计，教学进阶以多重数学表征（文字叙述、数值对、数据表格、坐标函数图）的递进转化为核心主线。</p>
+<ol>
+<li>起点与诊断：八年级学生已掌握正比例关系（y = kx，7.RP.A.2）并初步认识直线方程 y = mx + b（8.F.A.3），但普遍存在将所有线性问题默认为正比例（忽略非零初始值 b）以及死记斜率公式却无法解释实际物理意义的倾向。因此，课段开篇通过两问对比情境，强制暴露“有初始基准”与“纯变化量”的差异。</li>
+<li>任务递进逻辑：</li>
+</ol>
+<ul>
+<li>第 1 课（Task 1）从直观的文字描述出发，拆解常数项与单位率，随后立即过渡到只有两组离散数值对 (x, y) 的情境，引导学生自主运用增量比值求变化率，并通过代数代入求初始值，建立两点定线的代数结构。</li>
+<li>第 2 课（Task 2）升级为数据表格。为了防止学生机械猜测，故意提供自变量非单步递增且不包含 x=0 的数据表，驱使学生运用 Δy/Δx 的一致性验证线性，并采用代数反求或表格倒推两种方式确定初始值，深化对变化率恒定本质的理解。</li>
+<li>第 3 课（Task 3）引入真实精确绘制的第一象限函数图像，完成几何直观与代数模型的闭环。坐标系设定为横轴 0 到 5 分钟（步长 1）、纵轴 0 到 100 升（步长 20），使纵截距点 (0, 20) 与特征点 (5, 80) 精确落在主要刻度网格交点上。学生从图上线条与坐标轴的交点读出初始值，利用格点构造变化直角三角形读出变化率，建立完整函数式，并进一步解决容量封顶的逆向预测问题。</li>
+</ul>
+<ol start="3">
+<li>衔接未来：此进阶路径不仅夯实了八年级函数概念，更直接向高中阶段根据两点构造线性模型 (HSF-LE.A.2)、解释回归参数 (HSS-ID.C.7) 以及等差数列通项公式 (HSF-BF.A.2) 顺畅过渡。</li>
+</ol>
+<h2>目标与证据</h2><h3>8.F.B.4</h3><p>本课段为标准 8.F.B.4 的完整承担课段，全面覆盖标准陈述中的所有表现要求（文字、两点、表格、图形构建模型及双向情境解释），不留未尽要求。</p>
+<p>全面落实标准 8.F.B.4 的四大表征途径：采纳 Learning Components 中从文字描述提取初始值与变化率（411f2a23, dd4d95c3, c8e759d8, 1944c542）、从表格与图像提取初始值与变化率（5f3a9252, c6f0747b, e1ce9802, d9f26f66）、构建两变量间线性模型（dab9e9b0），以及在情境中解释变化率和初始值（b2a9431b, 6c340f89）。通过多表征互译，将代数符号 m 与 b 与现实测量量紧密结合。</p>
+<p>学生能独立从实际文字情境、两组(x, y)数值对、离散数据表格（不含x=0）及坐标函数图像中，正确列式计算变化率（附带复合单位），通过代数或图表法确定初始值，写出形如 y = mx + b 的函数关系式；并能用完整句子清晰阐明变化率（每增加一单位自变量时因变量的变化量）和初始值（自变量为0时的基准量）在具体情境中的实际含义。</p>
+<h2>先备与后续</h2><p>前驱支撑标准包括 7.RP.A.2（识别并表示变量之间的正比例关系与单位率）以及 8.F.A.3（理解方程 y = mx + b 定义了一个图像为直线的线性函数）。本课段以此为基石，将原点对称的正比例模型拓展为包含非零初始值的普遍线性模型。</p>
+<p>后继进阶支撑包括高中数学标准：HSF-LE.A.2（根据图像、文字或两个输入输出对构建线性与指数函数）、HSF-LE.B.5 与 HSS-ID.C.7（在实际情境中深入解释线性模型的斜率与截距常数）、HSF-BF.A.2（运用显式公式和递归公式构建等差数列）以及 HSF-IF.B.6（计算和估算函数的平均变化率）。</p>
+<h2>学习进程</h2><h3>第 1 课：从文字情境与两组数值对构建线性模型与解释参数</h3><p>学生从“仅将初始值与变化率视为孤立信息”转向“理解初始值是自变量为0时的基准起步量、变化率是每单位恒定增加量”，并能运用任意两组数值对计算增量之比（Δy/Δx）求出变化率，进而逆向解出初始值，建立 y = mx + b 模型。</p>
+<p>学生工作 25 分钟 · 讨论 15 分钟 · 其他 10 分钟</p><h3>第 2 课：从非连续离散数据表格确定变化率与初始值</h3><p>学生从“依赖表格必须给出 x=0 才能找初始值”转向“即使表格缺失 x=0 且步长不均匀，仍能利用任意两行的差值之比验证恒定变化率，并通过代数回代或表格反向步长倒推求得初始值”，深刻体会线性变化率的恒定性。</p>
+<p>学生工作 25 分钟 · 讨论 15 分钟 · 其他 10 分钟</p><h3>第 3 课：从真实坐标图像读取参数、建立模型与解决情境问题</h3><p>学生从“将几何直线孤立视为平面几何线条”转向“将直线几何特征（纵截距、陡峭程度）与现实情境（初始存量、流入速率）紧密绑定”，熟练从坐标图中精确定位特征点，构造变化直角三角形求斜率，写出函数式并开展情境逆向求解与预测。</p>
+<p>学生工作 25 分钟 · 讨论 15 分钟 · 其他 10 分钟</p><section id="task-linear-verbal-pairs"><h2>关键任务 · task-linear-verbal-pairs</h2><p>评估并促成学生直接从文字描述和两组数值对 (x, y) 中提取或计算变化率与初始值，构建 y = mx + b 形式的线性函数模型，并在具体经济采购情境中准确解释参数的实际意义。</p>
+<p>请仔细阅读情境 A 与情境 B，按步骤解答关于初始值、变化率与函数表达式的 4 个问题，并对相关数值在现实情境中的含义进行文字解释。</p>
+<h3>任务情境：学校科技社团的硬件采购项目</h3>
+<p><strong>情境 A（文字描述建模）：</strong>
+学校科技社团正在组装微型气象站。供应商提供了一套基础主控硬件套件，其固定启动费用为 40 美元；在此基础上，每额外加装一个高精度气压传感器，费用增加 12 美元。设加装的传感器数量为 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span>（个），采购该气象站的总费用为 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span>（美元）。</p>
+<ol>
+<li>从上述文字中确定该线性关系的<strong>初始值</strong>和<strong>变化率</strong>（须写出数值及具体单位），并分别解释它们在实际采购情境中代表什么含义。</li>
+<li>写出表示总费用 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span> 与传感器数量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span> 之间关系的函数关系式。</li>
+</ol>
+<p><strong>情境 B（两组数值对建模）：</strong>
+社团的另一个环保监测项目向另一家工坊采购水质监测模块。该工坊对定制项目的收费也符合线性关系，但价目表只记录了两笔已完成的订单记录：</p>
+<ul>
+<li>采购 3 个水质探头时，总费用为 85 美元，记作数据对 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>3</mn><mo separator="true">,</mo><mn>85</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(3, 85)</annotation></semantics></math></span>；</li>
+<li>采购 7 个水质探头时，总费用为 145 美元，记作数据对 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>7</mn><mo separator="true">,</mo><mn>145</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(7, 145)</annotation></semantics></math></span>。</li>
+</ul>
+<ol start="3">
+<li>利用这两组 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math></span> 数值对，计算该线性函数的变化率，并求出其初始值（展示完整计算推理步骤）。</li>
+<li>建立总费用 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span> 与探头数量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span> 的函数表达式，并解释求得的初始值在情境中表示什么。</li>
+</ol>
+<h3>解答与条件</h3><ol>
+<li>初始值与变化率及其情境含义：</li>
+</ol>
+<ul>
+<li>初始值为 40 美元。实际意义：当传感器数量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x = 0</annotation></semantics></math></span> 时，科技社团必须支付的基础主控硬件套件的固定启动成本为 40 美元。</li>
+<li>变化率为 12 美元/个。实际意义：每多采购 1 个气压传感器，项目的总费用增加 12 美元。</li>
+</ul>
+<ol start="2">
+<li>
+<p>情境 A 的函数模型：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>y</mi><mo>=</mo><mn>12</mn><mi>x</mi><mo>+</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">y = 12x + 40</annotation></semantics></math></span></p>
+</li>
+<li>
+<p>情境 B 中根据两组数值对计算变化率与初始值：</p>
+</li>
+</ol>
+<ul>
+<li>已知两点坐标为 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mn>3</mn><mo separator="true">,</mo><mn>85</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x_1, y_1) = (3, 85)</annotation></semantics></math></span>，<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mn>7</mn><mo separator="true">,</mo><mn>145</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x_2, y_2) = (7, 145)</annotation></semantics></math></span>。</li>
+<li>变化率（斜率 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span>）计算：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>m</mi><mo>=</mo><mfrac><mrow><msub><mi>y</mi><mn>2</mn></msub><mo>−</mo><msub><mi>y</mi><mn>1</mn></msub></mrow><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><msub><mi>x</mi><mn>1</mn></msub></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>145</mn><mo>−</mo><mn>85</mn></mrow><mrow><mn>7</mn><mo>−</mo><mn>3</mn></mrow></mfrac><mo>=</mo><mfrac><mn>60</mn><mn>4</mn></mfrac><mo>=</mo><mn>15</mn><mtext>（美元/个）</mtext></mrow><annotation encoding="application/x-tex">m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{145 - 85}{7 - 3} = \frac{60}{4} = 15\text{（美元/个）}</annotation></semantics></math></span></li>
+<li>初始值（<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>）求解：
+将点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>3</mn><mo separator="true">,</mo><mn>85</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(3, 85)</annotation></semantics></math></span> 和 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">m = 15</annotation></semantics></math></span> 代入线性函数通用形式 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>m</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">y = mx + b</annotation></semantics></math></span>：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>85</mn><mo>=</mo><mn>15</mn><mo>×</mo><mn>3</mn><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">85 = 15 \times 3 + b</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>85</mn><mo>=</mo><mn>45</mn><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">85 = 45 + b</annotation></semantics></math></span>
+解得 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>85</mn><mo>−</mo><mn>45</mn><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">b = 85 - 45 = 40</annotation></semantics></math></span>（单位：美元）。
+（若代入点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>7</mn><mo separator="true">,</mo><mn>145</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(7, 145)</annotation></semantics></math></span> 检验：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>145</mn><mo>=</mo><mn>15</mn><mo>×</mo><mn>7</mn><mo>+</mo><mi>b</mi><mo>=</mo><mn>105</mn><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">145 = 15 \times 7 + b = 105 + b</annotation></semantics></math></span>，解得 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">b = 40</annotation></semantics></math></span>，结果完全一致。）</li>
+</ul>
+<ol start="4">
+<li>情境 B 的函数模型及初始值解释：</li>
+</ol>
+<ul>
+<li>函数关系式为：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>y</mi><mo>=</mo><mn>15</mn><mi>x</mi><mo>+</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">y = 15x + 40</annotation></semantics></math></span></li>
+<li>初始值的实际含义：初始值 40 美元表示该定制水质监测项目的固定起步费用（即不加装任何水质探头时的基准开销）。变化率 15 美元/个表示每个水质探头的单价。</li>
+</ul>
+<h3>学生数学工作</h3><p>学生需独立比对“文字直接给出的每单位单价/固定费用”与“只有两组总价记录”的结构差异；列出增量算式 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>145</mn><mo>−</mo><mn>85</mn></mrow><mrow><mn>7</mn><mo>−</mo><mn>3</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{145-85}{7-3}</annotation></semantics></math></span> 并解释分子是费用的变化量、分母是探头数量的变化量；通过代数方程回代求解 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span> 并检验。</p>
+<h3>观察证据</h3><p>学生能从文字中准确抽取出初始值 40 美元与变化率 12 美元/个；能在面对两组数值对时，正确使用增量公式计算出变化率 (145-85)/(7-3) = 15 美元/个，并通过代数回代求得初始值 40 美元，建立 y = 15x + 40；且能清晰说明初始值代表不买探头时的基础套件成本。</p>
+<h3>预判回应</h3><p>可能的回应 1：学生在第(1)问中正确写出 y = 12x + 40，但在第(2)问中误用 85/3 ≈ 28.33 计算变化率，表现出受正比例思维惯性影响，未意识到初始值不为零。教师支持：提醒学生用两组数据比较，计算增加 4 个探头实际增加了多少花费（145 - 85 = 60），引导其发现每增加 1 个探头花费是 60/4 = 15，而非总费用除以总个数。
+可能的回应 2：学生计算出 m = 15 后，误认为初始值 b 就是 85。教师支持：要求学生检验代入 x = 3 时 y = 15×3 + 85 = 130 与题面 85 是否相符，进而启发其写出方程 15×3 + b = 85，解出 b = 40。单次做对不代表稳定掌握，需追问其“若 x=0 时购买 0 个探头需花费多少？这在项目中对应什么成本？”来验证概念理解。</p>
+<h3>支持</h3><p>对有理数计算有困难的学生，允许使用普通计算器进行减法与除法；对理解两点代数回代有困难的学生，提供图形线索纸条：“总费用 = (单价 × 探头数) + 基础费”，辅助其把已知数字代入对应位置解一元一次方程。</p>
+</section><section id="task-linear-table"><h2>关键任务 · task-linear-table</h2><p>考查学生从离散、非等间距且缺失 x=0 的数据表格中确定变化率与初始值的能力，深化对线性关系中“变化率恒定性”的理解，并掌握从表格中多途径反求初始值的数学技能。</p>
+<p>分析表格中的非连续测试数据，完成变化率检验、两种初始值求解、函数建模及 12 小时蓄电量预测。</p>
+<h3>任务情境：社区环保工坊的太阳能储能电池测试</h3>
+<p>社区环保工坊测试了一款新型太阳能应急储能电池。在恒定光照条件下充电，测试人员定时记录了充电时长 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span>（小时）与电池总蓄电量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span>（瓦时，Wh）的实验数据，如下表所示：</p>
+<table><thead><tr><th><p>充电时长 x (小时)</p>
+</th><th><p>电池总蓄电量 y (瓦时, Wh)</p>
+</th></tr></thead><tbody><tr><td><p>2</p>
+</td><td><p>100</p>
+</td></tr><tr><td><p>4</p>
+</td><td><p>150</p>
+</td></tr><tr><td><p>7</p>
+</td><td><p>225</p>
+</td></tr><tr><td><p>10</p>
+</td><td><p>300</p>
+</td></tr></tbody></table><p><strong>请依据表格数据完成下列任务：</strong></p>
+<ol>
+<li>从表格中任选两组不同的数据对（例如前两组与后两组），分别计算电量变化量与时间变化量的比值 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>y</mi></mrow><mrow><mi mathvariant="normal">Δ</mi><mi>x</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\Delta y}{\Delta x}</annotation></semantics></math></span>。验证该数据是否呈现恒定的变化率，并明确指出该变化率的数值、单位及现实含义。</li>
+<li>该表格并没有直接列出 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x = 0</annotation></semantics></math></span> 时的数值。请运用两种不同的方法（例如：基于变化率的表格逆向推算方法，以及代数方程代入法）求出当 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x = 0</annotation></semantics></math></span> 时的初始蓄电量（初始值），并解释这一初始值在测试中代表什么。</li>
+<li>构建表示总蓄电量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span> 与充电时间 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span> 之间关系的线性函数模型。</li>
+<li>应用你的函数模型预测：若持续充电 12 小时，该电池的蓄电量将达到多少瓦时？展示计算过程。</li>
+</ol>
+<h3>解答与条件</h3><ol>
+<li>验证变化率的恒定性及其实际含义：</li>
+</ol>
+<ul>
+<li>选取数据对 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2</mn><mo separator="true">,</mo><mn>100</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2, 100)</annotation></semantics></math></span> 与 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>4</mn><mo separator="true">,</mo><mn>150</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(4, 150)</annotation></semantics></math></span>：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>y</mi></mrow><mrow><mi mathvariant="normal">Δ</mi><mi>x</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>150</mn><mo>−</mo><mn>100</mn></mrow><mrow><mn>4</mn><mo>−</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mfrac><mn>50</mn><mn>2</mn></mfrac><mo>=</mo><mn>25</mn><mtext>（瓦时/小时）</mtext></mrow><annotation encoding="application/x-tex">\frac{\Delta y}{\Delta x} = \frac{150 - 100}{4 - 2} = \frac{50}{2} = 25\text{（瓦时/小时）}</annotation></semantics></math></span></li>
+<li>选取数据对 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>7</mn><mo separator="true">,</mo><mn>225</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(7, 225)</annotation></semantics></math></span> 与 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>10</mn><mo separator="true">,</mo><mn>300</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(10, 300)</annotation></semantics></math></span>：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>y</mi></mrow><mrow><mi mathvariant="normal">Δ</mi><mi>x</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>300</mn><mo>−</mo><mn>225</mn></mrow><mrow><mn>10</mn><mo>−</mo><mn>7</mn></mrow></mfrac><mo>=</mo><mfrac><mn>75</mn><mn>3</mn></mfrac><mo>=</mo><mn>25</mn><mtext>（瓦时/小时）</mtext></mrow><annotation encoding="application/x-tex">\frac{\Delta y}{\Delta x} = \frac{300 - 225}{10 - 7} = \frac{75}{3} = 25\text{（瓦时/小时）}</annotation></semantics></math></span></li>
+<li>结论与含义：任意两组数据算出的比值均为恒定常数 25 瓦时/小时。实际含义为：电池在恒定光照下，每充电 1 小时，储电量增加 25 瓦时。</li>
+</ul>
+<ol start="2">
+<li>求解初始值（两种方法）及其实际含义：</li>
+</ol>
+<ul>
+<li>方法一（表格逆向推算/差分倒推法）：
+已知充电 2 小时时电量为 100 瓦时，充能速度为每小时 25 瓦时。从 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">x = 2</annotation></semantics></math></span> 往回推 2 小时到达 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x = 0</annotation></semantics></math></span> 时，电量应减少 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>25</mn><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">2 \times 25 = 50</annotation></semantics></math></span> 瓦时：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>b</mi><mo>=</mo><mn>100</mn><mo>−</mo><mn>2</mn><mo>×</mo><mn>25</mn><mo>=</mo><mn>100</mn><mo>−</mo><mn>50</mn><mo>=</mo><mn>50</mn><mtext>（瓦时）</mtext></mrow><annotation encoding="application/x-tex">b = 100 - 2 \times 25 = 100 - 50 = 50\text{（瓦时）}</annotation></semantics></math></span></li>
+<li>方法二（代数方程代入法）：
+设函数模型为 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>25</mn><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">y = 25x + b</annotation></semantics></math></span>。选取表格中数据对 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>4</mn><mo separator="true">,</mo><mn>150</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(4, 150)</annotation></semantics></math></span> 代入：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>150</mn><mo>=</mo><mn>25</mn><mo>×</mo><mn>4</mn><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">150 = 25 \times 4 + b</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>150</mn><mo>=</mo><mn>100</mn><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">150 = 100 + b</annotation></semantics></math></span>
+解得 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>150</mn><mo>−</mo><mn>100</mn><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">b = 150 - 100 = 50</annotation></semantics></math></span>（单位：瓦时）。</li>
+<li>实际含义：初始值 50 瓦时表示开始充电测试前（<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x = 0</annotation></semantics></math></span> 小时时），储能电池原本已经残留/预存的电量。</li>
+</ul>
+<ol start="3">
+<li>
+<p>构建线性函数模型：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>y</mi><mo>=</mo><mn>25</mn><mi>x</mi><mo>+</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">y = 25x + 50</annotation></semantics></math></span></p>
+</li>
+<li>
+<p>预测持续充电 12 小时的蓄电量：
+将 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">x = 12</annotation></semantics></math></span> 代入函数模型：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>y</mi><mo>=</mo><mn>25</mn><mo>×</mo><mn>12</mn><mo>+</mo><mn>50</mn><mo>=</mo><mn>300</mn><mo>+</mo><mn>50</mn><mo>=</mo><mn>350</mn><mtext>（瓦时）</mtext></mrow><annotation encoding="application/x-tex">y = 25 \times 12 + 50 = 300 + 50 = 350\text{（瓦时）}</annotation></semantics></math></span>
+答：持续充电 12 小时后，该电池的蓄电量预计将达到 350 瓦时。</p>
+</li>
+</ol>
+<h3>学生数学工作</h3><p>学生须写出两组以上差值比的算式对比，阐述为什么这能证明是线性关系；对比表格倒推法与代数方程法的共同逻辑（都在寻找 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math></span> 时的 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span>）；口头或书面解释“为什么不能直接算 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mi mathvariant="normal">/</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">y/x</annotation></semantics></math></span>”。</p>
+<h3>观察证据</h3><p>学生能熟练从离散数据表中选取多对点计算 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>150</mn><mo>−</mo><mn>100</mn></mrow><mrow><mn>4</mn><mo>−</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mn>25</mn></mrow><annotation encoding="application/x-tex">\frac{150-100}{4-2} = 25</annotation></semantics></math></span> 和 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>300</mn><mo>−</mo><mn>225</mn></mrow><mrow><mn>10</mn><mo>−</mo><mn>7</mn></mrow></mfrac><mo>=</mo><mn>25</mn></mrow><annotation encoding="application/x-tex">\frac{300-225}{10-7} = 25</annotation></semantics></math></span>，确认变化率恒为 25 瓦时/小时；能给出两种求解初始值的方法（倒推法：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>−</mo><mn>2</mn><mo>×</mo><mn>25</mn><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">100 - 2 \times 25 = 50</annotation></semantics></math></span>；代数法：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>=</mo><mn>25</mn><mo>×</mo><mn>2</mn><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">100 = 25 \times 2 + b</annotation></semantics></math></span>，解得 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">b = 50</annotation></semantics></math></span>）；能写出模型 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>25</mn><mi>x</mi><mo>+</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">y = 25x + 50</annotation></semantics></math></span> 并正确计算出充能 12 小时电量为 350 瓦时。</p>
+<h3>预判回应</h3><p>可能的回应 1：学生直接用第一行计算 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi mathvariant="normal">/</mi><mn>2</mn><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">100 / 2 = 50</annotation></semantics></math></span>，认为变化率是 50 瓦时/小时。教师支持：让学生核对第二行如果变化率是 50，充能 4 小时储电量应该是多少（<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>50</mn><mo>×</mo><mn>4</mn><mo>=</mo><mn>200</mn><mo mathvariant="normal">≠</mo><mn>150</mn></mrow><annotation encoding="application/x-tex">50 \times 4 = 200 \ne 150</annotation></semantics></math></span>），引导其认识到必须使用两行之间的“变化量之比” <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>y</mi></mrow><mrow><mi mathvariant="normal">Δ</mi><mi>x</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\Delta y}{\Delta x}</annotation></semantics></math></span>，而非单一状态的比值。
+可能的回应 2：学生知道变化率是 25，但困惑于表格里没有 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math></span> 这一行，不知道初始值从何而来。教师支持：引导学生利用直尺在方格纸上画出表格前几步的数轴，或者提问：“如果 2 小时是 100 瓦时，每退回 1 小时减少 25 瓦时，那么退回 2 小时到 0 小时时，电量应该是多少？”协助其建立倒推思考。</p>
+<h3>支持</h3><p>对于习惯直接用 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">100/2</annotation></semantics></math></span> 的学生，教师在黑板或投影上提供两行对比图示：“状态量除法（<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mi mathvariant="normal">/</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">y/x</annotation></semantics></math></span>）仅在初始值为 0 时成立；增量除法（<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>y</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">Δ</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\Delta y/\Delta x</annotation></semantics></math></span>）适用于所有线性关系”。针对运算慢的学生，提供方格纸绘制简易数据折线草图以直观感知。</p>
+</section><section id="task-linear-graph"><h2>关键任务 · task-linear-graph</h2><p>考查学生从真实函数坐标图中读取纵截距与特征点坐标、通过坐标差值计算变化率、构建完整线性函数模型的能力，并能在图象表征与实际情境之间灵活迁移，解释参数变动对图象位置与斜率的几何影响。</p>
+<p>结合给出的真实雨水收集函数图像，读取关键点坐标，构建函数模型，并解决蓄水饱和时间预测与参数变动几何影响的综合问题。</p>
+<figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480" role="img"><title>水量（升）随时间（分钟）变化</title><rect width="680" height="480" fill="white"/><defs><clipPath id="plot"><rect x="100" y="55" width="500" height="340"/></clipPath></defs><path d="M100 55V395 M100 395H600" stroke="#ccc" fill="none"/><text x="100" y="420" text-anchor="middle" font-size="16">0</text><text x="88" y="400" text-anchor="end" font-size="16">0</text><path d="M200 55V395 M100 327H600" stroke="#ccc" fill="none"/><text x="200" y="420" text-anchor="middle" font-size="16">1</text><text x="88" y="332" text-anchor="end" font-size="16">20</text><path d="M300 55V395 M100 259H600" stroke="#ccc" fill="none"/><text x="300" y="420" text-anchor="middle" font-size="16">2</text><text x="88" y="264" text-anchor="end" font-size="16">40</text><path d="M400 55V395 M100 191H600" stroke="#ccc" fill="none"/><text x="400" y="420" text-anchor="middle" font-size="16">3</text><text x="88" y="196" text-anchor="end" font-size="16">60</text><path d="M500 55V395 M100 123H600" stroke="#ccc" fill="none"/><text x="500" y="420" text-anchor="middle" font-size="16">4</text><text x="88" y="128" text-anchor="end" font-size="16">80</text><path d="M600 55V395 M100 55H600" stroke="#ccc" fill="none"/><text x="600" y="420" text-anchor="middle" font-size="16">5</text><text x="88" y="60" text-anchor="end" font-size="16">100</text><path d="M100 55V395H600" stroke="#222" fill="none" stroke-width="2"/><path d="M100 327.0 L600 123.0" stroke="#174c70" fill="none" stroke-width="3" clip-path="url(#plot)"/><text x="350" y="458" text-anchor="middle" font-size="18">时间（分钟）</text><text x="100" y="28" font-size="18">水量（升）</text></svg><figcaption>雨水收集桶蓄水量与降雨时间关系图像</figcaption></figure><h3>任务情境：社区生态花园的雨水收集监控</h3>
+<p>社区生态花园安装了一个大型雨水收集桶，用于收集屋檐汇聚的雨水灌溉花草。上图展示了一场持续暴雨期间，水桶内总蓄水量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span>（升）随着降雨持续时间 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span>（分钟）变化的真实函数图像。图像中横轴刻度范围为 0 到 5 分钟（主刻度步长为 1 分钟，标注 0, 1, 2, 3, 4, 5），纵轴刻度范围为 0 到 100 升（主刻度步长为 20 升，标注 0, 20, 40, 60, 80, 100）。</p>
+<p><strong>请仔细观察图像，完成下列问题：</strong></p>
+<ol>
+<li><strong>读出初始值并解释含义：</strong>
+找出直线与纵轴相交的点，写出该点的坐标 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x, y)</annotation></semantics></math></span>。结合本题实际情境，说明该点的数值代表什么具体含义。</li>
+<li><strong>读点计算变化率并解释含义：</strong>
+在直线上任选两个坐标为整数且易于读取的主刻度特征点（例如直线与纵轴的交点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>20</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 20)</annotation></semantics></math></span>，以及降雨 5 分钟时对应的主刻度交点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>5</mn><mo separator="true">,</mo><mn>80</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(5, 80)</annotation></semantics></math></span>），在图上标出或写出这两点的坐标。计算该直线的斜率（变化率 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>y</mi></mrow><mrow><mi mathvariant="normal">Δ</mi><mi>x</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\Delta y}{\Delta x}</annotation></semantics></math></span>），写出带有单位的计算结果，并用生活语言解释这个变化率代表什么。</li>
+<li><strong>构建函数解析式：</strong>
+根据求得的初始值与变化率，写出表示蓄水量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span> 与时间 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span> 之间关系的线性函数模型。</li>
+<li><strong>情境推理与逆向应用：</strong>
+<ul>
+<li>该雨水收集桶的设计最大安全储水容量为 92 升。如果降雨持续进行且进水速率保持不变，降雨开始后多少分钟水桶将被装满？展示代数求解过程。</li>
+<li>深入思考：如果在降雨开始前，园丁提前抽空了桶内部分存水，使得初始存水量降为 8 升，而降雨强度（进水速率）完全不变，那么在坐标系中，新的函数图像与原图像相比会发生怎样的几何位置变化？（说明截距和倾斜程度的变化）。</li>
+</ul>
+</li>
+</ol>
+<h3>解答与条件</h3><ol>
+<li>读出初始值及其情境含义：</li>
+</ol>
+<ul>
+<li>直线与纵轴（<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span> 轴）相交的点坐标为 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>20</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 20)</annotation></semantics></math></span>。</li>
+<li>初始值：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">b = 20</annotation></semantics></math></span> 升。</li>
+<li>实际情境含义：在暴雨开始降临前（降雨时间 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x = 0</annotation></semantics></math></span> 分钟时），雨水收集桶内原本已经存有的底水/初始储水量为 20 升。</li>
+</ul>
+<ol start="2">
+<li>选取特征点计算变化率及其情境含义：</li>
+</ol>
+<ul>
+<li>在直线上选取点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>20</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">A(0, 20)</annotation></semantics></math></span> 和点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo stretchy="false">(</mo><mn>5</mn><mo separator="true">,</mo><mn>80</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">B(5, 80)</annotation></semantics></math></span>。</li>
+<li>变化率（斜率）计算：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>y</mi></mrow><mrow><mi mathvariant="normal">Δ</mi><mi>x</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>80</mn><mo>−</mo><mn>20</mn></mrow><mrow><mn>5</mn><mo>−</mo><mn>0</mn></mrow></mfrac><mo>=</mo><mfrac><mn>60</mn><mn>5</mn></mfrac><mo>=</mo><mn>12</mn><mtext>（升/分钟）</mtext></mrow><annotation encoding="application/x-tex">\frac{\Delta y}{\Delta x} = \frac{80 - 20}{5 - 0} = \frac{60}{5} = 12\text{（升/分钟）}</annotation></semantics></math></span></li>
+<li>实际情境含义：变化率为每分钟 12 升（12 L/min），代表雨水流入收集桶的恒定速率（进水速度），即暴雨中每经过 1 分钟，桶内蓄水量增加 12 升。</li>
+</ul>
+<ol start="3">
+<li>
+<p>构建函数解析式：
+根据斜截式线性模型 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>m</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">y = mx + b</annotation></semantics></math></span>，代入 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>12</mn><mo separator="true">,</mo><mi>b</mi><mo>=</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">m = 12, b = 20</annotation></semantics></math></span>：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>y</mi><mo>=</mo><mn>12</mn><mi>x</mi><mo>+</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">y = 12x + 20</annotation></semantics></math></span>
+（其中自变量 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span> 满足 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">0 \le x \le 6</annotation></semantics></math></span>）。</p>
+</li>
+<li>
+<p>情境推理与参数变动分析：</p>
+</li>
+</ol>
+<ul>
+<li>求解装满水桶的时间：
+当水桶达到设计容量 92 升时，令 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>92</mn></mrow><annotation encoding="application/x-tex">y = 92</annotation></semantics></math></span>：
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>92</mn><mo>=</mo><mn>12</mn><mi>x</mi><mo>+</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">92 = 12x + 20</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>12</mn><mi>x</mi><mo>=</mo><mn>92</mn><mo>−</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">12x = 92 - 20</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>12</mn><mi>x</mi><mo>=</mo><mn>72</mn></mrow><annotation encoding="application/x-tex">12x = 72</annotation></semantics></math></span>
+<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>x</mi><mo>=</mo><mfrac><mn>72</mn><mn>12</mn></mfrac><mo>=</mo><mn>6</mn><mtext>（分钟）</mtext></mrow><annotation encoding="application/x-tex">x = \frac{72}{12} = 6\text{（分钟）}</annotation></semantics></math></span>
+答：降雨开始后 6 分钟，雨水收集桶将被彻底装满。</li>
+<li>几何位置变化解释：
+若初始存水量降为 8 升，则初始值（纵截距）由 20 变为 8；而降雨强度不变，说明变化率（斜率）仍为 12。因此，新的函数图像是一条与原直线完全平行、且沿纵轴向下平移了 12 个单位（纵截距在 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>8</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 8)</annotation></semantics></math></span>）的直线。倾斜程度（坡度）没有任何改变。</li>
+</ul>
+<h3>学生数学工作</h3><p>学生需在图像上实际圈画所选特征点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>20</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 20)</annotation></semantics></math></span> 和 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>5</mn><mo separator="true">,</mo><mn>80</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(5, 80)</annotation></semantics></math></span>，核查横纵坐标刻度单位；书面写明由 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>92</mn></mrow><annotation encoding="application/x-tex">y=92</annotation></semantics></math></span> 建立一元一次方程求解 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span> 的全过程；用自己的语言比较两个不同初始值下直线的几何异同（斜率相同代表平行，截距不同代表上下平移）。</p>
+<h3>观察证据</h3><p>学生能从真实 SVG 图像中准确读出纵截距点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>20</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 20)</annotation></semantics></math></span> 并指出初始存水为 20 升；在图像上准确选取主刻度点 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>5</mn><mo separator="true">,</mo><mn>80</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(5, 80)</annotation></semantics></math></span> 计算出变化率 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mn>80</mn><mo>−</mo><mn>20</mn></mrow><mrow><mn>5</mn><mo>−</mo><mn>0</mn></mrow></mfrac><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">\frac{80-20}{5-0} = 12</annotation></semantics></math></span> 升/分钟，写出 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>12</mn><mi>x</mi><mo>+</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">y = 12x + 20</annotation></semantics></math></span>；能代入 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>92</mn></mrow><annotation encoding="application/x-tex">y=92</annotation></semantics></math></span> 列方程解出 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">x = 6</annotation></semantics></math></span> 分钟；能准确阐述初始值从 20 变为 8 导致直线向下平移 12 个单位，而斜率（倾斜程度）保持平行不变。</p>
+<h3>预判回应</h3><p>可能的回应 1：学生能直接读出纵截距 20，但在找斜率时只数格子数量而不看实际数值刻度（如以为高 3 格宽 5 格，算成 3/5）。教师支持：提示学生观察横轴和纵轴的标签与刻度增量：横轴 1 格代表 1 分钟（刻度 0, 1, 2, 3, 4, 5），纵轴每个主刻度代表 20 升（刻度 0, 20, 40, 60, 80, 100），必须用坐标轴真实数据 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>y</mi><mn>2</mn></msub><mo>−</mo><msub><mi>y</mi><mn>1</mn></msub><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(y_2 - y_1)/(x_2 - x_1)</annotation></semantics></math></span> 计算。
+可能的回应 2：在第 4 问中，学生将 92 误代入 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span> 计算。教师支持：追问“92 升是时间还是蓄水量？对应的变量字母是 x 还是 y？”引导学生明确 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>92</mn></mrow><annotation encoding="application/x-tex">y = 92</annotation></semantics></math></span>，列出方程 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12</mn><mi>x</mi><mo>+</mo><mn>20</mn><mo>=</mo><mn>92</mn></mrow><annotation encoding="application/x-tex">12x + 20 = 92</annotation></semantics></math></span> 并解出 <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">x = 6</annotation></semantics></math></span>。说明不仅要会正向计算，更要能逆向建立方程并解释物理限制。</p>
+<h3>支持</h3><p>对于读图容易受视觉视差影响的学生，提供透明直尺对齐坐标轴网格线；对于解释几何平移有困难的学生，引导其在草稿纸上列表对比：<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math></span> 时旧图是 20、新图是 8；<span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x=1</annotation></semantics></math></span> 时旧图是 32、新图是 20，直观观察“每个点都恰好降低了 12 个高度”。</p>
+</section><h2>实践与准备</h2><ul>
+<li>MP1 (审题与坚持解题)：在 Task 2 中，面对表格中缺失 x=0 且步长不一的数据，学生不轻言放弃，主动尝试多种路径（选择不同数据行计算比值、向后推算行或列代数方程）寻找突破口。</li>
+<li>MP2 (抽象与量化推理)：贯穿全课段，学生在代数符号 (x, y, m, b) 与现实物理量（美元、探头数、充电小时、瓦时、降雨分钟、蓄水升数）之间自如转换，赋予纯数学解精确的现实意义。</li>
+<li>MP4 (数学建模)：学生将科技套件开销、储能电池充电及雨水收集等现实生活情境抽象为数学线性模型 y = mx + b，并利用模型进行具体预测与决策分析。</li>
+<li>MP6 (精准表述)：在计算变化率与初始值时，严格要求写出明确的复合单位（如“15 美元/个”、“25 瓦时/小时”、“12 升/分钟”），在读图与代数运算中精确标定坐标点，避免符号指代不清。</li>
+</ul>
+<ol>
+<li>教学图件准备：打印 Task 3 中生成的雨水收集桶图像（assets/rainwater_tank.svg），横轴步长 1 分钟（0 到 5），纵轴步长 20 升（0 到 100），确保黑白打印或彩色投影上网格刻度清晰可见，标注好坐标轴物理量及单位。</li>
+<li>学习用具准备：为每位学生准备直尺、铅笔、方格草稿纸及基础四则运算普通计算器。</li>
+<li>投影课件：准备带有各任务情境与对比表格的展示幻灯片，重点呈现“增量比 Δy/Δx 与状态比 y/x 的对比辨析”。</li>
+<li>差异化支持预案：准备好两组数值对代数回代公式填空卡片，供计算推理起步困难的学生作为脚手架使用。</li>
+</ol>
+<h2>假设与交付边界</h2><p>假设学生在前序学习中接触过正比例关系（y = kx）、单位率计算（7.RP.A.2）以及线性函数的基本特征 y = mx + b（8.F.A.3），但尚未系统掌握非原点线性关系的完整多重表征转化。</p>
+<p>假设学生无当前班级的个性化诊断档案，所有关键认知建构和练习必须在 3 节 50 分钟课内完整发生。</p>
+<p>假设学生具备有理数基本四则运算与使用直尺进行坐标读图的先备技能，但可能在非连续表格与非原点截距的情境解释中存在概念混淆。</p>
+<p>本设计基于离线合成学校条件，未经当前班级实际现场前测校准，进度安排依赖课内诊断性反馈。</p>
+<p>课段聚焦于确定性线性函数建模，未扩展至含随机误差的散点图与最佳拟合直线（属于统计标准 8.SP.A.2 及高中 HSS-ID.C.7）。</p>
+<p>未涵盖非线性函数（如二次函数、指数函数）的反例辨析建模（属于 8.F.A.3 与 HSF-LE.A.1 的延展内容）。</p>
+</body></html>

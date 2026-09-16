@@ -54,7 +54,6 @@ async def main() -> None:
             "limits": {
                 "model_calls": 40,
                 "tool_calls": 100,
-                "total_tokens": 1800000,
                 "seconds": 1200,
             },
         }

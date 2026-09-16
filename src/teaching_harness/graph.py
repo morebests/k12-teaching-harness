@@ -359,13 +359,21 @@ def build_graph(
                     TaskRequest.model_validate(state["request"]),
                 )
                 if not current.get("rendered"):
-                    findings.append(
+                    errors = current.get("render_errors") or [
+                        {"location": "rendering", "message": "当前阅读稿缺失或已不适用于当前源"}
+                    ]
+                    findings.extend(
                         Finding(
                             criterion="mathematics",
-                            target="rendering",
-                            detail="当前内容未成功排版，核对公式或图件",
+                            target=error["location"],
+                            detail="当前阅读稿未生成，修复后重新保存："
+                            + error["message"]
+                            + (
+                                "；公式：" + error["formula"][:4000] if error.get("formula") else ""
+                            ),
                             blocking=True,
                         )
+                        for error in errors
                     )
             return {
                 "review_input": current,

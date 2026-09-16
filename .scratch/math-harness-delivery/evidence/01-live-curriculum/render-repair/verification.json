@@ -1,0 +1,59 @@
+{
+  "runs": [
+    {
+      "label": "format-pass",
+      "task_id": "81c9bd2e-5ac6-57f6-b475-4fefee50a018",
+      "run_id": "01a0a7e6-65c5-7cf0-814f-868868a5a78b",
+      "status": "completed",
+      "content_fingerprint": "4137a934e812cab432689a746e6c2d8b2090ee067d2535b71110ae66cbb43a73",
+      "output_sha256": "c8f5e4965f1201bc30f0c8b55d9d4aea3b7b248eaf2a41a7e38a24240dfd545b",
+      "usage": {
+        "model_calls": 8,
+        "tool_calls": 11,
+        "input_tokens": 388801,
+        "output_tokens": 21654,
+        "total_tokens": 410455,
+        "unknown_usage": false,
+        "cost": null,
+        "seconds": 66.33233213424683
+      },
+      "tool_events": 12,
+      "actual_tool_errors": 1
+    },
+    {
+      "label": "final",
+      "task_id": "474e1282-96b7-5b94-88b3-cc3fe0aa6a12",
+      "run_id": "01a0a7e8-c903-7200-8a02-bcea98465919",
+      "status": "completed",
+      "content_fingerprint": "3fb1c9789e4434372ca89ecd3a61b954e22b662c06de6cf9b039ba05c58e5787",
+      "output_sha256": "204e734e99c0f4769bf548a95103909dfc7fefc21fcb70c352a5ddb967a4d631",
+      "usage": {
+        "model_calls": 11,
+        "tool_calls": 13,
+        "input_tokens": 510181,
+        "output_tokens": 23642,
+        "total_tokens": 533823,
+        "unknown_usage": false,
+        "cost": null,
+        "seconds": 82.98946475982666
+      },
+      "tool_events": 14,
+      "actual_tool_errors": 2
+    }
+  ],
+  "browser": {
+    "viewport": 1280,
+    "formulas": 120,
+    "fractions": 20,
+    "tables": 1,
+    "svg": 1,
+    "overflow": 0,
+    "raw_latex_visible": false
+  },
+  "count_tokens_probe": {
+    "model": "gemini-3.8-flash",
+    "text": "Explain the slope of y = 3x + 5.",
+    "input_tokens": 13,
+    "includes_tools": false
+  }
+}

@@ -69,10 +69,14 @@ class ExternalContent(Contract):
 
 
 class Limits(Contract):
-    # 必须显式提供；当前没有经质量校准的生产默认预算。
+    # 调用次数和时间由调用方显式提供；当前默认只计量累计 token。
     model_calls: int = Field(ge=1, le=100)
     tool_calls: int = Field(ge=1, le=300)
-    total_tokens: int = Field(ge=1000, le=2000000)
+    total_tokens: int | None = Field(
+        default=None,
+        ge=1000,
+        description="可选：按已完成调用的实际累计用量停止后续调用；不是硬费用上限",
+    )
     seconds: int = Field(ge=1, le=7200)
 
 
@@ -216,6 +220,12 @@ class CheckRecord(Review):
     passed: bool
 
 
+class RenderIssue(Contract):
+    location: str
+    formula: str | None = None
+    message: str
+
+
 class TaskView(Contract):
     task_id: str
     status: Literal[
@@ -231,3 +241,4 @@ class TaskView(Contract):
     assets: dict[str, str] = Field(default_factory=dict)
     checks: CheckRecord | None
     rendered: bool = False
+    render_errors: list[RenderIssue] = Field(default_factory=list)

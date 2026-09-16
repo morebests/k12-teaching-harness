@@ -74,7 +74,8 @@ def author_tools(knowledge_factory: Callable[[httpx.AsyncClient], Knowledge]) ->
         return {
             "fingerprint": result["fingerprint"],
             "rendered": result.get("rendered", False),
-            "message": "当前草稿已保存，尚未通过检查；rendered=false 时需修复排版",
+            "render_errors": result.get("render_errors", []),
+            "message": "当前草稿已保存；rendered=false 时按 render_errors 修复源后再次保存，成功后送审",
         }
 
     @tool
@@ -89,7 +90,11 @@ def author_tools(knowledge_factory: Callable[[httpx.AsyncClient], Knowledge]) ->
         runtime: ToolRuntime[AgentContext, TeachingAgentState],
         expected_fingerprint: str | None = None,
     ) -> dict[str, Any]:
-        """绘制第一象限内 y=slope*x+intercept 的真实 SVG，图含坐标刻度与单位。"""
+        """绘制第一象限内 y=slope*x+intercept 的 SVG，图含刻度与单位。
+
+        name 用 rainwater_tank 这样的文件名主体，不含 assets/ 或 .svg。
+        返回 fingerprint 属于图件；保存课程前请 read_curriculum 取得当前稿指纹。
+        """
         return await asyncio.to_thread(
             Ledger(runtime.state["work"]).store.plot_linear,
             name,

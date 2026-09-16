@@ -54,10 +54,18 @@
           "type": "integer"
         },
         "total_tokens": {
-          "maximum": 2000000,
-          "minimum": 1000,
-          "title": "Total Tokens",
-          "type": "integer"
+          "anyOf": [
+            {
+              "minimum": 1000,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "可选：按已完成调用的实际累计用量停止后续调用；不是硬费用上限",
+          "title": "Total Tokens"
         },
         "seconds": {
           "maximum": 7200,
@@ -69,7 +77,6 @@
       "required": [
         "model_calls",
         "tool_calls",
-        "total_tokens",
         "seconds"
       ],
       "title": "Limits",

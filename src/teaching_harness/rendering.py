@@ -11,7 +11,13 @@ from typing import Any
 from markdown_it import MarkdownIt
 from mdit_py_plugins.dollarmath import dollarmath_plugin
 
-from teaching_harness.contracts import Curriculum
+from teaching_harness.contracts import Curriculum, RenderIssue
+
+
+class RenderingError(ValueError):
+    def __init__(self, issues: list[RenderIssue]) -> None:
+        super().__init__("阅读稿生成失败，请按具体字段修复后重新保存")
+        self.issues = issues
 
 
 def linear_svg(
@@ -53,79 +59,126 @@ def linear_svg(
 
 
 def render_curriculum(content: Curriculum, assets: dict[str, str]) -> str:
-    md = MarkdownIt("commonmark", {"html": False}).enable("table").use(dollarmath_plugin)
+    md = (
+        MarkdownIt("commonmark", {"html": False})
+        .enable("table")
+        .use(dollarmath_plugin, double_inline=True, allow_labels=False)
+    )
     formulas: list[tuple[str, bool]] = []
+    locations: list[str] = []
     paragraphs: list[Any] = []
+    issues: list[RenderIssue] = []
 
-    def collect(tokens: Any) -> None:
+    def unclosed_math(state: Any, silent: bool) -> bool:
+        # 仅在正常公式规则未匹配时运行；反引号代码已由 Markdown 处理。
+        remaining = state.src[state.pos :]
+        # 独立的 $5 可作为金额；其它未匹配的美元定界符需修复或显式转义。
+        currency = re.match(r"\$\d+(?:\.\d+)?(?=$|[\s,.;!?，。；！？：:])", remaining)
+        if (remaining.startswith("$") and not currency) or re.match(r"\\[\[\]()]", remaining):
+            issues.append(
+                RenderIssue(
+                    location=state.env["location"],
+                    formula=remaining[:1000],
+                    message="公式分隔符未配对，请使用完整的 $…$、$$…$$、\\(…\\) 或 \\[…\\]；普通美元符号写作 \\$",
+                )
+            )
+        return False
+
+    md.inline.ruler.after("math_inline", "unclosed_math", unclosed_math)
+
+    def collect(tokens: Any, location: str) -> None:
         for token in tokens:
-            if token.type in {"math_inline", "math_block"}:
+            if token.type in {"math_inline", "math_inline_double", "math_block"}:
+                if re.search(
+                    r"(?<!\\)\\\\(?:frac|dfrac|tfrac|times|cdot|Delta|ldots|neq|leq|geq|text|begin|end|sqrt|left|right)\b",
+                    token.content,
+                ):
+                    issues.append(
+                        RenderIssue(
+                            location=location,
+                            formula=token.content,
+                            message="LaTeX 命令前出现重复反斜杠，会被解释为换行和普通字母；请修复源中的命令转义，例如实际字符串用一个反斜杠的 \\frac。aligned 等环境的行分隔符仍保留两个反斜杠。",
+                        )
+                    )
                 token.meta["formula_index"] = len(formulas)
-                formulas.append((token.content, token.type == "math_block"))
+                formulas.append((token.content, token.type != "math_inline"))
+                locations.append(location)
             if token.children:
-                collect(token.children)
+                collect(token.children, location)
 
-    def text(value: str) -> str:
+    def text(value: str, location: str) -> str:
         # 模型偶尔把正文换行再次转义；只展开独立的换行标记，不碰 \neq 等公式命令。
         value = re.sub(r"(?<!\\)\\n(?![A-Za-z])", "\n", value)
         # 同时接受常见的 \(...\) 与 \[...\]，渲染变换不改 JSON 源。
         value = re.sub(r"\\\((.*?)\\\)", r"$\1$", value, flags=re.DOTALL)
         value = re.sub(r"\\\[(.*?)\\\]", r"\n$$\1$$\n", value, flags=re.DOTALL)
-        tokens = md.parse(value)
-        collect(tokens)
+        tokens = md.parse(value, {"location": location})
+        collect(tokens, location)
         paragraphs.append(tokens)
         return f"<!--paragraph-{len(paragraphs) - 1}-->"
 
     pieces = [
         f"<h1>{escape(content.title)}</h1>",
         '<p class="scope">有限课段方案与关键任务构想 · 检查状态请查看任务结果</p>',
-        text(content.narrative),
+        text(content.narrative, "narrative"),
         "<h2>目标与证据</h2>",
     ]
-    for goal in content.goals:
+    for i, goal in enumerate(content.goals):
         pieces.extend(
             [
                 f"<h3>{escape(goal.code)}</h3>",
-                text(goal.responsibility),
-                text(goal.knowledge_use),
-                text(goal.evidence),
+                text(goal.responsibility, f"goals.{i}.responsibility"),
+                text(goal.knowledge_use, f"goals.{i}.knowledge_use"),
+                text(goal.evidence, f"goals.{i}.evidence"),
             ]
         )
     pieces.extend(
         [
             "<h2>先备与后续</h2>",
-            text(content.prerequisites),
-            text(content.successors),
+            text(content.prerequisites, "prerequisites"),
+            text(content.successors, "successors"),
             "<h2>学习进程</h2>",
         ]
     )
-    for lesson in content.lessons:
+    for i, lesson in enumerate(content.lessons):
         pieces.extend(
             [
                 f"<h3>{escape(lesson.title)}</h3>",
-                text(lesson.understanding_shift),
+                text(lesson.understanding_shift, f"lessons.{i}.understanding_shift"),
                 f"<p>学生工作 {lesson.student_minutes} 分钟 · 讨论 {lesson.discussion_minutes} 分钟 · 其他 {lesson.other_minutes} 分钟</p>",
             ]
         )
-    for task in content.tasks:
+    for i, task in enumerate(content.tasks):
+        path = f"tasks.{i}"
         pieces.extend(
             [
                 f'<section id="{escape(task.id)}"><h2>关键任务 · {escape(task.id)}</h2>',
-                text(task.purpose),
-                text(task.prompt),
+                text(task.purpose, f"{path}.purpose"),
+                text(task.prompt, f"{path}.prompt"),
             ]
         )
-        for block in task.blocks:
+        for j, block in enumerate(task.blocks):
+            block_path = f"{path}.blocks.{j}"
             if block.type == "markdown":
-                pieces.append(text(block.text))
+                pieces.append(text(block.text, f"{block_path}.text"))
             elif block.type == "table":
                 pieces.append(
                     "<table><thead><tr>"
-                    + "".join(f"<th>{text(h)}</th>" for h in block.headers)
+                    + "".join(
+                        f"<th>{text(h, f'{block_path}.headers.{k}')}</th>"
+                        for k, h in enumerate(block.headers)
+                    )
                     + "</tr></thead><tbody>"
                 )
-                for row in block.rows:
-                    pieces.append("<tr>" + "".join(f"<td>{text(c)}</td>" for c in row) + "</tr>")
+                for k, row in enumerate(block.rows):
+                    pieces.append(
+                        "<tr>"
+                        + "".join(
+                            f"<td>{text(c, f'{block_path}.rows.{k}.{n}')}</td>"
+                            for n, c in enumerate(row)
+                        )
+                        + "</tr>"
+                    )
                 pieces.append("</tbody></table>")
             else:
                 pieces.extend(
@@ -135,24 +188,27 @@ def render_curriculum(content: Curriculum, assets: dict[str, str]) -> str:
                         f"<figcaption>{escape(block.alt)}</figcaption></figure>",
                     ]
                 )
-        for label, value in [
-            ("解答与条件", task.solution),
-            ("学生数学工作", task.student_work),
-            ("观察证据", task.evidence),
-            ("预判回应", task.anticipated_response),
-            ("支持", task.support),
+        for label, field in [
+            ("解答与条件", "solution"),
+            ("学生数学工作", "student_work"),
+            ("观察证据", "evidence"),
+            ("预判回应", "anticipated_response"),
+            ("支持", "support"),
         ]:
-            pieces.extend([f"<h3>{label}</h3>", text(value)])
+            pieces.extend([f"<h3>{label}</h3>", text(getattr(task, field), f"{path}.{field}")])
         pieces.append("</section>")
     pieces.extend(
         [
             "<h2>实践与准备</h2>",
-            text(content.practice_connections),
-            text(content.teacher_preparation),
+            text(content.practice_connections, "practice_connections"),
+            text(content.teacher_preparation, "teacher_preparation"),
             "<h2>假设与交付边界</h2>",
-            *[text(x) for x in content.assumptions + content.limitations],
+            *[text(x, f"assumptions.{i}") for i, x in enumerate(content.assumptions)],
+            *[text(x, f"limitations.{i}") for i, x in enumerate(content.limitations)],
         ]
     )
+    if issues:
+        raise RenderingError(issues)
     if sum(len(f[0]) for f in formulas) > 100000 or len(formulas) > 500:
         raise ValueError("公式排版超过本切片范围")
     math_html = []
@@ -167,7 +223,19 @@ def render_curriculum(content: Curriculum, assets: dict[str, str]) -> str:
         )
         if rendered.returncode:
             raise ValueError("公式排版失败，当前稿保留供修订")
-        math_html = json.loads(rendered.stdout)
+        result = json.loads(rendered.stdout)
+        if result["errors"]:
+            raise RenderingError(
+                [
+                    RenderIssue(
+                        location=locations[e["index"]],
+                        formula=formulas[e["index"]][0],
+                        message=e["message"],
+                    )
+                    for e in result["errors"]
+                ]
+            )
+        math_html = result["html"]
 
     def math_rule(tokens: Any, index: int, options: Any, env: Any) -> str:
         return math_html[tokens[index].meta["formula_index"]]
@@ -176,6 +244,7 @@ def render_curriculum(content: Curriculum, assets: dict[str, str]) -> str:
         return math_rule(tokens, index, options, env)
 
     md.add_render_rule("math_inline", bound_math_rule)
+    md.add_render_rule("math_inline_double", bound_math_rule)
     md.add_render_rule("math_block", bound_math_rule)
     body = "".join(pieces)
     for i, tokens in enumerate(paragraphs):

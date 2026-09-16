@@ -17,6 +17,34 @@ from teaching_harness.contracts import Curriculum, Review, fingerprint
 from teaching_harness.graph import build_graph
 
 
+@pytest.mark.parametrize("token_limit", [None, 1000])
+async def test_累计token只计量且仅在调用方明确设限时停止(
+    tmp_path, monkeypatch, request_data, token_limit
+):
+    monkeypatch.setenv("HARNESS_WORK_DIR", str(tmp_path))
+    request_data["limits"].pop("total_tokens")
+    if token_limit is not None:
+        request_data["limits"]["total_tokens"] = token_limit
+
+    class LargeUsageModel(ControlledModel):
+        def _generate(self, messages, **kwargs):
+            result = super()._generate(messages, **kwargs)
+            result.generations[0].message.usage_metadata = {
+                "input_tokens": 2900000,
+                "output_tokens": 100000,
+                "total_tokens": 3000000,
+            }
+            return result
+
+    graph = build_graph(LargeUsageModel, ControlledKnowledge)
+    result = await graph.ainvoke(
+        {"request": request_data}, {"configurable": {"thread_id": str(uuid4())}}
+    )
+    assert result["status"] == ("completed" if token_limit is None else "stopped")
+    assert result["usage"]["model_calls"] == (4 if token_limit is None else 1)
+    assert result["usage"]["total_tokens"] == (12000000 if token_limit is None else 3000000)
+
+
 async def test_作者完成后可从送审继续而不重复生成(tmp_path, monkeypatch, request_data):
     monkeypatch.setenv("HARNESS_WORK_DIR", str(tmp_path))
     graph = build_graph(ControlledModel, ControlledKnowledge)
@@ -34,6 +62,29 @@ async def test_作者完成后可从送审继续而不重复生成(tmp_path, mon
     assert result["status"] == "completed"
     assert result["usage"]["model_calls"] == 4
     assert "messages" not in result
+
+
+async def test_最后审阅越过显式token阈值仍提交已完成的检查(tmp_path, monkeypatch, request_data):
+    monkeypatch.setenv("HARNESS_WORK_DIR", str(tmp_path))
+    request_data["limits"]["total_tokens"] = 1000
+
+    class ReviewUsageModel(ControlledModel):
+        def _generate(self, messages, **kwargs):
+            result = super()._generate(messages, **kwargs)
+            if str(messages[0].content).startswith("# 有限课段检查规则"):
+                result.generations[0].message.usage_metadata = {
+                    "input_tokens": 900,
+                    "output_tokens": 100,
+                    "total_tokens": 1000,
+                }
+            return result
+
+    graph = build_graph(ReviewUsageModel, ControlledKnowledge)
+    tid = str(uuid4())
+    result = await graph.ainvoke({"request": request_data}, {"configurable": {"thread_id": tid}})
+    assert result["status"] == "completed"
+    assert result["usage"]["total_tokens"] == 1060
+    assert ContentStore(tmp_path, tid).snapshot()["checks"]["passed"]
 
 
 @pytest.mark.parametrize("changed", [False, True])
