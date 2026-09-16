@@ -32,6 +32,10 @@ Blocked by: 01, 03, 07, 12
 
 ## Comments
 
+### 2026-09-16：当前优先验证全年规划并建立同尺度 IM 比较
+
+用户明确纠正当前路线：先在全年层解决阶段成果、Context、模型与工具分工和质量，不继续以 03→17 承接尚未解决的全年问题。[全年评估机制](../../math-harness-delivery/year-planning-evaluation.md)与[规则数据](../../math-harness-delivery/year-planning-rubric.json)定义八维判据、对象级证据、重大失败、独立复核与分歧处理。权重为预先声明的项目取舍，未校准；不可观察不计零，不能靠总分掩盖缺口。尚未运行正式评分或证明达到 IM 水平；本条覆盖下方“缺口随 03→17 处理”的推进建议，历史证据和后续完整单元范围保留。
+
 ### 2026-09-16：按用户指令提前开展全年内容对照
 
 用户提供 IM 八年级 Scope and Sequence，明确要求与现有产物比较。已固定 15 的全年源与内容指纹，完成[内容审查及来源核查](../../math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md)；原始内容、检查和运行证据不变。此次特定授权调整本案例读取参考的时点，已同步 README 与交付规格；没有把未完成的完整单元声明为已冻结或已匿名比较。

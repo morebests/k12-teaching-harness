@@ -20,11 +20,11 @@
 
 **当前交付全年设计蓝图，尚未交付可直接授课的 Lesson 材料包或完整课程材料体系。** 本轮真实方案包含 8 个单元、160 节常规与 20 节机动课时，覆盖本次 LC 返回的 33 项叶标准、3 项父标准及八项数学实践；线性函数位于本设计的第 3 单元。代表任务用于探查单元职责，不能代替逐课题面、解答、教师组织和学生材料。已有独立 Section 仍属首票工程样本；正式课段与连续课时由后续交接票展开。详见 [全年实际阅读稿](.scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/output/curriculum.html) 与 [首票范围复核](.scratch/math-harness-delivery/ticket-01-scope-and-comparison-review.md)。全年方案使用合成学校条件，尚无教师校准或课堂效果证据；本轮浏览器预览受工具策略限制，未完成视觉验收。
 
-**当前下一项内容主线是 [一课材料（03）](.scratch/math-harness-delivery/issues/03-continuous-lessons-and-materials.md)**：使用 15 已交付的实际线性函数单元，完成一课及真实师生材料；随后推进 [全年到连续三课（17）](.scratch/math-harness-delivery/issues/17-curriculum-lesson-handoff.md)。01 与 15 已完成各自范围；当前不继续扩大孤立课段，也不以 Skills 对照准备替代尚未交付的课程内容。必要交互、检查和运行保障随教学链接入。完整规格、22 张票及拆分依据的核对见 [整体推进路径复核](.scratch/math-harness-delivery/delivery-path-audit.md)。
+**当前先闭合全年课程规划的质量与执行方法，暂停向 03／17／06 推进。** 用户于 2026-09-16 明确要求全年规划达到 IM 可观察的规划水平，不能以展开课时替代解决全年问题。15 已有工程实现、全年稿及真实运行证据，但其教学规划质量仍需改进和验证。当前按[全年阶段设计](.scratch/math-harness-delivery/curriculum-progression-workflow-design.md)，依次夯实目标与条件、全年主线与布局、各单元规划进程、跨单元综合检查及修订，再用[同尺度 IM 评估机制](.scratch/math-harness-delivery/year-planning-evaluation.md)比较固定候选。后续 Lesson、连续课段和完整单元保留原交付范围；[整体推进路径复核](.scratch/math-harness-delivery/delivery-path-audit.md)中的“下一项为 03”已被本次明确纠正覆盖。
 
 **旧 Section 的层级混杂仍待修正。** 当前 `Curriculum` 把完整题面、解答和教学支持集中到课段，不能作为正式课段模型沿用。03 首先建立独立 Lesson 与师生材料契约，17 以表达学习进程、各课职责和实际 Lesson 引用的 Section 完成替代。旧样本保留为证据，不能直接补上全年父 ID 就视为已经接入课程体系；具体承接和工具编排复核见 [层级与执行职责审查](.scratch/math-harness-delivery/section-and-execution-boundary-review.md)。
 
-针对 IM 对照暴露的设计与验收问题，[课程进程工作流建议](.scratch/math-harness-delivery/curriculum-progression-workflow-design.md)进一步核对了当前整稿生成／审阅的局限：下一切片应落实目标单元进程、关键任务试做、真实材料与跨层回查，检查下层是否兑现上层设计。文档给出阶段产物、修订路由及公平比较方法；属于待实现、待验证的重构建议，不将显式 Graph 的教学质量优势写成事实。现行运行结构和各票完成范围仍按实际证据记录。
+全年工作采用“阶段成果检查后交接、按当前问题装配 Context、阶段内按需探索”的设计方向。LangGraph 管理阶段依赖、版本和回修，LLM 负责教学设计和判断，动态 Agent 处理局部补查与试做。具体流程、工具缺口及评估见上述设计；尚未实现或证明新方法的质量优势。[初次审阅消息审计](.scratch/math-harness-delivery/comparisons/year-review-session-audit.md)确认作者对话未传给审阅者，但作者整稿、解答和依据共享；会话隔离不能代替有效检查。
 
 维护者可通过原生流查看模型／工具请求、返回与错误，并保存本地诊断记录。开发脚本默认开启诊断能力，读取仍须服务配置的维护者身份及任务访问权；生产直接启动默认关闭，可由管理员显式开启。普通教学订阅继续只提供教学进度、草稿与结果。LangSmith 追踪尊重服务端显式配置，平台关联和观察故障仍由后续票验收；配置与回放方法见 [维护者诊断](docs/runtime.md#维护者诊断)。
 
@@ -67,7 +67,7 @@
 
 原 Skills 与 IM 的用途需要分别判断：独立课程结构不意味着舍弃已有教学执行经验；参考原 Skill 流程也不意味着必须复制 IM 的课程体系。
 
-**2026-09-16 比较范围补充：**用户明确要求将当前全年稿与指定的 IM 八年级 Scope and Sequence 对照，因此在完整单元生成前开展了[全年内容审查](.scratch/math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md)。此前全年原稿及检查保持固定；本次是提前对照，不是完整单元匿名评测。后续受本次参考影响的内容须如实记录，不能称为未接触目标 IM 的原创盲测。应吸收全年数学联系、各层 Narrative、表征与语言发展、练习评价进程和教师使用方式，沿 03→17 落实到实际内容并验证。此前过度强调的 Unit 2／3 问题保留为局部待核对案例，不作为推进主线或通用前置。
+**2026-09-16 比较范围补充：**用户明确要求将当前全年稿与指定的 IM 八年级 Scope and Sequence 对照，因此在完整单元生成前开展了[全年内容审查](.scratch/math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md)。此前全年原稿及检查保持固定；本次是提前对照，不是完整单元匿名评测。后续受本次参考影响的内容须如实记录，不能称为未接触目标 IM 的原创盲测。当前先在全年层吸收并验证数学主线、单元职责与依赖、表征和语言发展、练习评价进程与教师规划用途，使用同尺度证据比较优劣。此前过度强调的 Unit 2／3 问题保留为局部待核对案例，不作为推进主线或通用前置。
 
 Learning Commons 的本地化已由另一项目完成；[已有数据研究](../k12-learning/research/learning-commons/README.md) 和本仓库的 [实际用法核查](.scratch/skills-harness/assets/learning-commons-integration.md) 是使用入口。图提供设计依据，教学设计仍需判断任务、学习者条件和课堂可实施性。
 
@@ -77,7 +77,7 @@ Learning Commons 的本地化已由另一项目完成；[已有数据研究](../
 
 本节描述完整交付路线；当前文件化阶段的约定优先于旧文档中“首版即持久数据库／不可变历史”的时点。LangChain／LangGraph／Agent Server／LangSmith 的技术方向保留，数据库支持的生产部署和完整恢复随后验证；文件保存不能被声称为已通过这些运行保证。各能力的教学流程、必要质量检查和真实 HITL 按适用切片继续落实。
 
-以下是已确定的推进方向；架构依据见 [架构地图](.scratch/skills-harness/map.md)，当前实施要求与进度见 [交付规格](.scratch/math-harness-delivery/spec.md) 和 [实现路线](.scratch/math-harness-delivery/README.md)。框架版本和模型能力以实施时的实际验证为据。
+以下是完整交付方向；当前执行优先遵守上述“全年规划质量先闭合”的最新安排。架构依据见 [架构地图](.scratch/skills-harness/map.md)，当前实施要求与进度见 [交付规格](.scratch/math-harness-delivery/spec.md) 和 [实现路线](.scratch/math-harness-delivery/README.md)。框架版本和模型能力以实施时的实际验证为据。
 
 1. **分析教学工作与执行机制。** 从原 Skills 的详细流程出发，理解每一步保障什么；同步补充课程体系设计。将 Context、LLM 使用、工具、HITL、产物和完成条件一起展开，随流程定义验收标准。
 2. **用数学单元贯通设计与必要验证。** 当前沿八年级线性函数方向，包含全年蓝图、前后联系、课段、实际课时、材料和评测，并检验一次跨层修订；具体研究条件与取样深度见 [输入与评价准备](.scratch/skills-harness/experiments/grade8-linear-functions/README.md)，仍为待验证候选。验证从具备充分教学资源和必要运行保障的简洁模型循环开始，按实际缺口逐项增加机制，不先建设两套完整架构再比较。无需先完成整套 K–12，也不能仅用孤立单课代表课程体系能力。
@@ -125,7 +125,7 @@ Learning Commons 的本地化已由另一项目完成；[已有数据研究](../
 | [规划材料索引](.scratch/skills-harness/assets/index.md) | 按任务类型选择研究、详细流程和候选设计 | 分析、实现或评审相关教学与运行能力前 |
 | [知识使用约定](docs/references/knowledge-consumption-contract.md) 与 [证据基线](docs/references/reference-baseline.json) | 知识消费责任，以及可核对的来源文件与数据样本 | 设计或实现知识查询、Context、来源追溯及其评测时 |
 | [CONTEXT.md](CONTEXT.md) 与 `docs/adr/` | 领域词汇与适用架构决定；ADR 按需建立 | 使用或调整领域概念、核对相关架构决定时 |
-| [交付规格](.scratch/math-harness-delivery/spec.md)、[实现路线与任务](.scratch/math-harness-delivery/README.md) | 五项能力的行为、接口、范围、依赖及验收要求；[逐票复核](.scratch/math-harness-delivery/ticket-sizing-review.md) 说明拆分理由 | 实现或评审任务前；当前由已完成的全年蓝图接续一课材料 |
+| [交付规格](.scratch/math-harness-delivery/spec.md)、[实现路线与任务](.scratch/math-harness-delivery/README.md) | 五项能力的行为、接口、范围、依赖及验收要求；[逐票复核](.scratch/math-harness-delivery/ticket-sizing-review.md) 说明拆分理由 | 实现或评审任务前；当前优先闭合全年规划的方法和质量 |
 
 **开发 Agent 的文档读取与产品 LLM 的运行时 Context 都要落实。** AGENTS.md 负责引导项目工作读取上述资料；产品运行时则需要在执行规格中明确各阶段加载的教学规则、数据、产物和验证资源及其版本，并由 Harness 实际装配和检查。写入 README 不代表运行时模型已经取得这些信息。
 
