@@ -131,6 +131,14 @@ class ReviewerLabels(Contract):
 
 
 class Agreement(Contract):
+    """两位评阅者在共同样本上的逐维评分一致性。"""
+
+    first: RecordId
+    second: RecordId
+    scope: Literal["pair", "all"] = Field(
+        description="pair：这两位的共同样本；all：所有评阅者都评过的样本"
+    )
+    samples: int
     pairs: int
     exact: int
     differ_by_1: int
@@ -194,11 +202,11 @@ class StageLabels(Contract):
 
 
 class CalibrationReport(Contract):
-    schema_version: Literal[2] = 2
+    schema_version: Literal[3] = 3
     sets: dict[str, SetReport]
     labels: dict[str, ReviewerLabels]
     stage_labels: dict[str, StageLabels]
-    agreement: Agreement | None
+    agreements: list[Agreement]
 
 
 class UsageTotal(Contract):

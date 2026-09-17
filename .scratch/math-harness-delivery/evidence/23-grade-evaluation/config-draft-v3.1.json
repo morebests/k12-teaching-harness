@@ -1,87 +1,9 @@
 {
   "schema_version": 1,
-  "id": "grade8-evaluation-v3.2",
-  "status": "frozen",
-  "frozen_on": "2026-09-17",
+  "id": "grade8-evaluation-v3.1",
+  "status": "draft",
   "purpose": "第一版校准显示整体评阅漏掉探查中的数学与统计细节、叙述承诺与数学表述错误，且评分偏宽。本版在不改动整体评阅规则文本的前提下，加入承诺核查、探查核查、数学表述核查，并让已确认发现按协议限制维度分；以不接触评阅规则、程序检查与专项检查实现的子代理设计的第二版保留集重新校准。v3 在 v2 冻结后、查看任何第二版保留集结果之前，按代码审查修正了汇总、裁定、检出匹配与专项检查的程序部分；这些修正不改变整体评阅、承诺抽取与数学表述核查的模型输入。v3.1 在 v3 的冻结文件不变的前提下，追加 DeepSeek 评阅者 rd 作跨模型对照：规则、输入、输出结构、引文核验与补交都与 r1、r2 相同，只换模型。",
-  "files": {
-    "rubric": {
-      "path": ".scratch/math-harness-delivery/year-planning-rubric.json",
-      "fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554"
-    },
-    "protocol": {
-      "path": ".scratch/math-harness-delivery/year-planning-evaluation.md",
-      "fingerprint": "83f49c249123aa296ae54929fc35e05e62979513448aeebd6ad92098c3ea8bb9"
-    },
-    "conditions": {
-      "path": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/initial/request.json",
-      "fingerprint": "0e1e27a3dca98c014075d4817462980412848dad4ae185c397f8293bd09b6d11"
-    },
-    "review_rules": {
-      "path": "src/teaching_harness/resources/grade-review.md",
-      "fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643"
-    },
-    "revision_rules": {
-      "path": "src/teaching_harness/resources/grade-revision.md",
-      "fingerprint": "c46dc73fb3af3176eedee2b0c6561f3227c3ec19e1cd0f0e090a95862e579244"
-    },
-    "review_code": {
-      "path": "src/teaching_harness/grade_evaluation/review.py",
-      "fingerprint": "671264fac7afa309f8deafebdbb9d7936d8c8b05946a9285a12aedac6051a53f"
-    },
-    "checklist_code": {
-      "path": "src/teaching_harness/grade_evaluation/checks.py",
-      "fingerprint": "fd4ad1c4cdab400887a557e209538ac1bde1791a631efd5554b78205c3e3c89a"
-    },
-    "stage_code": {
-      "path": "src/teaching_harness/grade_evaluation/stages.py",
-      "fingerprint": "8e5e08546d27502b06af8745bacaf958b3147e667b1dee81db6e8e2769761b88"
-    },
-    "scoring_code": {
-      "path": "src/teaching_harness/grade_evaluation/scoring.py",
-      "fingerprint": "6f4b69ed9ce6fef53d121dde5549d9f3cdeb0b518877adf4c71e227eb372ba26"
-    },
-    "stage_rules_promises": {
-      "path": "src/teaching_harness/resources/grade-promises.md",
-      "fingerprint": "d0a9e10635485763f779fa000c53a73ba7b1972472f4b229015b495f915ec663"
-    },
-    "stage_rules_solver": {
-      "path": "src/teaching_harness/resources/grade-solver.md",
-      "fingerprint": "37e468e87b3e7d2dc4f48e9394ead0e20dedc79657d0c0157dce20c29a66b139"
-    },
-    "stage_rules_probe": {
-      "path": "src/teaching_harness/resources/grade-probe.md",
-      "fingerprint": "3564b7a2ec5e5ad35b8492bfb18e2af826553d7d36818f35ff8023a5cd26962c"
-    },
-    "stage_rules_statements": {
-      "path": "src/teaching_harness/resources/grade-statements.md",
-      "fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49"
-    },
-    "debug_samples": {
-      "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/samples/debug.json",
-      "fingerprint": "ce95558e79004894faf9a5c5576ff7e1ab09a4997634320c276564359bc1c850"
-    },
-    "debug_answers": {
-      "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/samples/debug-answers.json",
-      "fingerprint": "e75b9309587269a90ae4c15b3baeb4fa156ca4d323027dec84fa396daa4c469f"
-    },
-    "holdout_v1": {
-      "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/holdout",
-      "fingerprint": "55c686ecfe6d77468505ca822745546e96349354f59748586e536acfa9020e70"
-    },
-    "holdout_v2": {
-      "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/holdout-2",
-      "fingerprint": "d8c2ca6c50e03cf0033a63aee202c08c786435a56080211e8103b83f2aad09ac"
-    },
-    "extractions": {
-      "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/extractions.json",
-      "fingerprint": "66e951c2d7f16ea3ef95cf4d456c6d505a68ae5056a8da0f4f9a378a4fb93044"
-    },
-    "im_sources": {
-      "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/im-sources.json",
-      "fingerprint": "9c1d66ef4e4d8c8d1ed7520ebf1dbb323d50e0a7d91991db331176dd1fc70ae9"
-    }
-  },
+  "files": {},
   "rubric_version": "year-planning-v1",
   "evidence_scope": [
     {
@@ -157,8 +79,6 @@
     {
       "id": "program",
       "method": "program",
-      "model": "",
-      "criteria_groups": [],
       "inputs": [
         "候选 JSON",
         "评价条件",
@@ -174,7 +94,6 @@
       "id": "promises",
       "method": "model",
       "model": "gemini-3.8-flash",
-      "criteria_groups": [],
       "inputs": [
         "按稳定身份呈现的候选",
         "原始任务与学校条件",
@@ -191,7 +110,6 @@
       "id": "probes",
       "method": "model",
       "model": "gemini-3.8-flash",
-      "criteria_groups": [],
       "inputs": [
         "独立求解：只含题面、表格与图件参数及学校条件",
         "核查：该探查全文、独立解答、程序算出的数据范围、区间表述与未提供的材料、学校条件；须逐项回应独立解答与程序事实"
@@ -207,7 +125,6 @@
       "id": "statements",
       "method": "model",
       "model": "gemini-3.8-flash",
-      "criteria_groups": [],
       "inputs": [
         "候选叙述性字段与目标分配",
         "数学表述核查规则（按错误类型限定严重度上限）"
@@ -310,8 +227,7 @@
       ],
       "inputs": [
         "与 r1 相同",
-        "开启思考；DeepSeek 思考模式不接受强制工具调用，结构化结果改由模型自行调用，未提交时该次调用记为失败；接口不回传上一轮思考内容",
-        "思考强度用默认的 high；输出上限首轮为 32,768，因思考用尽上限而未提交结果的维度组，以 131,072 的上限补跑一次，失败记录保留"
+        "开启思考；DeepSeek 思考模式不接受强制工具调用，结构化结果改由模型自行调用，未提交时该次调用记为失败；接口不回传上一轮思考内容"
       ],
       "excluded_inputs": [
         "与 r1 相同；独立调用，不读取 r1、r2 结果"
@@ -335,40 +251,8 @@
       "IM 材料"
     ]
   },
-  "debug_samples": [
-    "b-final",
-    "d-known-initial",
-    "d-known-revision",
-    "d-assess-early",
-    "d-time-sum",
-    "d-opportunity-empty",
-    "d-control-renumber",
-    "d-control-resource",
-    "h-opportunity-empty",
-    "h-assess-before-learning",
-    "h-reserve-double-count",
-    "h-revisit-dropped",
-    "h-order-dependency",
-    "h-control-swap",
-    "h-control-revisit",
-    "h-control-resource"
-  ],
-  "holdout_samples": [
-    "h2-01",
-    "h2-02",
-    "h2-03",
-    "h2-04",
-    "h2-05",
-    "h2-06",
-    "h2-07",
-    "h2-08",
-    "h2-09",
-    "h2-10",
-    "h2-11",
-    "h2-12",
-    "h2-13",
-    "h2-14"
-  ],
+  "debug_samples": [],
+  "holdout_samples": [],
   "limitations": [
     "没有数学或课程专业评阅者参与；所有模型评分、裁定与专项检查结论只是模型辅助结果。",
     "r1、r2 是同一模型、同一规则的两次独立调用；二者一致不能证明判断可靠。",

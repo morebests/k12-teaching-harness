@@ -42,7 +42,7 @@
 | 材料 | 已完成的工作 | 使用边界 |
 | --- | --- | --- |
 | [全年规划：阶段成果、Context、执行与检查](../../math-harness-delivery/curriculum-progression-workflow-design.md) | 按用户纠正聚焦全年目标、布局、各单元规划进程及综合核查，明确图、动态 Agent、阶段 Context、工具与反馈；[会话审计](../../math-harness-delivery/comparisons/year-review-session-audit.md)核对真实初次审阅 | 以教学问题、取舍与反证说明方法；23–26 待实现，当前暂停向 03／17／06 推进 |
-| [全年规划与 IM 的评估机制](../../math-harness-delivery/year-planning-evaluation.md) | 明确同尺度证据、八维判据、对象级检查、重大失败、评分分歧及优劣裁定；提供[规则数据](../../math-harness-delivery/year-planning-rubric.json) | 23 已实现证据评价入口与专项检查，并用盲设保留集完成模型辅助校准（[证据](../../math-harness-delivery/evidence/23-grade-evaluation/README.md)），未经专业校准；26 承接正式比较。不将总分冒充客观优越性 |
+| [全年规划与 IM 的评估机制](../../math-harness-delivery/year-planning-evaluation.md) | 明确同尺度证据、八维判据、对象级检查、重大失败、评分分歧及优劣裁定；提供[规则数据](../../math-harness-delivery/year-planning-rubric.json) | 23 已实现证据评价入口与专项检查，校准显示能发现明显问题但严重度与评分不可靠，人工校准进行中（[证据](../../math-harness-delivery/evidence/23-grade-evaluation/README.md)）；26 承接正式比较。不将总分冒充客观优越性 |
 | [当前全年蓝图与 IM 八年级指南对照](../../math-harness-delivery/comparisons/im-grade8-blueprint-comparison.md) | 核读固定产物及官方材料，整理可吸收的全年联系、分层叙述、表征与语言、练习评价和教师使用方式；纠正将 Unit 2／3 局部案例作为主线的评审偏差；附[官方来源核查](../../math-harness-delivery/comparisons/im-grade8-scope-and-sequence-source-review.md) | 用户明确要求提前开展的全年内容审查；原稿未改，参考影响须记录；后续用户明确要求先闭合全年质量，旧 03→17 当前推进建议已撤回 |
 | [数学课程与教学设计 Harness：架构与可行性结论](architecture-conclusion.md) | 汇总采用结构、职责、首个实现顺序及规格交接 | 本轮 Wayfinder 已收敛；生产、完整单元及 Skills 质量尚未通过，不代表已证明最优 |
 | [模型、知识与产物工具的实现选择](model-knowledge-artifact-design.md) | 原生循环、实际运行资源、browse 映射、工具职责与上游渲染源码复用 | 技术选择及源码／官方依据；真实模型与原生服务合并、全部模型与生产恢复仍待验收 |

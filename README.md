@@ -20,7 +20,7 @@
 
 [交付规格](.scratch/math-harness-delivery/spec.md)从六类问题及其教学价值出发，要求先核实目标与条件，再形成全年主线与布局，随后补足所有单元的规划进程，最后核查全年联系、回访、评价和时间。每阶段围绕当前问题装配原文与有效成果，检查不过就定位回修；必要补查与试做在阶段内使用 Agent。[全年工作流](.scratch/math-harness-delivery/curriculum-progression-workflow-design.md)说明这些选择的理由、代价和验证办法，尚未证明其质量优势。
 
-当前实施顺序为 [检查校准（23）](.scratch/math-harness-delivery/issues/23-year-evaluation-and-check-calibration.md)（已实现；补上专项检查后，[校准报告](.scratch/math-harness-delivery/evidence/23-grade-evaluation/README.md)在盲设保留集上组合检出 9／10、对照无误报，结果为模型辅助，剩余弱点交给 24）→ [目标与布局（24）](.scratch/math-harness-delivery/issues/24-year-foundation-and-layout.md) → [各单元进程及全年核查（25）](.scratch/math-harness-delivery/issues/25-year-progressions-and-global-checks.md) → [IM 比较与修订复评（26）](.scratch/math-harness-delivery/issues/26-year-im-comparison-and-revision.md)。评价规则先固定，适用检查随阶段执行，最终按 [同尺度机制](.scratch/math-harness-delivery/year-planning-evaluation.md)比较固定候选。**全年质量未闭合前，暂停向 03／17／06 推进；不能以代码完成或总分较高代替关键差距已解决。** 完整门槛见 [规格](.scratch/math-harness-delivery/spec.md#验收与质量声明)。
+当前实施顺序为 [检查校准（23）](.scratch/math-harness-delivery/issues/23-year-evaluation-and-check-calibration.md)（进行中；[校准报告](.scratch/math-harness-delivery/evidence/23-grade-evaluation/README.md)显示检查器能较可靠地发现明显问题，但严重度与评分不可靠，须经人工校准并修正缺口）→ [目标与布局（24）](.scratch/math-harness-delivery/issues/24-year-foundation-and-layout.md) → [各单元进程及全年核查（25）](.scratch/math-harness-delivery/issues/25-year-progressions-and-global-checks.md) → [IM 比较与修订复评（26）](.scratch/math-harness-delivery/issues/26-year-im-comparison-and-revision.md)。评价规则先固定，适用检查随阶段执行，最终按 [同尺度机制](.scratch/math-harness-delivery/year-planning-evaluation.md)比较固定候选。**全年质量未闭合前，暂停向 03／17／06 推进；不能以代码完成或总分较高代替关键差距已解决。** 完整门槛见 [规格](.scratch/math-harness-delivery/spec.md#验收与质量声明)。
 
 ### 已有工程结果及其限度
 

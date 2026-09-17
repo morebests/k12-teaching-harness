@@ -8,7 +8,6 @@ import argparse
 import asyncio
 import hashlib
 import json
-import os
 import re
 import time
 from collections.abc import Iterable
@@ -16,7 +15,6 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from dotenv import load_dotenv
 from langchain_core.language_models.chat_models import BaseChatModel
 from pydantic import BaseModel, TypeAdapter
 
@@ -39,6 +37,7 @@ from teaching_harness.grade_evaluation.checks import (
 )
 from teaching_harness.grade_evaluation.config import EvaluationConfig, config_drift, file_ref
 from teaching_harness.grade_evaluation.evidence import cite, register, verify
+from teaching_harness.grade_evaluation.models import evaluation_model, model_name
 from teaching_harness.grade_evaluation.records import (
     CriterionId,
     CriterionRating,
@@ -99,7 +98,6 @@ from teaching_harness.grade_evaluation.stages import (
     stage_rules,
     statement_packet,
 )
-from teaching_harness.graph import gemini
 
 ROOT = Path(__file__).resolve().parents[3]
 DELIVERY = ROOT / ".scratch/math-harness-delivery"
@@ -190,14 +188,8 @@ def candidate(sample: Sample) -> GradeCandidate:
     )
 
 
-def model_name() -> str:
-    return os.environ.get("HARNESS_MODEL", "gemini-3.8-flash")
-
-
-def model() -> BaseChatModel:
-    # 离线评价允许一次传输重试并放宽超时；生成图保持不重试。
-    load_dotenv(ROOT / ".env")
-    return gemini(timeout=900, max_retries=1)
+def model(name: str | None = None) -> BaseChatModel:
+    return evaluation_model(ROOT, name)
 
 
 def require_frozen(chosen: Iterable[Sample] = ()) -> EvaluationConfig:
@@ -271,6 +263,7 @@ def _merge(
     reviewer: str,
     cand: GradeCandidate,
     rules_fingerprint: str,
+    model_used: str,
 ) -> ReviewRun:
     evidence = {e.id: e for r in results for e in r.evidence}
     return ReviewRun(
@@ -278,7 +271,7 @@ def _merge(
         reviewer_id=reviewer,
         candidate_id=cand.id,
         content_fingerprint=cand.fingerprint,
-        model=model_name(),
+        model=model_used,
         rules_fingerprint=rules_fingerprint,
         criteria=[c for r in results for c in r.criteria],
         ratings=[x for r in results for x in r.ratings],
@@ -295,6 +288,34 @@ def _merge(
     )
 
 
+def _still_failed(run: ReviewRun) -> list[list[CriterionId]]:
+    """失败过、且之后没有成功调用的维度组。"""
+    done = {tuple(c.criteria) for c in run.calls if not c.error}
+    failed = [c.criteria for c in run.calls if c.error and tuple(c.criteria) not in done]
+    return [list(g) for g in dict.fromkeys(tuple(g) for g in failed)]
+
+
+def _combine(earlier: ReviewRun, retried: ReviewRun) -> ReviewRun:
+    """把失败维度组的重试并入已有结果；失败的调用记录保留，用量合计包含两次。"""
+    evidence = {e.id: e for e in [*earlier.evidence, *retried.evidence]}
+    return earlier.model_copy(
+        update={
+            "criteria": [*earlier.criteria, *retried.criteria],
+            "ratings": [*earlier.ratings, *retried.ratings],
+            "findings": [*earlier.findings, *retried.findings],
+            "evidence": list(evidence.values()),
+            "rejected_citations": [*earlier.rejected_citations, *retried.rejected_citations],
+            "rejected_findings": [*earlier.rejected_findings, *retried.rejected_findings],
+            "problems": [*earlier.problems, *retried.problems],
+            "usage": {
+                key: earlier.usage[key] + retried.usage[key]
+                for key in ("input_tokens", "output_tokens", "total_tokens")
+            },
+            "calls": [*earlier.calls, *retried.calls],
+        }
+    )
+
+
 def cmd_review(args: argparse.Namespace) -> None:
     chosen = _selected(args)
     if any(s.split == "holdout" for s in chosen):
@@ -304,19 +325,27 @@ def cmd_review(args: argparse.Namespace) -> None:
     rules = review_module.RULES.read_text()
     rules_fingerprint = _rules_fingerprint(review_module.RULES)
     groups = [g for g in GROUPS if not args.groups or ",".join(g) in args.groups.split(";")]
-    llm = model()
+    used = args.model or model_name()
+    llm = model(used)
     # 原始消息按规则版本分目录，调试轮之间不互相覆盖。
     transcripts = WORK / f"transcripts/{args.reviewer}/{rules_fingerprint[:12]}"
     gate = asyncio.Semaphore(args.concurrency)
 
     async def one(sample: Sample) -> None:
         target = RESULTS / f"model/{args.reviewer}/{sample.id}.json"
+        earlier = None
+        todo = groups
         if target.exists() and not args.force:
-            print("已有结果，跳过", target.name)
-            return
+            earlier = _load(target, ReviewRun) if args.retry_failed else None
+            todo = _still_failed(earlier) if earlier else []
+            if earlier and (earlier.model, earlier.rules_fingerprint) != (used, rules_fingerprint):
+                raise SystemExit(f"{target.name} 的模型或规则与本次不同，不能合并重试")
+            if not todo:
+                print("已有结果，跳过", target.name)
+                return
         cand = candidate(sample)
         results, calls = [], []
-        for group in groups:
+        for group in todo:
             packet = review_packet(cand, group, rubric)
             # 装配后逐次核对：任何样本答案说明出现在输入中都拒绝调用。
             assert_isolated(packet, hidden)
@@ -341,7 +370,8 @@ def cmd_review(args: argparse.Namespace) -> None:
             calls.append(_call(group, time.monotonic() - started, result, error))
             _save_transcript(transcripts / f"{sample.id}-{'-'.join(group)}.json", transcript)
             print(sample.id, group, error or "完成")
-        _write(target, _merge(results, calls, sample, args.reviewer, cand, rules_fingerprint))
+        run = _merge(results, calls, sample, args.reviewer, cand, rules_fingerprint, used)
+        _write(target, _combine(earlier, run) if earlier else run)
 
     async def run() -> None:
         await asyncio.gather(*(one(s) for s in chosen))
@@ -532,25 +562,43 @@ def _status(records: list[EvidenceRecord], documents: dict[str, SourceDocument])
     return {r.id: verify(r, documents, ROOT) for r in records}
 
 
-def _agreement(first: dict[str, ReviewRun], second: dict[str, ReviewRun]) -> Agreement:
+def _agreement(
+    first: str, second: str, runs: dict[str, dict[str, ReviewRun]], samples: set[str], scope: str
+) -> Agreement:
     pairs = []
-    for sample_id, run in first.items():
-        if sample_id not in second:
-            continue
-        peers = {r.criterion_id: r for r in second[sample_id].ratings}
-        for rating in run.ratings:
+    for sample_id in sorted(samples):
+        peers = {r.criterion_id: r for r in runs[second][sample_id].ratings}
+        for rating in runs[first][sample_id].ratings:
             peer = peers.get(rating.criterion_id)
             if peer and rating.score is not None and peer.score is not None:
                 pairs.append(
                     (rating.score, peer.score, rating.critical_failure != peer.critical_failure)
                 )
     return Agreement(
+        first=first,
+        second=second,
+        scope=scope,  # type: ignore[arg-type]
+        samples=len(samples),
         pairs=len(pairs),
         exact=sum(a == b for a, b, _ in pairs),
         differ_by_1=sum(abs(a - b) == 1 for a, b, _ in pairs),
         differ_by_2_or_more=sum(abs(a - b) >= 2 for a, b, _ in pairs),
         critical_disagreements=sum(c for _, _, c in pairs),
     )
+
+
+def _agreements(runs: dict[str, dict[str, ReviewRun]]) -> list[Agreement]:
+    """每对评阅者在各自共同样本上比较；样本范围不同时，另在全体共同样本上比较以便横向对照。"""
+    names = sorted(runs)
+    everyone = set.intersection(*(set(r) for r in runs.values())) if runs else set()
+    result = []
+    for i, first in enumerate(names):
+        for second in names[i + 1 :]:
+            shared = set(runs[first]) & set(runs[second])
+            result.append(_agreement(first, second, runs, shared, "pair"))
+            if len(names) > 2 and everyone != shared:
+                result.append(_agreement(first, second, runs, everyone, "all"))
+    return result
 
 
 def _labels(runs: dict[str, ReviewRun]) -> ReviewerLabels:
@@ -604,9 +652,7 @@ def cmd_calibrate(_: argparse.Namespace) -> None:
         sets={},
         labels={},
         stage_labels={stage: _stage_labels(r) for stage, r in stages.items() if r},
-        agreement=_agreement(runs[reviewers[0]], runs[reviewers[1]])
-        if len(reviewers) >= 2
-        else None,
+        agreements=_agreements(runs),
     )
 
     def detect(
@@ -1245,9 +1291,12 @@ def cmd_report(_: argparse.Namespace) -> None:
             [[k, *v.model_dump().values()] for k, v in calibration.stage_labels.items()],
         )
     )
-    if calibration.agreement:
-        a = calibration.agreement.model_dump()
-        parts.append("## r1 与 r2 的逐维评分一致性\n\n" + _table(list(a), [list(a.values())]))
+    if calibration.agreements:
+        fields = list(Agreement.model_fields)
+        parts.append(
+            "## 评阅者两两的逐维评分一致性\n\n"
+            + _table(fields, [list(a.model_dump().values()) for a in calibration.agreements])
+        )
     for path in sorted((RESULTS / "summaries").glob("*.json")):
         summary = _load(path, GradeSummary)
         rows = [
@@ -1333,6 +1382,12 @@ def main() -> None:
     review.add_argument("--groups", default="", help="例如 Q1;Q3,Q5,Q6")
     review.add_argument("--concurrency", type=int, default=3)
     review.add_argument("--force", action="store_true")
+    review.add_argument(
+        "--retry-failed", action="store_true", help="已有结果时只重跑失败的维度组并合并"
+    )
+    review.add_argument(
+        "--model", default="", help="评阅模型；默认读 HARNESS_MODEL，deepseek-* 走 DeepSeek"
+    )
     review.set_defaults(run=cmd_review)
     stages = sub.add_parser("stages", help="专项检查：承诺、探查、数学表述")
     stages.add_argument(

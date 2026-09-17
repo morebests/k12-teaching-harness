@@ -267,7 +267,31 @@
     },
     "Agreement": {
       "additionalProperties": false,
+      "description": "两位评阅者在共同样本上的逐维评分一致性。",
       "properties": {
+        "first": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "First",
+          "type": "string"
+        },
+        "second": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Second",
+          "type": "string"
+        },
+        "scope": {
+          "description": "pair：这两位的共同样本；all：所有评阅者都评过的样本",
+          "enum": [
+            "pair",
+            "all"
+          ],
+          "title": "Scope",
+          "type": "string"
+        },
+        "samples": {
+          "title": "Samples",
+          "type": "integer"
+        },
         "pairs": {
           "title": "Pairs",
           "type": "integer"
@@ -290,6 +314,10 @@
         }
       },
       "required": [
+        "first",
+        "second",
+        "scope",
+        "samples",
         "pairs",
         "exact",
         "differ_by_1",
@@ -303,8 +331,8 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "const": 2,
-          "default": 2,
+          "const": 3,
+          "default": 3,
           "title": "Schema Version",
           "type": "integer"
         },
@@ -329,22 +357,19 @@
           "title": "Stage Labels",
           "type": "object"
         },
-        "agreement": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Agreement"
-            },
-            {
-              "type": "null"
-            }
-          ]
+        "agreements": {
+          "items": {
+            "$ref": "#/$defs/Agreement"
+          },
+          "title": "Agreements",
+          "type": "array"
         }
       },
       "required": [
         "sets",
         "labels",
         "stage_labels",
-        "agreement"
+        "agreements"
       ],
       "title": "CalibrationReport",
       "type": "object"
