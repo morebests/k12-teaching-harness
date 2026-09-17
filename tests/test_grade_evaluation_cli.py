@@ -1,9 +1,9 @@
-"""本地命令的补跑：只重跑从未成功的维度组，并把重试并入已有结果。"""
+"""本地命令的补跑：整体评阅只重跑从未成功的维度组并合并；专项检查只重跑失败或过期的运行。"""
 
 import pytest
 
-from teaching_harness.grade_evaluation.cli import combine_retry, still_failed
-from teaching_harness.grade_evaluation.runs import CallRecord, ReviewRun
+from teaching_harness.grade_evaluation.cli import combine_retry, stage_action, still_failed
+from teaching_harness.grade_evaluation.runs import CallRecord, ReviewRun, StageRun
 
 
 def call(criteria, error=None, tokens=10):
@@ -73,3 +73,24 @@ def test_补跑只取所选维度组_合并时核对候选指纹():
     other = other.model_copy(update={"content_fingerprint": "d" * 64})
     with pytest.raises(ValueError, match="指纹"):
         combine_retry(earlier, other)
+
+
+def stage_run(error=None, rules="e" * 64, model="gemini-3.8-flash"):
+    return StageRun(
+        sample_id="h2-01",
+        stage="promises",
+        model=model,
+        rules_fingerprint=rules,
+        seconds=1.0,
+        error=error,
+    )
+
+
+def test_专项检查只重跑失败或规则模型已变的运行_强制时全部重跑():
+    current = ("e" * 64, "gemini-3.8-flash")
+    assert stage_action(None, *current, force=False) == "new"
+    assert stage_action(stage_run(), *current, force=False) is None
+    assert stage_action(stage_run(error="截断"), *current, force=False) == "retry"
+    assert stage_action(stage_run(rules="f" * 64), *current, force=False) == "stale"
+    assert stage_action(stage_run(model="deepseek-flash"), *current, force=False) == "stale"
+    assert stage_action(stage_run(), *current, force=True) == "force"

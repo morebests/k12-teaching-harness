@@ -463,6 +463,7 @@ def cmd_stages(args: argparse.Namespace) -> None:
     llm = model()
     gate = asyncio.Semaphore(args.concurrency)
     locks: dict[str, asyncio.Lock] = {}
+    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
 
     async def probe_output(
         sample: Sample,
@@ -508,11 +509,13 @@ def cmd_stages(args: argparse.Namespace) -> None:
     async def one(sample: Sample, stage: str, repeat: int) -> None:
         target = _stage_path(stage, sample.id, repeat)
         texts, fingerprint_ = _stage_rules(stage)
-        if target.exists() and not args.force:
-            existing = _load(target, StageRun)
-            if (existing.rules_fingerprint, existing.model) == (fingerprint_, model_name()):
-                return
-            print(sample.id, stage, repeat, "已有结果来自其他规则或模型，重新运行")
+        existing = _load(target, StageRun) if target.exists() else None
+        action = stage_action(existing, fingerprint_, model_name(), force=args.force)
+        if action is None:
+            return
+        if existing:
+            print(sample.id, stage, repeat, STAGE_ACTIONS[action])
+            _archive_stage(target, stamp)
         cand = candidate(sample)
         text = "\n".join(texts)
         run = StageRun(
@@ -556,12 +559,15 @@ def cmd_stages(args: argparse.Namespace) -> None:
         run.seconds = round(time.monotonic() - started, 1)
         if transcript:
             suffix = f"-{repeat}" if repeat else ""
-            _save_transcript(
+            saved = (
                 WORK
                 / f"transcripts/stages/{stage}/{config_id()}/{fingerprint_[:12]}"
-                / f"{sample.id}{suffix}.json",
-                transcript,
+                / f"{sample.id}{suffix}.json"
             )
+            if saved.exists():
+                # 补跑不覆盖上一次（通常是失败）的原始消息。
+                saved = saved.with_name(f"{saved.stem}-{stamp}.json")
+            _save_transcript(saved, transcript)
         _write(target, run)
         print(sample.id, stage, run.error or f"{len(run.findings())} 条发现")
 
@@ -602,6 +608,37 @@ def recheck(sample: Sample, target: Path) -> None:
     print(sample.id, "promises 重新判定", f"{len(run.findings())} 条发现")
 
 
+StageAction = Literal["new", "retry", "stale", "force"]
+STAGE_ACTIONS: dict[StageAction, str] = {
+    "new": "首次运行",
+    "retry": "上次运行失败，补跑",
+    "stale": "已有结果来自其他规则或模型，重新运行",
+    "force": "按要求重新运行",
+}
+
+
+def stage_action(
+    existing: StageRun | None, rules_fingerprint: str, model: str, *, force: bool
+) -> StageAction | None:
+    """一次专项检查是否需要运行；已按当前规则与模型成功的运行不再重复调用模型。"""
+    if existing is None:
+        return "new"
+    if force:
+        return "force"
+    if (existing.rules_fingerprint, existing.model) != (rules_fingerprint, model):
+        return "stale"
+    return "retry" if existing.error else None
+
+
+def _archive_stage(target: Path, stamp: str) -> None:
+    """被替代的运行移入该检查的 history/，不参与共识，用量仍计入。"""
+    base = RESULTS / "stages"
+    stage, *rest = target.relative_to(base).parts
+    moved = base / stage / "history" / stamp / Path(*rest)
+    moved.parent.mkdir(parents=True, exist_ok=True)
+    target.rename(moved)
+
+
 def _stage_path(stage: str, sample_id: str, repeat: int = 0) -> Path:
     """第 0 次运行放在主目录，重复运行按序号另存。"""
     if repeat == 0:
@@ -620,13 +657,24 @@ def _stage_files(stage: str, sample_id: str) -> list[Path]:
 
 
 def _stage_repeats(stage: str) -> dict[str, list[StageRun]]:
-    """每个样本在该专项检查上的全部运行，第 0 次在前；规则或模型与第 0 次不同的不计入。"""
+    """每个样本在该专项检查上按当前规则与模型的全部运行，第 0 次在前。
+
+    其他规则或模型的旧运行不计入，没有当前运行的样本不列出。
+    """
+    current = (_stage_rules(stage)[1], model_name())
     runs: dict[str, list[StageRun]] = {}
     for sample_id in _stage_runs(stage):
         loaded = [_load(p, StageRun) for p in _stage_files(stage, sample_id)]
-        key = (loaded[0].rules_fingerprint, loaded[0].model)
-        runs[sample_id] = [r for r in loaded if (r.rules_fingerprint, r.model) == key]
+        kept = [r for r in loaded if (r.rules_fingerprint, r.model) == current]
+        if kept:
+            runs[sample_id] = kept
     return runs
+
+
+def _stage_saved(stage: str) -> list[Path]:
+    """该检查保存过的全部运行文件，含重复运行和被替代的运行，不含探查缓存。"""
+    base = RESULTS / f"stages/{stage}"
+    return sorted(p for p in base.rglob("*.json") if "cache" not in p.relative_to(base).parts)
 
 
 def _stage_findings(
@@ -1271,13 +1319,14 @@ def cmd_usage(_: argparse.Namespace) -> None:
         for run in _runs("", directory).values():
             for call in run.calls:
                 add(f"{directory.name}-{directory.parent.name}", call.usage, call.usage_complete)
+    # 专项检查的用量按保存过的全部运行计，含被替代的运行。
     for stage in STAGES:
-        for group in _stage_repeats(stage).values():
-            for stage_run in group:
-                add(stage, stage_run.failed_usage, None, True)
-                if stage != "probes":
-                    for result in stage_run.results():
-                        add(stage, result.usage, result.usage_complete)
+        for path in _stage_saved(stage):
+            stage_run = _load(path, StageRun)
+            add(stage, stage_run.failed_usage, None, True)
+            if stage != "probes":
+                for result in stage_run.results():
+                    add(stage, result.usage, result.usage_complete)
     # 探查按题面缓存，用量只在缓存条目上计一次。
     for path in sorted((RESULTS / "stages/probes/cache").glob("*.json")):
         entry = _load(path, ProbeCacheEntry)

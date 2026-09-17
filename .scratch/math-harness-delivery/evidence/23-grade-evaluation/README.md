@@ -47,7 +47,7 @@
 | 整体评阅、补交、裁定 | `review.py`，规则 [grade-review.md](../../../../src/teaching_harness/resources/grade-review.md) |
 | 发现核实与修订 | `revision.py`，规则 [grade-revision.md](../../../../src/teaching_harness/resources/grade-revision.md) |
 | 评价用模型：Gemini 与 DeepSeek（思考模式下改由模型自行调用结构化结果工具，失败时给出结束原因） | `models.py` |
-| 本地命令（`review --model` 选模型，`--retry-failed` 只补跑失败的维度组，`stages --repeat` 重复运行取共识） | `scripts/evaluate_grade.py`（`cli.py`） |
+| 本地命令（`review --model` 选模型，`--retry-failed` 只补跑失败的维度组；`stages --repeat` 重复运行取共识，失败的运行自动补跑） | `scripts/evaluate_grade.py`（`cli.py`） |
 | 冻结配置 | 当前 [v4](config.json)（由 [draft-v4](config-draft-v4.json) 冻结）；[v3.2](config-v3.2.json)、[v3.1](config-v3.1.json)、[v3](config-v3.json)、[v2](config-v2.json)、[v1](config-v1.json) |
 | 人工判定 | [计划与事先固定的使用标准](human-review/plan.md)、[判定表第 2 版](human-review/judgment-form-v2.xlsx)、[生成脚本](human-review/build_form.py) |
 | 样本与答案 | [调试集](samples/debug.json)、[调试答案](samples/debug-answers.json)、[第一版保留集](holdout/)、[第二版保留集](holdout-2/)与 [答案核对](holdout-2-answer-review.md) |
@@ -193,6 +193,7 @@ Gemini 同样开着思考模式，工具调用由调用方强制。两家都自�
 | h2-11 的 Q3/Q5/Q6 组按新上限补跑仍失败（运行 410 秒，未到上限） | 失败调用不保存原始消息，原因无法确认。之后在适配层加了诊断，这一组再次补跑成功，所以没有留下失败信息 |
 | 第 1 版人工判定表破坏盲设：C 页混入 3 条注入问题的模型意见，说明页暴露了哪些样本是合法对照，个别陈述带严重度措辞 | 由规格轴审查发现，未填写即停用；第 2 版加入对照、打乱顺序、放宽排除条件并隐去严重度措辞，见 [计划](human-review/plan.md) |
 | v4 的第一版调用记录在适配层内部报错，收不到那条回复，失败用量仍记为 0 且标为完整 | 由双轴代码审查发现；改为适配层不在调用内部报错，失败后从记下的回复给出原因，没有回复时用量标为不完整 |
+| v4 冻结后发现：专项检查失败的运行不会被补跑，只能 `--force` 全部重跑；重跑会覆盖旧结果及其用量；汇总时旧规则的结果仍可能被采用 | 在 v4 下任何模型运行之前修正（`cli.py` 不在冻结范围内），见“怎样重跑与核对” |
 | 为 v4 修改程序检查后、冻结之前，`program.json` 已按新代码重算 | v3 的程序检查结果保存在提交 `8391ea8` 中；上文 v3 的表格以那一版为准 |
 | 终稿的 rd 评阅在 `models.py` 改为新上限之后才开始 | 终稿四组用的是 131,072，第二版保留集首轮用的是 32,768；首轮成功的调用都没有碰到旧上限 |
 
@@ -380,7 +381,7 @@ uv run python scripts/evaluate_grade.py report
 - `freeze` 会重写当前配置，只在建立新配置版本时运行；旧版本另存为 `config-v1.json` 至 `config-v3.2.json`。
 - v4 起 `summarize`、`adjudicate` 默认使用 r1 与 rd；上面的 v3 结果用 `--reviewers r1,r2` 复算。
 - v4 下尚未运行任何模型。正式运行前，先以正式设置做覆盖全部维度组的冒烟测试，记录失败诊断，估算费用与时间，经确认后再运行。
-- 已有结果会被跳过；`stages --force` 重跑模型，`stages --recheck` 只按已保存的承诺抽取重新判定。`revise` 已有结果时只按保存的复查重算发现状态。
+- 已有结果会被跳过。专项检查中失败的运行，以及规则或模型已变的运行，再次运行时自动重跑，被替代的运行移入 `stages/<检查>/history/`，用量仍计入；汇总与校准只采用按当前规则和模型产生的运行。`stages --force` 全部重跑，`stages --recheck` 只按已保存的承诺抽取重新判定。`revise` 已有结果时只按保存的复查重算发现状态。
 - 冻结内容改变后，保留样本评阅、专项检查、裁定和修订都会被拒绝，必须另建配置版本。
 - 第二版保留集的整体评阅、承诺抽取与表述核查在 v2 代码下运行。v2 到 v3 的代码差异不改变这些调用的模型输入：
   - `review.py` 只改了裁定；
