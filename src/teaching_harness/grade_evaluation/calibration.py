@@ -165,7 +165,7 @@ def materialize(sample: Sample, root: Path, out_dir: Path) -> Path:
 
 class DetectionMetrics(Contract):
     origin: Origin
-    split: Literal["debug", "holdout"]
+    split: Text
     samples: int
     control_samples: int
     expected: int
@@ -182,21 +182,88 @@ def _under(locator: str, pointers: Iterable[str]) -> bool:
     return any(locator == p or locator.startswith(p.rstrip("/") + "/") for p in pointers)
 
 
+# 分给某个预期问题的一条发现：发现、位置是否正确、严重度是否一致。
+Hit = tuple[EvaluationFinding, bool, bool]
+
+
+def _assign(candidates: dict[str, list[Hit]]) -> dict[str, Hit]:
+    """一条发现只计入一个预期问题。
+
+    先求检出最多的分配，再在其中让位置正确的发现最多，其次严重度一致的最多；
+    用最小费用最大流求解，规模只有单个样本的问题与发现。
+    """
+    issues = list(candidates)
+    found = list(dict.fromkeys(h[0].id for hits in candidates.values() for h in hits))
+    offset = len(issues) + 1
+    sink = offset + len(found)
+    # 边：[终点, 剩余容量, 费用, 反向边下标]
+    graph: list[list[list[int]]] = [[] for _ in range(sink + 1)]
+
+    def edge(u: int, v: int, cost: int) -> None:
+        graph[u].append([v, 1, cost, len(graph[v])])
+        graph[v].append([u, 0, -cost, len(graph[u]) - 1])
+
+    for i, issue in enumerate(issues, start=1):
+        edge(0, i, 0)
+        for f, in_place, severity in candidates[issue]:
+            edge(i, offset + found.index(f.id), -(2 * in_place + severity))
+    for j in range(len(found)):
+        edge(offset + j, sink, 0)
+    while True:
+        dist: list[float] = [float("inf")] * (sink + 1)
+        dist[0] = 0
+        via: list[tuple[int, int] | None] = [None] * (sink + 1)
+        for _ in range(sink):
+            changed = False
+            for u, edges in enumerate(graph):
+                for k, (v, capacity, cost, _) in enumerate(edges):
+                    if capacity and dist[u] + cost < dist[v]:
+                        dist[v], via[v], changed = dist[u] + cost, (u, k), True
+            if not changed:
+                break
+        if via[sink] is None:
+            break
+        v = sink
+        while (step := via[v]) is not None:
+            u, k = step
+            graph[u][k][1] -= 1
+            graph[v][graph[u][k][3]][1] += 1
+            v = u
+    chosen = {}
+    for i, issue in enumerate(issues, start=1):
+        for v, capacity, _, _ in graph[i]:
+            if offset <= v < sink and capacity == 0:
+                chosen[issue] = next(h for h in candidates[issue] if h[0].id == found[v - offset])
+    return chosen
+
+
 def score_detection(
     samples: list[Sample],
     answers: list[SampleAnswer],
     findings: dict[str, list[EvaluationFinding]],
     evidence: dict[str, EvidenceRecord],
     origin: Origin,
+    *,
+    origins: set[Origin] | None = None,
+    group: str | None = None,
 ) -> list[DetectionMetrics]:
     """检出须位置在答案范围内且对象或维度一致，或对象与维度都一致；位置正确另计。
 
-    只统计答案标明该来源应能发现的问题：程序不对语义判断负责。
+    一条发现只计入一个预期问题；位置与严重度按分给该问题的发现统计。
+
+    只统计答案标明 origin 应能发现的问题：程序不对语义判断负责。
+    origins 指定参与统计的发现来源，默认只含 origin；组合检查可同时计入程序发现。
+    group 给定时把全部样本作为一组统计，并以它为组名；否则按样本的 split 分组。
     """
+    counted = origins or {origin}
     key = {a.sample_id: a for a in answers}
     metrics = []
-    for split in ("debug", "holdout"):
-        chosen = [s for s in samples if s.split == split]
+    groups = (
+        {group: samples}
+        if group
+        else {split: [s for s in samples if s.split == split] for split in ("debug", "holdout")}
+    )
+    for split, chosen in groups.items():
         if not chosen:
             continue
         values: dict[str, Any] = {
@@ -213,11 +280,12 @@ def score_detection(
         }
         for s in chosen:
             answer = key[s.id]
-            own = [f for f in findings.get(s.id, []) if f.origin == origin]
+            own = [f for f in findings.get(s.id, []) if f.origin in counted]
             located = {
                 f.id: [evidence[e].locator for e in f.evidence_ids if e in evidence] for f in own
             }
             matched: set[str] = set()
+            candidates: dict[str, list[Hit]] = {}
             for expected in answer.expected:
                 if origin not in expected.detectable_by:
                     continue
@@ -233,16 +301,22 @@ def score_detection(
                         (in_place and (same_object or same_criterion))
                         or (same_object and same_criterion)
                     ):
-                        hits.append((f, in_place))
-                if not hits:
+                        hits.append((f, in_place, f.severity == expected.severity))
+                matched |= {f.id for f, _, _ in hits}
+                candidates[expected.id] = hits
+            assigned = _assign(candidates)
+            for expected in answer.expected:
+                if expected.id not in candidates:
+                    continue
+                if expected.id not in assigned:
                     values["missed"].append(expected.id)
                     if expected.severity == "critical":
                         values["critical_missed"].append(expected.id)
                     continue
+                _, in_place, same_severity = assigned[expected.id]
                 values["detected"] += 1
-                values["location_correct"] += any(in_place for _, in_place in hits)
-                values["severity_matched"] += any(f.severity == expected.severity for f, _ in hits)
-                matched |= {f.id for f, _ in hits}
+                values["location_correct"] += in_place
+                values["severity_matched"] += same_severity
             for f in own:
                 if f.id in matched:
                     continue

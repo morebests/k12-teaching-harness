@@ -226,6 +226,8 @@ class Adjudication(Contract):
     interval: ScoreInterval | None = None
     critical_failure: bool
     supporting_evidence: list[RecordId] = Field(min_length=1)
+    # 以可核实原文驳回的已确认发现；其余已确认发现仍限制该维分数。
+    rejected_findings: list[RecordId] = Field(default_factory=list)
     needs_more_reading: str = ""
     rationale: Text
 

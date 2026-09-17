@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "adjudicator": "r3",
-  "rules_fingerprint": "2d3ba6f42c691d1035e32ce88836e902b221cf3679b82068d40207e24a9fcff8",
+  "rules_fingerprint": "d9ab31eacec668ae106017bbfd1bbfbab18740c91ea0dd0e2b0ad2edf9cad0b8",
   "adjudications": [
     {
       "id": "adjudication:r3:d-known-initial:q2",
@@ -31,12 +31,13 @@
       "interval": null,
       "critical_failure": false,
       "supporting_evidence": [
-        "ev:d-known-initial:1e0498657849d47c",
-        "ev:d-known-initial:b288bd3b760aa172",
+        "ev:d-known-initial:e8bfc7fc3943850f",
+        "ev:d-known-initial:93a3656e61e013eb",
         "ev:d-known-initial:67b8f0708e75006d"
       ],
+      "rejected_findings": [],
       "needs_more_reading": "",
-      "rationale": "本规划在各领域内部及跨领域进阶、前后年级衔接上提供了极为详实、数学逻辑自洽的证据。各单元组合有充分且深刻的数学与认知理由（如先通过几何位似证明相似以支撑斜率不变性，在方程与方程组之间插入函数映射，数系扩充与勾股空间度量整合等），且在 design_inferences 中对重要取舍作了清晰阐述。然而，4 分锚点明确要求“重要取舍与可替代安排清楚”，候选虽然给出了课时层面的机动补偿规则（reserve_plan），但对于单元全局结构（例如前置依赖为空的单元六整数指数幂在校历进度变动时的可调序或替代编排路径）未作阐明。评阅者 r2 准确指出了该局部不足，符合 3 分锚点“达到本维要求，有具体证据且主要联系一致；说明距离 4 分的差异”。故裁定为 3 分。"
+      "rationale": "本候选方案在全年数学主线的组织上具备高度的数学严密性与认知连贯性：各领域（代数、几何、函数、统计）及前后年级（承接七年级比例与面积，启迪高中函数与解析几何）联系具体详实；单元进阶以几何相似奠基斜率、函数映射统合方程、实数扩充咬合勾股度量，并在 design_inferences 中对重要教学取舍（如一元方程与方程组的分离编排、无理数与勾股度量的整合等）给出了清晰的数学理由。全部 9 个清单对象核查完毕，无关键缺口，主要联系证据高度一致。\\n\\n对照 4 分锚点要求（“各领域及前后年级联系具体，单元组合有数学理由，重要取舍与可替代安排清楚”），评阅者 R2 指出的局部不足属实：候选方案虽对当前既定单元序列的取舍逻辑论证完备，但对于相对独立的单元（如无前序单元依赖的 Unit 6 整数指数幂与科学记数法）在应对学年进度波动、校历排期变化时的可替代编排路径未作说明，缺少备选替代安排考量。依据锚点与中间锚点规则，在主要组织理由坚实但可替代安排欠缺显式说明的情况下，判定为 3 分。"
     },
     {
       "id": "adjudication:r3:d-known-initial:q3",
@@ -66,12 +67,52 @@
       "interval": null,
       "critical_failure": false,
       "supporting_evidence": [
-        "ev:d-known-initial:32939670e730656c",
-        "ev:d-known-initial:67b8f0708e75006d",
-        "ev:d-known-initial:afe89314ba2bc388"
+        "ev:d-known-initial:883b3150704bfe5a",
+        "ev:d-known-initial:93cd464984c516a4",
+        "ev:d-known-initial:4ebc32f80c492b92",
+        "ev:d-known-initial:32939670e730656c"
+      ],
+      "rejected_findings": [],
+      "needs_more_reading": "",
+      "rationale": "应查范围内的 8 个单元与 7 个依赖关系全部核查完毕，均有具体且一致的原文章节与目标分配证据支撑，无重大失败或关键缺口。每单元新增职责界定明确，进入与退出标准清晰；各核心单元间的依赖链条（如 Unit 1 的 AA 相似判定支撑 Unit 2 斜率恒定推导、Unit 2 一元方程化简与 Unit 3 函数作图支撑 Unit 4 方程组消元与平衡点决策、Unit 5 开平方开立方支撑 Unit 7 容积尺寸反解、Unit 3 线性建模支撑 Unit 8 散点图回归方程构建）所需概念均精准可定位，必要先后关系论证扎实。\n\n距离 4 分锚点的局部差异在于：4 分明确要求“必要先后与灵活顺序可区分”，并具备“适用的组织和调整依据”。候选方案中代数核心主线的强依赖与必要先后关系论证充分，但对于在进入先备中仅预设前序年级正整数幂经验、与前后几何及函数主线缺乏紧耦合依赖的独立单元 Unit 6（整数指数幂与科学记数法），方案仅在学期叙事中顺序列出，未对该模块在全年中可否灵活前置、后置或调换的教学依据与边界规则作出显式说明。因此评阅人 r2 指出的局部不足属实，本维度裁定为 3 分。"
+    },
+    {
+      "id": "adjudication:r3:d-known-initial:q4",
+      "candidate_id": "d-known-initial",
+      "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+      "criterion_id": "Q4",
+      "original_ratings": [
+        {
+          "reviewer_id": "r1",
+          "score": 2,
+          "interval": null,
+          "critical_failure": false
+        },
+        {
+          "reviewer_id": "r2",
+          "score": 2,
+          "interval": null,
+          "critical_failure": false
+        }
+      ],
+      "triggers": [],
+      "method": "independent_adjudicator",
+      "adjudicator_id": "r3",
+      "score": 2,
+      "interval": null,
+      "critical_failure": false,
+      "supporting_evidence": [
+        "ev:d-known-initial:2f32208a06b20f17",
+        "ev:d-known-initial:6e59eec1b77bd47d",
+        "ev:d-known-initial:a3d8b73f12ae56ac",
+        "ev:d-known-initial:fa30f3213ee5381d",
+        "ev:d-known-initial:3a245daeeea0c2f8"
+      ],
+      "rejected_findings": [
+        "probes:d-known-initial:task_4_stats_linear_interpretation:1"
       ],
       "needs_more_reading": "",
-      "rationale": "经核查，清单中 8 个单元与 7 条显式依赖关系在候选方案中均能精确定位具体数学概念与技能先备（如 Unit 1 的 AA 相似支撑 Unit 2 斜率推导，Unit 2 一元方程求解支撑 Unit 4 消元法，Unit 3 的 8.F.B.4 支撑 Unit 8 经验拟合直线等），核心代数与几何主线的必然承接逻辑扎实一致。但在灵活顺序区分方面，Unit 6（整数指数幂与科学记数法）先备仅要求小学正整数幂和乘除法，与几何及方程函数主线无直接前后强依赖，候选仅在全年叙事中将其平铺在 Unit 5 之后，未说明其在整体排课中的灵活性或调整依据，距离 4 分锚点要求的“必要先后与灵活顺序可区分”在完整范围成立仍存在局部不足。因此依据 3 分锚点（“达到本维要求，有具体证据且主要联系一致；说明距离4分的差异”）判定为 3 分。"
+      "rationale": "两位评阅人均独立给出 2 分，经核查裁定采纳 2 分。\n在宏观规划层面，候选方案 8 个单元展示了从几何相似推导斜率、升华为函数映射、拓展至方程组平衡状态、结合勾股定理度量与双变量统计拟合的清晰且连贯的概念进阶主线，多重表征转换与语言发展均有明确的学习经历支撑，远高于 0 分（仅目录）与 1 分（零散提及）。\n然而，方案在表征支持、数学严密性与设计结论表述上存在多项已确认的关键缺口（key_gap）：\n1. 探查任务 task_4 题面未配发散点图图表，且线性模型未界定自变量有效范围（当复习时间超过 8 小时即突破满分 100 分）；\n2. 存在数处数学语言与概念失准（如‘恒等无解’、‘函数图象是所有有序实数对的集合’、‘面积割补法证明逆定理’、‘小数夹逼精确定位无理数’、‘任意两点均能求函数解析式’）；\n3. 多个探查任务的 design_consequence 将静态设计试做断言为已验证的教学掌握事实。\n依据维度聚合规则，存在仍未解决的关键联系缺口（key_gap）时维度分最高限制为 2 分，故裁定 Q4 维度最终得分为 2 分。"
     },
     {
       "id": "adjudication:r3:d-known-initial:q5",
@@ -97,18 +138,16 @@
       ],
       "method": "independent_adjudicator",
       "adjudicator_id": "r3",
-      "score": 4,
+      "score": 2,
       "interval": null,
       "critical_failure": false,
       "supporting_evidence": [
-        "ev:d-known-initial:883b3150704bfe5a",
-        "ev:d-known-initial:bb7ce09a61f67e29",
-        "ev:d-known-initial:293075899985ed67",
-        "ev:d-known-initial:485f0820cc90bfec",
-        "ev:d-known-initial:d3a8fa7aace5af26"
+        "ev:d-known-initial:133794e151176980",
+        "ev:d-known-initial:bb7ce09a61f67e29"
       ],
+      "rejected_findings": [],
       "needs_more_reading": "",
-      "rationale": "本维度重点审查八年级课程中主要理解的初建、巩固与后续利用，以及回访安排的目的、位置、时间相容性。\n\n1. 逐项核查清单中的 8 个单元和 7 个回访（revisit）节点：\n- unit_1 至 unit_8 的主要概念进阶链条极为严密：Unit 1（几何变换与AA相似判定）在 Unit 2 中通过构造“斜率三角形”严密推导斜率恒定性；Unit 2（比例斜率与一元方程）在 Unit 3 跃升为函数映射，并在 Unit 4 方程组代入消元中直接作为运算基础；Unit 3 的核心函数建模（8.F.B.4）在 Unit 4（平衡决策点）与 Unit 8（双变量散点图经验回归直线与斜率截距统计解释）中两度进行高阶迁移；Unit 5 的实数与开方（8.EE.A.2）在 Unit 7 立体几何体积反解半径与母线长中得到直接工具性利用。\n- 关于 7 个回访节点，所有节点均具有明确的教学契机（opportunity）与达成证据（evidence），绝非空泛复习口号。\n2. 针对评阅者 r2 关于 8.EE.A.1 的争议裁定：\nr2 认为 8.EE.A.1 的 apply 局限在 Unit 6 内部（从指数运算到科学记数法四则混合），未跨入后续其他独立单元。核查发现，在 CCSS 八年级课程标准体系下，整数指数幂（8.EE.A.1）的直接利用场景即为科学记数法的估算与运算（8.EE.A.3/4），在后续三维体积（Unit 7）与双变量统计（Unit 8）中强行塞入指数化简反而脱离真实情境。候选将整数指数幂在科学记数法混合四则运算中作为工具熟练运用，并在期末综合重构机动课时与诊断中进行追踪，回访目的清晰、时间与位置完全相容。\n3. 此外，候选方案在 reserve_plan 中设立了清晰的 20 节机动课时组织与动态投放机制（前置补偿 1~2 节、课后精准纠错变式 8 节、期中期末综合工作坊 9 节），为全年的巩固、回访与补救提供了非常适用的组织与调整依据。\n\n综上，具体 4 分锚点在完整范围成立，判定为 4 分。"
+      "rationale": "候选方案在主要跨单元回访（如 8.G.A.5 在 Unit 2 的几何支撑、8.EE.C.7.b 在 Unit 4 消元求解中的应用、8.EE.A.2 在 Unit 7 的开方反解尺寸、8.F.B.4 在 Unit 8 的统计经验直线迁移）上有较具体的数学任务与设计推断。然而，作为全书核心枢纽目标 8.F.B.4，在重点单元交接指引（handoff_guidance）中明确承诺‘将在 Unit 4（方程组的交点平衡状态）中被复习应用’，但其实际目标分配列表中完全缺失了在 Unit 4 的分配（仅分配给 Unit 3 与 Unit 8），使得交接指引所承诺的承接职责出现目标分配层面的关键脱节。该项已确认为关键缺口（key_gap），依据裁定协议，维持该关键缺口将维度上限限制为 2 分。因此判定分数为 2 分。"
     },
     {
       "id": "adjudication:r3:d-known-initial:q6",
@@ -140,10 +179,12 @@
       "supporting_evidence": [
         "ev:d-known-initial:925b6b8cfb416a4f",
         "ev:d-known-initial:77443420f7f305b9",
-        "ev:d-known-initial:43e9c09fe714c57e"
+        "ev:d-known-initial:04775ba665ac46d5",
+        "ev:d-known-initial:4638191473150014"
       ],
+      "rejected_findings": [],
       "needs_more_reading": "",
-      "rationale": "本规划在评价与教学响应维度整体架构完整，目标与过程/阶段表现证据紧密咬合，并设置了 20 节机动课时的分层响应机制（包括各单元后的订正重考与期中末综合反思）。但对照 4 分锚点“进入／过程／阶段检查职责明确，且在完整范围成立”，评阅人 2 准确指出了局部缺口：Unit 6、Unit 7（以及 Unit 4）的 assessment_plan 中均缺少明确的前置进入诊断（entry check）工具，且 reserve_plan 的前置诊断补偿仅覆盖了 Unit 2、Unit 3 和 Unit 5。进入检查职责并未在全范围 8 个单元中完整落实，评阅人 1 误判为全范围覆盖。根据规则，无关键缺口但存在局部不足时评 3 分。"
+      "rationale": "在 Q6 评价与教学响应维度，候选方案展现了极高的设计水准与系统性：\n1. 目标与学习机会支撑：所有 CCSS 目标分配的 evidence 均清晰规定了可观察的表现证据，各单元 narrative 与 tasks 提供了扎实完整的课内学习机会。\n2. 评价链条与响应安排：方案设计了 20 节机动课时的闭环投放规则，包含单元终结后针对错题高频点的二次达标纠偏课（8节）以及承重单元（Unit 2、3、5）的前置补偿课，Unit 3 交接指引中也明确了动用机动课时的具体触发指标与干预方法。\n3. 区分 3 分与 4 分的关键在于 4 分锚点要求的“进入／过程／阶段检查职责明确在完整范围成立”：核查 8 个单元的 assessment_plan 发现，进入前测诊断主要集中在 Unit 1、2、3 及 Unit 5 的机动课时补偿中，而在 Unit 4、Unit 6、Unit 7、Unit 8 中，评价方案均直接从随堂小测/课内表现性实验起步，未提供明确的进入诊断设计；reserve_plan 的前置补偿也仅显式覆盖 3 个单元。因此，进入检查在全范围内存在局部未全覆盖的不足，尚未达到 4 分“在完整范围严格成立”的标准，依据 score_3 锚点（“应查范围核完、无关键缺口、主要联系有具体一致证据，列明局部不足”）裁定为 3 分。"
     },
     {
       "id": "adjudication:r3:d-known-initial:q8",
@@ -173,22 +214,24 @@
       "interval": null,
       "critical_failure": false,
       "supporting_evidence": [
-        "ev:d-known-initial:2b60effc69aa1413",
-        "ev:d-known-initial:b8a8167796b3bc83",
+        "ev:d-known-initial:4466617e8b5c720e",
+        "ev:d-known-initial:0084e63ae1da9485",
         "ev:d-known-initial:b241185679889b52",
-        "ev:d-known-initial:4466617e8b5c720e"
+        "ev:d-known-initial:bb7ce09a61f67e29",
+        "ev:d-known-initial:2b60effc69aa1413"
       ],
+      "rejected_findings": [],
       "needs_more_reading": "",
-      "rationale": "核查三个教师规划核心问题与 4 分锚点：\n1. 【tq-shorten-unit】：候选通过各单元明确的 `prerequisite_units`、`entry`/`exit` 条件，以及各目标在后续单元中的 `apply`/`revisit` 承接网络（如 8.EE.B.6 在 Unit 2 teach、Unit 3 apply；8.F.B.4 在 Unit 3 teach、Unit 8 apply），提供了极其清晰的受影响链路与依据。此外，在 `handoff_guidance` 中给出了弹性空间与严禁压缩的核心红线。评阅人 r2 认为缺少“单元内部逐课压缩优先级”，但题目条件明确规定“不生成全年逐课材料”，以此作为扣分点属于超纲要求，不能作为降到 3 分的依据。\n2. 【tq-goal-trace】：候选在 `goals` 字典中为每项标准明确配置了 `teach`、`apply`、`revisit` 角色分配，并配有详细的 `opportunity`（学习机会）和 `evidence`（评价证据），结合单元 `assessment_plan`，教师可精准定位任何目标的初学、巩固与评价环节。\n3. 【tq-reserve】：`reserve_plan` 将 20 节机动课时精准拆分为“承重单元前置诊断补偿（3节）+ 单元终结测后矫正与二次达标（8节）+ 学期中与学年末综合反思与高阶衔接（9节）”，结构严密（3+8+9=20节），并明确了其作为诊断干预资源的不可替代性，解答了何时用、用作何用及挪用后果。\n\n综上，年度目标、节奏、依赖、评价和调整依据均高度可定位，概览与深入材料分层清晰一致，完全达到 4 分锚点。"
+      "rationale": "候选蓝图完整且高质量地满足了 Q8 的 4 分锚点要求（“教师能定位年度目标、节奏、依赖、评价和调整依据；概览与深入材料分层清楚且一致”）：\n1. 【tq-shorten-unit】：各单元均完整声明了 prerequisite_units、entry 与 exit 条件；goals 字段中详细标明了各目标在不同单元中的 teach、apply 与 revisit 承接关系；在 handoff_guidance 中更对核心单元（Unit 3）明确指出了“弹性空间与严格禁忌（Flexibility & Guardrails）”。教师可依据显式依赖图和进入/离开标准精准判定缩短单元对后续学习链条的具体影响。评阅者 r2 扣分依据为“未提供单元内部逐课压缩优先级”，但任务条件已明确限定“不生成全年逐课材料”，候选蓝图在年级架构层面提供的依赖链条与调整边界已完全满足教师规划需求。\n2. 【tq-goal-trace】：goals 集合对八年级各项标准均给出了明确的单元分配（allocations），严格区分了首次教学（teach）、应用巩固（apply/revisit），并配有具体的学习机会（opportunity）与可观察的评价证据（evidence），结合各单元的 assessment_plan 和 tasks 探查，年度目标的完整生命周期定位极为清晰透明。\n3. 【tq-reserve】：reserve_plan 精确规划了 20 节机动课时（3 节前置诊断补偿 + 8 节单元测后矫正 + 9 节期中期末综合反思与过渡），课时总数准确闭合，明确限定其为诊断驱动干预资源、不得并入常规进度，并清晰指明了若被挪用将丧失前置诊断补救与二次达标矫正机会。\n\n综上，三个教师规划核心问题均有精细、结构化且完全一致的原文支撑，材料分层逻辑严谨，故裁定为 4 分。"
     }
   ],
   "evidence": [
     {
-      "id": "ev:d-known-initial:1e0498657849d47c",
+      "id": "ev:d-known-initial:e8bfc7fc3943850f",
       "document_id": "d-known-initial",
       "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
       "locator": "/narrative",
-      "quote": "建立了一条以‘几何相似直观奠基 -> 代数方程与斜率刻画 -> 现代函数映射建构 -> 方程组系统平衡 -> 数系扩充与勾股空间度量 -> 幂运算与科学计量 -> 三维体积度量 -> 双变量统计建模’的连贯而有力的数学认知进阶主线。",
+      "quote": "建立了一条以‘几何相似直观奠基……双变量统计建模’的连贯而有力的数学认知进阶主线。",
       "extraction": "模型引用的原文片段；判断见所属结论",
       "objects": [
         {
@@ -199,11 +242,11 @@
       "recorded_by": "model"
     },
     {
-      "id": "ev:d-known-initial:b288bd3b760aa172",
+      "id": "ev:d-known-initial:93a3656e61e013eb",
       "document_id": "d-known-initial",
       "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
-      "locator": "/design_inferences",
-      "quote": "8.EE.C.7（一元一次方程）与8.EE.C.8（二元一次方程组）不应集中在同一个单元强行讲授；先在Unit 2攻克一元一次方程的各种解的结构，再在Unit 3建立函数输入输出映射……",
+      "locator": "/design_inferences/1",
+      "quote": "先在Unit 2攻克一元一次方程的各种解的结构，再在Unit 3建立函数输入输出映射，最后在Unit 4引入二元一次方程组",
       "extraction": "模型引用的原文片段；判断见所属结论",
       "objects": [
         {
@@ -224,6 +267,51 @@
         {
           "kind": "grade",
           "id": "q2-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:d-known-initial:883b3150704bfe5a",
+      "document_id": "d-known-initial",
+      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+      "locator": "/units/1/narrative",
+      "quote": "本单元承接 Unit 1 的相似三角形理论，在平面直角坐标系中构造‘斜率三角形’，严密证明非垂直直线上任意两点的变化率恒定",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q3-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:d-known-initial:93cd464984c516a4",
+      "document_id": "d-known-initial",
+      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+      "locator": "/units/3/entry",
+      "quote": "熟练掌握复杂一元一次方程求解；熟练掌握线性函数作图与解析式求解。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q3-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:d-known-initial:4ebc32f80c492b92",
+      "document_id": "d-known-initial",
+      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+      "locator": "/units/6/narrative",
+      "quote": "并结合 Unit 5 学习的开方运算反解立体图形的关键几何尺寸，解决真实工程与生活中的容积问题。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q3-adjudication"
         }
       ],
       "recorded_by": "model"
@@ -244,41 +332,86 @@
       "recorded_by": "model"
     },
     {
-      "id": "ev:d-known-initial:67b8f0708e75006d",
-      "document_id": "d-known-initial",
-      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
-      "locator": "/units/5/narrative",
-      "quote": "本单元完成指数体系向全部整数的拓展。通过规律探索归纳出零指数幂与负整数指数幂的代数定义，建立完整的整数指数幂运算法则。随后将这一法则应用于现代科学记数法……",
-      "extraction": "模型引用的原文片段；判断见所属结论",
-      "objects": [
-        {
-          "kind": "grade",
-          "id": "q3-adjudication"
-        }
-      ],
-      "recorded_by": "model"
-    },
-    {
-      "id": "ev:d-known-initial:afe89314ba2bc388",
-      "document_id": "d-known-initial",
-      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
-      "locator": "/design_inferences/0",
-      "quote": "虽然标准图将8.EE.B.6（相似三角形解释斜率）与8.G.A.5（相似判定AA）列为关联，但教学设计推断：将几何变换与相似（Unit 1）置于线性方程与斜率（Unit 2）之前……",
-      "extraction": "模型引用的原文片段；判断见所属结论",
-      "objects": [
-        {
-          "kind": "grade",
-          "id": "q3-adjudication"
-        }
-      ],
-      "recorded_by": "model"
-    },
-    {
-      "id": "ev:d-known-initial:883b3150704bfe5a",
+      "id": "ev:d-known-initial:2f32208a06b20f17",
       "document_id": "d-known-initial",
       "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
       "locator": "/units/1/narrative",
-      "quote": "本单元承接 Unit 1 的相似三角形理论，在平面直角坐标系中构造‘斜率三角形’，严密证明非垂直直线上任意两点的变化率恒定",
+      "quote": "在平面直角坐标系中构造‘斜率三角形’，严密证明非垂直直线上任意两点的变化率恒定，将七年级的单位比率升华为直线的几何斜率……透彻剖析唯一解、恒等无解与无穷多解的数学本质。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q4-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:d-known-initial:6e59eec1b77bd47d",
+      "document_id": "d-known-initial",
+      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+      "locator": "/units/2/narrative",
+      "quote": "本单元将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。确立函数的统一定义（每个输入唯一对应输出）……重点突破 8.F.B.4",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q4-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:d-known-initial:a3d8b73f12ae56ac",
+      "document_id": "d-known-initial",
+      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+      "locator": "/tasks/3/blocks/0/text",
+      "quote": "数学教研组对 28 名八年级学生每周自主复习数学的时间与期末测试成绩进行了统计调查，绘制了散点图，并拟合了一条经验趋势直线",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q4-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:d-known-initial:fa30f3213ee5381d",
+      "document_id": "d-known-initial",
+      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+      "locator": "/handoff_guidance",
+      "quote": "给定任意两点坐标（含负数及分数），学生能不借助模板独立列出差商求出 m，并代入一点坐标准确求解出截距 b，写出规范函数方程；",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q4-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:d-known-initial:3a245daeeea0c2f8",
+      "document_id": "d-known-initial",
+      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+      "locator": "/tasks/3/solution",
+      "quote": "在每周复习时间与测试成绩的线性关系中，斜率表示自变量每增加 1 个单位时因变量的平均边际增量。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q4-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:d-known-initial:133794e151176980",
+      "document_id": "d-known-initial",
+      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+      "locator": "/handoff_guidance",
+      "quote": "本单元建构的 8.F.B.4 能力将在 Unit 4（方程组的交点平衡状态）中被复习应用，并在 Unit 8（双变量统计）中作为散点图拟合直线的经验方程模型（8.SP.A.3）实施高阶迁移应用。",
       "extraction": "模型引用的原文片段；判断见所属结论",
       "objects": [
         {
@@ -294,51 +427,6 @@
       "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
       "locator": "/goals/14/allocations/1/opportunity",
       "quote": "在散点图拟合直线探究中，应用 8.F.B.4 的建模技能求经验回归直线的解析式并解读截距与斜率。",
-      "extraction": "模型引用的原文片段；判断见所属结论",
-      "objects": [
-        {
-          "kind": "grade",
-          "id": "q5-adjudication"
-        }
-      ],
-      "recorded_by": "model"
-    },
-    {
-      "id": "ev:d-known-initial:293075899985ed67",
-      "document_id": "d-known-initial",
-      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
-      "locator": "/goals/1/allocations/1/opportunity",
-      "quote": "在三维几何体体积计算中反解半径或高度时，应用开平方和开立方操作。",
-      "extraction": "模型引用的原文片段；判断见所属结论",
-      "objects": [
-        {
-          "kind": "grade",
-          "id": "q5-adjudication"
-        }
-      ],
-      "recorded_by": "model"
-    },
-    {
-      "id": "ev:d-known-initial:485f0820cc90bfec",
-      "document_id": "d-known-initial",
-      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
-      "locator": "/goals/7/allocations/1/opportunity",
-      "quote": "在方程组代入消元后求解所得的一元复杂线性方程。",
-      "extraction": "模型引用的原文片段；判断见所属结论",
-      "objects": [
-        {
-          "kind": "grade",
-          "id": "q5-adjudication"
-        }
-      ],
-      "recorded_by": "model"
-    },
-    {
-      "id": "ev:d-known-initial:d3a8fa7aace5af26",
-      "document_id": "d-known-initial",
-      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
-      "locator": "/reserve_plan",
-      "quote": "全年设置 20 节机动课时（Reserve Lessons），严格作为诊断驱动的干预与针对性巩固资源……第一学期期末（Unit 4 结束时）投放 3 节……第二学期期末（Unit 8 结束时）投放 4 节",
       "extraction": "模型引用的原文片段；判断见所属结论",
       "objects": [
         {
@@ -379,11 +467,11 @@
       "recorded_by": "model"
     },
     {
-      "id": "ev:d-known-initial:43e9c09fe714c57e",
+      "id": "ev:d-known-initial:4638191473150014",
       "document_id": "d-known-initial",
       "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
       "locator": "/reserve_plan",
-      "quote": "在 Unit 2（方程与斜率）前，利用 1 节机动课时……在 Unit 3（函数核心单元）前，预留 1 节机动课时……在 Unit 5（实数与勾股定理）前，预留 1 节机动课时……",
+      "quote": "在每个单元的单元检测试卷批阅后，依据错题高频点组织 1 节精准订正、典型同伴互助与二次达标变式训练课。",
       "extraction": "模型引用的原文片段；判断见所属结论",
       "objects": [
         {
@@ -394,11 +482,11 @@
       "recorded_by": "model"
     },
     {
-      "id": "ev:d-known-initial:2b60effc69aa1413",
+      "id": "ev:d-known-initial:4466617e8b5c720e",
       "document_id": "d-known-initial",
       "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
-      "locator": "/units/3/prerequisite_units",
-      "quote": "[\"unit_2_linear_eq\", \"unit_3_linear_functions\"]",
+      "locator": "/reserve_plan",
+      "quote": "全年设置 20 节机动课时（Reserve Lessons），严格作为诊断驱动的干预与针对性巩固资源，不计入各单元常规教学课时，其动态投放规则如下：……",
       "extraction": "模型引用的原文片段；判断见所属结论",
       "objects": [
         {
@@ -409,11 +497,11 @@
       "recorded_by": "model"
     },
     {
-      "id": "ev:d-known-initial:b8a8167796b3bc83",
+      "id": "ev:d-known-initial:0084e63ae1da9485",
       "document_id": "d-known-initial",
       "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
       "locator": "/handoff_guidance",
-      "quote": "后续承接：本单元建构的 8.F.B.4 能力将在 Unit 4（方程组的交点平衡状态）中被复习应用，并在 Unit 8（双变量统计）中作为散点图拟合直线的经验方程模型（8.SP.A.3）实施高阶迁移应用。",
+      "quote": "三、教学调整空间与禁忌（Flexibility & Guardrails）：1. 弹性空间：可根据课内前置诊断……允许动用 1~2 节备用课时……2. 严格禁忌：……",
       "extraction": "模型引用的原文片段；判断见所属结论",
       "objects": [
         {
@@ -439,11 +527,26 @@
       "recorded_by": "model"
     },
     {
-      "id": "ev:d-known-initial:4466617e8b5c720e",
+      "id": "ev:d-known-initial:bb7ce09a61f67e29",
       "document_id": "d-known-initial",
       "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
-      "locator": "/reserve_plan",
-      "quote": "全年设置 20 节机动课时（Reserve Lessons），严格作为诊断驱动的干预与针对性巩固资源，不计入各单元常规教学课时，其动态投放规则如下：……",
+      "locator": "/goals/14/allocations/1/opportunity",
+      "quote": "在散点图拟合直线探究中，应用 8.F.B.4 的建模技能求经验回归直线的解析式并解读截距与斜率。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q8-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:d-known-initial:2b60effc69aa1413",
+      "document_id": "d-known-initial",
+      "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+      "locator": "/units/3/prerequisite_units",
+      "quote": "[\"unit_2_linear_eq\", \"unit_3_linear_functions\"]",
       "extraction": "模型引用的原文片段；判断见所属结论",
       "objects": [
         {
@@ -454,45 +557,55 @@
       "recorded_by": "model"
     }
   ],
-  "problems": [],
+  "problems": [
+    "Q6：裁定引用无法核实：1. 单元前置诊断补偿（每个核心承重单元预留 1~2 节）：\\n   - 在 Unit 2（方程与斜率）前，利用 1 节机动课时对负数减法与分数系数运算进行课内小专题诊断干预；"
+  ],
   "usage": [
     {
       "criterion": "Q2",
-      "input_tokens": 29393,
-      "output_tokens": 2091,
-      "total_tokens": 31484,
+      "input_tokens": 62026,
+      "output_tokens": 4498,
+      "total_tokens": 66524,
       "usage_complete": true,
-      "repairs": 0
+      "repairs": 1
     },
     {
       "criterion": "Q3",
-      "input_tokens": 64346,
-      "output_tokens": 3470,
-      "total_tokens": 67816,
+      "input_tokens": 66379,
+      "output_tokens": 4454,
+      "total_tokens": 70833,
+      "usage_complete": true,
+      "repairs": 1
+    },
+    {
+      "criterion": "Q4",
+      "input_tokens": 77769,
+      "output_tokens": 11661,
+      "total_tokens": 89430,
       "usage_complete": true,
       "repairs": 1
     },
     {
       "criterion": "Q5",
-      "input_tokens": 30656,
-      "output_tokens": 2885,
+      "input_tokens": 31189,
+      "output_tokens": 2352,
       "total_tokens": 33541,
       "usage_complete": true,
       "repairs": 0
     },
     {
       "criterion": "Q6",
-      "input_tokens": 29407,
-      "output_tokens": 2421,
-      "total_tokens": 31828,
+      "input_tokens": 62619,
+      "output_tokens": 3592,
+      "total_tokens": 66211,
       "usage_complete": true,
-      "repairs": 0
+      "repairs": 1
     },
     {
       "criterion": "Q8",
-      "input_tokens": 28079,
-      "output_tokens": 2732,
-      "total_tokens": 30811,
+      "input_tokens": 28416,
+      "output_tokens": 2286,
+      "total_tokens": 30702,
       "usage_complete": true,
       "repairs": 0
     }

@@ -1,0 +1,244 @@
+[
+  {
+    "id": "h2-01",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace",
+        "path": "/goals/15/allocations/0",
+        "value": {
+          "unit_id": "unit_3_linear_functions",
+          "role": "teach",
+          "opportunity": "在函数图象上选取两个不同点计算平均变化率，依据差商的正负判断函数在指定区间内的增减，并用计算结果比较两段折线的倾斜程度。",
+          "evidence": "检查学生能否从给定折线图中读出两点坐标、准确计算差商，并依据差商的正负与大小写出增减结论。"
+        }
+      }
+    ],
+    "note": "终稿副本 H2-01"
+  },
+  {
+    "id": "h2-02",
+    "split": "holdout",
+    "kind": "control",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "rename",
+        "path": "",
+        "old": "unit_6_exponents_sci_notation",
+        "new": "unit_6_integer_exponents"
+      }
+    ],
+    "note": "终稿副本 H2-02"
+  },
+  {
+    "id": "h2-03",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "remove",
+        "path": "/practices/6"
+      }
+    ],
+    "note": "终稿副本 H2-03"
+  },
+  {
+    "id": "h2-04",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace_text",
+        "path": "/units/3/narrative",
+        "old": "并借助直线平行或重合的几何形态理解方程组无解或无穷多解的代数本质",
+        "new": "并借助直线重合的几何形态理解方程组无解、借助直线平行的几何形态理解方程组无穷多解的代数本质"
+      }
+    ],
+    "note": "终稿副本 H2-04"
+  },
+  {
+    "id": "h2-05",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "move",
+        "from_path": "/units/1",
+        "path": "/units/0"
+      }
+    ],
+    "note": "终稿副本 H2-05"
+  },
+  {
+    "id": "h2-06",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "add",
+        "path": "/goals/32/allocations/0",
+        "value": {
+          "unit_id": "unit_4_linear_systems",
+          "role": "assess",
+          "opportunity": "在第一学期期末的方程组单元测试中加入双向列联表题组，要求学生由频数表计算行、列相对频率并判断两个分类变量是否相关。",
+          "evidence": "依据学生在期末卷列联表题组中的相对频率计算与相关性结论，评定其对分类数据关联的掌握情况。"
+        }
+      }
+    ],
+    "note": "终稿副本 H2-06"
+  },
+  {
+    "id": "h2-07",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace",
+        "path": "/units/5/lesson_count",
+        "value": 36
+      }
+    ],
+    "note": "终稿副本 H2-07"
+  },
+  {
+    "id": "h2-08",
+    "split": "holdout",
+    "kind": "control",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "add",
+        "path": "/goals/28/allocations/1",
+        "value": {
+          "unit_id": "unit_7_volume_3d",
+          "role": "revisit",
+          "opportunity": "在圆柱、圆锥与球体体积计算中，分别用 3.14 与 3.1416 作为 π 的有理近似求值，比较两种结果的差异，并估计含 π 表达式的大小范围。",
+          "evidence": "核查学生能否说明不同有理近似带来的结果差异，并判断保留 π 的精确形式与取近似值各自适用的场合。"
+        }
+      }
+    ],
+    "note": "终稿副本 H2-08"
+  },
+  {
+    "id": "h2-09",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace_text",
+        "path": "/units/6/assessment_plan",
+        "old": "课内图形剖析报告评估体积公式的几何分解与代数推导过程",
+        "new": "学生课后在家使用量杯和水完成等底等高圆锥与圆柱的注水对比实验，并用手机录制实验视频提交，作为评估体积公式几何关系的主要依据"
+      }
+    ],
+    "note": "终稿副本 H2-09"
+  },
+  {
+    "id": "h2-10",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "remove",
+        "path": "/goals/14/allocations/1"
+      }
+    ],
+    "note": "终稿副本 H2-10"
+  },
+  {
+    "id": "h2-11",
+    "split": "holdout",
+    "kind": "control",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "move",
+        "from_path": "/units/5",
+        "path": "/units/6"
+      }
+    ],
+    "note": "终稿副本 H2-11"
+  },
+  {
+    "id": "h2-12",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace_text",
+        "path": "/tasks/2/design_consequence",
+        "old": "其实际掌握效果待课内形成性练习监测。",
+        "new": "在本校两个八年级班级共 56 名学生的课内试教中，49 人独立完成了直角顶点定位与距离计算，表明学生已掌握该方法，Unit 5 前无需再安排相应的进入诊断。"
+      }
+    ],
+    "note": "终稿副本 H2-12"
+  },
+  {
+    "id": "h2-13",
+    "split": "holdout",
+    "kind": "control",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace_text",
+        "path": "/units/7/assessment_plan",
+        "old": "课内散点图描点与趋势线绘制表现性评价",
+        "new": "课内散点图描点与趋势线绘制表现性评价（方格纸不足时改用黑白打印的带刻度坐标网格学案，评价要求不变）"
+      }
+    ],
+    "note": "终稿副本 H2-13"
+  },
+  {
+    "id": "h2-14",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace",
+        "path": "/focus_unit_id",
+        "value": "unit_4_linear_systems"
+      }
+    ],
+    "note": "终稿副本 H2-14"
+  }
+]

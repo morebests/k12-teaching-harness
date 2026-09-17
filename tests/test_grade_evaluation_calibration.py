@@ -178,6 +178,14 @@ def test_检出统计区分定位正确_漏报_合法对照误报与其他发现
     assert holdout.false_positives == ["f4"] and holdout.control_samples == 1
     # 程序发现不计入模型统计；程序只对标明可由程序发现的问题负责。
     assert "f6" not in holdout.other_findings
+    # 组合检查：模型负责的问题，由模型与程序发现合并判定。
+    combined = {
+        m.split: m
+        for m in score_detection(
+            samples, answers, findings, records, "model", origins={"model", "program"}
+        )
+    }
+    assert "f6" in combined["holdout"].other_findings
     program = {m.split: m for m in score_detection(samples, answers, findings, records, "program")}
     assert program["debug"].expected == 0 and program["holdout"].expected == 0
     assert program["holdout"].other_findings == ["f6"]
@@ -200,6 +208,43 @@ def test_答案关键词用于区分同一位置的不同问题():
     found = found.model_copy(update={"claim": "把斜率解释成个体因果效应"})
     [metrics] = score_detection(samples, answers, {"stats": [found]}, records, "model")
     assert metrics.missed == ["e-data"] and metrics.detected == 1
+
+
+def test_一条发现只计入一个预期问题():
+    samples = [sample([], id="stats")]
+    both = ["范围", "调查"]
+    answers = [
+        answer(
+            "stats",
+            "known_miss",
+            [
+                issue("e-range", ["Q4"], "task_4", "/tasks/3", keywords=both),
+                issue("e-survey", ["Q4"], "task_4", "/tasks/3", "critical", both),
+            ],
+        )
+    ]
+    records = {"ev:1": evidence("ev:1", "/tasks/3/solution")}
+    first = finding("f-1", "Q4", "task_4").model_copy(update={"claim": "把调查的样本范围写错"})
+    [single] = score_detection(samples, answers, {"stats": [first]}, records, "model")
+    assert (single.detected, single.missed) == (1, ["e-survey"])
+    second = first.model_copy(update={"id": "f-2"})
+    [pair] = score_detection(samples, answers, {"stats": [first, second]}, records, "model")
+    assert (pair.detected, pair.missed) == (2, [])
+    # 在检出数最多的分配中，再让位置正确的发现尽量多。
+    wide = [
+        issue("e-range", ["Q4"], "task_4", "/tasks/3/solution", keywords=both),
+        issue("e-survey", ["Q4"], "task_4", "/tasks/3", "critical", both),
+    ]
+    records["ev:2"] = evidence("ev:2", "/tasks/3/evidence")
+    only_wide = second.model_copy(update={"evidence_ids": ["ev:2"]})
+    [best] = score_detection(
+        samples,
+        [answer("stats", "known_miss", wide)],
+        {"stats": [first, only_wide]},
+        records,
+        "model",
+    )
+    assert (best.detected, best.location_correct) == (2, 2)
 
 
 def test_评阅输入含样本答案说明时拒绝调用():

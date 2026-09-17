@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "sample_id": "d-known-revision",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49",
+  "seconds": 46.4,
+  "error": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "d-known-revision",
+    "findings": [
+      {
+        "id": "statements:d-known-revision:1",
+        "candidate_id": "d-known-revision",
+        "content_fingerprint": "9c3dcf27d23a220ea7f58fd736dee95133daa0dd6e014854dd7685dacf59aa0a",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "通过面积割补法证明勾股定理及其逆定理",
+        "requirement": "面积割补法只能用于证明勾股定理本身；勾股定理逆定理必须通过构造全等直角三角形（基于 SSS 判定）等演绎推理方法进行论证，不能声称用面积割补法证明逆定理。",
+        "evidence_ids": [
+          "ev:d-known-revision:5888d8744f858237"
+        ],
+        "counterexample": "面积割补法（如赵爽弦图或四个直角三角形拼成大正方形）的前提必须是已知三角形为直角三角形，因而四角之和可拼成平角与正方形；而勾股定理逆定理的前提是仅已知三边满足 a^2 + b^2 = c^2，角的大小尚未确定，无法预先用拼图割补的方式拼出无缝大正方形，强行拼图会导致循环论证。",
+        "impact": "混淆了几何正定理与逆定理的条件和证明路径，导致学生产生逻辑循环论证，破坏对几何演绎推理严谨性的理解。",
+        "recheck": "核对 CCSSM 8.G.B.6 与初中几何公理化体系：面积割补法仅能证明正定理；逆定理需通过构造辅助直角三角形并借助边边边（SSS）全等判定进行逻辑证明。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:d-known-revision:2",
+        "candidate_id": "d-known-revision",
+        "content_fingerprint": "9c3dcf27d23a220ea7f58fd736dee95133daa0dd6e014854dd7685dacf59aa0a",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "函数的图象是所有有序实数对 (x, y) 的集合",
+        "requirement": "应明确指出函数图象是由所有输入值及其依据对应法则计算出的对应输出值所构成的有序数对 $(x, f(x))$ 的集合，必须包含函数依赖规则这一限定条件。",
+        "evidence_ids": [
+          "ev:d-known-revision:9305b350b26218ac"
+        ],
+        "counterexample": "直角坐标平面内“所有有序实数对 (x, y) 的集合”是整个平面 R^2；对于函数 y = 2x，点 (1, 5) 属于实数对集合，但并不在函数图象上。",
+        "impact": "漏掉了函数映射规则的限定词，使图象在数学上变成了整个笛卡尔坐标平面，直接扭曲了函数图象作为“自变量与其唯一确定因变量对应关系之轨迹”的集合定义。",
+        "recheck": "核对 CCSSM 8.F.A.1 官方标准原文：“The graph of a function is the set of ordered pairs consisting of an input and the corresponding output”，明确限定有序对必须由“输入值及其对应的输出值”组成，而非全部有序对。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:d-known-revision:5888d8744f858237",
+        "document_id": "d-known-revision",
+        "document_fingerprint": "9a17c3d9be275f0a459d31db62cfc6a6e1a34a450ff61c0e8528b63ec6441978",
+        "locator": "/units/4/narrative",
+        "quote": "随后通过面积割补法证明勾股定理及其逆定理",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-revision:9305b350b26218ac",
+        "document_id": "d-known-revision",
+        "document_fingerprint": "9a17c3d9be275f0a459d31db62cfc6a6e1a34a450ff61c0e8528b63ec6441978",
+        "locator": "/goals/11/allocations/0/opportunity",
+        "quote": "理解图象是所有有序实数对 $(x, y)$ 的集合。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12554,
+      "output_tokens": 12005,
+      "total_tokens": 24559
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "全年叙述认知主线与代数/几何核心逻辑（narrative）",
+      "先备知识与后续高中衔接对应（prerequisites, successors）",
+      "核心目标 8.F.B.4 交接指引、准入与准出标准（handoff_guidance）",
+      "四大教学设计推断与教师专业准备（design_inferences, teacher_preparation）",
+      "单元一：几何变换、全等与相似三角形（unit_1_geom_transform）",
+      "单元二：比例关系、直线斜率与一元一次方程（unit_2_linear_eq）",
+      "单元三：函数概念与线性函数建模（unit_3_linear_functions）",
+      "单元四：二元一次方程组及其应用（unit_4_linear_systems）",
+      "单元五：实数系统、平方根与勾股定理（unit_5_real_numbers_pythagoras）",
+      "单元六：整数指数幂与科学记数法（unit_6_exponents_sci_notation）",
+      "单元七：几何测量：圆柱、圆锥与球体的体积（unit_7_volume_3d）",
+      "单元八：双变量数据分析与统计关联（unit_8_bivariate_stats）",
+      "目标 8.EE.A.1, 8.EE.A.2, 8.EE.A.3, 8.EE.A.4 的机会与证据分配",
+      "目标 8.EE.B.5, 8.EE.B.6 的机会与证据分配",
+      "目标 8.EE.C.7 (8.EE.C.7.a, 8.EE.C.7.b) 的机会与证据分配",
+      "目标 8.EE.C.8 (8.EE.C.8.a, 8.EE.C.8.b, 8.EE.C.8.c) 的机会与证据分配",
+      "目标 8.F.A.1, 8.F.A.2, 8.F.A.3, 8.F.B.4, 8.F.B.5 的机会与证据分配",
+      "目标 8.G.A.1 (a, b, c), 8.G.A.2, 8.G.A.3, 8.G.A.4, 8.G.A.5 的机会与证据分配",
+      "目标 8.G.B.6, 8.G.B.7, 8.G.B.8 的机会与证据分配",
+      "目标 8.G.C.9 的机会与证据分配",
+      "目标 8.NS.A.1, 8.NS.A.2 的机会与证据分配",
+      "目标 8.SP.A.1, 8.SP.A.2, 8.SP.A.3, 8.SP.A.4 的机会与证据分配"
+    ],
+    "error_types": {
+      "statements:d-known-revision:1": "concept_confusion",
+      "statements:d-known-revision:2": "missing_condition"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

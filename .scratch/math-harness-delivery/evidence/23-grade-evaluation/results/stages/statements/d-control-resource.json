@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "sample_id": "d-control-resource",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49",
+  "seconds": 92.3,
+  "error": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "d-control-resource",
+    "findings": [
+      {
+        "id": "statements:d-control-resource:1",
+        "candidate_id": "d-control-resource",
+        "content_fingerprint": "1e21e8e82991ef2bca32eb6d9c1a62742a2893125277969ac55c34aa0e4e88b3",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "断言函数的图象是“所有有序实数对 (x, y) 的集合”。",
+        "requirement": "函数的图象是由输入值（自变量）和由规则唯一确定的输出值（因变量）所组成的有序对 (x, y) 的集合，即满足 y = f(x) 的有序对集合，而非平面上“所有”有序实数对。",
+        "evidence_ids": [
+          "ev:d-control-resource:9305b350b26218ac"
+        ],
+        "counterexample": "若函数的图象是所有有序实数对 (x, y) 的集合，则该图象等同于整个笛卡尔坐标平面 R^2；例如对于函数 y = 2x，点 (1, 5) 也是有序实数对，但并不属于该函数的图象。",
+        "impact": "漏掉了“自变量输入值与对应唯一输出值”的核心限定条件，导致字面表述为假，使学生混淆整个直角坐标平面与特定函数图象的本质区别。",
+        "recheck": "应修正为“理解图象是由输入及其对应的唯一输出构成的有序实数对 (x, y) 的集合”（即 {(x, f(x)) | x 属于定义域}）。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:d-control-resource:2",
+        "candidate_id": "d-control-resource",
+        "content_fingerprint": "1e21e8e82991ef2bca32eb6d9c1a62742a2893125277969ac55c34aa0e4e88b3",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "断言可以通过“面积割补法”证明勾股定理的逆定理。",
+        "requirement": "证明方法与证明对象必须匹配。面积割补拼图法适用于直角三角形勾股定理的证明，而勾股定理逆定理必须在已知 a^2 + b^2 = c^2 的条件下论证角为直角，不能用假定拼成正方形的割补法证明。",
+        "evidence_ids": [
+          "ev:d-control-resource:5888d8744f858237"
+        ],
+        "counterexample": "面积割补法（如弦图拼接）的前提是已知四个三角形为直角三角形，因而四角拼接处能确定构成平角或直角、外围与内部能严密形成正方形，进而由面积等式推出 a^2 + b^2 = c^2；而在证明逆定理时，待证目标正是“该三角形是否为直角三角形”，若直接拼图则无法预先确认拼合边界的直角与平直性，导致循环论证。逆定理需通过构造全等直角三角形（基于勾股定理与 SSS 全等判定）或反证法进行证明。",
+        "impact": "混淆了定理与其逆定理的证明逻辑及方法适用前提，容易在教学中导致用不能证明该结论的方法进行无效推理。",
+        "recheck": "应将表述修改为“通过面积割补法证明勾股定理，并通过全等判定（或逻辑构造法）证明其逆定理”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:d-control-resource:9305b350b26218ac",
+        "document_id": "d-control-resource",
+        "document_fingerprint": "bce41232266a70a80dada3260e0f589d43dba39afd3ee3345542c4d5c118b3f5",
+        "locator": "/goals/11/allocations/0/opportunity",
+        "quote": "理解图象是所有有序实数对 $(x, y)$ 的集合。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-control-resource:5888d8744f858237",
+        "document_id": "d-control-resource",
+        "document_fingerprint": "bce41232266a70a80dada3260e0f589d43dba39afd3ee3345542c4d5c118b3f5",
+        "locator": "/units/4/narrative",
+        "quote": "随后通过面积割补法证明勾股定理及其逆定理",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12562,
+      "output_tokens": 12914,
+      "total_tokens": 25476
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "/narrative",
+      "/prerequisites",
+      "/successors",
+      "/handoff_guidance",
+      "/design_inferences",
+      "/teacher_preparation",
+      "/units/unit_1_geom_transform",
+      "/units/unit_2_linear_eq",
+      "/units/unit_3_linear_functions",
+      "/units/unit_4_linear_systems",
+      "/units/unit_5_real_numbers_pythagoras",
+      "/units/unit_6_exponents_sci_notation",
+      "/units/unit_7_volume_3d",
+      "/units/unit_8_bivariate_stats",
+      "/goals/8.EE.A.1",
+      "/goals/8.EE.A.2",
+      "/goals/8.EE.A.3",
+      "/goals/8.EE.A.4",
+      "/goals/8.EE.B.5",
+      "/goals/8.EE.B.6",
+      "/goals/8.EE.C.7",
+      "/goals/8.EE.C.7.a",
+      "/goals/8.EE.C.7.b",
+      "/goals/8.EE.C.8",
+      "/goals/8.EE.C.8.a",
+      "/goals/8.EE.C.8.b",
+      "/goals/8.EE.C.8.c",
+      "/goals/8.F.A.1",
+      "/goals/8.F.A.2",
+      "/goals/8.F.A.3",
+      "/goals/8.F.B.4",
+      "/goals/8.F.B.5",
+      "/goals/8.G.A.1",
+      "/goals/8.G.A.1.a",
+      "/goals/8.G.A.1.b",
+      "/goals/8.G.A.1.c",
+      "/goals/8.G.A.2",
+      "/goals/8.G.A.3",
+      "/goals/8.G.A.4",
+      "/goals/8.G.A.5",
+      "/goals/8.G.B.6",
+      "/goals/8.G.B.7",
+      "/goals/8.G.B.8",
+      "/goals/8.G.C.9",
+      "/goals/8.NS.A.1",
+      "/goals/8.NS.A.2",
+      "/goals/8.SP.A.1",
+      "/goals/8.SP.A.2",
+      "/goals/8.SP.A.3",
+      "/goals/8.SP.A.4"
+    ],
+    "error_types": {
+      "statements:d-control-resource:1": "missing_condition",
+      "statements:d-control-resource:2": "concept_confusion"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

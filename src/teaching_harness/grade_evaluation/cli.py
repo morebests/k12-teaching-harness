@@ -11,6 +11,7 @@ import json
 import os
 import re
 import time
+from collections.abc import Iterable
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -21,7 +22,9 @@ from pydantic import BaseModel, TypeAdapter
 
 from teaching_harness.grade_evaluation import review as review_module
 from teaching_harness.grade_evaluation import revision as revision_module
+from teaching_harness.grade_evaluation import stages as stages_module
 from teaching_harness.grade_evaluation.calibration import (
+    DetectionMetrics,
     Sample,
     SampleAnswer,
     assert_isolated,
@@ -41,6 +44,7 @@ from teaching_harness.grade_evaluation.records import (
     CriterionRating,
     EvaluationFinding,
     EvidenceRecord,
+    Origin,
     SourceDocument,
     load_rubric,
 )
@@ -63,10 +67,14 @@ from teaching_harness.grade_evaluation.runs import (
     ExtractionSpec,
     ImSource,
     IndexCheck,
+    ProbeCacheEntry,
     RecheckRecord,
     ReviewerLabels,
     ReviewRun,
     RevisionRun,
+    SetReport,
+    StageLabels,
+    StageRun,
     UsageReport,
     UsageTotal,
     VerificationReport,
@@ -76,6 +84,20 @@ from teaching_harness.grade_evaluation.scoring import (
     GradeSummary,
     compare,
     summarize,
+)
+from teaching_harness.grade_evaluation.stages import (
+    ModelPromises,
+    ProbeModelOutput,
+    check_promises,
+    normalize_probe,
+    probe_cache_key,
+    promise_packet,
+    review_promises,
+    review_statements,
+    run_probe_models,
+    solver_packet,
+    stage_rules,
+    statement_packet,
 )
 from teaching_harness.graph import gemini
 
@@ -110,19 +132,46 @@ def _save_transcript(path: Path, messages: list[dict[str, Any]]) -> None:
     path.write_text(json.dumps(messages, ensure_ascii=False, indent=2) + "\n")
 
 
-def samples() -> list[Sample]:
+# 样本集：调试集；第一版保留集（由规则作者设计，第一轮校准后已公开，v2 中只作调试）；
+# 第二版保留集（由不接触规则与检查实现的子代理设计）。
+SETS = {
+    "debug": ("samples/debug.json", "samples/debug-answers.json"),
+    "holdout-v1": ("holdout/samples.json", "holdout/answers.json"),
+    "holdout-v2": ("holdout-2/samples.json", "holdout-2/answers.json"),
+}
+STAGES = ("promises", "probes", "statements")
+
+
+def sample_sets() -> dict[str, list[Sample]]:
     adapter = TypeAdapter(list[Sample])
-    return [
-        *adapter.validate_json((EVAL / "samples/debug.json").read_bytes()),
-        *adapter.validate_json((EVAL / "holdout/samples.json").read_bytes()),
-    ]
+    return {
+        label: adapter.validate_json((EVAL / paths[0]).read_bytes())
+        for label, paths in SETS.items()
+        if (EVAL / paths[0]).exists()
+    }
+
+
+def samples() -> list[Sample]:
+    return [s for group in sample_sets().values() for s in group]
 
 
 def answers() -> list[SampleAnswer]:
     adapter = TypeAdapter(list[SampleAnswer])
     return [
-        *adapter.validate_json((EVAL / "samples/debug-answers.json").read_bytes()),
-        *adapter.validate_json((EVAL / "holdout/answers.json").read_bytes()),
+        a
+        for _, path in SETS.values()
+        if (EVAL / path).exists()
+        for a in adapter.validate_json((EVAL / path).read_bytes())
+    ]
+
+
+def _selected(args: argparse.Namespace) -> list[Sample]:
+    return [
+        s
+        for label, group in sample_sets().items()
+        for s in group
+        if (not args.only or s.id in args.only.split(","))
+        and args.split in {"all", label, s.split, s.kind}
     ]
 
 
@@ -141,19 +190,37 @@ def candidate(sample: Sample) -> GradeCandidate:
     )
 
 
+def model_name() -> str:
+    return os.environ.get("HARNESS_MODEL", "gemini-3.8-flash")
+
+
 def model() -> BaseChatModel:
     # 离线评价允许一次传输重试并放宽超时；生成图保持不重试。
     load_dotenv(ROOT / ".env")
     return gemini(timeout=900, max_retries=1)
 
 
-def require_frozen() -> EvaluationConfig:
-    """保留样本与裁定、修订只在冻结配置下运行；冻结内容改变后必须另建配置版本。"""
+def require_frozen(chosen: Iterable[Sample] = ()) -> EvaluationConfig:
+    """保留样本与裁定、修订只在冻结配置下运行；冻结内容改变后必须另建配置版本。
+
+    所选保留样本还须列在该配置中，旧配置不能放行新保留集。
+    """
     config = EvaluationConfig.model_validate_json((EVAL / "config.json").read_bytes())
     drift = config_drift(config.files, ROOT)
     if config.status != "frozen" or drift:
         raise SystemExit(f"评价配置未冻结或冻结内容已改变：{drift}")
+    listed = set(config.debug_samples + config.holdout_samples)
+    unlisted = [s.id for s in chosen if s.split == "holdout" and s.id not in listed]
+    if unlisted:
+        raise SystemExit(f"冻结配置 {config.id} 没有列出这些保留样本：{unlisted}")
     return config
+
+
+def visible() -> set[str]:
+    """可以运行程序检查和统计结果的样本：调试样本，以及冻结配置已列出的样本。"""
+    config = EvaluationConfig.model_validate_json((EVAL / "config.json").read_bytes())
+    listed = config.debug_samples + config.holdout_samples if config.status == "frozen" else []
+    return {s.id for s in samples() if s.split != "holdout"} | set(listed)
 
 
 def _rules_fingerprint(path: Path) -> str:
@@ -171,7 +238,10 @@ PROGRAM = TypeAdapter(dict[str, ProgramReview])
 
 def cmd_program(_: argparse.Namespace) -> None:
     output = {}
+    shown = visible()
     for sample in samples():
+        if sample.id not in shown:
+            continue
         output[sample.id] = program_review(candidate(sample))
         print(sample.id, len(output[sample.id].findings))
     (RESULTS / "program.json").parent.mkdir(parents=True, exist_ok=True)
@@ -208,7 +278,7 @@ def _merge(
         reviewer_id=reviewer,
         candidate_id=cand.id,
         content_fingerprint=cand.fingerprint,
-        model=os.environ.get("HARNESS_MODEL", "gemini-3.8-flash"),
+        model=model_name(),
         rules_fingerprint=rules_fingerprint,
         criteria=[c for r in results for c in r.criteria],
         ratings=[x for r in results for x in r.ratings],
@@ -226,14 +296,9 @@ def _merge(
 
 
 def cmd_review(args: argparse.Namespace) -> None:
-    chosen = [
-        s
-        for s in samples()
-        if (not args.only or s.id in args.only.split(","))
-        and (args.split == "all" or s.split == args.split or s.kind == args.split)
-    ]
+    chosen = _selected(args)
     if any(s.split == "holdout" for s in chosen):
-        require_frozen()
+        require_frozen(chosen)
     hidden = answers()
     rubric = load_rubric(RUBRIC)
     rules = review_module.RULES.read_text()
@@ -282,6 +347,175 @@ def cmd_review(args: argparse.Namespace) -> None:
         await asyncio.gather(*(one(s) for s in chosen))
 
     asyncio.run(run())
+
+
+STAGE_RULES = {
+    "promises": ["promises"],
+    "statements": ["statements"],
+    "probes": ["solver", "probe"],
+}
+
+
+def _stage_rules(stage: str) -> tuple[list[str], str]:
+    """专项检查使用的各份规则正文及合并指纹；探查核查依次为求解与核查规则。"""
+    texts = [stage_rules(name) for name in STAGE_RULES[stage]]
+    return texts, hashlib.sha256("\n".join(texts).encode()).hexdigest()
+
+
+def _figures(sample: Sample, cand: GradeCandidate, task_id: str) -> dict[str, Any]:
+    """题面图件的绘制参数；图件与该底稿生成时的资源放在同一运行目录。"""
+    assets = (ROOT / sample.standards).parent / "assets"
+    task = next(t for t in cand.content.tasks if t.id == task_id)
+    figures = {}
+    for block in task.blocks:
+        if block.type != "image":
+            continue
+        path = assets / Path(block.src).with_suffix(".json").name
+        if path.exists():
+            figures[block.src] = {"alt": block.alt, "parameters": json.loads(path.read_text())}
+    return figures
+
+
+def cmd_stages(args: argparse.Namespace) -> None:
+    chosen = _selected(args)
+    stages = args.stage.split(",") if args.stage != "all" else list(STAGES)
+    if unknown := set(stages) - set(STAGES):
+        raise SystemExit(f"未知的专项检查：{sorted(unknown)}")
+    if args.recheck:
+        # 重新判定只处理已有的承诺抽取，不调用模型。
+        for sample in chosen:
+            target = RESULTS / f"stages/promises/{sample.id}.json"
+            if target.exists():
+                recheck(sample, target)
+        return
+    if any(s.split == "holdout" for s in chosen):
+        require_frozen(chosen)
+    hidden = answers()
+    llm = model()
+    gate = asyncio.Semaphore(args.concurrency)
+    locks: dict[str, asyncio.Lock] = {}
+
+    async def probe_output(
+        sample: Sample, cand: GradeCandidate, task_id: str, texts: list[str]
+    ) -> tuple[str, ProbeModelOutput]:
+        solver, reviewer = texts
+        figures = _figures(sample, cand, task_id)
+        key = probe_cache_key(cand, task_id, figures, "\n".join(texts), model=model_name())
+        path = RESULTS / f"stages/probes/cache/{key}.json"
+        async with locks.setdefault(key, asyncio.Lock()):
+            if path.exists():
+                return key, _load(path, ProbeCacheEntry).output
+            assert_isolated({**solver_packet(cand, task_id), "figures": figures}, hidden)
+            async with gate:
+                output = await run_probe_models(
+                    llm, cand, task_id, rules=reviewer, solver_rules=solver, assets=figures
+                )
+            _save_transcript(WORK / f"transcripts/stages/probes/{key[:12]}.json", output.transcript)
+            _write(
+                path,
+                ProbeCacheEntry(
+                    key=key,
+                    task_id=task_id,
+                    first_sample=sample.id,
+                    model=model_name(),
+                    output=output,
+                ),
+            )
+            return key, output
+
+    async def one(sample: Sample, stage: str) -> None:
+        target = RESULTS / f"stages/{stage}/{sample.id}.json"
+        if target.exists() and not args.force:
+            return
+        cand = candidate(sample)
+        texts, fingerprint_ = _stage_rules(stage)
+        text = "\n".join(texts)
+        run = StageRun(
+            sample_id=sample.id,
+            stage=stage,  # type: ignore[arg-type]
+            model=model_name(),  # type: ignore[arg-type]
+            rules_fingerprint=fingerprint_,
+            seconds=0,
+        )
+        started = time.monotonic()
+        transcript: list[dict[str, Any]] = []
+        try:
+            if stage == "promises":
+                assert_isolated(promise_packet(cand), hidden)
+                async with gate:
+                    run.promises = await review_promises(
+                        llm, cand, rules=text, transcript=transcript
+                    )
+            elif stage == "statements":
+                assert_isolated(statement_packet(cand), hidden)
+                async with gate:
+                    run.statements = await review_statements(
+                        llm, cand, rules=text, transcript=transcript
+                    )
+            else:
+                for task in cand.content.tasks:
+                    key, output = await probe_output(sample, cand, task.id, texts)
+                    run.probe_cache.append(key)
+                    run.probes.append(normalize_probe(cand, task.id, output))
+        except Exception as exc:  # noqa: BLE001 — 保留失败，继续其他样本。
+            run.error = f"{type(exc).__name__}: {str(exc)[:300]}"
+        run.seconds = round(time.monotonic() - started, 1)
+        if transcript:
+            _save_transcript(
+                WORK / f"transcripts/stages/{stage}/{fingerprint_[:12]}/{sample.id}.json",
+                transcript,
+            )
+        _write(target, run)
+        print(sample.id, stage, run.error or f"{len(run.findings())} 条发现")
+
+    async def main() -> None:
+        await asyncio.gather(*(one(sample, stage) for sample in chosen for stage in stages))
+
+    asyncio.run(main())
+
+
+def recheck(sample: Sample, target: Path) -> None:
+    """只改了程序判定时，用已保存的承诺抽取重新判定。
+
+    抽取时引用失效或单元不存在的承诺没有保存，它们的问题记录沿用；其余问题按本次判定。
+    """
+    run = _load(target, StageRun)
+    if run.error or run.promises is None:
+        return
+    old = run.promises
+    extracted = ModelPromises(promises=[c.promise for c in old.promises])
+    fresh = check_promises(candidate(sample), extracted)
+    run.promises = fresh.model_copy(
+        update={
+            "rejected_citations": old.rejected_citations,
+            "problems": list(dict.fromkeys([*old.problems, *fresh.problems])),
+            "usage": old.usage,
+            "usage_complete": old.usage_complete,
+            "repairs": old.repairs,
+        }
+    )
+    _write(target, run)
+    print(sample.id, "promises 重新判定", f"{len(run.findings())} 条发现")
+
+
+def _stage_runs(stage: str) -> dict[str, StageRun]:
+    return {
+        p.stem: _load(p, StageRun) for p in sorted((RESULTS / f"stages/{stage}").glob("*.json"))
+    }
+
+
+def _established(sample_id: str) -> tuple[list[EvaluationFinding], list[EvidenceRecord]]:
+    """程序与专项检查得出、未被驳回的发现；它们按协议限制评分。"""
+    program = PROGRAM.validate_json((RESULTS / "program.json").read_bytes()).get(sample_id)
+    findings = list(program.findings) if program else []
+    evidence = list(program.evidence) if program else []
+    for stage in STAGES:
+        path = RESULTS / f"stages/{stage}/{sample_id}.json"
+        if path.exists():
+            run = _load(path, StageRun)
+            findings += run.findings()
+            evidence += run.evidence()
+    return [f for f in findings if f.status not in {"rebutted", "resolved"}], evidence
 
 
 def _runs(reviewer: str, directory: Path | None = None) -> dict[str, ReviewRun]:
@@ -341,37 +575,116 @@ def _labels(runs: dict[str, ReviewRun]) -> ReviewerLabels:
     )
 
 
-def cmd_calibrate(_: argparse.Namespace) -> None:
-    chosen = [s for s in samples() if s.kind != "base"]
-    hidden = answers()
-    program = PROGRAM.validate_json((RESULTS / "program.json").read_bytes())
-    evidence = {e.id: e for r in program.values() for e in r.evidence}
-    findings = {k: v.findings for k, v in program.items()}
-    report = CalibrationReport(
-        program=score_detection(chosen, hidden, findings, evidence, "program"),
-        model={},
-        per_sample={},
-        labels={},
-        agreement=None,
+def _stage_labels(runs: dict[str, StageRun]) -> StageLabels:
+    results = [r for run in runs.values() for r in run.results()]
+    return StageLabels(
+        samples=len(runs),
+        errors=sum(bool(run.error) for run in runs.values()),
+        findings=sum(len(r.findings) for r in results),
+        rejected_findings=sum(len(r.rejected_findings) for r in results),
+        rejected_citations=sum(len(r.rejected_citations) for r in results),
+        problems=sum(len(r.problems) for r in results),
+        repairs=sum(r.repairs for r in results),
     )
+
+
+def cmd_calibrate(_: argparse.Namespace) -> None:
+    hidden = answers()
+    # 保留集只在冻结配置列出它之后统计，冻结前不能看到其任何结果。
+    shown = visible()
+    program = PROGRAM.validate_json((RESULTS / "program.json").read_bytes())
+    stages = {
+        stage: {k: v for k, v in _stage_runs(stage).items() if k in shown} for stage in STAGES
+    }
     reviewers = _reviewers()
-    for reviewer in reviewers:
-        runs = {k: v for k, v in _runs(reviewer).items() if k in {s.id for s in chosen}}
-        evidence = {e.id: e for r in runs.values() for e in r.evidence}
-        findings = {k: v.findings for k, v in runs.items()}
-        scored = [s for s in chosen if s.id in runs]
-        report.model[reviewer] = score_detection(scored, hidden, findings, evidence, "model")
-        report.labels[reviewer] = _labels(runs)
-        report.per_sample[reviewer] = {
-            s.id: next(iter(score_detection([s], hidden, findings, evidence, "model")))
-            for s in scored
+    runs = {
+        reviewer: {k: v for k, v in _runs(reviewer).items() if k in shown} for reviewer in reviewers
+    }
+    report = CalibrationReport(
+        sets={},
+        labels={},
+        stage_labels={stage: _stage_labels(r) for stage, r in stages.items() if r},
+        agreement=_agreement(runs[reviewers[0]], runs[reviewers[1]])
+        if len(reviewers) >= 2
+        else None,
+    )
+
+    def detect(
+        label: str,
+        chosen: list[Sample],
+        findings: dict[str, list[EvaluationFinding]],
+        evidence: list[EvidenceRecord],
+        responsible: Origin,
+    ) -> DetectionMetrics:
+        [metrics] = score_detection(
+            chosen,
+            hidden,
+            findings,
+            {e.id: e for e in evidence},
+            responsible,
+            origins={"model", "program"} if responsible == "model" else {"program"},
+            group=label,
+        )
+        return metrics
+
+    for label, group in sample_sets().items():
+        chosen = [s for s in group if s.kind != "base"]
+        if not chosen or not {s.id for s in chosen} <= shown:
+            continue
+        ids = [s.id for s in chosen]
+        checks: dict[str, list[EvaluationFinding]] = {
+            i: list(program[i].findings) for i in ids if i in program
         }
-    if len(reviewers) >= 2:
-        report.agreement = _agreement(_runs(reviewers[0]), _runs(reviewers[1]))
+        check_evidence = [e for i in ids if i in program for e in program[i].evidence]
+        entry = SetReport(
+            samples=ids,
+            program=detect(label, chosen, checks, check_evidence, "program"),
+            stages={},
+            reviewers={},
+            combined={},
+            per_sample={},
+        )
+        for stage, stage_runs in stages.items():
+            done = [s for s in chosen if s.id in stage_runs]
+            if not done:
+                continue
+            entry.stages[stage] = detect(
+                label,
+                done,
+                {s.id: stage_runs[s.id].findings() for s in done},
+                [e for s in done for e in stage_runs[s.id].evidence()],
+                "model",
+            )
+            for s in done:
+                checks.setdefault(s.id, []).extend(stage_runs[s.id].findings())
+                check_evidence += stage_runs[s.id].evidence()
+        for reviewer in reviewers:
+            done = [s for s in chosen if s.id in runs[reviewer]]
+            if not done:
+                continue
+            own = {s.id: runs[reviewer][s.id].findings for s in done}
+            own_evidence = [e for s in done for e in runs[reviewer][s.id].evidence]
+            entry.reviewers[reviewer] = detect(label, done, own, own_evidence, "model")
+            merged = {s.id: [*own[s.id], *checks.get(s.id, [])] for s in done}
+            entry.combined[reviewer] = detect(
+                label, done, merged, own_evidence + check_evidence, "model"
+            )
+            entry.per_sample[reviewer] = {
+                s.id: detect(s.id, [s], own, own_evidence, "model") for s in done
+            }
+            entry.per_sample[f"{reviewer}+checks"] = {
+                s.id: detect(s.id, [s], merged, own_evidence + check_evidence, "model")
+                for s in done
+            }
+        report.sets[label] = entry
+    for reviewer in reviewers:
+        non_base = {k: v for k, v in runs[reviewer].items() if sample_by_id(k).kind != "base"}
+        report.labels[reviewer] = _labels(non_base)
     _write(RESULTS / "calibration.json", report)
     print(
         json.dumps(
-            {k: v.model_dump() for k, v in report.labels.items()}, ensure_ascii=False, indent=2
+            {k: {r: m.detected for r, m in v.combined.items()} for k, v in report.sets.items()},
+            ensure_ascii=False,
         )
     )
 
@@ -394,6 +707,8 @@ def _ratings(
 def _summary(sample: Sample, reviewers: list[str]) -> GradeSummary:
     cand = candidate(sample)
     ratings, _, evidence = _ratings(sample.id, reviewers)
+    established, checked = _established(sample.id)
+    evidence += checked
     adjudications = []
     stored = RESULTS / f"adjudications/{sample.id}.json"
     if stored.exists():
@@ -402,7 +717,13 @@ def _summary(sample: Sample, reviewers: list[str]) -> GradeSummary:
         adjudications = run.adjudications
     status = _status(evidence, cand.documents)
     return summarize(
-        sample.id, cand.fingerprint, ratings, adjudications, load_rubric(RUBRIC), status
+        sample.id,
+        cand.fingerprint,
+        ratings,
+        adjudications,
+        load_rubric(RUBRIC),
+        status,
+        established=established,
     )
 
 
@@ -423,11 +744,13 @@ def cmd_summarize(args: argparse.Namespace) -> None:
 
 
 def cmd_adjudicate(args: argparse.Namespace) -> None:
-    require_frozen()
     sample = sample_by_id(args.candidate)
+    require_frozen([sample])
     reviewers = args.reviewers.split(",")
     cand = candidate(sample)
     ratings, findings, evidence = _ratings(sample.id, reviewers)
+    established, checked = _established(sample.id)
+    evidence += checked
     target = RESULTS / f"adjudications/{sample.id}.json"
     target.unlink(missing_ok=True)  # 按当前评分重新找未决维度，不沿用旧裁定。
     summary = _summary(sample, reviewers)
@@ -441,7 +764,7 @@ def cmd_adjudicate(args: argparse.Namespace) -> None:
         problems=[],
         usage=[],
     )
-    pending = [r.criterion_id for r in summary.criteria if r.status == "unresolved"]
+    pending = [r.criterion_id for r in summary.criteria if r.status in {"unresolved", "conflict"}]
 
     async def run() -> None:
         # 同一事件循环内逐维裁定；模型客户端不能跨事件循环复用。
@@ -457,6 +780,7 @@ def cmd_adjudicate(args: argparse.Namespace) -> None:
                 rubric,
                 args.adjudicator,
                 transcript,
+                established=established,
             )
             _save_transcript(
                 WORK / f"transcripts/{args.adjudicator}/{sample.id}-{criterion}.json", transcript
@@ -519,8 +843,8 @@ def _close(record: RevisionRun, sample: Sample) -> RevisionRun:
 
 
 def cmd_revise(args: argparse.Namespace) -> None:
-    require_frozen()
     sample = sample_by_id(args.candidate)
+    require_frozen([sample])
     slug = re.sub(r"[^a-z0-9]+", "-", args.finding).strip("-")
     out = RESULTS / f"revision/{slug}"
     if (out / "outcome.json").exists() and not args.force:
@@ -664,6 +988,15 @@ def cmd_verify(_: argparse.Namespace) -> None:
     for reviewer in _reviewers():
         for run in _runs(reviewer).values():
             add(reviewer, run.evidence, candidate(sample_by_id(run.sample_id)).documents)
+    for sample_id, review in PROGRAM.validate_json((RESULTS / "program.json").read_bytes()).items():
+        add("program", review.evidence, candidate(sample_by_id(sample_id)).documents)
+    for stage in STAGES:
+        for stage_run in _stage_runs(stage).values():
+            add(
+                stage,
+                stage_run.evidence(),
+                candidate(sample_by_id(stage_run.sample_id)).documents,
+            )
     index = _load(RESULTS / "index.json", EvidenceIndex)
     add("index", index.evidence, {d.id: d for d in index.documents})
     for path in sorted((RESULTS / "adjudications").glob("*.json")):
@@ -677,9 +1010,10 @@ def cmd_verify(_: argparse.Namespace) -> None:
     print(json.dumps(counts, ensure_ascii=False, indent=2))
 
 
-def cmd_freeze(_: argparse.Namespace) -> None:
-    draft = json.loads((EVAL / "config-draft.json").read_text())
+def cmd_freeze(args: argparse.Namespace) -> None:
+    draft = json.loads((EVAL / args.draft).read_text())
     package = Path(__file__).parent
+    holdout = args.holdout_sets.split(",")
     files = {
         "rubric": RUBRIC,
         "protocol": DELIVERY / "year-planning-evaluation.md",
@@ -689,9 +1023,19 @@ def cmd_freeze(_: argparse.Namespace) -> None:
         # 装配评阅输入与应查清单的代码；改动它们等于改变评阅条件。
         "review_code": package / "review.py",
         "checklist_code": package / "checks.py",
+        "stage_code": package / "stages.py",
+        "scoring_code": package / "scoring.py",
+        **{
+            f"stage_rules_{n}": stages_module.RESOURCES / f"grade-{n}.md"
+            for n in ("promises", "solver", "probe", "statements")
+        },
         "debug_samples": EVAL / "samples/debug.json",
         "debug_answers": EVAL / "samples/debug-answers.json",
-        "holdout": EVAL / "holdout",
+        **{
+            label.replace("-", "_"): (EVAL / SETS[label][0]).parent
+            for label in SETS
+            if label != "debug" and (EVAL / SETS[label][0]).exists()
+        },
         "extractions": EVAL / "extractions.json",
         "im_sources": EVAL / "im-sources.json",
     }
@@ -702,8 +1046,12 @@ def cmd_freeze(_: argparse.Namespace) -> None:
             "frozen_on": datetime.now(UTC).astimezone().date(),
             "rubric_version": load_rubric(RUBRIC).version,
             "files": {k: file_ref(v, ROOT) for k, v in files.items()},
-            "debug_samples": [s.id for s in samples() if s.split == "debug"],
-            "holdout_samples": [s.id for s in samples() if s.split == "holdout"],
+            "debug_samples": [
+                s.id for label, g in sample_sets().items() if label not in holdout for s in g
+            ],
+            "holdout_samples": [
+                s.id for label, g in sample_sets().items() if label in holdout for s in g
+            ],
         }
     )
     _write(EVAL / "config.json", config)
@@ -732,6 +1080,14 @@ def cmd_usage(_: argparse.Namespace) -> None:
         for run in _runs("", directory).values():
             for call in run.calls:
                 add(f"{directory.name}-{directory.parent.name}", call.usage, call.usage_complete)
+    for stage in ("promises", "statements"):
+        for stage_run in _stage_runs(stage).values():
+            for result in stage_run.results():
+                add(stage, result.usage, result.usage_complete)
+    # 探查按题面缓存，用量只在缓存条目上计一次。
+    for path in sorted((RESULTS / "stages/probes/cache").glob("*.json")):
+        entry = _load(path, ProbeCacheEntry)
+        add("probes", entry.output.usage, entry.output.usage_complete)
     for path in sorted((RESULTS / "adjudications").glob("*.json")):
         stored = _load(path, AdjudicationRun)
         for adjudication_call in stored.usage:
@@ -813,71 +1169,80 @@ def _table(headers: list[str], rows: list[list[Any]]) -> str:
     return "\n".join(lines)
 
 
+def _metric_row(name: str, m: DetectionMetrics) -> list[Any]:
+    return [
+        name,
+        m.samples,
+        m.control_samples,
+        m.expected,
+        m.detected,
+        m.location_correct,
+        m.severity_matched,
+        ", ".join(m.missed) or "—",
+        ", ".join(m.critical_missed) or "—",
+        len(m.false_positives),
+        len(m.other_findings),
+    ]
+
+
 def cmd_report(_: argparse.Namespace) -> None:
     """由结果文件生成报告表格；叙述与人工核对写在证据 README。"""
     calibration = _load(RESULTS / "calibration.json", CalibrationReport)
-    parts = ["# 23 校准结果表（由 `evaluate_grade.py report` 生成）"]
-    rows = [
-        [
-            origin,
-            m.split,
-            m.samples,
-            m.control_samples,
-            m.expected,
-            m.detected,
-            m.location_correct,
-            m.severity_matched,
-            ", ".join(m.missed) or "—",
-            ", ".join(m.critical_missed) or "—",
-            len(m.false_positives),
-            len(m.other_findings),
-        ]
-        for origin, metrics in [("program", calibration.program), *calibration.model.items()]
-        for m in metrics
+    parts = ["# 23 校准结果表（由 `evaluate_grade.py report` 生成；自动匹配，人工核对见 README）"]
+    headers = [
+        "检查",
+        "样本",
+        "合法对照",
+        "应检出",
+        "检出",
+        "位置正确",
+        "严重度一致",
+        "漏报",
+        "重大漏报",
+        "误报候选",
+        "其他发现",
     ]
-    parts.append(
-        "## 检出、漏报与误报候选（自动匹配；人工核对见 README）\n\n"
-        + _table(
+    for label, entry in calibration.sets.items():
+        rows = []
+        if entry.program:
+            rows.append(_metric_row("程序", entry.program))
+        rows += [_metric_row(f"专项：{k}", m) for k, m in entry.stages.items()]
+        rows += [_metric_row(f"整体评阅 {k}", m) for k, m in entry.reviewers.items()]
+        rows += [_metric_row(f"{k}＋程序＋专项", m) for k, m in entry.combined.items()]
+        parts.append(f"## 样本集 {label}\n\n" + _table(headers, rows))
+        sample_rows = [
             [
-                "检查",
-                "样本集",
-                "样本",
-                "合法对照",
-                "应检出",
-                "检出",
-                "位置正确",
-                "严重度一致",
-                "漏报",
-                "重大漏报",
-                "误报候选",
-                "其他发现",
-            ],
-            rows,
-        )
-    )
-    rows = [
-        [
-            reviewer,
-            sample_id,
-            m.expected,
-            m.detected,
-            ", ".join(m.missed) or "—",
-            ", ".join(m.false_positives) or "—",
-            len(m.other_findings),
+                who,
+                sample_id,
+                m.expected,
+                m.detected,
+                ", ".join(m.missed) or "—",
+                ", ".join(m.false_positives) or "—",
+                len(m.other_findings),
+            ]
+            for who, per in entry.per_sample.items()
+            for sample_id, m in per.items()
         ]
-        for reviewer, per_sample in calibration.per_sample.items()
-        for sample_id, m in per_sample.items()
-    ]
-    parts.append(
-        "## 模型逐样本\n\n"
-        + _table(["评阅", "样本", "应检出", "检出", "漏报", "误报候选", "其他发现"], rows)
-    )
+        parts.append(
+            f"### {label} 逐样本\n\n"
+            + _table(
+                ["检查", "样本", "应检出", "检出", "漏报", "误报候选", "其他发现"], sample_rows
+            )
+        )
     fields = list(ReviewerLabels.model_fields)
     parts.append(
-        "## 模型作答可靠性\n\n"
+        "## 整体评阅的作答可靠性\n\n"
         + _table(
             ["评阅", *fields],
             [[k, *v.model_dump().values()] for k, v in calibration.labels.items()],
+        )
+    )
+    stage_fields = list(StageLabels.model_fields)
+    parts.append(
+        "## 专项检查的作答可靠性\n\n"
+        + _table(
+            ["专项", *stage_fields],
+            [[k, *v.model_dump().values()] for k, v in calibration.stage_labels.items()],
         )
     )
     if calibration.agreement:
@@ -895,7 +1260,7 @@ def cmd_report(_: argparse.Namespace) -> None:
                 c.critical_failure,
                 "; ".join(f"{o.reviewer_id}={o.score}" for o in c.originals),
                 "; ".join(c.triggers) or "—",
-                len(c.problems),
+                "；".join(c.problems) or "—",
             ]
             for c in summary.criteria
         ]
@@ -913,7 +1278,7 @@ def cmd_report(_: argparse.Namespace) -> None:
                     "重大失败",
                     "原始分",
                     "复核触发",
-                    "问题数",
+                    "问题",
                 ],
                 rows,
             )
@@ -959,12 +1324,28 @@ def main() -> None:
     sub.add_parser("program", help="对全部样本运行程序检查").set_defaults(run=cmd_program)
     review = sub.add_parser("review", help="模型独立评阅")
     review.add_argument("--reviewer", required=True)
-    review.add_argument("--split", default="debug", choices=["debug", "holdout", "base", "all"])
+    review.add_argument(
+        "--split",
+        default="debug",
+        help="all、样本集名（debug／holdout-v1／holdout-v2）、holdout 或 base",
+    )
     review.add_argument("--only", default="")
     review.add_argument("--groups", default="", help="例如 Q1;Q3,Q5,Q6")
     review.add_argument("--concurrency", type=int, default=3)
     review.add_argument("--force", action="store_true")
     review.set_defaults(run=cmd_review)
+    stages = sub.add_parser("stages", help="专项检查：承诺、探查、数学表述")
+    stages.add_argument(
+        "--stage", default="all", help="promises、probes、statements，逗号分隔或 all"
+    )
+    stages.add_argument("--split", default="debug", help="all、样本集名、holdout 或 base")
+    stages.add_argument("--only", default="")
+    stages.add_argument("--concurrency", type=int, default=3)
+    stages.add_argument("--force", action="store_true")
+    stages.add_argument(
+        "--recheck", action="store_true", help="承诺核查只按已保存的抽取重新判定，不调用模型"
+    )
+    stages.set_defaults(run=cmd_stages)
     sub.add_parser("calibrate", help="统计程序与模型的检出、漏报和误报").set_defaults(
         run=cmd_calibrate
     )
@@ -986,7 +1367,10 @@ def main() -> None:
     rev.set_defaults(run=cmd_revise)
     sub.add_parser("index", help="登记并核验 IM 与本项目的规划证据").set_defaults(run=cmd_index)
     sub.add_parser("verify", help="重新核验全部证据").set_defaults(run=cmd_verify)
-    sub.add_parser("freeze", help="冻结评价配置").set_defaults(run=cmd_freeze)
+    freeze = sub.add_parser("freeze", help="冻结评价配置")
+    freeze.add_argument("--draft", default="config-draft.json")
+    freeze.add_argument("--holdout-sets", default="holdout-v1", help="作为保留集的样本集，逗号分隔")
+    freeze.set_defaults(run=cmd_freeze)
     sub.add_parser("usage", help="汇总模型调用用量").set_defaults(run=cmd_usage)
     sub.add_parser("report", help="由结果文件生成校准表格").set_defaults(run=cmd_report)
     show = sub.add_parser("show", help="查看一次模型评阅的逐条结论并对照答案")

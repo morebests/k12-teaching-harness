@@ -12,12 +12,12 @@ from typing import Any, Literal
 
 from langchain.agents import create_agent
 from langchain.agents.structured_output import ToolStrategy
+from langchain.tools import tool
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, messages_to_dict
 from pydantic import Field, ValidationError
 
 from teaching_harness.contracts import Contract
-from teaching_harness.curriculum_tools import calculate_math
 from teaching_harness.grade_evaluation.checks import TEACHER_QUESTIONS, GradeCandidate, checklist
 from teaching_harness.grade_evaluation.evidence import EvidenceError, cite, evidence_id
 from teaching_harness.grade_evaluation.records import (
@@ -37,7 +37,12 @@ from teaching_harness.grade_evaluation.records import (
     Severity,
     SourceDocument,
 )
-from teaching_harness.grade_evaluation.scoring import original_rating, rating_triggers
+from teaching_harness.grade_evaluation.scoring import (
+    PROGRAM_REVIEWER,
+    original_rating,
+    rating_triggers,
+)
+from teaching_harness.mathematics import calculate
 
 Source = Literal["candidate", "conditions", "standards"]
 # 模型只给原文片段；判断保存在所属对象结论、发现或裁定中，不写进提取。
@@ -126,6 +131,16 @@ class ReviewResult(Contract):
 
 
 RULES = Path(__file__).parents[1] / "resources/grade-review.md"
+
+
+@tool
+def calculate_math(expression: str) -> str:
+    """用有理数核对有限加减乘除和整数幂，例如 (23-11)/(6-2)。"""
+    # 评价调用没有生成图的执行中间件；表达式不合法时把原因返回给模型，而不是中断评阅。
+    try:
+        return calculate(expression)
+    except (ValueError, ArithmeticError) as exc:
+        return f"工具未完成：{exc}"
 
 
 def review_rules() -> str:
@@ -512,6 +527,13 @@ def normalize(
     )
 
 
+class FindingVerdict(Contract):
+    finding_id: str
+    upheld: bool
+    reason: str
+    citations: list[ModelCitation] = Field(description="驳回时引用证明发现不成立的原文")
+
+
 class ModelAdjudication(Contract):
     criterion_id: CriterionId
     score: int | None = Field(description="0–4 单值；仍无法确定时为 null 并给区间")
@@ -521,6 +543,9 @@ class ModelAdjudication(Contract):
     rationale: str
     supporting: list[ModelCitation]
     needs_more_reading: str
+    finding_verdicts: list[FindingVerdict] = Field(
+        description="对输入中每条已确认发现给出维持或驳回；没有已确认发现时为空"
+    )
 
 
 class AdjudicationResult(Contract):
@@ -537,6 +562,9 @@ ADJUDICATION_RULES = (
     "逐项核对双方引用的原文与对象结论，依据判据形成有理由的单一分数；证据仍不足以区分相邻分数时给出区间。"
     "不要取平均，也不要因为一方更自信而采纳。supporting 逐字引用支持裁定的原文，格式同评阅引用。"
     "needs_more_reading 写明还需补读什么，没有则为空。"
+    "输入若有 established_findings（程序或专项检查得出的发现），逐条在 finding_verdicts 中维持或驳回："
+    "驳回须引用证明其不成立的原文；rebuttable 为 false 的是程序核对的结构事实，只能维持；"
+    "维持的发现按协议限制该维分数（重大失败为 0，关键缺口最高 2）。"
 )
 
 
@@ -590,13 +618,32 @@ async def adjudicate(
     rubric: LoadedRubric,
     adjudicator_id: str,
     transcript: list[dict[str, Any]] | None = None,
+    *,
+    established: list[EvaluationFinding] | None = None,
 ) -> AdjudicationResult:
-    """裁定输入包含双方原始结论；这是复核本身的需要，原始评分另行保留不被改写。"""
+    """裁定输入包含双方原始结论与已确认发现；这是复核本身的需要，原始记录不被改写。"""
     records = {e.id: e for e in evidence}
     own = sorted((r for r in ratings if r.criterion_id == criterion), key=lambda r: r.reviewer_id)
+    binding = [f for f in established or [] if f.criterion_id == criterion]
     packet = {
         **review_packet(candidate, [criterion], rubric),
         "original_ratings": [_original_view(r, findings, records) for r in own],
+        "established_findings": [
+            {
+                "id": f.id,
+                "rebuttable": f.reviewer_id != PROGRAM_REVIEWER,
+                "severity": f.severity,
+                "claim": f.claim,
+                "requirement": f.requirement,
+                "counterexample": f.counterexample,
+                "quotes": [
+                    {"pointer": records[i].locator, "quote": records[i].quote}
+                    for i in f.evidence_ids
+                    if i in records
+                ],
+            }
+            for f in binding
+        ],
     }
     agent = create_agent(
         model,
@@ -611,7 +658,10 @@ async def adjudicate(
     )
     target = ObjectRef(kind="grade", id=f"{criterion.lower()}-adjudication")
     normalizer = _Normalizer(candidate, adjudicator_id, criterion)
-    normalizer.cite(state["structured_response"].supporting, target)
+    first = state["structured_response"]
+    normalizer.cite(first.supporting, target)
+    for verdict in first.finding_verdicts:
+        normalizer.cite(verdict.citations, target)
     repairs = 0
     if normalizer.rejected:
         failed = [c.model_dump() for c in normalizer.rejected]
@@ -631,6 +681,21 @@ async def adjudicate(
     # 失效依据的身份保留在裁定中，汇总时与评阅一样判为引用失效，不悄悄丢弃。
     ids = normalizer.cite(decision.supporting, target)
     problems = [f"裁定引用无法核实：{r.quote}" for r in normalizer.rejected]
+    known = {f.id: f for f in binding}
+    rejected_findings = []
+    for verdict in decision.finding_verdicts:
+        if verdict.upheld or verdict.finding_id not in known:
+            continue
+        if known[verdict.finding_id].reviewer_id == PROGRAM_REVIEWER:
+            problems.append(f"{verdict.finding_id} 是程序核对的结构事实，裁定不能驳回")
+            continue
+        before = len(normalizer.rejected)
+        proof = normalizer.cite(verdict.citations, target)
+        if proof and len(normalizer.rejected) == before:
+            rejected_findings.append(verdict.finding_id)
+            ids += [i for i in proof if i not in ids]
+        else:
+            problems.append(f"驳回 {verdict.finding_id} 的引用无法核实，该发现继续限制分数")
     adjudication = None
     if not any(i in normalizer.evidence for i in ids):
         problems.append("裁定没有能在原文核实的依据，维度保持未决")
@@ -651,6 +716,7 @@ async def adjudicate(
                 interval=_interval(decision.score, decision.score_low, decision.score_high),
                 critical_failure=decision.critical_failure,
                 supporting_evidence=ids,
+                rejected_findings=rejected_findings,
                 needs_more_reading=decision.needs_more_reading,
                 rationale=decision.rationale,
             )

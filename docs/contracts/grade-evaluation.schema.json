@@ -99,6 +99,14 @@
           "title": "Supporting Evidence",
           "type": "array"
         },
+        "rejected_findings": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Rejected Findings",
+          "type": "array"
+        },
         "needs_more_reading": {
           "default": "",
           "title": "Needs More Reading",
@@ -295,36 +303,16 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "const": 1,
-          "default": 1,
+          "const": 2,
+          "default": 2,
           "title": "Schema Version",
           "type": "integer"
         },
-        "program": {
-          "items": {
-            "$ref": "#/$defs/DetectionMetrics"
-          },
-          "title": "Program",
-          "type": "array"
-        },
-        "model": {
+        "sets": {
           "additionalProperties": {
-            "items": {
-              "$ref": "#/$defs/DetectionMetrics"
-            },
-            "type": "array"
+            "$ref": "#/$defs/SetReport"
           },
-          "title": "Model",
-          "type": "object"
-        },
-        "per_sample": {
-          "additionalProperties": {
-            "additionalProperties": {
-              "$ref": "#/$defs/DetectionMetrics"
-            },
-            "type": "object"
-          },
-          "title": "Per Sample",
+          "title": "Sets",
           "type": "object"
         },
         "labels": {
@@ -332,6 +320,13 @@
             "$ref": "#/$defs/ReviewerLabels"
           },
           "title": "Labels",
+          "type": "object"
+        },
+        "stage_labels": {
+          "additionalProperties": {
+            "$ref": "#/$defs/StageLabels"
+          },
+          "title": "Stage Labels",
           "type": "object"
         },
         "agreement": {
@@ -346,10 +341,9 @@
         }
       },
       "required": [
-        "program",
-        "model",
-        "per_sample",
+        "sets",
         "labels",
+        "stage_labels",
         "agreement"
       ],
       "title": "CalibrationReport",
@@ -837,6 +831,7 @@
           "enum": [
             "settled",
             "unresolved",
+            "conflict",
             "unobservable",
             "not_comparable",
             "missing",
@@ -909,6 +904,26 @@
           },
           "title": "Problems",
           "type": "array"
+        },
+        "established_cap": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Established Cap"
+        },
+        "binding_findings": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Binding Findings",
+          "type": "array"
         }
       },
       "required": [
@@ -932,10 +947,8 @@
           "type": "string"
         },
         "split": {
-          "enum": [
-            "debug",
-            "holdout"
-          ],
+          "maxLength": 20000,
+          "minLength": 1,
           "title": "Split",
           "type": "string"
         },
@@ -1042,6 +1055,7 @@
           "enum": [
             "settled",
             "unresolved",
+            "conflict",
             "unobservable",
             "not_comparable",
             "missing",
@@ -1055,6 +1069,7 @@
           "enum": [
             "settled",
             "unresolved",
+            "conflict",
             "unobservable",
             "not_comparable",
             "missing",
@@ -3003,6 +3018,71 @@
       "title": "ScoreInterval",
       "type": "object"
     },
+    "SetReport": {
+      "additionalProperties": false,
+      "description": "一个样本集的检出统计；combined 为整体评阅加程序与专项检查的合并结果。",
+      "properties": {
+        "samples": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Samples",
+          "type": "array"
+        },
+        "program": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DetectionMetrics"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "stages": {
+          "additionalProperties": {
+            "$ref": "#/$defs/DetectionMetrics"
+          },
+          "title": "Stages",
+          "type": "object"
+        },
+        "reviewers": {
+          "additionalProperties": {
+            "$ref": "#/$defs/DetectionMetrics"
+          },
+          "title": "Reviewers",
+          "type": "object"
+        },
+        "combined": {
+          "additionalProperties": {
+            "$ref": "#/$defs/DetectionMetrics"
+          },
+          "title": "Combined",
+          "type": "object"
+        },
+        "per_sample": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "$ref": "#/$defs/DetectionMetrics"
+            },
+            "type": "object"
+          },
+          "title": "Per Sample",
+          "type": "object"
+        }
+      },
+      "required": [
+        "samples",
+        "program",
+        "stages",
+        "reviewers",
+        "combined",
+        "per_sample"
+      ],
+      "title": "SetReport",
+      "type": "object"
+    },
     "SourceDocument": {
       "additionalProperties": false,
       "description": "一份被引用材料；指纹针对 snapshot 的实际字节。",
@@ -3124,6 +3204,50 @@
         "note"
       ],
       "title": "SpotCheck",
+      "type": "object"
+    },
+    "StageLabels": {
+      "additionalProperties": false,
+      "properties": {
+        "samples": {
+          "title": "Samples",
+          "type": "integer"
+        },
+        "errors": {
+          "title": "Errors",
+          "type": "integer"
+        },
+        "findings": {
+          "title": "Findings",
+          "type": "integer"
+        },
+        "rejected_findings": {
+          "title": "Rejected Findings",
+          "type": "integer"
+        },
+        "rejected_citations": {
+          "title": "Rejected Citations",
+          "type": "integer"
+        },
+        "problems": {
+          "title": "Problems",
+          "type": "integer"
+        },
+        "repairs": {
+          "title": "Repairs",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "samples",
+        "errors",
+        "findings",
+        "rejected_findings",
+        "rejected_citations",
+        "problems",
+        "repairs"
+      ],
+      "title": "StageLabels",
       "type": "object"
     },
     "Unobservable": {

@@ -15,7 +15,6 @@ from langchain_core.messages import HumanMessage, messages_to_dict
 from pydantic import Field, ValidationError
 
 from teaching_harness.contracts import Contract
-from teaching_harness.curriculum_tools import calculate_math
 from teaching_harness.grade_evaluation.calibration import (
     Mutation,
     MutationError,
@@ -36,6 +35,7 @@ from teaching_harness.grade_evaluation.records import (
 from teaching_harness.grade_evaluation.review import (
     MODEL_EXTRACTION,
     ModelCitation,
+    calculate_math,
     candidate_view,
     conditions_view,
     model_usage,

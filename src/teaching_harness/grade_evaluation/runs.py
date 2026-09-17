@@ -25,6 +25,12 @@ from teaching_harness.grade_evaluation.review import (
     ReviewResult,
 )
 from teaching_harness.grade_evaluation.revision import RevisionOutcome
+from teaching_harness.grade_evaluation.stages import (
+    ProbeModelOutput,
+    ProbeResult,
+    PromiseResult,
+    StatementResult,
+)
 
 # 供应商返回的 input_tokens、output_tokens、total_tokens。
 Usage = dict[str, int]
@@ -132,12 +138,66 @@ class Agreement(Contract):
     critical_disagreements: int
 
 
-class CalibrationReport(Contract):
+class StageRun(Contract):
+    """一个样本的一项专项检查。探查的模型输出按题面缓存，用量只记在缓存条目上。"""
+
     schema_version: Literal[1] = 1
-    program: list[DetectionMetrics]
-    model: dict[str, list[DetectionMetrics]]
+    sample_id: RecordId
+    stage: Literal["promises", "probes", "statements"]
+    model: Text
+    rules_fingerprint: Fingerprint
+    seconds: float
+    error: str | None = None
+    promises: PromiseResult | None = None
+    statements: StatementResult | None = None
+    probes: list[ProbeResult] = Field(default_factory=list)
+    probe_cache: list[Fingerprint] = Field(default_factory=list)
+
+    def results(self) -> list[PromiseResult | StatementResult | ProbeResult]:
+        return [r for r in (self.promises, self.statements) if r] + list(self.probes)
+
+    def findings(self) -> list[EvaluationFinding]:
+        return [f for r in self.results() for f in r.findings]
+
+    def evidence(self) -> list[EvidenceRecord]:
+        return [e for r in self.results() for e in r.evidence]
+
+
+class ProbeCacheEntry(Contract):
+    schema_version: Literal[1] = 1
+    key: Fingerprint
+    task_id: Text
+    first_sample: RecordId
+    model: Text
+    output: ProbeModelOutput
+
+
+class SetReport(Contract):
+    """一个样本集的检出统计；combined 为整体评阅加程序与专项检查的合并结果。"""
+
+    samples: list[RecordId]
+    program: DetectionMetrics | None
+    stages: dict[str, DetectionMetrics]
+    reviewers: dict[str, DetectionMetrics]
+    combined: dict[str, DetectionMetrics]
     per_sample: dict[str, dict[str, DetectionMetrics]]
+
+
+class StageLabels(Contract):
+    samples: int
+    errors: int
+    findings: int
+    rejected_findings: int
+    rejected_citations: int
+    problems: int
+    repairs: int
+
+
+class CalibrationReport(Contract):
+    schema_version: Literal[2] = 2
+    sets: dict[str, SetReport]
     labels: dict[str, ReviewerLabels]
+    stage_labels: dict[str, StageLabels]
     agreement: Agreement | None
 
 

@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "key": "89cdc0addd0fb508384558e522c063ae8bdb536b20bdd4b92d089d06dc62a4af",
+  "task_id": "task_4_stats_linear_interpretation",
+  "first_sample": "d-known-initial",
+  "model": "gemini-3.8-flash",
+  "output": {
+    "solution": {
+      "parts": [
+        {
+          "question": "1. 结合本调查的现实情境，详细解释该线性模型中斜率“6.5”的统计学含义；",
+          "answer": "斜率 6.5 表示：在所适用的自主复习时间范围内，学生每周自主复习时间每增加 1 个小时，其期末测试的预测成绩（或平均成绩）大约提高 6.5 分。",
+          "work": "线性回归/趋势方程中，斜率表示自变量每变动 1 个单位时，因变量的平均变动量或预测增量。在本题中，自变量 $x$ 的单位是“小时”，因变量 $\\hat{y}$ 的单位是“分”。因此斜率 6.5 表示每周自主复习时间每增加 1 小时，期末测试预测成绩平均增加 6.5 分。"
+        },
+        {
+          "question": "2. 解释纵截距“48”在该情境中所代表的现实意义；",
+          "answer": "纵截距 48 表示：当学生每周自主复习时间为 0 小时（即完全不进行课外自主复习）时，该模型预测的期末测试基础成绩（或该群体的平均基准成绩）为 48 分。",
+          "work": "在方程 $\\hat{y} = 6.5x + 48$ 中，当 $x = 0$ 时，$\\\\hat{y} = 48$。在现实情境中，$x=0$ 代表学生没有进行每周的课外自主复习，纵截距反映了仅依靠课堂学习等常规教学条件下，学生群体预测的基准起步得分。"
+        },
+        {
+          "question": "3. 如果一位学生每周自主复习时间为 6 小时，依据该模型，他的预测测试成绩是多少分？",
+          "answer": "依据该模型，他的预测测试成绩是 87 分。",
+          "work": "将 $x = 6$ 代入拟合直线方程：\n$$\\hat{y} = 6.5 \\times 6 + 48 = 39 + 48 = 87\\text{（分）}$$"
+        },
+        {
+          "question": "4. 该预测得分是否意味着每周复习 6 小时的学生其实际考试成绩一定完全等于这个分数？为什么？",
+          "answer": "不一定完全等于 87 分。因为线性拟合直线反映的是两个变量之间的一般统计趋势或群体平均水平，而不是确定性的函数因果关系；实际成绩还受到学习效率、基础知识、心理状态、考试发挥等多重随机因素影响，真实数据点围绕趋势线上下波动，存在残差。",
+          "work": "统计模型给出的预测值是因变量的条件均值或趋势估计，具有统计波动性。不同个体存在差异，且散点图中的实际观测值与拟合趋势线之间普遍存在偏差（即残差 $y - \\hat{y}$），因此不能将统计关联预测等同于严格确定的绝对值。"
+        }
+      ],
+      "required_conditions": [
+        "变量定义与单位：$x$ 为每周自主复习时间（小时），$y$ 与 $\\hat{y}$ 为期末测试成绩（分，满分 100 分）。",
+        "线性趋势假设：假设在调查涵盖的自变量范围内，期末成绩与自主复习时间满足近似线性相关关系，拟合方程为 $\\hat{y} = 6.5x + 48$。",
+        "合理定义域：复习时间 $x \\ge 0$；同时由满分 100 分限制可知，预测值满足 $\\hat{y} \\le 100$ 时对应 $x \\le 8$ 小时，模型仅在合理复习时间区间内有效。",
+        "统计学解释前提：样本容量为 28 人，模型反映的是该样本所代表群体的平均趋势，而非个体必然结果。"
+      ],
+      "missing_information": [
+        "题面未给出 28 名学生的原始散点图或数据列表，未明确每周自主复习时间 $x$ 的实际取值范围（观测区间），无法严格检验 $x=0$ 与 $x=6$ 是否处于样本数据的合理内插区间内。",
+        "题面未提供拟合优度指标（如相关系数 $r$、决定系数 $R^2$ 或残差标准差），无法定量评估预测的精确度与离散程度。"
+      ],
+      "notes": "该模型为一元线性经验拟合直线。由于满分为 100 分，当 $x > 8$ 时预测值将超过 100 分，且自主复习时间不能为负，因此该模型的合理适用范围受到满分上限与现实逻辑的约束。"
+    },
+    "review": {
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "作者解答正确阐释了斜率 6.5 表示每周自主复习时间每多投入 1 小时，预测期末测试成绩平均增加 6.5 分，与独立解答的核心统计含义一致。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "作者解答准确指出了截距 48 表示复习时间为 0 小时时的基准预测得分为 48 分，与独立解答一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "代入 x=6 计算预测成绩为 87 分，计算与独立解答完全一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "作者解答明确指出拟合直线给出的是平均期望预测值而非个体确定值，真实成绩受偶然因素影响存在上下波动，与独立解答一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "正文明确给出了自变量 x（自主复习时间/小时）与预测成绩 y_hat（分，满分100分）的定义与单位。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "正文给出了线性拟合直线代数方程 y_hat = 6.5x + 48，满足线性趋势分析条件。"
+        },
+        {
+          "item": "condition-3",
+          "author": "omitted",
+          "matters": false,
+          "finding": 0,
+          "note": "作者未讨论因满分 100 分导致的自变量上限约束（x <= 8），但题面第 3 问给定的 x=6 在合理范围内，未改变各问的求解结论。"
+        },
+        {
+          "item": "condition-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "题面设定了 28 名八年级学生的样本情境，并在第 4 问中体现了统计模型反映群体趋势而非个体必然性的属性。"
+        },
+        {
+          "item": "missing-1",
+          "author": "omitted",
+          "matters": true,
+          "finding": 0,
+          "note": "题面声称绘制了散点图并进行了调查，但未提供任何散点图或 28 名学生的原始数据，导致无法确认数据范围与内插/外推条件。"
+        },
+        {
+          "item": "missing-2",
+          "author": "omitted",
+          "matters": false,
+          "finding": 0,
+          "note": "八年级统计标准（8.SP.A.2/3）只要求定性观察和理解趋势线与波动，不要求提供高中阶段的高阶拟合优度指标（如 R^2），不影响八年级任务求解。"
+        },
+        {
+          "item": "material-1",
+          "author": "omitted",
+          "matters": true,
+          "finding": 0,
+          "note": "prompt 声称“利用双变量散点图的经验拟合直线方程”，但探查正文 figures 为空，未提供散点图。"
+        },
+        {
+          "item": "material-2",
+          "author": "omitted",
+          "matters": true,
+          "finding": 0,
+          "note": "support 要求“教师引导其观察黑板上散点图中散落分布在直线两侧的点”，但探查未提供散点图或数据点，导致教学支持语无法实际执行。"
+        },
+        {
+          "item": "material-3",
+          "author": "omitted",
+          "matters": false,
+          "finding": 0,
+          "note": "此处为 design_consequence 中的陈述性提法，图件缺失的核心影响已在 material-1/2/4 中报告。"
+        },
+        {
+          "item": "material-4",
+          "author": "omitted",
+          "matters": true,
+          "finding": 0,
+          "note": "正文 blocks[0] 声称“进行了统计调查，绘制了散点图”，但正文没有任何图表，未提供散点图。"
+        }
+      ],
+      "findings": [
+        {
+          "kind": "probe",
+          "id": "task_4_stats_linear_interpretation",
+          "severity": "critical",
+          "claim": "正文声称存在对 28 名学生的调查散点图，且支持语依赖教师在黑板上呈现散点图，但正文 figures 为空且未提供任何数据，把未提供的图表和调查当作既有事实。",
+          "requirement": "题面、解答或支持语要求使用的数据、表格、图必须真实提供；不得将不存在的调查或合成数据声称已绘制图表并要求教学使用。",
+          "citations": [
+            {
+              "source": "candidate",
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/0/text",
+              "quote": "数学教研组对 28 名八年级学生每周自主复习数学的时间与期末测试成绩进行了统计调查，绘制了散点图，并拟合了一条经验趋势直线"
+            },
+            {
+              "source": "candidate",
+              "pointer": "/tasks/task_4_stats_linear_interpretation/support",
+              "quote": "教师引导其观察黑板上散点图中散落分布在直线两侧的点，提示其‘数据点并未全部落在直线上’。"
+            }
+          ],
+          "counterexample": "正文 figures 字段为空，未提供 28 个样本点 (x, y) 的坐标数据或对应散点图。支持语要求“教师引导其观察黑板上散点图中散落分布在直线两侧的点”，但由于缺乏散点数据和图件，教师在黑板上无法真实绘制散点分布；同时学生也无法据图核对 x=0 与 x=6 是否在样本实际观测区间内，无法直观感受散点偏离拟合直线的残差情况。",
+          "impact": "导致教学支持语无法落地执行，且使学生脱离散点图的直观支撑，弱化了对经验拟合与实际数据波动关系的建构。",
+          "recheck": "核对 candidate.figures 是否为空，以及 blocks[0]、prompt 和 support 中对散点图的引用与依赖。"
+        },
+        {
+          "kind": "probe",
+          "id": "task_4_stats_linear_interpretation",
+          "severity": "key_gap",
+          "claim": "设计结论把单一任务的设计试做断言为证明了单元设置顺序的必要性，并将预设的学生理解当成已达成的实证效果。",
+          "requirement": "设计结论不得把设计者的试做写成学生已经理解、学习有效或某种课程顺序被证明必要。",
+          "citations": [
+            {
+              "source": "candidate",
+              "pointer": "/tasks/task_4_stats_linear_interpretation/design_consequence",
+              "quote": "本任务探查印证了将 Unit 8（双变量统计）作为全年收官单元的必要性……直接完成了初中向高中统计推断思维的跃迁。"
+            }
+          ],
+          "counterexample": "设计结论断言本任务“印证了将 Unit 8（双变量统计）作为全年收官单元的必要性”，并宣称学生通过本任务的辩析“直接完成了初中向高中统计推断思维的跃迁”。蓝图设计中的任务探查仅为课程目标对齐与试做构想，未经实际课堂教学实证检验，既不能证明单元顺序的唯一必要性，也不能直接把预期的学习效果断言为已经完成的思维跃迁。",
+          "impact": "夸大单一设计探查的证明力，把主观设计意图混淆为实证证据，影响对单元编排合理性与学生实际掌握水平的科学评估。",
+          "recheck": "核对 candidate.tasks.task_4_stats_linear_interpretation.design_consequence 中的证明性与定论性措辞。"
+        }
+      ],
+      "checked": [
+        "作者解答与独立解答一致性核对",
+        "散点图与调查数据缺失核对",
+        "自变量与因变量取值范围及定义域核对",
+        "统计推断解释与因果/非确定性区分核对",
+        "设计结论中试做当证明与学习成效断言核对",
+        "支持语与学校资源器材条件核对"
+      ]
+    },
+    "usage": {
+      "input_tokens": 7683,
+      "output_tokens": 11807,
+      "total_tokens": 19490
+    },
+    "usage_complete": true,
+    "repairs": 0
+  }
+}

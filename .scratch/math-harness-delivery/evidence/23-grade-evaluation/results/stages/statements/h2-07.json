@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "sample_id": "h2-07",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49",
+  "seconds": 217.6,
+  "error": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "h2-07",
+    "findings": [
+      {
+        "id": "statements:h2-07:1",
+        "candidate_id": "h2-07",
+        "content_fingerprint": "c92aaa80cdc46edf4f04c4fc837045fd0c70e715eb7d3c617913bc37b7fdc957",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "通过面积割补法证明勾股定理及其逆定理",
+        "requirement": "明确区分勾股定理与勾股定理逆定理的证明方法，不得声称用证明正定理的面积割补法证明逆定理。",
+        "evidence_ids": [
+          "ev:h2-07:5888d8744f858237"
+        ],
+        "counterexample": "面积割补法（如弦图法）的前提是已知四个三角形均为直角三角形，利用直角拼接形成边长为 a+b 的大正方形，从而证明 a^2+b^2=c^2；而在逆定理中，前提仅是三角形三边满足 a^2+b^2=c^2，其角是否为直角尚未可知，无法直接进行正方形几何割补拼接。证明逆定理必须构造两直角边分别为 a、b 的辅助直角三角形，由正定理得其斜边为 c，再由 SSS 判定两三角形全等，进而证明原三角形为直角三角形。",
+        "impact": "混淆了命题方向与证明方法，误导教师和学生认为同一套直角拼图割补操作可以直接推导逆定理，削弱了学生对几何逆命题逻辑证明严谨性的理解。",
+        "recheck": "修改单元五叙述，将面积割补法的证明对象限定为勾股定理（正定理），对逆定理的证明或说明明确采用构造全等直角三角形（SSS准则）的方法。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h2-07:5888d8744f858237",
+        "document_id": "h2-07",
+        "document_fingerprint": "45f2399a82c777cccfc67e9fd4194bb018a53acaec573d2419c172369a6fb91a",
+        "locator": "/units/4/narrative",
+        "quote": "随后通过面积割补法证明勾股定理及其逆定理",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12554,
+      "output_tokens": 8980,
+      "total_tokens": 21534
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "/narrative",
+      "/prerequisites",
+      "/successors",
+      "/handoff_guidance",
+      "/design_inferences",
+      "/teacher_preparation",
+      "/units/unit_1_geom_transform",
+      "/units/unit_2_linear_eq",
+      "/units/unit_3_linear_functions",
+      "/units/unit_4_linear_systems",
+      "/units/unit_5_real_numbers_pythagoras",
+      "/units/unit_6_exponents_sci_notation",
+      "/units/unit_7_volume_3d",
+      "/units/unit_8_bivariate_stats",
+      "/goals/8.EE.A.1",
+      "/goals/8.EE.A.2",
+      "/goals/8.EE.A.3",
+      "/goals/8.EE.A.4",
+      "/goals/8.EE.B.5",
+      "/goals/8.EE.B.6",
+      "/goals/8.EE.C.7",
+      "/goals/8.EE.C.7.a",
+      "/goals/8.EE.C.7.b",
+      "/goals/8.EE.C.8",
+      "/goals/8.EE.C.8.a",
+      "/goals/8.EE.C.8.b",
+      "/goals/8.EE.C.8.c",
+      "/goals/8.F.A.1",
+      "/goals/8.F.A.2",
+      "/goals/8.F.A.3",
+      "/goals/8.F.B.4",
+      "/goals/8.F.B.5",
+      "/goals/8.G.A.1",
+      "/goals/8.G.A.1.a",
+      "/goals/8.G.A.1.b",
+      "/goals/8.G.A.1.c",
+      "/goals/8.G.A.2",
+      "/goals/8.G.A.3",
+      "/goals/8.G.A.4",
+      "/goals/8.G.A.5",
+      "/goals/8.G.B.6",
+      "/goals/8.G.B.7",
+      "/goals/8.G.B.8",
+      "/goals/8.G.C.9",
+      "/goals/8.NS.A.1",
+      "/goals/8.NS.A.2",
+      "/goals/8.SP.A.1",
+      "/goals/8.SP.A.2",
+      "/goals/8.SP.A.3",
+      "/goals/8.SP.A.4"
+    ],
+    "error_types": {
+      "statements:h2-07:1": "concept_confusion"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

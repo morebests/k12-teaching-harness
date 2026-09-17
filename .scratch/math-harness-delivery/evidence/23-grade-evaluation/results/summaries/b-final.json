@@ -27,7 +27,9 @@
       ],
       "adjudication_id": null,
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q2",
@@ -52,7 +54,9 @@
       ],
       "adjudication_id": null,
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q3",
@@ -77,13 +81,15 @@
       ],
       "adjudication_id": null,
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q4",
       "weight": 15,
       "status": "settled",
-      "score": 4,
+      "score": 2,
       "interval": null,
       "critical_failure": false,
       "originals": [
@@ -100,15 +106,19 @@
           "critical_failure": false
         }
       ],
-      "adjudication_id": null,
+      "adjudication_id": "adjudication:r3:b-final:q4",
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": 2,
+      "binding_findings": [
+        "statements:b-final:1"
+      ]
     },
     {
       "criterion_id": "Q5",
       "weight": 10,
       "status": "settled",
-      "score": 4,
+      "score": 2,
       "interval": null,
       "critical_failure": false,
       "originals": [
@@ -125,9 +135,13 @@
           "critical_failure": false
         }
       ],
-      "adjudication_id": null,
+      "adjudication_id": "adjudication:r3:b-final:q5",
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": 2,
+      "binding_findings": [
+        "promises:b-final:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply"
+      ]
     },
     {
       "criterion_id": "Q6",
@@ -152,7 +166,9 @@
       ],
       "adjudication_id": null,
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q7",
@@ -177,7 +193,9 @@
       ],
       "adjudication_id": null,
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q8",
@@ -202,13 +220,15 @@
       ],
       "adjudication_id": null,
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     }
   ],
   "critical_failure": false,
-  "weighted_total": 95.0,
-  "equal_weight_total": 93.75,
+  "weighted_total": 82.5,
+  "equal_weight_total": 81.25,
   "total_withheld": [],
   "settled_weight": 100,
-  "settled_total": 95.0
+  "settled_total": 82.5
 }

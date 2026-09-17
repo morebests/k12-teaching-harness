@@ -208,5 +208,324 @@
     "content_fingerprint": "1de4e630e35cf218f2ba4028c3a64a75b2e56364a3f6a527a7365424c8c7d120",
     "findings": [],
     "evidence": []
+  },
+  "h2-01": {
+    "candidate_id": "h2-01",
+    "content_fingerprint": "8c579e8811eba9dff95479417645c25f38c6f34949e94d40a47b3426b0e47797",
+    "findings": [],
+    "evidence": []
+  },
+  "h2-02": {
+    "candidate_id": "h2-02",
+    "content_fingerprint": "801c97dddd9f92bbbe5a965f99c213d322b962953c7e4f8078959931004a43d8",
+    "findings": [],
+    "evidence": []
+  },
+  "h2-03": {
+    "candidate_id": "h2-03",
+    "content_fingerprint": "960a3c6ed254425b374151642984e7877c61ee652cfb363e80a0f17cb5d4025b",
+    "findings": [
+      {
+        "id": "program:h2-03:practice-missing:mp7",
+        "candidate_id": "h2-03",
+        "content_fingerprint": "960a3c6ed254425b374151642984e7877c61ee652cfb363e80a0f17cb5d4025b",
+        "criterion_id": "Q1",
+        "object": {
+          "kind": "practice",
+          "id": "MP7"
+        },
+        "origin": "program",
+        "reviewer_id": "program",
+        "severity": "key_gap",
+        "claim": "数学实践 MP7 没有学生数学工作与观察证据",
+        "requirement": "八项数学实践分别落实到学生工作",
+        "evidence_ids": [
+          "ev:h2-03:e7fe802d709ab308"
+        ],
+        "counterexample": "",
+        "impact": "数学实践只剩标签或缺失",
+        "recheck": "补充该实践的单元、学生行动与证据",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h2-03:e7fe802d709ab308",
+        "document_id": "h2-03",
+        "document_fingerprint": "e73c444e30f6c0917dc8ebfa24ca5085383002f713b8b446a803232d76ec48e8",
+        "locator": "/practices",
+        "quote": "[{\"code\":\"MP1\",\"unit_ids\":[\"unit_2_linear_eq\",\"unit_4_linear_systems\",\"unit_8_bivariate_stats\"],\"student_actions\":\"学生在面对多步骤的实际应用题（如两方案资费选择、散点图趋势分析）时，不急于套用单一公式，而是先审题分析已知条件与约束条件，通过方格纸画图、设未知数或构造数值表格寻找切入点，并在求解过程中持续监控解答的合理性。\",\"evidence\":\"在 Unit 4 方程组应用与 Unit 8 统计拟合中，观察学生面对未知复杂问题时，是否能自主尝试列表、画草图或从特殊数值入手逐步逼近解答，在遇到无解或矛盾时能主动回溯检查假设。\"},{\"code\":\"MP2\",\"unit_ids\":[\"unit_2_linear_eq\",\"unit_3_linear_functions\",\"unit_8_bivariate_stats\"],\"student_actions\":\"学生能够进行‘去情境化’与‘再情境化’的双向转换：既能从具体的蓄水量、骑行费用中抽象出纯代数关系 $y = 20x + 60$ 并进行符号运算；又能在求得数值解后，准确解释该数值在现实情境中所代表的物理速率或初始基准状态。\",\"evidence\":\"在 Unit 3 和 Unit 8 的测试中，观察学生写出直线方程 $y = mx + b$ 后， vendor 需准确写出斜率 $m$ 和截距 $b$ 的具体物理量纲与情境含义。\"},{\"code\":\"MP3\",\"unit_ids\":[\"unit_1_geom_transform\",\"unit_2_linear_eq\",\"unit_5_real_numbers_pythagoras\"],\"student_actions\":\"在小组讨论与全班汇报中，学生能够陈述公理与推导前提，构建有条理的逻辑论证链条（如利用平行线同位角相等论证三角形相似及斜率恒定）；能够审视他人的解题步骤，使用反例指出他人推理中的漏洞。\",\"evidence\":\"在 Unit 1（撕纸拼平角论证）与 Unit 2（方程解的分类辨析）的课堂结对互评中，听取学生能否用‘因为……所以……’的逻辑向同伴解释为何方程无解，或指出同伴在去分母时未乘常数项的逻辑漏洞。\"},{\"code\":\"MP4\",\"unit_ids\":[\"unit_3_linear_functions\",\"unit_4_linear_systems\",\"unit_8_bivariate_stats\"],\"student_actions\":\"学生主动识别实际问题中的关键变量，利用图表、代数方程与函数解析式建立变量之间的数学映射结构；在完成计算后，主动结合实际背景评估模型结果的有效性与适用定义域。\",\"evidence\":\"核查学生在真实或合成生活数据（如单车租赁计费、散点图拟合）建模时的模型表达完整性、自变量合理取值范围说明以及对模型适用边界的客观说明。\"},{\"code\":\"MP5\",\"unit_ids\":[\"unit_1_geom_transform\",\"unit_5_real_numbers_pythagoras\",\"unit_6_exponents_sci_notation\"],\"student_actions\":\"在解决几何变换、函数图象绘制和科学记数法运算时，学生能合理决定何时使用方格纸作图、何时使用直尺画线、何时使用普通计算器辅助数值计算，并能认识到手动绘图与工具计算的近似性。\",\"evidence\":\"观察学生在探究坐标距离、函数图象和统计散点图时，能否自主根据需求选用方格纸、直尺或普通计算器，并在折纸透光验证中灵活使用纸笔资源，清晰认识直尺手工画线与普通计算器运算的有效精度边界。\"},{\"code\":\"MP6\",\"unit_ids\":[\"unit_2_linear_eq\",\"unit_3_linear_functions\",\"unit_5_real_numbers_pythagoras\"],\"student_actions\":\"在口头交流与书面表达中，学生准确使用数学术语（如‘位似中心’、‘变化率’、‘纵截距’、‘无理数’）；在坐标系绘图时规范标注坐标轴名称与单位；在代数运算中准确书写等号并保持步骤严谨。\",\"evidence\":\"在学生作业与黑板展示中，检查坐标轴是否有清晰的刻度数值与单位标注、代数等号使用是否规范、最终解答是否有恰当的测量单位与有效位数保留。\"},{\"code\":\"MP8\",\"unit_ids\":[\"unit_2_linear_eq\",\"unit_3_linear_functions\",\"unit_5_real_numbers_pythagoras\"],\"student_actions\":\"学生在重复计算中保持对规律的敏感度：通过多次计算直线上不同两点的差商，自觉归纳出斜率恒定性公式；通过分数除法的余数重复出现，归纳并确立循环小数的有理数转化通法。\",\"evidence\":\"在小数循环节长除法与斜率点差比探究中，观察学生能否在连续计算数次后主动归纳并写出一般代数表达式。\"}]",
+        "extraction": "候选列出的数学实践",
+        "objects": [
+          {
+            "kind": "practice",
+            "id": "MP7"
+          }
+        ],
+        "recorded_by": "program"
+      }
+    ]
+  },
+  "h2-04": {
+    "candidate_id": "h2-04",
+    "content_fingerprint": "32154d7945b58fd7b2777801ec40cbfbac4c1f5c803890c885271314c4ae0e17",
+    "findings": [],
+    "evidence": []
+  },
+  "h2-05": {
+    "candidate_id": "h2-05",
+    "content_fingerprint": "3657f69bfbc618d2d0c1b5646bbb59874da9787b6533aa9de612a7b4e4fcf5d2",
+    "findings": [
+      {
+        "id": "program:h2-05:apply-before-teach:8.g.a.5",
+        "candidate_id": "h2-05",
+        "content_fingerprint": "3657f69bfbc618d2d0c1b5646bbb59874da9787b6533aa9de612a7b4e4fcf5d2",
+        "criterion_id": "Q5",
+        "object": {
+          "kind": "goal",
+          "id": "8.G.A.5"
+        },
+        "origin": "program",
+        "reviewer_id": "program",
+        "severity": "key_gap",
+        "claim": "8.G.A.5 在第 1 单元安排应用／回访，早于第 2 单元的首次教学",
+        "requirement": "评价与后续利用须有此前的学习机会",
+        "evidence_ids": [
+          "ev:h2-05:3b48257550b8d1e3"
+        ],
+        "counterexample": "unit_2_linear_eq 排第 1，首次 teach 排第 2",
+        "impact": "学生在学习机会之前被要求表现或使用该目标",
+        "recheck": "调整分配单元或补充此前的学习机会",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "program:h2-05:dependency-reversed:unit_2_linear_eq--unit_1_geom_transform",
+        "candidate_id": "h2-05",
+        "content_fingerprint": "3657f69bfbc618d2d0c1b5646bbb59874da9787b6533aa9de612a7b4e4fcf5d2",
+        "criterion_id": "Q3",
+        "object": {
+          "kind": "dependency",
+          "id": "unit_2_linear_eq<-unit_1_geom_transform"
+        },
+        "origin": "program",
+        "reviewer_id": "program",
+        "severity": "critical",
+        "claim": "unit_2_linear_eq 声明依赖 unit_1_geom_transform，但先备单元没有排在它之前",
+        "requirement": "本设计声明的先备单元必须先于依赖它的单元",
+        "evidence_ids": [
+          "ev:h2-05:2e6e679afefb2cec"
+        ],
+        "counterexample": "unit_2_linear_eq 位于第 1 单元，先备 unit_1_geom_transform 位于第 2 单元",
+        "impact": "所承诺的依赖在当前顺序下无法满足",
+        "recheck": "调整顺序或修正依赖声明",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h2-05:3b48257550b8d1e3",
+        "document_id": "h2-05",
+        "document_fingerprint": "60c86126888010beea0d37ac082e9f6dd49b594a18599322d74ce845a5db5333",
+        "locator": "/goals/22/allocations/1/unit_id",
+        "quote": "unit_2_linear_eq",
+        "extraction": "8.G.A.5 的apply分配所在单元",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.G.A.5"
+          }
+        ],
+        "recorded_by": "program"
+      },
+      {
+        "id": "ev:h2-05:2e6e679afefb2cec",
+        "document_id": "h2-05",
+        "document_fingerprint": "60c86126888010beea0d37ac082e9f6dd49b594a18599322d74ce845a5db5333",
+        "locator": "/units/0/prerequisite_units/0",
+        "quote": "unit_1_geom_transform",
+        "extraction": "unit_2_linear_eq 声明的先备单元",
+        "objects": [
+          {
+            "kind": "dependency",
+            "id": "unit_2_linear_eq<-unit_1_geom_transform"
+          }
+        ],
+        "recorded_by": "program"
+      }
+    ]
+  },
+  "h2-06": {
+    "candidate_id": "h2-06",
+    "content_fingerprint": "fdcdd0865f723517f192134a0567fce7e8e96520d1b86b4923c5593de7d4eaf3",
+    "findings": [
+      {
+        "id": "program:h2-06:assess-before-teach:8.sp.a.4",
+        "candidate_id": "h2-06",
+        "content_fingerprint": "fdcdd0865f723517f192134a0567fce7e8e96520d1b86b4923c5593de7d4eaf3",
+        "criterion_id": "Q6",
+        "object": {
+          "kind": "goal",
+          "id": "8.SP.A.4"
+        },
+        "origin": "program",
+        "reviewer_id": "program",
+        "severity": "key_gap",
+        "claim": "8.SP.A.4 在第 4 单元安排评价，早于第 8 单元的首次教学",
+        "requirement": "评价与后续利用须有此前的学习机会",
+        "evidence_ids": [
+          "ev:h2-06:70b9f77fb675a7e7"
+        ],
+        "counterexample": "unit_4_linear_systems 排第 4，首次 teach 排第 8",
+        "impact": "学生在学习机会之前被要求表现或使用该目标",
+        "recheck": "调整分配单元或补充此前的学习机会",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h2-06:70b9f77fb675a7e7",
+        "document_id": "h2-06",
+        "document_fingerprint": "83e2c3ce54ced9cf519a1e86dee6c8b64c3e61cd9965f2c859079555867c217e",
+        "locator": "/goals/32/allocations/0/unit_id",
+        "quote": "unit_4_linear_systems",
+        "extraction": "8.SP.A.4 的assess分配所在单元",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.SP.A.4"
+          }
+        ],
+        "recorded_by": "program"
+      }
+    ]
+  },
+  "h2-07": {
+    "candidate_id": "h2-07",
+    "content_fingerprint": "c92aaa80cdc46edf4f04c4fc837045fd0c70e715eb7d3c617913bc37b7fdc957",
+    "findings": [
+      {
+        "id": "program:h2-07:time-total:grade-total",
+        "candidate_id": "h2-07",
+        "content_fingerprint": "c92aaa80cdc46edf4f04c4fc837045fd0c70e715eb7d3c617913bc37b7fdc957",
+        "criterion_id": "Q7",
+        "object": {
+          "kind": "time",
+          "id": "grade-total"
+        },
+        "origin": "program",
+        "reviewer_id": "program",
+        "severity": "critical",
+        "claim": "单元课时与机动课时不符合学年课时条件",
+        "requirement": "各单元课时与机动课时分别计入，合计等于学年课时，机动课时等于请求",
+        "evidence_ids": [
+          "ev:h2-07:058a075277f7a39f",
+          "ev:h2-07.conditions:c795c26246be964b",
+          "ev:h2-07.conditions:7df63faaf7a41502"
+        ],
+        "counterexample": "22+22+22+18+26+36+14+20=180；180+20=200，条件为 180 课时、机动 20",
+        "impact": "承诺的学习工作在学年时间内无法全部安排",
+        "recheck": "重算单元与机动课时",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h2-07:058a075277f7a39f",
+        "document_id": "h2-07",
+        "document_fingerprint": "45f2399a82c777cccfc67e9fd4194bb018a53acaec573d2419c172369a6fb91a",
+        "locator": "/reserve_lessons",
+        "quote": "20",
+        "extraction": "候选机动课时",
+        "objects": [
+          {
+            "kind": "time",
+            "id": "grade-total"
+          }
+        ],
+        "recorded_by": "program"
+      },
+      {
+        "id": "ev:h2-07.conditions:c795c26246be964b",
+        "document_id": "h2-07.conditions",
+        "document_fingerprint": "0e1e27a3dca98c014075d4817462980412848dad4ae185c397f8293bd09b6d11",
+        "locator": "/school/lesson_count",
+        "quote": "180",
+        "extraction": "学年总课时条件",
+        "objects": [
+          {
+            "kind": "time",
+            "id": "grade-total"
+          }
+        ],
+        "recorded_by": "program"
+      },
+      {
+        "id": "ev:h2-07.conditions:7df63faaf7a41502",
+        "document_id": "h2-07.conditions",
+        "document_fingerprint": "0e1e27a3dca98c014075d4817462980412848dad4ae185c397f8293bd09b6d11",
+        "locator": "/school/reserve_lessons",
+        "quote": "20",
+        "extraction": "请求的机动课时",
+        "objects": [
+          {
+            "kind": "time",
+            "id": "grade-total"
+          }
+        ],
+        "recorded_by": "program"
+      }
+    ]
+  },
+  "h2-08": {
+    "candidate_id": "h2-08",
+    "content_fingerprint": "17bb58ff221a03d5f2af6df857f4a326dff218267287c82083bf4fe6de7c729e",
+    "findings": [],
+    "evidence": []
+  },
+  "h2-09": {
+    "candidate_id": "h2-09",
+    "content_fingerprint": "17e90d93ec32661617c5b3086d18593c7cb5347ef6afb4a22e93facbb6dfbff9",
+    "findings": [],
+    "evidence": []
+  },
+  "h2-10": {
+    "candidate_id": "h2-10",
+    "content_fingerprint": "929ed9dfc52e62c60924a83b56b92ce44a13f14111f9cc03d570d59829a2e552",
+    "findings": [],
+    "evidence": []
+  },
+  "h2-11": {
+    "candidate_id": "h2-11",
+    "content_fingerprint": "b999ad3551f0fca96806557ef5fb9e1b4c18d0e3150c9b6786b944d1069d882a",
+    "findings": [],
+    "evidence": []
+  },
+  "h2-12": {
+    "candidate_id": "h2-12",
+    "content_fingerprint": "081c5935296f4459b80005ed1f113a296c98909dee1fc3a758d9f124ff2c1528",
+    "findings": [],
+    "evidence": []
+  },
+  "h2-13": {
+    "candidate_id": "h2-13",
+    "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+    "findings": [],
+    "evidence": []
+  },
+  "h2-14": {
+    "candidate_id": "h2-14",
+    "content_fingerprint": "1e3442e9b5c324282f1f0150c6d04166db91512a4a8a68da1397a2a538daa1ac",
+    "findings": [],
+    "evidence": []
   }
 }

@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "sample_id": "h-control-swap",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49",
+  "seconds": 56.5,
+  "error": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "h-control-swap",
+    "findings": [
+      {
+        "id": "statements:h-control-swap:1",
+        "candidate_id": "h-control-swap",
+        "content_fingerprint": "6b0d7c4a00acee3a215d854b5b5560874b5f1072ae1e71c786fc185fc4e6c024",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "通过面积割补法能够证明勾股定理的逆定理。",
+        "requirement": "面积割补法只能用于证明勾股定理（从直角条件推出三边平方和关系），不能用以直接证明勾股定理的逆定理。",
+        "evidence_ids": [
+          "ev:h-control-swap:5ed0a8617992b000"
+        ],
+        "counterexample": "面积割补法（如弦图或拼合边长为 a+b 的正方形）的几何作图预先依赖于“直角三角形”的存在（利用直角拼成平角或正方形的直角顶点）。对于逆命题（已知 a^2+b^2=c^2，判定该三角形是直角三角形），不能预先假设其各角包含直角来完成割补拼接。逆定理的标准证明方法是构造两直角边分别为 a、b 的辅助直角三角形，由勾股定理得出其斜边为 c，再由全等三角形 SSS 准则证明原三角形与辅助三角形全等，从而得出原三角形为直角三角形。割补法不能证明逆定理。",
+        "impact": "混淆了定理与逆定理的证明方法与逻辑前提，使教师和学生误以为同一套几何拼图可以直接双向互推，削弱了几何逻辑证明的严密性。",
+        "recheck": "将面积割补法的证明对象限定为勾股定理本身，对勾股定理逆定理指明采用构造辅助直角三角形并结合全等判定的说理路径。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:h-control-swap:2",
+        "candidate_id": "h-control-swap",
+        "content_fingerprint": "6b0d7c4a00acee3a215d854b5b5560874b5f1072ae1e71c786fc185fc4e6c024",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "函数的图象是所有有序实数对 (x, y) 的集合。",
+        "requirement": "函数的图象必须是由输入及其对应的输出所构成的有序对集合（the set of ordered pairs consisting of an input and the corresponding output），即满足 y = f(x) 的有序对子集，而非“所有”有序实数对的集合。",
+        "evidence_ids": [
+          "ev:h-control-swap:9305b350b26218ac"
+        ],
+        "counterexample": "直角坐标平面上所有有序实数对 (x, y) 的集合是整个笛卡尔积 R×R（即整个坐标平面）。例如对于函数 y = 2x，点 (1, 5) 是一个有序实数对，但它并不在函数 y = 2x 的图象上，因为输入 1 对应的唯一输出是 2。漏掉“满足该函数对应规则”或“由输入及其对应输出构成”的限定，导致概念字面上变成了全平面。",
+        "impact": "漏写核心限定条件使图象定义字面为假，将函数图象这一局部点集与整个坐标平面实数对全集混淆，偏离了 CCSSM 8.F.A.1 对函数图象本质的严谨界定。",
+        "recheck": "依据 CCSSM 8.F.A.1 补充限定词，明确表述为“理解函数的图象是由输入及其对应的唯一输出构成的有序实数对 (x, y) 的集合”或“满足函数对应关系的有序对集合”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h-control-swap:5ed0a8617992b000",
+        "document_id": "h-control-swap",
+        "document_fingerprint": "da2f2b0d530cf0eedd8c7bbdfb761ba6fc3813971ad5a5551d6bf34de0614e34",
+        "locator": "/units/5/narrative",
+        "quote": "随后通过面积割补法证明勾股定理及其逆定理",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:h-control-swap:9305b350b26218ac",
+        "document_id": "h-control-swap",
+        "document_fingerprint": "da2f2b0d530cf0eedd8c7bbdfb761ba6fc3813971ad5a5551d6bf34de0614e34",
+        "locator": "/goals/11/allocations/0/opportunity",
+        "quote": "理解图象是所有有序实数对 $(x, y)$ 的集合。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12554,
+      "output_tokens": 11172,
+      "total_tokens": 23726
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "/narrative",
+      "/prerequisites",
+      "/successors",
+      "/handoff_guidance",
+      "/design_inferences",
+      "/teacher_preparation",
+      "/units/unit_1_geom_transform",
+      "/units/unit_2_linear_eq",
+      "/units/unit_3_linear_functions",
+      "/units/unit_4_linear_systems",
+      "/units/unit_5_real_numbers_pythagoras",
+      "/units/unit_6_exponents_sci_notation",
+      "/units/unit_7_volume_3d",
+      "/units/unit_8_bivariate_stats",
+      "/goals/8.EE.A.1",
+      "/goals/8.EE.A.2",
+      "/goals/8.EE.A.3",
+      "/goals/8.EE.A.4",
+      "/goals/8.EE.B.5",
+      "/goals/8.EE.B.6",
+      "/goals/8.EE.C.7",
+      "/goals/8.EE.C.7.a",
+      "/goals/8.EE.C.7.b",
+      "/goals/8.EE.C.8",
+      "/goals/8.EE.C.8.a",
+      "/goals/8.EE.C.8.b",
+      "/goals/8.EE.C.8.c",
+      "/goals/8.F.A.1",
+      "/goals/8.F.A.2",
+      "/goals/8.F.A.3",
+      "/goals/8.F.B.4",
+      "/goals/8.F.B.5",
+      "/goals/8.G.A.1",
+      "/goals/8.G.A.1.a",
+      "/goals/8.G.A.1.b",
+      "/goals/8.G.A.1.c",
+      "/goals/8.G.A.2",
+      "/goals/8.G.A.3",
+      "/goals/8.G.A.4",
+      "/goals/8.G.A.5",
+      "/goals/8.G.B.6",
+      "/goals/8.G.B.7",
+      "/goals/8.G.B.8",
+      "/goals/8.G.C.9",
+      "/goals/8.NS.A.1",
+      "/goals/8.NS.A.2",
+      "/goals/8.SP.A.1",
+      "/goals/8.SP.A.2",
+      "/goals/8.SP.A.3",
+      "/goals/8.SP.A.4"
+    ],
+    "error_types": {
+      "statements:h-control-swap:1": "concept_confusion",
+      "statements:h-control-swap:2": "missing_condition"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

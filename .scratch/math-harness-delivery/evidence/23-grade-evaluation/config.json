@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "id": "grade8-evaluation-v1",
+  "id": "grade8-evaluation-v3",
   "status": "frozen",
   "frozen_on": "2026-09-17",
-  "purpose": "在 24／25 生成新年级课程候选之前，固定八年级 CCSS 年级课程规划的评价尺度、证据范围、参考接触和评阅方式，并用旧稿、注入问题与合法对照校准程序和模型检查。",
+  "purpose": "第一版校准显示整体评阅漏掉探查中的数学与统计细节、叙述承诺与数学表述错误，且评分偏宽。本版在不改动整体评阅规则文本的前提下，加入承诺核查、探查核查、数学表述核查，并让已确认发现按协议限制维度分；以不接触评阅规则、程序检查与专项检查实现的子代理设计的第二版保留集重新校准。v3 在 v2 冻结后、查看任何第二版保留集结果之前，按代码审查修正了汇总、裁定、检出匹配与专项检查的程序部分；这些修正不改变整体评阅、承诺抽取与数学表述核查的模型输入。",
   "files": {
     "rubric": {
       "path": ".scratch/math-harness-delivery/year-planning-rubric.json",
@@ -25,6 +25,38 @@
       "path": "src/teaching_harness/resources/grade-revision.md",
       "fingerprint": "c46dc73fb3af3176eedee2b0c6561f3227c3ec19e1cd0f0e090a95862e579244"
     },
+    "review_code": {
+      "path": "src/teaching_harness/grade_evaluation/review.py",
+      "fingerprint": "671264fac7afa309f8deafebdbb9d7936d8c8b05946a9285a12aedac6051a53f"
+    },
+    "checklist_code": {
+      "path": "src/teaching_harness/grade_evaluation/checks.py",
+      "fingerprint": "fd4ad1c4cdab400887a557e209538ac1bde1791a631efd5554b78205c3e3c89a"
+    },
+    "stage_code": {
+      "path": "src/teaching_harness/grade_evaluation/stages.py",
+      "fingerprint": "8e5e08546d27502b06af8745bacaf958b3147e667b1dee81db6e8e2769761b88"
+    },
+    "scoring_code": {
+      "path": "src/teaching_harness/grade_evaluation/scoring.py",
+      "fingerprint": "6f4b69ed9ce6fef53d121dde5549d9f3cdeb0b518877adf4c71e227eb372ba26"
+    },
+    "stage_rules_promises": {
+      "path": "src/teaching_harness/resources/grade-promises.md",
+      "fingerprint": "d0a9e10635485763f779fa000c53a73ba7b1972472f4b229015b495f915ec663"
+    },
+    "stage_rules_solver": {
+      "path": "src/teaching_harness/resources/grade-solver.md",
+      "fingerprint": "37e468e87b3e7d2dc4f48e9394ead0e20dedc79657d0c0157dce20c29a66b139"
+    },
+    "stage_rules_probe": {
+      "path": "src/teaching_harness/resources/grade-probe.md",
+      "fingerprint": "3564b7a2ec5e5ad35b8492bfb18e2af826553d7d36818f35ff8023a5cd26962c"
+    },
+    "stage_rules_statements": {
+      "path": "src/teaching_harness/resources/grade-statements.md",
+      "fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49"
+    },
     "debug_samples": {
       "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/samples/debug.json",
       "fingerprint": "ce95558e79004894faf9a5c5576ff7e1ab09a4997634320c276564359bc1c850"
@@ -33,9 +65,13 @@
       "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/samples/debug-answers.json",
       "fingerprint": "e75b9309587269a90ae4c15b3baeb4fa156ca4d323027dec84fa396daa4c469f"
     },
-    "holdout": {
+    "holdout_v1": {
       "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/holdout",
       "fingerprint": "55c686ecfe6d77468505ca822745546e96349354f59748586e536acfa9020e70"
+    },
+    "holdout_v2": {
+      "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/holdout-2",
+      "fingerprint": "d8c2ca6c50e03cf0033a63aee202c08c786435a56080211e8103b83f2aad09ac"
     },
     "extractions": {
       "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/extractions.json",
@@ -109,6 +145,12 @@
       "first_contact": "2026-09-14",
       "contacted_by": "开发会话",
       "influence": "采用逐维报告、不以总分掩盖缺口和与教育实践者校准的建议"
+    },
+    {
+      "material": "第二版保留集（holdout-2）",
+      "first_contact": "2026-09-17",
+      "contacted_by": "由子代理设计（读过协议、判据、终稿、学校条件、标准原文、CONTEXT.md、contracts.py 与 calibration.py，未读评阅规则、程序检查与专项检查实现）；实施者在 v2 冻结前未查看样本与答案内容，只在一次校准输出中看到其程序检查汇总（5 项中检出 4 项，漏 h2i-10）；v2 冻结后、运行模型前核对了答案",
+      "influence": "只用于冻结后的校准；上述汇总没有用于修改程序检查"
     }
   ],
   "reviewers": [
@@ -126,6 +168,55 @@
         "作者对话与工具记录",
         "模型评语",
         "样本答案"
+      ]
+    },
+    {
+      "id": "promises",
+      "method": "model",
+      "model": "gemini-3.8-flash",
+      "criteria_groups": [],
+      "inputs": [
+        "按稳定身份呈现的候选",
+        "原始任务与学校条件",
+        "承诺抽取规则；程序按抽取核对位置、先后与机动计划合计，同时计入两处的判断记为模型发现"
+      ],
+      "excluded_inputs": [
+        "评分判据",
+        "其他检查结论",
+        "样本答案",
+        "IM 材料"
+      ]
+    },
+    {
+      "id": "probes",
+      "method": "model",
+      "model": "gemini-3.8-flash",
+      "criteria_groups": [],
+      "inputs": [
+        "独立求解：只含题面、表格与图件参数及学校条件",
+        "核查：该探查全文、独立解答、程序算出的数据范围、区间表述与未提供的材料、学校条件；须逐项回应独立解答与程序事实"
+      ],
+      "excluded_inputs": [
+        "求解时的作者解答、预判、支持与设计结论",
+        "其他检查结论",
+        "样本答案",
+        "IM 材料"
+      ]
+    },
+    {
+      "id": "statements",
+      "method": "model",
+      "model": "gemini-3.8-flash",
+      "criteria_groups": [],
+      "inputs": [
+        "候选叙述性字段与目标分配",
+        "数学表述核查规则（按错误类型限定严重度上限）"
+      ],
+      "excluded_inputs": [
+        "探查题",
+        "其他检查结论",
+        "样本答案",
+        "IM 材料"
       ]
     },
     {
@@ -204,7 +295,8 @@
     "inputs": [
       "该维判据与应查对象",
       "按稳定身份呈现的候选",
-      "r1 与 r2 的原始评分、对象结论和引用"
+      "r1 与 r2 的原始评分、对象结论和引用",
+      "程序与专项检查得出的已确认发现；程序核对的结构事实标为不可驳回"
     ],
     "excluded_inputs": [
       "作者对话与工具记录",
@@ -220,9 +312,7 @@
     "d-time-sum",
     "d-opportunity-empty",
     "d-control-renumber",
-    "d-control-resource"
-  ],
-  "holdout_samples": [
+    "d-control-resource",
     "h-opportunity-empty",
     "h-assess-before-learning",
     "h-reserve-double-count",
@@ -232,12 +322,32 @@
     "h-control-revisit",
     "h-control-resource"
   ],
+  "holdout_samples": [
+    "h2-01",
+    "h2-02",
+    "h2-03",
+    "h2-04",
+    "h2-05",
+    "h2-06",
+    "h2-07",
+    "h2-08",
+    "h2-09",
+    "h2-10",
+    "h2-11",
+    "h2-12",
+    "h2-13",
+    "h2-14"
+  ],
   "limitations": [
-    "没有数学或课程专业评阅者参与；所有模型评分与裁定只是模型辅助结果。",
+    "没有数学或课程专业评阅者参与；所有模型评分、裁定与专项检查结论只是模型辅助结果。",
     "r1、r2 是同一模型、同一规则的两次独立调用；二者一致不能证明判断可靠。",
-    "已知漏检已写入 15 的生成期审阅规则，只能作调试样本。",
-    "保留样本的问题类别来自公开评估协议第 7 节，评阅规则含这些类别的一般说明；保留变体只在对象、位置与表述上未参与调试。",
-    "注入样本、答案、匹配关键词和合法对照均由实施者构造，检出统计依赖这些人工判断。",
+    "调试集与第一版保留集在开发专项检查时已被查看并据此调整了规则，只能说明拟合程度。",
+    "第二版保留集由与实施者同类的模型子代理设计，读取范围受限但未经技术隔离；它读过检出匹配代码，答案位置有意写得较宽，可能抬高位置正确率。答案由实施者在运行前核对，未修正。",
+    "“已确认发现”指程序或专项检查得出、引文经原文核实且未被驳回的发现。专项检查中的模型发现只经过一次模型判断；它们高于上限时触发裁定，由裁定逐条维持或驳回。",
+    "专项检查的承诺抽取与数学表述判断依赖模型，程序只核对抽取结果的位置、先后与合计。探查程序事实只报告与数据列重叠却超出的区间、只有下界的区间和正文提到却未提供的材料；完全落在数据之外的区间与点预测由核查规则负责。图件绘制参数随题面交给独立求解。",
+    "检出统计按一条发现只计入一个预期问题；答案关键词与位置匹配仍是近似判定，报告中对存疑的命中另作人工说明。",
+    "调试集与第一版保留集的 r1、r2 评阅在评阅代码的计算工具改为出错时返回原因之前完成；评阅规则文本未变。",
+    "规则文本仍有把“全年”当作课程层级的旧用法，随 24 的命名定型统一修改；修改规则须重评。",
     "学校条件是合成条件；课时与资源判断不代表真实学校。"
   ]
 }

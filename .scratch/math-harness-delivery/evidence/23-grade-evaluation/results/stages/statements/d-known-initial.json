@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "sample_id": "d-known-initial",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49",
+  "seconds": 41.0,
+  "error": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "d-known-initial",
+    "findings": [
+      {
+        "id": "statements:d-known-initial:1",
+        "candidate_id": "d-known-initial",
+        "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "能够通过面积割补法严密证明勾股定理及其逆定理。",
+        "requirement": "证明方法的适用范围必须准确：面积割补法仅适用于证明勾股定理本身，勾股定理逆定理必须通过构造法与全等三角形判定等逻辑完成证明。",
+        "evidence_ids": [
+          "ev:d-known-initial:350d184308009d86"
+        ],
+        "counterexample": "面积割补法（如赵爽弦图、拼图大正方形）是以图形已知为“直角三角形”为前提来推导面积等式 a^2 + b^2 = c^2 的；而勾股定理逆定理的前提是“三角形三边满足 a^2 + b^2 = c^2”，结论是“该三角形为直角三角形”，在未确立直角前无法进行直角拼图。逆定理通常需构造两直角边为 a, b 的辅助直角三角形并利用 SSS 全等判定来证明，不能用面积割补法证明逆定理。",
+        "impact": "混淆了定理与逆定理的条件与结论，误导教师和学生以为证明正定理的面积割补拼图可以直接逆向证明直角判定，造成证明方法和逻辑上的严重混淆。",
+        "recheck": "将叙述修改为“通过面积割补法严密证明勾股定理，并通过构造辅助直角三角形与全等三角形判定论证其逆定理”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:d-known-initial:2",
+        "candidate_id": "d-known-initial",
+        "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "函数的图象是所有有序实数对 (x, y) 的集合。",
+        "requirement": "依据 CCSSM 8.F.A.1，函数图象的定义必须包含“输入与对应输出”的限制条件，即图象是由输入 x 与对应输出 f(x) 构成的有序对集合 {(x, f(x))}。",
+        "evidence_ids": [
+          "ev:d-known-initial:238483c127ab2699"
+        ],
+        "counterexample": "“所有有序实数对 (x, y) 的集合”对应整个二维实平面 R^2。对于任意一个具体函数（例如线性函数 y = 2x + 1），点 (0, 0) 是一个有序实数对，但并不在该函数的图象上。函数图象仅包含满足函数对应关系的有序对子集。",
+        "impact": "漏写了输入输出的对应限定，将函数的图象错误定义为整个平面直角坐标系的所有点集，严重歪曲了现代函数图象的核心数学概念。",
+        "recheck": "将该表述修改为“理解函数的图象是由所有输入值及其唯一确定的对应输出值所构成的有序实数对 (x, y) 的集合”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:d-known-initial:3",
+        "candidate_id": "d-known-initial",
+        "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_2_linear_eq"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "一元一次方程的解存在“恒等无解”的类型。",
+        "requirement": "一元一次方程解的分类概念必须严密规范，标准分类应为唯一解（一解）、无解（矛盾式）和无穷多解（恒等式）。",
+        "evidence_ids": [
+          "ev:d-known-initial:8703a6752fd4db58"
+        ],
+        "counterexample": "在一元一次方程中，化简到恒等式（如 0x = 0，即 a = a）代表对于任意实数均成立，解为“无穷多解”；而“无解”对应的是矛盾式（如 0x = 5，即 a = b 且 a != b）。“恒等”与“无解”属于互斥的概念范畴，不存在所谓“恒等无解”。",
+        "impact": "自相矛盾的组合术语会误导教师教学，将化简为恒等式的无穷多解情形与矛盾式无解情形混为一谈。",
+        "recheck": "将单元叙述中的解分类修正为规范表述：“透彻剖析唯一解、无解与无穷多解的数学本质”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:d-known-initial:4",
+        "candidate_id": "d-known-initial",
+        "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.NS.A.2"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "通过有理数小数的逐步夹逼法可以在数轴上精确定位无理数的几何位置。",
+        "requirement": "有理数小数逼近法提供的是数值估算与区间限制，在数轴上的定位表述必须明确为“近似定位”（approximately locate）。",
+        "evidence_ids": [
+          "ev:d-known-initial:b3813dce9973b6d3"
+        ],
+        "counterexample": "逐步夹逼法（如二分或十分逐步展开逼近）给出的是有限位小数的有理数近似值（例如 1.4 < sqrt(2) < 1.5, 1.41 < sqrt(2) < 1.42）。因为无理数是无限不循环小数，有限次夹逼只能缩小区间以实现“近似定位”（approximate location），不可能通过有理数小数夹逼在数轴上获得“精确定位”（精确定位需借助尺规几何作图）。",
+        "impact": "混淆了数值近似逼近与几何精确定位的概念界限，违背了 CCSSM 8.NS.A.2 关于有理数逼近无理数“locate them approximately”的准确要求。",
+        "recheck": "将“在数轴上精确定位其几何位置”修正为“在数轴上近似定位其位置”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:d-known-initial:5",
+        "candidate_id": "d-known-initial",
+        "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_3_linear_functions"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "给定平面直角坐标系中的任意两点坐标，均能通过差商求出斜率 m 并写出规范线性函数方程 y = mx + b。",
+        "requirement": "从两点差商计算斜率 m 并建立函数方程 y = mx + b 时，必须限定两点横坐标不相等（x1 != x2）。",
+        "evidence_ids": [
+          "ev:d-known-initial:fa30f3213ee5381d"
+        ],
+        "counterexample": "若给定的两点横坐标相同（如 (2, 3) 与 (2, 7)），则 x2 - x1 = 0，差商分母为 0，斜率 m 不存在，无法写成 y = mx + b 的函数形式（对应垂线 x = 2，不是函数）。",
+        "impact": "遗漏了两点横坐标不同的前提条件，忽略了垂直直线的斜率未定义以及无法表示为函数的特例，易导致学生除以零或产生“任意两点都确定一个线性函数”的错误概念。",
+        "recheck": "在离开标准中增加限定条件：“给定横坐标不相等的任意两点坐标（或非垂直直线上的任意两点坐标）”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:d-known-initial:350d184308009d86",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/4/narrative",
+        "quote": "随后通过面积割补法严密证明勾股定理及其逆定理",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:238483c127ab2699",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/goals/11/allocations/0/opportunity",
+        "quote": "理解图象是所有有序实数对 (x, y) 的集合。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:8703a6752fd4db58",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/1/narrative",
+        "quote": "透彻剖析唯一解、恒等无解与无穷多解的数学本质。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:b3813dce9973b6d3",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/goals/28/allocations/0/opportunity",
+        "quote": "通过逐步夹逼法（逐次二分/十分逼近），对无理数（如根号2、根号3、pi）进行有理数小数估算，在数轴上精确定位其几何位置",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.NS.A.2"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:fa30f3213ee5381d",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/handoff_guidance",
+        "quote": "给定任意两点坐标（含负数及分数），学生能不借助模板独立列出差商求出 m，并代入一点坐标准确求解出截距 b，写出规范函数方程；",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12184,
+      "output_tokens": 13490,
+      "total_tokens": 25674
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "/narrative",
+      "/prerequisites",
+      "/successors",
+      "/handoff_guidance",
+      "/design_inferences",
+      "/teacher_preparation",
+      "/units/unit_1_geom_transform",
+      "/units/unit_2_linear_eq",
+      "/units/unit_3_linear_functions",
+      "/units/unit_4_linear_systems",
+      "/units/unit_5_real_numbers_pythagoras",
+      "/units/unit_6_exponents_sci_notation",
+      "/units/unit_7_volume_3d",
+      "/units/unit_8_bivariate_stats",
+      "/goals/8.EE.A.1",
+      "/goals/8.EE.A.2",
+      "/goals/8.EE.A.3",
+      "/goals/8.EE.A.4",
+      "/goals/8.EE.B.5",
+      "/goals/8.EE.B.6",
+      "/goals/8.EE.C.7.a",
+      "/goals/8.EE.C.7.b",
+      "/goals/8.EE.C.8.a",
+      "/goals/8.EE.C.8.b",
+      "/goals/8.EE.C.8.c",
+      "/goals/8.F.A.1",
+      "/goals/8.F.A.2",
+      "/goals/8.F.A.3",
+      "/goals/8.F.B.4",
+      "/goals/8.F.B.5",
+      "/goals/8.G.A.1.a",
+      "/goals/8.G.A.1.b",
+      "/goals/8.G.A.1.c",
+      "/goals/8.G.A.2",
+      "/goals/8.G.A.3",
+      "/goals/8.G.A.4",
+      "/goals/8.G.A.5",
+      "/goals/8.G.B.6",
+      "/goals/8.G.B.7",
+      "/goals/8.G.B.8",
+      "/goals/8.G.C.9",
+      "/goals/8.NS.A.1",
+      "/goals/8.NS.A.2",
+      "/goals/8.SP.A.1",
+      "/goals/8.SP.A.2",
+      "/goals/8.SP.A.3",
+      "/goals/8.SP.A.4",
+      "/goals/8.EE.C.7",
+      "/goals/8.EE.C.8",
+      "/goals/8.G.A.1"
+    ],
+    "error_types": {
+      "statements:d-known-initial:1": "concept_confusion",
+      "statements:d-known-initial:2": "missing_condition",
+      "statements:d-known-initial:3": "concept_confusion",
+      "statements:d-known-initial:4": "concept_confusion",
+      "statements:d-known-initial:5": "missing_condition"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

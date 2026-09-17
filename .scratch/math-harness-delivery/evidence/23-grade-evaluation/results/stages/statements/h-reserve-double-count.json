@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "sample_id": "h-reserve-double-count",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49",
+  "seconds": 32.7,
+  "error": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "h-reserve-double-count",
+    "findings": [
+      {
+        "id": "statements:h-reserve-double-count:1",
+        "candidate_id": "h-reserve-double-count",
+        "content_fingerprint": "bc511eef0a90e45f3d8c1628795275fe24a878465f5701165cd6b6a2af181d69",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "断言函数的图象是平面直角坐标系中“所有有序实数对 $(x, y)$ 的集合”。",
+        "requirement": "根据 CCSSM 8.F.A.1，函数图象是由每一个输入值及其对应的确定输出值所组成的有序对集合（The graph of a function is the set of ordered pairs consisting of an input and the corresponding output），必须限定有序对满足该函数的输入输出对应规则。",
+        "evidence_ids": [
+          "ev:h-reserve-double-count:eadba025311e15ff"
+        ],
+        "counterexample": "如果图象是“所有有序实数对 $(x, y)$ 的集合”，则该点集为整个平面直角坐标系 $\\mathbb{R}^2$；此时任意一个输入 $x$ 都会对应无数个不同的输出 $y$，这与函数“每个输入值对应唯一确定输出值”的定义相矛盾。图象应限定为由自变量输入及其对应的唯一输出所构成的有序对集合 $\\{(x, f(x))\\}$。",
+        "impact": "漏掉了满足函数规则的核心对应约束，使集合论层面的定义从函数图象轨迹扩大至全坐标平面，造成概念性错误。",
+        "recheck": "将关于图象的表述修改为“理解函数的图象是由所有输入值及其对应的唯一确定输出值构成的有序实数对 $(x, y)$ 的集合”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:h-reserve-double-count:2",
+        "candidate_id": "h-reserve-double-count",
+        "content_fingerprint": "bc511eef0a90e45f3d8c1628795275fe24a878465f5701165cd6b6a2af181d69",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "断言可以通过“面积割补法”证明勾股定理的逆定理。",
+        "requirement": "面积割补法是勾股定理正向命题的直观几何证明方法，不可混同为勾股定理逆定理的证明方法。",
+        "evidence_ids": [
+          "ev:h-reserve-double-count:a1df3f594821fed8"
+        ],
+        "counterexample": "面积割补法（如利用四个全等直角三角形拼成大正方形）是在已知各三角形为直角三角形的前提下通过面积恒等变形推导 $a^2 + b^2 = c^2$。逆定理的条件是三边满足 $a^2 + b^2 = c^2$，待证结论是该三角形为直角三角形；在尚未确立直角的前提下无法直接构造面积拼图，逆定理的标准几何证明必须通过构造辅助直角三角形并利用边边边（SSS）全等判定定理来完成。",
+        "impact": "混淆了定理与逆定理的证明逻辑方向与方法适用边界，使学生产生拼图可以双向互推逆定理的错误认识。",
+        "recheck": "将叙述修改为“通过面积割补法证明勾股定理，并通过全等判定（SSS）或构造法推导其逆定理”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:h-reserve-double-count:3",
+        "candidate_id": "h-reserve-double-count",
+        "content_fingerprint": "bc511eef0a90e45f3d8c1628795275fe24a878465f5701165cd6b6a2af181d69",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_7_volume_3d"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "local",
+        "claim": "声称利用“展开图模型”推导并建立圆柱、圆锥与球体体积公式之间的联系。",
+        "requirement": "立体图形体积公式的推导应基于截面分析、等高截面面积比或充填实验，平面展开图仅用于表面积度量。",
+        "evidence_ids": [
+          "ev:h-reserve-double-count:f3d5e5ac4cb19738"
+        ],
+        "counterexample": "球体表面属于不可展曲面，在平面上不存在展开图；此外，即使圆柱与圆锥可展为平面图形，平面展开图展示的是侧面积与底面积（二维度量），无法用于推导三维容积（体积公式，如等底等高锥体体积为柱体的三分之一）。三维体积推导依赖截面、充填比或积分思想，而非展开图。",
+        "impact": "混淆了表面积模型（二维平面展开）与体积模型（三维空间度量）的研究方法，并在不可展的球体上引入展开图概念。",
+        "recheck": "删去“展开图模型”，调整为“通过等底等高容器充填实验比对、截面分析以及代数推导建立体积公式间的联系”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h-reserve-double-count:eadba025311e15ff",
+        "document_id": "h-reserve-double-count",
+        "document_fingerprint": "c04e734b1483f760271746c66cfd6ca0e2a69ae156ec73dc5b2e5d88ddc18a65",
+        "locator": "/goals/11/allocations/0/opportunity",
+        "quote": "每个输入值对应唯一确定输出值的规则；理解图象是所有有序实数对 $(x, y)$ 的集合。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:h-reserve-double-count:a1df3f594821fed8",
+        "document_id": "h-reserve-double-count",
+        "document_fingerprint": "c04e734b1483f760271746c66cfd6ca0e2a69ae156ec73dc5b2e5d88ddc18a65",
+        "locator": "/units/4/narrative",
+        "quote": "随后通过面积割补法证明勾股定理及其逆定理，熟练求解 x^2=p 与 x^3=p",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:h-reserve-double-count:f3d5e5ac4cb19738",
+        "document_id": "h-reserve-double-count",
+        "document_fingerprint": "c04e734b1483f760271746c66cfd6ca0e2a69ae156ec73dc5b2e5d88ddc18a65",
+        "locator": "/units/6/narrative",
+        "quote": "等底等高圆柱与内接圆锥的截面与体积关系分析、展开图模型以及代数推导，建立圆柱、圆锥与球体体积公式之间的内生联系",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12554,
+      "output_tokens": 11631,
+      "total_tokens": 24185
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "grade:narrative",
+      "grade:prerequisites",
+      "grade:successors",
+      "handoff_guidance:8.F.B.4",
+      "design_inferences",
+      "teacher_preparation",
+      "unit:unit_1_geom_transform",
+      "unit:unit_2_linear_eq",
+      "unit:unit_3_linear_functions",
+      "unit:unit_4_linear_systems",
+      "unit:unit_5_real_numbers_pythagoras",
+      "unit:unit_6_exponents_sci_notation",
+      "unit:unit_7_volume_3d",
+      "unit:unit_8_bivariate_stats",
+      "goal:8.EE.A.1",
+      "goal:8.EE.A.2",
+      "goal:8.EE.A.3",
+      "goal:8.EE.A.4",
+      "goal:8.EE.B.5",
+      "goal:8.EE.B.6",
+      "goal:8.EE.C.7",
+      "goal:8.EE.C.7.a",
+      "goal:8.EE.C.7.b",
+      "goal:8.EE.C.8",
+      "goal:8.EE.C.8.a",
+      "goal:8.EE.C.8.b",
+      "goal:8.EE.C.8.c",
+      "goal:8.F.A.1",
+      "goal:8.F.A.2",
+      "goal:8.F.A.3",
+      "goal:8.F.B.4",
+      "goal:8.F.B.5",
+      "goal:8.G.A.1",
+      "goal:8.G.A.1.a",
+      "goal:8.G.A.1.b",
+      "goal:8.G.A.1.c",
+      "goal:8.G.A.2",
+      "goal:8.G.A.3",
+      "goal:8.G.A.4",
+      "goal:8.G.A.5",
+      "goal:8.G.B.6",
+      "goal:8.G.B.7",
+      "goal:8.G.B.8",
+      "goal:8.G.C.9",
+      "goal:8.NS.A.1",
+      "goal:8.NS.A.2",
+      "goal:8.SP.A.1",
+      "goal:8.SP.A.2",
+      "goal:8.SP.A.3",
+      "goal:8.SP.A.4"
+    ],
+    "error_types": {
+      "statements:h-reserve-double-count:1": "missing_condition",
+      "statements:h-reserve-double-count:2": "concept_confusion",
+      "statements:h-reserve-double-count:3": "concept_confusion"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

@@ -1,0 +1,4271 @@
+{
+  "schema_version": 1,
+  "sample_id": "h2-13",
+  "reviewer_id": "r2",
+  "candidate_id": "h2-13",
+  "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643",
+  "criteria": [
+    "Q1",
+    "Q3",
+    "Q5",
+    "Q6",
+    "Q4",
+    "Q7",
+    "Q2",
+    "Q8"
+  ],
+  "ratings": [
+    {
+      "candidate_id": "h2-13",
+      "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+      "criterion_id": "Q1",
+      "reviewer_id": "r2",
+      "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+      "rules_fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643",
+      "observability": "observable",
+      "comparability": "single_candidate",
+      "reviewed_scope": {
+        "expected": [
+          {
+            "kind": "goal",
+            "id": "8.EE.A.1"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.A.2"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.A.3"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.A.4"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.B.5"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.B.6"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.C.7.a"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.C.7.b"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.C.8.a"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.C.8.b"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.C.8.c"
+          },
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          },
+          {
+            "kind": "goal",
+            "id": "8.F.A.2"
+          },
+          {
+            "kind": "goal",
+            "id": "8.F.A.3"
+          },
+          {
+            "kind": "goal",
+            "id": "8.F.B.4"
+          },
+          {
+            "kind": "goal",
+            "id": "8.F.B.5"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.A.1.a"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.A.1.b"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.A.1.c"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.A.2"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.A.3"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.A.4"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.A.5"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.B.6"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.B.7"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.B.8"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.C.9"
+          },
+          {
+            "kind": "goal",
+            "id": "8.NS.A.1"
+          },
+          {
+            "kind": "goal",
+            "id": "8.NS.A.2"
+          },
+          {
+            "kind": "goal",
+            "id": "8.SP.A.1"
+          },
+          {
+            "kind": "goal",
+            "id": "8.SP.A.2"
+          },
+          {
+            "kind": "goal",
+            "id": "8.SP.A.3"
+          },
+          {
+            "kind": "goal",
+            "id": "8.SP.A.4"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.C.7"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.C.8"
+          },
+          {
+            "kind": "goal",
+            "id": "8.G.A.1"
+          },
+          {
+            "kind": "practice",
+            "id": "MP1"
+          },
+          {
+            "kind": "practice",
+            "id": "MP2"
+          },
+          {
+            "kind": "practice",
+            "id": "MP3"
+          },
+          {
+            "kind": "practice",
+            "id": "MP4"
+          },
+          {
+            "kind": "practice",
+            "id": "MP5"
+          },
+          {
+            "kind": "practice",
+            "id": "MP6"
+          },
+          {
+            "kind": "practice",
+            "id": "MP7"
+          },
+          {
+            "kind": "practice",
+            "id": "MP8"
+          }
+        ],
+        "note": ""
+      },
+      "score": 4,
+      "interval": null,
+      "evidence_refs": [
+        "ev:h2-13:054573a2dbdc81d5",
+        "ev:h2-13:06264a16c793a554",
+        "ev:h2-13:065363eec1171438",
+        "ev:h2-13:0c0d030c63c61c1c",
+        "ev:h2-13:146aea5b99fe1ca8",
+        "ev:h2-13:197f78257deb508f",
+        "ev:h2-13:1a71e199d1ad0b8d",
+        "ev:h2-13:1b9471b6eecbf4d5",
+        "ev:h2-13:1db80b6ac5617331",
+        "ev:h2-13:2c4a1f381267b0fc",
+        "ev:h2-13:2f1f53b5f58a1483",
+        "ev:h2-13:30bada94ae37a215",
+        "ev:h2-13:319a4b8f7f72f950",
+        "ev:h2-13:333091492d34af2e",
+        "ev:h2-13:352d2abcad597505",
+        "ev:h2-13:39546488bc9963cb",
+        "ev:h2-13:4c2200e59f2d9b8e",
+        "ev:h2-13:4e73a5f215bcf9b1",
+        "ev:h2-13:4ee29d425000653d",
+        "ev:h2-13:52514d14adc58732",
+        "ev:h2-13:5871e28fc7e62cf2",
+        "ev:h2-13:5f46c04f36dd3565",
+        "ev:h2-13:65f40a003b893eb1",
+        "ev:h2-13:71f80aa3209c1050",
+        "ev:h2-13:7446a25bfec04ac4",
+        "ev:h2-13:7768767914287752",
+        "ev:h2-13:817a90cd7ff311be",
+        "ev:h2-13:834618a1c7fa4b71",
+        "ev:h2-13:8352e36810922ff8",
+        "ev:h2-13:8c81f519c9aaf58e",
+        "ev:h2-13:9fff2d8ccba599d3",
+        "ev:h2-13:a6b475d651936213",
+        "ev:h2-13:a91460e13d64daab",
+        "ev:h2-13:ae42e24db640449b",
+        "ev:h2-13:afce6f99c12980f6",
+        "ev:h2-13:c27d36caee77294d",
+        "ev:h2-13:c2d7bbd48e4db0bb",
+        "ev:h2-13:ce85541fc50d0816",
+        "ev:h2-13:e8a6e6453db2ffdd",
+        "ev:h2-13:ea6c85b0f15e6045",
+        "ev:h2-13:f46b5f0d663c1c1f",
+        "ev:h2-13:f689f38cd840df0b",
+        "ev:h2-13:fab228763a916b17",
+        "ev:h2-13:fc1fe1257d7493f5"
+      ],
+      "strengths": [
+        "标准覆盖极其完整严密：33 个叶子标准与 3 个父项标准全部实现闭环分配，且逐项明确了具体课内学习机会与可观察达成表现。",
+        "数学实践（MP）落实深入具体：8 项 MP 均紧密绑定特定教学单元，结合具体的几何证明、代数变形与统计建模任务给出了可观察的学生行为描述与评价证据，完全避免了形式化标签。",
+        "核心目标层级递进设计扎实：以 8.F.B.4 为核心主轴，在 Unit 2 完成几何斜率铺垫，在 Unit 3 完成函数映射建构，并在 Unit 8 成功迁移至双变量散点图经验拟合与统计解释，展现了高度连贯的年度目标进阶逻辑。"
+      ],
+      "findings": [],
+      "critical_failure": false,
+      "critical_failure_reason": "",
+      "object_checks": [
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.A.1"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:9fff2d8ccba599d3"
+          ],
+          "note": "在 Unit 6 明确讲授整数指数性质，并在科学记数法混合运算中迁移应用，有具体化简与说理证据要求。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.A.2"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:30bada94ae37a215"
+          ],
+          "note": "在 Unit 5 讲授平方根与立方根符号及方程求解，明确识别无理数根号2，并在 Unit 7 体积反解中应用。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.A.3"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:c27d36caee77294d"
+          ],
+          "note": "在 Unit 6 结合宏观天体与微观粒子情境，利用 10 的整数幂估算数量级并计算倍数关系。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.A.4"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:ce85541fc50d0816"
+          ],
+          "note": "在 Unit 6 开展科学记数法四则运算与适宜单位选择，并针对无网络与普通计算器限制，通过打印图例落实技术格式释读。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.B.5"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:e8a6e6453db2ffdd"
+          ],
+          "note": "在 Unit 2 建立正比例关系图象并将斜率解释为单位比率，跨表征对比变化快慢，并在 Unit 3 进行性质回访。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.B.6"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:8352e36810922ff8"
+          ],
+          "note": "在 Unit 2 严格借助相似三角形证明斜率比值恒定并推导直线方程，在 Unit 3 顺利过渡到线性函数建模。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.C.7.a"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:065363eec1171438"
+          ],
+          "note": "在 Unit 2 深入剖析一元一次方程三种解的终态分类与判别代数依据，设计严密。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.C.7.b"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:52514d14adc58732"
+          ],
+          "note": "在 Unit 2 夯实去括号、去分母及合并同类项多步解方程技能，并在 Unit 4 方程组消元中持续应用。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.C.8.a"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:39546488bc9963cb"
+          ],
+          "note": "在 Unit 4 借助方格纸绘图确立交点与联立解的几何对应关系，直观清晰。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.C.8.b"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:054573a2dbdc81d5"
+          ],
+          "note": "在 Unit 4 系统学习代入法与加减消元法，并借助系数关系及平行形态辨析无解与无穷多解。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.C.8.c"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:2c4a1f381267b0fc"
+          ],
+          "note": "在 Unit 4 结合租车方案决策等现实情境完整开展方程组建模、求解与分段决策解释。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:f46b5f0d663c1c1f"
+          ],
+          "note": "在 Unit 3 建构现代函数的唯一定义与点集图象概念，有明确的非函数关系剔除证据。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.F.A.2"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:afce6f99c12980f6"
+          ],
+          "note": "在 Unit 3 安排代数式、图象、表格与叙述等多重表征间的跨表征性质对比与判断。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.F.A.3"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:5871e28fc7e62cf2"
+          ],
+          "note": "在 Unit 3 确立线性函数代数与图象特征，并通过正方形面积等实例鲜明对比非线性函数。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.F.B.4"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:4e73a5f215bcf9b1"
+          ],
+          "note": "作为全年初中核心建模目标，在 Unit 3 重点攻坚并在 Unit 8 统计拟合中迁移应用，达成表现详实严谨。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.F.B.5"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:7768767914287752"
+          ],
+          "note": "在 Unit 3 开展图象分段定性分析及根据文字描述反向草绘函数走势草图。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.A.1.a"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:fc1fe1257d7493f5"
+          ],
+          "note": "在 Unit 1 通过方格纸、直尺与折纸透光对齐比对实验验证刚体变换的保长性。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.A.1.b"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:8c81f519c9aaf58e"
+          ],
+          "note": "在 Unit 1 通过折纸叠合与方格网格比对实验验证刚体变换的保角度数不变性。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.A.1.c"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:1a71e199d1ad0b8d"
+          ],
+          "note": "在 Unit 1 实验探究双平行线变换前后的几何相对位置，验证平行不变性。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.A.2"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:fab228763a916b17"
+          ],
+          "note": "在 Unit 1 运用刚体变换序列定义全等，并要求明确陈述全等图形间的复合变换序列。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.A.3"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:c2d7bbd48e4db0bb"
+          ],
+          "note": "在 Unit 1 直角坐标系中建立位似缩放、轴反射、平移与原点旋转的代数坐标映射法则。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.A.4"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:817a90cd7ff311be"
+          ],
+          "note": "在 Unit 1 通过位似与刚体变换复合定义几何相似性，并描述相应的相似变换序列。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.A.5"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:146aea5b99fe1ca8"
+          ],
+          "note": "在 Unit 1 论证三角形内角和、外角与 AA 相似准则，并在 Unit 2 直线斜率推导中紧密应用。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.B.6"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:f689f38cd840df0b"
+          ],
+          "note": "在 Unit 5 利用全等直角三角形面积割补法证明勾股定理及其逆定理，证据可操作性强。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.B.7"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:834618a1c7fa4b71"
+          ],
+          "note": "在 Unit 5 应用勾股定理求解矩形对角线、等腰三角形高及空间长方体体对角线。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.B.8"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:ae42e24db640449b"
+          ],
+          "note": "在 Unit 5 结合直角坐标系网格构造直角三角形，求解两点间欧几里得距离，在 Task 3 中有深度探查。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.C.9"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:1db80b6ac5617331"
+          ],
+          "note": "在 Unit 7 结合黑白打印截面图与投影演示理解柱、锥、球体积公式推导并解决复杂容积问题。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.NS.A.1"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:71f80aa3209c1050"
+          ],
+          "note": "在 Unit 5 阐明有理数与无理数区别，探究无限循环小数与利用消元方程转化为分数。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.NS.A.2"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:5f46c04f36dd3565"
+          ],
+          "note": "在 Unit 5 运用夹逼法逼近无理数并在数轴上进行几何定位与大小估算。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.SP.A.1"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:2f1f53b5f58a1483"
+          ],
+          "note": "在 Unit 8 绘制双变量散点图，系统识别聚类、离群点及各类关联模式。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.SP.A.2"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:a91460e13d64daab"
+          ],
+          "note": "在 Unit 8 借助直尺拟合经验直线，并由数据点分布紧密程度非形式化评价拟合优度。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.SP.A.3"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:319a4b8f7f72f950"
+          ],
+          "note": "在 Unit 8 求解经验模型，严谨解释斜率与截距的统计学关联含义，警惕盲目外推与因果混淆。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.SP.A.4"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:333091492d34af2e"
+          ],
+          "note": "在 Unit 8 编制与解读双向列联表，通过行/列条件相对频率分析分类变量关联性。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.C.7"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:1b9471b6eecbf4d5"
+          ],
+          "note": "在 Unit 2 整体整合一元一次方程求解体系与解的分类判别，达成父项标准的综合要求。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.EE.C.8"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:ea6c85b0f15e6045"
+          ],
+          "note": "在 Unit 4 统筹二元一次方程组的交点几何图象、代数消元及现实平衡点应用。"
+        },
+        {
+          "object": {
+            "kind": "goal",
+            "id": "8.G.A.1"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:65f40a003b893eb1"
+          ],
+          "note": "在 Unit 1 整体建构并系统验证平移、旋转与反射的核心几何不变性。"
+        },
+        {
+          "object": {
+            "kind": "practice",
+            "id": "MP1"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:352d2abcad597505"
+          ],
+          "note": "明确绑定 Unit 2、4、8，包含审题分析、列表画图规划路径及遇矛盾主动回溯检查的观察表现。"
+        },
+        {
+          "object": {
+            "kind": "practice",
+            "id": "MP2"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:06264a16c793a554"
+          ],
+          "note": "绑定 Unit 2、3、8，明确要求在蓄水、租车等具体背景中开展代数符号抽象与参数现实量纲释义的双向转换。"
+        },
+        {
+          "object": {
+            "kind": "practice",
+            "id": "MP3"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:0c0d030c63c61c1c"
+          ],
+          "note": "绑定 Unit 1、2、5，聚焦几何内角和说理、斜率恒定性证明、方程无解辨析以及去分母漏项等同伴互评反例。"
+        },
+        {
+          "object": {
+            "kind": "practice",
+            "id": "MP4"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:a6b475d651936213"
+          ],
+          "note": "绑定 Unit 3、4、8，突出线性函数模型构建、自变量有效定义域界定及对盲目外推的批判性审视。"
+        },
+        {
+          "object": {
+            "kind": "practice",
+            "id": "MP5"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:4c2200e59f2d9b8e"
+          ],
+          "note": "绑定 Unit 1、5、6，紧密结合学校已有离线资源（方格纸、直尺、普通计算器），强调工具选择策略与近似性意识。"
+        },
+        {
+          "object": {
+            "kind": "practice",
+            "id": "MP6"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:4ee29d425000653d"
+          ],
+          "note": "绑定 Unit 2、3、5，注重规范数学术语使用、坐标系轴名与刻度标定及代数解题等号规范。"
+        },
+        {
+          "object": {
+            "kind": "practice",
+            "id": "MP7"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:7446a25bfec04ac4"
+          ],
+          "note": "绑定 Unit 2、6，在代数分配律恒等变形、指数运算法则及 y=mx+b 结构特征中培养数学结构敏锐度。"
+        },
+        {
+          "object": {
+            "kind": "practice",
+            "id": "MP8"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:197f78257deb508f"
+          ],
+          "note": "绑定 Unit 2、3、5，通过两点差商多次计算归纳斜率公式、通过分数长除法余数循环归纳循环小数性质。"
+        }
+      ],
+      "score_rationale": "本规划完整覆盖了八年级 CCSSM 全部 33 个叶子内容标准、3 个核心父项整合标准以及 8 项数学实践（MP1-MP8），无任何遗漏或实质误读。所有内容目标均被分配到具有清晰认知阶梯的单元中，每个分配均明确了具体的学习机会（opportunity）与可观察的达成表现证据（evidence），并对核心目标（如 8.F.B.4）设计了深入的跨单元回访与综合迁移应用。全部 8 项数学实践均具体绑定到承担单元，给出了紧密契合八年级具体数学任务的学生行为和评估依据，完全杜绝了标签化挂靠。各项指标均高度契合 4 分锚点要求。"
+    },
+    {
+      "candidate_id": "h2-13",
+      "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+      "criterion_id": "Q3",
+      "reviewer_id": "r2",
+      "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+      "rules_fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643",
+      "observability": "observable",
+      "comparability": "single_candidate",
+      "reviewed_scope": {
+        "expected": [
+          {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          {
+            "kind": "dependency",
+            "id": "unit_2_linear_eq<-unit_1_geom_transform"
+          },
+          {
+            "kind": "dependency",
+            "id": "unit_3_linear_functions<-unit_2_linear_eq"
+          },
+          {
+            "kind": "dependency",
+            "id": "unit_4_linear_systems<-unit_2_linear_eq"
+          },
+          {
+            "kind": "dependency",
+            "id": "unit_4_linear_systems<-unit_3_linear_functions"
+          },
+          {
+            "kind": "dependency",
+            "id": "unit_5_real_numbers_pythagoras<-unit_1_geom_transform"
+          },
+          {
+            "kind": "dependency",
+            "id": "unit_7_volume_3d<-unit_5_real_numbers_pythagoras"
+          },
+          {
+            "kind": "dependency",
+            "id": "unit_8_bivariate_stats<-unit_3_linear_functions"
+          }
+        ],
+        "note": ""
+      },
+      "score": 4,
+      "interval": null,
+      "evidence_refs": [
+        "ev:h2-13:0b5f82cd663658bf",
+        "ev:h2-13:0fd4f49b7b94d368",
+        "ev:h2-13:1c83f8c112cd1533",
+        "ev:h2-13:2c81d4c08a138d6b",
+        "ev:h2-13:4111bdd988323ce9",
+        "ev:h2-13:5bba6936849da114",
+        "ev:h2-13:5be30d7bd9e719b5",
+        "ev:h2-13:604be40a266f1f60",
+        "ev:h2-13:72ef6affa84bad85",
+        "ev:h2-13:83d1620044ff2247",
+        "ev:h2-13:af169d613751cc9e",
+        "ev:h2-13:b7c9debf8621bf68",
+        "ev:h2-13:f988af862d9e5a14"
+      ],
+      "strengths": [
+        "各单元新增职责明确，代数与几何双线推进且咬合严密：从几何相似推导斜率，再由直线方程升华至函数映射，进而通过双线性函数交点引入方程组，脉络清晰。",
+        "依赖关系的具体理解均有明确定位，先备条件设置了可测量的诊断要求，杜绝了不切实际的掌握预设。"
+      ],
+      "findings": [],
+      "critical_failure": false,
+      "critical_failure_reason": "",
+      "object_checks": [
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:0fd4f49b7b94d368"
+          ],
+          "note": "作为几何基石，建立刚体变换、坐标变换法则与相似AA判定，明确承接七年级直观，无年级内先备依赖。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:72ef6affa84bad85"
+          ],
+          "note": "新增职责明确：由几何斜率推导 y=mx 与 y=mx+b，攻坚一元一次方程三种解（唯一解、无解、无穷多解）的分类辨析。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:f988af862d9e5a14"
+          ],
+          "note": "新增职责明确：建立函数映射概念，突破 8.F.B.4 建模，赋予变化率与初始值物理现实意义并注明适用定义域。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:b7c9debf8621bf68"
+          ],
+          "note": "新增职责明确：将二元方程组与双线性函数交点融为一体，学习消元法与多方案决策建模。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:5bba6936849da114"
+          ],
+          "note": "新增职责明确：实数系统扩充、循环小数化分数、面积割补法证明勾股定理与坐标系两点间距离。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:af169d613751cc9e"
+          ],
+          "note": "新增职责明确：拓展整数指数幂法则，运用科学记数法表示极端数值与四则运算，并解读印刷图例中的技术显示。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:83d1620044ff2247"
+          ],
+          "note": "新增职责明确：三维立体几何体积公式推导与计算，结合 Unit 5 开方反解几何尺寸。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:5be30d7bd9e719b5"
+          ],
+          "note": "新增职责明确：双变量散点图模式识别、直尺拟合经验直线、辨析统计关联与因果干预、双向列联表分析。"
+        },
+        {
+          "object": {
+            "kind": "dependency",
+            "id": "unit_2_linear_eq<-unit_1_geom_transform"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:72ef6affa84bad85"
+          ],
+          "note": "依赖具体且必要：Unit 2 构造斜率三角形证明斜率恒定性严格依赖 Unit 1 的 AA 相似判定。"
+        },
+        {
+          "object": {
+            "kind": "dependency",
+            "id": "unit_3_linear_functions<-unit_2_linear_eq"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:604be40a266f1f60"
+          ],
+          "note": "依赖具体且必要：Unit 3 线性函数建模依赖 Unit 2 直线方程 y=mx+b 与两点差商斜率计算。"
+        },
+        {
+          "object": {
+            "kind": "dependency",
+            "id": "unit_4_linear_systems<-unit_2_linear_eq"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:4111bdd988323ce9"
+          ],
+          "note": "依赖具体且必要：消元后所得一元一次方程求解以及解的三种形态辨析严格依赖 Unit 2。"
+        },
+        {
+          "object": {
+            "kind": "dependency",
+            "id": "unit_4_linear_systems<-unit_3_linear_functions"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:1c83f8c112cd1533"
+          ],
+          "note": "依赖具体且必要：二元一次方程组的解被直观理解为两个线性函数图象的几何交点。"
+        },
+        {
+          "object": {
+            "kind": "dependency",
+            "id": "unit_5_real_numbers_pythagoras<-unit_1_geom_transform"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:0b5f82cd663658bf"
+          ],
+          "note": "依赖具体且必要：勾股定理面积割补证明依赖全等直角三角形拼图，平面直角坐标系两点距离依赖网格几何。"
+        },
+        {
+          "object": {
+            "kind": "dependency",
+            "id": "unit_7_volume_3d<-unit_5_real_numbers_pythagoras"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:2c81d4c08a138d6b"
+          ],
+          "note": "依赖具体且必要：由已知柱锥球体积反解底面半径或母线长依赖 Unit 5 开平方与开立方运算。"
+        },
+        {
+          "object": {
+            "kind": "dependency",
+            "id": "unit_8_bivariate_stats<-unit_3_linear_functions"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:5be30d7bd9e719b5"
+          ],
+          "note": "依赖具体且必要：拟合直线方程求解及斜率截距在背景中的解释直接迁移 Unit 3 建立的 8.F.B.4 建模能力。"
+        }
+      ],
+      "score_rationale": "应查的 8 个单元与 7 条课程依赖全部核查完毕，无关键缺口。每单元新增职责定位精准，先备与后续依赖逻辑闭环；区分了必要的前后依赖顺序（如相似AA->斜率恒定->线性函数->方程组交点平衡）与认知进阶，完全达到 4 分标准。"
+    },
+    {
+      "candidate_id": "h2-13",
+      "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+      "criterion_id": "Q5",
+      "reviewer_id": "r2",
+      "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+      "rules_fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643",
+      "observability": "observable",
+      "comparability": "single_candidate",
+      "reviewed_scope": {
+        "expected": [
+          {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          {
+            "kind": "revisit",
+            "id": "8.EE.A.1@unit_6_exponents_sci_notation:apply"
+          },
+          {
+            "kind": "revisit",
+            "id": "8.EE.A.2@unit_7_volume_3d:apply"
+          },
+          {
+            "kind": "revisit",
+            "id": "8.EE.B.5@unit_3_linear_functions:revisit"
+          },
+          {
+            "kind": "revisit",
+            "id": "8.EE.B.6@unit_3_linear_functions:apply"
+          },
+          {
+            "kind": "revisit",
+            "id": "8.EE.C.7.b@unit_4_linear_systems:apply"
+          },
+          {
+            "kind": "revisit",
+            "id": "8.F.B.4@unit_8_bivariate_stats:apply"
+          },
+          {
+            "kind": "revisit",
+            "id": "8.G.A.5@unit_2_linear_eq:apply"
+          }
+        ],
+        "note": ""
+      },
+      "score": 4,
+      "interval": null,
+      "evidence_refs": [
+        "ev:h2-13:293075899985ed67",
+        "ev:h2-13:3b5331461aeec349",
+        "ev:h2-13:485f0820cc90bfec",
+        "ev:h2-13:6673f4774a612338",
+        "ev:h2-13:6c5bc86e05de8384",
+        "ev:h2-13:6dfbefc498de8df6",
+        "ev:h2-13:79fc045cd8bbede8",
+        "ev:h2-13:959df6e3a5d0fca4",
+        "ev:h2-13:9f69fe1d42567883",
+        "ev:h2-13:b06f2db8f372e629",
+        "ev:h2-13:c16d8de93e50518a",
+        "ev:h2-13:c83801a86384ab9a",
+        "ev:h2-13:de152f6528ba4b54",
+        "ev:h2-13:e2ba4cb8973d6cf1",
+        "ev:h2-13:f9fcec45b62c741d"
+      ],
+      "strengths": [
+        "回访与迁移路径设计精巧，如 8.F.B.4 从 Unit 3 初建到 Unit 4 联立求解，再到 Unit 8 统计经验拟合，形成了深度的螺旋上升。",
+        "重访目标（如 8.EE.A.2 在立体体积反解中的应用、8.EE.C.7.b 在消元方程中的复用）具有高度的数学必然性，紧密支撑新任务解决。"
+      ],
+      "findings": [],
+      "critical_failure": false,
+      "critical_failure_reason": "",
+      "object_checks": [
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:6673f4774a612338"
+          ],
+          "note": "初建几何变换与AA相似判定，后续在 Unit 2 证明斜率恒定性及 Unit 5 勾股割补中持续利用与深化。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:6c5bc86e05de8384"
+          ],
+          "note": "初建斜率与方程解法，后续在 Unit 3 扩展至函数表征、在 Unit 4 消元求解中巩固应用。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:c16d8de93e50518a"
+          ],
+          "note": "初建 8.F.B.4 建模，后续在 Unit 4 方程组方案决策与 Unit 8 双变量拟合中多次迁移与拓展。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:de152f6528ba4b54"
+          ],
+          "note": "整合线性函数与方程，在双方案决策中完成实际建模应用，并在期末机动课时安排复习。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:e2ba4cb8973d6cf1"
+          ],
+          "note": "初建无理数与开方运算，在 Unit 7 体积公式反解中直接应用。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:b06f2db8f372e629"
+          ],
+          "note": "初建整数指数幂法则，在科学记数法混合四则运算中持续利用。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:3b5331461aeec349"
+          ],
+          "note": "综合运用圆的面积计算与代数开方反解几何尺寸，完成几何度量在三维情境中的迁移。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:9f69fe1d42567883"
+          ],
+          "note": "作为学年收官单元，全面迁移 8.F.B.4 线性模型于非确定性双变量数据分析。"
+        },
+        {
+          "object": {
+            "kind": "revisit",
+            "id": "8.EE.A.1@unit_6_exponents_sci_notation:apply"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:6dfbefc498de8df6"
+          ],
+          "note": "在科学记数法运算中明确安排了对负整数指数幂性质的复习与熟练运用。"
+        },
+        {
+          "object": {
+            "kind": "revisit",
+            "id": "8.EE.A.2@unit_7_volume_3d:apply"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:293075899985ed67"
+          ],
+          "note": "在圆柱圆锥体积反解半径与母线长时，明确应用开平方与开立方运算。"
+        },
+        {
+          "object": {
+            "kind": "revisit",
+            "id": "8.EE.B.5@unit_3_linear_functions:revisit"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:959df6e3a5d0fca4"
+          ],
+          "note": "在 Unit 3 中将正比例关系作为特殊线性函数进行对比审视，深化对均匀增长特性的理解。"
+        },
+        {
+          "object": {
+            "kind": "revisit",
+            "id": "8.EE.B.6@unit_3_linear_functions:apply"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:79fc045cd8bbede8"
+          ],
+          "note": "在构建函数模型时直接应用斜率公式与截距概念，实现从几何直线向代数映射的平滑迁移。"
+        },
+        {
+          "object": {
+            "kind": "revisit",
+            "id": "8.EE.C.7.b@unit_4_linear_systems:apply"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:485f0820cc90bfec"
+          ],
+          "note": "在代入消元法中复用一元一次方程求解技巧，巩固去括号与去分母流利度。"
+        },
+        {
+          "object": {
+            "kind": "revisit",
+            "id": "8.F.B.4@unit_8_bivariate_stats:apply"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:c83801a86384ab9a"
+          ],
+          "note": "在散点图经验趋势线拟合中迁移 8.F.B.4 建模技能，并在统计背景下重新解释参数含义。"
+        },
+        {
+          "object": {
+            "kind": "revisit",
+            "id": "8.G.A.5@unit_2_linear_eq:apply"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:f9fcec45b62c741d"
+          ],
+          "note": "在 Unit 2 斜率证明中严谨复用平行线同位角相等与 AA 相似判定准则。"
+        }
+      ],
+      "score_rationale": "应查的 8 个单元及 7 个回访/迁移目标均核查完毕。主要概念（斜率、方程解法、线性建模、开方运算、相似几何）初建后均有具体的后续利用与巩固位置，回访目的明确且紧密结合新情境，非机械重复，完全契合 4 分标准。"
+    },
+    {
+      "candidate_id": "h2-13",
+      "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+      "criterion_id": "Q6",
+      "reviewer_id": "r2",
+      "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+      "rules_fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643",
+      "observability": "observable",
+      "comparability": "single_candidate",
+      "reviewed_scope": {
+        "expected": [
+          {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          }
+        ],
+        "note": ""
+      },
+      "score": 4,
+      "interval": null,
+      "evidence_refs": [
+        "ev:h2-13:2a744b1deb10ab2d",
+        "ev:h2-13:333221fb86f86ef3",
+        "ev:h2-13:35ad794911842aef",
+        "ev:h2-13:3706392f20d21cd2",
+        "ev:h2-13:52a9171460945583",
+        "ev:h2-13:5b4c985b26d7a21a",
+        "ev:h2-13:8e83445ef478b643",
+        "ev:h2-13:e8b5fadd74dd6e3a"
+      ],
+      "strengths": [
+        "进入/过程/终结评价闭环完整，诊断性前测均配有机动课时触发补偿机制（如 Unit 2 前的有理数运算诊断补偿、Unit 3 前的差商诊断补偿）。",
+        "评价形式多样且高度贴合离线学校条件（表现性绘图、分析报告、闭卷笔试、同伴互评），所有必需评价均在课内完成。"
+      ],
+      "findings": [],
+      "critical_failure": false,
+      "critical_failure_reason": "",
+      "object_checks": [
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:8e83445ef478b643"
+          ],
+          "note": "前测、过程观察与终结测试职责清晰，评价要求均与课内直尺折纸等学习机会对应。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:2a744b1deb10ab2d"
+          ],
+          "note": "前测诊断七年级比率与负数运算，随堂小测监控去分母过程，结业测试涵盖解的分类辨析与直线方程推导，对应储备课时干预。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:35ad794911842aef"
+          ],
+          "note": "前测差商计算与坐标读取，过程随堂练习单监控多重表征转换，终结评价考察真实情境建模（含定义域与物理意义），响应机制明确。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:52a9171460945583"
+          ],
+          "note": "随堂检查消元步骤，决策报告评估建模能力，单元测试考核解法流利度与交点几何含义，与课内学习活动严格对应。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:333221fb86f86ef3"
+          ],
+          "note": "前置与过程结合数轴作图小测与拼图代数展开，终结测试坐标距离与二次方程，评价均在课内完成。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:3706392f20d21cd2"
+          ],
+          "note": "随堂速测监控法则运用，小练习检查模拟屏幕释读，单元末闭卷测试混合四则运算，评价依托印刷图例不依赖高档计算器。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:e8b5fadd74dd6e3a"
+          ],
+          "note": "图形剖析报告评估公式推导，随堂练习评估普通计算器代入计算，终结闭卷测试考核复杂情境 paper-and-pencil 求解。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:5b4c985b26d7a21a"
+          ],
+          "note": "过程包含散点图与趋势线绘制表现性评价，结合统计分析报告个人/同伴评估，终结闭卷测试有效界定与列联表，评价充分闭环。"
+        }
+      ],
+      "score_rationale": "应查的 8 个单元评价计划完整覆盖。前测诊断、过程性练习与单元结业测试职责清晰分明；所有评价内容在开展前均有明确的学习机会支撑，并与 20 节机动课时的课内矫正干预方案形成紧密联动；全部评价在离线纸笔与普通计算器条件下课内闭环，达到 4 分标准。"
+    },
+    {
+      "candidate_id": "h2-13",
+      "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+      "criterion_id": "Q4",
+      "reviewer_id": "r2",
+      "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+      "rules_fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643",
+      "observability": "observable",
+      "comparability": "single_candidate",
+      "reviewed_scope": {
+        "expected": [
+          {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          {
+            "kind": "probe",
+            "id": "task_1_linear_modeling"
+          },
+          {
+            "kind": "probe",
+            "id": "task_2_systems_decision"
+          },
+          {
+            "kind": "probe",
+            "id": "task_3_coordinate_distance"
+          },
+          {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          }
+        ],
+        "note": ""
+      },
+      "score": 4,
+      "interval": null,
+      "evidence_refs": [
+        "ev:h2-13:13ddc12b02779160",
+        "ev:h2-13:16bca2788d1b60b8",
+        "ev:h2-13:1eccf7a590ccc204",
+        "ev:h2-13:4b8e2080c9c63f96",
+        "ev:h2-13:6ab55d43f89edd1e",
+        "ev:h2-13:7ffcdbdf32d6db71",
+        "ev:h2-13:826db0081308aef4",
+        "ev:h2-13:865e8eb612d55b37",
+        "ev:h2-13:bc2ede0f2d72d07a",
+        "ev:h2-13:ccd3609d4c24a4f0",
+        "ev:h2-13:deef1b60c70ba25d",
+        "ev:h2-13:fdb7d78004825e48"
+      ],
+      "strengths": [
+        "建立了‘几何相似推导斜率 -> 代数一元方程求解 -> 现代函数映射 -> 二元方程组系统平衡 -> 空间勾股度量 -> 双变量统计建模’的坚实进阶主线，概念跨度自然且逻辑严密。",
+        "高风险认知跨度（如 8.F.B.4 函数映射、统计斜率与截距的因果辨析、模型有效定义域）表述高度严谨，探查任务中模型适用边界与反外推设计深刻。",
+        "8.F.B.4 核心交接指引详尽完备，清晰给出了进入诊断、离开达标准则以及分层表征转换策略。"
+      ],
+      "findings": [],
+      "critical_failure": false,
+      "critical_failure_reason": "",
+      "object_checks": [
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:826db0081308aef4"
+          ],
+          "note": "单元从刚体变换的不变性出发，建立坐标表示，再平滑进阶到位似缩放与AA相似判定，为后续斜率推导奠定坚实几何直观。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:deef1b60c70ba25d"
+          ],
+          "note": "借助相似三角形严格推导直线上任意两点差商恒定，将单位比率提升为几何斜率，并系统剖析一元一次方程三种解的本质。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:1eccf7a590ccc204"
+          ],
+          "note": "完成从几何轨迹方程向现代函数输入输出映射的关键飞跃，系统突破8.F.B.4建模，强调物理情境意义与有效定义域边界。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:ccd3609d4c24a4f0"
+          ],
+          "note": "将方程组自然理解为两个线性函数的公共状态与图象交点，兼顾代数消元法运算与平衡点现实决策。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:7ffcdbdf32d6db71"
+          ],
+          "note": "将数系扩充（无理数与开方）同勾股定理及坐标距离度量深度咬合，为代数运算提供清晰的几何实在性支撑。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:16bca2788d1b60b8"
+          ],
+          "note": "从正整数幂除法规律归纳负指数与零指数，推广到科学记数法，并通过印刷模拟屏幕图例发展技术表征解读能力。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:865e8eb612d55b37"
+          ],
+          "note": "通过二维截面图解推导柱、锥、球体积公式内生联系，综合运用代数公式变形与Unit 5开方运算反解尺寸。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:fdb7d78004825e48"
+          ],
+          "note": "实现从确定性代数模型向不确定性统计分析的平滑过渡，深度辨析统计关联与个体因果干预，形成闭环。"
+        },
+        {
+          "object": {
+            "kind": "probe",
+            "id": "task_1_linear_modeling"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:4b8e2080c9c63f96"
+          ],
+          "note": "核验了雨水收集题：斜率(160-100)/(5-2)=20加仑/小时，初始值100-20*2=60加仑，定义域0<=x<=8，模型边界分析合理，未虚构教学掌握事实。"
+        },
+        {
+          "object": {
+            "kind": "probe",
+            "id": "task_2_systems_decision"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:6ab55d43f89edd1e"
+          ],
+          "note": "核对了共享单车双方案决策题：代入消元解得交点(50, 15)，分段决策推导与表格数据完全自洽，design_consequence未虚构教学有效性。"
+        },
+        {
+          "object": {
+            "kind": "probe",
+            "id": "task_3_coordinate_distance"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:bc2ede0f2d72d07a"
+          ],
+          "note": "核验了平面两点欧氏距离计算：构造水平边长6与垂直边长8的直角三角形，勾股定理开方得10，辅助网格推导逻辑严密。"
+        },
+        {
+          "object": {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:13ddc12b02779160"
+          ],
+          "note": "核对了双变量合成数据题：明确标注合成数据无实际调查，斜率界定为关联而非因果干预，截距在样本外不可外推，S08残差与x=10超出满分计算准确。"
+        }
+      ],
+      "score_rationale": "全部8个单元构成了从几何变换直观到代数斜率、函数映射、方程组平衡、数系扩充与空间度量，再到双变量统计建模的连贯认知进阶主线。表征转换在各单元中角色分明，关键概念的跨度均有前置诊断与针对性支持；4个探查任务全面检验了关键认知跃迁，数学计算与统计学解释严密准确，无虚构事实或逻辑断层，完整满足4分锚点要求。"
+    },
+    {
+      "candidate_id": "h2-13",
+      "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+      "criterion_id": "Q7",
+      "reviewer_id": "r2",
+      "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+      "rules_fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643",
+      "observability": "observable",
+      "comparability": "single_candidate",
+      "reviewed_scope": {
+        "expected": [
+          {
+            "kind": "time",
+            "id": "grade-total"
+          },
+          {
+            "kind": "time",
+            "id": "reserve"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          {
+            "kind": "resource",
+            "id": "unit_1_geom_transform"
+          },
+          {
+            "kind": "resource",
+            "id": "unit_2_linear_eq"
+          },
+          {
+            "kind": "resource",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "resource",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "resource",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          {
+            "kind": "resource",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          {
+            "kind": "resource",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "resource",
+            "id": "unit_8_bivariate_stats"
+          },
+          {
+            "kind": "resource",
+            "id": "task_1_linear_modeling"
+          },
+          {
+            "kind": "resource",
+            "id": "task_2_systems_decision"
+          },
+          {
+            "kind": "resource",
+            "id": "task_3_coordinate_distance"
+          },
+          {
+            "kind": "resource",
+            "id": "task_4_stats_linear_interpretation"
+          },
+          {
+            "kind": "resource",
+            "id": "teacher_preparation"
+          }
+        ],
+        "note": ""
+      },
+      "score": 4,
+      "interval": null,
+      "evidence_refs": [
+        "ev:h2-13:07e0ce4cad1b8533",
+        "ev:h2-13:2665587f426fb31e",
+        "ev:h2-13:333221fb86f86ef3",
+        "ev:h2-13:396763eab9ac7976",
+        "ev:h2-13:3b5dac00b1aceb3c",
+        "ev:h2-13:3ca7efe1824234d9",
+        "ev:h2-13:44dd7583fd4927ba",
+        "ev:h2-13:52a9171460945583",
+        "ev:h2-13:5edd78fd2200f6e4",
+        "ev:h2-13:68a0714162163cfe",
+        "ev:h2-13:6bcabd6fa985a8ce",
+        "ev:h2-13:6fbfa35dac2191e9",
+        "ev:h2-13:725e887fc03f8353",
+        "ev:h2-13:826db0081308aef4",
+        "ev:h2-13:9dd25d906b467830",
+        "ev:h2-13:b0fa79340e9c1fe6",
+        "ev:h2-13:b1f7abd695c525b2",
+        "ev:h2-13:bd5d0a93fe6087fe",
+        "ev:h2-13:c6176acc92a07a61",
+        "ev:h2-13:cb0aa91ba87b9785",
+        "ev:h2-13:d5f894b574104aa8",
+        "ev:h2-13:e2cba2fb0e9b05ba"
+      ],
+      "strengths": [
+        "课时核算严谨精确：常规课时与机动课时合计180课时，机动课时分类详尽且与单元诊断形成动态闭环，杜绝了课时重复计算或挤占。",
+        "资源控制极度严密：对无网络、无高级计算器、无特殊实验仪器的离线环境制定了高度可行的纸笔与打印替代方案（如印刷模拟计算器屏幕、折纸透光对齐、网格截面图解）。",
+        "重大不确定性与实施边界划分明确，清晰区分了设计基准与现场诊断调整条件，方案具备高度的落地执行力。"
+      ],
+      "findings": [],
+      "critical_failure": false,
+      "critical_failure_reason": "",
+      "object_checks": [
+        {
+          "object": {
+            "kind": "time",
+            "id": "grade-total"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:07e0ce4cad1b8533"
+          ],
+          "note": "核算常规课时160节（22+22+22+18+26+16+14+20=160）与机动课时20节，总计180节，每节50分钟，与学校条件严格一致。"
+        },
+        {
+          "object": {
+            "kind": "time",
+            "id": "reserve"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:6bcabd6fa985a8ce"
+          ],
+          "note": "20节机动课时明确分配为：单元前置补偿3节、单元后矫正8节、期中期末综合反思9节，投放触发机制清晰，无重复计算或挤占。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:826db0081308aef4"
+          ],
+          "note": "分配22课时，容量与变换、全等、相似及截角性质相称，时间充裕。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:44dd7583fd4927ba"
+          ],
+          "note": "分配22课时，充分保障了斜率几何推导与一元一次方程代数流利度训练的学时需求。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:3b5dac00b1aceb3c"
+          ],
+          "note": "分配22课时，作为全年中枢核心单元，为8.F.B.4建模与多重表征转化提供了充足时间支撑。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:b0fa79340e9c1fe6"
+          ],
+          "note": "分配18课时，承接Unit 2与Unit 3基础，代数消元法与实际决策建模时间安排合理紧凑。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:c6176acc92a07a61"
+          ],
+          "note": "分配26课时，作为课时最多的重承载单元，确保实数数系扩充、勾股定理证明与二维三维坐标度量充分消化。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:3ca7efe1824234d9"
+          ],
+          "note": "分配16课时，聚焦整数指数运算法则与科学记数法运算，课时节奏紧凑适度。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:e2cba2fb0e9b05ba"
+          ],
+          "note": "分配14课时，专注于柱体、锥体与球体体积公式推导与反解计算，时间针对性强。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:68a0714162163cfe"
+          ],
+          "note": "分配20课时，全面覆盖散点图、直线经验拟合、斜率截距辨析与双向列联表分析，课时安排合理。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "unit_1_geom_transform"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:826db0081308aef4"
+          ],
+          "note": "使用物品包含方格纸、直尺、纸张（折纸透光比对）和教师投影；均在已知资源清单内，未引入透明描图纸或动态几何软件。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "unit_2_linear_eq"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:6fbfa35dac2191e9"
+          ],
+          "note": "使用物品包含方格纸（直角坐标系）、纸笔、天平图示（黑白打印）；完全符合现有资源条件。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "unit_3_linear_functions"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:cb0aa91ba87b9785"
+          ],
+          "note": "使用物品包含随堂练习单（黑白打印）、方格纸、纸笔；全部在既有资源内。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "unit_4_linear_systems"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:52a9171460945583"
+          ],
+          "note": "使用物品包含方格纸作图、纸笔测试、黑白打印决策报告；全部在学校资源清单内。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:333221fb86f86ef3"
+          ],
+          "note": "使用物品包含方格纸（数轴与网格作图）、纸笔、普通计算器（辅助大数乘除与近似）；均在资源范围内。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:396763eab9ac7976"
+          ],
+          "note": "使用黑白打印导学案、普通计算器与纸笔；特别明确通过印刷的计算器模拟屏幕图例替代高级科学计算器，严丝合缝契合离线普通计算器条件。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "unit_7_volume_3d"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:725e887fc03f8353"
+          ],
+          "note": "使用黑白打印截面图解、教师投影演示、普通计算器、纸笔；明确不依赖实体注水容器，所有评价在课内闭环完成。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "unit_8_bivariate_stats"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:2665587f426fb31e"
+          ],
+          "note": "使用方格纸（或黑白打印坐标网格学案）、直尺、纸笔；全部属于既有资源，且设计了备选方案。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "task_1_linear_modeling"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:5edd78fd2200f6e4"
+          ],
+          "note": "任务探查采用纸笔与黑白打印图象学案，完全在既有条件内实施。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "task_2_systems_decision"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:bd5d0a93fe6087fe"
+          ],
+          "note": "任务探查依托黑白打印表格与纸笔作答，资源需求完全匹配。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "task_3_coordinate_distance"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:d5f894b574104aa8"
+          ],
+          "note": "任务探查使用方格纸、直尺和纸笔，直接利用方格网格线构造直角三角形，未依赖三角板。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "task_4_stats_linear_interpretation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:9dd25d906b467830"
+          ],
+          "note": "任务探查使用黑白打印合成数据表与纸笔，资源完全契合学校条件。"
+        },
+        {
+          "object": {
+            "kind": "resource",
+            "id": "teacher_preparation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:b1f7abd695c525b2"
+          ],
+          "note": "教师准备中出现的物品为方格纸、直尺、纸张折纸、黑白打印导学案、教师投影与普通计算器，全在已知资源范围，明确了离线纯手工教学法的备课要求。"
+        }
+      ],
+      "score_rationale": "时间方面，常规课时160节与机动课时20节总计180课时，单元容量与进阶要求充分匹配，机动课时投放规划完备无重复计算；资源方面，对全部单元、探查和教师准备中的工具材料进行了穷尽对照，严格受限于给定的6项资源（纸笔、直尺、方格纸、黑白打印、教师投影、普通计算器），且针对几何变换不用透明纸（用折纸透光）、科学记数法普通计算器无屏幕（用印刷模拟屏幕图例）、立体体积不用注水（用课内截面剖析）提供了严密的零超纲替代方案，完全符合4分锚点。"
+    },
+    {
+      "candidate_id": "h2-13",
+      "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+      "criterion_id": "Q2",
+      "reviewer_id": "r2",
+      "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+      "rules_fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643",
+      "observability": "observable",
+      "comparability": "single_candidate",
+      "reviewed_scope": {
+        "expected": [
+          {
+            "kind": "grade",
+            "id": "mainline"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          }
+        ],
+        "note": ""
+      },
+      "score": 3,
+      "interval": null,
+      "evidence_refs": [
+        "ev:h2-13:2105ea98e0fe3077",
+        "ev:h2-13:450a7ed62e2bca3a",
+        "ev:h2-13:4bb28dd7e6f3bca1",
+        "ev:h2-13:7feddf7885e1d678",
+        "ev:h2-13:8bac98403ad5ee1b",
+        "ev:h2-13:b8bfdbd9cbda4c0f",
+        "ev:h2-13:c7bc5a08aeb32292",
+        "ev:h2-13:e4bcd2110c0ca728",
+        "ev:h2-13:fd60aa4f9cb54c69"
+      ],
+      "strengths": [
+        "突破标准编号机械罗列，创新性地以Unit 1几何刚体变换与AA相似判定作为Unit 2斜率恒定性的推导基石，使斜率获得扎实的几何公理直观。",
+        "在Unit 2一元一次方程与Unit 4二元一次方程组之间插入Unit 3函数映射，使方程组自然解释为双线性函数的几何交点与系统平衡点，有效降低了抽象代数负荷。",
+        "在Unit 5将无理数的引入与勾股定理斜边度量深度咬合，使代数数系扩充具有直观的几何现实存在感。"
+      ],
+      "findings": [],
+      "critical_failure": false,
+      "critical_failure_reason": "",
+      "object_checks": [
+        {
+          "object": {
+            "kind": "grade",
+            "id": "mainline"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:b8bfdbd9cbda4c0f"
+          ],
+          "note": "全年叙述构建了清晰严密的数学认知进阶主线，从几何刚体变换与相似出发奠定斜率比率，再由一元方程推进到现代函数映射与方程组系统平衡，随后咬合实数勾股空间、指数运算与三维体积，最后以双变量统计经验拟合收官。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:4bb28dd7e6f3bca1"
+          ],
+          "note": "几何变换作为第一单元，通过保长保角实验与位似缩放推导AA相似准则，为后续斜率恒定性的几何证明提供了严谨的前备支撑。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:450a7ed62e2bca3a"
+          ],
+          "note": "利用Unit 1的AA相似判定构造斜率三角形推导斜率不变性，并深入攻坚一元一次方程解的分类（唯一解、无解、无穷多解），承前启后逻辑扎实。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:8bac98403ad5ee1b"
+          ],
+          "note": "将几何直线方程跃升为输入输出函数映射，聚焦8.F.B.4建模能力，并在多重表征中对比线性与非线性，是全年代数的核心枢纽。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:7feddf7885e1d678"
+          ],
+          "note": "紧承Unit 3函数概念，将二元一次方程组理解为两线性函数图象交点与平衡决策，代数求解与几何直观融合紧密。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:2105ea98e0fe3077"
+          ],
+          "note": "将数系扩充（无理数与开方）同直角三角形几何边长、勾股定理及坐标系距离计算紧密咬合，赋予抽象数系鲜明的几何意义。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:e4bcd2110c0ca728"
+          ],
+          "note": "指数体系拓展至整数，并与宏观/微观现实情境结合，科学记数法与数量级估算编排紧凑合理。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:fd60aa4f9cb54c69"
+          ],
+          "note": "将二维几何与代数运算拓展至三维体积，综合应用Unit 5的开方运算反解几何尺寸，形成知识闭环。"
+        },
+        {
+          "object": {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:c7bc5a08aeb32292"
+          ],
+          "note": "收官单元迁移应用Unit 3的8.F.B.4建模能力，在散点图中拟合经验直线并辨析统计关联与因果性，完成从确定性代数到统计推断的跃升。"
+        }
+      ],
+      "score_rationale": "全课程应查对象全部核查完毕，无关键缺口与重大失败。主线逻辑清晰，从几何变换奠基斜率、推进函数与方程组平衡，再到实数勾股空间度量与双变量统计经验拟合，数学理由充分严谨，前后支持关系具体一致。达到3分要求；距离4分的差距在于主要聚焦于当前选定路径的充分论证，对若调整顺序时的其他可替代单元组合安排及权衡取舍未做横向对比说明。"
+    },
+    {
+      "candidate_id": "h2-13",
+      "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+      "criterion_id": "Q8",
+      "reviewer_id": "r2",
+      "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+      "rules_fingerprint": "16cbf3788597d2d7178cd817d2ed4418d80cb6f7af6fde2c2bebf46a73e5d643",
+      "observability": "observable",
+      "comparability": "single_candidate",
+      "reviewed_scope": {
+        "expected": [
+          {
+            "kind": "teacher_question",
+            "id": "tq-shorten-unit"
+          },
+          {
+            "kind": "teacher_question",
+            "id": "tq-goal-trace"
+          },
+          {
+            "kind": "teacher_question",
+            "id": "tq-reserve"
+          }
+        ],
+        "note": ""
+      },
+      "score": 3,
+      "interval": null,
+      "evidence_refs": [
+        "ev:h2-13:3e7ca9dd104edf1e",
+        "ev:h2-13:4111bdd988323ce9",
+        "ev:h2-13:4e73a5f215bcf9b1",
+        "ev:h2-13:822f1e8131a48dc7",
+        "ev:h2-13:c83801a86384ab9a"
+      ],
+      "strengths": [
+        "目标的学习、应用与复访路径追踪极为清晰，各目标allocation明确标明角色职责与评估证据，教学节奏与评价闭环一目了然。",
+        "机动课时（20节）不仅总数核算精确，而且细化为前置补偿、测后矫正与期末反思三层动态机制，兼具灵活性与操作规范。"
+      ],
+      "findings": [
+        "model:r2:h2-13:q8:1"
+      ],
+      "critical_failure": false,
+      "critical_failure_reason": "",
+      "object_checks": [
+        {
+          "object": {
+            "kind": "teacher_question",
+            "id": "tq-shorten-unit"
+          },
+          "status": "local_gap",
+          "evidence_ids": [
+            "ev:h2-13:4111bdd988323ce9",
+            "ev:h2-13:3e7ca9dd104edf1e"
+          ],
+          "note": "各单元明确给出了prerequisite_units及进入先备要求，Unit 3的交接指引也指出了后续承接关系，教师能定位影响链条；但各单元缺少直接指导课时压缩时的剪裁优先级预案，存在局部缺口（local_gap）。"
+        },
+        {
+          "object": {
+            "kind": "teacher_question",
+            "id": "tq-goal-trace"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:4e73a5f215bcf9b1",
+            "ev:h2-13:c83801a86384ab9a"
+          ],
+          "note": "目标追踪体系极为完善，goals下各标准的allocations清晰标明了teach、apply、revisit等角色、机会与证据，各单元的entry、exit与assessment_plan环环相扣，教师能极其精准地追踪任一目标的学、练、评节点。"
+        },
+        {
+          "object": {
+            "kind": "teacher_question",
+            "id": "tq-reserve"
+          },
+          "status": "supported",
+          "evidence_ids": [
+            "ev:h2-13:822f1e8131a48dc7"
+          ],
+          "note": "20节机动课时被结构化定义为单元前置诊断补偿（3节）、单元测验后矫正（8节）以及期中期末综合反思工作坊（9节），用途明确，投放触发条件清晰，能清楚反映挪用机动时间将丧失的诊断补救与综合反思功能。"
+        }
+      ],
+      "score_rationale": "应查对象全部核查完毕，无重大失败与关键缺口。目标追踪与机动时间分配高度结构化且易于落地，教师能快速确定教学内容、依赖关系与评价定位；距离4分差距在于tq-shorten-unit中，除了前备网络外，尚未给出一套系统化的单元压缩应急剪裁指南（各单元精简时的安全边界）。因此评为3分。"
+    }
+  ],
+  "findings": [
+    {
+      "id": "model:r2:h2-13:q8:1",
+      "candidate_id": "h2-13",
+      "content_fingerprint": "42f85830b5f36c82e6106850225e14fdb0ab12e076190f878b4c399a0c59af56",
+      "criterion_id": "Q8",
+      "object": {
+        "kind": "teacher_question",
+        "id": "tq-shorten-unit"
+      },
+      "origin": "model",
+      "reviewer_id": "r2",
+      "severity": "local",
+      "claim": "候选方案虽然指明了各单元的前备依赖链条，但缺少当具体单元因故必须压缩时各单元内部具体的剪裁优先级与不可删减核心预案。",
+      "requirement": "若一个单元缩短，哪些后续安排会受影响，依据在哪里？需有清晰的调整判断依据。",
+      "evidence_ids": [
+        "ev:h2-13:e2be26f6d358ad96"
+      ],
+      "counterexample": "",
+      "impact": "当学校教学周因突发情况缩短时，教师虽能通过prerequisite_units看出后续受影响单元，但缺乏具体单元内哪些内容可压缩、哪些是硬性核心的明确剪裁依据。",
+      "recheck": "检查各单元是否提供了课时受限时的核心保留底线与精简指引。",
+      "status": "open",
+      "status_note": "",
+      "status_evidence_ids": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev:h2-13:9fff2d8ccba599d3",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/0/allocations/0/opportunity",
+      "quote": "在指数运算法则探究课中，通过从正整数幂的连续除法模式引导学生归纳零指数与负整数指数的数学必然性，完成含有负指数算式的化简与等价转换。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.A.1"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:30bada94ae37a215",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/1/allocations/0/opportunity",
+      "quote": "在面积求边长与体积求棱长的问题情境中引入平方根与立方根符号，求解形如 $x^2 = p$ 与 $x^3 = p$ 的方程，辨析完全平方数与非完全平方数。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.A.2"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:c27d36caee77294d",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/2/allocations/0/opportunity",
+      "quote": "在现实巨量与微量情境（如天体质量对比）中，利用 10 的整数幂估算数量级，并计算“甲是乙的多少倍”。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.A.3"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:ce85541fc50d0816",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/3/allocations/0/opportunity",
+      "quote": "探索科学记数法的加减乘除运算法则，学习针对天文学与微观物理情境选用恰当测量单位；通过黑白打印导学案中印刷的计算器模拟屏幕图例与按键示例，学习解读技术工具输出的科学记数法格式",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.A.4"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:e8a6e6453db2ffdd",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/4/allocations/0/opportunity",
+      "quote": "在正比例运动与价格问题中，绘制过原点的直线，将斜率识别为单位比率，并在图象、代数式与数据表之间跨表征对比变化快慢。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.B.5"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:8352e36810922ff8",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/5/allocations/0/opportunity",
+      "quote": "借助方格纸网格和相似三角形对应边成比例的几何性质，在平面直角坐标系中推导直线上任意两不同点斜率 $m$ 的恒定性，推导过原点直线 $y=mx$ 以及经过纵截距 $b$ 的直线方程 $y=mx+b$。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.B.6"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:065363eec1171438",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/6/allocations/0/opportunity",
+      "quote": "通过天平平衡模型与代数恒等变换，系统探究一元一次方程在化简到终极状态时的分类：$x=a$（唯一解）、$a=b$ 且 $a \\ne b$（矛盾式，无解）以及 $a=a$（恒等式，无穷多解）",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.C.7.a"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:52514d14adc58732",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/7/allocations/0/opportunity",
+      "quote": "训练求解含有有理数系数（含分数和小数）、需要利用乘法分配律去括号、移项并合并同类项的一元一次方程。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.C.7.b"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:39546488bc9963cb",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/8/allocations/0/opportunity",
+      "quote": "通过在方格纸上绘制两条直线探索公共交点，引导学生认识到二元一次方程组的解对应于图象的几何交点，体会交点坐标对两个方程的“联立满足”特性。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.C.8.a"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:054573a2dbdc81d5",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/9/allocations/0/opportunity",
+      "quote": "学习并掌握二元一次方程组的代数求解策略（代入消元法与加减消元法），并通过观察系数特征与几何平行性识别无解或无穷多解。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.C.8.b"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:2c4a1f381267b0fc",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/10/allocations/0/opportunity",
+      "quote": "应用二元一次方程组解决现实生活与数学情境问题（如双方案成本平衡点），完成从情境描述到方程组建模与现实解释的转化。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.C.8.c"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:f46b5f0d663c1c1f",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/11/allocations/0/opportunity",
+      "quote": "通过自动售票计价、输入输出数值对应等实例，建立函数的统一定义：每个输入值对应唯一确定输出值的规则；理解图象是所有有序实数对 $(x, y)$ 的集合。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:afce6f99c12980f6",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/12/allocations/0/opportunity",
+      "quote": "对比采用不同表征（代数式、图象、数值表格、文字叙述）给出的两个函数的关键数学属性（如变化率、初始值）。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.F.A.2"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:5871e28fc7e62cf2",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/13/allocations/0/opportunity",
+      "quote": "确立 $y = mx + b$ 为线性函数的标准解析特征，其图象在平面直角坐标系中为一条直线；通过对比面积二次增长等实例，理解非线性函数的本质特征。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.F.A.3"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:4e73a5f215bcf9b1",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/14/allocations/0/opportunity",
+      "quote": "从文字背景、数据表或图象中构建线性函数模型 $y = mx + b$；确定并阐释变化率（斜率）与初始值（截距）在具体情境中的数学与现实含义。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "teacher_question",
+          "id": "tq-goal-trace"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:7768767914287752",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/15/allocations/0/opportunity",
+      "quote": "根据给定的函数图象定性分析变量间的依从关系（增减区间、平稳期、变化快慢、线性与非线性阶段）；反之，根据文字情境故事草绘定性函数图象。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.F.B.5"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:fc1fe1257d7493f5",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/16/allocations/0/opportunity",
+      "quote": "使用方格纸、直尺和折纸对齐透光比对及教师投影演示，实验验证平面刚体变换（平移、旋转、反射）保持线段长度不变、直线映射为直线。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.A.1.a"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:8c81f519c9aaf58e",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/17/allocations/0/opportunity",
+      "quote": "在方格纸上通过折纸对齐叠合与网格比对，实验探究并验证刚体变换中角的大小度数保持不变（保角性）。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.A.1.b"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:1a71e199d1ad0b8d",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/18/allocations/0/opportunity",
+      "quote": "实验验证互相平行的直线在平移、旋转或反射后得到的对应像依然互相平行。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.A.1.c"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:fab228763a916b17",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/19/allocations/0/opportunity",
+      "quote": "通过刚体变换的复合序列定义图形的几何全等性；给定全等图形，探索并描述从原像到像的连续变换步骤序列。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.A.2"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:c2d7bbd48e4db0bb",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/20/allocations/0/opportunity",
+      "quote": "在平面直角坐标系中，建立平移、旋转（特别是以原点为中心的 90 度、180 度）、轴反射以及以原点为中心的位似缩放的坐标变换对应法则。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.A.3"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:817a90cd7ff311be",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/21/allocations/0/opportunity",
+      "quote": "通过位似缩放与刚体变换的复合定义几何相似性；给定两个相似图形，指认并描述包含位似缩放的一组变换序列。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.A.4"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:146aea5b99fe1ca8",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/22/allocations/0/opportunity",
+      "quote": "通过撕纸拼平角以及平行线被截线所截的同位角、内错角性质，非形式化论证三角形内角和定理、外角定理，并确立三角形相似的“角-角（AA）”判定准则。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.A.5"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:f689f38cd840df0b",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/23/allocations/0/opportunity",
+      "quote": "通过几何面积割补法直观证明勾股定理，并探索当三角形三边满足 $a^2 + b^2 = c^2$ 时必为直角三角形的逆定理。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.B.6"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:834618a1c7fa4b71",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/24/allocations/0/opportunity",
+      "quote": "应用勾股定理解决二维平面与三维立体空间中的未知线段长度求解问题。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.B.7"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:ae42e24db640449b",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/25/allocations/0/opportunity",
+      "quote": "在平面直角坐标系中，将任意两点间的线段视为直角三角形的斜边，利用方格纸网格线构造直角三角形，应用勾股定理推导并计算两点间几何距离。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.B.8"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:1db80b6ac5617331",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/26/allocations/0/opportunity",
+      "quote": "通过教师投影动态图解演示与黑白打印截面分解图，理解圆柱、圆锥与球体的体积公式几何推导渊源，运用公式求解实际问题中的体积与容积。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.C.9"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:71f80aa3209c1050",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/27/allocations/0/opportunity",
+      "quote": "建立数系概念框架：区分有理数与无理数；探索小数展开式，理解有理数展开为有限或无限循环小数，熟练掌握通过代数方程将循环小数转化为有理分数的方法。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.NS.A.1"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:5f46c04f36dd3565",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/28/allocations/0/opportunity",
+      "quote": "通过逐步夹逼法，对无理数（如 $\\sqrt{2}$、$\\pi$）进行有理数小数估算，在数轴上定位其几何位置，并估算含无理数的表达式大小。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.NS.A.2"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:2f1f53b5f58a1483",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/29/allocations/0/opportunity",
+      "quote": "在双变量成对数据中，在方格纸上绘制散点图，识别聚类、离群点、正/负关联以及线性/非线性关联趋势。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.SP.A.1"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:a91460e13d64daab",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/30/allocations/0/opportunity",
+      "quote": "对于呈现线性关联模式的散点图，学习使用直尺直观拟合一条中心趋势直线，并通过观察数据点围绕直线的聚集紧密程度非形式化评价模型的拟合效果。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.SP.A.2"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:319a4b8f7f72f950",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/31/allocations/0/opportunity",
+      "quote": "基于拟合得到的经验直线方程 $y = mx + b$，紧扣变量实际单位解释斜率与截距的统计学关联涵义，并代入数值在合理有效范围内进行估计。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.SP.A.3"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:333091492d34af2e",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/32/allocations/0/opportunity",
+      "quote": "探究双变量分类数据，编制并解读双向列联表；计算行/列相对频率，依据条件分布的差异分析两分类变量间是否存在相关性。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.SP.A.4"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:1b9471b6eecbf4d5",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/33/allocations/0/opportunity",
+      "quote": "整体把握一元一次方程的求解体系，综合应用分配律、等式性质与同类项合并，全面考察各类有理数系数方程的求解与解的存在性判别。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.C.7"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:ea6c85b0f15e6045",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/34/allocations/0/opportunity",
+      "quote": "整合图象交点几何意义与代数消元求解技巧，系统解决多元实际问题中的二元一次联立方程组。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.EE.C.8"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:65f40a003b893eb1",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/35/allocations/0/opportunity",
+      "quote": "通过方格纸作图、折纸对齐比对与投影演示，整体建构并验证刚体变换的保距、保角与保平行核心几何不变性。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "goal",
+          "id": "8.G.A.1"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:352d2abcad597505",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/practices/0/student_actions",
+      "quote": "学生在面对多步骤的实际应用题（如两方案资费选择、散点图趋势分析）时，不急于套用单一公式，而是先审题分析已知条件与约束条件，通过方格纸画图、设未知数或构造数值表格寻找切入点",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "practice",
+          "id": "MP1"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:06264a16c793a554",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/practices/1/student_actions",
+      "quote": "学生能够进行‘去情境化’与‘再情境化’的双向转换：既能从具体的蓄水量、骑行费用中抽象出纯代数关系 $y = 20x + 60$ 并进行符号运算；又能在求得数值解后，准确解释该数值在现实情境中所代表的物理速率或初始基准状态。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "practice",
+          "id": "MP2"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:0c0d030c63c61c1c",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/practices/2/student_actions",
+      "quote": "在小组讨论与全班汇报中，学生能够陈述公理与推导前提，构建有条理的逻辑论证链条（如利用平行线同位角相等论证三角形相似及斜率恒定）；能够审视他人的解题步骤，使用反例指出他人推理中的漏洞。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "practice",
+          "id": "MP3"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:a6b475d651936213",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/practices/3/student_actions",
+      "quote": "学生主动识别实际问题中的关键变量，利用图表、代数方程与函数解析式建立变量之间的数学映射结构；在完成计算后，主动结合实际背景评估模型结果的有效性与适用定义域。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "practice",
+          "id": "MP4"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:4c2200e59f2d9b8e",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/practices/4/student_actions",
+      "quote": "在解决几何变换、函数图象绘制和科学记数法运算时，学生能合理决定何时使用方格纸作图、何时使用直尺画线、何时使用普通计算器辅助数值计算，并能认识到手动绘图与工具计算的近似性。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "practice",
+          "id": "MP5"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:4ee29d425000653d",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/practices/5/student_actions",
+      "quote": "在口头交流与书面表达中，学生准确使用数学术语（如‘位似中心’、‘变化率’、‘纵截距’、‘无理数’）；在坐标系绘图时规范标注坐标轴名称与单位；在代数运算中准确书写等号并保持步骤严谨。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "practice",
+          "id": "MP6"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:7446a25bfec04ac4",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/practices/6/student_actions",
+      "quote": "学生敏锐捕捉数学对象中的结构模式：在几何中识别旋转与平移中的基本骨架图形；在代数中识别形如 $a(x+b)$ 的分配律结构与等式两边同项抵消的本质；在一次函数中快速抓取结构式 $y = mx + b$ 中的线性特征。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "practice",
+          "id": "MP7"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:197f78257deb508f",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/practices/7/student_actions",
+      "quote": "学生在重复计算中保持对规律的敏感度：通过多次计算直线上不同两点的差商，自觉归纳出斜率恒定性公式；通过分数除法的余数重复出现，归纳并确立循环小数的有理数转化通法。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "practice",
+          "id": "MP8"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:0fd4f49b7b94d368",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/0/narrative",
+      "quote": "本单元作为八年级几何基石，通过方格纸作图、直尺测量与折纸透光对齐比对，并辅以教师投影演示，探索刚体变换的保长、保角与保平行不变性。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_1_geom_transform"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:72ef6affa84bad85",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/1/narrative",
+      "quote": "本单元承接 Unit 1 的相似三角形理论，在平面直角坐标系中构造‘斜率三角形’，严密证明非垂直直线上任意两不同点的变化率恒定……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_2_linear_eq"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:f988af862d9e5a14",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/2/narrative",
+      "quote": "本单元将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。确立函数的统一定义（每个输入唯一对应输出），通过对比线性函数与非线性函数……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_3_linear_functions"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:b7c9debf8621bf68",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/3/narrative",
+      "quote": "本单元将函数与方程融为一体。学生发现当两个现实线性函数并存时，寻求二者的共同状态即等价于求解二元一次方程组。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_4_linear_systems"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:5bba6936849da114",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/4/narrative",
+      "quote": "通过探究直角三角形斜边长度与几何正方形边长，发现无法表示为两整数之比的无理数（如根号2），理解无限循环小数与非循环小数的界限。随后通过面积割补法证明勾股定理……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:af169d613751cc9e",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/5/narrative",
+      "quote": "通过规律探索归纳出零指数幂与负整数指数幂的代数定义，建立完整的整数指数幂运算法则。随后将这一法则应用于科学记数法……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_6_exponents_sci_notation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:83d1620044ff2247",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/6/narrative",
+      "quote": "通过黑白打印几何图解、等底等高圆柱与内接圆锥的截面与体积关系分析、展开图模型以及代数推导，建立圆柱、圆锥与球体体积公式之间的内生联系……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_7_volume_3d"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:5be30d7bd9e719b5",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/7/narrative",
+      "quote": "利用直尺拟合经验直线，迁移运用 8.F.B.4 的建模技能求解经验直线方程，理解斜率在统计学中的平均边际变化率含义及统计关联与因果干预的区别。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_8_bivariate_stats"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:604be40a266f1f60",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/2/narrative",
+      "quote": "本单元将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。确立函数的统一定义（每个输入唯一对应输出）……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "dependency",
+          "id": "unit_3_linear_functions<-unit_2_linear_eq"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:4111bdd988323ce9",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/3/entry",
+      "quote": "掌握一元一次方程求解；掌握线性函数作图与解析式求解；进入前需经课内诊断。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "teacher_question",
+          "id": "tq-shorten-unit"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:1c83f8c112cd1533",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/3/narrative",
+      "quote": "学生发现当两个现实线性函数并存时，寻求二者的共同状态即等价于求解二元一次方程组。单元首先建立解即为两直线几何交点的直观……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "dependency",
+          "id": "unit_4_linear_systems<-unit_3_linear_functions"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:0b5f82cd663658bf",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/4/narrative",
+      "quote": "随后通过面积割补法证明勾股定理及其逆定理，熟练求解 x^2=p 与 x^3=p，并将勾股定理推广应用于二维平面、三维空间以及平面直角坐标系两点间距离的精确计算。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "dependency",
+          "id": "unit_5_real_numbers_pythagoras<-unit_1_geom_transform"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:2c81d4c08a138d6b",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/6/narrative",
+      "quote": "结合 Unit 5 学习的开方运算反解立体图形的关键几何尺寸，在课内解决真实工程与生活中的容积问题。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "dependency",
+          "id": "unit_7_volume_3d<-unit_5_real_numbers_pythagoras"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:6673f4774a612338",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/0/exit",
+      "quote": "能运用坐标代数式表示刚体变换与位似；能熟练运用AA准则判定三角形相似并计算对应边比值。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_1_geom_transform"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:6c5bc86e05de8384",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/1/exit",
+      "quote": "能利用相似三角形解释直线上任意两不同点斜率恒定；能写出 y=mx 和 y=mx+b 方程；能熟练求解一元一次方程并判定唯一解、无解或无穷多解。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_2_linear_eq"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:c16d8de93e50518a",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/2/exit",
+      "quote": "深刻领会函数的统一定义；能在代数式、图象、数据表与情境间理解并建立联系；能独立构建 8.F.B.4 线性函数模型……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_3_linear_functions"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:de152f6528ba4b54",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/3/exit",
+      "quote": "能通过方格纸画图估计方程组的解；熟练运用代入消元法和加减消元法求解方程组；能运用方程组解决真实生活中的平衡点决策问题。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_4_linear_systems"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:e2ba4cb8973d6cf1",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/4/exit",
+      "quote": "能区分有理数与无理数，会将简单循环小数转化为分数；能运用夹逼法估算无理数并在数轴定位；能证明勾股定理并应用于平面、空间及坐标系距离求解。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:b06f2db8f372e629",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/5/exit",
+      "quote": "能自如运用整数指数幂的运算性质化简代数式；能熟练使用科学记数法表示极端数值、选用恰当测量单位、进行四则运算……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_6_exponents_sci_notation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:3b5331461aeec349",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/6/exit",
+      "quote": "理解圆柱、圆锥与球体的体积公式推导渊源；能熟练运用公式解决组合立体图形的体积与容积实际问题，并能根据已知体积反解半径或高度。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_7_volume_3d"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:9f69fe1d42567883",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/7/exit",
+      "quote": "能独立绘制双变量散点图并分析模式；能拟合经验直线并使用方程在合理有效范围内合理预测；能紧扣实际背景解释斜率与截距的统计学关联含义……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_8_bivariate_stats"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:6dfbefc498de8df6",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/0/allocations/1/opportunity",
+      "quote": "在科学记数法乘除混合运算中复习并熟练运用负指数幂运算法则。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "revisit",
+          "id": "8.EE.A.1@unit_6_exponents_sci_notation:apply"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:293075899985ed67",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/1/allocations/1/opportunity",
+      "quote": "在三维几何体体积计算中反解半径或高度时，应用开平方和开立方操作。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "revisit",
+          "id": "8.EE.A.2@unit_7_volume_3d:apply"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:959df6e3a5d0fca4",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/4/allocations/1/opportunity",
+      "quote": "在函数单元中将 $y = kx$ 作为特殊线性函数进行性质再审视与联系。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "revisit",
+          "id": "8.EE.B.5@unit_3_linear_functions:revisit"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:79fc045cd8bbede8",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/5/allocations/1/opportunity",
+      "quote": "在构建线性函数解析式中直接应用斜率公式与纵截距概念，完成从几何直线到代数函数模型的平滑过渡。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "revisit",
+          "id": "8.EE.B.6@unit_3_linear_functions:apply"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:485f0820cc90bfec",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/7/allocations/1/opportunity",
+      "quote": "在方程组代入消元后求解所得的一元复杂线性方程。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "revisit",
+          "id": "8.EE.C.7.b@unit_4_linear_systems:apply"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:c83801a86384ab9a",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/14/allocations/1/opportunity",
+      "quote": "在散点图拟合直线探究中，应用 8.F.B.4 的建模技能求解经验直线的解析式并解读截距与斜率。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "teacher_question",
+          "id": "tq-goal-trace"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:f9fcec45b62c741d",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/goals/22/allocations/1/opportunity",
+      "quote": "在推导直线斜率恒定性时，复习并应用平行线同位角相等及 AA 相似三角形判定定理。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "revisit",
+          "id": "8.G.A.5@unit_2_linear_eq:apply"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:8e83445ef478b643",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/0/assessment_plan",
+      "quote": "前测诊断对称与旋转直观；课内通过方格纸作图、折纸对齐比对与直尺测量记录进行形成性观察；单元末通过课内闭卷测试评估坐标变换代数规则及三角形内角和与AA相似推理。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_1_geom_transform"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:2a744b1deb10ab2d",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/1/assessment_plan",
+      "quote": "前置诊断七年级有理数四则运算与比率；随堂小测检查斜率计算与去分母过程；单元结业测试评估一元方程解的分类辨析（唯一解、无解、无穷多解）与直线方程推导。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_2_linear_eq"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:35ad794911842aef",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/2/assessment_plan",
+      "quote": "入单元前测诊断两点差商计算与四象限坐标读取；课内以表征转换随堂练习单进行形成性评估；单元末通过真实情境建模（含 Task 1 类似题）进行终结性闭卷评价。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_3_linear_functions"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:52a9171460945583",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/3/assessment_plan",
+      "quote": "随堂练习检查代入法与加减法步骤；以‘两方案对比决策报告’评估课内建模能力；单元测试考核方程组代数求解流利度与交点几何释义。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "unit_4_linear_systems"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:333221fb86f86ef3",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/4/assessment_plan",
+      "quote": "通过数轴作图小测检验无理数逼近精度；课内通过几何拼图与代数展开检查勾股定理证明；单元末测试坐标距离计算与方程 x^2=p 求解。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "unit_5_real_numbers_pythagoras"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:3706392f20d21cd2",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/5/assessment_plan",
+      "quote": "随堂速测检查同底数幂运算法则的准确运用；课内小练习核查利用科学记数法对比宏观微观物理量及释读印刷模拟屏幕图例；单元末测试科学记数法混合四则运算。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_6_exponents_sci_notation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:e8b5fadd74dd6e3a",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/6/assessment_plan",
+      "quote": "课内图形剖析报告评估体积公式的几何分解与代数推导过程；课内随堂练习（利用普通计算器）评估多步公式代入与根号近似计算；单元末闭卷测试考核柱体、锥体与球体在复杂复合情境中的课内纸笔求解……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_7_volume_3d"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:5b4c985b26d7a21a",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/7/assessment_plan",
+      "quote": "课内散点图描点与趋势线绘制表现性评价（方格纸不足时改用黑白打印的带刻度坐标网格学案，评价要求不变）；以课内双变量统计分析报告进行个人或同伴评估……",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_8_bivariate_stats"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:826db0081308aef4",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/0/narrative",
+      "quote": "通过方格纸作图、直尺测量与折纸透光对齐比对，并辅以教师投影演示，探索刚体变换的保长、保角与保平行不变性。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_1_geom_transform"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:deef1b60c70ba25d",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/1/narrative",
+      "quote": "在平面直角坐标系中构造‘斜率三角形’，严密证明非垂直直线上任意两不同点的变化率恒定，将七年级的单位比率升华为直线的几何斜率，推导 y = mx 与 y = mx + b。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_2_linear_eq"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:1eccf7a590ccc204",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/2/narrative",
+      "quote": "本单元将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。确立函数的统一定义（每个输入唯一对应输出）",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_3_linear_functions"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:ccd3609d4c24a4f0",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/3/narrative",
+      "quote": "学生发现当两个现实线性函数并存时，寻求二者的共同状态即等价于求解二元一次方程组。单元首先建立解即为两直线几何交点的直观",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_4_linear_systems"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:7ffcdbdf32d6db71",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/4/narrative",
+      "quote": "通过探究直角三角形斜边长度与几何正方形边长，发现无法表示为两整数之比的无理数（如根号2），理解无限循环小数与非循环小数的界限。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:16bca2788d1b60b8",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/5/narrative",
+      "quote": "通过规律探索归纳出零指数幂与负整数指数幂的代数定义，建立完整的整数指数幂运算法则。随后将这一法则应用于科学记数法",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_6_exponents_sci_notation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:865e8eb612d55b37",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/6/narrative",
+      "quote": "通过黑白打印几何图解、等底等高圆柱与内接圆锥的截面与体积关系分析、展开图模型以及代数推导，建立圆柱、圆锥与球体体积公式之间的内生联系",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_7_volume_3d"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:fdb7d78004825e48",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/7/narrative",
+      "quote": "迁移运用 8.F.B.4 的建模技能求解经验直线方程，理解斜率在统计学中的平均边际变化率含义及统计关联与因果干预的区别。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_8_bivariate_stats"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:4b8e2080c9c63f96",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/tasks/0/solution",
+      "quote": "当下雨 15 小时后，降雨已经停止或水桶达到 240 加仑满溢，蓄水量不会无限制增长，因此该线性模型不能无限制外推至定义域之外。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "probe",
+          "id": "task_1_linear_modeling"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:6ab55d43f89edd1e",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/tasks/1/solution",
+      "quote": "当骑行时间短于 50 分钟时，方案 B 的图象在方案 A 下方，选择方案 B 更加划算",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "probe",
+          "id": "task_2_systems_decision"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:bc2ede0f2d72d07a",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/tasks/2/prompt",
+      "quote": "在平面直角坐标系中，利用方格纸网格构造直角三角形并应用勾股定理，求任意两点间的精确距离。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "probe",
+          "id": "task_3_coordinate_distance"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:13ddc12b02779160",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/tasks/3/solution",
+      "quote": "这属于观察性统计关联，不能直接等同于对个体强制增加复习时间的平均干预效果",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "probe",
+          "id": "task_4_stats_linear_interpretation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:07e0ce4cad1b8533",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/narrative",
+      "quote": "全课程安排 160 节常规课时与 20 节依据诊断干预的机动课时，确保在无网络离线条件下，所有必需学习与评价均在课内闭环完成。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "time",
+          "id": "grade-total"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:6bcabd6fa985a8ce",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/reserve_plan",
+      "quote": "全年设置 20 节机动课时（Reserve Lessons），作为依据诊断实施课内干预与针对性巩固的资源，不计入各单元常规教学课时",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "time",
+          "id": "reserve"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:44dd7583fd4927ba",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/1/narrative",
+      "quote": "同时，系统深入攻坚一元一次方程，利用天平模型与代数恒等变换，透彻剖析一元一次方程的三种解的情况",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_2_linear_eq"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:3b5dac00b1aceb3c",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/2/narrative",
+      "quote": "【本课程核心焦点单元】本单元将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_3_linear_functions"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:b0fa79340e9c1fe6",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/3/narrative",
+      "quote": "单元首先建立解即为两直线几何交点的直观，随后系统学习代入消元法与加减消元法，并借助直线平行或重合的几何形态理解方程组无解或无穷多解的代数本质",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_4_linear_systems"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:c6176acc92a07a61",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/4/narrative",
+      "quote": "本单元开启数系扩充与几何度量的深层交融。通过探究直角三角形斜边长度与几何正方形边长，发现无法表示为两整数之比的无理数（如根号2）",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:3ca7efe1824234d9",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/5/narrative",
+      "quote": "本单元完成指数体系向全部整数的拓展。通过规律探索归纳出零指数幂与负整数指数幂的代数定义，建立完整的整数指数幂运算法则。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_6_exponents_sci_notation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:e2cba2fb0e9b05ba",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/6/narrative",
+      "quote": "通过黑白打印几何图解、等底等高圆柱与内接圆锥的截面与体积关系分析、展开图模型以及代数推导",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_7_volume_3d"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:68a0714162163cfe",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/7/narrative",
+      "quote": "作为八年级的收官单元，本单元将确定性代数模型推向现实世界的不确定性数据分析。学生通过分析成对数据（包含合成数据表）",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_8_bivariate_stats"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:6fbfa35dac2191e9",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/1/narrative",
+      "quote": "在平面直角坐标系中构造‘斜率三角形’，严密证明非垂直直线上任意两不同点的变化率恒定，将七年级的单位比率升华为直线的几何斜率",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "unit_2_linear_eq"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:cb0aa91ba87b9785",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/2/assessment_plan",
+      "quote": "课内以表征转换随堂练习单进行形成性评估；单元末通过真实情境建模（含 Task 1 类似题）进行终结性闭卷评价。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "unit_3_linear_functions"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:396763eab9ac7976",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/5/narrative",
+      "quote": "并在黑白打印学案中通过印刷的计算器模拟屏幕图例（如显示 1.2E8），学习解读技术工具输出的科学记数法格式，不假设学生普通计算器具备该高级功能。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "unit_6_exponents_sci_notation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:725e887fc03f8353",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/6/assessment_plan",
+      "quote": "课内图形剖析报告评估体积公式的几何分解与代数推导过程；课内随堂练习（利用普通计算器）评估多步公式代入与根号近似计算；单元末闭卷测试考核柱体、锥体与球体在复杂复合情境中的课内纸笔求解",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "unit_7_volume_3d"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:2665587f426fb31e",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/7/assessment_plan",
+      "quote": "课内散点图描点与趋势线绘制表现性评价（方格纸不足时改用黑白打印的带刻度坐标网格学案，评价要求不变）",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "unit_8_bivariate_stats"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:5edd78fd2200f6e4",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/tasks/0/prompt",
+      "quote": "根据雨水收集桶在一次均匀降雨中的蓄水量记录，计算变化率与初始值，写出含有效定义域的线性函数解析式，并解释参数与图象特征的实际物理意义及适用边界。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "task_1_linear_modeling"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:bd5d0a93fe6087fe",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/tasks/1/blocks/1/text",
+      "quote": "部分骑行时间与费用对照表：",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "task_2_systems_decision"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:d5f894b574104aa8",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/tasks/2/solution",
+      "quote": "利用方格纸本身的水平和铅垂网格线",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "task_3_coordinate_distance"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:9dd25d906b467830",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/tasks/3/blocks/0/text",
+      "quote": "以下是为教学构造的 10 行合成数据及给定示意趋势线，没有实际班级调查。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "task_4_stats_linear_interpretation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:b1f7abd695c525b2",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/teacher_preparation",
+      "quote": "熟练掌握使用方格纸、直尺与折纸对齐透光进行几何变换、斜率三角形与散点图拟合的手工教学法，准备好黑白打印导学案中的图形截面分解图与计算器模拟屏幕图例",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "teacher_preparation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:b8bfdbd9cbda4c0f",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/narrative",
+      "quote": "建立了一条以‘几何相似直观奠基 -> 代数方程与斜率刻画 -> 现代函数映射建构 -> 方程组系统平衡 -> 数系扩充与勾股空间度量 -> 幂运算与科学计量 -> 三维体积度量 -> 双变量统计建模’的连贯认知进阶主线。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "mainline"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:4bb28dd7e6f3bca1",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/0/narrative",
+      "quote": "探索刚体变换的保长、保角与保平行不变性。随后将变换置于直角坐标系中建立代数映射关系，进而引入位似缩放确立相似概念，并完成平行线截角性质、三角形内角和定理与相似AA准则的推导，为 Unit 2 奠定关键几何先备基础。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_1_geom_transform"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:450a7ed62e2bca3a",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/1/narrative",
+      "quote": "承接 Unit 1 的相似三角形理论，在平面直角坐标系中构造‘斜率三角形’，严密证明非垂直直线上任意两不同点的变化率恒定，将七年级的单位比率升华为直线的几何斜率，推导 y = mx 与 y = mx + b。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_2_linear_eq"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:8bac98403ad5ee1b",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/2/narrative",
+      "quote": "将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。确立函数的统一定义（每个输入唯一对应输出），通过对比线性函数与非线性函数（如面积二次增长），牢固掌握 y = mx + b 的线性特征",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_3_linear_functions"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:7feddf7885e1d678",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/3/narrative",
+      "quote": "当两个现实线性函数并存时，寻求二者的共同状态即等价于求解二元一次方程组。单元首先建立解即为两直线几何交点的直观，随后系统学习代入消元法与加减消元法……最后在方案抉择与成本平衡情境中应用建模。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_4_linear_systems"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:2105ea98e0fe3077",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/4/narrative",
+      "quote": "通过探究直角三角形斜边长度与几何正方形边长，发现无法表示为两整数之比的无理数（如根号2）……随后通过面积割补法证明勾股定理及其逆定理……并将勾股定理推广应用于二维平面、三维空间以及平面直角坐标系两点间距离",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:e4bcd2110c0ca728",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/5/narrative",
+      "quote": "通过规律探索归纳出零指数幂与负整数指数幂的代数定义，建立完整的整数指数幂运算法则。随后将这一法则应用于科学记数法，使学生获得度量天文距离与微观粒子维度的数学工具",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_6_exponents_sci_notation"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:fd60aa4f9cb54c69",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/6/narrative",
+      "quote": "建立圆柱、圆锥与球体体积公式之间的内生联系（如等底等高圆锥体积为圆柱的三分之一）。学生在此综合运用圆的面积计算、高阶多步代数代入，并结合 Unit 5 学习的开方运算反解立体图形的关键几何尺寸",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_7_volume_3d"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:c7bc5a08aeb32292",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/units/7/narrative",
+      "quote": "将确定性代数模型推向现实世界的不确定性数据分析。学生通过分析成对数据（包含合成数据表），在方格纸上绘制散点图识别聚类、离群点与关联趋势；利用直尺拟合经验直线，迁移运用 8.F.B.4 的建模技能求解经验直线方程",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "unit",
+          "id": "unit_8_bivariate_stats"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:3e7ca9dd104edf1e",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/handoff_guidance",
+      "quote": "后续承接：本单元建构的 8.F.B.4 建模技能将在 Unit 4（二元一次方程组的交点平衡状态）中被应用，并在 Unit 8（双变量统计）中作为散点图经验拟合直线的分析工具（8.SP.A.3）实施迁移应用。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "teacher_question",
+          "id": "tq-shorten-unit"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:822f1e8131a48dc7",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/reserve_plan",
+      "quote": "全年设置 20 节机动课时（Reserve Lessons），作为依据诊断实施课内干预与针对性巩固的资源，不计入各单元常规教学课时，其动态投放方案如下：……1. 单元前置诊断与基础补偿……2. 单元终结后针对性矫正与达标……3. 学期中与学年末综合反思与建模实践",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "teacher_question",
+          "id": "tq-reserve"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:h2-13:e2be26f6d358ad96",
+      "document_id": "h2-13",
+      "document_fingerprint": "8ee097c74c4bf2c4d83ef73334effd7aaf3d85212c66ca719a03a478f2ebc06e",
+      "locator": "/handoff_guidance",
+      "quote": "课时调配弹性：本单元分配 22 课时。若前测显示学生在有理数差商运算或坐标系描点上存在较多失误，教师可依据诊断在单元初期投放 1 节全年机动课时（reserve lessons）进行针对性补偿。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "teacher_question",
+          "id": "tq-shorten-unit"
+        }
+      ],
+      "recorded_by": "model"
+    }
+  ],
+  "rejected_citations": [],
+  "rejected_findings": [],
+  "problems": [],
+  "usage": {
+    "input_tokens": 208798,
+    "output_tokens": 60545,
+    "total_tokens": 269343
+  },
+  "calls": [
+    {
+      "criteria": [
+        "Q1"
+      ],
+      "seconds": 200.8,
+      "usage": {
+        "input_tokens": 31336,
+        "output_tokens": 14217,
+        "total_tokens": 45553
+      },
+      "usage_complete": true,
+      "repairs": 0,
+      "first_attempt_rejected_citations": 0,
+      "error": null
+    },
+    {
+      "criteria": [
+        "Q3",
+        "Q5",
+        "Q6"
+      ],
+      "seconds": 246.1,
+      "usage": {
+        "input_tokens": 32237,
+        "output_tokens": 12237,
+        "total_tokens": 44474
+      },
+      "usage_complete": true,
+      "repairs": 0,
+      "first_attempt_rejected_citations": 0,
+      "error": null
+    },
+    {
+      "criteria": [
+        "Q4",
+        "Q7"
+      ],
+      "seconds": 304.2,
+      "usage": {
+        "input_tokens": 113962,
+        "output_tokens": 24623,
+        "total_tokens": 138585
+      },
+      "usage_complete": true,
+      "repairs": 1,
+      "first_attempt_rejected_citations": 3,
+      "error": null
+    },
+    {
+      "criteria": [
+        "Q2",
+        "Q8"
+      ],
+      "seconds": 209.5,
+      "usage": {
+        "input_tokens": 31263,
+        "output_tokens": 9468,
+        "total_tokens": 40731
+      },
+      "usage_complete": true,
+      "repairs": 0,
+      "first_attempt_rejected_citations": 0,
+      "error": null
+    }
+  ]
+}

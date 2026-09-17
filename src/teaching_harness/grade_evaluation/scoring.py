@@ -13,6 +13,7 @@ from teaching_harness.grade_evaluation.records import (
     Adjudication,
     CriterionId,
     CriterionRating,
+    EvaluationFinding,
     LoadedRubric,
     OriginalRating,
     RecordId,
@@ -25,6 +26,7 @@ from teaching_harness.grade_evaluation.records import (
 Status = Literal[
     "settled",
     "unresolved",
+    "conflict",
     "unobservable",
     "not_comparable",
     "missing",
@@ -45,6 +47,8 @@ class CriterionResult(Contract):
     adjudication_id: RecordId | None = None
     triggers: list[str] = Field(default_factory=list)
     problems: list[str] = Field(default_factory=list)
+    established_cap: int | None = None
+    binding_findings: list[RecordId] = Field(default_factory=list)
 
     def bounds(self) -> tuple[int, int] | None:
         return score_bounds(self.score, self.interval)
@@ -94,7 +98,66 @@ def _bounds(rating: CriterionRating) -> list[int]:
     return list(score_bounds(rating.score, rating.interval) or ())
 
 
+CAPS = {"critical": 0, "key_gap": 2}
+PROGRAM_REVIEWER = "program"
+
+
+def _cap(
+    criterion: CriterionId, established: list[EvaluationFinding], rejected: list[str]
+) -> tuple[int | None, list[str]]:
+    """协议的维度收敛：确认的重大失败为 0，关键缺口最高 2。
+
+    裁定只能驳回依赖模型判断的发现；程序核对的结构事实须经修订或程序复查解除。
+    """
+    binding = [
+        f
+        for f in established
+        if f.criterion_id == criterion
+        and f.severity in CAPS
+        and f.status not in {"rebutted", "resolved"}
+        and (f.id not in rejected or f.reviewer_id == PROGRAM_REVIEWER)
+    ]
+    if not binding:
+        return None, []
+    return min(CAPS[f.severity] for f in binding), [f.id for f in binding]
+
+
 def _settle(
+    criterion: CriterionId,
+    weight: int,
+    ratings: list[CriterionRating],
+    adjudication: Adjudication | None,
+    evidence: dict[str, str],
+    established: list[EvaluationFinding],
+) -> CriterionResult:
+    result = _settle_ratings(criterion, weight, ratings, adjudication, evidence)
+    cap, binding = _cap(
+        criterion, established, adjudication.rejected_findings if adjudication else []
+    )
+    if cap is None:
+        return result
+    # 已确认的重大失败不等裁定就触发重大问题标记。
+    result = result.model_copy(
+        update={
+            "established_cap": cap,
+            "binding_findings": binding,
+            "critical_failure": result.critical_failure or cap == 0,
+        }
+    )
+    if result.status == "settled" and (result.score or 0) > cap:
+        return result.model_copy(
+            update={
+                "status": "conflict",
+                "problems": [
+                    *result.problems,
+                    f"已确认发现 {binding} 使该维不高于 {cap}，评分为 {result.score}；须裁定",
+                ],
+            }
+        )
+    return result
+
+
+def _settle_ratings(
     criterion: CriterionId,
     weight: int,
     ratings: list[CriterionRating],
@@ -123,6 +186,7 @@ def _settle(
         return base.model_copy(update={"status": status, **update})
 
     if adjudication is not None:
+        # 裁定的依据须全部可核实，驳回已确认发现的原文也在其中。
         broken = [e for e in adjudication.supporting_evidence if evidence.get(e) != "verified"]
         if broken:
             return result("invalid", problems=[*problems, f"裁定引用失效 {broken}"])
@@ -168,8 +232,13 @@ def summarize(
     adjudications: list[Adjudication],
     rubric: LoadedRubric,
     evidence: dict[str, str],
+    *,
+    established: list[EvaluationFinding] | None = None,
 ) -> GradeSummary:
-    """evidence 为每条证据的当前核验结果；未核验的引用按失效处理。"""
+    """evidence 为每条证据的当前核验结果，未核验的引用按失效处理。
+
+    established 是程序与专项检查得出、未被驳回的发现；它们按协议限制相应维度的分数。
+    """
     own = [
         r
         for r in ratings
@@ -191,6 +260,7 @@ def summarize(
             [r for r in own if r.criterion_id == c.id],
             decided.get(c.id),
             evidence,
+            [f for f in established or [] if f.candidate_id == candidate_id],
         )
         for c in rubric.criteria
     ]
@@ -204,7 +274,8 @@ def summarize(
         rubric_version=rubric.version,
         rubric_fingerprint=rubric.fingerprint,
         criteria=results,
-        critical_failure=any(r.critical_failure for r in settled),
+        critical_failure=any(r.critical_failure for r in settled)
+        or any(r.established_cap == 0 for r in results),
         weighted_total=_total(results, weights) if complete else None,
         equal_weight_total=(
             _total(results, {c: 100 / len(CRITERIA) for c in CRITERIA}) if complete else None
@@ -260,6 +331,8 @@ def _judge(
     unusable = {"missing", "unobservable", "not_comparable"}
     if a.status in unusable or b.status in unusable:
         return "not_comparable", "至少一方不可观察、不可比或缺少评分"
+    if "conflict" in {a.status, b.status}:
+        return "undetermined", "评分与已确认发现冲突，待裁定"
     ra, rb = a.bounds(), b.bounds()
     if ra is None or rb is None or conflict:
         return "undetermined", "评阅者方向相反或缺少可用分数" if conflict else "缺少可用分数"

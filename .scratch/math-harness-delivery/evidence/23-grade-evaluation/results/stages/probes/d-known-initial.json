@@ -1,0 +1,798 @@
+{
+  "schema_version": 1,
+  "sample_id": "d-known-initial",
+  "stage": "probes",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "0fbf89dfb41bff8c87c8293340cd4a4fb8716494d0122c441bfed883b5010656",
+  "seconds": 127.4,
+  "error": null,
+  "promises": null,
+  "statements": null,
+  "probes": [
+    {
+      "stage": "probes",
+      "candidate_id": "d-known-initial",
+      "findings": [],
+      "evidence": [],
+      "rejected_citations": [],
+      "rejected_findings": [],
+      "problems": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "usage_complete": null,
+      "repairs": 0,
+      "task_id": "task_1_linear_modeling",
+      "facts": {
+        "task_id": "task_1_linear_modeling",
+        "table_ranges": [],
+        "range_statements": [
+          {
+            "pointer": "/tasks/task_1_linear_modeling/solution",
+            "text": " + 60\\quad (x \\ge 0)$$\n4. 图象特征的",
+            "low": 0.0,
+            "high": null
+          },
+          {
+            "pointer": "/tasks/task_1_linear_modeling/design_consequence",
+            "text": "Unit 3 必须在第 1~2 课时专门设置非零初始值",
+            "low": 1.0,
+            "high": 2.0
+          }
+        ],
+        "range_issues": [
+          {
+            "id": "range-1",
+            "kind": "no_upper_bound",
+            "statement": {
+              "pointer": "/tasks/task_1_linear_modeling/solution",
+              "text": " + 60\\quad (x \\ge 0)$$\n4. 图象特征的",
+              "low": 0.0,
+              "high": null
+            },
+            "column": null
+          }
+        ],
+        "absent_materials": []
+      },
+      "solution": {
+        "parts": [
+          {
+            "question": "1. 试求降雨期间水桶内蓄水量的变化率（速率），并写出其所带的物理单位；",
+            "answer": "变化率为 20 加仑/小时（或 20 gal/h）。",
+            "work": "已知降雨 2 小时后蓄水量为 100 加仑，5 小时后蓄水量为 160 加仑。\n根据变化率公式：\n变化率 $k = \\frac{\\Delta y}{\\Delta x} = \\frac{160 - 100}{5 - 2} = \\frac{60}{3} = 20$。\n单位为“加仑/小时”（或 gal/h）。"
+          },
+          {
+            "question": "2. 确定在降雨开始前（即时间 $x = 0$ 时）水桶中原本存有多少雨水（初始值）；",
+            "answer": "降雨开始前水桶中原本存有 60 加仑雨水。",
+            "work": "已知变化率为每小时增加 20 加仑。\n由 $x = 2$ 小时时蓄水量为 100 加仑，可逆推 $x = 0$ 时的初始蓄水量：\n初始值 $b = 100 - 20 \\times 2 = 60$（加仑）；\n或由 $x = 5$ 小时验证：$160 - 20 \\times 5 = 60$（加仑）。"
+          },
+          {
+            "question": "3. 建立以时间 $x$（小时）为自变量、水桶总蓄水量 $y$（加仑）为因变量的函数关系式；",
+            "answer": "$y = 20x + 60$（其中自变量范围受降雨持续时间及水桶最大容量限制，结合图象通常为 $0 \\le x \\le 8$）。",
+            "work": "设线性函数关系式为 $y = kx + b$。\n由第 1 问知斜率（变化率）$k = 20$，由第 2 问知纵截距（初始值）$b = 60$。\n因此函数解析式为：\n$y = 20x + 60$。\n自变量 $x \\ge 0$，单位为小时；因变量 $y$ 的单位为加仑。"
+          },
+          {
+            "question": "4. 结合上面的关系图象，解释图象中的“纵轴截距”与“直线的陡峭程度”在实际农场蓄水情境中分别代表什么。",
+            "answer": "“纵轴截距”代表降雨开始前水桶内已有的初始存水量（即 60 加仑）；“直线的陡峭程度”（斜率）代表降雨期间雨水流入水桶的恒定速率/增加速度（即每小时流入 20 加仑）。",
+            "work": "在直角坐标系中：\n1. 纵轴截距（直线与 $y$ 轴的交点坐标 $(0, 60)$）对应时间 $x = 0$ 时的蓄水量，在实际情境中表示本次降雨发生前水桶原有的底水或初始蓄水量；\n2. 直线的陡峭程度由斜率 $k = 20$ 决定，表示蓄水量随时间增长的快慢，在实际情境中对应降雨期间雨水汇集流入水桶的速率（单位时间内的蓄水增量，反映了降雨强度与受水面积结合下的进水速率）。直线越陡，表示水桶蓄水进水越快。"
+          }
+        ],
+        "required_conditions": [
+          "时间 $x \\ge 0$，且在降雨持续期间内水桶未溢出（按图象参数取值范围通常在 $0 \\le x \\le 8$ 小时）；",
+          "降雨以恒定速率持续进行，蓄水速率保持不变（雨水仅流入，未考虑蒸发、渗漏或同时取水灌溉）；",
+          "时间单位为小时（h），蓄水量单位为加仑（gal）。"
+        ],
+        "missing_information": [
+          "题面未明确给出水桶的最大蓄水容量（桶容）以及降雨持续的具体总时长（图象参数中显示坐标轴范围为 0 到 8 小时，但题干文本未限定最大时间或溢流阈值）。"
+        ],
+        "notes": "本题基于线性模型（一次函数）求解。由于假设雨水以恒定速率持续流入水桶且水桶未发生溢出，蓄水量随时间的变化符合一次函数关系。"
+      },
+      "check_items": {
+        "answer-1": "1. 试求降雨期间水桶内蓄水量的变化率（速率），并写出其所带的物理单位；：变化率为 20 加仑/小时（或 20 gal/h）。",
+        "answer-2": "2. 确定在降雨开始前（即时间 $x = 0$ 时）水桶中原本存有多少雨水（初始值）；：降雨开始前水桶中原本存有 60 加仑雨水。",
+        "answer-3": "3. 建立以时间 $x$（小时）为自变量、水桶总蓄水量 $y$（加仑）为因变量的函数关系式；：$y = 20x + 60$（其中自变量范围受降雨持续时间及水桶最大容量限制，结合图象通常为 $0 \\le x \\le 8$）。",
+        "answer-4": "4. 结合上面的关系图象，解释图象中的“纵轴截距”与“直线的陡峭程度”在实际农场蓄水情境中分别代表什么。：“纵轴截距”代表降雨开始前水桶内已有的初始存水量（即 60 加仑）；“直线的陡峭程度”（斜率）代表降雨期间雨水流入水桶的恒定速率/增加速度（即每小时流入 20 加仑）。",
+        "condition-1": "时间 $x \\ge 0$，且在降雨持续期间内水桶未溢出（按图象参数取值范围通常在 $0 \\le x \\le 8$ 小时）；",
+        "condition-2": "降雨以恒定速率持续进行，蓄水速率保持不变（雨水仅流入，未考虑蒸发、渗漏或同时取水灌溉）；",
+        "condition-3": "时间单位为小时（h），蓄水量单位为加仑（gal）。",
+        "missing-1": "题面未明确给出水桶的最大蓄水容量（桶容）以及降雨持续的具体总时长（图象参数中显示坐标轴范围为 0 到 8 小时，但题干文本未限定最大时间或溢流阈值）。",
+        "range-1": "/tasks/task_1_linear_modeling/solution 的“+ 60\\quad (x \\ge 0)$$\n4. 图象特征的”只给出下界 0，没有上界"
+      },
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答中准确求出变化率为 20 加仑/小时，并标注了正确的物理单位，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答中通过代入点计算得到初始蓄水量为 60 加仑，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答给出的线性函数解析式为 y = 20x + 60 (x >= 0)，与独立解答在函数对应法则与自变量下界上一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答准确阐明纵轴截距对应降雨前的初始存水量，直线的陡峭程度（斜率）对应雨水流入的速率，与独立解答完全一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面与解答均设定时间从 0 开始且降雨持续进行，与求解条件一致。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面明确设定“假设雨水以恒定速率持续流入水桶”，满足线性变化率恒定的求解条件。"
+        },
+        {
+          "item": "condition-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面与解答中的时间单位（小时）与蓄水量单位（加仑）完全对应一致。"
+        },
+        {
+          "item": "missing-1",
+          "author": "omitted",
+          "matters": false,
+          "finding": 28,
+          "note": "题面确实未设定水桶的最大容量或降雨总时长，但本题任务仅要求建立降雨过程中的线性模型及解释参数意义，不涉及水桶何时溢出或降雨何时停止的计算，不影响数学结论。"
+        },
+        {
+          "item": "range-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答标注 x >= 0 给出了物理时间的合理下界；由于题干未提供停雨时间或桶容限制，在八年级初次建立线性函数模型（8.F.B.4）时标注 x >= 0 符合常规教学规范，未造成误导。"
+        }
+      ],
+      "checked": [
+        "作者解答与独立解答数值计算与物理单位一致性核对（变化率、初始值、解析式及物理意义解释）",
+        "题面、解答与图象素材（rainwater_tank.svg）对应关系及独立解答所列缺失信息核查",
+        "线性模型定义域及情境实际范围（非负时间下界、降雨持续与水桶容量）核对",
+        "非零截距线性函数与正比例函数概念区分及数学表述严谨性核对",
+        "单元过渡设计推断与教学后果合理性核查",
+        "逆向推导支架与学校常规器材资源匹配核对"
+      ]
+    },
+    {
+      "stage": "probes",
+      "candidate_id": "d-known-initial",
+      "findings": [
+        {
+          "id": "probes:d-known-initial:task_2_systems_decision:1",
+          "candidate_id": "d-known-initial",
+          "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+          "criterion_id": "Q4",
+          "object": {
+            "kind": "probe",
+            "id": "task_2_systems_decision"
+          },
+          "origin": "model",
+          "reviewer_id": "probes",
+          "severity": "key_gap",
+          "claim": "作者在设计结论中将未经教学实测的探查任务试做断言为已验证学生跨越的平滑性与理解有效性，并作出排他性的教学顺序与情境必然性断言。",
+          "requirement": "设计结论不得把设计者的试做或前置构想写成学生已经理解、学习有效或某种顺序/情境被证明必要；必须区分图事实与设计推断。",
+          "evidence_ids": [
+            "ev:d-known-initial:543c0e4f91c486b4"
+          ],
+          "counterexample": "关键探查仅为课程规划阶段用于检验数学跨度的静态设计样例，蓝图前置条件明确标注“无班级诊断、个人掌握度……学生有前序课程经历不表示已掌握”。未经验证的单一设计不能作为实证事实宣称“验证了跨越平滑性”或“学生已无缝融合”；且双方案竞争仅为 8.EE.C.8 建模的情境之一，不能断言确立了 Unit 4“必须”以此为首选情境。",
+          "impact": "混淆了设计推断与实证事实，将未检验的设计假设表述为确定性教学效果，限制了单元情境设计的多元选择，误导课程结构判断。",
+          "recheck": "将 design_consequence 修改为探讨性与设计假设语态，明确其为设计预期（例如：“本任务旨在提供一个连接单一方程与方程组的盈亏平衡点情境样例，用于探查学生在几何交点与实际决策结合上的潜在困难”），去除“验证了平滑性”与“必须”等断言。",
+          "status": "open",
+          "status_note": "",
+          "status_evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev:d-known-initial:543c0e4f91c486b4",
+          "document_id": "d-known-initial",
+          "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+          "locator": "/tasks/1/design_consequence",
+          "quote": "本任务验证了从 Unit 3（单一方程函数建模）向 Unit 4（二元一次方程组 8.EE.C.8）跨越的平滑性……这确立了 Unit 4 的设计必须以‘双方案竞争与盈亏平衡点’为首选情境",
+          "extraction": "模型引用的原文片段；判断见所属结论",
+          "objects": [
+            {
+              "kind": "probe",
+              "id": "task_2_systems_decision"
+            }
+          ],
+          "recorded_by": "model"
+        }
+      ],
+      "rejected_citations": [],
+      "rejected_findings": [],
+      "problems": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "usage_complete": null,
+      "repairs": 0,
+      "task_id": "task_2_systems_decision",
+      "facts": {
+        "task_id": "task_2_systems_decision",
+        "table_ranges": [
+          {
+            "pointer": "/tasks/task_2_systems_decision/blocks/1/headers/0",
+            "header": "骑行时间 x（分钟）",
+            "low": 0.0,
+            "high": 80.0,
+            "count": 4
+          },
+          {
+            "pointer": "/tasks/task_2_systems_decision/blocks/1/headers/1",
+            "header": "方案 A 费用 y_A（美元）",
+            "low": 5.0,
+            "high": 21.0,
+            "count": 4
+          },
+          {
+            "pointer": "/tasks/task_2_systems_decision/blocks/1/headers/2",
+            "header": "方案 B 费用 y_B（美元）",
+            "low": 0.0,
+            "high": 24.0,
+            "count": 4
+          }
+        ],
+        "range_statements": [],
+        "range_issues": [],
+        "absent_materials": []
+      },
+      "solution": {
+        "parts": [
+          {
+            "question": "1. 分别写出方案 A 与方案 B 的费用 $y$ 与骑行时间 $x$ 的方程；",
+            "answer": "方案 A 的方程为：$y = 0.20x + 5$（或 $y = 5 + 0.20x$）；\\n方案 B 的方程为：$y = 0.30x$。",
+            "work": "根据题意：\\n- 方案 A：固定起步费 5 美元，每分钟 0.20 美元，故骑行 $x$ 分钟的总费用为 $y = 5 + 0.20x$；\\n- 方案 B：无起步费，每分钟 0.30 美元，故骑行 $x$ 分钟的总费用为 $y = 0.30x$。\\n代入表格数据验证：\\n当 $x = 0$ 时，$y_A = 5$，$y_B = 0$；\\n当 $x = 20$ 时，$y_A = 5 + 0.20 \\\\times 20 = 9$，$y_B = 0.30 \\\\times 20 = 6$；\\n均与表格一致。"
+          },
+          {
+            "question": "2. 列出二元一次方程组，求出两种方案费用完全相同那一刻的骑行时间与对应费用；",
+            "answer": "二元一次方程组为：\\n$$\\\\begin{cases} y = 0.20x + 5 \\\\\\\\ y = 0.30x \\\\end{cases}$$\\n解得平衡点为骑行时间 $x = 50$ 分钟，对应费用 $y = 15$ 美元。",
+            "work": "联立方案 A 与方案 B 的费用方程，组成二元一次方程组：\\n$$\\\\begin{cases} y = 0.20x + 5 \\\\\\\\ y = 0.30x \\\\end{cases}$$\\n采用代入消元法，将 $y = 0.30x$ 代入第一个方程：\\n$$0.30x = 0.20x + 5$$\\n$$0.30x - 0.20x = 5$$\\n$$0.10x = 5$$\\n$$x = 50$$\\n将 $x = 50$ 代入 $y = 0.30x$：\\n$$y = 0.30 \\\\times 50 = 15$$\\n因此，方程组的解为 $\\\\begin{cases} x = 50 \\\\\\\\ y = 15 \\\\end{cases}$，即骑行时间为 50 分钟时，两种方案的费用完全相同，均为 15 美元。"
+          },
+          {
+            "question": "3. 从几何图象与实际决策的角度，解释方程组的解（交点）对消费者选择租车方案的现实指导意义。",
+            "answer": "几何图象上，两条直线相交于点 $(50, 15)$，该交点是两种方案费用的“平衡点（分界点）”。\\n对消费者选择租车方案的现实指导意义如下：\\n1. 当单次骑行时间少于 50 分钟（$0 \\\\le x < 50$）时，方案 B 的图象在方案 A 下方（$y_B < y_A$），选择方案 B（随心型）更省钱；\\n2. 当单次骑行时间恰好为 50 分钟（$x = 50$）时，两方案费用相同（均为 15 美元），选择任一方案均可；\\n3. 当单次骑行时间超过 50 分钟（$x > 50$）时，方案 A 的图象在方案 B 下方（$y_A < y_B$），选择方案 A（畅游型）更省钱。",
+            "work": "在平面直角坐标系中，以骑行时间 $x$（分钟）为横轴，费用 $y$（美元）为纵轴：\\n- 直线 $y = 0.20x + 5$ 的斜率较小（$0.20$），纵截距为 $5$；\\n- 直线 $y = 0.30x$ 的斜率较大（$0.30$），过原点 $(0,0)$。\\n两直线交于点 $(50, 15)$。\\n根据图象在交点两侧的上下位置关系：\\n- 在区间 $[0, 50)$ 内，直线 $y = 0.30x$ 位于直线 $y = 0.20x + 5$ 下方，表明随心型总费用低于畅游型；\\n- 在 $x = 50$ 处，两线相交，两方案费用相等；\\n- 在区间 $(50, +\\\\infty)$ 内，直线 $y = 0.20x + 5$ 位于直线 $y = 0.30x$ 下方，表明畅游型总费用低于随心型。\\n因此，消费者可根据预估的骑行时长进行理性选择：短途骑行（小于 50 分钟）选方案 B，长途骑行（大于 50 分钟）选方案 A。"
+          }
+        ],
+        "required_conditions": [
+          "骑行时间 $x \\\\ge 0$，单位为分钟（min）",
+          "计费金额 $y \\\\ge 0$，单位为美元（$）",
+          "模型假设计费为连续线性增长（单价恒定，每次骑行独立核算）"
+        ],
+        "missing_information": [
+          "题面未明确说明骑行时间不足 1 分钟时是否按连续线性比例计费（或采用向上取整/分段阶梯计费）；本解答依据题意列二元一次方程组的要求及表格数据，默认按连续变量的线性模型处理。"
+        ],
+        "notes": "通过列二元一次方程组求两直线的交点（平衡点），并利用函数图象的高低位置（不等关系）给出分段决策建议。"
+      },
+      "check_items": {
+        "answer-1": "1. 分别写出方案 A 与方案 B 的费用 $y$ 与骑行时间 $x$ 的方程；：方案 A 的方程为：$y = 0.20x + 5$（或 $y = 5 + 0.20x$）；\\n方案 B 的方程为：$y = 0.30x$。",
+        "answer-2": "2. 列出二元一次方程组，求出两种方案费用完全相同那一刻的骑行时间与对应费用；：二元一次方程组为：\\n$$\\\\begin{cases} y = 0.20x + 5 \\\\\\\\ y = 0.30x \\\\end{cases}$$\\n解得平衡点为骑行时间 $x = 50$ 分钟，对应费用 $y = 15$ 美元。",
+        "answer-3": "3. 从几何图象与实际决策的角度，解释方程组的解（交点）对消费者选择租车方案的现实指导意义。：几何图象上，两条直线相交于点 $(50, 15)$，该交点是两种方案费用的“平衡点（分界点）”。\\n对消费者选择租车方案的现实指导意义如下：\\n1. 当单次骑行时间少于 50 分钟（$0 \\\\le x < 50$）时，方案 B 的图象在方案 A 下方（$y_B < y_A$），选择方案 B（随心型）更省钱；\\n2. 当单次骑行时间恰好为 50 分钟（$x = 50$）时，两方案费用相同（均为 15 美元），选择任一方案均可；\\n3. 当单次骑行时间超过 50 分钟（$x > 50$）时，方案 A 的图象在方案 B 下方（$y_A < y_B$），选择方案 A（畅游型）更省钱。",
+        "condition-1": "骑行时间 $x \\\\ge 0$，单位为分钟（min）",
+        "condition-2": "计费金额 $y \\\\ge 0$，单位为美元（$）",
+        "condition-3": "模型假设计费为连续线性增长（单价恒定，每次骑行独立核算）",
+        "missing-1": "题面未明确说明骑行时间不足 1 分钟时是否按连续线性比例计费（或采用向上取整/分段阶梯计费）；本解答依据题意列二元一次方程组的要求及表格数据，默认按连续变量的线性模型处理。"
+      },
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "作者在 solution 中给出的两方案方程分别为 y = 0.20x + 5 和 y = 0.30x，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "作者联立方程组采用代入消元法解得 x = 50 分钟、y = 15 美元，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "作者明确解释了几何交点 (50, 15) 为平衡转换点，且正确给出短于 50 分钟选方案 B、长于 50 分钟选方案 A 的决策建议，与独立解答完全一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "题面情境与表格数据均以非负骑行时间 x >= 0 为前提，作者解题完全符合该条件。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "费用 y >= 0，计算结果均为正数，符合实际金额约束。"
+        },
+        {
+          "item": "condition-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "作者模型与表格数据均严格基于单位时间内费用线性连续增长的假设，一致。"
+        },
+        {
+          "item": "missing-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "题面虽未展开说明不足 1 分钟的细微计费规则，但表格数据与方程建模要求明确指向连续线性模型，不影响数学求解与结论得出。"
+        }
+      ],
+      "checked": [
+        "作者解答与独立解答一致性（方程建立、消元求解及决策解释）",
+        "题面与支持语所需图表完整性（数据表格已提供）",
+        "取值区间与数据范围核对（交点 50 在表格范围 [0, 80] 内）",
+        "统计解释与因果断言核查（本题非统计情境）",
+        "数学表述与概念严密性（二元一次方程组及平衡点理解）",
+        "设计结论中试做与推断规范核查（design_consequence 中的过度推断与确定性断言）",
+        "支持语与器材条件匹配性（符合学校常规纸笔条件）"
+      ]
+    },
+    {
+      "stage": "probes",
+      "candidate_id": "d-known-initial",
+      "findings": [],
+      "evidence": [],
+      "rejected_citations": [],
+      "rejected_findings": [],
+      "problems": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "usage_complete": null,
+      "repairs": 0,
+      "task_id": "task_3_coordinate_distance",
+      "facts": {
+        "task_id": "task_3_coordinate_distance",
+        "table_ranges": [],
+        "range_statements": [],
+        "range_issues": [],
+        "absent_materials": []
+      },
+      "solution": {
+        "parts": [
+          {
+            "question": "1. 在方格坐标纸上标出点 A 和点 B",
+            "answer": "建立平面直角坐标系，横轴为 x 轴，纵轴为 y 轴。从原点 (0, 0) 出发，向右平移 2 个单位、向上平移 3 个单位标出点 A(2, 3)；向右平移 8 个单位、向上平移 11 个单位标出点 B(8, 11)。",
+            "work": "确定坐标轴正方向及单位长度，按点的坐标定义分别在坐标平面内描出对应位置的点 A(2, 3) 和点 B(8, 11)。"
+          },
+          {
+            "question": "2. 构造一个以线段 AB 为斜边、两条直角边分别平行于坐标轴的直角三角形 ABC；写出点 C 的坐标",
+            "answer": "点 C 的坐标为 (8, 3) 或 (2, 11)。",
+            "work": "过点 A 作平行于 x 轴（或 y 轴）的直线，过点 B 作平行于 y 轴（或 x 轴）的直线，两直线相交于点 C。\n若过 A 作平行于 x 轴的水平线 y = 3，过 B 作平行于 y 轴的垂直线 x = 8，交点为 C(8, 3)；\n若过 A 作平行于 y 轴的垂直线 x = 2，过 B 作平行于 x 轴的水平线 y = 11，交点为 C(2, 11)。\n两两相互垂直的直线交点构成了直角顶点 C，三角形 ABC 为以 AB 为斜边的直角三角形。"
+          },
+          {
+            "question": "3. 分别计算两条直角边 AC 和 BC 的长度",
+            "answer": "若取 C(8, 3)，则 AC = 6，BC = 8；若取 C(2, 11)，则 AC = 8，BC = 6。即两条直角边的长度分别为 6 和 8。",
+            "work": "以 C(8, 3) 为例：\nAC 平行于 x 轴，长度为两点横坐标之差的绝对值：AC = |8 - 2| = 6；\nBC 平行于 y 轴，长度为两点纵坐标之差的绝对值：BC = |11 - 3| = 8。\n（同理，若以 C(2, 11) 为例，AC = |11 - 3| = 8，BC = |8 - 2| = 6）。"
+          },
+          {
+            "question": "4. 应用勾股定理，计算出点 A 与点 B 之间的精确距离",
+            "answer": "点 A 与点 B 之间的精确距离为 10。",
+            "work": "在直角三角形 ABC 中，∠C = 90°，由勾股定理得：\nAB² = AC² + BC²\nAB² = 6² + 8² = 36 + 64 = 100\n因为距离为正数，所以 AB = √100 = 10。"
+          }
+        ],
+        "required_conditions": [
+          "平面直角坐标系为标准笛卡尔坐标系，x 轴与 y 轴互相垂直且单位长度一致",
+          "距离取非负实数"
+        ],
+        "missing_information": [
+          "题面未直接附带方格坐标纸图样（需在实体纸笔环境中提供或自行绘制网格）。"
+        ],
+        "notes": "点 C 的选取有两种情形，即 C(8, 3) 或 C(2, 11)，无论选取哪一个，两条直角边的长度均为 6 和 8，计算出的线段 AB 长度均相同。"
+      },
+      "check_items": {
+        "answer-1": "1. 在方格坐标纸上标出点 A 和点 B：建立平面直角坐标系，横轴为 x 轴，纵轴为 y 轴。从原点 (0, 0) 出发，向右平移 2 个单位、向上平移 3 个单位标出点 A(2, 3)；向右平移 8 个单位、向上平移 11 个单位标出点 B(8, 11)。",
+        "answer-2": "2. 构造一个以线段 AB 为斜边、两条直角边分别平行于坐标轴的直角三角形 ABC；写出点 C 的坐标：点 C 的坐标为 (8, 3) 或 (2, 11)。",
+        "answer-3": "3. 分别计算两条直角边 AC 和 BC 的长度：若取 C(8, 3)，则 AC = 6，BC = 8；若取 C(2, 11)，则 AC = 8，BC = 6。即两条直角边的长度分别为 6 和 8。",
+        "answer-4": "4. 应用勾股定理，计算出点 A 与点 B 之间的精确距离：点 A 与点 B 之间的精确距离为 10。",
+        "condition-1": "平面直角坐标系为标准笛卡尔坐标系，x 轴与 y 轴互相垂直且单位长度一致",
+        "condition-2": "距离取非负实数",
+        "missing-1": "题面未直接附带方格坐标纸图样（需在实体纸笔环境中提供或自行绘制网格）。"
+      },
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答与典型作答中均明确包含在坐标纸上描出点 A(2, 3) 与点 B(8, 11) 的操作。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答明确指出直角顶点 C 可取为 (8, 3) 或 (2, 11)，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答准确求得水平与垂直两条直角边长分别为 6 和 8，与独立解答一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答利用勾股定理算得 AB^2 = 100，开方得出距离为 10 单位长，与独立解答一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题目基于标准平面直角坐标系，网格水平与垂直单位长度一致，题面与解答均默认此标准设定。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "欧氏距离为非负实数，作者解答中开方取正值 10，符合几何距离定义。"
+        },
+        {
+          "item": "missing-1",
+          "author": "omitted",
+          "matters": false,
+          "finding": 28,
+          "note": "题面文本未内嵌打印好的坐标纸图样，但学校资源明确包含“方格纸”与“黑白打印”，学生在提供的方格纸或纸笔网格上作图，不影响求解条件与数学结论。"
+        }
+      ],
+      "checked": [
+        "作者解答与独立解答的一致性与数学正确性（两点坐标、构造直角三角形顶点、直角边长、勾股定理开方运算）",
+        "题面数据与几何图形信息的完整性（坐标给定充分，学生基于学校资源中的方格纸可直接操作完成）",
+        "是否存在超出数据范围的外推或未声明的区间限制",
+        "统计推断与因果断言（本题为纯几何与代数计算，不涉及统计）",
+        "数学概念与符号表述（坐标差绝对值、勾股定理表达、开平方根取非负欧氏距离）",
+        "设计结论与架构决策的主张范围（属于课程架构与认知进阶的设计理论支撑，未夸大实证效果）",
+        "教学支持语对教学器材与学校条件的依赖性（直角三角板辅助对齐网格线，符合常规课堂纸笔与方格纸作图环境）"
+      ]
+    },
+    {
+      "stage": "probes",
+      "candidate_id": "d-known-initial",
+      "findings": [
+        {
+          "id": "probes:d-known-initial:task_4_stats_linear_interpretation:1",
+          "candidate_id": "d-known-initial",
+          "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+          "criterion_id": "Q4",
+          "object": {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          },
+          "origin": "model",
+          "reviewer_id": "probes",
+          "severity": "critical",
+          "claim": "正文声称存在对 28 名学生的调查散点图，且支持语依赖教师在黑板上呈现散点图，但正文 figures 为空且未提供任何数据，把未提供的图表和调查当作既有事实。",
+          "requirement": "题面、解答或支持语要求使用的数据、表格、图必须真实提供；不得将不存在的调查或合成数据声称已绘制图表并要求教学使用。",
+          "evidence_ids": [
+            "ev:d-known-initial:a3d8b73f12ae56ac",
+            "ev:d-known-initial:f1d2e4197ebe4c79"
+          ],
+          "counterexample": "正文 figures 字段为空，未提供 28 个样本点 (x, y) 的坐标数据或对应散点图。支持语要求“教师引导其观察黑板上散点图中散落分布在直线两侧的点”，但由于缺乏散点数据和图件，教师在黑板上无法真实绘制散点分布；同时学生也无法据图核对 x=0 与 x=6 是否在样本实际观测区间内，无法直观感受散点偏离拟合直线的残差情况。",
+          "impact": "导致教学支持语无法落地执行，且使学生脱离散点图的直观支撑，弱化了对经验拟合与实际数据波动关系的建构。",
+          "recheck": "核对 candidate.figures 是否为空，以及 blocks[0]、prompt 和 support 中对散点图的引用与依赖。",
+          "status": "open",
+          "status_note": "",
+          "status_evidence_ids": []
+        },
+        {
+          "id": "probes:d-known-initial:task_4_stats_linear_interpretation:2",
+          "candidate_id": "d-known-initial",
+          "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+          "criterion_id": "Q4",
+          "object": {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          },
+          "origin": "model",
+          "reviewer_id": "probes",
+          "severity": "key_gap",
+          "claim": "设计结论把单一任务的设计试做断言为证明了单元设置顺序的必要性，并将预设的学生理解当成已达成的实证效果。",
+          "requirement": "设计结论不得把设计者的试做写成学生已经理解、学习有效或某种课程顺序被证明必要。",
+          "evidence_ids": [
+            "ev:d-known-initial:35cfaf11612e973b"
+          ],
+          "counterexample": "设计结论断言本任务“印证了将 Unit 8（双变量统计）作为全年收官单元的必要性”，并宣称学生通过本任务的辩析“直接完成了初中向高中统计推断思维的跃迁”。蓝图设计中的任务探查仅为课程目标对齐与试做构想，未经实际课堂教学实证检验，既不能证明单元顺序的唯一必要性，也不能直接把预期的学习效果断言为已经完成的思维跃迁。",
+          "impact": "夸大单一设计探查的证明力，把主观设计意图混淆为实证证据，影响对单元编排合理性与学生实际掌握水平的科学评估。",
+          "recheck": "核对 candidate.tasks.task_4_stats_linear_interpretation.design_consequence 中的证明性与定论性措辞。",
+          "status": "open",
+          "status_note": "",
+          "status_evidence_ids": []
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ev:d-known-initial:a3d8b73f12ae56ac",
+          "document_id": "d-known-initial",
+          "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+          "locator": "/tasks/3/blocks/0/text",
+          "quote": "数学教研组对 28 名八年级学生每周自主复习数学的时间与期末测试成绩进行了统计调查，绘制了散点图，并拟合了一条经验趋势直线",
+          "extraction": "模型引用的原文片段；判断见所属结论",
+          "objects": [
+            {
+              "kind": "probe",
+              "id": "task_4_stats_linear_interpretation"
+            }
+          ],
+          "recorded_by": "model"
+        },
+        {
+          "id": "ev:d-known-initial:f1d2e4197ebe4c79",
+          "document_id": "d-known-initial",
+          "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+          "locator": "/tasks/3/support",
+          "quote": "教师引导其观察黑板上散点图中散落分布在直线两侧的点，提示其‘数据点并未全部落在直线上’。",
+          "extraction": "模型引用的原文片段；判断见所属结论",
+          "objects": [
+            {
+              "kind": "probe",
+              "id": "task_4_stats_linear_interpretation"
+            }
+          ],
+          "recorded_by": "model"
+        },
+        {
+          "id": "ev:d-known-initial:35cfaf11612e973b",
+          "document_id": "d-known-initial",
+          "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+          "locator": "/tasks/3/design_consequence",
+          "quote": "本任务探查印证了将 Unit 8（双变量统计）作为全年收官单元的必要性……直接完成了初中向高中统计推断思维的跃迁。",
+          "extraction": "模型引用的原文片段；判断见所属结论",
+          "objects": [
+            {
+              "kind": "probe",
+              "id": "task_4_stats_linear_interpretation"
+            }
+          ],
+          "recorded_by": "model"
+        }
+      ],
+      "rejected_citations": [],
+      "rejected_findings": [],
+      "problems": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "usage_complete": null,
+      "repairs": 0,
+      "task_id": "task_4_stats_linear_interpretation",
+      "facts": {
+        "task_id": "task_4_stats_linear_interpretation",
+        "table_ranges": [],
+        "range_statements": [],
+        "range_issues": [],
+        "absent_materials": [
+          {
+            "id": "material-1",
+            "kind": "figure",
+            "pointer": "/tasks/task_4_stats_linear_interpretation/prompt",
+            "text": "利用双变量散点图的经验拟合直线方程，解释斜率与截距"
+          },
+          {
+            "id": "material-2",
+            "kind": "figure",
+            "pointer": "/tasks/task_4_stats_linear_interpretation/support",
+            "text": "趋势预测值’的学生，教师引导其观察黑板上散点图中散落分布在直线两侧的点，提示其‘"
+          },
+          {
+            "id": "material-3",
+            "kind": "figure",
+            "pointer": "/tasks/task_4_stats_linear_interpretation/design_consequence",
+            "text": "nit 8 将其推广到带有随机波动的统计散点图经验拟合方程中。学生对‘斜率即单位"
+          },
+          {
+            "id": "material-4",
+            "kind": "figure",
+            "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/0/text",
+            "text": "时间与期末测试成绩进行了统计调查，绘制了散点图，并拟合了一条经验趋势直线，其代数"
+          }
+        ]
+      },
+      "solution": {
+        "parts": [
+          {
+            "question": "1. 结合本调查的现实情境，详细解释该线性模型中斜率“6.5”的统计学含义；",
+            "answer": "斜率 6.5 表示：在所适用的自主复习时间范围内，学生每周自主复习时间每增加 1 个小时，其期末测试的预测成绩（或平均成绩）大约提高 6.5 分。",
+            "work": "线性回归/趋势方程中，斜率表示自变量每变动 1 个单位时，因变量的平均变动量或预测增量。在本题中，自变量 $x$ 的单位是“小时”，因变量 $\\hat{y}$ 的单位是“分”。因此斜率 6.5 表示每周自主复习时间每增加 1 小时，期末测试预测成绩平均增加 6.5 分。"
+          },
+          {
+            "question": "2. 解释纵截距“48”在该情境中所代表的现实意义；",
+            "answer": "纵截距 48 表示：当学生每周自主复习时间为 0 小时（即完全不进行课外自主复习）时，该模型预测的期末测试基础成绩（或该群体的平均基准成绩）为 48 分。",
+            "work": "在方程 $\\hat{y} = 6.5x + 48$ 中，当 $x = 0$ 时，$\\\\hat{y} = 48$。在现实情境中，$x=0$ 代表学生没有进行每周的课外自主复习，纵截距反映了仅依靠课堂学习等常规教学条件下，学生群体预测的基准起步得分。"
+          },
+          {
+            "question": "3. 如果一位学生每周自主复习时间为 6 小时，依据该模型，他的预测测试成绩是多少分？",
+            "answer": "依据该模型，他的预测测试成绩是 87 分。",
+            "work": "将 $x = 6$ 代入拟合直线方程：\n$$\\hat{y} = 6.5 \\times 6 + 48 = 39 + 48 = 87\\text{（分）}$$"
+          },
+          {
+            "question": "4. 该预测得分是否意味着每周复习 6 小时的学生其实际考试成绩一定完全等于这个分数？为什么？",
+            "answer": "不一定完全等于 87 分。因为线性拟合直线反映的是两个变量之间的一般统计趋势或群体平均水平，而不是确定性的函数因果关系；实际成绩还受到学习效率、基础知识、心理状态、考试发挥等多重随机因素影响，真实数据点围绕趋势线上下波动，存在残差。",
+            "work": "统计模型给出的预测值是因变量的条件均值或趋势估计，具有统计波动性。不同个体存在差异，且散点图中的实际观测值与拟合趋势线之间普遍存在偏差（即残差 $y - \\hat{y}$），因此不能将统计关联预测等同于严格确定的绝对值。"
+          }
+        ],
+        "required_conditions": [
+          "变量定义与单位：$x$ 为每周自主复习时间（小时），$y$ 与 $\\hat{y}$ 为期末测试成绩（分，满分 100 分）。",
+          "线性趋势假设：假设在调查涵盖的自变量范围内，期末成绩与自主复习时间满足近似线性相关关系，拟合方程为 $\\hat{y} = 6.5x + 48$。",
+          "合理定义域：复习时间 $x \\ge 0$；同时由满分 100 分限制可知，预测值满足 $\\hat{y} \\le 100$ 时对应 $x \\le 8$ 小时，模型仅在合理复习时间区间内有效。",
+          "统计学解释前提：样本容量为 28 人，模型反映的是该样本所代表群体的平均趋势，而非个体必然结果。"
+        ],
+        "missing_information": [
+          "题面未给出 28 名学生的原始散点图或数据列表，未明确每周自主复习时间 $x$ 的实际取值范围（观测区间），无法严格检验 $x=0$ 与 $x=6$ 是否处于样本数据的合理内插区间内。",
+          "题面未提供拟合优度指标（如相关系数 $r$、决定系数 $R^2$ 或残差标准差），无法定量评估预测的精确度与离散程度。"
+        ],
+        "notes": "该模型为一元线性经验拟合直线。由于满分为 100 分，当 $x > 8$ 时预测值将超过 100 分，且自主复习时间不能为负，因此该模型的合理适用范围受到满分上限与现实逻辑的约束。"
+      },
+      "check_items": {
+        "answer-1": "1. 结合本调查的现实情境，详细解释该线性模型中斜率“6.5”的统计学含义；：斜率 6.5 表示：在所适用的自主复习时间范围内，学生每周自主复习时间每增加 1 个小时，其期末测试的预测成绩（或平均成绩）大约提高 6.5 分。",
+        "answer-2": "2. 解释纵截距“48”在该情境中所代表的现实意义；：纵截距 48 表示：当学生每周自主复习时间为 0 小时（即完全不进行课外自主复习）时，该模型预测的期末测试基础成绩（或该群体的平均基准成绩）为 48 分。",
+        "answer-3": "3. 如果一位学生每周自主复习时间为 6 小时，依据该模型，他的预测测试成绩是多少分？：依据该模型，他的预测测试成绩是 87 分。",
+        "answer-4": "4. 该预测得分是否意味着每周复习 6 小时的学生其实际考试成绩一定完全等于这个分数？为什么？：不一定完全等于 87 分。因为线性拟合直线反映的是两个变量之间的一般统计趋势或群体平均水平，而不是确定性的函数因果关系；实际成绩还受到学习效率、基础知识、心理状态、考试发挥等多重随机因素影响，真实数据点围绕趋势线上下波动，存在残差。",
+        "condition-1": "变量定义与单位：$x$ 为每周自主复习时间（小时），$y$ 与 $\\hat{y}$ 为期末测试成绩（分，满分 100 分）。",
+        "condition-2": "线性趋势假设：假设在调查涵盖的自变量范围内，期末成绩与自主复习时间满足近似线性相关关系，拟合方程为 $\\hat{y} = 6.5x + 48$。",
+        "condition-3": "合理定义域：复习时间 $x \\ge 0$；同时由满分 100 分限制可知，预测值满足 $\\hat{y} \\le 100$ 时对应 $x \\le 8$ 小时，模型仅在合理复习时间区间内有效。",
+        "condition-4": "统计学解释前提：样本容量为 28 人，模型反映的是该样本所代表群体的平均趋势，而非个体必然结果。",
+        "missing-1": "题面未给出 28 名学生的原始散点图或数据列表，未明确每周自主复习时间 $x$ 的实际取值范围（观测区间），无法严格检验 $x=0$ 与 $x=6$ 是否处于样本数据的合理内插区间内。",
+        "missing-2": "题面未提供拟合优度指标（如相关系数 $r$、决定系数 $R^2$ 或残差标准差），无法定量评估预测的精确度与离散程度。",
+        "material-1": "/tasks/task_4_stats_linear_interpretation/prompt 提到“利用双变量散点图的经验拟合直线方程，解释斜率与截距”，但探查中没有提供图",
+        "material-2": "/tasks/task_4_stats_linear_interpretation/support 提到“趋势预测值’的学生，教师引导其观察黑板上散点图中散落分布在直线两侧的点，提示其‘”，但探查中没有提供图",
+        "material-3": "/tasks/task_4_stats_linear_interpretation/design_consequence 提到“nit 8 将其推广到带有随机波动的统计散点图经验拟合方程中。学生对‘斜率即单位”，但探查中没有提供图",
+        "material-4": "/tasks/task_4_stats_linear_interpretation/blocks/0/text 提到“时间与期末测试成绩进行了统计调查，绘制了散点图，并拟合了一条经验趋势直线，其代数”，但探查中没有提供图"
+      },
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "作者解答正确阐释了斜率 6.5 表示每周自主复习时间每多投入 1 小时，预测期末测试成绩平均增加 6.5 分，与独立解答的核心统计含义一致。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "作者解答准确指出了截距 48 表示复习时间为 0 小时时的基准预测得分为 48 分，与独立解答一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "代入 x=6 计算预测成绩为 87 分，计算与独立解答完全一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "作者解答明确指出拟合直线给出的是平均期望预测值而非个体确定值，真实成绩受偶然因素影响存在上下波动，与独立解答一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "正文明确给出了自变量 x（自主复习时间/小时）与预测成绩 y_hat（分，满分100分）的定义与单位。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "正文给出了线性拟合直线代数方程 y_hat = 6.5x + 48，满足线性趋势分析条件。"
+        },
+        {
+          "item": "condition-3",
+          "author": "omitted",
+          "matters": false,
+          "finding": 0,
+          "note": "作者未讨论因满分 100 分导致的自变量上限约束（x <= 8），但题面第 3 问给定的 x=6 在合理范围内，未改变各问的求解结论。"
+        },
+        {
+          "item": "condition-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 0,
+          "note": "题面设定了 28 名八年级学生的样本情境，并在第 4 问中体现了统计模型反映群体趋势而非个体必然性的属性。"
+        },
+        {
+          "item": "missing-1",
+          "author": "omitted",
+          "matters": true,
+          "finding": 0,
+          "note": "题面声称绘制了散点图并进行了调查，但未提供任何散点图或 28 名学生的原始数据，导致无法确认数据范围与内插/外推条件。"
+        },
+        {
+          "item": "missing-2",
+          "author": "omitted",
+          "matters": false,
+          "finding": 0,
+          "note": "八年级统计标准（8.SP.A.2/3）只要求定性观察和理解趋势线与波动，不要求提供高中阶段的高阶拟合优度指标（如 R^2），不影响八年级任务求解。"
+        },
+        {
+          "item": "material-1",
+          "author": "omitted",
+          "matters": true,
+          "finding": 0,
+          "note": "prompt 声称“利用双变量散点图的经验拟合直线方程”，但探查正文 figures 为空，未提供散点图。"
+        },
+        {
+          "item": "material-2",
+          "author": "omitted",
+          "matters": true,
+          "finding": 0,
+          "note": "support 要求“教师引导其观察黑板上散点图中散落分布在直线两侧的点”，但探查未提供散点图或数据点，导致教学支持语无法实际执行。"
+        },
+        {
+          "item": "material-3",
+          "author": "omitted",
+          "matters": false,
+          "finding": 0,
+          "note": "此处为 design_consequence 中的陈述性提法，图件缺失的核心影响已在 material-1/2/4 中报告。"
+        },
+        {
+          "item": "material-4",
+          "author": "omitted",
+          "matters": true,
+          "finding": 0,
+          "note": "正文 blocks[0] 声称“进行了统计调查，绘制了散点图”，但正文没有任何图表，未提供散点图。"
+        }
+      ],
+      "checked": [
+        "作者解答与独立解答一致性核对",
+        "散点图与调查数据缺失核对",
+        "自变量与因变量取值范围及定义域核对",
+        "统计推断解释与因果/非确定性区分核对",
+        "设计结论中试做当证明与学习成效断言核对",
+        "支持语与学校资源器材条件核对"
+      ]
+    }
+  ],
+  "probe_cache": [
+    "3f63c23695de378abded48dbdb726668e294e312830fbea4aa01f8a27e80e29e",
+    "4fe6adb09df22e2da0c10368ae33355718f28f4a6c2e3aa02f45e798065e8d60",
+    "f170383dc7c4cae05c9c6638609c11fc16e21b51a93276020f70e00031b64d88",
+    "89cdc0addd0fb508384558e522c063ae8bdb536b20bdd4b92d089d06dc62a4af"
+  ]
+}

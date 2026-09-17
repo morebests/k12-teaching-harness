@@ -291,6 +291,7 @@ async def test_裁定者读取双方原始评分并以可核实原文给出裁�
             cited("/units/unit_3_linear_functions/assessment_plan", "单元末通过真实情境建模")
         ],
         "needs_more_reading": "",
+        "finding_verdicts": [],
     }
     model = ScriptedAdjudicator(output=dict(decision))
     result = await adjudicate(
@@ -324,3 +325,101 @@ async def test_裁定者读取双方原始评分并以可核实原文给出裁�
     fixed = await adjudicate(repaired, candidate, "Q6", ratings, [], [], RUBRIC, "r3")
     assert repaired.calls == 2 and fixed.problems == []
     assert set(fixed.adjudication.supporting_evidence) <= {e.id for e in fixed.evidence}
+
+
+async def test_裁定者可用原文驳回已确认发现_引文不实时驳回不成立(candidate):
+    from teaching_harness.grade_evaluation.records import EvaluationFinding
+
+    first = await review_candidate(
+        ScriptedModel(output=model_output()), candidate, ["Q6"], "r1", RUBRIC, rules="规则"
+    )
+    second = await review_candidate(
+        ScriptedModel(output=model_output()), candidate, ["Q6"], "r2", RUBRIC, rules="规则"
+    )
+    record = first.evidence[0]
+    gap = EvaluationFinding(
+        id="promises:x:1:assessment-early:unit_3",
+        candidate_id=candidate.id,
+        content_fingerprint=candidate.fingerprint,
+        criterion_id="Q6",
+        object={"kind": "unit", "id": "unit_3_linear_functions"},
+        origin="program",
+        reviewer_id="promises",
+        severity="key_gap",
+        claim="评价早于学习机会",
+        requirement="评价前须有学习机会",
+        evidence_ids=[record.id],
+        impact="影响",
+        recheck="复查",
+    )
+    real = cited("/units/unit_3_linear_functions/assessment_plan", "单元末通过真实情境建模")
+    decision = {
+        "criterion_id": "Q6",
+        "score": 3,
+        "score_low": None,
+        "score_high": None,
+        "critical_failure": False,
+        "rationale": "评价内容在本单元已学习",
+        "supporting": [real],
+        "needs_more_reading": "",
+        "finding_verdicts": [
+            {
+                "finding_id": gap.id,
+                "upheld": False,
+                "reason": "评价的是本单元内容",
+                "citations": [real],
+            }
+        ],
+    }
+    model = ScriptedAdjudicator(output=dict(decision))
+    ratings = first.ratings + second.ratings
+    outcome = await adjudicate(
+        model, candidate, "Q6", ratings, [], first.evidence, RUBRIC, "r3", established=[gap]
+    )
+    assert [f["id"] for f in model.output["_seen"]["established_findings"]] == [gap.id]
+    assert outcome.adjudication.rejected_findings == [gap.id]
+    fake = {
+        **decision,
+        "finding_verdicts": [
+            {
+                "finding_id": gap.id,
+                "upheld": False,
+                "reason": "无据",
+                "citations": [cited("/units/unit_3_linear_functions/assessment_plan", "编造的话")],
+            }
+        ],
+    }
+    failed = await adjudicate(
+        ScriptedAdjudicator(output=fake, retry=fake),
+        candidate,
+        "Q6",
+        ratings,
+        [],
+        first.evidence,
+        RUBRIC,
+        "r3",
+        established=[gap],
+    )
+    assert failed.adjudication.rejected_findings == []
+    assert any(gap.id in p for p in failed.problems)
+    # 程序核对的结构事实标为不可驳回；即使给出真实原文也不记为驳回。
+    fact = gap.model_copy(update={"id": "program:x:order:unit_3", "reviewer_id": "program"})
+    on_fact = {
+        **decision,
+        "finding_verdicts": [{**decision["finding_verdicts"][0], "finding_id": fact.id}],
+    }
+    model = ScriptedAdjudicator(output=on_fact)
+    kept = await adjudicate(
+        model, candidate, "Q6", ratings, [], first.evidence, RUBRIC, "r3", established=[fact]
+    )
+    assert model.output["_seen"]["established_findings"][0]["rebuttable"] is False
+    assert kept.adjudication.rejected_findings == []
+    assert any(fact.id in p and "程序" in p for p in kept.problems)
+
+
+def test_评价调用的计算工具出错时返回原因而不中断():
+    from teaching_harness.grade_evaluation.review import calculate_math
+
+    assert calculate_math.invoke({"expression": "(23-11)/(6-2)"}) == "3"
+    assert calculate_math.invoke({"expression": "x+1"}).startswith("工具未完成")
+    assert calculate_math.invoke({"expression": "1/0"}).startswith("工具未完成")

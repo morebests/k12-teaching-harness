@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "sample_id": "h2-04",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49",
+  "seconds": 105.8,
+  "error": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "h2-04",
+    "findings": [
+      {
+        "id": "statements:h2-04:1",
+        "candidate_id": "h2-04",
+        "content_fingerprint": "32154d7945b58fd7b2777801ec40cbfbac4c1f5c803890c885271314c4ae0e17",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_4_linear_systems"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "critical",
+        "claim": "借助直线重合理解二元一次方程组无解、借助直线平行理解方程组无穷多解。",
+        "requirement": "在平面直角坐标系中，两直线平行表示没有交点，对应的二元一次方程组无解；两直线重合表示所有点均为公共点，对应的二元一次方程组有无穷多解。",
+        "evidence_ids": [
+          "ev:h2-04:a2b45d11e9db6cc3"
+        ],
+        "counterexample": "例如方程组 y = x 与 y = x + 1，两直线平行且无交点，方程组无解；而方程组 y = x 与 2y = 2x，两直线重合且有无穷多公共交点，方程组有无穷多解。文中结论将平行（无解）与重合（无穷多解）完全颠倒。",
+        "impact": "颠倒了二元一次方程组解的几何交点意义这一八年级核心概念，导致学生建立错误的几何直观与代数判别联系。",
+        "recheck": "核对 CCSSM 8.EE.C.8.a 及平面解析几何原理：平行直线无公共点对应无解，重合直线有无穷多公共点对应无穷多解。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:h2-04:2",
+        "candidate_id": "h2-04",
+        "content_fingerprint": "32154d7945b58fd7b2777801ec40cbfbac4c1f5c803890c885271314c4ae0e17",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "函数的图象是所有有序实数对 (x, y) 的集合。",
+        "requirement": "函数的图象是由输入值 x 及其根据函数法则所对应的唯一输出值 y 构成的有序对 (x, y) 的集合，必须明确限定为输入及其对应输出。",
+        "evidence_ids": [
+          "ev:h2-04:f7dec01e719ec61d"
+        ],
+        "counterexample": "若图象是平面上“所有”有序实数对 (x, y) 的集合，则任何函数的图象都会成为整个坐标平面 R^2，而非一条曲线或直线。",
+        "impact": "漏掉了输入输出对应法则的限定条件，字面表述将函数图象等同于整个笛卡尔坐标平面，造成集合与图象概念的严重不严谨。",
+        "recheck": "核对 CCSSM 8.F.A.1 原文：“The graph of a function is the set of ordered pairs consisting of an input and the corresponding output.”",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:h2-04:3",
+        "candidate_id": "h2-04",
+        "content_fingerprint": "32154d7945b58fd7b2777801ec40cbfbac4c1f5c803890c885271314c4ae0e17",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "通过面积割补法证明勾股定理及其逆定理。",
+        "requirement": "面积割补法仅能证明勾股定理本身；勾股定理逆定理应表述为通过构造辅助直角三角形与全等判定等几何逻辑方法进行探索或证明。",
+        "evidence_ids": [
+          "ev:h2-04:5888d8744f858237"
+        ],
+        "counterexample": "面积割补法（如弦图法、赵爽弦图、拼图法）必须预先假设拼合角为直角，才能保证拼成规则正方形并列出面积等式，因此只能证明勾股定理（若角为直角则 a^2 + b^2 = c^2）；若用于证明逆定理，则构成预先假定所求结论为真的循环论证。逆定理必须通过构造辅助直角三角形并结合勾股定理与全等三角形（SSS）进行反证或直接证明。",
+        "impact": "方法与定理性质混淆，声称用无法证明逆定理的方法证明了逆定理，损害了几何公理化说理与逻辑论证的严密性。",
+        "recheck": "核对几何教学中勾股定理逆定理的标准几何证明逻辑（构造全等法，而非面积割补）。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h2-04:a2b45d11e9db6cc3",
+        "document_id": "h2-04",
+        "document_fingerprint": "f34edc460a07b93780e5409f8c9cb652ce94115267982eba889b321c919e3422",
+        "locator": "/units/3/narrative",
+        "quote": "借助直线重合的几何形态理解方程组无解、借助直线平行的几何形态理解方程组无穷多解的代数本质",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:h2-04:f7dec01e719ec61d",
+        "document_id": "h2-04",
+        "document_fingerprint": "f34edc460a07b93780e5409f8c9cb652ce94115267982eba889b321c919e3422",
+        "locator": "/goals/11/allocations/0/opportunity",
+        "quote": "理解图象是所有有序实数对 $(x, y)$ 的集合",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:h2-04:5888d8744f858237",
+        "document_id": "h2-04",
+        "document_fingerprint": "f34edc460a07b93780e5409f8c9cb652ce94115267982eba889b321c919e3422",
+        "locator": "/units/4/narrative",
+        "quote": "随后通过面积割补法证明勾股定理及其逆定理",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12561,
+      "output_tokens": 13146,
+      "total_tokens": 25707
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "/narrative",
+      "/prerequisites",
+      "/successors",
+      "/handoff_guidance",
+      "/design_inferences",
+      "/teacher_preparation",
+      "/units/unit_1_geom_transform",
+      "/units/unit_2_linear_eq",
+      "/units/unit_3_linear_functions",
+      "/units/unit_4_linear_systems",
+      "/units/unit_5_real_numbers_pythagoras",
+      "/units/unit_6_exponents_sci_notation",
+      "/units/unit_7_volume_3d",
+      "/units/unit_8_bivariate_stats",
+      "/goals/8.EE.A.1",
+      "/goals/8.EE.A.2",
+      "/goals/8.EE.A.3",
+      "/goals/8.EE.A.4",
+      "/goals/8.EE.B.5",
+      "/goals/8.EE.B.6",
+      "/goals/8.EE.C.7",
+      "/goals/8.EE.C.7.a",
+      "/goals/8.EE.C.7.b",
+      "/goals/8.EE.C.8",
+      "/goals/8.EE.C.8.a",
+      "/goals/8.EE.C.8.b",
+      "/goals/8.EE.C.8.c",
+      "/goals/8.F.A.1",
+      "/goals/8.F.A.2",
+      "/goals/8.F.A.3",
+      "/goals/8.F.B.4",
+      "/goals/8.F.B.5",
+      "/goals/8.G.A.1",
+      "/goals/8.G.A.1.a",
+      "/goals/8.G.A.1.b",
+      "/goals/8.G.A.1.c",
+      "/goals/8.G.A.2",
+      "/goals/8.G.A.3",
+      "/goals/8.G.A.4",
+      "/goals/8.G.A.5",
+      "/goals/8.G.B.6",
+      "/goals/8.G.B.7",
+      "/goals/8.G.B.8",
+      "/goals/8.G.C.9",
+      "/goals/8.NS.A.1",
+      "/goals/8.NS.A.2",
+      "/goals/8.SP.A.1",
+      "/goals/8.SP.A.2",
+      "/goals/8.SP.A.3",
+      "/goals/8.SP.A.4"
+    ],
+    "error_types": {
+      "statements:h2-04:1": "wrong_conclusion",
+      "statements:h2-04:2": "missing_condition",
+      "statements:h2-04:3": "concept_confusion"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

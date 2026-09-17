@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "adjudicator": "r3",
+  "rules_fingerprint": "d9ab31eacec668ae106017bbfd1bbfbab18740c91ea0dd0e2b0ad2edf9cad0b8",
+  "adjudications": [
+    {
+      "id": "adjudication:r3:b-final:q4",
+      "candidate_id": "b-final",
+      "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+      "criterion_id": "Q4",
+      "original_ratings": [
+        {
+          "reviewer_id": "r1",
+          "score": 4,
+          "interval": null,
+          "critical_failure": false
+        },
+        {
+          "reviewer_id": "r2",
+          "score": 4,
+          "interval": null,
+          "critical_failure": false
+        }
+      ],
+      "triggers": [],
+      "method": "independent_adjudicator",
+      "adjudicator_id": "r3",
+      "score": 2,
+      "interval": null,
+      "critical_failure": false,
+      "supporting_evidence": [
+        "ev:b-final:9305b350b26218ac",
+        "ev:b-final:19d5e32cc1da48d8",
+        "ev:b-final:555604088be27a1d"
+      ],
+      "rejected_findings": [],
+      "needs_more_reading": "",
+      "rationale": "全课程在单元主线演进、几何到代数的斜率推导、一元方程解的分类、二元方程组平衡交点及统计经验模型等跨度上设计了连贯的认知阶梯与探查支架。但由于已确认发现 statements:b-final:1 成立并维持（其将函数图象严谨定义表述为“所有有序实数对的集合”，遗漏了输入输出映射规则限定，属于数学语言与概念表征上的关键联系缺口），依据评阅规则与维度聚合协议，维持关键缺口（key_gap）时该维度分数上限受控为 2 分。结合全案其他单元表征与理解进阶的完备度，最终裁定为 2 分。"
+    },
+    {
+      "id": "adjudication:r3:b-final:q5",
+      "candidate_id": "b-final",
+      "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+      "criterion_id": "Q5",
+      "original_ratings": [
+        {
+          "reviewer_id": "r1",
+          "score": 4,
+          "interval": null,
+          "critical_failure": false
+        },
+        {
+          "reviewer_id": "r2",
+          "score": 4,
+          "interval": null,
+          "critical_failure": false
+        }
+      ],
+      "triggers": [],
+      "method": "independent_adjudicator",
+      "adjudicator_id": "r3",
+      "score": 2,
+      "interval": null,
+      "critical_failure": false,
+      "supporting_evidence": [
+        "ev:b-final:ca807f9ccf3d774a",
+        "ev:b-final:c83801a86384ab9a",
+        "ev:b-final:6b219a5a2959e44b"
+      ],
+      "rejected_findings": [],
+      "needs_more_reading": "",
+      "rationale": "候选在概念初建、跨单元回访与高阶迁移方面整体设计较为详尽，清单中 8 个单元及 7 个显式分配的复访/应用对象（如 8.G.A.5 在 Unit 2 几何相似推导斜率、8.EE.A.2 在 Unit 7 几何尺寸反解、8.F.B.4 在 Unit 8 双变量拟合等）均有具体的课内机会与评价证据。然而，候选在核心重点单元交接指引（/handoff_guidance）中明确承诺了“8.F.B.4 建模技能将在 Unit 4（二元一次方程组的交点平衡状态）中被应用”，但在结构化目标分配字典（/goals/8.F.B.4/allocations）中却完全遗漏了 Unit 4 的分配，造成承上启下的核心利用承诺在目标分配结构中落空，构成了关键联系缺口（key_gap）。两位评阅者均未指出这一承诺断层而径直给出 4 分。依据评审协议，维持已确认的关键缺口发现时，该维度分数上限封顶为 2 分，故独立裁定为 2 分。"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev:b-final:9305b350b26218ac",
+      "document_id": "b-final",
+      "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+      "locator": "/goals/11/allocations/0/opportunity",
+      "quote": "理解图象是所有有序实数对 $(x, y)$ 的集合。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q4-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:b-final:19d5e32cc1da48d8",
+      "document_id": "b-final",
+      "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+      "locator": "/units/2/narrative",
+      "quote": "确立函数的统一定义（每个输入唯一对应输出），通过对比线性函数与非线性函数（如面积二次增长），牢固掌握 y = mx + b 的线性特征；重点突破 8.F.B.4",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q4-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:b-final:555604088be27a1d",
+      "document_id": "b-final",
+      "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+      "locator": "/tasks/0/design_consequence",
+      "quote": "在非零初始值情境下，七年级习惯的 y/x 比率不再恒定，必须依赖增量之比 Delta y / Delta x；同时现实情境存在明确的物理边界",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q4-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:b-final:ca807f9ccf3d774a",
+      "document_id": "b-final",
+      "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+      "locator": "/handoff_guidance",
+      "quote": "本单元建构的 8.F.B.4 建模技能将在 Unit 4（二元一次方程组的交点平衡状态）中被应用，并在 Unit 8（双变量统计）中作为散点图经验拟合直线的分析工具",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q5-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:b-final:c83801a86384ab9a",
+      "document_id": "b-final",
+      "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+      "locator": "/goals/14/allocations/1/opportunity",
+      "quote": "在散点图拟合直线探究中，应用 8.F.B.4 的建模技能求解经验直线的解析式并解读截距与斜率。",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q5-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    },
+    {
+      "id": "ev:b-final:6b219a5a2959e44b",
+      "document_id": "b-final",
+      "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+      "locator": "/units/3/narrative",
+      "quote": "当两个现实线性函数并存时，寻求二者的共同状态即等价于求解二元一次方程组。单元首先建立解即为两直线几何交点的直观",
+      "extraction": "模型引用的原文片段；判断见所属结论",
+      "objects": [
+        {
+          "kind": "grade",
+          "id": "q5-adjudication"
+        }
+      ],
+      "recorded_by": "model"
+    }
+  ],
+  "problems": [],
+  "usage": [
+    {
+      "criterion": "Q4",
+      "input_tokens": 33561,
+      "output_tokens": 2446,
+      "total_tokens": 36007,
+      "usage_complete": true,
+      "repairs": 0
+    },
+    {
+      "criterion": "Q5",
+      "input_tokens": 33296,
+      "output_tokens": 3153,
+      "total_tokens": 36449,
+      "usage_complete": true,
+      "repairs": 0
+    }
+  ]
+}

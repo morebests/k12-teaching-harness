@@ -1,738 +1,3339 @@
 {
-  "schema_version": 1,
-  "program": [
-    {
-      "origin": "program",
-      "split": "debug",
-      "samples": 7,
-      "control_samples": 2,
-      "expected": 2,
-      "detected": 2,
-      "location_correct": 2,
-      "severity_matched": 2,
-      "missed": [],
-      "critical_missed": [],
-      "false_positives": [],
-      "other_findings": []
+  "schema_version": 2,
+  "sets": {
+    "debug": {
+      "samples": [
+        "d-known-initial",
+        "d-known-revision",
+        "d-assess-early",
+        "d-time-sum",
+        "d-opportunity-empty",
+        "d-control-renumber",
+        "d-control-resource"
+      ],
+      "program": {
+        "origin": "program",
+        "split": "debug",
+        "samples": 7,
+        "control_samples": 2,
+        "expected": 2,
+        "detected": 2,
+        "location_correct": 2,
+        "severity_matched": 2,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": []
+      },
+      "stages": {
+        "promises": {
+          "origin": "model",
+          "split": "debug",
+          "samples": 7,
+          "control_samples": 2,
+          "expected": 14,
+          "detected": 1,
+          "location_correct": 1,
+          "severity_matched": 1,
+          "missed": [
+            "km1-resources",
+            "km1-stats-data",
+            "km1-causal",
+            "km1-unbounded",
+            "km1-identity",
+            "km1-two-points",
+            "km1-overclaim",
+            "km2-range",
+            "km2-sampling",
+            "km2-intercept",
+            "km2-causal",
+            "inj-time-sum",
+            "inj-opportunity-f-a-3"
+          ],
+          "critical_missed": [
+            "km1-resources",
+            "km1-stats-data",
+            "km2-sampling",
+            "inj-time-sum",
+            "inj-opportunity-f-a-3"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "promises:d-known-initial:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:d-known-revision:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:d-assess-early:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:d-time-sum:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:d-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:d-control-renumber:1:later-use-missing:8.f.b.4-u04:apply",
+            "promises:d-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply"
+          ]
+        },
+        "probes": {
+          "origin": "model",
+          "split": "debug",
+          "samples": 7,
+          "control_samples": 2,
+          "expected": 14,
+          "detected": 3,
+          "location_correct": 3,
+          "severity_matched": 3,
+          "missed": [
+            "km1-resources",
+            "km1-causal",
+            "km1-unbounded",
+            "km1-identity",
+            "km1-two-points",
+            "km2-sampling",
+            "km2-intercept",
+            "km2-causal",
+            "inj-assess-structural",
+            "inj-time-sum",
+            "inj-opportunity-f-a-3"
+          ],
+          "critical_missed": [
+            "km1-resources",
+            "km2-sampling",
+            "inj-time-sum",
+            "inj-opportunity-f-a-3"
+          ],
+          "false_positives": [],
+          "other_findings": []
+        },
+        "statements": {
+          "origin": "model",
+          "split": "debug",
+          "samples": 7,
+          "control_samples": 2,
+          "expected": 14,
+          "detected": 2,
+          "location_correct": 2,
+          "severity_matched": 2,
+          "missed": [
+            "km1-resources",
+            "km1-stats-data",
+            "km1-causal",
+            "km1-unbounded",
+            "km1-overclaim",
+            "km2-range",
+            "km2-sampling",
+            "km2-intercept",
+            "km2-causal",
+            "inj-assess-structural",
+            "inj-time-sum",
+            "inj-opportunity-f-a-3"
+          ],
+          "critical_missed": [
+            "km1-resources",
+            "km1-stats-data",
+            "km2-sampling",
+            "inj-time-sum",
+            "inj-opportunity-f-a-3"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "statements:d-known-initial:1",
+            "statements:d-known-initial:2",
+            "statements:d-known-initial:4",
+            "statements:d-known-revision:1",
+            "statements:d-known-revision:2",
+            "statements:d-assess-early:1",
+            "statements:d-time-sum:1",
+            "statements:d-opportunity-empty:1",
+            "statements:d-control-renumber:1",
+            "statements:d-control-renumber:2",
+            "statements:d-control-resource:1",
+            "statements:d-control-resource:2"
+          ]
+        }
+      },
+      "reviewers": {
+        "r1": {
+          "origin": "model",
+          "split": "debug",
+          "samples": 7,
+          "control_samples": 2,
+          "expected": 14,
+          "detected": 5,
+          "location_correct": 5,
+          "severity_matched": 4,
+          "missed": [
+            "km1-stats-data",
+            "km1-unbounded",
+            "km1-identity",
+            "km1-two-points",
+            "km1-overclaim",
+            "km2-range",
+            "km2-sampling",
+            "km2-intercept",
+            "km2-causal"
+          ],
+          "critical_missed": [
+            "km1-stats-data",
+            "km2-sampling"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "model:r1:d-known-revision:q8:1",
+            "model:r1:d-assess-early:q8:1",
+            "model:r1:d-assess-early:q8:2",
+            "model:r1:d-time-sum:q2:1",
+            "model:r1:d-time-sum:q8:1",
+            "model:r1:d-time-sum:q8:2",
+            "model:r1:d-opportunity-empty:q7:1",
+            "model:r1:d-opportunity-empty:q2:2",
+            "model:r1:d-opportunity-empty:q8:1",
+            "model:r1:d-opportunity-empty:q8:2",
+            "model:r1:d-opportunity-empty:q8:3",
+            "model:r1:d-control-renumber:q2:1",
+            "model:r1:d-control-renumber:q8:1",
+            "model:r1:d-control-resource:q4:1",
+            "model:r1:d-control-resource:q2:1",
+            "model:r1:d-control-resource:q8:1",
+            "model:r1:d-control-resource:q8:2"
+          ]
+        },
+        "r2": {
+          "origin": "model",
+          "split": "debug",
+          "samples": 7,
+          "control_samples": 2,
+          "expected": 14,
+          "detected": 6,
+          "location_correct": 6,
+          "severity_matched": 2,
+          "missed": [
+            "km1-causal",
+            "km1-unbounded",
+            "km1-identity",
+            "km1-two-points",
+            "km2-range",
+            "km2-sampling",
+            "km2-intercept",
+            "km2-causal"
+          ],
+          "critical_missed": [
+            "km2-sampling"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "model:r2:d-known-initial:q3:1",
+            "model:r2:d-known-initial:q5:1",
+            "model:r2:d-known-initial:q6:1",
+            "model:r2:d-known-initial:q6:2",
+            "model:r2:d-assess-early:q8:1",
+            "model:r2:d-time-sum:q2:1",
+            "model:r2:d-time-sum:q8:1",
+            "model:r2:d-time-sum:q8:2",
+            "model:r2:d-control-renumber:q8:1"
+          ]
+        }
+      },
+      "combined": {
+        "r1": {
+          "origin": "model",
+          "split": "debug",
+          "samples": 7,
+          "control_samples": 2,
+          "expected": 14,
+          "detected": 10,
+          "location_correct": 10,
+          "severity_matched": 9,
+          "missed": [
+            "km1-unbounded",
+            "km2-sampling",
+            "km2-intercept",
+            "km2-causal"
+          ],
+          "critical_missed": [
+            "km2-sampling"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "promises:d-known-initial:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-known-initial:1",
+            "statements:d-known-initial:2",
+            "statements:d-known-initial:4",
+            "model:r1:d-known-revision:q8:1",
+            "promises:d-known-revision:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-known-revision:1",
+            "statements:d-known-revision:2",
+            "model:r1:d-assess-early:q8:1",
+            "model:r1:d-assess-early:q8:2",
+            "promises:d-assess-early:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-assess-early:1",
+            "model:r1:d-time-sum:q2:1",
+            "model:r1:d-time-sum:q8:1",
+            "model:r1:d-time-sum:q8:2",
+            "promises:d-time-sum:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-time-sum:1",
+            "model:r1:d-opportunity-empty:q7:1",
+            "model:r1:d-opportunity-empty:q2:2",
+            "model:r1:d-opportunity-empty:q8:1",
+            "model:r1:d-opportunity-empty:q8:2",
+            "model:r1:d-opportunity-empty:q8:3",
+            "promises:d-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-opportunity-empty:1",
+            "model:r1:d-control-renumber:q2:1",
+            "model:r1:d-control-renumber:q8:1",
+            "promises:d-control-renumber:1:later-use-missing:8.f.b.4-u04:apply",
+            "statements:d-control-renumber:1",
+            "statements:d-control-renumber:2",
+            "model:r1:d-control-resource:q4:1",
+            "model:r1:d-control-resource:q2:1",
+            "model:r1:d-control-resource:q8:1",
+            "model:r1:d-control-resource:q8:2",
+            "promises:d-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-control-resource:1",
+            "statements:d-control-resource:2"
+          ]
+        },
+        "r2": {
+          "origin": "model",
+          "split": "debug",
+          "samples": 7,
+          "control_samples": 2,
+          "expected": 14,
+          "detected": 10,
+          "location_correct": 10,
+          "severity_matched": 7,
+          "missed": [
+            "km1-unbounded",
+            "km2-sampling",
+            "km2-intercept",
+            "km2-causal"
+          ],
+          "critical_missed": [
+            "km2-sampling"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "model:r2:d-known-initial:q3:1",
+            "model:r2:d-known-initial:q5:1",
+            "model:r2:d-known-initial:q6:1",
+            "model:r2:d-known-initial:q6:2",
+            "promises:d-known-initial:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-known-initial:1",
+            "statements:d-known-initial:2",
+            "statements:d-known-initial:4",
+            "promises:d-known-revision:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-known-revision:1",
+            "statements:d-known-revision:2",
+            "model:r2:d-assess-early:q8:1",
+            "promises:d-assess-early:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-assess-early:1",
+            "model:r2:d-time-sum:q2:1",
+            "model:r2:d-time-sum:q8:1",
+            "model:r2:d-time-sum:q8:2",
+            "promises:d-time-sum:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-time-sum:1",
+            "promises:d-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-opportunity-empty:1",
+            "model:r2:d-control-renumber:q8:1",
+            "promises:d-control-renumber:1:later-use-missing:8.f.b.4-u04:apply",
+            "statements:d-control-renumber:1",
+            "statements:d-control-renumber:2",
+            "promises:d-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:d-control-resource:1",
+            "statements:d-control-resource:2"
+          ]
+        }
+      },
+      "per_sample": {
+        "r1": {
+          "d-known-initial": {
+            "origin": "model",
+            "split": "d-known-initial",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 7,
+            "detected": 2,
+            "location_correct": 2,
+            "severity_matched": 2,
+            "missed": [
+              "km1-stats-data",
+              "km1-unbounded",
+              "km1-identity",
+              "km1-two-points",
+              "km1-overclaim"
+            ],
+            "critical_missed": [
+              "km1-stats-data"
+            ],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "d-known-revision": {
+            "origin": "model",
+            "split": "d-known-revision",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 4,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "km2-range",
+              "km2-sampling",
+              "km2-intercept",
+              "km2-causal"
+            ],
+            "critical_missed": [
+              "km2-sampling"
+            ],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-known-revision:q8:1"
+            ]
+          },
+          "d-assess-early": {
+            "origin": "model",
+            "split": "d-assess-early",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-assess-early:q8:1",
+              "model:r1:d-assess-early:q8:2"
+            ]
+          },
+          "d-time-sum": {
+            "origin": "model",
+            "split": "d-time-sum",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-time-sum:q2:1",
+              "model:r1:d-time-sum:q8:1",
+              "model:r1:d-time-sum:q8:2"
+            ]
+          },
+          "d-opportunity-empty": {
+            "origin": "model",
+            "split": "d-opportunity-empty",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-opportunity-empty:q7:1",
+              "model:r1:d-opportunity-empty:q2:2",
+              "model:r1:d-opportunity-empty:q8:1",
+              "model:r1:d-opportunity-empty:q8:2",
+              "model:r1:d-opportunity-empty:q8:3"
+            ]
+          },
+          "d-control-renumber": {
+            "origin": "model",
+            "split": "d-control-renumber",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-control-renumber:q2:1",
+              "model:r1:d-control-renumber:q8:1"
+            ]
+          },
+          "d-control-resource": {
+            "origin": "model",
+            "split": "d-control-resource",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-control-resource:q4:1",
+              "model:r1:d-control-resource:q2:1",
+              "model:r1:d-control-resource:q8:1",
+              "model:r1:d-control-resource:q8:2"
+            ]
+          }
+        },
+        "r1+checks": {
+          "d-known-initial": {
+            "origin": "model",
+            "split": "d-known-initial",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 7,
+            "detected": 6,
+            "location_correct": 6,
+            "severity_matched": 6,
+            "missed": [
+              "km1-unbounded"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:d-known-initial:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-known-initial:1",
+              "statements:d-known-initial:2",
+              "statements:d-known-initial:4"
+            ]
+          },
+          "d-known-revision": {
+            "origin": "model",
+            "split": "d-known-revision",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 4,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [
+              "km2-sampling",
+              "km2-intercept",
+              "km2-causal"
+            ],
+            "critical_missed": [
+              "km2-sampling"
+            ],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-known-revision:q8:1",
+              "promises:d-known-revision:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-known-revision:1",
+              "statements:d-known-revision:2"
+            ]
+          },
+          "d-assess-early": {
+            "origin": "model",
+            "split": "d-assess-early",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-assess-early:q8:1",
+              "model:r1:d-assess-early:q8:2",
+              "promises:d-assess-early:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-assess-early:1"
+            ]
+          },
+          "d-time-sum": {
+            "origin": "model",
+            "split": "d-time-sum",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-time-sum:q2:1",
+              "model:r1:d-time-sum:q8:1",
+              "model:r1:d-time-sum:q8:2",
+              "promises:d-time-sum:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-time-sum:1"
+            ]
+          },
+          "d-opportunity-empty": {
+            "origin": "model",
+            "split": "d-opportunity-empty",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-opportunity-empty:q7:1",
+              "model:r1:d-opportunity-empty:q2:2",
+              "model:r1:d-opportunity-empty:q8:1",
+              "model:r1:d-opportunity-empty:q8:2",
+              "model:r1:d-opportunity-empty:q8:3",
+              "promises:d-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-opportunity-empty:1"
+            ]
+          },
+          "d-control-renumber": {
+            "origin": "model",
+            "split": "d-control-renumber",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-control-renumber:q2:1",
+              "model:r1:d-control-renumber:q8:1",
+              "promises:d-control-renumber:1:later-use-missing:8.f.b.4-u04:apply",
+              "statements:d-control-renumber:1",
+              "statements:d-control-renumber:2"
+            ]
+          },
+          "d-control-resource": {
+            "origin": "model",
+            "split": "d-control-resource",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:d-control-resource:q4:1",
+              "model:r1:d-control-resource:q2:1",
+              "model:r1:d-control-resource:q8:1",
+              "model:r1:d-control-resource:q8:2",
+              "promises:d-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-control-resource:1",
+              "statements:d-control-resource:2"
+            ]
+          }
+        },
+        "r2": {
+          "d-known-initial": {
+            "origin": "model",
+            "split": "d-known-initial",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 7,
+            "detected": 3,
+            "location_correct": 3,
+            "severity_matched": 1,
+            "missed": [
+              "km1-causal",
+              "km1-unbounded",
+              "km1-identity",
+              "km1-two-points"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:d-known-initial:q3:1",
+              "model:r2:d-known-initial:q5:1",
+              "model:r2:d-known-initial:q6:1",
+              "model:r2:d-known-initial:q6:2"
+            ]
+          },
+          "d-known-revision": {
+            "origin": "model",
+            "split": "d-known-revision",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 4,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "km2-range",
+              "km2-sampling",
+              "km2-intercept",
+              "km2-causal"
+            ],
+            "critical_missed": [
+              "km2-sampling"
+            ],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "d-assess-early": {
+            "origin": "model",
+            "split": "d-assess-early",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:d-assess-early:q8:1"
+            ]
+          },
+          "d-time-sum": {
+            "origin": "model",
+            "split": "d-time-sum",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:d-time-sum:q2:1",
+              "model:r2:d-time-sum:q8:1",
+              "model:r2:d-time-sum:q8:2"
+            ]
+          },
+          "d-opportunity-empty": {
+            "origin": "model",
+            "split": "d-opportunity-empty",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "d-control-renumber": {
+            "origin": "model",
+            "split": "d-control-renumber",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:d-control-renumber:q8:1"
+            ]
+          },
+          "d-control-resource": {
+            "origin": "model",
+            "split": "d-control-resource",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          }
+        },
+        "r2+checks": {
+          "d-known-initial": {
+            "origin": "model",
+            "split": "d-known-initial",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 7,
+            "detected": 6,
+            "location_correct": 6,
+            "severity_matched": 4,
+            "missed": [
+              "km1-unbounded"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:d-known-initial:q3:1",
+              "model:r2:d-known-initial:q5:1",
+              "model:r2:d-known-initial:q6:1",
+              "model:r2:d-known-initial:q6:2",
+              "promises:d-known-initial:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-known-initial:1",
+              "statements:d-known-initial:2",
+              "statements:d-known-initial:4"
+            ]
+          },
+          "d-known-revision": {
+            "origin": "model",
+            "split": "d-known-revision",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 4,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [
+              "km2-sampling",
+              "km2-intercept",
+              "km2-causal"
+            ],
+            "critical_missed": [
+              "km2-sampling"
+            ],
+            "false_positives": [],
+            "other_findings": [
+              "promises:d-known-revision:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-known-revision:1",
+              "statements:d-known-revision:2"
+            ]
+          },
+          "d-assess-early": {
+            "origin": "model",
+            "split": "d-assess-early",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:d-assess-early:q8:1",
+              "promises:d-assess-early:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-assess-early:1"
+            ]
+          },
+          "d-time-sum": {
+            "origin": "model",
+            "split": "d-time-sum",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:d-time-sum:q2:1",
+              "model:r2:d-time-sum:q8:1",
+              "model:r2:d-time-sum:q8:2",
+              "promises:d-time-sum:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-time-sum:1"
+            ]
+          },
+          "d-opportunity-empty": {
+            "origin": "model",
+            "split": "d-opportunity-empty",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:d-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-opportunity-empty:1"
+            ]
+          },
+          "d-control-renumber": {
+            "origin": "model",
+            "split": "d-control-renumber",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:d-control-renumber:q8:1",
+              "promises:d-control-renumber:1:later-use-missing:8.f.b.4-u04:apply",
+              "statements:d-control-renumber:1",
+              "statements:d-control-renumber:2"
+            ]
+          },
+          "d-control-resource": {
+            "origin": "model",
+            "split": "d-control-resource",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:d-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:d-control-resource:1",
+              "statements:d-control-resource:2"
+            ]
+          }
+        }
+      }
     },
-    {
-      "origin": "program",
-      "split": "holdout",
-      "samples": 8,
-      "control_samples": 3,
-      "expected": 0,
-      "detected": 0,
-      "location_correct": 0,
-      "severity_matched": 0,
-      "missed": [],
-      "critical_missed": [],
-      "false_positives": [],
-      "other_findings": []
-    }
-  ],
-  "model": {
-    "r1": [
-      {
-        "origin": "model",
-        "split": "debug",
-        "samples": 7,
-        "control_samples": 2,
-        "expected": 14,
-        "detected": 7,
-        "location_correct": 7,
-        "severity_matched": 5,
-        "missed": [
-          "km1-unbounded",
-          "km1-identity",
-          "km1-two-points",
-          "km2-range",
-          "km2-sampling",
-          "km2-intercept",
-          "km2-causal"
-        ],
-        "critical_missed": [
-          "km2-sampling"
-        ],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:d-known-revision:q8:1",
-          "model:r1:d-assess-early:q8:1",
-          "model:r1:d-assess-early:q8:2",
-          "model:r1:d-time-sum:q2:1",
-          "model:r1:d-time-sum:q8:1",
-          "model:r1:d-time-sum:q8:2",
-          "model:r1:d-opportunity-empty:q7:1",
-          "model:r1:d-opportunity-empty:q2:2",
-          "model:r1:d-opportunity-empty:q8:1",
-          "model:r1:d-opportunity-empty:q8:2",
-          "model:r1:d-opportunity-empty:q8:3",
-          "model:r1:d-control-renumber:q2:1",
-          "model:r1:d-control-renumber:q8:1",
-          "model:r1:d-control-resource:q4:1",
-          "model:r1:d-control-resource:q2:1",
-          "model:r1:d-control-resource:q8:1",
-          "model:r1:d-control-resource:q8:2"
-        ]
-      },
-      {
-        "origin": "model",
-        "split": "holdout",
+    "holdout-v1": {
+      "samples": [
+        "h-opportunity-empty",
+        "h-assess-before-learning",
+        "h-reserve-double-count",
+        "h-revisit-dropped",
+        "h-order-dependency",
+        "h-control-swap",
+        "h-control-revisit",
+        "h-control-resource"
+      ],
+      "program": {
+        "origin": "program",
+        "split": "holdout-v1",
         "samples": 8,
         "control_samples": 3,
-        "expected": 5,
-        "detected": 4,
-        "location_correct": 4,
-        "severity_matched": 2,
-        "missed": [
-          "hold-revisit-roots"
-        ],
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
         "critical_missed": [],
         "false_positives": [],
-        "other_findings": [
-          "model:r1:h-opportunity-empty:q5:1",
-          "model:r1:h-opportunity-empty:q8:1",
-          "model:r1:h-opportunity-empty:q8:2",
-          "model:r1:h-assess-before-learning:q2:1",
-          "model:r1:h-assess-before-learning:q8:1",
-          "model:r1:h-reserve-double-count:q8:1",
-          "model:r1:h-reserve-double-count:q8:2",
-          "model:r1:h-order-dependency:q5:1",
-          "model:r1:h-order-dependency:q5:2",
-          "model:r1:h-order-dependency:q8:1",
-          "model:r1:h-control-swap:q2:1",
-          "model:r1:h-control-swap:q8:1",
-          "model:r1:h-control-revisit:q2:1",
-          "model:r1:h-control-revisit:q8:1",
-          "model:r1:h-control-resource:q8:1"
-        ]
-      }
-    ],
-    "r2": [
-      {
-        "origin": "model",
-        "split": "debug",
-        "samples": 7,
-        "control_samples": 2,
-        "expected": 14,
-        "detected": 6,
-        "location_correct": 6,
-        "severity_matched": 2,
-        "missed": [
-          "km1-causal",
-          "km1-unbounded",
-          "km1-identity",
-          "km1-two-points",
-          "km2-range",
-          "km2-sampling",
-          "km2-intercept",
-          "km2-causal"
-        ],
-        "critical_missed": [
-          "km2-sampling"
-        ],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:d-known-initial:q3:1",
-          "model:r2:d-known-initial:q5:1",
-          "model:r2:d-known-initial:q6:1",
-          "model:r2:d-known-initial:q6:2",
-          "model:r2:d-assess-early:q8:1",
-          "model:r2:d-time-sum:q2:1",
-          "model:r2:d-time-sum:q8:1",
-          "model:r2:d-time-sum:q8:2",
-          "model:r2:d-control-renumber:q8:1"
-        ]
+        "other_findings": []
       },
-      {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 8,
-        "control_samples": 3,
-        "expected": 5,
-        "detected": 4,
-        "location_correct": 4,
-        "severity_matched": 2,
-        "missed": [
-          "hold-revisit-roots"
-        ],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:h-opportunity-empty:q2:1",
-          "model:r2:h-opportunity-empty:q8:1",
-          "model:r2:h-opportunity-empty:q8:2",
-          "model:r2:h-assess-before-learning:q8:1",
-          "model:r2:h-reserve-double-count:q2:1",
-          "model:r2:h-reserve-double-count:q8:1",
-          "model:r2:h-reserve-double-count:q8:2",
-          "model:r2:h-order-dependency:q5:1",
-          "model:r2:h-order-dependency:q8:1",
-          "model:r2:h-control-revisit:q2:1",
-          "model:r2:h-control-revisit:q8:1"
-        ]
+      "stages": {
+        "promises": {
+          "origin": "model",
+          "split": "holdout-v1",
+          "samples": 8,
+          "control_samples": 3,
+          "expected": 5,
+          "detected": 3,
+          "location_correct": 3,
+          "severity_matched": 3,
+          "missed": [
+            "hold-opportunity-sp-a-4",
+            "hold-revisit-roots"
+          ],
+          "critical_missed": [
+            "hold-opportunity-sp-a-4"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "promises:h-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h-assess-before-learning:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h-reserve-double-count:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h-revisit-dropped:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h-order-dependency:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h-control-swap:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply"
+          ]
+        },
+        "probes": {
+          "origin": "model",
+          "split": "holdout-v1",
+          "samples": 8,
+          "control_samples": 3,
+          "expected": 5,
+          "detected": 0,
+          "location_correct": 0,
+          "severity_matched": 0,
+          "missed": [
+            "hold-opportunity-sp-a-4",
+            "hold-assess-systems-early",
+            "hold-reserve-double",
+            "hold-revisit-roots",
+            "hold-order-systems-functions"
+          ],
+          "critical_missed": [
+            "hold-opportunity-sp-a-4",
+            "hold-reserve-double",
+            "hold-order-systems-functions"
+          ],
+          "false_positives": [],
+          "other_findings": []
+        },
+        "statements": {
+          "origin": "model",
+          "split": "holdout-v1",
+          "samples": 8,
+          "control_samples": 3,
+          "expected": 5,
+          "detected": 0,
+          "location_correct": 0,
+          "severity_matched": 0,
+          "missed": [
+            "hold-opportunity-sp-a-4",
+            "hold-assess-systems-early",
+            "hold-reserve-double",
+            "hold-revisit-roots",
+            "hold-order-systems-functions"
+          ],
+          "critical_missed": [
+            "hold-opportunity-sp-a-4",
+            "hold-reserve-double",
+            "hold-order-systems-functions"
+          ],
+          "false_positives": [
+            "statements:h-control-swap:1"
+          ],
+          "other_findings": [
+            "statements:h-opportunity-empty:1",
+            "statements:h-opportunity-empty:2",
+            "statements:h-assess-before-learning:1",
+            "statements:h-reserve-double-count:1",
+            "statements:h-reserve-double-count:2",
+            "statements:h-reserve-double-count:3",
+            "statements:h-revisit-dropped:1",
+            "statements:h-revisit-dropped:2",
+            "statements:h-control-swap:2",
+            "statements:h-control-revisit:1",
+            "statements:h-control-revisit:2",
+            "statements:h-control-resource:1",
+            "statements:h-control-resource:2"
+          ]
+        }
+      },
+      "reviewers": {
+        "r1": {
+          "origin": "model",
+          "split": "holdout-v1",
+          "samples": 8,
+          "control_samples": 3,
+          "expected": 5,
+          "detected": 4,
+          "location_correct": 4,
+          "severity_matched": 2,
+          "missed": [
+            "hold-revisit-roots"
+          ],
+          "critical_missed": [],
+          "false_positives": [],
+          "other_findings": [
+            "model:r1:h-opportunity-empty:q5:1",
+            "model:r1:h-opportunity-empty:q8:1",
+            "model:r1:h-opportunity-empty:q8:2",
+            "model:r1:h-assess-before-learning:q2:1",
+            "model:r1:h-assess-before-learning:q8:1",
+            "model:r1:h-reserve-double-count:q8:1",
+            "model:r1:h-reserve-double-count:q8:2",
+            "model:r1:h-order-dependency:q5:1",
+            "model:r1:h-order-dependency:q5:2",
+            "model:r1:h-order-dependency:q8:1",
+            "model:r1:h-control-swap:q2:1",
+            "model:r1:h-control-swap:q8:1",
+            "model:r1:h-control-revisit:q2:1",
+            "model:r1:h-control-revisit:q8:1",
+            "model:r1:h-control-resource:q8:1"
+          ]
+        },
+        "r2": {
+          "origin": "model",
+          "split": "holdout-v1",
+          "samples": 8,
+          "control_samples": 3,
+          "expected": 5,
+          "detected": 4,
+          "location_correct": 4,
+          "severity_matched": 2,
+          "missed": [
+            "hold-revisit-roots"
+          ],
+          "critical_missed": [],
+          "false_positives": [],
+          "other_findings": [
+            "model:r2:h-opportunity-empty:q2:1",
+            "model:r2:h-opportunity-empty:q8:1",
+            "model:r2:h-opportunity-empty:q8:2",
+            "model:r2:h-assess-before-learning:q8:1",
+            "model:r2:h-reserve-double-count:q2:1",
+            "model:r2:h-reserve-double-count:q8:1",
+            "model:r2:h-reserve-double-count:q8:2",
+            "model:r2:h-order-dependency:q5:1",
+            "model:r2:h-order-dependency:q8:1",
+            "model:r2:h-control-revisit:q2:1",
+            "model:r2:h-control-revisit:q8:1"
+          ]
+        }
+      },
+      "combined": {
+        "r1": {
+          "origin": "model",
+          "split": "holdout-v1",
+          "samples": 8,
+          "control_samples": 3,
+          "expected": 5,
+          "detected": 4,
+          "location_correct": 4,
+          "severity_matched": 3,
+          "missed": [
+            "hold-revisit-roots"
+          ],
+          "critical_missed": [],
+          "false_positives": [
+            "statements:h-control-swap:1"
+          ],
+          "other_findings": [
+            "model:r1:h-opportunity-empty:q5:1",
+            "model:r1:h-opportunity-empty:q8:1",
+            "model:r1:h-opportunity-empty:q8:2",
+            "promises:h-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-opportunity-empty:1",
+            "statements:h-opportunity-empty:2",
+            "model:r1:h-assess-before-learning:q2:1",
+            "model:r1:h-assess-before-learning:q8:1",
+            "promises:h-assess-before-learning:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-assess-before-learning:1",
+            "model:r1:h-reserve-double-count:q8:1",
+            "model:r1:h-reserve-double-count:q8:2",
+            "promises:h-reserve-double-count:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-reserve-double-count:1",
+            "statements:h-reserve-double-count:2",
+            "statements:h-reserve-double-count:3",
+            "promises:h-revisit-dropped:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-revisit-dropped:1",
+            "statements:h-revisit-dropped:2",
+            "model:r1:h-order-dependency:q5:1",
+            "model:r1:h-order-dependency:q5:2",
+            "model:r1:h-order-dependency:q8:1",
+            "promises:h-order-dependency:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "model:r1:h-control-swap:q2:1",
+            "model:r1:h-control-swap:q8:1",
+            "promises:h-control-swap:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-control-swap:2",
+            "model:r1:h-control-revisit:q2:1",
+            "model:r1:h-control-revisit:q8:1",
+            "statements:h-control-revisit:1",
+            "statements:h-control-revisit:2",
+            "model:r1:h-control-resource:q8:1",
+            "promises:h-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-control-resource:1",
+            "statements:h-control-resource:2"
+          ]
+        },
+        "r2": {
+          "origin": "model",
+          "split": "holdout-v1",
+          "samples": 8,
+          "control_samples": 3,
+          "expected": 5,
+          "detected": 4,
+          "location_correct": 4,
+          "severity_matched": 3,
+          "missed": [
+            "hold-revisit-roots"
+          ],
+          "critical_missed": [],
+          "false_positives": [
+            "statements:h-control-swap:1"
+          ],
+          "other_findings": [
+            "model:r2:h-opportunity-empty:q2:1",
+            "model:r2:h-opportunity-empty:q8:1",
+            "model:r2:h-opportunity-empty:q8:2",
+            "promises:h-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-opportunity-empty:1",
+            "statements:h-opportunity-empty:2",
+            "model:r2:h-assess-before-learning:q8:1",
+            "promises:h-assess-before-learning:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-assess-before-learning:1",
+            "model:r2:h-reserve-double-count:q2:1",
+            "model:r2:h-reserve-double-count:q8:1",
+            "model:r2:h-reserve-double-count:q8:2",
+            "promises:h-reserve-double-count:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-reserve-double-count:1",
+            "statements:h-reserve-double-count:2",
+            "statements:h-reserve-double-count:3",
+            "promises:h-revisit-dropped:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-revisit-dropped:1",
+            "statements:h-revisit-dropped:2",
+            "model:r2:h-order-dependency:q5:1",
+            "model:r2:h-order-dependency:q8:1",
+            "promises:h-order-dependency:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h-control-swap:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-control-swap:2",
+            "model:r2:h-control-revisit:q2:1",
+            "model:r2:h-control-revisit:q8:1",
+            "statements:h-control-revisit:1",
+            "statements:h-control-revisit:2",
+            "promises:h-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h-control-resource:1",
+            "statements:h-control-resource:2"
+          ]
+        }
+      },
+      "per_sample": {
+        "r1": {
+          "h-opportunity-empty": {
+            "origin": "model",
+            "split": "h-opportunity-empty",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-opportunity-empty:q5:1",
+              "model:r1:h-opportunity-empty:q8:1",
+              "model:r1:h-opportunity-empty:q8:2"
+            ]
+          },
+          "h-assess-before-learning": {
+            "origin": "model",
+            "split": "h-assess-before-learning",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-assess-before-learning:q2:1",
+              "model:r1:h-assess-before-learning:q8:1"
+            ]
+          },
+          "h-reserve-double-count": {
+            "origin": "model",
+            "split": "h-reserve-double-count",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-reserve-double-count:q8:1",
+              "model:r1:h-reserve-double-count:q8:2"
+            ]
+          },
+          "h-revisit-dropped": {
+            "origin": "model",
+            "split": "h-revisit-dropped",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "hold-revisit-roots"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h-order-dependency": {
+            "origin": "model",
+            "split": "h-order-dependency",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-order-dependency:q5:1",
+              "model:r1:h-order-dependency:q5:2",
+              "model:r1:h-order-dependency:q8:1"
+            ]
+          },
+          "h-control-swap": {
+            "origin": "model",
+            "split": "h-control-swap",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-control-swap:q2:1",
+              "model:r1:h-control-swap:q8:1"
+            ]
+          },
+          "h-control-revisit": {
+            "origin": "model",
+            "split": "h-control-revisit",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-control-revisit:q2:1",
+              "model:r1:h-control-revisit:q8:1"
+            ]
+          },
+          "h-control-resource": {
+            "origin": "model",
+            "split": "h-control-resource",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-control-resource:q8:1"
+            ]
+          }
+        },
+        "r1+checks": {
+          "h-opportunity-empty": {
+            "origin": "model",
+            "split": "h-opportunity-empty",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-opportunity-empty:q5:1",
+              "model:r1:h-opportunity-empty:q8:1",
+              "model:r1:h-opportunity-empty:q8:2",
+              "promises:h-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-opportunity-empty:1",
+              "statements:h-opportunity-empty:2"
+            ]
+          },
+          "h-assess-before-learning": {
+            "origin": "model",
+            "split": "h-assess-before-learning",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-assess-before-learning:q2:1",
+              "model:r1:h-assess-before-learning:q8:1",
+              "promises:h-assess-before-learning:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-assess-before-learning:1"
+            ]
+          },
+          "h-reserve-double-count": {
+            "origin": "model",
+            "split": "h-reserve-double-count",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-reserve-double-count:q8:1",
+              "model:r1:h-reserve-double-count:q8:2",
+              "promises:h-reserve-double-count:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-reserve-double-count:1",
+              "statements:h-reserve-double-count:2",
+              "statements:h-reserve-double-count:3"
+            ]
+          },
+          "h-revisit-dropped": {
+            "origin": "model",
+            "split": "h-revisit-dropped",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "hold-revisit-roots"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h-revisit-dropped:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-revisit-dropped:1",
+              "statements:h-revisit-dropped:2"
+            ]
+          },
+          "h-order-dependency": {
+            "origin": "model",
+            "split": "h-order-dependency",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-order-dependency:q5:1",
+              "model:r1:h-order-dependency:q5:2",
+              "model:r1:h-order-dependency:q8:1",
+              "promises:h-order-dependency:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply"
+            ]
+          },
+          "h-control-swap": {
+            "origin": "model",
+            "split": "h-control-swap",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [
+              "statements:h-control-swap:1"
+            ],
+            "other_findings": [
+              "model:r1:h-control-swap:q2:1",
+              "model:r1:h-control-swap:q8:1",
+              "promises:h-control-swap:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-control-swap:2"
+            ]
+          },
+          "h-control-revisit": {
+            "origin": "model",
+            "split": "h-control-revisit",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-control-revisit:q2:1",
+              "model:r1:h-control-revisit:q8:1",
+              "statements:h-control-revisit:1",
+              "statements:h-control-revisit:2"
+            ]
+          },
+          "h-control-resource": {
+            "origin": "model",
+            "split": "h-control-resource",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h-control-resource:q8:1",
+              "promises:h-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-control-resource:1",
+              "statements:h-control-resource:2"
+            ]
+          }
+        },
+        "r2": {
+          "h-opportunity-empty": {
+            "origin": "model",
+            "split": "h-opportunity-empty",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-opportunity-empty:q2:1",
+              "model:r2:h-opportunity-empty:q8:1",
+              "model:r2:h-opportunity-empty:q8:2"
+            ]
+          },
+          "h-assess-before-learning": {
+            "origin": "model",
+            "split": "h-assess-before-learning",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-assess-before-learning:q8:1"
+            ]
+          },
+          "h-reserve-double-count": {
+            "origin": "model",
+            "split": "h-reserve-double-count",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-reserve-double-count:q2:1",
+              "model:r2:h-reserve-double-count:q8:1",
+              "model:r2:h-reserve-double-count:q8:2"
+            ]
+          },
+          "h-revisit-dropped": {
+            "origin": "model",
+            "split": "h-revisit-dropped",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "hold-revisit-roots"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h-order-dependency": {
+            "origin": "model",
+            "split": "h-order-dependency",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-order-dependency:q5:1",
+              "model:r2:h-order-dependency:q8:1"
+            ]
+          },
+          "h-control-swap": {
+            "origin": "model",
+            "split": "h-control-swap",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h-control-revisit": {
+            "origin": "model",
+            "split": "h-control-revisit",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-control-revisit:q2:1",
+              "model:r2:h-control-revisit:q8:1"
+            ]
+          },
+          "h-control-resource": {
+            "origin": "model",
+            "split": "h-control-resource",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          }
+        },
+        "r2+checks": {
+          "h-opportunity-empty": {
+            "origin": "model",
+            "split": "h-opportunity-empty",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-opportunity-empty:q2:1",
+              "model:r2:h-opportunity-empty:q8:1",
+              "model:r2:h-opportunity-empty:q8:2",
+              "promises:h-opportunity-empty:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-opportunity-empty:1",
+              "statements:h-opportunity-empty:2"
+            ]
+          },
+          "h-assess-before-learning": {
+            "origin": "model",
+            "split": "h-assess-before-learning",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-assess-before-learning:q8:1",
+              "promises:h-assess-before-learning:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-assess-before-learning:1"
+            ]
+          },
+          "h-reserve-double-count": {
+            "origin": "model",
+            "split": "h-reserve-double-count",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-reserve-double-count:q2:1",
+              "model:r2:h-reserve-double-count:q8:1",
+              "model:r2:h-reserve-double-count:q8:2",
+              "promises:h-reserve-double-count:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-reserve-double-count:1",
+              "statements:h-reserve-double-count:2",
+              "statements:h-reserve-double-count:3"
+            ]
+          },
+          "h-revisit-dropped": {
+            "origin": "model",
+            "split": "h-revisit-dropped",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "hold-revisit-roots"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h-revisit-dropped:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-revisit-dropped:1",
+              "statements:h-revisit-dropped:2"
+            ]
+          },
+          "h-order-dependency": {
+            "origin": "model",
+            "split": "h-order-dependency",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-order-dependency:q5:1",
+              "model:r2:h-order-dependency:q8:1",
+              "promises:h-order-dependency:2:later-use-missing:8.f.b.4-unit_4_linear_systems:apply"
+            ]
+          },
+          "h-control-swap": {
+            "origin": "model",
+            "split": "h-control-swap",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [
+              "statements:h-control-swap:1"
+            ],
+            "other_findings": [
+              "promises:h-control-swap:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-control-swap:2"
+            ]
+          },
+          "h-control-revisit": {
+            "origin": "model",
+            "split": "h-control-revisit",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h-control-revisit:q2:1",
+              "model:r2:h-control-revisit:q8:1",
+              "statements:h-control-revisit:1",
+              "statements:h-control-revisit:2"
+            ]
+          },
+          "h-control-resource": {
+            "origin": "model",
+            "split": "h-control-resource",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h-control-resource:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h-control-resource:1",
+              "statements:h-control-resource:2"
+            ]
+          }
+        }
       }
-    ]
-  },
-  "per_sample": {
-    "r1": {
-      "d-known-initial": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 7,
+    },
+    "holdout-v2": {
+      "samples": [
+        "h2-01",
+        "h2-02",
+        "h2-03",
+        "h2-04",
+        "h2-05",
+        "h2-06",
+        "h2-07",
+        "h2-08",
+        "h2-09",
+        "h2-10",
+        "h2-11",
+        "h2-12",
+        "h2-13",
+        "h2-14"
+      ],
+      "program": {
+        "origin": "program",
+        "split": "holdout-v2",
+        "samples": 14,
+        "control_samples": 4,
+        "expected": 5,
         "detected": 4,
         "location_correct": 4,
         "severity_matched": 3,
         "missed": [
-          "km1-unbounded",
-          "km1-identity",
-          "km1-two-points"
-        ],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": []
-      },
-      "d-known-revision": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 4,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [
-          "km2-range",
-          "km2-sampling",
-          "km2-intercept",
-          "km2-causal"
-        ],
-        "critical_missed": [
-          "km2-sampling"
-        ],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:d-known-revision:q8:1"
-        ]
-      },
-      "d-assess-early": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 1,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:d-assess-early:q8:1",
-          "model:r1:d-assess-early:q8:2"
-        ]
-      },
-      "d-time-sum": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 1,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:d-time-sum:q2:1",
-          "model:r1:d-time-sum:q8:1",
-          "model:r1:d-time-sum:q8:2"
-        ]
-      },
-      "d-opportunity-empty": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:d-opportunity-empty:q7:1",
-          "model:r1:d-opportunity-empty:q2:2",
-          "model:r1:d-opportunity-empty:q8:1",
-          "model:r1:d-opportunity-empty:q8:2",
-          "model:r1:d-opportunity-empty:q8:3"
-        ]
-      },
-      "d-control-renumber": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:d-control-renumber:q2:1",
-          "model:r1:d-control-renumber:q8:1"
-        ]
-      },
-      "d-control-resource": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:d-control-resource:q4:1",
-          "model:r1:d-control-resource:q2:1",
-          "model:r1:d-control-resource:q8:1",
-          "model:r1:d-control-resource:q8:2"
-        ]
-      },
-      "h-opportunity-empty": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:h-opportunity-empty:q5:1",
-          "model:r1:h-opportunity-empty:q8:1",
-          "model:r1:h-opportunity-empty:q8:2"
-        ]
-      },
-      "h-assess-before-learning": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 1,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:h-assess-before-learning:q2:1",
-          "model:r1:h-assess-before-learning:q8:1"
-        ]
-      },
-      "h-reserve-double-count": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:h-reserve-double-count:q8:1",
-          "model:r1:h-reserve-double-count:q8:2"
-        ]
-      },
-      "h-revisit-dropped": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [
-          "hold-revisit-roots"
-        ],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": []
-      },
-      "h-order-dependency": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 1,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:h-order-dependency:q5:1",
-          "model:r1:h-order-dependency:q5:2",
-          "model:r1:h-order-dependency:q8:1"
-        ]
-      },
-      "h-control-swap": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:h-control-swap:q2:1",
-          "model:r1:h-control-swap:q8:1"
-        ]
-      },
-      "h-control-revisit": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:h-control-revisit:q2:1",
-          "model:r1:h-control-revisit:q8:1"
-        ]
-      },
-      "h-control-resource": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r1:h-control-resource:q8:1"
-        ]
-      }
-    },
-    "r2": {
-      "d-known-initial": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 7,
-        "detected": 3,
-        "location_correct": 3,
-        "severity_matched": 1,
-        "missed": [
-          "km1-causal",
-          "km1-unbounded",
-          "km1-identity",
-          "km1-two-points"
+          "h2i-10"
         ],
         "critical_missed": [],
         "false_positives": [],
         "other_findings": [
-          "model:r2:d-known-initial:q3:1",
-          "model:r2:d-known-initial:q5:1",
-          "model:r2:d-known-initial:q6:1",
-          "model:r2:d-known-initial:q6:2"
+          "program:h2-05:apply-before-teach:8.g.a.5"
         ]
       },
-      "d-known-revision": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 4,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [
-          "km2-range",
-          "km2-sampling",
-          "km2-intercept",
-          "km2-causal"
-        ],
-        "critical_missed": [
-          "km2-sampling"
-        ],
-        "false_positives": [],
-        "other_findings": []
+      "stages": {
+        "promises": {
+          "origin": "model",
+          "split": "holdout-v2",
+          "samples": 14,
+          "control_samples": 4,
+          "expected": 10,
+          "detected": 3,
+          "location_correct": 3,
+          "severity_matched": 3,
+          "missed": [
+            "h2i-01",
+            "h2i-02",
+            "h2i-03",
+            "h2i-06",
+            "h2i-07",
+            "h2i-09",
+            "h2i-10"
+          ],
+          "critical_missed": [
+            "h2i-01",
+            "h2i-02",
+            "h2i-03",
+            "h2i-06",
+            "h2i-07",
+            "h2i-09"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "promises:h2-01:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-02:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-03:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-04:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-05:1:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+            "promises:h2-05:3:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+            "promises:h2-05:4:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-07:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-08:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-09:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-10:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-12:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-13:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "promises:h2-14:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply"
+          ]
+        },
+        "probes": {
+          "origin": "model",
+          "split": "holdout-v2",
+          "samples": 14,
+          "control_samples": 4,
+          "expected": 10,
+          "detected": 1,
+          "location_correct": 1,
+          "severity_matched": 1,
+          "missed": [
+            "h2i-01",
+            "h2i-02",
+            "h2i-03",
+            "h2i-04",
+            "h2i-05",
+            "h2i-06",
+            "h2i-07",
+            "h2i-08",
+            "h2i-10"
+          ],
+          "critical_missed": [
+            "h2i-01",
+            "h2i-02",
+            "h2i-03",
+            "h2i-04",
+            "h2i-06",
+            "h2i-07"
+          ],
+          "false_positives": [],
+          "other_findings": []
+        },
+        "statements": {
+          "origin": "model",
+          "split": "holdout-v2",
+          "samples": 14,
+          "control_samples": 4,
+          "expected": 10,
+          "detected": 1,
+          "location_correct": 1,
+          "severity_matched": 1,
+          "missed": [
+            "h2i-01",
+            "h2i-02",
+            "h2i-04",
+            "h2i-05",
+            "h2i-06",
+            "h2i-07",
+            "h2i-08",
+            "h2i-09",
+            "h2i-10"
+          ],
+          "critical_missed": [
+            "h2i-01",
+            "h2i-02",
+            "h2i-04",
+            "h2i-06",
+            "h2i-07",
+            "h2i-09"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "statements:h2-01:1",
+            "statements:h2-01:2",
+            "statements:h2-02:1",
+            "statements:h2-02:2",
+            "statements:h2-03:1",
+            "statements:h2-03:2",
+            "statements:h2-04:2",
+            "statements:h2-04:3",
+            "statements:h2-05:1",
+            "statements:h2-05:2",
+            "statements:h2-06:1",
+            "statements:h2-06:2",
+            "statements:h2-07:1",
+            "statements:h2-08:1",
+            "statements:h2-09:1",
+            "statements:h2-09:2",
+            "statements:h2-10:1",
+            "statements:h2-10:2",
+            "statements:h2-11:1",
+            "statements:h2-12:1",
+            "statements:h2-13:1",
+            "statements:h2-13:2",
+            "statements:h2-14:1",
+            "statements:h2-14:2"
+          ]
+        }
       },
-      "d-assess-early": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:d-assess-early:q8:1"
-        ]
+      "reviewers": {
+        "r1": {
+          "origin": "model",
+          "split": "holdout-v2",
+          "samples": 14,
+          "control_samples": 4,
+          "expected": 10,
+          "detected": 7,
+          "location_correct": 6,
+          "severity_matched": 5,
+          "missed": [
+            "h2i-03",
+            "h2i-08",
+            "h2i-10"
+          ],
+          "critical_missed": [
+            "h2i-03"
+          ],
+          "false_positives": [],
+          "other_findings": [
+            "model:r1:h2-01:q2:1",
+            "model:r1:h2-01:q8:1",
+            "model:r1:h2-02:q2:1",
+            "model:r1:h2-02:q8:1",
+            "model:r1:h2-04:q2:1",
+            "model:r1:h2-04:q8:1",
+            "model:r1:h2-04:q8:2",
+            "model:r1:h2-05:q5:1",
+            "model:r1:h2-05:q2:1",
+            "model:r1:h2-05:q8:1",
+            "model:r1:h2-05:q8:2",
+            "model:r1:h2-06:q5:1",
+            "model:r1:h2-06:q4:1",
+            "model:r1:h2-06:q2:1",
+            "model:r1:h2-06:q8:1",
+            "model:r1:h2-06:q8:2",
+            "model:r1:h2-07:q2:1",
+            "model:r1:h2-09:q1:1",
+            "model:r1:h2-09:q5:1",
+            "model:r1:h2-09:q2:1",
+            "model:r1:h2-09:q8:1",
+            "model:r1:h2-09:q8:2",
+            "model:r1:h2-09:q8:3",
+            "model:r1:h2-10:q8:1",
+            "model:r1:h2-12:q7:1",
+            "model:r1:h2-12:q2:1",
+            "model:r1:h2-12:q8:1",
+            "model:r1:h2-14:q4:1",
+            "model:r1:h2-14:q2:1",
+            "model:r1:h2-14:q8:1",
+            "model:r1:h2-14:q8:2"
+          ]
+        },
+        "r2": {
+          "origin": "model",
+          "split": "holdout-v2",
+          "samples": 14,
+          "control_samples": 4,
+          "expected": 10,
+          "detected": 8,
+          "location_correct": 7,
+          "severity_matched": 6,
+          "missed": [
+            "h2i-08",
+            "h2i-10"
+          ],
+          "critical_missed": [],
+          "false_positives": [],
+          "other_findings": [
+            "model:r2:h2-01:q2:1",
+            "model:r2:h2-01:q8:1",
+            "model:r2:h2-02:q2:1",
+            "model:r2:h2-02:q8:1",
+            "model:r2:h2-05:q5:1",
+            "model:r2:h2-05:q2:1",
+            "model:r2:h2-05:q8:1",
+            "model:r2:h2-06:q5:1",
+            "model:r2:h2-06:q4:1",
+            "model:r2:h2-06:q2:1",
+            "model:r2:h2-06:q8:1",
+            "model:r2:h2-07:q5:1",
+            "model:r2:h2-07:q5:2",
+            "model:r2:h2-07:q2:1",
+            "model:r2:h2-07:q8:1",
+            "model:r2:h2-08:q2:1",
+            "model:r2:h2-08:q8:1",
+            "model:r2:h2-09:q1:1",
+            "model:r2:h2-09:q2:1",
+            "model:r2:h2-09:q8:1",
+            "model:r2:h2-09:q8:2",
+            "model:r2:h2-11:q3:1",
+            "model:r2:h2-11:q2:1",
+            "model:r2:h2-11:q8:1",
+            "model:r2:h2-12:q7:1",
+            "model:r2:h2-12:q2:1",
+            "model:r2:h2-12:q8:1",
+            "model:r2:h2-13:q8:1"
+          ]
+        }
       },
-      "d-time-sum": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 1,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:d-time-sum:q2:1",
-          "model:r2:d-time-sum:q8:1",
-          "model:r2:d-time-sum:q8:2"
-        ]
+      "combined": {
+        "r1": {
+          "origin": "model",
+          "split": "holdout-v2",
+          "samples": 14,
+          "control_samples": 4,
+          "expected": 10,
+          "detected": 9,
+          "location_correct": 9,
+          "severity_matched": 7,
+          "missed": [
+            "h2i-10"
+          ],
+          "critical_missed": [],
+          "false_positives": [],
+          "other_findings": [
+            "model:r1:h2-01:q2:1",
+            "model:r1:h2-01:q8:1",
+            "promises:h2-01:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-01:1",
+            "statements:h2-01:2",
+            "model:r1:h2-02:q2:1",
+            "model:r1:h2-02:q8:1",
+            "promises:h2-02:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-02:1",
+            "statements:h2-02:2",
+            "promises:h2-03:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-03:1",
+            "statements:h2-03:2",
+            "model:r1:h2-04:q2:1",
+            "model:r1:h2-04:q8:1",
+            "model:r1:h2-04:q8:2",
+            "promises:h2-04:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-04:2",
+            "statements:h2-04:3",
+            "model:r1:h2-05:q5:1",
+            "model:r1:h2-05:q2:1",
+            "model:r1:h2-05:q8:1",
+            "model:r1:h2-05:q8:2",
+            "program:h2-05:apply-before-teach:8.g.a.5",
+            "promises:h2-05:1:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+            "promises:h2-05:3:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+            "promises:h2-05:4:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-05:1",
+            "statements:h2-05:2",
+            "model:r1:h2-06:q5:1",
+            "model:r1:h2-06:q4:1",
+            "model:r1:h2-06:q2:1",
+            "model:r1:h2-06:q8:1",
+            "model:r1:h2-06:q8:2",
+            "statements:h2-06:1",
+            "statements:h2-06:2",
+            "model:r1:h2-07:q2:1",
+            "promises:h2-07:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-07:1",
+            "promises:h2-08:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-08:1",
+            "model:r1:h2-09:q1:1",
+            "model:r1:h2-09:q5:1",
+            "model:r1:h2-09:q2:1",
+            "model:r1:h2-09:q8:1",
+            "model:r1:h2-09:q8:2",
+            "model:r1:h2-09:q8:3",
+            "promises:h2-09:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-09:1",
+            "statements:h2-09:2",
+            "model:r1:h2-10:q8:1",
+            "promises:h2-10:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-10:1",
+            "statements:h2-10:2",
+            "statements:h2-11:1",
+            "model:r1:h2-12:q7:1",
+            "model:r1:h2-12:q2:1",
+            "model:r1:h2-12:q8:1",
+            "promises:h2-12:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-12:1",
+            "promises:h2-13:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-13:1",
+            "statements:h2-13:2",
+            "model:r1:h2-14:q4:1",
+            "model:r1:h2-14:q2:1",
+            "model:r1:h2-14:q8:1",
+            "model:r1:h2-14:q8:2",
+            "promises:h2-14:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-14:1",
+            "statements:h2-14:2"
+          ]
+        },
+        "r2": {
+          "origin": "model",
+          "split": "holdout-v2",
+          "samples": 14,
+          "control_samples": 4,
+          "expected": 10,
+          "detected": 9,
+          "location_correct": 9,
+          "severity_matched": 7,
+          "missed": [
+            "h2i-10"
+          ],
+          "critical_missed": [],
+          "false_positives": [],
+          "other_findings": [
+            "model:r2:h2-01:q2:1",
+            "model:r2:h2-01:q8:1",
+            "promises:h2-01:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-01:1",
+            "statements:h2-01:2",
+            "model:r2:h2-02:q2:1",
+            "model:r2:h2-02:q8:1",
+            "promises:h2-02:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-02:1",
+            "statements:h2-02:2",
+            "promises:h2-03:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-03:1",
+            "statements:h2-03:2",
+            "promises:h2-04:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-04:2",
+            "statements:h2-04:3",
+            "model:r2:h2-05:q5:1",
+            "model:r2:h2-05:q2:1",
+            "model:r2:h2-05:q8:1",
+            "program:h2-05:apply-before-teach:8.g.a.5",
+            "promises:h2-05:1:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+            "promises:h2-05:3:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+            "promises:h2-05:4:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-05:1",
+            "statements:h2-05:2",
+            "model:r2:h2-06:q5:1",
+            "model:r2:h2-06:q4:1",
+            "model:r2:h2-06:q2:1",
+            "model:r2:h2-06:q8:1",
+            "statements:h2-06:1",
+            "statements:h2-06:2",
+            "model:r2:h2-07:q5:1",
+            "model:r2:h2-07:q5:2",
+            "model:r2:h2-07:q2:1",
+            "model:r2:h2-07:q8:1",
+            "promises:h2-07:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-07:1",
+            "model:r2:h2-08:q2:1",
+            "model:r2:h2-08:q8:1",
+            "promises:h2-08:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-08:1",
+            "model:r2:h2-09:q1:1",
+            "model:r2:h2-09:q2:1",
+            "model:r2:h2-09:q8:1",
+            "model:r2:h2-09:q8:2",
+            "promises:h2-09:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-09:1",
+            "statements:h2-09:2",
+            "promises:h2-10:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-10:1",
+            "statements:h2-10:2",
+            "model:r2:h2-11:q3:1",
+            "model:r2:h2-11:q2:1",
+            "model:r2:h2-11:q8:1",
+            "statements:h2-11:1",
+            "model:r2:h2-12:q7:1",
+            "model:r2:h2-12:q2:1",
+            "model:r2:h2-12:q8:1",
+            "promises:h2-12:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-12:1",
+            "model:r2:h2-13:q8:1",
+            "promises:h2-13:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-13:1",
+            "statements:h2-13:2",
+            "promises:h2-14:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+            "statements:h2-14:1",
+            "statements:h2-14:2"
+          ]
+        }
       },
-      "d-opportunity-empty": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": []
-      },
-      "d-control-renumber": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:d-control-renumber:q8:1"
-        ]
-      },
-      "d-control-resource": {
-        "origin": "model",
-        "split": "debug",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": []
-      },
-      "h-opportunity-empty": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:h-opportunity-empty:q2:1",
-          "model:r2:h-opportunity-empty:q8:1",
-          "model:r2:h-opportunity-empty:q8:2"
-        ]
-      },
-      "h-assess-before-learning": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 1,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:h-assess-before-learning:q8:1"
-        ]
-      },
-      "h-reserve-double-count": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:h-reserve-double-count:q2:1",
-          "model:r2:h-reserve-double-count:q8:1",
-          "model:r2:h-reserve-double-count:q8:2"
-        ]
-      },
-      "h-revisit-dropped": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [
-          "hold-revisit-roots"
-        ],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": []
-      },
-      "h-order-dependency": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 0,
-        "expected": 1,
-        "detected": 1,
-        "location_correct": 1,
-        "severity_matched": 1,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:h-order-dependency:q5:1",
-          "model:r2:h-order-dependency:q8:1"
-        ]
-      },
-      "h-control-swap": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": []
-      },
-      "h-control-revisit": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": [
-          "model:r2:h-control-revisit:q2:1",
-          "model:r2:h-control-revisit:q8:1"
-        ]
-      },
-      "h-control-resource": {
-        "origin": "model",
-        "split": "holdout",
-        "samples": 1,
-        "control_samples": 1,
-        "expected": 0,
-        "detected": 0,
-        "location_correct": 0,
-        "severity_matched": 0,
-        "missed": [],
-        "critical_missed": [],
-        "false_positives": [],
-        "other_findings": []
+      "per_sample": {
+        "r1": {
+          "h2-01": {
+            "origin": "model",
+            "split": "h2-01",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-01:q2:1",
+              "model:r1:h2-01:q8:1"
+            ]
+          },
+          "h2-02": {
+            "origin": "model",
+            "split": "h2-02",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-02:q2:1",
+              "model:r1:h2-02:q8:1"
+            ]
+          },
+          "h2-03": {
+            "origin": "model",
+            "split": "h2-03",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h2-04": {
+            "origin": "model",
+            "split": "h2-04",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "h2i-03"
+            ],
+            "critical_missed": [
+              "h2i-03"
+            ],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-04:q2:1",
+              "model:r1:h2-04:q8:1",
+              "model:r1:h2-04:q8:2"
+            ]
+          },
+          "h2-05": {
+            "origin": "model",
+            "split": "h2-05",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-05:q5:1",
+              "model:r1:h2-05:q2:1",
+              "model:r1:h2-05:q8:1",
+              "model:r1:h2-05:q8:2"
+            ]
+          },
+          "h2-06": {
+            "origin": "model",
+            "split": "h2-06",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-06:q5:1",
+              "model:r1:h2-06:q4:1",
+              "model:r1:h2-06:q2:1",
+              "model:r1:h2-06:q8:1",
+              "model:r1:h2-06:q8:2"
+            ]
+          },
+          "h2-07": {
+            "origin": "model",
+            "split": "h2-07",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-07:q2:1"
+            ]
+          },
+          "h2-08": {
+            "origin": "model",
+            "split": "h2-08",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h2-09": {
+            "origin": "model",
+            "split": "h2-09",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-09:q1:1",
+              "model:r1:h2-09:q5:1",
+              "model:r1:h2-09:q2:1",
+              "model:r1:h2-09:q8:1",
+              "model:r1:h2-09:q8:2",
+              "model:r1:h2-09:q8:3"
+            ]
+          },
+          "h2-10": {
+            "origin": "model",
+            "split": "h2-10",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "h2i-08"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-10:q8:1"
+            ]
+          },
+          "h2-11": {
+            "origin": "model",
+            "split": "h2-11",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h2-12": {
+            "origin": "model",
+            "split": "h2-12",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-12:q7:1",
+              "model:r1:h2-12:q2:1",
+              "model:r1:h2-12:q8:1"
+            ]
+          },
+          "h2-13": {
+            "origin": "model",
+            "split": "h2-13",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h2-14": {
+            "origin": "model",
+            "split": "h2-14",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "h2i-10"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-14:q4:1",
+              "model:r1:h2-14:q2:1",
+              "model:r1:h2-14:q8:1",
+              "model:r1:h2-14:q8:2"
+            ]
+          }
+        },
+        "r1+checks": {
+          "h2-01": {
+            "origin": "model",
+            "split": "h2-01",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-01:q2:1",
+              "model:r1:h2-01:q8:1",
+              "promises:h2-01:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-01:1",
+              "statements:h2-01:2"
+            ]
+          },
+          "h2-02": {
+            "origin": "model",
+            "split": "h2-02",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-02:q2:1",
+              "model:r1:h2-02:q8:1",
+              "promises:h2-02:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-02:1",
+              "statements:h2-02:2"
+            ]
+          },
+          "h2-03": {
+            "origin": "model",
+            "split": "h2-03",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h2-03:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-03:1",
+              "statements:h2-03:2"
+            ]
+          },
+          "h2-04": {
+            "origin": "model",
+            "split": "h2-04",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-04:q2:1",
+              "model:r1:h2-04:q8:1",
+              "model:r1:h2-04:q8:2",
+              "promises:h2-04:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-04:2",
+              "statements:h2-04:3"
+            ]
+          },
+          "h2-05": {
+            "origin": "model",
+            "split": "h2-05",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-05:q5:1",
+              "model:r1:h2-05:q2:1",
+              "model:r1:h2-05:q8:1",
+              "model:r1:h2-05:q8:2",
+              "program:h2-05:apply-before-teach:8.g.a.5",
+              "promises:h2-05:1:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+              "promises:h2-05:3:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+              "promises:h2-05:4:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-05:1",
+              "statements:h2-05:2"
+            ]
+          },
+          "h2-06": {
+            "origin": "model",
+            "split": "h2-06",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-06:q5:1",
+              "model:r1:h2-06:q4:1",
+              "model:r1:h2-06:q2:1",
+              "model:r1:h2-06:q8:1",
+              "model:r1:h2-06:q8:2",
+              "statements:h2-06:1",
+              "statements:h2-06:2"
+            ]
+          },
+          "h2-07": {
+            "origin": "model",
+            "split": "h2-07",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-07:q2:1",
+              "promises:h2-07:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-07:1"
+            ]
+          },
+          "h2-08": {
+            "origin": "model",
+            "split": "h2-08",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h2-08:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-08:1"
+            ]
+          },
+          "h2-09": {
+            "origin": "model",
+            "split": "h2-09",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-09:q1:1",
+              "model:r1:h2-09:q5:1",
+              "model:r1:h2-09:q2:1",
+              "model:r1:h2-09:q8:1",
+              "model:r1:h2-09:q8:2",
+              "model:r1:h2-09:q8:3",
+              "promises:h2-09:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-09:1",
+              "statements:h2-09:2"
+            ]
+          },
+          "h2-10": {
+            "origin": "model",
+            "split": "h2-10",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-10:q8:1",
+              "promises:h2-10:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-10:1",
+              "statements:h2-10:2"
+            ]
+          },
+          "h2-11": {
+            "origin": "model",
+            "split": "h2-11",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "statements:h2-11:1"
+            ]
+          },
+          "h2-12": {
+            "origin": "model",
+            "split": "h2-12",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-12:q7:1",
+              "model:r1:h2-12:q2:1",
+              "model:r1:h2-12:q8:1",
+              "promises:h2-12:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-12:1"
+            ]
+          },
+          "h2-13": {
+            "origin": "model",
+            "split": "h2-13",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h2-13:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-13:1",
+              "statements:h2-13:2"
+            ]
+          },
+          "h2-14": {
+            "origin": "model",
+            "split": "h2-14",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "h2i-10"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r1:h2-14:q4:1",
+              "model:r1:h2-14:q2:1",
+              "model:r1:h2-14:q8:1",
+              "model:r1:h2-14:q8:2",
+              "promises:h2-14:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-14:1",
+              "statements:h2-14:2"
+            ]
+          }
+        },
+        "r2": {
+          "h2-01": {
+            "origin": "model",
+            "split": "h2-01",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-01:q2:1",
+              "model:r2:h2-01:q8:1"
+            ]
+          },
+          "h2-02": {
+            "origin": "model",
+            "split": "h2-02",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-02:q2:1",
+              "model:r2:h2-02:q8:1"
+            ]
+          },
+          "h2-03": {
+            "origin": "model",
+            "split": "h2-03",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h2-04": {
+            "origin": "model",
+            "split": "h2-04",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h2-05": {
+            "origin": "model",
+            "split": "h2-05",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-05:q5:1",
+              "model:r2:h2-05:q2:1",
+              "model:r2:h2-05:q8:1"
+            ]
+          },
+          "h2-06": {
+            "origin": "model",
+            "split": "h2-06",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-06:q5:1",
+              "model:r2:h2-06:q4:1",
+              "model:r2:h2-06:q2:1",
+              "model:r2:h2-06:q8:1"
+            ]
+          },
+          "h2-07": {
+            "origin": "model",
+            "split": "h2-07",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-07:q5:1",
+              "model:r2:h2-07:q5:2",
+              "model:r2:h2-07:q2:1",
+              "model:r2:h2-07:q8:1"
+            ]
+          },
+          "h2-08": {
+            "origin": "model",
+            "split": "h2-08",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-08:q2:1",
+              "model:r2:h2-08:q8:1"
+            ]
+          },
+          "h2-09": {
+            "origin": "model",
+            "split": "h2-09",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-09:q1:1",
+              "model:r2:h2-09:q2:1",
+              "model:r2:h2-09:q8:1",
+              "model:r2:h2-09:q8:2"
+            ]
+          },
+          "h2-10": {
+            "origin": "model",
+            "split": "h2-10",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "h2i-08"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          },
+          "h2-11": {
+            "origin": "model",
+            "split": "h2-11",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-11:q3:1",
+              "model:r2:h2-11:q2:1",
+              "model:r2:h2-11:q8:1"
+            ]
+          },
+          "h2-12": {
+            "origin": "model",
+            "split": "h2-12",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-12:q7:1",
+              "model:r2:h2-12:q2:1",
+              "model:r2:h2-12:q8:1"
+            ]
+          },
+          "h2-13": {
+            "origin": "model",
+            "split": "h2-13",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-13:q8:1"
+            ]
+          },
+          "h2-14": {
+            "origin": "model",
+            "split": "h2-14",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "h2i-10"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": []
+          }
+        },
+        "r2+checks": {
+          "h2-01": {
+            "origin": "model",
+            "split": "h2-01",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-01:q2:1",
+              "model:r2:h2-01:q8:1",
+              "promises:h2-01:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-01:1",
+              "statements:h2-01:2"
+            ]
+          },
+          "h2-02": {
+            "origin": "model",
+            "split": "h2-02",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-02:q2:1",
+              "model:r2:h2-02:q8:1",
+              "promises:h2-02:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-02:1",
+              "statements:h2-02:2"
+            ]
+          },
+          "h2-03": {
+            "origin": "model",
+            "split": "h2-03",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h2-03:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-03:1",
+              "statements:h2-03:2"
+            ]
+          },
+          "h2-04": {
+            "origin": "model",
+            "split": "h2-04",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h2-04:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-04:2",
+              "statements:h2-04:3"
+            ]
+          },
+          "h2-05": {
+            "origin": "model",
+            "split": "h2-05",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-05:q5:1",
+              "model:r2:h2-05:q2:1",
+              "model:r2:h2-05:q8:1",
+              "program:h2-05:apply-before-teach:8.g.a.5",
+              "promises:h2-05:1:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+              "promises:h2-05:3:later-use-early:8.g.a.5-unit_2_linear_eq:apply",
+              "promises:h2-05:4:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-05:1",
+              "statements:h2-05:2"
+            ]
+          },
+          "h2-06": {
+            "origin": "model",
+            "split": "h2-06",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-06:q5:1",
+              "model:r2:h2-06:q4:1",
+              "model:r2:h2-06:q2:1",
+              "model:r2:h2-06:q8:1",
+              "statements:h2-06:1",
+              "statements:h2-06:2"
+            ]
+          },
+          "h2-07": {
+            "origin": "model",
+            "split": "h2-07",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-07:q5:1",
+              "model:r2:h2-07:q5:2",
+              "model:r2:h2-07:q2:1",
+              "model:r2:h2-07:q8:1",
+              "promises:h2-07:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-07:1"
+            ]
+          },
+          "h2-08": {
+            "origin": "model",
+            "split": "h2-08",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-08:q2:1",
+              "model:r2:h2-08:q8:1",
+              "promises:h2-08:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-08:1"
+            ]
+          },
+          "h2-09": {
+            "origin": "model",
+            "split": "h2-09",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-09:q1:1",
+              "model:r2:h2-09:q2:1",
+              "model:r2:h2-09:q8:1",
+              "model:r2:h2-09:q8:2",
+              "promises:h2-09:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-09:1",
+              "statements:h2-09:2"
+            ]
+          },
+          "h2-10": {
+            "origin": "model",
+            "split": "h2-10",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h2-10:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-10:1",
+              "statements:h2-10:2"
+            ]
+          },
+          "h2-11": {
+            "origin": "model",
+            "split": "h2-11",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-11:q3:1",
+              "model:r2:h2-11:q2:1",
+              "model:r2:h2-11:q8:1",
+              "statements:h2-11:1"
+            ]
+          },
+          "h2-12": {
+            "origin": "model",
+            "split": "h2-12",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 1,
+            "location_correct": 1,
+            "severity_matched": 1,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-12:q7:1",
+              "model:r2:h2-12:q2:1",
+              "model:r2:h2-12:q8:1",
+              "promises:h2-12:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-12:1"
+            ]
+          },
+          "h2-13": {
+            "origin": "model",
+            "split": "h2-13",
+            "samples": 1,
+            "control_samples": 1,
+            "expected": 0,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "model:r2:h2-13:q8:1",
+              "promises:h2-13:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-13:1",
+              "statements:h2-13:2"
+            ]
+          },
+          "h2-14": {
+            "origin": "model",
+            "split": "h2-14",
+            "samples": 1,
+            "control_samples": 0,
+            "expected": 1,
+            "detected": 0,
+            "location_correct": 0,
+            "severity_matched": 0,
+            "missed": [
+              "h2i-10"
+            ],
+            "critical_missed": [],
+            "false_positives": [],
+            "other_findings": [
+              "promises:h2-14:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+              "statements:h2-14:1",
+              "statements:h2-14:2"
+            ]
+          }
+        }
       }
     }
   },
   "labels": {
     "r1": {
-      "samples": 15,
+      "samples": 29,
       "failed_calls": 0,
       "incomplete_usage_calls": 0,
-      "findings": 57,
+      "findings": 100,
       "rejected_findings": 0,
-      "rejected_citations": 2,
+      "rejected_citations": 5,
       "unverified_objects": 0,
       "unobservable_ratings": 0,
       "problems": 0,
-      "repairs": 26,
-      "first_attempt_rejected_citations": 39
+      "repairs": 50,
+      "first_attempt_rejected_citations": 81
     },
     "r2": {
-      "samples": 15,
+      "samples": 29,
       "failed_calls": 0,
       "incomplete_usage_calls": 0,
-      "findings": 44,
+      "findings": 88,
       "rejected_findings": 0,
-      "rejected_citations": 3,
+      "rejected_citations": 5,
       "unverified_objects": 0,
       "unobservable_ratings": 0,
       "problems": 1,
-      "repairs": 24,
-      "first_attempt_rejected_citations": 42
+      "repairs": 46,
+      "first_attempt_rejected_citations": 76
+    }
+  },
+  "stage_labels": {
+    "promises": {
+      "samples": 30,
+      "errors": 0,
+      "findings": 37,
+      "rejected_findings": 0,
+      "rejected_citations": 0,
+      "problems": 2,
+      "repairs": 5
+    },
+    "probes": {
+      "samples": 30,
+      "errors": 0,
+      "findings": 5,
+      "rejected_findings": 0,
+      "rejected_citations": 0,
+      "problems": 0,
+      "repairs": 0
+    },
+    "statements": {
+      "samples": 30,
+      "errors": 0,
+      "findings": 54,
+      "rejected_findings": 0,
+      "rejected_citations": 0,
+      "problems": 0,
+      "repairs": 3
     }
   },
   "agreement": {
-    "pairs": 128,
-    "exact": 97,
-    "differ_by_1": 27,
-    "differ_by_2_or_more": 4,
-    "critical_disagreements": 3
+    "pairs": 240,
+    "exact": 179,
+    "differ_by_1": 50,
+    "differ_by_2_or_more": 11,
+    "critical_disagreements": 10
   }
 }

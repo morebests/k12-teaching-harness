@@ -27,7 +27,9 @@
       ],
       "adjudication_id": null,
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q2",
@@ -54,7 +56,9 @@
       "triggers": [
         "评分不一致，须依据对象清单复核后形成共同值或独立裁定"
       ],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q3",
@@ -81,7 +85,9 @@
       "triggers": [
         "评分不一致，须依据对象清单复核后形成共同值或独立裁定"
       ],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q4",
@@ -104,15 +110,25 @@
           "critical_failure": false
         }
       ],
-      "adjudication_id": null,
+      "adjudication_id": "adjudication:r3:d-known-initial:q4",
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": 2,
+      "binding_findings": [
+        "probes:d-known-initial:task_2_systems_decision:1",
+        "probes:d-known-initial:task_4_stats_linear_interpretation:2",
+        "statements:d-known-initial:1",
+        "statements:d-known-initial:2",
+        "statements:d-known-initial:3",
+        "statements:d-known-initial:4",
+        "statements:d-known-initial:5"
+      ]
     },
     {
       "criterion_id": "Q5",
       "weight": 10,
       "status": "settled",
-      "score": 4,
+      "score": 2,
       "interval": null,
       "critical_failure": false,
       "originals": [
@@ -133,13 +149,17 @@
       "triggers": [
         "评分不一致，须依据对象清单复核后形成共同值或独立裁定"
       ],
-      "problems": []
+      "problems": [],
+      "established_cap": 2,
+      "binding_findings": [
+        "promises:d-known-initial:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply"
+      ]
     },
     {
       "criterion_id": "Q6",
       "weight": 15,
-      "status": "settled",
-      "score": 3,
+      "status": "invalid",
+      "score": null,
       "interval": null,
       "critical_failure": false,
       "originals": [
@@ -156,11 +176,15 @@
           "critical_failure": false
         }
       ],
-      "adjudication_id": "adjudication:r3:d-known-initial:q6",
+      "adjudication_id": null,
       "triggers": [
         "评分不一致，须依据对象清单复核后形成共同值或独立裁定"
       ],
-      "problems": []
+      "problems": [
+        "裁定引用失效 ['ev:d-known-initial:04775ba665ac46d5']"
+      ],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q7",
@@ -185,7 +209,9 @@
       ],
       "adjudication_id": null,
       "triggers": [],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     },
     {
       "criterion_id": "Q8",
@@ -212,13 +238,17 @@
       "triggers": [
         "评分不一致，须依据对象清单复核后形成共同值或独立裁定"
       ],
-      "problems": []
+      "problems": [],
+      "established_cap": null,
+      "binding_findings": []
     }
   ],
   "critical_failure": true,
-  "weighted_total": 71.25,
-  "equal_weight_total": 71.875,
-  "total_withheld": [],
-  "settled_weight": 100,
-  "settled_total": 71.25
+  "weighted_total": null,
+  "equal_weight_total": null,
+  "total_withheld": [
+    "Q6：invalid"
+  ],
+  "settled_weight": 85,
+  "settled_total": 55.0
 }

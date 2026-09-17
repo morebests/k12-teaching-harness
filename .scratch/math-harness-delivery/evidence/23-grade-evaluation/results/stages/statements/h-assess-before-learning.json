@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "sample_id": "h-assess-before-learning",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49",
+  "seconds": 28.6,
+  "error": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "h-assess-before-learning",
+    "findings": [
+      {
+        "id": "statements:h-assess-before-learning:1",
+        "candidate_id": "h-assess-before-learning",
+        "content_fingerprint": "f14bf109dd8bb751653cbdc17ff460ba1b2836dfba08fc42643d0b4d996ce5f8",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "函数的图象是所有有序实数对 $(x, y)$ 的集合。",
+        "requirement": "函数的图象应当被定义为：由输入值 $x$ 及其对应的唯一输出值 $y$ 所构成的有序对 $(x, y)$ 的集合，而非平面上“所有”有序实数对的集合。",
+        "evidence_ids": [
+          "ev:h-assess-before-learning:9305b350b26218ac"
+        ],
+        "counterexample": "“所有有序实数对 $(x, y)$ 的集合”对应整个笛卡尔坐标平面 $\\mathbb{R}^2$。若函数图象包含所有实数对，则对同一输入 $x$（如 $x=1$）会包含 $(1, 0), (1, 1), (1, 2)$ 等无穷多个点，这与函数“每个输入值唯一对应一个输出值”的根本定义相悖。",
+        "impact": "遗漏了有序对中 $y$ 必须是由输入 $x$ 依据函数规则唯一确定的输出这一核心限定条件，字面上将局部的函数图象点集扩充为全平面点集，会导致学生对函数图象集合定义的根本性误解。",
+        "recheck": "根据 CCSSM 8.F.A.1 标准定义修正为：“理解函数的图象是由输入值及其对应的输出值构成的有序实数对 $(x, y)$ 的集合（即满足映射关系 $y = f(x)$ 的点集）”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h-assess-before-learning:9305b350b26218ac",
+        "document_id": "h-assess-before-learning",
+        "document_fingerprint": "4fd43fc4a5396f071708c769e6d36ea080032e855ee795ae8238dcaca9bf658b",
+        "locator": "/goals/11/allocations/0/opportunity",
+        "quote": "理解图象是所有有序实数对 $(x, y)$ 的集合。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12575,
+      "output_tokens": 10933,
+      "total_tokens": 23508
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "narrative",
+      "prerequisites",
+      "successors",
+      "handoff_guidance",
+      "design_inferences",
+      "teacher_preparation",
+      "unit_1_geom_transform",
+      "unit_2_linear_eq",
+      "unit_3_linear_functions",
+      "unit_4_linear_systems",
+      "unit_5_real_numbers_pythagoras",
+      "unit_6_exponents_sci_notation",
+      "unit_7_volume_3d",
+      "unit_8_bivariate_stats",
+      "8.EE.A.1",
+      "8.EE.A.2",
+      "8.EE.A.3",
+      "8.EE.A.4",
+      "8.EE.B.5",
+      "8.EE.B.6",
+      "8.EE.C.7",
+      "8.EE.C.7.a",
+      "8.EE.C.7.b",
+      "8.EE.C.8",
+      "8.EE.C.8.a",
+      "8.EE.C.8.b",
+      "8.EE.C.8.c",
+      "8.F.A.1",
+      "8.F.A.2",
+      "8.F.A.3",
+      "8.F.B.4",
+      "8.F.B.5",
+      "8.G.A.1",
+      "8.G.A.1.a",
+      "8.G.A.1.b",
+      "8.G.A.1.c",
+      "8.G.A.2",
+      "8.G.A.3",
+      "8.G.A.4",
+      "8.G.A.5",
+      "8.G.B.6",
+      "8.G.B.7",
+      "8.G.B.8",
+      "8.G.C.9",
+      "8.NS.A.1",
+      "8.NS.A.2",
+      "8.SP.A.1",
+      "8.SP.A.2",
+      "8.SP.A.3",
+      "8.SP.A.4"
+    ],
+    "error_types": {
+      "statements:h-assess-before-learning:1": "missing_condition"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

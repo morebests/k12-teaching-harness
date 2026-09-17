@@ -1,0 +1,2115 @@
+{
+  "schema_version": 1,
+  "sample_id": "d-known-initial",
+  "stage": "promises",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "d0a9e10635485763f779fa000c53a73ba7b1972472f4b229015b495f915ec663",
+  "seconds": 48.9,
+  "error": null,
+  "promises": {
+    "stage": "promises",
+    "candidate_id": "d-known-initial",
+    "findings": [
+      {
+        "id": "promises:d-known-initial:1:later-use-missing:8.f.b.4-unit_4_linear_systems:apply",
+        "candidate_id": "d-known-initial",
+        "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+        "criterion_id": "Q5",
+        "object": {
+          "kind": "revisit",
+          "id": "8.F.B.4@unit_4_linear_systems:apply"
+        },
+        "origin": "program",
+        "reviewer_id": "promises",
+        "severity": "key_gap",
+        "claim": "叙述承诺 8.F.B.4 在 unit_4_linear_systems 再次使用或回访，但该单元没有这项目标的分配",
+        "requirement": "承诺的回访与后续利用须有实际位置和目的",
+        "evidence_ids": [
+          "ev:d-known-initial:05d20a02a082d31e"
+        ],
+        "counterexample": "8.F.B.4 的分配单元为 ['unit_3_linear_functions', 'unit_8_bivariate_stats']",
+        "impact": "承诺的巩固或迁移没有落到安排中",
+        "recheck": "核对承诺所在原文与相应单元、分配或课时",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:d-known-initial:42d675a2ed65e1de",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "全年设置 20 节机动课时（Reserve Lessons）",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_total"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:c2d79159335d8aeb",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/narrative",
+        "quote": "全课程安排 160 节常规课时与 20 节依据诊断干预的机动课时",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_total"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:123ba158c7b28927",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "在 Unit 2（方程与斜率）前，利用 1 节机动课时对负数减法与分数系数运算进行课内小专题诊断干预",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_item"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:a68116d01936a90b",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "在 Unit 3（函数核心单元）前，预留 1 节机动课时针对平面直角坐标系四象限描点及变量关系阅读进行补偿性教学",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_item"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:f217e06d9cab50db",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "在 Unit 5（实数与勾股定理）前，预留 1 节机动课时补强完全平方数与代数平方运算的先备薄弱环节。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_item"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:aeb1307f9a042571",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "单元终结后针对性矫正与重考（各单元后预留 1 节，共 8 节）",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_item"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:4638191473150014",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "在每个单元的单元检测试卷批阅后，依据错题高频点组织 1 节精准订正、典型同伴互助与二次达标变式训练课。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_item"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:bd55fd33c8e760c8",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "学期中与学年末综合反思与建模实践（共 9 节）",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_item"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:ec69bb3dba88411f",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "第一学期期中（Unit 1~Unit 2 结束时）投放 2 节，用于几何变换与线性方程的综合衔接工作坊",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_item"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:f2f8d04d94e88738",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "第一学期期末（Unit 4 结束时）投放 3 节，用于函数与方程组的综合大作业诊断与复习",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_item"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:ec1d3803cbc9e667",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/reserve_plan",
+        "quote": "第二学期期末（Unit 8 结束时）投放 4 节，用于全年初中核心概念综合重构与向九年级代数高阶过渡。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-time_item"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:fa282c949710c374",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/0/narrative",
+        "quote": "为 Unit 2 奠定关键几何公理先备。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-dependency"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:d5f7574fa69c1ab2",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/1/narrative",
+        "quote": "本单元承接 Unit 1 的相似三角形理论，在平面直角坐标系中构造‘斜率三角形’",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-dependency"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:2af7dc70289b8a85",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/2/narrative",
+        "quote": "本单元将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-dependency"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:a44893c1f13febcb",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/2/entry",
+        "quote": "具备直线上两点斜率计算能力与简单方程求解技能；能理解自变量与因变量的基本生活概念。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-dependency"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:93cd464984c516a4",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/3/entry",
+        "quote": "熟练掌握复杂一元一次方程求解；熟练掌握线性函数作图与解析式求解。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-dependency"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:c9a4c826204b7938",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/4/entry",
+        "quote": "具备完全平方数经验与基本分数运算能力；掌握直角坐标系描点与平面直角三角形基本性质。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-dependency"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:4ebc32f80c492b92",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/6/narrative",
+        "quote": "并结合 Unit 5 学习的开方运算反解立体图形的关键几何尺寸，解决真实工程与生活中的容积问题。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-dependency"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:62d7a6881cef1959",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/6/entry",
+        "quote": "熟练掌握圆的面积公式（pi*r^2）；熟练掌握开平方根与开立方根运算。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-dependency"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:5ff891cfb271827b",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/7/entry",
+        "quote": "掌握 Unit 3 线性函数 y=mx+b 的变化率与初始值解析。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-dependency"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:6dfbefc498de8df6",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/goals/0/allocations/1/opportunity",
+        "quote": "在科学记数法乘除混合运算中复习并熟练运用负指数幂运算法则。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-later_use"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:293075899985ed67",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/goals/1/allocations/1/opportunity",
+        "quote": "在三维几何体体积计算中反解半径或高度时，应用开平方和开立方操作。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-later_use"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:9707b95a1548d18c",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/goals/4/allocations/1/opportunity",
+        "quote": "在函数单元中将 y = kx 作为特殊线性函数进行性质再审视与联系。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-later_use"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:79fc045cd8bbede8",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/goals/5/allocations/1/opportunity",
+        "quote": "在构建线性函数解析式中直接应用斜率公式与纵截距概念，完成从几何直线到代数函数模型的平滑过渡。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-later_use"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:485f0820cc90bfec",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/goals/7/allocations/1/opportunity",
+        "quote": "在方程组代入消元后求解所得的一元复杂线性方程。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-later_use"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:bb7ce09a61f67e29",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/goals/14/allocations/1/opportunity",
+        "quote": "在散点图拟合直线探究中，应用 8.F.B.4 的建模技能求经验回归直线的解析式并解读截距与斜率。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-later_use"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:93ebe8a4cfcd7af0",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/goals/22/allocations/1/opportunity",
+        "quote": "在推导直线斜率恒定性时，复习并应用平行线同位角相等及AA相似三角形判定定理。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-later_use"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:05d20a02a082d31e",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/handoff_guidance",
+        "quote": "本单元建构的 8.F.B.4 能力将在 Unit 4（方程组的交点平衡状态）中被复习应用",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-later_use"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:0a9a61281e3e9dcc",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/7/narrative",
+        "quote": "迁移运用 8.F.B.4 的建模技能求解回归直线方程，深刻理解斜率在统计学中的边际变化率含义。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-later_use"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:d554ab2f42c67ab1",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/0/assessment_plan",
+        "quote": "前测诊断轴对称与旋转直观",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:526839c8fb0b2663",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/0/assessment_plan",
+        "quote": "课内通过描图纸重合实验进行形成性观察",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:1b47799be28aead1",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/0/assessment_plan",
+        "quote": "单元末通过纸笔测试评估坐标变换代数规则及三角形内角和与AA相似推理。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:41bbaa439ea3ca15",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/1/assessment_plan",
+        "quote": "前置诊断七年级有理数四则运算与比率",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:af05feef77c24197",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/1/assessment_plan",
+        "quote": "随堂小测检查斜率计算与去分母过程",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:81bfcc04fc8cbf32",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/1/assessment_plan",
+        "quote": "单元结业测试评估一元方程解的分类辨析与直线方程推导。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:2646935d393e8afd",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/2/assessment_plan",
+        "quote": "入单元前测诊断两点差商计算",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:2a25495aaf82642d",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/2/assessment_plan",
+        "quote": "课内以‘四维表征转换任务单’进行同伴互评形成性评估",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:20d9af58c67cb2ae",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/2/assessment_plan",
+        "quote": "单元末通过真实情境建模（含 Task 1 类似题）进行终结性评价。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:3ec9f9a0647427d8",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/handoff_guidance",
+        "quote": "进入单元前须通过 5 分钟课内小测诊断学生对分数斜率与负数减法的基本计算准确度。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:20eec830c9d3e3a1",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/3/assessment_plan",
+        "quote": "随堂练习检查代入法与加减法步骤",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:5fb7e566b178399e",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/3/assessment_plan",
+        "quote": "以‘两方案对比决策报告’评估建模能力",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:c614230d266bf69e",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/3/assessment_plan",
+        "quote": "单元测试考核方程组代数求解流利度与交点几何释义。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:bd94d056f97aa1be",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/4/assessment_plan",
+        "quote": "通过数轴作图小测检验无理数逼近精度",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:e07ba037719cfdfd",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/4/assessment_plan",
+        "quote": "课内通过几何拼图与代数展开检查勾股定理证明",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:cf457c06d76aef42",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/4/assessment_plan",
+        "quote": "单元末测试坐标距离计算与方程 x^2=p 求解。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:39c2ac10e0c6eda8",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/5/assessment_plan",
+        "quote": "随堂速测检查同底数幂运算法则的准确运用",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:ee1ca3915a48d89f",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/5/assessment_plan",
+        "quote": "微型项目核查利用科学记数法对比宏观微观物理量的报告",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:1d71c0eacd21e3cb",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/5/assessment_plan",
+        "quote": "单元末测试科学记数法混合四则运算。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:8c7ab73043da16f1",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/6/assessment_plan",
+        "quote": "课内实验报告评估注水实验推导过程",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:d7e6db65df75a654",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/6/assessment_plan",
+        "quote": "作业检查多步公式代入与根号近似计算",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:1be4caae31126080",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/6/assessment_plan",
+        "quote": "单元测试考核柱体、锥体与球体在复杂复合情境中的体积求解。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:403cc41236d8e21a",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/7/assessment_plan",
+        "quote": "课内散点图描点与趋势线绘制表现性评价",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:3c51aa95347e19d4",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/7/assessment_plan",
+        "quote": "以‘实际调查统计分析海报’进行小组评估",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:d-known-initial:e3866d1d4ade4824",
+        "document_id": "d-known-initial",
+        "document_fingerprint": "34a815bd40cdb499fb0976a415c597b67a27644208c1c656739dbba75ccdade6",
+        "locator": "/units/7/assessment_plan",
+        "quote": "单元测试考查经验方程斜率截距解释及列联表相关性分析。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "promise-assessment"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 22036,
+      "output_tokens": 22654,
+      "total_tokens": 44690
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "promises": [
+      {
+        "promise": {
+          "kind": "time_total",
+          "group": "",
+          "goal_codes": [],
+          "unit_id": "reserve",
+          "other_unit_id": "",
+          "lessons": 20,
+          "counted_in": [],
+          "level": 1,
+          "summary": "全年设置20节机动课时。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "全年设置 20 节机动课时（Reserve Lessons）"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:42d675a2ed65e1de",
+        "verdict": "kept",
+        "note": "全年总数，只作对照"
+      },
+      {
+        "promise": {
+          "kind": "time_total",
+          "group": "",
+          "goal_codes": [],
+          "unit_id": "reserve",
+          "other_unit_id": "",
+          "lessons": 160,
+          "counted_in": [],
+          "level": 1,
+          "summary": "全课程共安排160节常规课时。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/narrative",
+            "quote": "全课程安排 160 节常规课时与 20 节依据诊断干预的机动课时"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:c2d79159335d8aeb",
+        "verdict": "kept",
+        "note": "全年总数，只作对照"
+      },
+      {
+        "promise": {
+          "kind": "time_item",
+          "group": "单元前置诊断补偿",
+          "goal_codes": [],
+          "unit_id": "unit_2_linear_eq",
+          "other_unit_id": "",
+          "lessons": 1,
+          "counted_in": [
+            "reserve"
+          ],
+          "level": 2,
+          "summary": "在单元二开始前利用1节机动课时对负数减法与分数系数运算进行诊断干预。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "在 Unit 2（方程与斜率）前，利用 1 节机动课时对负数减法与分数系数运算进行课内小专题诊断干预"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:123ba158c7b28927",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "time_item",
+          "group": "单元前置诊断补偿",
+          "goal_codes": [],
+          "unit_id": "unit_3_linear_functions",
+          "other_unit_id": "",
+          "lessons": 1,
+          "counted_in": [
+            "reserve"
+          ],
+          "level": 2,
+          "summary": "在单元三前预留1节机动课时针对坐标系描点及变量关系阅读进行补偿性教学。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "在 Unit 3（函数核心单元）前，预留 1 节机动课时针对平面直角坐标系四象限描点及变量关系阅读进行补偿性教学"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:a68116d01936a90b",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "time_item",
+          "group": "单元前置诊断补偿",
+          "goal_codes": [],
+          "unit_id": "unit_5_real_numbers_pythagoras",
+          "other_unit_id": "",
+          "lessons": 1,
+          "counted_in": [
+            "reserve"
+          ],
+          "level": 2,
+          "summary": "在单元五前预留1节机动课时补强完全平方数与代数平方运算先备。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "在 Unit 5（实数与勾股定理）前，预留 1 节机动课时补强完全平方数与代数平方运算的先备薄弱环节。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:f217e06d9cab50db",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "time_item",
+          "group": "单元终结后针对性矫正与重考",
+          "goal_codes": [],
+          "unit_id": "reserve",
+          "other_unit_id": "",
+          "lessons": 8,
+          "counted_in": [
+            "reserve"
+          ],
+          "level": 1,
+          "summary": "各单元终结后针对性矫正与重考共预留8节机动课时。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "单元终结后针对性矫正与重考（各单元后预留 1 节，共 8 节）"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:aeb1307f9a042571",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "time_item",
+          "group": "单元终结后针对性矫正与重考",
+          "goal_codes": [],
+          "unit_id": "reserve",
+          "other_unit_id": "",
+          "lessons": 1,
+          "counted_in": [
+            "reserve"
+          ],
+          "level": 2,
+          "summary": "在每个单元检测批阅后组织1节精准订正与二次达标训练课。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "在每个单元的单元检测试卷批阅后，依据错题高频点组织 1 节精准订正、典型同伴互助与二次达标变式训练课。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:4638191473150014",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "time_item",
+          "group": "学期中与学年末综合反思与建模实践",
+          "goal_codes": [],
+          "unit_id": "reserve",
+          "other_unit_id": "",
+          "lessons": 9,
+          "counted_in": [
+            "reserve"
+          ],
+          "level": 1,
+          "summary": "学期中与学年末综合反思与建模实践共设置9节机动课时。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "学期中与学年末综合反思与建模实践（共 9 节）"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:bd55fd33c8e760c8",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "time_item",
+          "group": "学期中与学年末综合反思与建模实践",
+          "goal_codes": [],
+          "unit_id": "reserve",
+          "other_unit_id": "",
+          "lessons": 2,
+          "counted_in": [
+            "reserve"
+          ],
+          "level": 2,
+          "summary": "第一学期期中投放2节机动课时用于几何变换与线性方程综合衔接工作坊。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "第一学期期中（Unit 1~Unit 2 结束时）投放 2 节，用于几何变换与线性方程的综合衔接工作坊"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:ec69bb3dba88411f",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "time_item",
+          "group": "学期中与学年末综合反思与建模实践",
+          "goal_codes": [],
+          "unit_id": "reserve",
+          "other_unit_id": "",
+          "lessons": 3,
+          "counted_in": [
+            "reserve"
+          ],
+          "level": 2,
+          "summary": "第一学期期末投放3节机动课时用于函数与方程组综合大作业诊断与复习。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "第一学期期末（Unit 4 结束时）投放 3 节，用于函数与方程组的综合大作业诊断与复习"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:f2f8d04d94e88738",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "time_item",
+          "group": "学期中与学年末综合反思与建模实践",
+          "goal_codes": [],
+          "unit_id": "reserve",
+          "other_unit_id": "",
+          "lessons": 4,
+          "counted_in": [
+            "reserve"
+          ],
+          "level": 2,
+          "summary": "第二学期期末投放4节机动课时用于核心概念综合重构与向九年级高阶过渡。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/reserve_plan",
+            "quote": "第二学期期末（Unit 8 结束时）投放 4 节，用于全年初中核心概念综合重构与向九年级代数高阶过渡。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:ec1d3803cbc9e667",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "dependency",
+          "group": "",
+          "goal_codes": [
+            "8.G.A.5",
+            "8.EE.B.6"
+          ],
+          "unit_id": "unit_2_linear_eq",
+          "other_unit_id": "unit_1_geom_transform",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元二需要单元一的平行线截角性质与相似AA准则作为几何公理先备。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_1_geom_transform/narrative",
+            "quote": "为 Unit 2 奠定关键几何公理先备。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:fa282c949710c374",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "dependency",
+          "group": "",
+          "goal_codes": [
+            "8.EE.B.6",
+            "8.G.A.5"
+          ],
+          "unit_id": "unit_2_linear_eq",
+          "other_unit_id": "unit_1_geom_transform",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元二承接单元一的相似三角形理论构造斜率三角形。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_2_linear_eq/narrative",
+            "quote": "本单元承接 Unit 1 的相似三角形理论，在平面直角坐标系中构造‘斜率三角形’"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:d5f7574fa69c1ab2",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "dependency",
+          "group": "",
+          "goal_codes": [
+            "8.EE.B.6",
+            "8.F.A.1",
+            "8.F.B.4"
+          ],
+          "unit_id": "unit_3_linear_functions",
+          "other_unit_id": "unit_2_linear_eq",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元三将单元二的直线几何轨迹方程跃升为现代函数的输入输出映射。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_3_linear_functions/narrative",
+            "quote": "本单元将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:2af7dc70289b8a85",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "dependency",
+          "group": "",
+          "goal_codes": [
+            "8.EE.B.6"
+          ],
+          "unit_id": "unit_3_linear_functions",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元三进入条件要求具备直线上两点斜率计算与简单方程求解能力。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_3_linear_functions/entry",
+            "quote": "具备直线上两点斜率计算能力与简单方程求解技能；能理解自变量与因变量的基本生活概念。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:a44893c1f13febcb",
+        "verdict": "not_checkable",
+        "note": "原文没有指明提供所需理解的单元"
+      },
+      {
+        "promise": {
+          "kind": "dependency",
+          "group": "",
+          "goal_codes": [
+            "8.EE.C.7.b",
+            "8.F.B.4"
+          ],
+          "unit_id": "unit_4_linear_systems",
+          "other_unit_id": "",
+          "lessons": 18,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元四进入条件要求熟练掌握复杂一元一次方程求解及线性函数作图与解析式求解。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_4_linear_systems/entry",
+            "quote": "熟练掌握复杂一元一次方程求解；熟练掌握线性函数作图与解析式求解。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:93cd464984c516a4",
+        "verdict": "not_checkable",
+        "note": "原文没有指明提供所需理解的单元"
+      },
+      {
+        "promise": {
+          "kind": "dependency",
+          "group": "",
+          "goal_codes": [],
+          "unit_id": "unit_5_real_numbers_pythagoras",
+          "other_unit_id": "",
+          "lessons": 26,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元五进入条件要求掌握直角坐标系描点、直角三角形性质与完全平方数经验。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_5_real_numbers_pythagoras/entry",
+            "quote": "具备完全平方数经验与基本分数运算能力；掌握直角坐标系描点与平面直角三角形基本性质。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:c9a4c826204b7938",
+        "verdict": "not_checkable",
+        "note": "原文没有指明提供所需理解的单元"
+      },
+      {
+        "promise": {
+          "kind": "dependency",
+          "group": "",
+          "goal_codes": [
+            "8.EE.A.2",
+            "8.G.C.9"
+          ],
+          "unit_id": "unit_7_volume_3d",
+          "other_unit_id": "unit_5_real_numbers_pythagoras",
+          "lessons": 14,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元七结合单元五所学的开方运算反解立体图形关键尺寸。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_7_volume_3d/narrative",
+            "quote": "并结合 Unit 5 学习的开方运算反解立体图形的关键几何尺寸，解决真实工程与生活中的容积问题。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:4ebc32f80c492b92",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "dependency",
+          "group": "",
+          "goal_codes": [
+            "8.EE.A.2"
+          ],
+          "unit_id": "unit_7_volume_3d",
+          "other_unit_id": "",
+          "lessons": 14,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元七进入条件要求熟练掌握圆的面积公式及开平方根与开立方根运算。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_7_volume_3d/entry",
+            "quote": "熟练掌握圆的面积公式（pi*r^2）；熟练掌握开平方根与开立方根运算。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:62d7a6881cef1959",
+        "verdict": "not_checkable",
+        "note": "原文没有指明提供所需理解的单元"
+      },
+      {
+        "promise": {
+          "kind": "dependency",
+          "group": "",
+          "goal_codes": [
+            "8.F.B.4"
+          ],
+          "unit_id": "unit_8_bivariate_stats",
+          "other_unit_id": "unit_3_linear_functions",
+          "lessons": 20,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元八进入条件要求掌握单元三线性函数的变化率与初始值解析。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_8_bivariate_stats/entry",
+            "quote": "掌握 Unit 3 线性函数 y=mx+b 的变化率与初始值解析。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:5ff891cfb271827b",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "later_use",
+          "group": "",
+          "goal_codes": [
+            "8.EE.A.1"
+          ],
+          "unit_id": "unit_6_exponents_sci_notation",
+          "other_unit_id": "",
+          "lessons": 16,
+          "counted_in": [],
+          "level": 1,
+          "summary": "在单元六科学记数法乘除混合运算中复习并运用负指数幂运算法则。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/goals/8.EE.A.1/allocations/unit_6_exponents_sci_notation:apply/opportunity",
+            "quote": "在科学记数法乘除混合运算中复习并熟练运用负指数幂运算法则。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:6dfbefc498de8df6",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "later_use",
+          "group": "",
+          "goal_codes": [
+            "8.EE.A.2"
+          ],
+          "unit_id": "unit_7_volume_3d",
+          "other_unit_id": "",
+          "lessons": 14,
+          "counted_in": [],
+          "level": 1,
+          "summary": "在单元七计算三维几何体体积反解尺寸时应用开平方和开立方。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/goals/8.EE.A.2/allocations/unit_7_volume_3d:apply/opportunity",
+            "quote": "在三维几何体体积计算中反解半径或高度时，应用开平方和开立方操作。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:293075899985ed67",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "later_use",
+          "group": "",
+          "goal_codes": [
+            "8.EE.B.5"
+          ],
+          "unit_id": "unit_3_linear_functions",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "在单元三将正比例关系作为特殊线性函数进行性质再审视与联系。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/goals/8.EE.B.5/allocations/unit_3_linear_functions:revisit/opportunity",
+            "quote": "在函数单元中将 y = kx 作为特殊线性函数进行性质再审视与联系。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:9707b95a1548d18c",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "later_use",
+          "group": "",
+          "goal_codes": [
+            "8.EE.B.6"
+          ],
+          "unit_id": "unit_3_linear_functions",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "在单元三构建线性函数解析式中直接应用斜率公式与纵截距概念。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/goals/8.EE.B.6/allocations/unit_3_linear_functions:apply/opportunity",
+            "quote": "在构建线性函数解析式中直接应用斜率公式与纵截距概念，完成从几何直线到代数函数模型的平滑过渡。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:79fc045cd8bbede8",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "later_use",
+          "group": "",
+          "goal_codes": [
+            "8.EE.C.7.b"
+          ],
+          "unit_id": "unit_4_linear_systems",
+          "other_unit_id": "",
+          "lessons": 18,
+          "counted_in": [],
+          "level": 1,
+          "summary": "在单元四方程组代入消元后应用求解一元复杂线性方程的技能。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/goals/8.EE.C.7.b/allocations/unit_4_linear_systems:apply/opportunity",
+            "quote": "在方程组代入消元后求解所得的一元复杂线性方程。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:485f0820cc90bfec",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "later_use",
+          "group": "",
+          "goal_codes": [
+            "8.F.B.4"
+          ],
+          "unit_id": "unit_8_bivariate_stats",
+          "other_unit_id": "",
+          "lessons": 20,
+          "counted_in": [],
+          "level": 1,
+          "summary": "在单元八散点图拟合直线探究中应用8.F.B.4建模技能求回归直线解析式并解读参数。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/goals/8.F.B.4/allocations/unit_8_bivariate_stats:apply/opportunity",
+            "quote": "在散点图拟合直线探究中，应用 8.F.B.4 的建模技能求经验回归直线的解析式并解读截距与斜率。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:bb7ce09a61f67e29",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "later_use",
+          "group": "",
+          "goal_codes": [
+            "8.G.A.5"
+          ],
+          "unit_id": "unit_2_linear_eq",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "在单元二推导直线斜率恒定性时复习并应用平行线同位角及AA相似三角形判定定理。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/goals/8.G.A.5/allocations/unit_2_linear_eq:apply/opportunity",
+            "quote": "在推导直线斜率恒定性时，复习并应用平行线同位角相等及AA相似三角形判定定理。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:93ebe8a4cfcd7af0",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "later_use",
+          "group": "",
+          "goal_codes": [
+            "8.F.B.4"
+          ],
+          "unit_id": "unit_4_linear_systems",
+          "other_unit_id": "",
+          "lessons": 18,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元三建构的8.F.B.4能力将在单元四方程组交点平衡状态中被复习应用。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/handoff_guidance",
+            "quote": "本单元建构的 8.F.B.4 能力将在 Unit 4（方程组的交点平衡状态）中被复习应用"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:05d20a02a082d31e",
+        "verdict": "broken",
+        "note": "承诺的单元没有该目标的分配"
+      },
+      {
+        "promise": {
+          "kind": "later_use",
+          "group": "",
+          "goal_codes": [
+            "8.F.B.4"
+          ],
+          "unit_id": "unit_8_bivariate_stats",
+          "other_unit_id": "",
+          "lessons": 20,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元八迁移运用8.F.B.4建模技能求解回归直线方程并理解斜率的边际变化率含义。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_8_bivariate_stats/narrative",
+            "quote": "迁移运用 8.F.B.4 的建模技能求解回归直线方程，深刻理解斜率在统计学中的边际变化率含义。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:0a9a61281e3e9dcc",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [],
+          "unit_id": "unit_1_geom_transform",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元一前测诊断轴对称与旋转直观。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_1_geom_transform/assessment_plan",
+            "quote": "前测诊断轴对称与旋转直观"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:d554ab2f42c67ab1",
+        "verdict": "not_checkable",
+        "note": "原文没有对应到目标代码，程序无法核对"
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.G.A.1"
+          ],
+          "unit_id": "unit_1_geom_transform",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元一课内通过描图纸重合实验进行形成性观察。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_1_geom_transform/assessment_plan",
+            "quote": "课内通过描图纸重合实验进行形成性观察"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:526839c8fb0b2663",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.G.A.3",
+            "8.G.A.5"
+          ],
+          "unit_id": "unit_1_geom_transform",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元一末通过纸笔测试评估坐标变换代数规则及三角形内角和与AA相似推理。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_1_geom_transform/assessment_plan",
+            "quote": "单元末通过纸笔测试评估坐标变换代数规则及三角形内角和与AA相似推理。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:1b47799be28aead1",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [],
+          "unit_id": "unit_2_linear_eq",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元二前置诊断七年级有理数四则运算与比率。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_2_linear_eq/assessment_plan",
+            "quote": "前置诊断七年级有理数四则运算与比率"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:41bbaa439ea3ca15",
+        "verdict": "not_checkable",
+        "note": "原文没有对应到目标代码，程序无法核对"
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.B.6",
+            "8.EE.C.7.b"
+          ],
+          "unit_id": "unit_2_linear_eq",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元二随堂小测检查斜率计算与去分母过程。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_2_linear_eq/assessment_plan",
+            "quote": "随堂小测检查斜率计算与去分母过程"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:af05feef77c24197",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.B.6",
+            "8.EE.C.7.a"
+          ],
+          "unit_id": "unit_2_linear_eq",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元二结业测试评估一元方程解的分类辨析与直线方程推导。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_2_linear_eq/assessment_plan",
+            "quote": "单元结业测试评估一元方程解的分类辨析与直线方程推导。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:81bfcc04fc8cbf32",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.B.6"
+          ],
+          "unit_id": "unit_3_linear_functions",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元三入单元前测诊断两点差商计算。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_3_linear_functions/assessment_plan",
+            "quote": "入单元前测诊断两点差商计算"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:2646935d393e8afd",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.F.A.2",
+            "8.F.B.4"
+          ],
+          "unit_id": "unit_3_linear_functions",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元三课内以四维表征转换任务单进行同伴互评形成性评估。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_3_linear_functions/assessment_plan",
+            "quote": "课内以‘四维表征转换任务单’进行同伴互评形成性评估"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:2a25495aaf82642d",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.F.B.4"
+          ],
+          "unit_id": "unit_3_linear_functions",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元三末通过真实情境建模题目进行终结性评价。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_3_linear_functions/assessment_plan",
+            "quote": "单元末通过真实情境建模（含 Task 1 类似题）进行终结性评价。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:20d9af58c67cb2ae",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.B.6"
+          ],
+          "unit_id": "unit_3_linear_functions",
+          "other_unit_id": "",
+          "lessons": 22,
+          "counted_in": [],
+          "level": 1,
+          "summary": "进入单元三前须通过5分钟课内小测诊断分数斜率与负数减法计算准确度。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/handoff_guidance",
+            "quote": "进入单元前须通过 5 分钟课内小测诊断学生对分数斜率与负数减法的基本计算准确度。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:3ec9f9a0647427d8",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.C.8.b"
+          ],
+          "unit_id": "unit_4_linear_systems",
+          "other_unit_id": "",
+          "lessons": 18,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元四随堂练习检查代入法与加减法步骤。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_4_linear_systems/assessment_plan",
+            "quote": "随堂练习检查代入法与加减法步骤"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:20eec830c9d3e3a1",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.C.8.c"
+          ],
+          "unit_id": "unit_4_linear_systems",
+          "other_unit_id": "",
+          "lessons": 18,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元四以两方案对比决策报告评估建模能力。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_4_linear_systems/assessment_plan",
+            "quote": "以‘两方案对比决策报告’评估建模能力"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:5fb7e566b178399e",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.C.8.a",
+            "8.EE.C.8.b"
+          ],
+          "unit_id": "unit_4_linear_systems",
+          "other_unit_id": "",
+          "lessons": 18,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元四单元测试考核方程组代数求解流利度与交点几何释义。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_4_linear_systems/assessment_plan",
+            "quote": "单元测试考核方程组代数求解流利度与交点几何释义。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:c614230d266bf69e",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.NS.A.2"
+          ],
+          "unit_id": "unit_5_real_numbers_pythagoras",
+          "other_unit_id": "",
+          "lessons": 26,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元五通过数轴作图小测检验无理数逼近精度。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_5_real_numbers_pythagoras/assessment_plan",
+            "quote": "通过数轴作图小测检验无理数逼近精度"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:bd94d056f97aa1be",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.G.B.6"
+          ],
+          "unit_id": "unit_5_real_numbers_pythagoras",
+          "other_unit_id": "",
+          "lessons": 26,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元五课内通过几何拼图与代数展开检查勾股定理证明。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_5_real_numbers_pythagoras/assessment_plan",
+            "quote": "课内通过几何拼图与代数展开检查勾股定理证明"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:e07ba037719cfdfd",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.A.2",
+            "8.G.B.8"
+          ],
+          "unit_id": "unit_5_real_numbers_pythagoras",
+          "other_unit_id": "",
+          "lessons": 26,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元五末测试坐标距离计算与方程求解。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_5_real_numbers_pythagoras/assessment_plan",
+            "quote": "单元末测试坐标距离计算与方程 x^2=p 求解。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:cf457c06d76aef42",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.A.1"
+          ],
+          "unit_id": "unit_6_exponents_sci_notation",
+          "other_unit_id": "",
+          "lessons": 16,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元六随堂速测检查同底数幂运算法则的准确运用。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_6_exponents_sci_notation/assessment_plan",
+            "quote": "随堂速测检查同底数幂运算法则的准确运用"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:39c2ac10e0c6eda8",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.A.3"
+          ],
+          "unit_id": "unit_6_exponents_sci_notation",
+          "other_unit_id": "",
+          "lessons": 16,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元六微型项目核查利用科学记数法对比宏观微观物理量的报告。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_6_exponents_sci_notation/assessment_plan",
+            "quote": "微型项目核查利用科学记数法对比宏观微观物理量的报告"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:ee1ca3915a48d89f",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.A.4"
+          ],
+          "unit_id": "unit_6_exponents_sci_notation",
+          "other_unit_id": "",
+          "lessons": 16,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元六末测试科学记数法混合四则运算。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_6_exponents_sci_notation/assessment_plan",
+            "quote": "单元末测试科学记数法混合四则运算。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:1d71c0eacd21e3cb",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.G.C.9"
+          ],
+          "unit_id": "unit_7_volume_3d",
+          "other_unit_id": "",
+          "lessons": 14,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元七课内实验报告评估注水实验推导过程。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_7_volume_3d/assessment_plan",
+            "quote": "课内实验报告评估注水实验推导过程"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:8c7ab73043da16f1",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.EE.A.2",
+            "8.G.C.9"
+          ],
+          "unit_id": "unit_7_volume_3d",
+          "other_unit_id": "",
+          "lessons": 14,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元七作业检查多步公式代入与根号近似计算。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_7_volume_3d/assessment_plan",
+            "quote": "作业检查多步公式代入与根号近似计算"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:d7e6db65df75a654",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.G.C.9"
+          ],
+          "unit_id": "unit_7_volume_3d",
+          "other_unit_id": "",
+          "lessons": 14,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元七测试考核柱体、锥体与球体在复杂复合情境中的体积求解。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_7_volume_3d/assessment_plan",
+            "quote": "单元测试考核柱体、锥体与球体在复杂复合情境中的体积求解。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:1be4caae31126080",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.SP.A.1",
+            "8.SP.A.2"
+          ],
+          "unit_id": "unit_8_bivariate_stats",
+          "other_unit_id": "",
+          "lessons": 20,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元八课内进行散点图描点与趋势线绘制表现性评价。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_8_bivariate_stats/assessment_plan",
+            "quote": "课内散点图描点与趋势线绘制表现性评价"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:403cc41236d8e21a",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.SP.A.1",
+            "8.SP.A.3",
+            "8.SP.A.4"
+          ],
+          "unit_id": "unit_8_bivariate_stats",
+          "other_unit_id": "",
+          "lessons": 20,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元八以实际调查统计分析海报进行小组评估。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_8_bivariate_stats/assessment_plan",
+            "quote": "以‘实际调查统计分析海报’进行小组评估"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:3c51aa95347e19d4",
+        "verdict": "kept",
+        "note": ""
+      },
+      {
+        "promise": {
+          "kind": "assessment",
+          "group": "",
+          "goal_codes": [
+            "8.SP.A.3",
+            "8.SP.A.4"
+          ],
+          "unit_id": "unit_8_bivariate_stats",
+          "other_unit_id": "",
+          "lessons": 20,
+          "counted_in": [],
+          "level": 1,
+          "summary": "单元八测试考查经验方程斜率截距解释及列联表相关性分析。",
+          "citation": {
+            "source": "candidate",
+            "pointer": "/units/unit_8_bivariate_stats/assessment_plan",
+            "quote": "单元测试考查经验方程斜率截距解释及列联表相关性分析。"
+          }
+        },
+        "evidence_id": "ev:d-known-initial:e3866d1d4ade4824",
+        "verdict": "kept",
+        "note": ""
+      }
+    ]
+  },
+  "statements": null,
+  "probes": [],
+  "probe_cache": []
+}

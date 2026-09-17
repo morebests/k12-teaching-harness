@@ -1,0 +1,473 @@
+[
+  {
+    "sample_id": "h2-01",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-01",
+        "criteria": [
+          "Q1"
+        ],
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.B.5"
+          }
+        ],
+        "pointers": [
+          "/goals/15"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "8.F.B.5 被误读为差商计算，定性分析图象与按描述草绘图象的要求失去全部安排。",
+        "keywords": [
+          "定性",
+          "草绘",
+          "草图",
+          "8.F.B.5",
+          "误读",
+          "差商"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "8.F.B.5 仍在目标表中，但安排被改为两点差商的定量计算，标准要求的定性描述和依文字情境草绘图象都已没有学习机会与证据，且全文别处没有分担。"
+  },
+  {
+    "sample_id": "h2-02",
+    "kind": "control",
+    "expected": [],
+    "protected_pointers": [
+      "/units/5/id",
+      "/goals/0/allocations/0/unit_id",
+      "/goals/0/allocations/1/unit_id",
+      "/goals/2/allocations/0/unit_id",
+      "/goals/3/allocations/0/unit_id",
+      "/practices/4/unit_ids",
+      "/practices/6/unit_ids"
+    ],
+    "rationale": "只把指数单元的编号整体替换为新编号，所有引用同步改变，职责、顺序和时间都没有变化。"
+  },
+  {
+    "sample_id": "h2-03",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-02",
+        "criteria": [
+          "Q1"
+        ],
+        "objects": [
+          {
+            "kind": "practice",
+            "id": "MP7"
+          }
+        ],
+        "pointers": [
+          "/practices"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "program",
+          "model"
+        ],
+        "description": "数学实践 MP7 在全年规划中完全缺失，没有单元、学生行为或证据。",
+        "keywords": [
+          "MP7",
+          "结构",
+          "数学实践",
+          "缺失",
+          "遗漏"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "年级实践要求包含 MP7，删去后全年没有任何位置承担寻找和利用结构的实践，属于必需要求遗漏。"
+  },
+  {
+    "sample_id": "h2-04",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-03",
+        "criteria": [
+          "Q4",
+          "Q1",
+          "Q2"
+        ],
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.C.8.b"
+          }
+        ],
+        "pointers": [
+          "/units/3/narrative"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "方程组单元把直线重合说成无解、平行说成无穷多解，关键数学结论颠倒。",
+        "keywords": [
+          "平行",
+          "重合",
+          "无解",
+          "无穷多解",
+          "颠倒",
+          "对调"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "两直线平行对应方程组无解，重合对应无穷多解；单元叙述把二者对调，核心数学结论错误并会误导该单元的理解进程。"
+  },
+  {
+    "sample_id": "h2-05",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-04",
+        "criteria": [
+          "Q3",
+          "Q2"
+        ],
+        "objects": [
+          {
+            "kind": "dependency",
+            "id": "unit_2_linear_eq<-unit_1_geom_transform"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          }
+        ],
+        "pointers": [
+          "/units/0",
+          "/units/1",
+          "/knowledge_uses/2"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "program",
+          "model"
+        ],
+        "description": "斜率与方程单元被排到其声明先备的相似单元之前，必要依赖无法满足。",
+        "keywords": [
+          "顺序",
+          "先备",
+          "依赖",
+          "之前",
+          "相似",
+          "斜率"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "斜率单元声明以几何变换与相似单元为先备，知识依据也要求相似在前；单元数组被调换后，依赖方排在提供方之前，承诺的进程无法执行。"
+  },
+  {
+    "sample_id": "h2-06",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-05",
+        "criteria": [
+          "Q6"
+        ],
+        "objects": [
+          {
+            "kind": "assessment",
+            "id": "8.SP.A.4@unit_4_linear_systems"
+          },
+          {
+            "kind": "goal",
+            "id": "8.SP.A.4"
+          }
+        ],
+        "pointers": [
+          "/goals/32"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "program",
+          "model"
+        ],
+        "description": "双向列联表的评定被放在方程组单元，早于统计单元的讲授，缺少学习机会支撑。",
+        "keywords": [
+          "学习机会",
+          "之前",
+          "提前",
+          "尚未",
+          "列联表",
+          "先于"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "8.SP.A.4 只在最后的统计单元讲授，却在第一学期方程组单元安排评定，评价发生在任何学习机会之前。"
+  },
+  {
+    "sample_id": "h2-07",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-06",
+        "criteria": [
+          "Q7"
+        ],
+        "objects": [
+          {
+            "kind": "time",
+            "id": "grade-total"
+          },
+          {
+            "kind": "time",
+            "id": "reserve"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_6_exponents_sci_notation"
+          }
+        ],
+        "pointers": [
+          "/units",
+          "/reserve_lessons",
+          "/reserve_plan"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "program",
+          "model"
+        ],
+        "description": "单元课时合计 180 节加上 20 节机动课时超出全年 180 节，机动时间被重复计算。",
+        "keywords": [
+          "180",
+          "200",
+          "合计",
+          "总课时",
+          "超出",
+          "重复"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "各单元合计变为 180 节，已等于全年总课时，另列的 20 节机动课时相当于被重复计入，实际需要 200 节。"
+  },
+  {
+    "sample_id": "h2-08",
+    "kind": "control",
+    "expected": [],
+    "protected_pointers": [
+      "/goals/28/allocations/1"
+    ],
+    "rationale": "无理数近似在实数单元讲授后，于体积计算中自然再访，位置在讲授之后，融入已有计算任务，不增加课时。"
+  },
+  {
+    "sample_id": "h2-09",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-07",
+        "criteria": [
+          "Q7",
+          "Q6"
+        ],
+        "objects": [
+          {
+            "kind": "resource",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "assessment",
+            "id": "8.G.C.9@unit_7_volume_3d"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          }
+        ],
+        "pointers": [
+          "/units/6/assessment_plan"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "体积单元主要评价依赖课后在家注水实验和手机录像，违反课内完成与无学生设备的条件。",
+        "keywords": [
+          "课后",
+          "在家",
+          "手机",
+          "课内",
+          "注水",
+          "设备"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "学校条件要求必需评价在课内完成，不假定学生有联网设备，也不依赖实体注水容器；体积单元的主要评价改成课后在家录像，违背已知条件。"
+  },
+  {
+    "sample_id": "h2-10",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-08",
+        "criteria": [
+          "Q5",
+          "Q3",
+          "Q1"
+        ],
+        "objects": [
+          {
+            "kind": "revisit",
+            "id": "8.F.B.4@unit_8_bivariate_stats:apply"
+          },
+          {
+            "kind": "goal",
+            "id": "8.F.B.4"
+          }
+        ],
+        "pointers": [
+          "/goals/14",
+          "/units/7",
+          "/design_inferences/3"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "8.F.B.4 在统计单元的应用安排缺失，只剩叙述性的迁移承诺，没有机会与证据。",
+        "keywords": [
+          "应用",
+          "迁移",
+          "后续",
+          "回访",
+          "统计",
+          "8.F.B.4"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "全年叙述、设计推断和交接都承诺统计单元迁移运用线性建模，但目标表中这一后续应用及其证据已被删去，焦点目标的后续利用没有落实位置。"
+  },
+  {
+    "sample_id": "h2-11",
+    "kind": "control",
+    "expected": [],
+    "protected_pointers": [
+      "/units/5",
+      "/units/6"
+    ],
+    "rationale": "指数单元没有先备单元，也没有单元以它为先备；移到体积单元之后，所有声明的依赖仍然先后成立。"
+  },
+  {
+    "sample_id": "h2-12",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-09",
+        "criteria": [
+          "Q6",
+          "Q4",
+          "Q2"
+        ],
+        "objects": [
+          {
+            "kind": "probe",
+            "id": "task_3_coordinate_distance"
+          }
+        ],
+        "pointers": [
+          "/tasks/2"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "坐标距离探查引用不存在的试教人数与掌握结果，并以此取消进入诊断。",
+        "keywords": [
+          "试教",
+          "虚构",
+          "掌握",
+          "无依据",
+          "诊断",
+          "班级"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "学校条件没有班级诊断或试教记录，探查却以具体人数的试教结果证明学生已掌握，并据此取消进入诊断，属于虚构学生掌握和教学验证。"
+  },
+  {
+    "sample_id": "h2-13",
+    "kind": "control",
+    "expected": [],
+    "protected_pointers": [
+      "/units/7/assessment_plan"
+    ],
+    "rationale": "替代材料属于学校已有的黑白打印条件，评价仍在课内、要求不变，是可行的资源替代。"
+  },
+  {
+    "sample_id": "h2-14",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "h2i-10",
+        "criteria": [
+          "Q8",
+          "Q3"
+        ],
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "goal",
+            "id": "8.F.B.4"
+          },
+          {
+            "kind": "teacher_question",
+            "id": "tq-goal-trace"
+          }
+        ],
+        "pointers": [
+          "/focus_unit_id",
+          "/handoff_guidance"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "program",
+          "model"
+        ],
+        "description": "焦点单元编号与 8.F.B.4 实际讲授单元和交接内容不一致。",
+        "keywords": [
+          "焦点",
+          "交接",
+          "不一致",
+          "方程组",
+          "8.F.B.4",
+          "核心单元"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "交接说明和目标表都把 8.F.B.4 放在函数单元，焦点单元却标成方程组单元，后续交接会打包错误的单元。"
+  }
+]

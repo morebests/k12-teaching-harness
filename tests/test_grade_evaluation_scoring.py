@@ -203,3 +203,105 @@ def test_不同评阅规则产生的评分不能一起汇总():
     ratings[0] = ratings[0].model_copy(update={"rules_fingerprint": "f" * 64})
     with pytest.raises(ValueError, match="评阅规则"):
         run(ratings)
+
+
+def established(criterion="Q5", severity="key_gap", id="promises:a:1:later-use-missing:x"):
+    from teaching_harness.grade_evaluation.records import EvaluationFinding
+
+    return EvaluationFinding.model_validate(
+        {
+            "id": id,
+            "candidate_id": "a",
+            "content_fingerprint": FP,
+            "criterion_id": criterion,
+            "object": {"kind": "revisit", "id": "8.F.B.4@unit_4:apply"},
+            "origin": "program",
+            "reviewer_id": "promises",
+            "severity": severity,
+            "claim": "承诺的回访没有位置",
+            "requirement": "回访须有位置",
+            "evidence_ids": ["ev:doc:1"],
+            "counterexample": "反例" if severity == "critical" else "",
+            "impact": "影响",
+            "recheck": "复查",
+        }
+    )
+
+
+def adjudicated(criterion, score, rejected=()):
+    return Adjudication.model_validate(
+        {
+            "id": f"adj-{criterion.lower()}",
+            "candidate_id": "a",
+            "content_fingerprint": FP,
+            "criterion_id": criterion,
+            "original_ratings": [
+                {"reviewer_id": "r1", "score": 4, "critical_failure": False},
+                {"reviewer_id": "r2", "score": 4, "critical_failure": False},
+            ],
+            "triggers": ["已确认发现限制该维分数"],
+            "method": "independent_adjudicator",
+            "adjudicator_id": "r3",
+            "score": score,
+            "critical_failure": False,
+            "supporting_evidence": ["ev:doc:1"],
+            "rejected_findings": list(rejected),
+            "rationale": "依据对象结论",
+        }
+    )
+
+
+def test_已确认发现限制维度分_评分高于上限时判为冲突而不出总分():
+    gap = established()
+    summary = summarize("a", FP, agreed([4] * 8), [], RUBRIC, EVIDENCE, established=[gap])
+    q5 = result(summary, "Q5")
+    assert q5.status == "conflict" and "不高于 2" in " ".join(q5.problems)
+    assert summary.weighted_total is None
+    critical = established("Q7", "critical", "program:a:time-total:grade-total")
+    q7 = result(
+        summarize("a", FP, agreed([4] * 8), [], RUBRIC, EVIDENCE, established=[critical]), "Q7"
+    )
+    assert q7.status == "conflict" and "不高于 0" in " ".join(q7.problems)
+
+
+def test_裁定只有用原文驳回发现后才能高于其上限():
+    gap = established()
+    ratings = agreed([4] * 8)
+    kept = summarize("a", FP, ratings, [adjudicated("Q5", 4)], RUBRIC, EVIDENCE, established=[gap])
+    assert result(kept, "Q5").status == "conflict"
+    lowered = summarize(
+        "a", FP, ratings, [adjudicated("Q5", 2)], RUBRIC, EVIDENCE, established=[gap]
+    )
+    assert result(lowered, "Q5").status == "settled" and result(lowered, "Q5").score == 2
+    rebutted = summarize(
+        "a", FP, ratings, [adjudicated("Q5", 4, [gap.id])], RUBRIC, EVIDENCE, established=[gap]
+    )
+    assert result(rebutted, "Q5").status == "settled" and rebutted.weighted_total == 100.0
+
+
+def test_已确认重大发现使整体标记成立_冲突维度不参与比较():
+    critical = established("Q7", "critical", "promises:a:2:time-double:reserve")
+    # 评阅给 0 分但没有标重大失败时，已确认的重大发现仍触发整体标记。
+    zero = summarize(
+        "a", FP, agreed([4] * 6 + [0, 4]), [], RUBRIC, EVIDENCE, established=[critical]
+    )
+    assert result(zero, "Q7").status == "settled" and result(zero, "Q7").critical_failure
+    assert zero.critical_failure
+    # 评分高于上限时维度待裁定，但重大问题标记不等裁定。
+    high = summarize("a", FP, agreed([4] * 8), [], RUBRIC, EVIDENCE, established=[critical])
+    assert result(high, "Q7").status == "conflict" and high.critical_failure
+    b = run(agreed([4] * 6 + [1, 4], candidate="b"), candidate="b")
+    comparison = compare(high, b, RUBRIC)
+    q7 = next(d for d in comparison.dimensions if d.criterion_id == "Q7")
+    assert q7.judgment == "undetermined"
+    assert comparison.winner != "a" and "a" in comparison.failing
+
+
+def test_程序核对的结构事实不因裁定驳回而解除上限():
+    fact = established("Q7", "critical", "program:a:time-total:grade-total")
+    fact = fact.model_copy(update={"reviewer_id": "program"})
+    ratings = agreed([4] * 8)
+    summary = summarize(
+        "a", FP, ratings, [adjudicated("Q7", 4, [fact.id])], RUBRIC, EVIDENCE, established=[fact]
+    )
+    assert result(summary, "Q7").status == "conflict"

@@ -2,18 +2,18 @@
   "schema_version": 1,
   "totals": {
     "r1": {
-      "calls": 64,
+      "calls": 120,
       "incomplete_calls": 0,
-      "input_tokens": 4307663,
-      "output_tokens": 1187520,
-      "total_tokens": 5495183
+      "input_tokens": 8197305,
+      "output_tokens": 2289065,
+      "total_tokens": 10486370
     },
     "r2": {
-      "calls": 64,
+      "calls": 120,
       "incomplete_calls": 0,
-      "input_tokens": 4421831,
-      "output_tokens": 1226796,
-      "total_tokens": 5648627
+      "input_tokens": 8088093,
+      "output_tokens": 2331308,
+      "total_tokens": 10419401
     },
     "r1-round-1": {
       "calls": 24,
@@ -22,12 +22,33 @@
       "output_tokens": 347973,
       "total_tokens": 1450202
     },
-    "r3": {
-      "calls": 5,
+    "promises": {
+      "calls": 30,
       "incomplete_calls": 0,
-      "input_tokens": 181881,
-      "output_tokens": 13599,
-      "total_tokens": 195480
+      "input_tokens": 990219,
+      "output_tokens": 764158,
+      "total_tokens": 1754377
+    },
+    "statements": {
+      "calls": 30,
+      "incomplete_calls": 0,
+      "input_tokens": 446520,
+      "output_tokens": 319632,
+      "total_tokens": 766152
+    },
+    "probes": {
+      "calls": 16,
+      "incomplete_calls": 0,
+      "input_tokens": 149783,
+      "output_tokens": 91672,
+      "total_tokens": 241455
+    },
+    "r3": {
+      "calls": 8,
+      "incomplete_calls": 0,
+      "input_tokens": 395255,
+      "output_tokens": 34442,
+      "total_tokens": 429697
     },
     "reviser": {
       "calls": 2,
