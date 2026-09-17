@@ -12,14 +12,21 @@ from pydantic import Field
 
 from teaching_harness.grade_evaluation.calibration import Mutation, apply_mutations
 from teaching_harness.grade_evaluation.checks import load_candidate
+from teaching_harness.grade_evaluation.records import EvaluationFinding, EvidenceRecord
 from teaching_harness.grade_evaluation.stages import (
+    ColumnRange,
     ModelPromises,
+    RangeStatement,
     check_promises,
+    consensus,
+    header_variable,
     probe_cache_key,
     probe_facts,
+    range_issues,
     review_probe,
     review_statements,
     solver_packet,
+    substitutions,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -231,6 +238,11 @@ def test_探查的程序事实列出超出数据的区间_没有上界的区间�
     assert beyond and {(i.statement.low, i.statement.high) for i in beyond} == {(0.0, 7.5)}
     assert all(i.column and "复习时间" in i.column.header for i in beyond)
     assert len({i.id for i in facts.range_issues}) == len(facts.range_issues)
+    # 文中代入的自变量值与表头变量对应，超出数据范围的列为外推事实。
+    outside = [i for i in facts.range_issues if i.kind == "outside_data"]
+    assert {0.0, 10.0} <= {i.statement.low for i in outside}
+    assert 6.0 not in {i.statement.low for i in outside}
+    assert all(i.column and "复习时间" in i.column.header for i in outside)
 
     initial = load("initial")
     rain = probe_facts(initial, "task_1_linear_modeling")
@@ -431,3 +443,96 @@ async def test_数学表述核查只接收叙述性字段_严重度不超过错�
         "tasks" not in sent["candidate"]
         and "narrative" in sent["candidate"]["units"]["unit_2_linear_eq"]
     )
+
+
+def found(run, criterion, kind, object_id, locator, severity):
+    evidence = EvidenceRecord(
+        id=f"ev:s:{run}{object_id}{severity}{locator}".lower().replace("/", "-"),
+        document_id="s",
+        document_fingerprint="d" * 64,
+        locator=locator,
+        quote="原文",
+        extraction="提取",
+        recorded_by="model",
+    )
+    finding = EvaluationFinding(
+        id=f"statements:s:{run}:{object_id}{locator}".lower().replace("/", "-"),
+        candidate_id="s",
+        content_fingerprint="c" * 64,
+        criterion_id=criterion,
+        object={"kind": kind, "id": object_id},
+        origin="model",
+        reviewer_id="statements",
+        severity=severity,
+        claim="表述有误",
+        requirement="表述须正确",
+        evidence_ids=[evidence.id],
+        counterexample="反例" if severity == "critical" else "",
+        impact="影响",
+        recheck="复查",
+    )
+    return finding, evidence
+
+
+def test_重复运行的发现按对象与位置对齐_多数运行都报的才算稳定():
+    runs = [
+        [found(1, "Q4", "unit", "unit_5", "/units/4/narrative", "critical")],
+        [
+            found(2, "Q4", "unit", "unit_5", "/units/4/narrative", "key_gap"),
+            found(2, "Q4", "goal", "8.F.A.1", "/goals/11/allocations/0/opportunity", "key_gap"),
+        ],
+        [
+            found(3, "Q4", "unit", "unit_5", "/units/4/narrative", "key_gap"),
+            found(3, "Q4", "unit", "unit_5", "/units/4/exit", "local"),
+        ],
+    ]
+    agreed = {
+        (a.finding.object.id, a.locator): a
+        for a in consensus(
+            [[f for f, _ in run] for run in runs], {e.id: e for run in runs for _, e in run}
+        )
+    }
+    stable = agreed[("unit_5", "/units/4/narrative")]
+    assert (stable.support, stable.runs, stable.stable) == (3, 3, True)
+    assert stable.finding.severity == "key_gap"  # 取多数运行给出的严重度
+    assert stable.severities == ["critical", "key_gap", "key_gap"]
+    assert not agreed[("8.F.A.1", "/goals/11/allocations/0/opportunity")].stable
+    assert agreed[("unit_5", "/units/4/exit")].support == 1
+
+
+def test_同一运行同一位置的多条发现分别对齐_共识发现的编号互不相同():
+    first = [
+        found(1, "Q4", "probe", "task_4", "/tasks/3/solution", "critical"),
+        found(1, "Q4", "probe", "task_4", "/tasks/3/solution", "local"),
+    ]
+    second = [
+        found(2, "Q4", "probe", "task_4", "/tasks/3/solution", "critical"),
+        found(2, "Q4", "probe", "task_4", "/tasks/3/solution", "local"),
+    ]
+    # 同一运行的两条发现编号相同的情形：不同运行各自从 1 开始编号。
+    runs = [first, second]
+    agreed = consensus(
+        [[f for f, _ in run] for run in runs], {e.id: e for run in runs for _, e in run}
+    )
+    assert sorted(a.finding.severity for a in agreed) == ["critical", "local"]
+    assert all(a.stable for a in agreed)
+    assert len({a.finding.id for a in agreed}) == 2
+
+
+def test_代入值与表头变量的识别不把解析式和单位当成代入():
+    assert [(v, p.low) for v, p in substitutions("当 x = 6. 时代入", "/t")] == [("x", 6.0)]
+    assert substitutions("直线 y = 2x + 3，路程 d = 60t，Δx = 2", "/t") == []
+    assert header_variable("每周自主复习时间 x（小时）") == "x"
+    assert header_variable("模型预测成绩 \\hat{y}（分）") == "y"
+    assert header_variable("高度（m）") == ""
+
+
+def test_带变量的区间整段落在数据范围外也列为事实_同名变量的多列不作对照():
+    column = ColumnRange(pointer="/t/h/1", header="时间 x", low=1, high=7, count=10, variable="x")
+    outside = RangeStatement(pointer="/t/s", text="8 ≤ x ≤ 10", low=8, high=10, variable="x")
+    unrelated = RangeStatement(pointer="/t/s", text="8~10", low=8, high=10)
+    issues = range_issues([column], [outside, unrelated], [])
+    assert [(i.kind, i.statement.text) for i in issues] == [("beyond_data", "8 ≤ x ≤ 10")]
+    twin = column.model_copy(update={"pointer": "/t/h/2", "low": 20, "high": 30})
+    point = RangeStatement(pointer="/t/s", text="x = 50", low=50, high=50, variable="x")
+    assert range_issues([column, twin], [], [("x", point)]) == []

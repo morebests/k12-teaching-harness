@@ -103,23 +103,29 @@ PROGRAM_REVIEWER = "program"
 
 
 def _cap(
-    criterion: CriterionId, established: list[EvaluationFinding], rejected: list[str]
+    criterion: CriterionId, established: list[EvaluationFinding], adjudication: Adjudication | None
 ) -> tuple[int | None, list[str]]:
     """协议的维度收敛：确认的重大失败为 0，关键缺口最高 2。
 
-    裁定只能驳回依赖模型判断的发现；程序核对的结构事实须经修订或程序复查解除。
+    裁定只能驳回或调整依赖模型判断的发现；程序核对的结构事实须经修订或程序复查解除。
     """
+    rejected = adjudication.rejected_findings if adjudication else []
+    adjusted = adjudication.adjusted_findings if adjudication else {}
+
+    def severity(f: EvaluationFinding) -> str:
+        return f.severity if f.reviewer_id == PROGRAM_REVIEWER else adjusted.get(f.id, f.severity)
+
     binding = [
         f
         for f in established
         if f.criterion_id == criterion
-        and f.severity in CAPS
+        and severity(f) in CAPS
         and f.status not in {"rebutted", "resolved"}
         and (f.id not in rejected or f.reviewer_id == PROGRAM_REVIEWER)
     ]
     if not binding:
         return None, []
-    return min(CAPS[f.severity] for f in binding), [f.id for f in binding]
+    return min(CAPS[severity(f)] for f in binding), [f.id for f in binding]
 
 
 def _settle(
@@ -131,9 +137,7 @@ def _settle(
     established: list[EvaluationFinding],
 ) -> CriterionResult:
     result = _settle_ratings(criterion, weight, ratings, adjudication, evidence)
-    cap, binding = _cap(
-        criterion, established, adjudication.rejected_findings if adjudication else []
-    )
+    cap, binding = _cap(criterion, established, adjudication)
     if cap is None:
         return result
     # 已确认的重大失败不等裁定就触发重大问题标记。

@@ -33,6 +33,7 @@ from teaching_harness.grade_evaluation.stages import (
 )
 
 # 供应商返回的 input_tokens、output_tokens、total_tokens。
+# 键见 review.USAGE_KEYS；较早的记录没有 cached_input_tokens。
 Usage = dict[str, int]
 
 
@@ -55,6 +56,7 @@ class ReviewRun(Contract):
     candidate_id: RecordId
     content_fingerprint: Fingerprint
     model: Text
+    max_output_tokens: int | None = None
     rules_fingerprint: Fingerprint
     criteria: list[CriterionId]
     ratings: list[CriterionRating]
@@ -81,6 +83,7 @@ class AdjudicationCall(Contract):
     input_tokens: int
     output_tokens: int
     total_tokens: int
+    cached_input_tokens: int = 0
     usage_complete: bool | None = None
     repairs: int | None = None
 
@@ -153,9 +156,12 @@ class StageRun(Contract):
     sample_id: RecordId
     stage: Literal["promises", "probes", "statements"]
     model: Text
+    max_output_tokens: int | None = None
     rules_fingerprint: Fingerprint
     seconds: float
     error: str | None = None
+    # 失败时已经消耗的用量；成功时用量在各项结果或探查缓存条目上。
+    failed_usage: Usage | None = None
     promises: PromiseResult | None = None
     statements: StatementResult | None = None
     probes: list[ProbeResult] = Field(default_factory=list)
@@ -193,12 +199,15 @@ class SetReport(Contract):
 
 class StageLabels(Contract):
     samples: int
+    runs: int = Field(default=1, description="全部运行次数，含重复运行")
     errors: int
     findings: int
     rejected_findings: int
     rejected_citations: int
     problems: int
     repairs: int
+    agreed: int = Field(default=0, description="重复运行对齐后的发现数")
+    stable: int = Field(default=0, description="其中多数运行都报出的发现数")
 
 
 class CalibrationReport(Contract):
@@ -211,10 +220,12 @@ class CalibrationReport(Contract):
 
 class UsageTotal(Contract):
     calls: int = 0
+    failed_calls: int = 0
     incomplete_calls: int = 0
     input_tokens: int = 0
     output_tokens: int = 0
     total_tokens: int = 0
+    cached_input_tokens: int = 0
 
 
 class UsageReport(Contract):

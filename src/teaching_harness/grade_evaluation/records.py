@@ -228,6 +228,9 @@ class Adjudication(Contract):
     supporting_evidence: list[RecordId] = Field(min_length=1)
     # 以可核实原文驳回的已确认发现；其余已确认发现仍限制该维分数。
     rejected_findings: list[RecordId] = Field(default_factory=list)
+    # 维持但按原文调整了严重度的已确认发现。可调整的是专项检查的发现（含程序依据模型抽取作出的判定）；
+    # 程序检查（reviewer_id 为 program）的结构事实不可驳回、不可调整。
+    adjusted_findings: dict[RecordId, Severity] = Field(default_factory=dict)
     needs_more_reading: str = ""
     rationale: Text
 

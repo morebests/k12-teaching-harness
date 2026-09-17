@@ -13,8 +13,10 @@ from typing import Any, Literal
 from langchain.agents import create_agent
 from langchain.agents.structured_output import ToolStrategy
 from langchain.tools import tool
+from langchain_core.callbacks import BaseCallbackHandler
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, messages_to_dict
+from langchain_core.outputs import LLMResult
 from pydantic import Field, ValidationError
 
 from teaching_harness.contracts import Contract
@@ -147,9 +149,13 @@ def review_rules() -> str:
     return RULES.read_text()
 
 
+# 用量字段；缓存命中的输入也计在 input_tokens 中，另列以便估算费用。
+USAGE_KEYS = ("input_tokens", "output_tokens", "total_tokens", "cached_input_tokens")
+
+
 def model_usage(messages: list[BaseMessage]) -> tuple[dict[str, int], bool]:
     """累计供应商返回的用量；任一回复缺少用量时标为不完整，不按零补齐。"""
-    usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+    usage = dict.fromkeys(USAGE_KEYS, 0)
     complete = True
     for message in messages:
         if not isinstance(message, AIMessage):
@@ -157,9 +163,53 @@ def model_usage(messages: list[BaseMessage]) -> tuple[dict[str, int], bool]:
         if not message.usage_metadata:
             complete = False
             continue
-        for key in usage:
-            usage[key] += message.usage_metadata[key]  # type: ignore[literal-required]
+        metadata = message.usage_metadata
+        for key in ("input_tokens", "output_tokens", "total_tokens"):
+            usage[key] += metadata[key]  # type: ignore[literal-required]
+        usage["cached_input_tokens"] += (metadata.get("input_token_details") or {}).get(
+            "cache_read", 0
+        )
     return usage, complete
+
+
+class CallRecorder(BaseCallbackHandler):
+    """记下一次调用中每轮的新输入与模型回复；调用失败时据此保存用量与原始消息。
+
+    一条回复都没收到时，用量不能算完整。
+    """
+
+    def __init__(self) -> None:
+        self.events: list[dict[str, Any]] = []
+        self.replies: list[BaseMessage] = []
+        self._seen = 0
+
+    def on_chat_model_start(
+        self, serialized: dict[str, Any], messages: list[list[BaseMessage]], **kwargs: Any
+    ) -> None:
+        conversation = messages[0] if messages else []
+        # 每轮输入包含此前的全部消息；只记新增的部分。
+        new = conversation[self._seen :] if self._seen <= len(conversation) else conversation
+        self.events += messages_to_dict(new)
+        self._seen = len(conversation)
+
+    def on_llm_end(self, response: LLMResult, **kwargs: Any) -> None:
+        for generation in response.generations[0] if response.generations else []:
+            message = getattr(generation, "message", None)
+            if isinstance(message, BaseMessage):
+                self.replies.append(message)
+                self.events += messages_to_dict([message])
+                self._seen += 1
+
+    def usage(self) -> tuple[dict[str, int], bool]:
+        usage, complete = model_usage(self.replies)
+        return usage, complete and bool(self.replies)
+
+    def transcript(self) -> list[dict[str, Any]]:
+        return list(self.events)
+
+
+def recorded(config: dict[str, Any], recorder: CallRecorder | None) -> dict[str, Any]:
+    return {**config, "callbacks": [recorder]} if recorder else config
 
 
 def _interval(score: int | None, low: int | None, high: int | None) -> ScoreInterval | None:
@@ -257,14 +307,15 @@ def review_packet(
             for c in rubric.criteria
             if c.id in criteria
         ],
-        "checklists": {c: [o.model_dump() for o in checklist(candidate, c)] for c in criteria},
-        "candidate": candidate_view(candidate)[0],
-        "conditions": conditions_view(candidate),
+        # 各次调用相同的内容在前，便于服务端缓存；随候选变化的清单与候选在后。
         "standards": {
             "framework": scope.get("framework"),
             "source_snapshot": scope.get("source_snapshot"),
             **{k: [e for _, e in v] for k, v in _standards(candidate).items()},
         },
+        "conditions": conditions_view(candidate),
+        "checklists": {c: [o.model_dump() for o in checklist(candidate, c)] for c in criteria},
+        "candidate": candidate_view(candidate)[0],
     }
 
 
@@ -353,8 +404,12 @@ async def review_candidate(
     rules: str | None = None,
     packet: dict[str, Any] | None = None,
     transcript: list[dict[str, Any]] | None = None,
+    recorder: CallRecorder | None = None,
 ) -> ReviewResult:
-    """packet 可由调用方先装配并做隔离核对；transcript 接收原始消息以便维护者复核。"""
+    """packet 可由调用方先装配并做隔离核对；transcript 接收原始消息以便维护者复核。
+
+    recorder 记下每条模型回复，调用失败时调用方据此保存用量与原始消息。
+    """
     packet = packet or review_packet(candidate, criteria, rubric)
     rules = rules or review_rules()
     rules_fingerprint = hashlib.sha256(rules.encode()).hexdigest()
@@ -365,7 +420,7 @@ async def review_candidate(
         response_format=ToolStrategy(ModelReview),
         name=f"grade_reviewer_{reviewer_id}",
     )
-    config: Any = {"recursion_limit": 24}
+    config: Any = recorded({"recursion_limit": 24}, recorder)
     state = await agent.ainvoke(
         {"messages": [HumanMessage(content=json.dumps(packet, ensure_ascii=False))]}, config
     )
@@ -530,8 +585,12 @@ def normalize(
 class FindingVerdict(Contract):
     finding_id: str
     upheld: bool
+    severity: Severity | None = Field(
+        default=None,
+        description="维持但按协议应调整严重度时给出调整后的严重度；不调整为 null",
+    )
     reason: str
-    citations: list[ModelCitation] = Field(description="驳回时引用证明发现不成立的原文")
+    citations: list[ModelCitation] = Field(description="驳回或调整严重度时引用支持该判断的原文")
 
 
 class ModelAdjudication(Contract):
@@ -563,7 +622,8 @@ ADJUDICATION_RULES = (
     "不要取平均，也不要因为一方更自信而采纳。supporting 逐字引用支持裁定的原文，格式同评阅引用。"
     "needs_more_reading 写明还需补读什么，没有则为空。"
     "输入若有 established_findings（程序或专项检查得出的发现），逐条在 finding_verdicts 中维持或驳回："
-    "驳回须引用证明其不成立的原文；rebuttable 为 false 的是程序核对的结构事实，只能维持；"
+    "驳回须引用证明其不成立的原文；发现成立但严重度应按协议调整时，维持并在 severity 给出调整后的严重度，"
+    "同样引用支持调整的原文；rebuttable 为 false 的是程序核对的结构事实，只能按原严重度维持；"
     "维持的发现按协议限制该维分数（重大失败为 0，关键缺口最高 2）。"
 )
 
@@ -620,6 +680,7 @@ async def adjudicate(
     transcript: list[dict[str, Any]] | None = None,
     *,
     established: list[EvaluationFinding] | None = None,
+    recorder: CallRecorder | None = None,
 ) -> AdjudicationResult:
     """裁定输入包含双方原始结论与已确认发现；这是复核本身的需要，原始记录不被改写。"""
     records = {e.id: e for e in evidence}
@@ -652,7 +713,7 @@ async def adjudicate(
         response_format=ToolStrategy(ModelAdjudication),
         name=f"grade_adjudicator_{adjudicator_id}",
     )
-    config: Any = {"recursion_limit": 16}
+    config: Any = recorded({"recursion_limit": 16}, recorder)
     state = await agent.ainvoke(
         {"messages": [HumanMessage(content=json.dumps(packet, ensure_ascii=False))]}, config
     )
@@ -682,20 +743,29 @@ async def adjudicate(
     ids = normalizer.cite(decision.supporting, target)
     problems = [f"裁定引用无法核实：{r.quote}" for r in normalizer.rejected]
     known = {f.id: f for f in binding}
-    rejected_findings = []
+    rejected_findings: list[str] = []
+    adjusted_findings: dict[str, Severity] = {}
     for verdict in decision.finding_verdicts:
-        if verdict.upheld or verdict.finding_id not in known:
+        finding = known.get(verdict.finding_id)
+        adjusting = verdict.upheld and finding and verdict.severity not in {None, finding.severity}
+        if finding is None or (verdict.upheld and not adjusting):
             continue
-        if known[verdict.finding_id].reviewer_id == PROGRAM_REVIEWER:
-            problems.append(f"{verdict.finding_id} 是程序核对的结构事实，裁定不能驳回")
+        action = "调整" if adjusting else "驳回"
+        if finding.reviewer_id == PROGRAM_REVIEWER:
+            problems.append(f"{verdict.finding_id} 是程序核对的结构事实，裁定不能{action}")
             continue
         before = len(normalizer.rejected)
         proof = normalizer.cite(verdict.citations, target)
-        if proof and len(normalizer.rejected) == before:
-            rejected_findings.append(verdict.finding_id)
-            ids += [i for i in proof if i not in ids]
+        if not proof or len(normalizer.rejected) != before:
+            problems.append(
+                f"{action} {verdict.finding_id} 的引用无法核实，该发现按原严重度限制分数"
+            )
+            continue
+        ids += [i for i in proof if i not in ids]
+        if adjusting and verdict.severity:
+            adjusted_findings[verdict.finding_id] = verdict.severity
         else:
-            problems.append(f"驳回 {verdict.finding_id} 的引用无法核实，该发现继续限制分数")
+            rejected_findings.append(verdict.finding_id)
     adjudication = None
     if not any(i in normalizer.evidence for i in ids):
         problems.append("裁定没有能在原文核实的依据，维度保持未决")
@@ -717,6 +787,7 @@ async def adjudicate(
                 critical_failure=decision.critical_failure,
                 supporting_evidence=ids,
                 rejected_findings=rejected_findings,
+                adjusted_findings=adjusted_findings,
                 needs_more_reading=decision.needs_more_reading,
                 rationale=decision.rationale,
             )

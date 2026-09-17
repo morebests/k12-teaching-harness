@@ -107,6 +107,20 @@
           "title": "Rejected Findings",
           "type": "array"
         },
+        "adjusted_findings": {
+          "patternProperties": {
+            "^[a-z0-9][a-z0-9_.:-]{0,159}$": {
+              "enum": [
+                "critical",
+                "key_gap",
+                "local"
+              ],
+              "type": "string"
+            }
+          },
+          "title": "Adjusted Findings",
+          "type": "object"
+        },
         "needs_more_reading": {
           "default": "",
           "title": "Needs More Reading",
@@ -163,6 +177,11 @@
         },
         "total_tokens": {
           "title": "Total Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "default": 0,
+          "title": "Cached Input Tokens",
           "type": "integer"
         },
         "usage_complete": {
@@ -2469,6 +2488,18 @@
           "title": "Model",
           "type": "string"
         },
+        "max_output_tokens": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Output Tokens"
+        },
         "rules_fingerprint": {
           "pattern": "^[a-f0-9]{64}$",
           "title": "Rules Fingerprint",
@@ -3238,6 +3269,12 @@
           "title": "Samples",
           "type": "integer"
         },
+        "runs": {
+          "default": 1,
+          "description": "全部运行次数，含重复运行",
+          "title": "Runs",
+          "type": "integer"
+        },
         "errors": {
           "title": "Errors",
           "type": "integer"
@@ -3260,6 +3297,18 @@
         },
         "repairs": {
           "title": "Repairs",
+          "type": "integer"
+        },
+        "agreed": {
+          "default": 0,
+          "description": "重复运行对齐后的发现数",
+          "title": "Agreed",
+          "type": "integer"
+        },
+        "stable": {
+          "default": 0,
+          "description": "其中多数运行都报出的发现数",
+          "title": "Stable",
           "type": "integer"
         }
       },
@@ -3337,6 +3386,11 @@
           "title": "Calls",
           "type": "integer"
         },
+        "failed_calls": {
+          "default": 0,
+          "title": "Failed Calls",
+          "type": "integer"
+        },
         "incomplete_calls": {
           "default": 0,
           "title": "Incomplete Calls",
@@ -3355,6 +3409,11 @@
         "total_tokens": {
           "default": 0,
           "title": "Total Tokens",
+          "type": "integer"
+        },
+        "cached_input_tokens": {
+          "default": 0,
+          "title": "Cached Input Tokens",
           "type": "integer"
         }
       },

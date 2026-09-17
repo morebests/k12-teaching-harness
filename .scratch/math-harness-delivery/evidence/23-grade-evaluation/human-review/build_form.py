@@ -7,6 +7,7 @@ work/grade-evaluation/human-review/mapping.json，判定结果回收后再合并
 
 import json
 import random
+import re
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -14,18 +15,23 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.worksheet.datavalidation import DataValidation
 
 from teaching_harness.grade_evaluation import cli
-from teaching_harness.grade_evaluation.calibration import SampleAnswer, score_detection
+from teaching_harness.grade_evaluation.calibration import SampleAnswer, _under, score_detection
 from teaching_harness.grade_evaluation.checks import TEACHER_QUESTIONS
 from teaching_harness.grade_evaluation.evidence import pointer_parts
-from teaching_harness.grade_evaluation.runs import CalibrationReport
 
 HERE = Path(__file__).parent
-OUT = HERE / "judgment-form.xlsx"
-MAPPING = cli.WORK / "human-review/mapping.json"
+# 第 1 版表格把注入问题混进了 C 页，并在说明里暴露了对照样本，已停用；本脚本生成第 2 版。
+OUT = HERE / "judgment-form-v2.xlsx"
+MAPPING = cli.WORK / "human-review/mapping-v2.json"
 SEED = 23
 REVIEWERS = ("r1", "r2", "rd")
 QUOTAS = {"rd": 15, "r1": 5, "r2": 5}
-SEVERITY_ZH = {"critical": "重大失败", "key_gap": "关键缺口", "local": "局部问题"}
+# 发现陈述中表达严重度的措辞，展示给判定人前隐去。
+SEVERITY_WORDS = [
+    (re.compile(r"重大失败|关键联系缺口|关键缺口|局部缺口"), "问题"),
+    (re.compile(r"局部(?=表述|不足|矛盾|问题|瑕疵|偏差|脱节|不一致)"), ""),
+    (re.compile(r"严重"), ""),
+]
 FIELD = {
     "narrative": "叙述",
     "entry": "进入条件",
@@ -207,6 +213,53 @@ A_ITEMS = [
     },
 ]
 
+# 合法对照也列入 A 页，避免从样本推断哪些核对点是有意注入的问题。
+A_ITEMS += [
+    {
+        "sample": "h2-02",
+        "answer": None,
+        "check": "指数单元的编号与全文各处引用是否一致",
+        "excerpt": (
+            "【指数单元编号】unit_6_integer_exponents\n"
+            "【引用该编号的位置】目标 8.EE.A.1（讲授、应用）、8.EE.A.3、8.EE.A.4 的分配；"
+            "数学实践 MP5、MP7 的承担单元。"
+        ),
+    },
+    {
+        "sample": "h2-08",
+        "answer": None,
+        "check": "8.NS.A.2 在体积单元的回访安排",
+        "excerpt": (
+            "【8.NS.A.2 的分配】\n"
+            "① 单元 5（实数与勾股）讲授：通过逐步夹逼法，对无理数进行有理数小数估算，在数轴上定位……\n"
+            "② 单元 7（体积）回访：在圆柱、圆锥与球体体积计算中，分别用 3.14 与 3.1416 作为 π 的有理近似求值，"
+            "比较两种结果的差异，并估计含 π 表达式的大小范围。\n"
+            "证据：核查学生能否说明不同有理近似带来的结果差异，并判断保留 π 的精确形式与取近似值各自适用的场合。"
+        ),
+    },
+    {
+        "sample": "h2-11",
+        "answer": None,
+        "check": "指数单元与体积单元的先后与依赖",
+        "excerpt": (
+            "【教学顺序】单元一 → 单元二 → 单元三 → 单元四 → 单元五 → 单元七（体积）→ 单元六（指数）→ 单元八\n"
+            "【先备单元】体积单元：实数与勾股单元；指数单元：无。\n"
+            "【标题】仍为“单元六：整数指数幂与科学记数法”“单元七：几何测量：圆柱、圆锥与球体的体积”。\n"
+            "【全年叙述】……Unit 6 拓展整数指数运算与科学记数法……；Unit 7 将代数开方运算应用于圆柱、圆锥与球体的三维立体体积问题……"
+        ),
+    },
+    {
+        "sample": "h2-13",
+        "answer": None,
+        "check": "单元 8 表现性评价的材料安排与学校条件",
+        "excerpt": (
+            "【单元 8 评价安排】课内散点图描点与趋势线绘制表现性评价（方格纸不足时改用黑白打印的带刻度坐标网格学案，"
+            "评价要求不变）；以课内双变量统计分析报告进行个人或同伴评估；单元末闭卷测试……\n"
+            "【学校条件】资源：纸笔、直尺、方格纸、黑白打印、教师投影、普通计算器。"
+        ),
+    },
+]
+
 A_HEAD = ["编号", "样本", "核对点", "原文与事实摘录", "是否存在问题", "严重度", "判断依据", "把握"]
 B_HEAD = [
     "编号",
@@ -310,16 +363,40 @@ def expected_hits(sample, answer, issue, sources):
     return result
 
 
+def neutral(text: str) -> str:
+    for pattern, replacement in SEVERITY_WORDS:
+        text = pattern.sub(replacement, text)
+    return text
+
+
+def hits_any(sample, answer, run) -> set[str]:
+    """与该样本任一注入问题相关的发现：措辞切题，且位置、对象或维度之一吻合。
+
+    比检出统计的匹配更宽，宁可多排除，避免判定人在 C 页先看到注入问题的模型意见。
+    """
+    if answer is None:
+        return set()
+    records = {e.id: e for e in run.evidence}
+    related = set()
+    for issue in answer.expected:
+        for f in run.findings:
+            text = f"{f.claim}{f.requirement}{f.counterexample}{f.impact}"
+            on_topic = not issue.keywords or any(k in text for k in issue.keywords)
+            located = [records[e].locator for e in f.evidence_ids if e in records]
+            in_place = any(_under(loc, issue.pointers) for loc in located)
+            if on_topic and (
+                in_place or f.object in issue.objects or f.criterion_id in issue.criteria
+            ):
+                related.add(f.id)
+    return related
+
+
 def main() -> None:
     answers = {a.sample_id: a for a in cli.answers()}
     rubric = json.loads(cli.RUBRIC.read_text())
     program = cli.PROGRAM.validate_json((cli.RESULTS / "program.json").read_bytes())
-    stages = {s: cli._stage_runs(s) for s in cli.STAGES}
+    stages = {s: cli._stage_repeats(s) for s in cli.STAGES}
     runs = {r: cli._runs(r) for r in REVIEWERS}
-    calibration = CalibrationReport.model_validate_json(
-        (cli.RESULTS / "calibration.json").read_bytes()
-    )
-    per_sample = calibration.sets["holdout-v2"].per_sample
     mapping: dict = {"seed": SEED, "A": [], "B": [], "C": []}
 
     wb = Workbook()
@@ -329,7 +406,11 @@ def main() -> None:
     # A
     a_sheet = wb.create_sheet("A严重度")
     a_rows = []
-    for n, item in enumerate(A_ITEMS, start=1):
+    rng = random.Random(SEED)
+    variants = [i for i in A_ITEMS if i["sample"] != "b-final"]
+    rng.shuffle(variants)
+    ordered = variants + [i for i in A_ITEMS if i["sample"] == "b-final"]
+    for n, item in enumerate(ordered, start=1):
         code = f"A{n:02d}"
         a_rows.append([code, sample_label(item["sample"]), item["check"], item["excerpt"]])
         record = {"item": code, "sample": item["sample"], "answer": item["answer"]}
@@ -339,10 +420,9 @@ def main() -> None:
             issue = next(e for e in answer.expected if e.id == item["answer"])
             sources = {"program": (program[sample.id].findings, program[sample.id].evidence)}
             for stage, stage_runs in stages.items():
-                sources[stage] = (
-                    stage_runs[sample.id].findings(),
-                    stage_runs[sample.id].evidence(),
-                )
+                # 与校准口径一致：有重复运行时取共识。
+                found, records, _ = cli._stage_findings(stage_runs[sample.id])
+                sources[stage] = (found, records)
             for r in REVIEWERS:
                 sources[r] = (runs[r][sample.id].findings, runs[r][sample.id].evidence)
             record["answer_severity"] = issue.severity
@@ -350,7 +430,7 @@ def main() -> None:
         mapping["A"].append(record)
     fill_sheet(
         a_sheet,
-        "A　严重度判定（13 项）",
+        f"A　严重度判定（{len(ordered)} 项）",
         "逐项阅读“原文与事实摘录”，判断“核对点”处是否存在问题；若存在，按“说明”页的定义给出严重度。",
         A_HEAD,
         [
@@ -411,8 +491,7 @@ def main() -> None:
         lists={5: "0,1,2,3,4,未定", 6: "是,否", 8: "高,中,低"},
     )
 
-    # C
-    rng = random.Random(SEED)
+    # C：排除命中任一注入问题的发现（不只是匹配器分配出去的那条），以及与 A 页终稿三项同题的发现。
     avoid = ("逆定理", "有序实数对", "Unit 4", "unit_4")
     picked = []
     for r in REVIEWERS:
@@ -420,14 +499,10 @@ def main() -> None:
         scope = [s.id for s in cli.sample_sets()["holdout-v2"]] + ["b-final"]
         for sid in sorted(set(runs[r]) & set(scope)):
             run = runs[r][sid]
-            if sid == "b-final":
-                allowed = {f.id for f in run.findings}
-            else:
-                m = per_sample[r][sid]
-                allowed = set(m.other_findings) | set(m.false_positives)
+            injected = hits_any(cli.sample_by_id(sid), answers.get(sid), run)
             for f in run.findings:
                 text = f"{f.claim}{f.requirement}"
-                if f.id in allowed and not any(k in text for k in avoid):
+                if f.id not in injected and not any(k in text for k in avoid):
                     pool.append((r, sid, f, run))
         picked += rng.sample(pool, QUOTAS[r])
     rng.shuffle(picked)
@@ -440,7 +515,7 @@ def main() -> None:
         cited = [records[e] for e in f.evidence_ids if e in records][:2]
         where = "；".join(dict.fromkeys(locate(e.locator, e.document_id, content) for e in cited))
         quotes = "\n".join(f"「{e.quote[:260]}」" for e in cited)
-        statement = f"{f.claim}\n（依据的要求：{f.requirement}）"
+        statement = neutral(f"{f.claim}\n（依据的要求：{f.requirement}）")
         c_rows.append([code, sample_label(sid), where, quotes, statement])
         mapping["C"].append(
             {
@@ -454,8 +529,9 @@ def main() -> None:
     fill_sheet(
         c_sheet,
         "C　发现是否成立（25 项）",
-        "每项是某次模型评阅报告的一条发现（不标明来自哪个模型）。请对照引文和终稿阅读版，判断它是否成立；若成立，给出严重度。"
-        "H2 开头的样本与终稿只差一处改动，改动内容见 A 页对应样本。",
+        "每项是某次模型评阅报告的一条发现（不标明来自哪个模型，表达严重度的措辞已隐去）。"
+        "请对照引文和终稿阅读版，判断它是否成立；若成立，给出严重度。"
+        "H2 开头的样本是终稿的变体，引文取自该样本本身，与终稿不同之处以引文为准。",
         C_HEAD,
         [
             "示例",
@@ -582,7 +658,10 @@ def write_guide(ws, rubric, a_count, b_count, c_count):
         ("", FONT),
         ("随表材料", BOLD),
         (
-            "curriculum.html：15 终稿的教师阅读版（与被评 JSON 同源）。H2 样本是终稿副本上的一处改动，改动处已在 A 页摘录。",
+            (
+                "curriculum.html：15 终稿的教师阅读版（与被评 JSON 同源）。H2 开头的样本是终稿的变体，"
+                "其中有的含问题、有的没有；判断以表中摘录和引文为准。"
+            ),
             FONT,
         ),
         ("", FONT),

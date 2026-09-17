@@ -141,3 +141,12 @@ def test_原文比对容忍空白与转义层差异但不容忍改写():
     assert quote_found("如 $\\\\sqrt{2}$、$\\\\pi$）进行", source)
     assert quote_found("对无理数（如 $\\sqrt{2}$、 $\\pi$）", source)
     assert not quote_found("对无理数（如根号 2）进行估算", source)
+
+
+def test_引文中转义的换行按换行比对_不影响以n开头的LaTeX命令():
+    from teaching_harness.grade_evaluation.evidence import quote_found
+
+    source = "单元前置诊断（共 3 节）：\n   - 在 Unit 2 前，若 $a \\neq 0$ 则取倒数"
+    assert quote_found("（共 3 节）：\\n   - 在 Unit 2 前", source)
+    assert quote_found("若 $a \\neq 0$ 则", source)
+    assert not quote_found("（共 3 节）：\\n   - 在 Unit 3 前", source)

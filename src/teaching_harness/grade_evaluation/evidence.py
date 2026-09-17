@@ -94,8 +94,22 @@ def _compact(text: str) -> str:
     return re.sub(r"\s+", "", text).replace("\\\\", "\\")
 
 
+# 模型常把换行写成字面的 \n；后面紧跟字母的保留，以免误改 \neq 等 LaTeX 命令。
+ESCAPED_NEWLINE = re.compile(r"\\n(?![A-Za-z])")
+
+
 def quote_found(quote: str, text: str) -> bool:
-    """片段须逐字出现；省略号分隔的多段须按顺序出现。空白与多余转义层不计。"""
+    """片段须逐字出现；省略号分隔的多段须按顺序出现。空白与多余转义层不计。
+
+    原样比对不上时，再把字面的换行转义当作换行比对一次。
+    """
+    if _found(quote, text):
+        return True
+    unescaped = ESCAPED_NEWLINE.sub("\n", quote)
+    return unescaped != quote and _found(unescaped, text)
+
+
+def _found(quote: str, text: str) -> bool:
     position, source = 0, _compact(text)
     for part in filter(None, (_compact(p) for p in ELLIPSIS.split(quote))):
         position = source.find(part, position)

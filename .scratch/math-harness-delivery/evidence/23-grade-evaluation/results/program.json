@@ -236,13 +236,13 @@
         },
         "origin": "program",
         "reviewer_id": "program",
-        "severity": "key_gap",
+        "severity": "critical",
         "claim": "数学实践 MP7 没有学生数学工作与观察证据",
         "requirement": "八项数学实践分别落实到学生工作",
         "evidence_ids": [
           "ev:h2-03:e7fe802d709ab308"
         ],
-        "counterexample": "",
+        "counterexample": "候选 practices 中没有 MP7",
         "impact": "数学实践只剩标签或缺失",
         "recheck": "补充该实践的单元、学生行动与证据",
         "status": "open",
@@ -525,7 +525,80 @@
   "h2-14": {
     "candidate_id": "h2-14",
     "content_fingerprint": "1e3442e9b5c324282f1f0150c6d04166db91512a4a8a68da1397a2a538daa1ac",
-    "findings": [],
-    "evidence": []
+    "findings": [
+      {
+        "id": "program:h2-14:focus-not-teaching:unit_4_linear_systems",
+        "candidate_id": "h2-14",
+        "content_fingerprint": "1e3442e9b5c324282f1f0150c6d04166db91512a4a8a68da1397a2a538daa1ac",
+        "criterion_id": "Q8",
+        "object": {
+          "kind": "unit",
+          "id": "unit_4_linear_systems"
+        },
+        "origin": "program",
+        "reviewer_id": "program",
+        "severity": "key_gap",
+        "claim": "焦点单元 unit_4_linear_systems 没有讲授交接所围绕的目标 8.F.B.4",
+        "requirement": "目标单元交接须落在实际讲授该目标的单元",
+        "evidence_ids": [
+          "ev:h2-14:3602ada93fdabb06",
+          "ev:h2-14:27a148e084e2dc09",
+          "ev:h2-14.conditions:131200668718d0a8"
+        ],
+        "counterexample": "8.F.B.4 的讲授单元为 ['unit_3_linear_functions']，焦点单元为 unit_4_linear_systems",
+        "impact": "焦点单元与交接说明、目标分配相互矛盾，单元级工作的对象不明",
+        "recheck": "核对焦点单元与交接说明",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:h2-14:3602ada93fdabb06",
+        "document_id": "h2-14",
+        "document_fingerprint": "9b20a9a9d73cf6a3d9575a2b1a83b270eb3250bf034872a59b34224f96c9085c",
+        "locator": "/focus_unit_id",
+        "quote": "unit_4_linear_systems",
+        "extraction": "候选的焦点单元",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          }
+        ],
+        "recorded_by": "program"
+      },
+      {
+        "id": "ev:h2-14:27a148e084e2dc09",
+        "document_id": "h2-14",
+        "document_fingerprint": "9b20a9a9d73cf6a3d9575a2b1a83b270eb3250bf034872a59b34224f96c9085c",
+        "locator": "/goals/14/allocations",
+        "quote": "[{\"unit_id\":\"unit_3_linear_functions\",\"role\":\"teach\",\"opportunity\":\"从文字背景、数据表或图象中构建线性函数模型 $y = mx + b$；确定并阐释变化率（斜率）与初始值（截距）在具体情境中的数学与现实含义。\",\"evidence\":\"在任务探查与课内练习中，详查学生从两不同点 $(x_1, y_1), (x_2, y_2)$ 计算 $m = \\\\frac{y_2-y_1}{x_2-x_1}$ 并求解 $b$ 的步骤；在实际应用题中，能否结合量纲规范说明“斜率表示单位自变量变化时因变量的平均/恒定变化量，截距表示基准初始状态值”。\"},{\"unit_id\":\"unit_8_bivariate_stats\",\"role\":\"apply\",\"opportunity\":\"在散点图拟合直线探究中，应用 8.F.B.4 的建模技能求解经验直线的解析式并解读截距与斜率。\",\"evidence\":\"在拟合直线任务中，评估学生能否从直线上提取两点写出经验预测方程 $\\\\hat{y} = mx + b$，并结合具体背景合理解释参数含义与适用范围。\"}]",
+        "extraction": "8.F.B.4 的全部分配",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          }
+        ],
+        "recorded_by": "program"
+      },
+      {
+        "id": "ev:h2-14.conditions:131200668718d0a8",
+        "document_id": "h2-14.conditions",
+        "document_fingerprint": "0e1e27a3dca98c014075d4817462980412848dad4ae185c397f8293bd09b6d11",
+        "locator": "/instruction",
+        "quote": "生成完整八年级 CCSS 数学全年蓝图，先读取完整年级范围，再自主组织单元和跨单元进程。说明目标与数学实践的实际学习机会、时间、Narrative、进入诊断与评价职责。用关键任务探查检验决定结构的数学跨度，实际采用 Learning Components 和前后支持关系，区分图事实与设计推断。提供围绕 8.F.B.4 的实际目标单元交接，但不预设单元编号，不生成全年逐课材料。必需学习和评价在课内完成；学生有前序课程经历不表示已掌握。",
+        "extraction": "原始任务说明",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          }
+        ],
+        "recorded_by": "program"
+      }
+    ]
   }
 }

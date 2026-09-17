@@ -13,7 +13,7 @@ import time
 from collections.abc import Iterable
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from langchain_core.language_models.chat_models import BaseChatModel
 from pydantic import BaseModel, TypeAdapter
@@ -37,7 +37,12 @@ from teaching_harness.grade_evaluation.checks import (
 )
 from teaching_harness.grade_evaluation.config import EvaluationConfig, config_drift, file_ref
 from teaching_harness.grade_evaluation.evidence import cite, register, verify
-from teaching_harness.grade_evaluation.models import evaluation_model, model_name
+from teaching_harness.grade_evaluation.models import (
+    diagnose,
+    evaluation_model,
+    max_output_tokens,
+    model_name,
+)
 from teaching_harness.grade_evaluation.records import (
     CriterionId,
     CriterionRating,
@@ -49,6 +54,8 @@ from teaching_harness.grade_evaluation.records import (
 )
 from teaching_harness.grade_evaluation.review import (
     ADJUDICATION_RULES,
+    USAGE_KEYS,
+    CallRecorder,
     ReviewResult,
     adjudicate,
     review_candidate,
@@ -85,9 +92,11 @@ from teaching_harness.grade_evaluation.scoring import (
     summarize,
 )
 from teaching_harness.grade_evaluation.stages import (
+    AgreedFinding,
     ModelPromises,
     ProbeModelOutput,
     check_promises,
+    consensus,
     normalize_probe,
     probe_cache_key,
     promise_packet,
@@ -208,6 +217,10 @@ def require_frozen(chosen: Iterable[Sample] = ()) -> EvaluationConfig:
     return config
 
 
+def config_id() -> str:
+    return EvaluationConfig.model_validate_json((EVAL / "config.json").read_bytes()).id
+
+
 def visible() -> set[str]:
     """可以运行程序检查和统计结果的样本：调试样本，以及冻结配置已列出的样本。"""
     config = EvaluationConfig.model_validate_json((EVAL / "config.json").read_bytes())
@@ -241,13 +254,19 @@ def cmd_program(_: argparse.Namespace) -> None:
 
 
 def _call(
-    group: list[CriterionId], seconds: float, result: ReviewResult | None, error: str | None
+    group: list[CriterionId],
+    seconds: float,
+    result: ReviewResult | None,
+    error: str | None,
+    recorder: CallRecorder,
 ) -> CallRecord:
+    # 失败的调用也记下已经消耗的用量；没有收到任何回复时用量记为不完整。
+    usage, complete = (result.usage, result.usage_complete) if result else recorder.usage()
     return CallRecord(
         criteria=group,
         seconds=round(seconds, 1),
-        usage=result.usage if result else None,
-        usage_complete=result.usage_complete if result else None,
+        usage=usage,
+        usage_complete=complete,
         repairs=result.repairs if result else None,
         first_attempt_rejected_citations=(
             result.first_attempt_rejected_citations if result else None
@@ -265,6 +284,7 @@ def _merge(
     rules_fingerprint: str,
     model_used: str,
 ) -> ReviewRun:
+    """运行用量按全部调用合计，包括失败的调用。"""
     evidence = {e.id: e for r in results for e in r.evidence}
     return ReviewRun(
         sample_id=sample.id,
@@ -272,6 +292,7 @@ def _merge(
         candidate_id=cand.id,
         content_fingerprint=cand.fingerprint,
         model=model_used,
+        max_output_tokens=max_output_tokens(model_used),
         rules_fingerprint=rules_fingerprint,
         criteria=[c for r in results for c in r.criteria],
         ratings=[x for r in results for x in r.ratings],
@@ -280,23 +301,27 @@ def _merge(
         rejected_citations=[x for r in results for x in r.rejected_citations],
         rejected_findings=[x for r in results for x in r.rejected_findings],
         problems=[x for r in results for x in r.problems],
-        usage={
-            key: sum(r.usage[key] for r in results)
-            for key in ("input_tokens", "output_tokens", "total_tokens")
-        },
+        usage={key: sum((c.usage or {}).get(key, 0) for c in calls) for key in USAGE_KEYS},
         calls=calls,
     )
 
 
-def _still_failed(run: ReviewRun) -> list[list[CriterionId]]:
-    """失败过、且之后没有成功调用的维度组。"""
+def still_failed(
+    run: ReviewRun, groups: list[list[CriterionId]] | None = None
+) -> list[list[CriterionId]]:
+    """失败过、之后没有成功调用、且在所选维度组中的维度组。"""
     done = {tuple(c.criteria) for c in run.calls if not c.error}
     failed = [c.criteria for c in run.calls if c.error and tuple(c.criteria) not in done]
-    return [list(g) for g in dict.fromkeys(tuple(g) for g in failed)]
+    chosen = {tuple(g) for g in groups} if groups is not None else None
+    return [
+        list(g) for g in dict.fromkeys(tuple(g) for g in failed) if chosen is None or g in chosen
+    ]
 
 
-def _combine(earlier: ReviewRun, retried: ReviewRun) -> ReviewRun:
+def combine_retry(earlier: ReviewRun, retried: ReviewRun) -> ReviewRun:
     """把失败维度组的重试并入已有结果；失败的调用记录保留，用量合计包含两次。"""
+    if earlier.content_fingerprint != retried.content_fingerprint:
+        raise ValueError("补跑的候选指纹与已有结果不同，不能合并")
     evidence = {e.id: e for e in [*earlier.evidence, *retried.evidence]}
     return earlier.model_copy(
         update={
@@ -308,8 +333,7 @@ def _combine(earlier: ReviewRun, retried: ReviewRun) -> ReviewRun:
             "rejected_findings": [*earlier.rejected_findings, *retried.rejected_findings],
             "problems": [*earlier.problems, *retried.problems],
             "usage": {
-                key: earlier.usage[key] + retried.usage[key]
-                for key in ("input_tokens", "output_tokens", "total_tokens")
+                key: earlier.usage.get(key, 0) + retried.usage.get(key, 0) for key in USAGE_KEYS
             },
             "calls": [*earlier.calls, *retried.calls],
         }
@@ -327,19 +351,25 @@ def cmd_review(args: argparse.Namespace) -> None:
     groups = [g for g in GROUPS if not args.groups or ",".join(g) in args.groups.split(";")]
     used = args.model or model_name()
     llm = model(used)
-    # 原始消息按规则版本分目录，调试轮之间不互相覆盖。
-    transcripts = WORK / f"transcripts/{args.reviewer}/{rules_fingerprint[:12]}"
+    # 原始消息按配置版本与规则版本分目录，不同版本的运行不互相覆盖。
+    transcripts = WORK / f"transcripts/{args.reviewer}/{config_id()}/{rules_fingerprint[:12]}"
     gate = asyncio.Semaphore(args.concurrency)
+    earlier_runs: dict[str, ReviewRun] = {}
+    for sample in chosen:
+        path = RESULTS / f"model/{args.reviewer}/{sample.id}.json"
+        if path.exists() and not args.force and args.retry_failed:
+            existing = _load(path, ReviewRun)
+            # 开跑前核对，避免中途退出丢掉已花费的调用。
+            if (existing.model, existing.rules_fingerprint) != (used, rules_fingerprint):
+                raise SystemExit(f"{path.name} 的模型或规则与本次不同，不能合并补跑")
+            earlier_runs[sample.id] = existing
 
     async def one(sample: Sample) -> None:
         target = RESULTS / f"model/{args.reviewer}/{sample.id}.json"
-        earlier = None
+        earlier = earlier_runs.get(sample.id)
         todo = groups
         if target.exists() and not args.force:
-            earlier = _load(target, ReviewRun) if args.retry_failed else None
-            todo = _still_failed(earlier) if earlier else []
-            if earlier and (earlier.model, earlier.rules_fingerprint) != (used, rules_fingerprint):
-                raise SystemExit(f"{target.name} 的模型或规则与本次不同，不能合并重试")
+            todo = still_failed(earlier, groups) if earlier else []
             if not todo:
                 print("已有结果，跳过", target.name)
                 return
@@ -350,6 +380,7 @@ def cmd_review(args: argparse.Namespace) -> None:
             # 装配后逐次核对：任何样本答案说明出现在输入中都拒绝调用。
             assert_isolated(packet, hidden)
             transcript: list[dict[str, Any]] = []
+            recorder = CallRecorder()
             started = time.monotonic()
             result, error = None, None
             try:
@@ -363,15 +394,24 @@ def cmd_review(args: argparse.Namespace) -> None:
                         rules=rules,
                         packet=packet,
                         transcript=transcript,
+                        recorder=recorder,
                     )
                 results.append(result)
             except Exception as exc:  # noqa: BLE001 — 保留失败调用，继续其他维度组。
-                error = f"{type(exc).__name__}: {str(exc)[:300]}"
-            calls.append(_call(group, time.monotonic() - started, result, error))
-            _save_transcript(transcripts / f"{sample.id}-{'-'.join(group)}.json", transcript)
+                reason = diagnose(recorder.replies[-1]) if recorder.replies else None
+                error = f"{type(exc).__name__}: {str(exc)[:200]}" + (
+                    f"；{reason}" if reason else ""
+                )
+                transcript = [{"error": error}, *recorder.transcript()]
+            calls.append(_call(group, time.monotonic() - started, result, error, recorder))
+            name = f"{sample.id}-{'-'.join(group)}"
+            if earlier:
+                # 补跑另存，不覆盖首次调用的原始消息。
+                name += f"-retry{sum(c.criteria == group for c in earlier.calls)}"
+            _save_transcript(transcripts / f"{name}.json", transcript)
             print(sample.id, group, error or "完成")
         run = _merge(results, calls, sample, args.reviewer, cand, rules_fingerprint, used)
-        _write(target, _combine(earlier, run) if earlier else run)
+        _write(target, combine_retry(earlier, run) if earlier else run)
 
     async def run() -> None:
         await asyncio.gather(*(one(s) for s in chosen))
@@ -414,8 +454,7 @@ def cmd_stages(args: argparse.Namespace) -> None:
     if args.recheck:
         # 重新判定只处理已有的承诺抽取，不调用模型。
         for sample in chosen:
-            target = RESULTS / f"stages/promises/{sample.id}.json"
-            if target.exists():
+            for target in _stage_files("promises", sample.id):
                 recheck(sample, target)
         return
     if any(s.split == "holdout" for s in chosen):
@@ -426,11 +465,18 @@ def cmd_stages(args: argparse.Namespace) -> None:
     locks: dict[str, asyncio.Lock] = {}
 
     async def probe_output(
-        sample: Sample, cand: GradeCandidate, task_id: str, texts: list[str]
+        sample: Sample,
+        cand: GradeCandidate,
+        task_id: str,
+        texts: list[str],
+        repeat: int,
+        recorder: CallRecorder,
     ) -> tuple[str, ProbeModelOutput]:
         solver, reviewer = texts
         figures = _figures(sample, cand, task_id)
-        key = probe_cache_key(cand, task_id, figures, "\n".join(texts), model=model_name())
+        key = probe_cache_key(
+            cand, task_id, figures, "\n".join(texts), model=model_name(), repeat=repeat
+        )
         path = RESULTS / f"stages/probes/cache/{key}.json"
         async with locks.setdefault(key, asyncio.Lock()):
             if path.exists():
@@ -438,7 +484,13 @@ def cmd_stages(args: argparse.Namespace) -> None:
             assert_isolated({**solver_packet(cand, task_id), "figures": figures}, hidden)
             async with gate:
                 output = await run_probe_models(
-                    llm, cand, task_id, rules=reviewer, solver_rules=solver, assets=figures
+                    llm,
+                    cand,
+                    task_id,
+                    rules=reviewer,
+                    solver_rules=solver,
+                    assets=figures,
+                    recorder=recorder,
                 )
             _save_transcript(WORK / f"transcripts/stages/probes/{key[:12]}.json", output.transcript)
             _write(
@@ -453,53 +505,75 @@ def cmd_stages(args: argparse.Namespace) -> None:
             )
             return key, output
 
-    async def one(sample: Sample, stage: str) -> None:
-        target = RESULTS / f"stages/{stage}/{sample.id}.json"
-        if target.exists() and not args.force:
-            return
-        cand = candidate(sample)
+    async def one(sample: Sample, stage: str, repeat: int) -> None:
+        target = _stage_path(stage, sample.id, repeat)
         texts, fingerprint_ = _stage_rules(stage)
+        if target.exists() and not args.force:
+            existing = _load(target, StageRun)
+            if (existing.rules_fingerprint, existing.model) == (fingerprint_, model_name()):
+                return
+            print(sample.id, stage, repeat, "已有结果来自其他规则或模型，重新运行")
+        cand = candidate(sample)
         text = "\n".join(texts)
         run = StageRun(
             sample_id=sample.id,
             stage=stage,  # type: ignore[arg-type]
-            model=model_name(),  # type: ignore[arg-type]
+            model=model_name(),
+            max_output_tokens=max_output_tokens(model_name()),
             rules_fingerprint=fingerprint_,
             seconds=0,
         )
         started = time.monotonic()
         transcript: list[dict[str, Any]] = []
+        recorder = CallRecorder()
         try:
             if stage == "promises":
                 assert_isolated(promise_packet(cand), hidden)
                 async with gate:
                     run.promises = await review_promises(
-                        llm, cand, rules=text, transcript=transcript
+                        llm, cand, rules=text, transcript=transcript, recorder=recorder
                     )
             elif stage == "statements":
                 assert_isolated(statement_packet(cand), hidden)
                 async with gate:
                     run.statements = await review_statements(
-                        llm, cand, rules=text, transcript=transcript
+                        llm, cand, rules=text, transcript=transcript, recorder=recorder
                     )
             else:
                 for task in cand.content.tasks:
-                    key, output = await probe_output(sample, cand, task.id, texts)
+                    # 已缓存或已成功的题面用量记在缓存条目上；失败时只计当前题面的调用。
+                    recorder = CallRecorder()
+                    key, output = await probe_output(sample, cand, task.id, texts, repeat, recorder)
                     run.probe_cache.append(key)
                     run.probes.append(normalize_probe(cand, task.id, output))
         except Exception as exc:  # noqa: BLE001 — 保留失败，继续其他样本。
-            run.error = f"{type(exc).__name__}: {str(exc)[:300]}"
+            reason = diagnose(recorder.replies[-1]) if recorder.replies else None
+            run.error = f"{type(exc).__name__}: {str(exc)[:200]}" + (
+                f"；{reason}" if reason else ""
+            )
+            run.failed_usage = recorder.usage()[0]
+            transcript = [{"error": run.error}, *recorder.transcript()]
         run.seconds = round(time.monotonic() - started, 1)
         if transcript:
+            suffix = f"-{repeat}" if repeat else ""
             _save_transcript(
-                WORK / f"transcripts/stages/{stage}/{fingerprint_[:12]}/{sample.id}.json",
+                WORK
+                / f"transcripts/stages/{stage}/{config_id()}/{fingerprint_[:12]}"
+                / f"{sample.id}{suffix}.json",
                 transcript,
             )
         _write(target, run)
         print(sample.id, stage, run.error or f"{len(run.findings())} 条发现")
 
     async def main() -> None:
-        await asyncio.gather(*(one(sample, stage) for sample in chosen for stage in stages))
+        await asyncio.gather(
+            *(
+                one(sample, stage, repeat)
+                for sample in chosen
+                for stage in stages
+                for repeat in range(args.repeat)
+            )
+        )
 
     asyncio.run(main())
 
@@ -528,6 +602,45 @@ def recheck(sample: Sample, target: Path) -> None:
     print(sample.id, "promises 重新判定", f"{len(run.findings())} 条发现")
 
 
+def _stage_path(stage: str, sample_id: str, repeat: int = 0) -> Path:
+    """第 0 次运行放在主目录，重复运行按序号另存。"""
+    if repeat == 0:
+        return RESULTS / f"stages/{stage}/{sample_id}.json"
+    return RESULTS / f"stages/{stage}/repeats/{repeat}/{sample_id}.json"
+
+
+def _stage_files(stage: str, sample_id: str) -> list[Path]:
+    """该样本在该专项检查上已有的全部运行文件，第 0 次在前。"""
+    main = _stage_path(stage, sample_id)
+    repeats = sorted(
+        (RESULTS / f"stages/{stage}/repeats").glob(f"*/{sample_id}.json"),
+        key=lambda p: int(p.parent.name),
+    )
+    return [p for p in [main, *repeats] if p.exists()]
+
+
+def _stage_repeats(stage: str) -> dict[str, list[StageRun]]:
+    """每个样本在该专项检查上的全部运行，第 0 次在前；规则或模型与第 0 次不同的不计入。"""
+    runs: dict[str, list[StageRun]] = {}
+    for sample_id in _stage_runs(stage):
+        loaded = [_load(p, StageRun) for p in _stage_files(stage, sample_id)]
+        key = (loaded[0].rules_fingerprint, loaded[0].model)
+        runs[sample_id] = [r for r in loaded if (r.rules_fingerprint, r.model) == key]
+    return runs
+
+
+def _stage_findings(
+    runs: list[StageRun],
+) -> tuple[list[EvaluationFinding], list[EvidenceRecord], list[AgreedFinding]]:
+    """单次运行直接采用；多次运行只采用成功运行中多数都报出的发现，严重度取多数。"""
+    evidence = {e.id: e for run in runs for e in run.evidence()}
+    if len(runs) == 1:
+        return runs[0].findings(), list(evidence.values()), []
+    succeeded = [run.findings() for run in runs if not run.error]
+    agreed = consensus(succeeded, evidence) if succeeded else []
+    return [a.finding for a in agreed if a.stable], list(evidence.values()), agreed
+
+
 def _stage_runs(stage: str) -> dict[str, StageRun]:
     return {
         p.stem: _load(p, StageRun) for p in sorted((RESULTS / f"stages/{stage}").glob("*.json"))
@@ -540,11 +653,11 @@ def _established(sample_id: str) -> tuple[list[EvaluationFinding], list[Evidence
     findings = list(program.findings) if program else []
     evidence = list(program.evidence) if program else []
     for stage in STAGES:
-        path = RESULTS / f"stages/{stage}/{sample_id}.json"
-        if path.exists():
-            run = _load(path, StageRun)
-            findings += run.findings()
-            evidence += run.evidence()
+        runs = _stage_repeats(stage).get(sample_id)
+        if runs:
+            stable, records, _ = _stage_findings(runs)
+            findings += stable
+            evidence += records
     return [f for f in findings if f.status not in {"rebutted", "resolved"}], evidence
 
 
@@ -563,7 +676,11 @@ def _status(records: list[EvidenceRecord], documents: dict[str, SourceDocument])
 
 
 def _agreement(
-    first: str, second: str, runs: dict[str, dict[str, ReviewRun]], samples: set[str], scope: str
+    first: str,
+    second: str,
+    runs: dict[str, dict[str, ReviewRun]],
+    samples: set[str],
+    scope: Literal["pair", "all"],
 ) -> Agreement:
     pairs = []
     for sample_id in sorted(samples):
@@ -577,7 +694,7 @@ def _agreement(
     return Agreement(
         first=first,
         second=second,
-        scope=scope,  # type: ignore[arg-type]
+        scope=scope,
         samples=len(samples),
         pairs=len(pairs),
         exact=sum(a == b for a, b, _ in pairs),
@@ -623,16 +740,21 @@ def _labels(runs: dict[str, ReviewRun]) -> ReviewerLabels:
     )
 
 
-def _stage_labels(runs: dict[str, StageRun]) -> StageLabels:
-    results = [r for run in runs.values() for r in run.results()]
+def _stage_labels(samples: dict[str, list[StageRun]]) -> StageLabels:
+    runs = [run for group in samples.values() for run in group]
+    results = [r for run in runs for r in run.results()]
+    agreed = [a for group in samples.values() for a in _stage_findings(group)[2]]
     return StageLabels(
-        samples=len(runs),
-        errors=sum(bool(run.error) for run in runs.values()),
+        samples=len(samples),
+        runs=len(runs),
+        errors=sum(bool(run.error) for run in runs),
         findings=sum(len(r.findings) for r in results),
         rejected_findings=sum(len(r.rejected_findings) for r in results),
         rejected_citations=sum(len(r.rejected_citations) for r in results),
         problems=sum(len(r.problems) for r in results),
         repairs=sum(r.repairs for r in results),
+        agreed=len(agreed),
+        stable=sum(a.stable for a in agreed),
     )
 
 
@@ -642,7 +764,7 @@ def cmd_calibrate(_: argparse.Namespace) -> None:
     shown = visible()
     program = PROGRAM.validate_json((RESULTS / "program.json").read_bytes())
     stages = {
-        stage: {k: v for k, v in _stage_runs(stage).items() if k in shown} for stage in STAGES
+        stage: {k: v for k, v in _stage_repeats(stage).items() if k in shown} for stage in STAGES
     }
     reviewers = _reviewers()
     runs = {
@@ -694,16 +816,17 @@ def cmd_calibrate(_: argparse.Namespace) -> None:
             done = [s for s in chosen if s.id in stage_runs]
             if not done:
                 continue
+            adopted = {s.id: _stage_findings(stage_runs[s.id]) for s in done}
             entry.stages[stage] = detect(
                 label,
                 done,
-                {s.id: stage_runs[s.id].findings() for s in done},
-                [e for s in done for e in stage_runs[s.id].evidence()],
+                {i: result[0] for i, result in adopted.items()},
+                [e for result in adopted.values() for e in result[1]],
                 "model",
             )
-            for s in done:
-                checks.setdefault(s.id, []).extend(stage_runs[s.id].findings())
-                check_evidence += stage_runs[s.id].evidence()
+            for i, (found, records, _agreed) in adopted.items():
+                checks.setdefault(i, []).extend(found)
+                check_evidence += records
         for reviewer in reviewers:
             done = [s for s in chosen if s.id in runs[reviewer]]
             if not done:
@@ -791,14 +914,19 @@ def cmd_summarize(args: argparse.Namespace) -> None:
 
 def cmd_adjudicate(args: argparse.Namespace) -> None:
     sample = sample_by_id(args.candidate)
-    require_frozen([sample])
+    config = require_frozen([sample])
     reviewers = args.reviewers.split(",")
     cand = candidate(sample)
     ratings, findings, evidence = _ratings(sample.id, reviewers)
     established, checked = _established(sample.id)
     evidence += checked
     target = RESULTS / f"adjudications/{sample.id}.json"
-    target.unlink(missing_ok=True)  # 按当前评分重新找未决维度，不沿用旧裁定。
+    if target.exists():
+        # 按当前评分重新找未决维度，不沿用旧裁定；旧结果移入历史目录保留。
+        stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+        history = RESULTS / f"adjudications/history/{stamp}"
+        history.mkdir(parents=True, exist_ok=True)
+        target.rename(history / target.name)
     summary = _summary(sample, reviewers)
     rubric = load_rubric(RUBRIC)
     llm = model()
@@ -816,21 +944,33 @@ def cmd_adjudicate(args: argparse.Namespace) -> None:
         # 同一事件循环内逐维裁定；模型客户端不能跨事件循环复用。
         for criterion in pending:
             transcript: list[dict[str, Any]] = []
-            outcome = await adjudicate(
-                llm,
-                cand,
-                criterion,
-                ratings,
-                findings,
-                evidence,
-                rubric,
-                args.adjudicator,
-                transcript,
-                established=established,
-            )
-            _save_transcript(
-                WORK / f"transcripts/{args.adjudicator}/{sample.id}-{criterion}.json", transcript
-            )
+            recorder = CallRecorder()
+            path = WORK / f"transcripts/{args.adjudicator}/{config.id}/{sample.id}-{criterion}.json"
+            try:
+                outcome = await adjudicate(
+                    llm,
+                    cand,
+                    criterion,
+                    ratings,
+                    findings,
+                    evidence,
+                    rubric,
+                    args.adjudicator,
+                    transcript,
+                    established=established,
+                    recorder=recorder,
+                )
+            except Exception as exc:  # noqa: BLE001 — 记下失败与已消耗的用量，继续其他维度。
+                error = f"{type(exc).__name__}: {str(exc)[:300]}"
+                usage, complete = recorder.usage()
+                stored.problems.append(f"{criterion}：裁定调用失败：{error}")
+                stored.usage.append(
+                    AdjudicationCall(criterion=criterion, usage_complete=complete, **usage)
+                )
+                _save_transcript(path, [{"error": error}, *recorder.transcript()])
+                print(criterion, error)
+                continue
+            _save_transcript(path, transcript)
             if outcome.adjudication:
                 stored.adjudications.append(outcome.adjudication)
             stored.evidence += outcome.evidence
@@ -1037,15 +1177,16 @@ def cmd_verify(_: argparse.Namespace) -> None:
     for sample_id, review in PROGRAM.validate_json((RESULTS / "program.json").read_bytes()).items():
         add("program", review.evidence, candidate(sample_by_id(sample_id)).documents)
     for stage in STAGES:
-        for stage_run in _stage_runs(stage).values():
-            add(
-                stage,
-                stage_run.evidence(),
-                candidate(sample_by_id(stage_run.sample_id)).documents,
-            )
+        for group in _stage_repeats(stage).values():
+            for stage_run in group:
+                add(
+                    stage,
+                    stage_run.evidence(),
+                    candidate(sample_by_id(stage_run.sample_id)).documents,
+                )
     index = _load(RESULTS / "index.json", EvidenceIndex)
     add("index", index.evidence, {d.id: d for d in index.documents})
-    for path in sorted((RESULTS / "adjudications").glob("*.json")):
+    for path in sorted((RESULTS / "adjudications").rglob("*.json")):
         add(
             "adjudications",
             _load(path, AdjudicationRun).evidence,
@@ -1107,41 +1248,47 @@ def cmd_freeze(args: argparse.Namespace) -> None:
 def cmd_usage(_: argparse.Namespace) -> None:
     totals: dict[str, UsageTotal] = {}
 
-    def add(label: str, usage: dict[str, int] | None, complete: bool | None) -> None:
+    def add(
+        label: str, usage: dict[str, int] | None, complete: bool | None, failed: bool = False
+    ) -> None:
         if usage is None:
             return
         total = totals.setdefault(label, UsageTotal())
         total.calls += 1
+        total.failed_calls += failed
         total.incomplete_calls += complete is False
         total.input_tokens += usage["input_tokens"]
         total.output_tokens += usage["output_tokens"]
         total.total_tokens += usage["total_tokens"]
+        total.cached_input_tokens += usage.get("cached_input_tokens", 0)
 
     for reviewer in _reviewers():
         for run in _runs(reviewer).values():
             for call in run.calls:
-                add(reviewer, call.usage, call.usage_complete)
+                add(reviewer, call.usage, call.usage_complete, bool(call.error))
     # 调试轮存档只保存规则冻结前的结果；冻结后的调试结果就在 model/ 中，不重复计。
     for directory in sorted((RESULTS / "debug-rounds").glob("*/*")):
         for run in _runs("", directory).values():
             for call in run.calls:
                 add(f"{directory.name}-{directory.parent.name}", call.usage, call.usage_complete)
-    for stage in ("promises", "statements"):
-        for stage_run in _stage_runs(stage).values():
-            for result in stage_run.results():
-                add(stage, result.usage, result.usage_complete)
+    for stage in STAGES:
+        for group in _stage_repeats(stage).values():
+            for stage_run in group:
+                add(stage, stage_run.failed_usage, None, True)
+                if stage != "probes":
+                    for result in stage_run.results():
+                        add(stage, result.usage, result.usage_complete)
     # 探查按题面缓存，用量只在缓存条目上计一次。
     for path in sorted((RESULTS / "stages/probes/cache").glob("*.json")):
         entry = _load(path, ProbeCacheEntry)
         add("probes", entry.output.usage, entry.output.usage_complete)
-    for path in sorted((RESULTS / "adjudications").glob("*.json")):
+    # 被替代的裁定移入 history/，其用量同样计入。
+    for path in sorted((RESULTS / "adjudications").rglob("*.json")):
         stored = _load(path, AdjudicationRun)
         for adjudication_call in stored.usage:
             add(
                 stored.adjudicator,
-                adjudication_call.model_dump(
-                    include={"input_tokens", "output_tokens", "total_tokens"}
-                ),
+                adjudication_call.model_dump(include=set(USAGE_KEYS)),
                 adjudication_call.usage_complete,
             )
     for path in sorted((RESULTS / "revision").glob("*/outcome.json")):
@@ -1167,7 +1314,8 @@ def cmd_show(args: argparse.Namespace) -> None:
         f"样本 {args.sample}｜评阅 {args.reviewer}｜模型 {run.model}｜规则指纹 {run.rules_fingerprint[:12]}"
     )
     print(
-        f"原始消息：work/grade-evaluation/transcripts/{args.reviewer}/{run.rules_fingerprint[:12]}/{args.sample}-<维度组>.json"
+        f"原始消息：work/grade-evaluation/transcripts/{args.reviewer}/<配置版本>/{run.rules_fingerprint[:12]}/{args.sample}-<维度组>.json"
+        + "（v3.2 冻结之前的运行没有配置版本这一层）"
     )
     for call in run.calls:
         print(
@@ -1400,17 +1548,20 @@ def main() -> None:
     stages.add_argument(
         "--recheck", action="store_true", help="承诺核查只按已保存的抽取重新判定，不调用模型"
     )
+    stages.add_argument(
+        "--repeat", type=int, default=1, help="每项检查独立运行的次数；多于一次时取多数共识"
+    )
     stages.set_defaults(run=cmd_stages)
     sub.add_parser("calibrate", help="统计程序与模型的检出、漏报和误报").set_defaults(
         run=cmd_calibrate
     )
     summary = sub.add_parser("summarize", help="汇总独立评分，两份候选时同时比较")
     summary.add_argument("--candidates", required=True)
-    summary.add_argument("--reviewers", default="r1,r2")
+    summary.add_argument("--reviewers", default="r1,rd")
     summary.set_defaults(run=cmd_summarize)
     adj = sub.add_parser("adjudicate", help="对未决维度做模型辅助独立裁定")
     adj.add_argument("--candidate", required=True)
-    adj.add_argument("--reviewers", default="r1,r2")
+    adj.add_argument("--reviewers", default="r1,rd")
     adj.add_argument("--adjudicator", default="r3")
     adj.set_defaults(run=cmd_adjudicate)
     rev = sub.add_parser("revise", help="把一条发现交回模型核实并修订副本")

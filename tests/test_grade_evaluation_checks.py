@@ -6,7 +6,12 @@ from pathlib import Path
 
 import pytest
 
-from teaching_harness.grade_evaluation.checks import checklist, load_candidate, program_review
+from teaching_harness.grade_evaluation.checks import (
+    STANDARD_CODE,
+    checklist,
+    load_candidate,
+    program_review,
+)
 from teaching_harness.grade_evaluation.evidence import verify
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -126,6 +131,27 @@ def test_遗漏目标以标准原文为证_虚构的知识条目被阻断(varian
     assert finding.severity == "critical" and "made-up-record" in finding.claim
 
 
+def test_整项缺失的实践属于重大失败_焦点单元须讲授交接所围绕的目标(variant):
+    def drop_practice(content):
+        content["practices"] = [p for p in content["practices"] if p["code"] != "MP7"]
+
+    _, review = variant(drop_practice)
+    [finding] = review.findings
+    assert (finding.criterion_id, finding.severity, finding.object.id) == ("Q1", "critical", "MP7")
+
+    def refocus(content):
+        content["focus_unit_id"] = "unit_4_linear_systems"
+
+    candidate, review = variant(refocus)
+    [finding] = review.findings
+    assert (finding.criterion_id, finding.severity) == ("Q8", "key_gap")
+    assert (finding.object.kind, finding.object.id) == ("unit", "unit_4_linear_systems")
+    assert "8.F.B.4" in finding.claim and "unit_3_linear_functions" in finding.counterexample
+    records = located(review, finding)
+    assert {e.locator for e in records} >= {"/focus_unit_id", "/instruction"}
+    assert all(verify(e, candidate.documents, candidate.root) == "verified" for e in records)
+
+
 @pytest.mark.parametrize("control", ["renumber", "swap", "revisit"])
 def test_合法对照不产生程序发现(variant, control):
     def renumber(content):
@@ -155,3 +181,10 @@ def test_合法对照不产生程序发现(variant, control):
 
     _, review = variant({"renumber": renumber, "swap": swap, "revisit": revisit}[control])
     assert review.findings == []
+
+
+def test_任务说明中紧挨汉字的标准代码也能识别():
+    assert STANDARD_CODE.findall("提供围绕8.F.B.4的实际目标单元交接，兼顾 8.EE.C.8a") == [
+        "8.F.B.4",
+        "8.EE.C.8a",
+    ]

@@ -305,3 +305,20 @@ def test_程序核对的结构事实不因裁定驳回而解除上限():
         "a", FP, ratings, [adjudicated("Q7", 4, [fact.id])], RUBRIC, EVIDENCE, established=[fact]
     )
     assert result(summary, "Q7").status == "conflict"
+
+
+def test_裁定可把依赖模型判断的发现降级_程序事实的严重度不可调整():
+    probe = established("Q4", "critical", "probes:a:task_4:1").model_copy(
+        update={"reviewer_id": "probes", "origin": "model"}
+    )
+    lowered = adjudicated("Q4", 2).model_copy(update={"adjusted_findings": {probe.id: "key_gap"}})
+    summary = summarize("a", FP, agreed([2] * 8), [lowered], RUBRIC, EVIDENCE, established=[probe])
+    q4 = result(summary, "Q4")
+    assert (q4.status, q4.established_cap, q4.critical_failure) == ("settled", 2, False)
+    assert not summary.critical_failure
+    fact = established("Q7", "critical", "program:a:time-total:grade-total").model_copy(
+        update={"reviewer_id": "program"}
+    )
+    ignored = adjudicated("Q7", 0).model_copy(update={"adjusted_findings": {fact.id: "local"}})
+    kept = summarize("a", FP, agreed([2] * 8), [ignored], RUBRIC, EVIDENCE, established=[fact])
+    assert result(kept, "Q7").established_cap == 0 and kept.critical_failure

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "id": "grade8-evaluation-v4",
+  "id": "grade8-evaluation-v3.2",
   "status": "frozen",
   "frozen_on": "2026-09-17",
-  "purpose": "v3 与跨模型对照显示：检查器能较可靠地发现明显问题，但严重度与评分不可靠。v4 修正 23 自身的缺口：裁定可按原文调整模型发现的严重度；程序核对焦点单元并把整项缺失判为重大失败；引文中的换行转义可比对；探查程序事实增加代入值与带变量区间超出数据范围，探查规则相应说明题目有意讨论外推时按一致处理；失败调用的用量与原始消息、缓存命中都进入记录；评阅输入把各次相同的内容放在前面；专项检查重复运行取多数共识。评阅者改为 Gemini 与 DeepSeek 各一位，第二版保留集在 v4 中只作开发样本，新的盲测由第三版保留集承担。",
+  "purpose": "第一版校准显示整体评阅漏掉探查中的数学与统计细节、叙述承诺与数学表述错误，且评分偏宽。本版在不改动整体评阅规则文本的前提下，加入承诺核查、探查核查、数学表述核查，并让已确认发现按协议限制维度分；以不接触评阅规则、程序检查与专项检查实现的子代理设计的第二版保留集重新校准。v3 在 v2 冻结后、查看任何第二版保留集结果之前，按代码审查修正了汇总、裁定、检出匹配与专项检查的程序部分；这些修正不改变整体评阅、承诺抽取与数学表述核查的模型输入。v3.1 在 v3 的冻结文件不变的前提下，追加 DeepSeek 评阅者 rd 作跨模型对照：规则、输入、输出结构、引文核验与补交都与 r1、r2 相同，只换模型。",
   "files": {
     "rubric": {
       "path": ".scratch/math-harness-delivery/year-planning-rubric.json",
@@ -27,23 +27,23 @@
     },
     "review_code": {
       "path": "src/teaching_harness/grade_evaluation/review.py",
-      "fingerprint": "40dad8270c49491eb167ce3a7cbde9fab5abe92366e43be8f68b1bb672c7a0d4"
+      "fingerprint": "671264fac7afa309f8deafebdbb9d7936d8c8b05946a9285a12aedac6051a53f"
     },
     "checklist_code": {
       "path": "src/teaching_harness/grade_evaluation/checks.py",
-      "fingerprint": "973f1ad03fc03ab34df328fde1c8e20689f048ec17d548b93c9c1f5b25e65dde"
+      "fingerprint": "fd4ad1c4cdab400887a557e209538ac1bde1791a631efd5554b78205c3e3c89a"
     },
     "stage_code": {
       "path": "src/teaching_harness/grade_evaluation/stages.py",
-      "fingerprint": "fccd1150aeb9fb803599c09aad51345d5eae8fb4b935259754e77fbdb32ed104"
+      "fingerprint": "8e5e08546d27502b06af8745bacaf958b3147e667b1dee81db6e8e2769761b88"
     },
     "scoring_code": {
       "path": "src/teaching_harness/grade_evaluation/scoring.py",
-      "fingerprint": "ca14f50a703917799e4867a32e287ca423321141f9fae911073ecdfb16229834"
+      "fingerprint": "6f4b69ed9ce6fef53d121dde5549d9f3cdeb0b518877adf4c71e227eb372ba26"
     },
     "stage_rules_promises": {
       "path": "src/teaching_harness/resources/grade-promises.md",
-      "fingerprint": "29763a6de35cc2cb8258e66d798a61161a4a2cc61be86d8dee7acda7fd3d0ddd"
+      "fingerprint": "d0a9e10635485763f779fa000c53a73ba7b1972472f4b229015b495f915ec663"
     },
     "stage_rules_solver": {
       "path": "src/teaching_harness/resources/grade-solver.md",
@@ -51,11 +51,11 @@
     },
     "stage_rules_probe": {
       "path": "src/teaching_harness/resources/grade-probe.md",
-      "fingerprint": "bdebf485e7216aba5cbbb889749fd781e60d04f747cebea23f3f3063f7ef8d9d"
+      "fingerprint": "3564b7a2ec5e5ad35b8492bfb18e2af826553d7d36818f35ff8023a5cd26962c"
     },
     "stage_rules_statements": {
       "path": "src/teaching_harness/resources/grade-statements.md",
-      "fingerprint": "1ba477545b402d1f84a9e0671904e344b92f3d18de0d5eb9f73f827900bf1aef"
+      "fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49"
     },
     "debug_samples": {
       "path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/samples/debug.json",
@@ -150,7 +150,7 @@
       "material": "第二版保留集（holdout-2）",
       "first_contact": "2026-09-17",
       "contacted_by": "由子代理设计（读过协议、判据、终稿、学校条件、标准原文、CONTEXT.md、contracts.py 与 calibration.py，未读评阅规则、程序检查与专项检查实现）；实施者在 v2 冻结前未查看样本与答案内容，只在一次校准输出中看到其程序检查汇总（5 项中检出 4 项，漏 h2i-10）；v2 冻结后、运行模型前核对了答案",
-      "influence": "v3 冻结后的校准；其结果被用于决定 v4 的焦点单元规则、整项缺失严重度与跨模型评阅组合，v4 起只作开发样本"
+      "influence": "只用于冻结后的校准；上述汇总没有用于修改程序检查"
     }
   ],
   "reviewers": [
@@ -178,8 +178,7 @@
       "inputs": [
         "按稳定身份呈现的候选",
         "原始任务与学校条件",
-        "承诺抽取规则；程序按抽取核对位置、先后与机动计划合计，同时计入两处的判断记为模型发现",
-        "每个样本独立运行 3 次，只采用多数运行都报出的发现，严重度取多数"
+        "承诺抽取规则；程序按抽取核对位置、先后与机动计划合计，同时计入两处的判断记为模型发现"
       ],
       "excluded_inputs": [
         "评分判据",
@@ -195,8 +194,7 @@
       "criteria_groups": [],
       "inputs": [
         "独立求解：只含题面、表格与图件参数及学校条件",
-        "核查：该探查全文、独立解答、程序算出的数据范围、区间表述与未提供的材料、学校条件；须逐项回应独立解答与程序事实",
-        "每个样本独立运行 3 次，只采用多数运行都报出的发现，严重度取多数"
+        "核查：该探查全文、独立解答、程序算出的数据范围、区间表述与未提供的材料、学校条件；须逐项回应独立解答与程序事实"
       ],
       "excluded_inputs": [
         "求解时的作者解答、预判、支持与设计结论",
@@ -212,8 +210,7 @@
       "criteria_groups": [],
       "inputs": [
         "候选叙述性字段与目标分配",
-        "数学表述核查规则（按错误类型限定严重度上限）",
-        "每个样本独立运行 3 次，只采用多数运行都报出的发现，严重度取多数"
+        "数学表述核查规则（按错误类型限定严重度上限）"
       ],
       "excluded_inputs": [
         "探查题",
@@ -261,6 +258,35 @@
       ]
     },
     {
+      "id": "r2",
+      "method": "model",
+      "model": "gemini-3.8-flash",
+      "criteria_groups": [
+        [
+          "Q1"
+        ],
+        [
+          "Q3",
+          "Q5",
+          "Q6"
+        ],
+        [
+          "Q4",
+          "Q7"
+        ],
+        [
+          "Q2",
+          "Q8"
+        ]
+      ],
+      "inputs": [
+        "与 r1 相同"
+      ],
+      "excluded_inputs": [
+        "与 r1 相同；独立调用，不读取 r1 结果"
+      ]
+    },
+    {
       "id": "rd",
       "method": "model",
       "model": "deepseek-flash",
@@ -284,7 +310,8 @@
       ],
       "inputs": [
         "与 r1 相同",
-        "开启思考（默认强度 high），输出上限 131,072；思考模式不接受强制工具调用，结构化结果由模型自行调用，未提交时报出结束原因与用量并记为失败；接口不回传上一轮思考内容"
+        "开启思考；DeepSeek 思考模式不接受强制工具调用，结构化结果改由模型自行调用，未提交时该次调用记为失败；接口不回传上一轮思考内容",
+        "思考强度用默认的 high；输出上限首轮为 32,768，因思考用尽上限而未提交结果的维度组，以 131,072 的上限补跑一次，失败记录保留"
       ],
       "excluded_inputs": [
         "与 r1 相同；独立调用，不读取 r1、r2 结果"
@@ -299,8 +326,8 @@
     "inputs": [
       "该维判据与应查对象",
       "按稳定身份呈现的候选",
-      "两位评阅者的原始评分、对象结论和引用",
-      "程序与专项检查得出的已确认发现；程序核对的结构事实标为不可驳回、不可调整"
+      "r1 与 r2 的原始评分、对象结论和引用",
+      "程序与专项检查得出的已确认发现；程序核对的结构事实标为不可驳回"
     ],
     "excluded_inputs": [
       "作者对话与工具记录",
@@ -324,7 +351,9 @@
     "h-order-dependency",
     "h-control-swap",
     "h-control-revisit",
-    "h-control-resource",
+    "h-control-resource"
+  ],
+  "holdout_samples": [
     "h2-01",
     "h2-02",
     "h2-03",
@@ -340,15 +369,17 @@
     "h2-13",
     "h2-14"
   ],
-  "holdout_samples": [],
   "limitations": [
-    "没有数学或课程专业评阅者参与校准；人工判定正在进行，其结果回收前，模型分数与严重度不作放行或比较依据。",
-    "r1 与 rd 属于不同模型家族，但仍都是模型；二者一致不能证明判断正确。r2（同模型重复）只作历史的波动基线。",
-    "裁定者 r3 与 r1 同为 Gemini。",
-    "调试集、第一版与第二版保留集都已被查看并用于调整，只能说明拟合程度；v4 的检出需由第三版盲设保留集检验。",
-    "焦点单元规则与整项缺失的严重度是在看过第二版保留集的答案与结果后设计的，焦点规则的措辞也受答案影响；这两项的效果只能由第三版盲设保留集检验。",
-    "焦点单元规则暂从任务说明中取唯一的标准代码，待阶段契约提供结构化字段后替换。",
-    "重复运行取共识降低了单次运行的偶然性，但 3 次运行的多数仍可能一致地出错；对齐依据维度、对象与首条引文位置，粗粒度对齐可能合并同一位置的不同问题。",
-    "学校条件是合成条件；课时与资源判断不代表真实学校。"
+    "没有数学或课程专业评阅者参与；所有模型评分、裁定与专项检查结论只是模型辅助结果。",
+    "r1、r2 是同一模型、同一规则的两次独立调用；二者一致不能证明判断可靠。",
+    "调试集与第一版保留集在开发专项检查时已被查看并据此调整了规则，只能说明拟合程度。",
+    "第二版保留集由与实施者同类的模型子代理设计，读取范围受限但未经技术隔离；它读过检出匹配代码，答案位置有意写得较宽，可能抬高位置正确率。答案由实施者在运行前核对，未修正。",
+    "“已确认发现”指程序或专项检查得出、引文经原文核实且未被驳回的发现。专项检查中的模型发现只经过一次模型判断；它们高于上限时触发裁定，由裁定逐条维持或驳回。",
+    "专项检查的承诺抽取与数学表述判断依赖模型，程序只核对抽取结果的位置、先后与合计。探查程序事实只报告与数据列重叠却超出的区间、只有下界的区间和正文提到却未提供的材料；完全落在数据之外的区间与点预测由核查规则负责。图件绘制参数随题面交给独立求解。",
+    "检出统计按一条发现只计入一个预期问题；答案关键词与位置匹配仍是近似判定，报告中对存疑的命中另作人工说明。",
+    "调试集与第一版保留集的 r1、r2 评阅在评阅代码的计算工具改为出错时返回原因之前完成；评阅规则文本未变。",
+    "规则文本仍有把“全年”当作课程层级的旧用法，随 24 的命名定型统一修改；修改规则须重评。",
+    "学校条件是合成条件；课时与资源判断不代表真实学校。",
+    "rd 只在第二版保留集与 15 终稿上运行，是在 v3 结果已知后追加的对照评阅者；它的规则与输入未因这些结果改动。"
   ]
 }

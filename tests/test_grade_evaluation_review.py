@@ -15,6 +15,7 @@ from teaching_harness.grade_evaluation.checks import load_candidate
 from teaching_harness.grade_evaluation.evidence import verify
 from teaching_harness.grade_evaluation.records import load_rubric
 from teaching_harness.grade_evaluation.review import (
+    CallRecorder,
     ModelCitation,
     ModelReview,
     adjudicate,
@@ -195,7 +196,12 @@ async def test_核实模型引用_伪造原文使该维不能采用_重大发现
     assert "反例" in result.rejected_findings[0].reason
     # 引用失效触发一次补交；脚本模型重复原答，失效仍保留并如实计入两次用量。
     assert result.repairs == 1 and result.first_attempt_rejected_citations == 1
-    assert result.usage == {"input_tokens": 60, "output_tokens": 24, "total_tokens": 84}
+    assert result.usage == {
+        "input_tokens": 60,
+        "output_tokens": 24,
+        "total_tokens": 84,
+        "cached_input_tokens": 0,
+    }
     status = {e.id: "verified" for e in result.evidence}
     summary = summarize(
         candidate.id,
@@ -423,3 +429,119 @@ def test_评价调用的计算工具出错时返回原因而不中断():
     assert calculate_math.invoke({"expression": "(23-11)/(6-2)"}) == "3"
     assert calculate_math.invoke({"expression": "x+1"}).startswith("工具未完成")
     assert calculate_math.invoke({"expression": "1/0"}).startswith("工具未完成")
+
+
+def test_评阅输入先放各次相同的内容_再放候选(candidate):
+    packet = review_packet(candidate, ["Q1"], RUBRIC)
+    assert list(packet) == [
+        "task",
+        "criteria",
+        "standards",
+        "conditions",
+        "checklists",
+        "candidate",
+    ]
+
+
+async def test_调用失败时记录器保留已产生的用量与回复(candidate):
+    class TextOnly(ScriptedModel):
+        def _generate(self, messages, stop=None, run_manager=None, **kwargs):
+            self.calls += 1
+            usage = {
+                "input_tokens": 30,
+                "output_tokens": 12,
+                "total_tokens": 42,
+                "input_token_details": {"cache_read": 20},
+            }
+            message = AIMessage(content="只用文字作答", usage_metadata=usage)
+            return ChatResult(generations=[ChatGeneration(message=message)])
+
+    recorder = CallRecorder()
+    with pytest.raises(Exception):  # noqa: B017 — 结构化结果缺失的具体异常类型取决于框架
+        await review_candidate(
+            TextOnly(output={}), candidate, ["Q6"], "rd", RUBRIC, rules="规则", recorder=recorder
+        )
+    usage, complete = recorder.usage()
+    assert complete and usage == {
+        "input_tokens": 30,
+        "output_tokens": 12,
+        "total_tokens": 42,
+        "cached_input_tokens": 20,
+    }
+    assert "只用文字作答" in json.dumps(recorder.transcript(), ensure_ascii=False)
+    ok = await review_candidate(
+        ScriptedModel(output=model_output()), candidate, ["Q6"], "r1", RUBRIC, rules="规则"
+    )
+    assert ok.usage["cached_input_tokens"] == 0
+
+
+async def test_裁定者可用原文把依赖模型的已确认发现降级_程序事实不可调整(candidate):
+    from teaching_harness.grade_evaluation.records import EvaluationFinding
+
+    first = await review_candidate(
+        ScriptedModel(output=model_output()), candidate, ["Q6"], "r1", RUBRIC, rules="规则"
+    )
+    second = await review_candidate(
+        ScriptedModel(output=model_output()), candidate, ["Q6"], "r2", RUBRIC, rules="规则"
+    )
+    gap = EvaluationFinding(
+        id="promises:x:1:assessment-early:unit_3",
+        candidate_id=candidate.id,
+        content_fingerprint=candidate.fingerprint,
+        criterion_id="Q6",
+        object={"kind": "unit", "id": "unit_3_linear_functions"},
+        origin="program",
+        reviewer_id="promises",
+        severity="key_gap",
+        claim="评价早于学习机会",
+        requirement="评价前须有学习机会",
+        evidence_ids=[first.evidence[0].id],
+        impact="影响",
+        recheck="复查",
+    )
+    real = cited("/units/unit_3_linear_functions/assessment_plan", "单元末通过真实情境建模")
+    decision = {
+        "criterion_id": "Q6",
+        "score": 3,
+        "score_low": None,
+        "score_high": None,
+        "critical_failure": False,
+        "rationale": "问题成立但只影响局部",
+        "supporting": [real],
+        "needs_more_reading": "",
+        "finding_verdicts": [
+            {
+                "finding_id": gap.id,
+                "upheld": True,
+                "severity": "local",
+                "reason": "评价内容大部分已学习",
+                "citations": [real],
+            }
+        ],
+    }
+    ratings = first.ratings + second.ratings
+
+    async def run(output, finding):
+        model = ScriptedAdjudicator(output=output, retry=output)
+        return await adjudicate(
+            model, candidate, "Q6", ratings, [], first.evidence, RUBRIC, "r3", established=[finding]
+        )
+
+    lowered = await run(decision, gap)
+    assert lowered.adjudication.adjusted_findings == {gap.id: "local"}
+    assert lowered.adjudication.rejected_findings == []
+    unproven = {
+        **decision,
+        "finding_verdicts": [{**decision["finding_verdicts"][0], "citations": []}],
+    }
+    kept = await run(unproven, gap)
+    assert kept.adjudication.adjusted_findings == {}
+    assert any(gap.id in p for p in kept.problems)
+    fact = gap.model_copy(update={"id": "program:x:order:unit_3", "reviewer_id": "program"})
+    on_fact = {
+        **decision,
+        "finding_verdicts": [{**decision["finding_verdicts"][0], "finding_id": fact.id}],
+    }
+    fixed = await run(on_fact, fact)
+    assert fixed.adjudication.adjusted_findings == {}
+    assert any(fact.id in p and "程序" in p for p in fixed.problems)

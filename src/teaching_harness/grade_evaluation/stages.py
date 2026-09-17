@@ -28,6 +28,8 @@ from teaching_harness.grade_evaluation.records import (
 )
 from teaching_harness.grade_evaluation.review import (
     MODEL_EXTRACTION,
+    USAGE_KEYS,
+    CallRecorder,
     ModelCitation,
     ModelFinding,
     RejectedCitation,
@@ -36,10 +38,12 @@ from teaching_harness.grade_evaluation.review import (
     candidate_view,
     conditions_view,
     model_usage,
+    recorded,
     source_location,
 )
 
 RESOURCES = Path(__file__).parents[1] / "resources"
+SEVERITY_RANK = {"local": 0, "key_gap": 1, "critical": 2}
 
 
 def stage_rules(name: str) -> str:
@@ -54,16 +58,14 @@ class StageResult(Contract):
     rejected_citations: list[RejectedCitation] = Field(default_factory=list)
     rejected_findings: list[RejectedFinding] = Field(default_factory=list)
     problems: list[str] = Field(default_factory=list)
-    usage: dict[str, int] = Field(
-        default_factory=lambda: {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
-    )
+    usage: dict[str, int] = Field(default_factory=lambda: dict.fromkeys(USAGE_KEYS, 0))
     usage_complete: bool | None = None
     repairs: int = 0
 
     def add_usage(self, messages: list[BaseMessage]) -> None:
         usage, complete = model_usage(messages)
         for key, value in usage.items():
-            self.usage[key] += value
+            self.usage[key] = self.usage.get(key, 0) + value
         self.usage_complete = complete and self.usage_complete is not False
 
 
@@ -112,6 +114,7 @@ async def _structured(
     name: str,
     repair: Any = None,
     transcript: list[dict[str, Any]] | None = None,
+    recorder: CallRecorder | None = None,
 ) -> tuple[Any, list[BaseMessage], bool]:
     """调用一次结构化输出；repair(output) 返回补交说明时，在同一会话中补交一次。"""
     agent = create_agent(
@@ -121,7 +124,7 @@ async def _structured(
         response_format=ToolStrategy(schema),
         name=name,
     )
-    config: Any = {"recursion_limit": 16}
+    config: Any = recorded({"recursion_limit": 16}, recorder)
     state = await agent.ainvoke(
         {"messages": [HumanMessage(content=json.dumps(packet, ensure_ascii=False))]}, config
     )
@@ -166,6 +169,61 @@ def _repair_message(failed: list[dict[str, str]]) -> str | None:
         "以下引用无法在原文核实，请重新提交完整结果，每条引用都从所指字段逐字复制。\n"
         + json.dumps(failed, ensure_ascii=False)
     )
+
+
+class AgreedFinding(Contract):
+    """同一输入多次运行中对齐到一起的发现；多数运行都报出的才算稳定。"""
+
+    locator: str
+    support: int
+    runs: int
+    stable: bool
+    severities: list[Severity]
+    finding: EvaluationFinding
+
+
+def _alignment(f: EvaluationFinding, evidence: dict[str, EvidenceRecord]) -> tuple[str, ...]:
+    parts = f.id.split(":")
+    rule = parts[3] if f.id.startswith("promises:") and len(parts) > 3 else ""
+    first = next((evidence[e].locator for e in f.evidence_ids if e in evidence), "")
+    return (f.criterion_id, f.object.kind, f.object.id, rule, "" if rule else first)
+
+
+def consensus(
+    runs: list[list[EvaluationFinding]], evidence: dict[str, EvidenceRecord]
+) -> list[AgreedFinding]:
+    """按维度、对象与首条引文位置对齐各次成功运行的发现；承诺核查按规则与对象对齐。
+
+    同一运行中对齐位置相同的多条发现按严重度从高到低依次占位，不合并。
+    代表发现取多数运行给出的严重度，票数相同时取更重的一档，并按对齐位置重新编号。
+    """
+    groups: dict[tuple[str, ...], list[EvaluationFinding]] = {}
+    for findings in runs:
+        slots: dict[tuple[str, ...], int] = {}
+        for f in sorted(findings, key=lambda f: -SEVERITY_RANK[f.severity]):
+            base = _alignment(f, evidence)
+            slot = slots.get(base, 0)
+            slots[base] = slot + 1
+            groups.setdefault((*base, str(slot)), []).append(f)
+    agreed = []
+    for key, members in groups.items():
+        severities = [f.severity for f in members]
+        modal = max(set(severities), key=lambda v: (severities.count(v), SEVERITY_RANK[v]))
+        chosen = next(f for f in members if f.severity == modal)
+        agreed_id = (
+            f"{chosen.id.split(':')[0]}:{chosen.candidate_id}:agreed:{fingerprint(list(key))[:12]}"
+        )
+        agreed.append(
+            AgreedFinding(
+                locator=key[4],
+                support=len(members),
+                runs=len(runs),
+                stable=2 * len(members) > len(runs),
+                severities=severities,
+                finding=chosen.model_copy(update={"id": agreed_id}),
+            )
+        )
+    return agreed
 
 
 # 承诺核查 ---------------------------------------------------------------
@@ -215,8 +273,8 @@ def promise_packet(candidate: GradeCandidate) -> dict[str, Any]:
     view = candidate_view(candidate)[0]
     return {
         "task": "从候选正文中抽出所有可核对的承诺，逐字引用出处；只抽取，不评价。",
-        "candidate": view,
         "conditions": conditions_view(candidate),
+        "candidate": view,
     }
 
 
@@ -417,6 +475,7 @@ async def review_promises(
     *,
     rules: str | None = None,
     transcript: list[dict[str, Any]] | None = None,
+    recorder: CallRecorder | None = None,
 ) -> PromiseResult:
     def repair(output: ModelPromises) -> str | None:
         return _repair_message(_failed_citations(candidate, [p.citation for p in output.promises]))
@@ -429,6 +488,7 @@ async def review_promises(
         "grade_promises",
         repair,
         transcript,
+        recorder,
     )
     result = check_promises(candidate, output)
     result.repairs = int(repaired)
@@ -441,20 +501,50 @@ async def review_promises(
 NUMBER = r"-?\d+(?:\.\d+)?"
 LE = r"(?:\\le|\\leq|≤|<=)"
 GE = r"(?:\\ge|\\geq|≥|>=)"
-# 每种写法给出 (模式, 下界组, 上界组)。
+# 每种写法给出 (模式, 下界组, 上界组, 变量组)；变量组为 0 表示写法中没有变量。
 RANGE_PATTERNS = [
-    (re.compile(rf"({NUMBER})\s*(?:~|～|—|–|-|至|到)\s*({NUMBER})"), 1, 2),
-    (re.compile(rf"({NUMBER})\s*{LE}\s*[a-zA-Z]\s*{LE}\s*({NUMBER})"), 1, 2),
-    (re.compile(rf"({NUMBER})\s*{GE}\s*[a-zA-Z]\s*{GE}\s*({NUMBER})"), 2, 1),
+    (re.compile(rf"({NUMBER})\s*(?:~|～|—|–|-|至|到)\s*({NUMBER})"), 1, 2, 0),
+    (re.compile(rf"({NUMBER})\s*{LE}\s*([a-zA-Z])\s*{LE}\s*({NUMBER})"), 1, 3, 2),
+    (re.compile(rf"({NUMBER})\s*{GE}\s*([a-zA-Z])\s*{GE}\s*({NUMBER})"), 3, 1, 2),
     (
         re.compile(
             rf"([a-zA-Z])\s*{GE}\s*({NUMBER})\s*(?:，|,|且|并且|\\text\{{且\}})\s*\1\s*{LE}\s*({NUMBER})"
         ),
         2,
         3,
+        1,
     ),
 ]
-LOWER_BOUND = re.compile(rf"[a-zA-Z]\s*{GE}\s*({NUMBER})")
+LOWER_BOUND = re.compile(rf"([a-zA-Z])\s*{GE}\s*({NUMBER})")
+SINGLE_LETTER = re.compile(r"(?<![A-Za-z\\])([A-Za-z])(?![A-Za-z])")
+PARENTHESES = re.compile(r"[（(][^）)]*[）)]")
+# 等号右边须是单独的数：排除 y = 2x + 3、d = 60t 这类解析式和 Δx 这类增量。
+SUBSTITUTION = re.compile(
+    rf"(?<![A-Za-z\\_Δ∆])([A-Za-z])\s*=\s*({NUMBER})(?!\d|\.\d|\s*[A-Za-z(（+\-*/^·×])"
+)
+
+
+def header_variable(header: str) -> str:
+    """表头中唯一的单字母变量；括号中的单位不算。"""
+    letters = set(SINGLE_LETTER.findall(PARENTHESES.sub("", header)))
+    return letters.pop() if len(letters) == 1 else ""
+
+
+def substitutions(text: str, pointer: str) -> list[tuple[str, "RangeStatement"]]:
+    """文中把单独的数代入单字母变量的位置。"""
+    found = []
+    for match in SUBSTITUTION.finditer(text):
+        value = float(match[2])
+        snippet = text[max(0, match.start() - 12) : match.end() + 12]
+        found.append(
+            (
+                match[1],
+                RangeStatement(
+                    pointer=pointer, text=snippet, low=value, high=value, variable=match[1]
+                ),
+            )
+        )
+    return found
 
 
 class ColumnRange(Contract):
@@ -463,6 +553,7 @@ class ColumnRange(Contract):
     low: float
     high: float
     count: int
+    variable: str = Field(default="", description="表头中唯一的单字母变量，没有时为空")
 
 
 class RangeStatement(Contract):
@@ -470,13 +561,15 @@ class RangeStatement(Contract):
     text: str
     low: float
     high: float | None
+    variable: str = ""
 
 
 class RangeIssue(Contract):
-    """核查须逐条回应的区间事实：表述超出与之重叠的数据列范围，或只写了下界。"""
+    """核查须逐条回应的区间事实：表述超出与之重叠的数据列范围、文中代入的值落在
+    数据范围外，或只写了下界。"""
 
     id: str
-    kind: Literal["beyond_data", "no_upper_bound"]
+    kind: Literal["beyond_data", "outside_data", "no_upper_bound"]
     statement: RangeStatement
     column: ColumnRange | None = None
 
@@ -506,11 +599,32 @@ class ProbeFacts(Contract):
     absent_materials: list[AbsentMaterial]
 
 
-def _range_issues(columns: list[ColumnRange], statements: list[RangeStatement]) -> list[RangeIssue]:
+def range_issues(
+    columns: list[ColumnRange],
+    statements: list[RangeStatement],
+    points: list[tuple[str, RangeStatement]],
+) -> list[RangeIssue]:
+    """带变量的表述只与同一变量的数据列比较；同一变量对应多列时不作比较。
+
+    不带变量的区间与每个有重叠的数据列比较，超出其范围时列出。
+    """
     issues: list[RangeIssue] = []
+    named = [c.variable for c in columns if c.variable]
+    by_variable = {c.variable: c for c in columns if c.variable and named.count(c.variable) == 1}
+    for variable, point in points:
+        column = by_variable.get(variable)
+        if column and not column.low <= point.low <= column.high:
+            issues.append(RangeIssue(id="", kind="outside_data", statement=point, column=column))
     for statement in statements:
         if statement.high is None:
             issues.append(RangeIssue(id="", kind="no_upper_bound", statement=statement))
+            continue
+        if statement.variable:
+            column = by_variable.get(statement.variable)
+            if column and (statement.low < column.low or statement.high > column.high):
+                issues.append(
+                    RangeIssue(id="", kind="beyond_data", statement=statement, column=column)
+                )
             continue
         for column in columns:
             overlaps = statement.low <= column.high and statement.high >= column.low
@@ -550,6 +664,7 @@ def probe_facts(candidate: GradeCandidate, task_id: str) -> ProbeFacts:
                         low=min(values),
                         high=max(values),
                         count=len(values),
+                        variable=header_variable(header),
                     )
                 )
     fields: dict[str, str] = {
@@ -557,16 +672,25 @@ def probe_facts(candidate: GradeCandidate, task_id: str) -> ProbeFacts:
     }
     fields |= {f"blocks/{j}/text": b.text for j, b in enumerate(task.blocks) if b.text}
     statements = []
+    points: list[tuple[str, RangeStatement]] = []
     for name, text in fields.items():
+        pointer = f"{base}/{name}"
+        points += substitutions(text, pointer)
         spans = []
-        for pattern, low_group, high_group in RANGE_PATTERNS:
+        for pattern, low_group, high_group, variable_group in RANGE_PATTERNS:
             for match in pattern.finditer(text):
                 low, high = float(match[low_group]), float(match[high_group])
                 if low < high:
                     spans.append(match.span())
                     snippet = text[max(0, match.start() - 12) : match.end() + 12]
                     statements.append(
-                        RangeStatement(pointer=f"{base}/{name}", text=snippet, low=low, high=high)
+                        RangeStatement(
+                            pointer=pointer,
+                            text=snippet,
+                            low=low,
+                            high=high,
+                            variable=match[variable_group] if variable_group else "",
+                        )
                     )
         for match in LOWER_BOUND.finditer(text):
             # 双边区间中的下界已按区间记录。
@@ -575,7 +699,11 @@ def probe_facts(candidate: GradeCandidate, task_id: str) -> ProbeFacts:
             snippet = text[max(0, match.start() - 12) : match.end() + 12]
             statements.append(
                 RangeStatement(
-                    pointer=f"{base}/{name}", text=snippet, low=float(match[1]), high=None
+                    pointer=pointer,
+                    text=snippet,
+                    low=float(match[2]),
+                    high=None,
+                    variable=match[1],
                 )
             )
     provided = {
@@ -600,7 +728,7 @@ def probe_facts(candidate: GradeCandidate, task_id: str) -> ProbeFacts:
         task_id=task_id,
         table_ranges=ranges,
         range_statements=statements,
-        range_issues=_range_issues(ranges, statements),
+        range_issues=range_issues(ranges, statements, points),
         absent_materials=absent,
     )
 
@@ -658,6 +786,12 @@ def check_items(solution: ModelSolution, facts: ProbeFacts) -> dict[str, str]:
         where = f"{issue.statement.pointer} 的“{issue.statement.text.strip()}”"
         if issue.column is None:
             items[issue.id] = f"{where}只给出下界 {issue.statement.low:g}，没有上界"
+        elif issue.kind == "outside_data":
+            items[issue.id] = (
+                f"{where}代入 {issue.column.variable} = {issue.statement.low:g}，"
+                f"不在表中“{issue.column.header}”的数据范围"
+                f" {issue.column.low:g}–{issue.column.high:g} 内"
+            )
         else:
             items[issue.id] = (
                 f"{where}写的范围 {issue.statement.low:g}–{issue.statement.high:g}"
@@ -771,6 +905,7 @@ async def run_probe_models(
     rules: str | None = None,
     solver_rules: str | None = None,
     assets: dict[str, Any] | None = None,
+    recorder: CallRecorder | None = None,
 ) -> ProbeModelOutput:
     """assets 为题面图件的绘制参数，随题面一起给独立求解。"""
     transcript: list[dict[str, Any]] = []
@@ -785,6 +920,7 @@ async def run_probe_models(
         packet,
         "grade_probe_solver",
         transcript=transcript,
+        recorder=recorder,
     )
     view = candidate_view(candidate)[0]
     items = check_items(solution, facts)
@@ -810,16 +946,17 @@ async def run_probe_models(
         rules or stage_rules("probe"),
         {
             "task": "核查这个关键探查：逐项回应 check_items，再找出作者题面、解答和设计主张中的问题。",
+            "conditions": conditions_view(candidate),
             "candidate": {"tasks": {task_id: view["tasks"][task_id]}},
             "figures": assets or {},
             "independent_solution": solution.model_dump(),
             "program_facts": facts.model_dump(),
             "check_items": items,
-            "conditions": conditions_view(candidate),
         },
         "grade_probe_review",
         repair,
         transcript,
+        recorder,
     )
     usage, complete = model_usage([*solve_messages, *messages])
     return ProbeModelOutput(
@@ -889,13 +1026,20 @@ async def review_probe(
 
 
 def probe_cache_key(
-    candidate: GradeCandidate, task_id: str, assets: dict[str, Any], rules: str, *, model: str
+    candidate: GradeCandidate,
+    task_id: str,
+    assets: dict[str, Any],
+    rules: str,
+    *,
+    model: str,
+    repeat: int = 0,
 ) -> str:
-    """同一模型对同一题面、条件、程序事实与规则的输出可在样本间复用。"""
+    """同一模型对同一题面、条件、程序事实与规则的输出可在样本间复用；重复运行各自独立。"""
     _, task = _task(candidate, task_id)
     return fingerprint(
         {
             "model": model,
+            "repeat": repeat,
             "task": task.model_dump(),
             "conditions": conditions_view(candidate),
             "facts": probe_facts(candidate, task_id).model_dump(),
@@ -946,7 +1090,6 @@ STATEMENT_CEILING: dict[str, Severity] = {
     "overgeneralization": "key_gap",
     "imprecise": "local",
 }
-SEVERITY_RANK = {"local": 0, "key_gap": 1, "critical": 2}
 
 
 class ModelStatementFinding(ModelFinding):
@@ -977,6 +1120,7 @@ async def review_statements(
     rules: str | None = None,
     reviewer_id: str = "statements",
     transcript: list[dict[str, Any]] | None = None,
+    recorder: CallRecorder | None = None,
 ) -> StatementResult:
     def repair(output: ModelStatementReview) -> str | None:
         return _repair_message(
@@ -991,6 +1135,7 @@ async def review_statements(
         "grade_statements",
         repair,
         transcript,
+        recorder,
     )
     result = StatementResult(
         candidate_id=candidate.id, checked=review.checked, repairs=int(repaired)

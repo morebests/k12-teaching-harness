@@ -298,15 +298,16 @@ def _coverage(recorder: _Recorder) -> None:
         if f"MP{i}" in practices:
             continue
         target = ObjectRef(kind="practice", id=f"MP{i}")
+        # 请求要求说明数学实践的学习机会；整项缺失属于协议所列的必需要求遗漏。
         recorder.finding(
             "practice-missing",
             "Q1",
             target,
-            "key_gap",
+            "critical",
             claim=f"数学实践 MP{i} 没有学生数学工作与观察证据",
             requirement="八项数学实践分别落实到学生工作",
             evidence=[recorder.evidence(document, "/practices", "候选列出的数学实践", target)],
-            counterexample="",
+            counterexample=f"候选 practices 中没有 MP{i}",
             impact="数学实践只剩标签或缺失",
             recheck="补充该实践的单元、学生行动与证据",
         )
@@ -463,8 +464,50 @@ def _sources(recorder: _Recorder) -> None:
         )
 
 
+# 边界只按 ASCII 判断，紧挨汉字的代码也能识别；子项可写作 .a 或 a。
+STANDARD_CODE = re.compile(r"\b8\.[A-Z]{1,2}\.[A-C]\.\d+(?:\.?[a-c])?\b", re.ASCII)
+
+
+def _focus(recorder: _Recorder) -> None:
+    """焦点单元须讲授交接所围绕的目标。
+
+    年级范围的请求没有结构化的焦点目标字段，暂从任务说明中取唯一的标准代码；
+    没有或有多个代码时不核对。
+    """
+    candidate = recorder.candidate
+    content = candidate.content
+    codes = set(STANDARD_CODE.findall(candidate.request.instruction))
+    goals = {g.code: (i, g) for i, g in enumerate(content.goals)}
+    if len(codes) != 1 or (code := codes.pop()) not in goals:
+        return
+    index, goal = goals[code]
+    teach = [a.unit_id for a in goal.allocations if a.role == "teach"]
+    if not teach or content.focus_unit_id in teach:
+        return
+    target = ObjectRef(kind="unit", id=content.focus_unit_id)
+    recorder.finding(
+        "focus-not-teaching",
+        "Q8",
+        target,
+        "key_gap",
+        claim=f"焦点单元 {content.focus_unit_id} 没有讲授交接所围绕的目标 {code}",
+        requirement="目标单元交接须落在实际讲授该目标的单元",
+        evidence=[
+            recorder.evidence(candidate.document, "/focus_unit_id", "候选的焦点单元", target),
+            recorder.evidence(
+                candidate.document, f"/goals/{index}/allocations", f"{code} 的全部分配", target
+            ),
+            recorder.evidence(candidate.conditions, "/instruction", "原始任务说明", target),
+        ],
+        counterexample=f"{code} 的讲授单元为 {teach}，焦点单元为 {content.focus_unit_id}",
+        impact="焦点单元与交接说明、目标分配相互矛盾，单元级工作的对象不明",
+        recheck="核对焦点单元与交接说明",
+    )
+
+
 def program_review(candidate: GradeCandidate) -> ProgramReview:
     recorder = _Recorder(candidate)
+    _focus(recorder)
     _coverage(recorder)
     _sequence(recorder)
     _time(recorder)

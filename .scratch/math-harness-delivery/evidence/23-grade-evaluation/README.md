@@ -2,12 +2,13 @@
 
 日期：2026-09-17。对应 [ticket 23](../../issues/23-year-evaluation-and-check-calibration.md)，实现前基点 `e28c3d3721e304782c7f167f1fda3ddf14a8c6c1`，第一阶段提交 `68a57af`。本报告的所有评分、裁定与检出统计都是**模型辅助结果**，没有数学或课程专业评阅者参与校准，不能当作检查器可靠或课程质量通过的证明。
 
-评价配置共三个版本：
+评价配置的版本：
 
 - [v1](config-v1.json)：只有整体评阅，保留集由规则作者设计。
 - [v2](config-v2.json)：加入专项检查，让已确认发现限制评分，并由子代理盲设第二版保留集。
 - [v3](config-v3.json)：v2 冻结后、查看第二版保留集任何模型结果之前，按代码审查修正了程序部分。
-- [v3.1](config-v3.1.json)、[v3.2](config.json)（当前）：冻结文件与 v3 相同，追加 DeepSeek 评阅者 rd 作跨模型对照，v3.2 补记它的输出上限与补跑方式。
+- [v3.1](config-v3.1.json)、[v3.2](config-v3.2.json)：冻结文件与 v3 相同，追加 DeepSeek 评阅者 rd 作跨模型对照，v3.2 补记它的输出上限与补跑方式。
+- [v4](config.json)（当前）：修正下文“缺口与处理”中属于代码和规则的各项；评阅者改为 Gemini r1 与 DeepSeek rd，专项检查重复 3 次取共识；第二版保留集转为开发样本。v4 冻结后尚未在其下运行任何模型，下文的检出与评分数字都来自 v3／v3.2。
 
 ## 结论
 
@@ -21,11 +22,12 @@
 
 - **对 24 的含义**：检查器用来发现问题、推动回修；放行只依据程序核对的事实和经人工确认的判断，不依据模型分数。
 - **仍在 23 内的下一步**：
-  1. 请人工判定两模型的分歧与严重度；
-  2. 修正下文“尚未解决的缺口”；
-  3. 评阅改为 Gemini 与 DeepSeek 各一位；
-  4. 专项检查重复运行、取共识；
-  5. 用第三版盲设保留集复验。
+  1. 人工判定（进行中，判定表第 2 版已发出）；
+  2. 修正下文“缺口与处理”中属于代码和规则的各项（v4 已完成，未经真实运行）；
+  3. 评阅改为 Gemini 与 DeepSeek 各一位（v4 已配置）；
+  4. 专项检查重复运行、取共识（v4 已具备机制，未实测）；
+  5. 在 v4 下重跑开发样本的专项检查、裁定与修订闭环；
+  6. 用第三版盲设保留集复验。
 - **次要结果**：
   - 调试集与第一版保留集已用于调整规则，只说明拟合程度。v3 的组合检出人工核对为 9/14 和 4/5，第一阶段只靠整体评阅时为 6/14 和 4/5。
   - 同一规则文本的两次探查核查中，“斜率说成个体因果”“雨水模型无上界”各检出一次、漏掉一次。
@@ -44,9 +46,10 @@
 | 校准样本、检出统计（一条发现只计一个问题）、输入隔离 | `calibration.py` |
 | 整体评阅、补交、裁定 | `review.py`，规则 [grade-review.md](../../../../src/teaching_harness/resources/grade-review.md) |
 | 发现核实与修订 | `revision.py`，规则 [grade-revision.md](../../../../src/teaching_harness/resources/grade-revision.md) |
-| 评价用模型：Gemini 与 DeepSeek（思考模式下改由模型自行调用结构化结果工具，未提交时报出原因） | `models.py` |
-| 本地命令（`review --model` 选模型，`--retry-failed` 只补跑失败的维度组） | `scripts/evaluate_grade.py`（`cli.py`） |
-| 冻结配置 | 当前 [v3.2](config.json)（由 [draft-v3.2](config-draft-v3.2.json) 冻结）；[v3.1](config-v3.1.json)、[v3](config-v3.json)、[v2](config-v2.json)、[v1](config-v1.json) |
+| 评价用模型：Gemini 与 DeepSeek（思考模式下改由模型自行调用结构化结果工具，失败时给出结束原因） | `models.py` |
+| 本地命令（`review --model` 选模型，`--retry-failed` 只补跑失败的维度组，`stages --repeat` 重复运行取共识） | `scripts/evaluate_grade.py`（`cli.py`） |
+| 冻结配置 | 当前 [v4](config.json)（由 [draft-v4](config-draft-v4.json) 冻结）；[v3.2](config-v3.2.json)、[v3.1](config-v3.1.json)、[v3](config-v3.json)、[v2](config-v2.json)、[v1](config-v1.json) |
+| 人工判定 | [计划与事先固定的使用标准](human-review/plan.md)、[判定表第 2 版](human-review/judgment-form-v2.xlsx)、[生成脚本](human-review/build_form.py) |
 | 样本与答案 | [调试集](samples/debug.json)、[调试答案](samples/debug-answers.json)、[第一版保留集](holdout/)、[第二版保留集](holdout-2/)与 [答案核对](holdout-2-answer-review.md) |
 | 结果 | [results/](results/)（[结果表](results/report-tables.md)）；原始模型消息只在本机 `work/grade-evaluation/transcripts/` |
 
@@ -183,11 +186,14 @@ Gemini 同样开着思考模式，工具调用由调用方强制。两家都自�
 | 冻结前 calibrate 输出了第二版保留集的程序检查汇总 | 见“校准样本”；calibrate 与程序检查此后跳过未冻结的保留集 |
 | v2 冻结后代码审查发现冲突维度仍参与比较、重大发现不触发整体标记等问题 | 在查看第二版保留集任何模型结果之前修正，冻结为 v3，见下文 |
 | 归档 v2 裁定时，裁定与汇总文件同名，复制到同一目录后互相覆盖 | v2 下终稿 2 维、初稿 5 维的那次裁定只保留了分数（见上文），用量未保留；对应原始消息也被 v3 裁定覆盖 |
-| v3 下初稿 Q6 裁定引文含字面 `\n`，补交后仍不符原文 | 该维判为引用失效，初稿不出总分。当时以“会与 `\neq` 冲突”为由没有放宽匹配；其实可以先按原样匹配、失败再当作换行，列为尚未解决的缺口 |
+| v3 下初稿 Q6 裁定引文含字面 `\n`，补交后仍不符原文 | 该维判为引用失效，初稿不出总分。当时以“会与 `\neq` 冲突”为由没有放宽匹配；其实可以先按原样匹配、失败再当作换行；v4 已按此修正 |
 | 曾计划用 Codex CLI 作为另一位跨模型评阅者 | 冒烟测试进行中按用户决定停用，没有结果文件，运行器代码已删除；中止前的调用消耗了少量 ChatGPT 额度，未计量 |
 | DeepSeek 首次冒烟测试报 `Thinking mode does not support this tool_choice` | 加适配层，改由模型自行调用工具后通过 |
 | 冒烟测试只覆盖了终稿的 Q1 组；正式运行前，失败原因不落记录、日志不实时写出、没有只补跑失败组的办法 | 这些都是边跑边补的。首轮 60 次调用中 22 次因思考用尽 32,768 的输出上限而没有提交结果，按 131,072 补跑后 21 次成功；此后以正式设置覆盖全部维度组的冒烟测试、失败诊断、只补跑失败组和费用预估，作为正式运行的前提 |
 | h2-11 的 Q3/Q5/Q6 组按新上限补跑仍失败（运行 410 秒，未到上限） | 失败调用不保存原始消息，原因无法确认。之后在适配层加了诊断，这一组再次补跑成功，所以没有留下失败信息 |
+| 第 1 版人工判定表破坏盲设：C 页混入 3 条注入问题的模型意见，说明页暴露了哪些样本是合法对照，个别陈述带严重度措辞 | 由规格轴审查发现，未填写即停用；第 2 版加入对照、打乱顺序、放宽排除条件并隐去严重度措辞，见 [计划](human-review/plan.md) |
+| v4 的第一版调用记录在适配层内部报错，收不到那条回复，失败用量仍记为 0 且标为完整 | 由双轴代码审查发现；改为适配层不在调用内部报错，失败后从记下的回复给出原因，没有回复时用量标为不完整 |
+| 为 v4 修改程序检查后、冻结之前，`program.json` 已按新代码重算 | v3 的程序检查结果保存在提交 `8391ea8` 中；上文 v3 的表格以那一版为准 |
 | 终稿的 rd 评阅在 `models.py` 改为新上限之后才开始 | 终稿四组用的是 131,072，第二版保留集首轮用的是 32,768；首轮成功的调用都没有碰到旧上限 |
 
 ## 第二版保留集（v3）结果
@@ -267,7 +273,7 @@ rd 只在第二版保留集和 15 终稿上运行。它是在 v3 结果已知后
 - **15 终稿**：两位评阅者八维一致，原始加权 95。已确认发现使 Q4、Q5 进入冲突，r3 读取双方原始评分、引用与已确认发现后逐条维持，定为 2 分。裁定后加权 82.5，无重大问题标记。
 - **15 初稿**：
   - Q7 两位都判重大失败（0 分），Q4 都给 2 分；Q2、Q3、Q5、Q6、Q8 有分差，Q5 另因已确认发现进入冲突。
-  - r3 裁定 Q2、Q3、Q4、Q5、Q6、Q8 分别为 3、3、2、2、3、4。其中 Q4 把探查核查的“统计探查无数据”重大发现记为驳回，理由是它只该算关键缺口；现有格式不能表达降级，列为尚未解决的缺口。
+  - r3 裁定 Q2、Q3、Q4、Q5、Q6、Q8 分别为 3、3、2、2、3、4。其中 Q4 把探查核查的“统计探查无数据”重大发现记为驳回，理由是它只该算关键缺口；v3 的格式不能表达降级；v4 已允许裁定调整严重度，尚未重新裁定。
   - Q6 裁定引文失效，该维判为引用失效，因此不出总分；重大问题标记成立。
 - **比较（终稿对初稿）**：初稿有已确认重大失败，判为“对应范围不合格”。冲突维度与引用失效的维度不参与逐维比较。
 
@@ -322,48 +328,46 @@ v1 下的裁定（初稿加权 71.25）与 v2 下的裁定（终稿 82.5、初�
 | DeepSeek 接入测试、冒烟测试与失败重现（5 次） | 约 38 万 token（冒烟 112,434；重现 47,378、62,656、151,563；接入测试约 2,000） |
 | Codex 格式探查与中止的冒烟测试 | 探查 15,567 token；冒烟测试未计量，消耗 ChatGPT 额度 |
 
-保存下来的成功调用都带有供应商用量。失败调用的用量、缓存命中数目前不进入结果文件，见“尚未解决的缺口”。
+保存下来的成功调用都带有供应商用量。v3.2 及以前，失败调用的用量与缓存命中数不进入结果文件；v4 已补记，见“缺口与处理”。
 
-## 尚未解决的缺口
+## 缺口与处理
 
-以下缺口都属于 23，不交给 24。
+以下缺口都属于 23，不交给 24。“v4 已修正”指代码与规则已改并有单元测试，尚未在真实运行中验证。
 
-| 类别 | 缺口 | 影响 |
-| --- | --- | --- |
-| 判定 | 严重度与评分没有人工校准，两模型分歧时无从判断 | 分数和严重度不能用于放行或比较 |
-| 判定 | 裁定只能维持或驳回，不能调整严重度 | 初稿“统计探查无数据”被整条驳回 |
-| 判定 | 专项检查与模型评阅每项只跑一次，波动没有测量，也没有取共识 | 同一输入时检出时漏 |
-| 程序检查 | 没有“焦点单元须承担请求点名目标”的规则；实践整项缺失只判为关键缺口 | h2i-10 漏检；MP7 缺失的严重度偏低 |
-| 程序检查 | 不计算完全超出数据范围的外推（代入值、整段超出的区间） | 依赖模型自行发现 |
-| 证据 | 引文中的字面 `\n` 不能匹配原文中的换行 | 初稿 Q6 判为无效 |
-| 记录 | 失败调用的用量与原始消息不保存；用量不含缓存命中；单次调用的输出上限不逐次记录 | 约 140 万 token 只能估算；h2-11 失败原因不明 |
-| 输入 | 输入包把变化的候选放在固定的标准原文之前 | 跨样本缓存命中低 |
-| 术语 | 两份专项规则中“全年”作课程层级的旧用法 | 与术语约定不符 |
-| 验证 | 第二版保留集已被查看，这些修正需要第三版盲设保留集复验；现有保留集只有 10 个问题、4 个对照，只跑一次 | 检出率的不确定性大 |
-
-以上修正需要改动被冻结的代码或规则，完成后另建配置版本，并重评受影响的部分。
+| 类别 | 缺口 | 影响 | 状态 |
+| --- | --- | --- | --- |
+| 判定 | 严重度与评分没有人工校准，两模型分歧时无从判断 | 分数和严重度不能用于放行或比较 | 进行中：[人工判定计划](human-review/plan.md)与第 2 版判定表已发出；另有一个无上下文的 Claude 子代理盲判，结果封存 |
+| 判定 | 裁定只能维持或驳回，不能调整严重度 | 初稿“统计探查无数据”被整条驳回 | v4 已修正：维持时可按原文调整专项检查发现的严重度；程序检查的结构事实不可驳回、不可调整 |
+| 判定 | 专项检查每项只跑一次，波动没有测量，也没有取共识 | 同一输入时检出时漏 | v4 已具备机制：`stages --repeat N` 按对齐位置取多数共识，只有多数成功运行都报出的发现才限制评分；波动尚未实测 |
+| 程序检查 | 没有焦点单元规则；实践整项缺失只判为关键缺口 | h2i-10 漏检；MP7 缺失的严重度偏低 | v4 已修正：焦点单元须讲授任务说明中唯一点名的目标（过渡做法）；实践整项缺失判为重大失败。两项都在看过第二版保留集后设计，焦点规则的措辞也受答案影响 |
+| 程序检查 | 不计算完全超出数据范围的外推 | 依赖模型自行发现 | v4 已修正：文中代入的值、带变量的区间与同一变量的数据列比较；不带变量且与数据不重叠的区间仍不比较 |
+| 证据 | 引文中的字面 `\n` 不能匹配原文中的换行 | 初稿 Q6 判为无效 | v4 已修正：原样比对不上时，把后面不跟字母的 `\n` 当作换行再比对一次 |
+| 记录 | 失败调用的用量与原始消息不保存；用量不含缓存命中；输出上限不逐次记录；裁定会覆盖旧结果 | 约 140 万 token 只能估算；h2-11 失败原因不明；v2 裁定的用量丢失 | v4 已修正：调用记录器在失败时保留每轮输入、回复、用量与结束原因；用量含缓存命中；运行记录写入输出上限；旧裁定移入 `adjudications/history/`；原始消息按配置版本分目录，补跑另存 |
+| 输入 | 输入包把变化的候选放在固定的标准原文之前 | 跨样本缓存命中低 | v4 已修正：整体评阅、承诺抽取与探查核查都把固定内容放在前面 |
+| 术语 | 两份专项规则中“全年”作课程层级的旧用法 | 与术语约定不符 | v4 已修正：改为“年级课程总叙述”“年级层字段” |
+| 验证 | 第二版保留集已被查看；现有保留集只有 10 个问题、4 个对照，只跑一次 | 检出率的不确定性大 | 待做：第三版盲设保留集 |
 
 ## 怎样重跑与核对
 
-需要 `uv sync --frozen`，并在 `.env` 中配置 `GEMINI_API_KEY`；跨模型对照还需要 `DEEPSEEK_API_KEY`。程序检查、索引、汇总、核验、承诺重判与报告不调用模型；`review`、`stages`、`adjudicate`、`revise` 调用 Gemini 并产生费用。LangSmith 不需要在线。
+需要 `uv sync --frozen`，并在 `.env` 中配置 `GEMINI_API_KEY`；跨模型对照还需要 `DEEPSEEK_API_KEY`。程序检查、索引、汇总、核验、承诺重判与报告不调用模型；`review`、`stages`、`adjudicate`、`revise` 调用 Gemini（rd 调用 DeepSeek）并产生费用。LangSmith 不需要在线。
 
 ```bash
 uv run python .scratch/math-harness-delivery/evidence/23-grade-evaluation/im_snapshot.py
 uv run python scripts/evaluate_grade.py materialize
 uv run python scripts/evaluate_grade.py program
 uv run python scripts/evaluate_grade.py index
-uv run python scripts/evaluate_grade.py freeze --draft config-draft-v3.2.json --holdout-sets holdout-v2
+uv run python scripts/evaluate_grade.py freeze --draft config-draft-v4.json --holdout-sets ""
 uv run python scripts/evaluate_grade.py review --reviewer r1 --split all
 uv run python scripts/evaluate_grade.py review --reviewer r2 --split all
 uv run python scripts/evaluate_grade.py review --reviewer rd --model deepseek-flash --split holdout-v2
 uv run python scripts/evaluate_grade.py review --reviewer rd --model deepseek-flash --split holdout-v2 --retry-failed
 uv run python scripts/evaluate_grade.py review --reviewer rd --model deepseek-flash --split all --only b-final
-uv run python scripts/evaluate_grade.py stages --stage all --split all
+uv run python scripts/evaluate_grade.py stages --stage all --split all --repeat 3
 uv run python scripts/evaluate_grade.py stages --split all --recheck
 uv run python scripts/evaluate_grade.py calibrate
 uv run python scripts/evaluate_grade.py adjudicate --candidate b-final
 uv run python scripts/evaluate_grade.py adjudicate --candidate d-known-initial
-uv run python scripts/evaluate_grade.py summarize --candidates b-final,d-known-initial
+uv run python scripts/evaluate_grade.py summarize --candidates b-final,d-known-initial --reviewers r1,r2
 uv run python scripts/evaluate_grade.py revise --candidate b-final --reviewer r1 --finding model:r1:b-final:q8:1
 uv run python scripts/evaluate_grade.py revise --candidate b-final --reviewer constructed --finding human:constructed:b-final:q7:stale-resource --finding-file .scratch/math-harness-delivery/evidence/23-grade-evaluation/results/revision/constructed-stale-resource.json
 uv run python scripts/evaluate_grade.py verify
@@ -373,7 +377,9 @@ uv run python scripts/evaluate_grade.py report
 
 说明：
 
-- `freeze` 会重写当前配置，只在建立新配置版本时运行；旧版本另存为 `config-v1.json` 至 `config-v3.1.json`。
+- `freeze` 会重写当前配置，只在建立新配置版本时运行；旧版本另存为 `config-v1.json` 至 `config-v3.2.json`。
+- v4 起 `summarize`、`adjudicate` 默认使用 r1 与 rd；上面的 v3 结果用 `--reviewers r1,r2` 复算。
+- v4 下尚未运行任何模型。正式运行前，先以正式设置做覆盖全部维度组的冒烟测试，记录失败诊断，估算费用与时间，经确认后再运行。
 - 已有结果会被跳过；`stages --force` 重跑模型，`stages --recheck` 只按已保存的承诺抽取重新判定。`revise` 已有结果时只按保存的复查重算发现状态。
 - 冻结内容改变后，保留样本评阅、专项检查、裁定和修订都会被拒绝，必须另建配置版本。
 - 第二版保留集的整体评阅、承诺抽取与表述核查在 v2 代码下运行。v2 到 v3 的代码差异不改变这些调用的模型输入：
