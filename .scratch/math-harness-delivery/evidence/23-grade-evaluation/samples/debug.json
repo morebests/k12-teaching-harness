@@ -1,0 +1,204 @@
+[
+  {
+    "id": "b-final",
+    "split": "debug",
+    "kind": "base",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [],
+    "note": "15 全年蓝图终稿"
+  },
+  {
+    "id": "d-known-initial",
+    "split": "debug",
+    "kind": "known_miss",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/initial/content/curriculum.json",
+    "base_fingerprint": "e51dbe6c2d3542beb38b3ada41488a62265fb2cf9825ea6e1239639249be3574",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/initial/knowledge.json",
+    "mutations": [],
+    "note": "15 全年蓝图初稿"
+  },
+  {
+    "id": "d-known-revision",
+    "split": "debug",
+    "kind": "known_miss",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/revision/content/curriculum.json",
+    "base_fingerprint": "946219fb684a8bb1ceaeaf29140619d3ad818c6a32fd94d7c20be31a8bbc9fcc",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/revision/knowledge.json",
+    "mutations": [],
+    "note": "15 全年蓝图修订稿"
+  },
+  {
+    "id": "d-assess-early",
+    "split": "debug",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "add",
+        "path": "/goals/25/allocations/-",
+        "value": {
+          "unit_id": "unit_2_linear_eq",
+          "role": "assess",
+          "opportunity": "单元结业测试中加入坐标平面两点距离计算题。",
+          "evidence": "考查学生用勾股定理求坐标平面上两点之间的距离。"
+        },
+        "from_path": "",
+        "old": "",
+        "new": ""
+      }
+    ],
+    "note": "终稿副本 D1"
+  },
+  {
+    "id": "d-time-sum",
+    "split": "debug",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace",
+        "path": "/units/0/lesson_count",
+        "value": 32,
+        "from_path": "",
+        "old": "",
+        "new": ""
+      }
+    ],
+    "note": "终稿副本 D2"
+  },
+  {
+    "id": "d-opportunity-empty",
+    "split": "debug",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace",
+        "path": "/goals/13/allocations/0/opportunity",
+        "value": "在本单元中涉及该标准的相关内容。",
+        "from_path": "",
+        "old": "",
+        "new": ""
+      },
+      {
+        "op": "replace",
+        "path": "/goals/13/allocations/0/evidence",
+        "value": "在单元测试中考查。",
+        "from_path": "",
+        "old": "",
+        "new": ""
+      },
+      {
+        "op": "replace_text",
+        "path": "/units/2/narrative",
+        "value": null,
+        "from_path": "",
+        "old": "，通过对比线性函数与非线性函数（如面积二次增长），牢固掌握 y = mx + b 的线性特征",
+        "new": "，牢固掌握 y = mx + b 的线性特征"
+      }
+    ],
+    "note": "终稿副本 D3"
+  },
+  {
+    "id": "d-control-renumber",
+    "split": "debug",
+    "kind": "control",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "rename",
+        "path": "",
+        "value": null,
+        "from_path": "",
+        "old": "unit_1_geom_transform",
+        "new": "u01"
+      },
+      {
+        "op": "rename",
+        "path": "",
+        "value": null,
+        "from_path": "",
+        "old": "unit_2_linear_eq",
+        "new": "u02"
+      },
+      {
+        "op": "rename",
+        "path": "",
+        "value": null,
+        "from_path": "",
+        "old": "unit_3_linear_functions",
+        "new": "u03"
+      },
+      {
+        "op": "rename",
+        "path": "",
+        "value": null,
+        "from_path": "",
+        "old": "unit_4_linear_systems",
+        "new": "u04"
+      },
+      {
+        "op": "rename",
+        "path": "",
+        "value": null,
+        "from_path": "",
+        "old": "unit_5_real_numbers_pythagoras",
+        "new": "u05"
+      },
+      {
+        "op": "rename",
+        "path": "",
+        "value": null,
+        "from_path": "",
+        "old": "unit_6_exponents_sci_notation",
+        "new": "u06"
+      },
+      {
+        "op": "rename",
+        "path": "",
+        "value": null,
+        "from_path": "",
+        "old": "unit_7_volume_3d",
+        "new": "u07"
+      },
+      {
+        "op": "rename",
+        "path": "",
+        "value": null,
+        "from_path": "",
+        "old": "unit_8_bivariate_stats",
+        "new": "u08"
+      }
+    ],
+    "note": "终稿副本 D4"
+  },
+  {
+    "id": "d-control-resource",
+    "split": "debug",
+    "kind": "control",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace_text",
+        "path": "/units/4/assessment_plan",
+        "value": null,
+        "from_path": "",
+        "old": "课内通过几何拼图与代数展开检查勾股定理证明",
+        "new": "课内通过在方格纸上画出的面积拼合图与代数展开检查勾股定理证明"
+      }
+    ],
+    "note": "终稿副本 D5"
+  }
+]

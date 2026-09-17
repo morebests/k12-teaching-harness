@@ -1,0 +1,3394 @@
+{
+  "$defs": {
+    "Adjudication": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "candidate_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "content_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Fingerprint",
+          "type": "string"
+        },
+        "criterion_id": {
+          "enum": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "title": "Criterion Id",
+          "type": "string"
+        },
+        "original_ratings": {
+          "items": {
+            "$ref": "#/$defs/OriginalRating"
+          },
+          "minItems": 2,
+          "title": "Original Ratings",
+          "type": "array"
+        },
+        "triggers": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Triggers",
+          "type": "array"
+        },
+        "method": {
+          "enum": [
+            "joint_review",
+            "independent_adjudicator"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "adjudicator_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Adjudicator Id",
+          "type": "string"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 4,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score"
+        },
+        "interval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScoreInterval"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "critical_failure": {
+          "title": "Critical Failure",
+          "type": "boolean"
+        },
+        "supporting_evidence": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Supporting Evidence",
+          "type": "array"
+        },
+        "needs_more_reading": {
+          "default": "",
+          "title": "Needs More Reading",
+          "type": "string"
+        },
+        "rationale": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "candidate_id",
+        "content_fingerprint",
+        "criterion_id",
+        "original_ratings",
+        "triggers",
+        "method",
+        "adjudicator_id",
+        "score",
+        "critical_failure",
+        "supporting_evidence",
+        "rationale"
+      ],
+      "title": "Adjudication",
+      "type": "object"
+    },
+    "AdjudicationCall": {
+      "additionalProperties": false,
+      "properties": {
+        "criterion": {
+          "enum": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "title": "Criterion",
+          "type": "string"
+        },
+        "input_tokens": {
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "total_tokens": {
+          "title": "Total Tokens",
+          "type": "integer"
+        },
+        "usage_complete": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Usage Complete"
+        },
+        "repairs": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Repairs"
+        }
+      },
+      "required": [
+        "criterion",
+        "input_tokens",
+        "output_tokens",
+        "total_tokens"
+      ],
+      "title": "AdjudicationCall",
+      "type": "object"
+    },
+    "AdjudicationRun": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "adjudicator": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Adjudicator",
+          "type": "string"
+        },
+        "rules_fingerprint": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rules Fingerprint"
+        },
+        "adjudications": {
+          "items": {
+            "$ref": "#/$defs/Adjudication"
+          },
+          "title": "Adjudications",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRecord"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "problems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Problems",
+          "type": "array"
+        },
+        "usage": {
+          "items": {
+            "$ref": "#/$defs/AdjudicationCall"
+          },
+          "title": "Usage",
+          "type": "array"
+        }
+      },
+      "required": [
+        "adjudicator",
+        "adjudications",
+        "evidence",
+        "problems",
+        "usage"
+      ],
+      "title": "AdjudicationRun",
+      "type": "object"
+    },
+    "Agreement": {
+      "additionalProperties": false,
+      "properties": {
+        "pairs": {
+          "title": "Pairs",
+          "type": "integer"
+        },
+        "exact": {
+          "title": "Exact",
+          "type": "integer"
+        },
+        "differ_by_1": {
+          "title": "Differ By 1",
+          "type": "integer"
+        },
+        "differ_by_2_or_more": {
+          "title": "Differ By 2 Or More",
+          "type": "integer"
+        },
+        "critical_disagreements": {
+          "title": "Critical Disagreements",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "pairs",
+        "exact",
+        "differ_by_1",
+        "differ_by_2_or_more",
+        "critical_disagreements"
+      ],
+      "title": "Agreement",
+      "type": "object"
+    },
+    "CalibrationReport": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "program": {
+          "items": {
+            "$ref": "#/$defs/DetectionMetrics"
+          },
+          "title": "Program",
+          "type": "array"
+        },
+        "model": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/DetectionMetrics"
+            },
+            "type": "array"
+          },
+          "title": "Model",
+          "type": "object"
+        },
+        "per_sample": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "$ref": "#/$defs/DetectionMetrics"
+            },
+            "type": "object"
+          },
+          "title": "Per Sample",
+          "type": "object"
+        },
+        "labels": {
+          "additionalProperties": {
+            "$ref": "#/$defs/ReviewerLabels"
+          },
+          "title": "Labels",
+          "type": "object"
+        },
+        "agreement": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Agreement"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "program",
+        "model",
+        "per_sample",
+        "labels",
+        "agreement"
+      ],
+      "title": "CalibrationReport",
+      "type": "object"
+    },
+    "CallRecord": {
+      "additionalProperties": false,
+      "description": "一个维度组的一次评阅调用，含同一会话内的补交。",
+      "properties": {
+        "criteria": {
+          "items": {
+            "enum": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4",
+              "Q5",
+              "Q6",
+              "Q7",
+              "Q8"
+            ],
+            "type": "string"
+          },
+          "title": "Criteria",
+          "type": "array"
+        },
+        "seconds": {
+          "title": "Seconds",
+          "type": "number"
+        },
+        "usage": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "integer"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Usage"
+        },
+        "usage_complete": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Usage Complete"
+        },
+        "repairs": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Repairs"
+        },
+        "first_attempt_rejected_citations": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "First Attempt Rejected Citations"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error"
+        }
+      },
+      "required": [
+        "criteria",
+        "seconds",
+        "usage",
+        "error"
+      ],
+      "title": "CallRecord",
+      "type": "object"
+    },
+    "Comparison": {
+      "additionalProperties": false,
+      "properties": {
+        "a_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "A Id",
+          "type": "string"
+        },
+        "b_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "B Id",
+          "type": "string"
+        },
+        "rubric_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Rubric Fingerprint",
+          "type": "string"
+        },
+        "dimensions": {
+          "items": {
+            "$ref": "#/$defs/DimensionComparison"
+          },
+          "title": "Dimensions",
+          "type": "array"
+        },
+        "verdict": {
+          "title": "Verdict",
+          "type": "string"
+        },
+        "winner": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Winner"
+        },
+        "failing": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Failing",
+          "type": "array"
+        },
+        "weighted": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "number"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Weighted"
+        },
+        "weighted_direction": {
+          "anyOf": [
+            {
+              "enum": [
+                "a",
+                "b",
+                "tie"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Weighted Direction"
+        },
+        "equal_weight_direction": {
+          "anyOf": [
+            {
+              "enum": [
+                "a",
+                "b",
+                "tie"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Equal Weight Direction"
+        },
+        "weight_change_flips": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Weight Change Flips"
+        },
+        "reviewer_direction_conflicts": {
+          "items": {
+            "enum": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4",
+              "Q5",
+              "Q6",
+              "Q7",
+              "Q8"
+            ],
+            "type": "string"
+          },
+          "title": "Reviewer Direction Conflicts",
+          "type": "array"
+        },
+        "notes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Notes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "a_id",
+        "b_id",
+        "rubric_fingerprint",
+        "dimensions",
+        "verdict",
+        "winner",
+        "failing",
+        "weighted",
+        "weighted_direction",
+        "equal_weight_direction",
+        "weight_change_flips",
+        "reviewer_direction_conflicts",
+        "notes"
+      ],
+      "title": "Comparison",
+      "type": "object"
+    },
+    "ConstructedFinding": {
+      "additionalProperties": false,
+      "description": "人工构造的发现，例如用来检验误报能否被原文驳回。",
+      "properties": {
+        "note": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Note",
+          "type": "string"
+        },
+        "finding": {
+          "$ref": "#/$defs/EvaluationFinding"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRecord"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "note",
+        "finding",
+        "evidence"
+      ],
+      "title": "ConstructedFinding",
+      "type": "object"
+    },
+    "Coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "expected": {
+          "items": {
+            "$ref": "#/$defs/ObjectRef"
+          },
+          "minItems": 1,
+          "title": "Expected",
+          "type": "array"
+        },
+        "note": {
+          "default": "",
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "expected"
+      ],
+      "title": "Coverage",
+      "type": "object"
+    },
+    "CriterionRating": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "content_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Fingerprint",
+          "type": "string"
+        },
+        "criterion_id": {
+          "enum": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "title": "Criterion Id",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Reviewer Id",
+          "type": "string"
+        },
+        "rubric_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Rubric Fingerprint",
+          "type": "string"
+        },
+        "rules_fingerprint": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rules Fingerprint"
+        },
+        "observability": {
+          "enum": [
+            "observable",
+            "partial",
+            "unobservable"
+          ],
+          "title": "Observability",
+          "type": "string"
+        },
+        "comparability": {
+          "enum": [
+            "comparable",
+            "not_comparable",
+            "single_candidate"
+          ],
+          "title": "Comparability",
+          "type": "string"
+        },
+        "reviewed_scope": {
+          "$ref": "#/$defs/Coverage"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 4,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score"
+        },
+        "interval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScoreInterval"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "evidence_refs": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "strengths": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Strengths",
+          "type": "array"
+        },
+        "findings": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "critical_failure": {
+          "title": "Critical Failure",
+          "type": "boolean"
+        },
+        "critical_failure_reason": {
+          "default": "",
+          "title": "Critical Failure Reason",
+          "type": "string"
+        },
+        "object_checks": {
+          "items": {
+            "$ref": "#/$defs/ObjectCheck"
+          },
+          "title": "Object Checks",
+          "type": "array"
+        },
+        "score_rationale": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Score Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "content_fingerprint",
+        "criterion_id",
+        "reviewer_id",
+        "rubric_fingerprint",
+        "observability",
+        "comparability",
+        "reviewed_scope",
+        "score",
+        "critical_failure",
+        "object_checks",
+        "score_rationale"
+      ],
+      "title": "CriterionRating",
+      "type": "object"
+    },
+    "CriterionResult": {
+      "additionalProperties": false,
+      "properties": {
+        "criterion_id": {
+          "enum": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "title": "Criterion Id",
+          "type": "string"
+        },
+        "weight": {
+          "title": "Weight",
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "settled",
+            "unresolved",
+            "unobservable",
+            "not_comparable",
+            "missing",
+            "single_review",
+            "invalid"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 4,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score"
+        },
+        "interval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScoreInterval"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "critical_failure": {
+          "default": false,
+          "title": "Critical Failure",
+          "type": "boolean"
+        },
+        "originals": {
+          "items": {
+            "$ref": "#/$defs/OriginalRating"
+          },
+          "title": "Originals",
+          "type": "array"
+        },
+        "adjudication_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Adjudication Id"
+        },
+        "triggers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Triggers",
+          "type": "array"
+        },
+        "problems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Problems",
+          "type": "array"
+        }
+      },
+      "required": [
+        "criterion_id",
+        "weight",
+        "status"
+      ],
+      "title": "CriterionResult",
+      "type": "object"
+    },
+    "DetectionMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "origin": {
+          "enum": [
+            "program",
+            "model",
+            "human"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "debug",
+            "holdout"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "samples": {
+          "title": "Samples",
+          "type": "integer"
+        },
+        "control_samples": {
+          "title": "Control Samples",
+          "type": "integer"
+        },
+        "expected": {
+          "title": "Expected",
+          "type": "integer"
+        },
+        "detected": {
+          "title": "Detected",
+          "type": "integer"
+        },
+        "location_correct": {
+          "title": "Location Correct",
+          "type": "integer"
+        },
+        "severity_matched": {
+          "title": "Severity Matched",
+          "type": "integer"
+        },
+        "missed": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Missed",
+          "type": "array"
+        },
+        "critical_missed": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Critical Missed",
+          "type": "array"
+        },
+        "false_positives": {
+          "items": {
+            "type": "string"
+          },
+          "title": "False Positives",
+          "type": "array"
+        },
+        "other_findings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Other Findings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "origin",
+        "split",
+        "samples",
+        "control_samples",
+        "expected",
+        "detected",
+        "location_correct",
+        "severity_matched",
+        "missed",
+        "critical_missed",
+        "false_positives",
+        "other_findings"
+      ],
+      "title": "DetectionMetrics",
+      "type": "object"
+    },
+    "DimensionComparison": {
+      "additionalProperties": false,
+      "properties": {
+        "criterion_id": {
+          "enum": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "title": "Criterion Id",
+          "type": "string"
+        },
+        "judgment": {
+          "enum": [
+            "a_stronger",
+            "b_stronger",
+            "same_score",
+            "no_clear_difference",
+            "undetermined",
+            "not_comparable"
+          ],
+          "title": "Judgment",
+          "type": "string"
+        },
+        "a_status": {
+          "enum": [
+            "settled",
+            "unresolved",
+            "unobservable",
+            "not_comparable",
+            "missing",
+            "single_review",
+            "invalid"
+          ],
+          "title": "A Status",
+          "type": "string"
+        },
+        "b_status": {
+          "enum": [
+            "settled",
+            "unresolved",
+            "unobservable",
+            "not_comparable",
+            "missing",
+            "single_review",
+            "invalid"
+          ],
+          "title": "B Status",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "criterion_id",
+        "judgment",
+        "a_status",
+        "b_status",
+        "reason"
+      ],
+      "title": "DimensionComparison",
+      "type": "object"
+    },
+    "DocumentSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "party": {
+          "enum": [
+            "project",
+            "im",
+            "ccss",
+            "school"
+          ],
+          "title": "Party",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "candidate",
+            "reference",
+            "standard",
+            "condition"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "snapshot": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Snapshot",
+          "type": "string"
+        },
+        "locator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Locator"
+        },
+        "retrieved": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieved"
+        },
+        "access": {
+          "default": "complete",
+          "enum": [
+            "complete",
+            "partial",
+            "unavailable"
+          ],
+          "title": "Access",
+          "type": "string"
+        },
+        "access_note": {
+          "default": "",
+          "title": "Access Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "party",
+        "role",
+        "title",
+        "snapshot"
+      ],
+      "title": "DocumentSpec",
+      "type": "object"
+    },
+    "EvaluationConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "frozen"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "frozen_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Frozen On"
+        },
+        "purpose": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Purpose",
+          "type": "string"
+        },
+        "files": {
+          "additionalProperties": {
+            "$ref": "#/$defs/FileRef"
+          },
+          "description": "rubric、protocol、conditions、rules、manifest、holdout_answers 等冻结内容",
+          "title": "Files",
+          "type": "object"
+        },
+        "rubric_version": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Rubric Version",
+          "type": "string"
+        },
+        "evidence_scope": {
+          "items": {
+            "$ref": "#/$defs/ScopeItem"
+          },
+          "title": "Evidence Scope",
+          "type": "array"
+        },
+        "reference_exposure": {
+          "items": {
+            "$ref": "#/$defs/Exposure"
+          },
+          "title": "Reference Exposure",
+          "type": "array"
+        },
+        "reviewers": {
+          "items": {
+            "$ref": "#/$defs/ReviewerConfig"
+          },
+          "title": "Reviewers",
+          "type": "array"
+        },
+        "adjudicator": {
+          "$ref": "#/$defs/ReviewerConfig"
+        },
+        "debug_samples": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Debug Samples",
+          "type": "array"
+        },
+        "holdout_samples": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Holdout Samples",
+          "type": "array"
+        },
+        "limitations": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "purpose",
+        "files",
+        "rubric_version",
+        "evidence_scope",
+        "reference_exposure",
+        "reviewers",
+        "adjudicator",
+        "debug_samples",
+        "holdout_samples",
+        "limitations"
+      ],
+      "title": "EvaluationConfig",
+      "type": "object"
+    },
+    "EvaluationFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "candidate_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "content_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Fingerprint",
+          "type": "string"
+        },
+        "criterion_id": {
+          "enum": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "title": "Criterion Id",
+          "type": "string"
+        },
+        "object": {
+          "$ref": "#/$defs/ObjectRef"
+        },
+        "origin": {
+          "enum": [
+            "program",
+            "model",
+            "human"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Reviewer Id",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "key_gap",
+            "local"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "claim": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Claim",
+          "type": "string"
+        },
+        "requirement": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Requirement",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "counterexample": {
+          "default": "",
+          "title": "Counterexample",
+          "type": "string"
+        },
+        "impact": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Impact",
+          "type": "string"
+        },
+        "recheck": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Recheck",
+          "type": "string"
+        },
+        "status": {
+          "default": "open",
+          "enum": [
+            "open",
+            "confirmed",
+            "rebutted",
+            "resolved"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "status_note": {
+          "default": "",
+          "title": "Status Note",
+          "type": "string"
+        },
+        "status_evidence_ids": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Status Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "candidate_id",
+        "content_fingerprint",
+        "criterion_id",
+        "object",
+        "origin",
+        "reviewer_id",
+        "severity",
+        "claim",
+        "requirement",
+        "evidence_ids",
+        "impact",
+        "recheck"
+      ],
+      "title": "EvaluationFinding",
+      "type": "object"
+    },
+    "EvidenceIndex": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "attribution": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Attribution",
+          "type": "string"
+        },
+        "documents": {
+          "items": {
+            "$ref": "#/$defs/SourceDocument"
+          },
+          "title": "Documents",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRecord"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/IndexCheck"
+          },
+          "title": "Checks",
+          "type": "array"
+        },
+        "unobservable": {
+          "items": {
+            "$ref": "#/$defs/Unobservable"
+          },
+          "title": "Unobservable",
+          "type": "array"
+        },
+        "problems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Problems",
+          "type": "array"
+        }
+      },
+      "required": [
+        "attribution",
+        "documents",
+        "evidence",
+        "checks",
+        "unobservable",
+        "problems"
+      ],
+      "title": "EvidenceIndex",
+      "type": "object"
+    },
+    "EvidenceRecord": {
+      "additionalProperties": false,
+      "description": "quote 是来源原文，extraction 是不补写的提取；判断写在对象结论或发现中。",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "document_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "document_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Document Fingerprint",
+          "type": "string"
+        },
+        "locator": {
+          "pattern": "^(?:(?:/(?:[^/~]|~[01])*)*|chars:\\d+-\\d+)$",
+          "title": "Locator",
+          "type": "string"
+        },
+        "quote": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "extraction": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Extraction",
+          "type": "string"
+        },
+        "objects": {
+          "items": {
+            "$ref": "#/$defs/ObjectRef"
+          },
+          "title": "Objects",
+          "type": "array"
+        },
+        "recorded_by": {
+          "enum": [
+            "program",
+            "model",
+            "human"
+          ],
+          "title": "Recorded By",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "document_id",
+        "document_fingerprint",
+        "locator",
+        "quote",
+        "extraction",
+        "recorded_by"
+      ],
+      "title": "EvidenceRecord",
+      "type": "object"
+    },
+    "ExpectedIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "criteria": {
+          "items": {
+            "enum": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4",
+              "Q5",
+              "Q6",
+              "Q7",
+              "Q8"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Criteria",
+          "type": "array"
+        },
+        "objects": {
+          "items": {
+            "$ref": "#/$defs/ObjectRef"
+          },
+          "title": "Objects",
+          "type": "array"
+        },
+        "pointers": {
+          "items": {
+            "pattern": "^(?:(?:/(?:[^/~]|~[01])*)*|chars:\\d+-\\d+)$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Pointers",
+          "type": "array"
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "key_gap"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "detectable_by": {
+          "items": {
+            "enum": [
+              "program",
+              "model"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Detectable By",
+          "type": "array"
+        },
+        "description": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "keywords": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Keywords",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "criteria",
+        "pointers",
+        "severity",
+        "detectable_by",
+        "description"
+      ],
+      "title": "ExpectedIssue",
+      "type": "object"
+    },
+    "Exposure": {
+      "additionalProperties": false,
+      "description": "已接触的参考材料及其去向；不能据此声称未接触参考的原创。",
+      "properties": {
+        "material": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Material",
+          "type": "string"
+        },
+        "first_contact": {
+          "format": "date",
+          "title": "First Contact",
+          "type": "string"
+        },
+        "contacted_by": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Contacted By",
+          "type": "string"
+        },
+        "influence": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Influence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "material",
+        "first_contact",
+        "contacted_by",
+        "influence"
+      ],
+      "title": "Exposure",
+      "type": "object"
+    },
+    "ExtractionEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "document": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Document",
+          "type": "string"
+        },
+        "locator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Locator"
+        },
+        "quote": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quote"
+        },
+        "extraction": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Extraction",
+          "type": "string"
+        },
+        "objects": {
+          "items": {
+            "$ref": "#/$defs/ObjectRef"
+          },
+          "title": "Objects",
+          "type": "array"
+        },
+        "spot_check": {
+          "$ref": "#/$defs/SpotCheck"
+        }
+      },
+      "required": [
+        "document",
+        "extraction",
+        "objects",
+        "spot_check"
+      ],
+      "title": "ExtractionEntry",
+      "type": "object"
+    },
+    "ExtractionSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "attribution": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Attribution",
+          "type": "string"
+        },
+        "documents": {
+          "items": {
+            "$ref": "#/$defs/DocumentSpec"
+          },
+          "title": "Documents",
+          "type": "array"
+        },
+        "entries": {
+          "items": {
+            "$ref": "#/$defs/ExtractionEntry"
+          },
+          "title": "Entries",
+          "type": "array"
+        },
+        "unobservable": {
+          "items": {
+            "$ref": "#/$defs/Unobservable"
+          },
+          "title": "Unobservable",
+          "type": "array"
+        }
+      },
+      "required": [
+        "attribution",
+        "documents",
+        "entries",
+        "unobservable"
+      ],
+      "title": "ExtractionSpec",
+      "type": "object"
+    },
+    "FileRef": {
+      "additionalProperties": false,
+      "description": "文件或目录的仓库相对路径与内容指纹；目录按相对路径和各文件字节计算。",
+      "properties": {
+        "path": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Path",
+          "type": "string"
+        },
+        "fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Fingerprint",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "fingerprint"
+      ],
+      "title": "FileRef",
+      "type": "object"
+    },
+    "GradeSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "content_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Fingerprint",
+          "type": "string"
+        },
+        "rubric_version": {
+          "title": "Rubric Version",
+          "type": "string"
+        },
+        "rubric_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Rubric Fingerprint",
+          "type": "string"
+        },
+        "criteria": {
+          "items": {
+            "$ref": "#/$defs/CriterionResult"
+          },
+          "title": "Criteria",
+          "type": "array"
+        },
+        "critical_failure": {
+          "title": "Critical Failure",
+          "type": "boolean"
+        },
+        "weighted_total": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Weighted Total"
+        },
+        "equal_weight_total": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Equal Weight Total"
+        },
+        "total_withheld": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Total Withheld",
+          "type": "array"
+        },
+        "settled_weight": {
+          "title": "Settled Weight",
+          "type": "integer"
+        },
+        "settled_total": {
+          "title": "Settled Total",
+          "type": "number"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "content_fingerprint",
+        "rubric_version",
+        "rubric_fingerprint",
+        "criteria",
+        "critical_failure",
+        "weighted_total",
+        "equal_weight_total",
+        "total_withheld",
+        "settled_weight",
+        "settled_total"
+      ],
+      "title": "GradeSummary",
+      "type": "object"
+    },
+    "ImSource": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "url": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        },
+        "retrieved": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Retrieved",
+          "type": "string"
+        },
+        "snapshot": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Snapshot",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "characters": {
+          "title": "Characters",
+          "type": "integer"
+        },
+        "html_sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Html Sha256",
+          "type": "string"
+        },
+        "sign_in_prompt": {
+          "title": "Sign In Prompt",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "url",
+        "retrieved",
+        "snapshot",
+        "sha256",
+        "characters",
+        "html_sha256",
+        "sign_in_prompt"
+      ],
+      "title": "ImSource",
+      "type": "object"
+    },
+    "IndexCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "document": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Document",
+          "type": "string"
+        },
+        "party": {
+          "title": "Party",
+          "type": "string"
+        },
+        "objects": {
+          "items": {
+            "$ref": "#/$defs/ObjectRef"
+          },
+          "title": "Objects",
+          "type": "array"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "evidence_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Evidence Id"
+        },
+        "spot_check": {
+          "$ref": "#/$defs/SpotCheck"
+        }
+      },
+      "required": [
+        "document",
+        "party",
+        "objects",
+        "status",
+        "spot_check"
+      ],
+      "title": "IndexCheck",
+      "type": "object"
+    },
+    "Mutation": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "enum": [
+            "replace",
+            "add",
+            "remove",
+            "move",
+            "replace_text",
+            "rename"
+          ],
+          "title": "Op",
+          "type": "string"
+        },
+        "path": {
+          "pattern": "^(?:(?:/(?:[^/~]|~[01])*)*|chars:\\d+-\\d+)$",
+          "title": "Path",
+          "type": "string"
+        },
+        "value": {
+          "default": null,
+          "title": "Value"
+        },
+        "from_path": {
+          "default": "",
+          "pattern": "^(?:(?:/(?:[^/~]|~[01])*)*|chars:\\d+-\\d+)$",
+          "title": "From Path",
+          "type": "string"
+        },
+        "old": {
+          "default": "",
+          "title": "Old",
+          "type": "string"
+        },
+        "new": {
+          "default": "",
+          "title": "New",
+          "type": "string"
+        }
+      },
+      "required": [
+        "op",
+        "path"
+      ],
+      "title": "Mutation",
+      "type": "object"
+    },
+    "ObjectCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "object": {
+          "$ref": "#/$defs/ObjectRef"
+        },
+        "status": {
+          "enum": [
+            "supported",
+            "local_gap",
+            "key_gap",
+            "critical",
+            "unverified",
+            "not_applicable"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "note": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "object",
+        "status",
+        "note"
+      ],
+      "title": "ObjectCheck",
+      "type": "object"
+    },
+    "ObjectRef": {
+      "additionalProperties": false,
+      "description": "评价对象：目标、单元、依赖或安排；身份沿用被评材料自己的编号。",
+      "properties": {
+        "kind": {
+          "enum": [
+            "grade",
+            "goal",
+            "practice",
+            "unit",
+            "dependency",
+            "revisit",
+            "assessment",
+            "probe",
+            "time",
+            "resource",
+            "teacher_question"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "id": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "title": "ObjectRef",
+      "type": "object"
+    },
+    "OriginalRating": {
+      "additionalProperties": false,
+      "properties": {
+        "reviewer_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Reviewer Id",
+          "type": "string"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 4,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score"
+        },
+        "interval": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScoreInterval"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "critical_failure": {
+          "title": "Critical Failure",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "reviewer_id",
+        "score",
+        "critical_failure"
+      ],
+      "title": "OriginalRating",
+      "type": "object"
+    },
+    "RecheckRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate": {
+          "enum": [
+            "original",
+            "revised"
+          ],
+          "title": "Candidate",
+          "type": "string"
+        },
+        "same_object_findings": {
+          "items": {
+            "$ref": "#/$defs/EvaluationFinding"
+          },
+          "title": "Same Object Findings",
+          "type": "array"
+        },
+        "review": {
+          "$ref": "#/$defs/ReviewResult"
+        }
+      },
+      "required": [
+        "candidate",
+        "same_object_findings",
+        "review"
+      ],
+      "title": "RecheckRecord",
+      "type": "object"
+    },
+    "RejectedCitation": {
+      "additionalProperties": false,
+      "properties": {
+        "criterion_id": {
+          "title": "Criterion Id",
+          "type": "string"
+        },
+        "object_id": {
+          "title": "Object Id",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "pointer": {
+          "title": "Pointer",
+          "type": "string"
+        },
+        "quote": {
+          "title": "Quote",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "criterion_id",
+        "object_id",
+        "source",
+        "pointer",
+        "quote",
+        "reason"
+      ],
+      "title": "RejectedCitation",
+      "type": "object"
+    },
+    "RejectedFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "criterion_id": {
+          "title": "Criterion Id",
+          "type": "string"
+        },
+        "finding": {
+          "additionalProperties": true,
+          "title": "Finding",
+          "type": "object"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "criterion_id",
+        "finding",
+        "reason"
+      ],
+      "title": "RejectedFinding",
+      "type": "object"
+    },
+    "ReviewResult": {
+      "additionalProperties": false,
+      "properties": {
+        "reviewer_id": {
+          "title": "Reviewer Id",
+          "type": "string"
+        },
+        "candidate_id": {
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "content_fingerprint": {
+          "title": "Content Fingerprint",
+          "type": "string"
+        },
+        "criteria": {
+          "items": {
+            "enum": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4",
+              "Q5",
+              "Q6",
+              "Q7",
+              "Q8"
+            ],
+            "type": "string"
+          },
+          "title": "Criteria",
+          "type": "array"
+        },
+        "ratings": {
+          "items": {
+            "$ref": "#/$defs/CriterionRating"
+          },
+          "title": "Ratings",
+          "type": "array"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/EvaluationFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRecord"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "rejected_citations": {
+          "items": {
+            "$ref": "#/$defs/RejectedCitation"
+          },
+          "title": "Rejected Citations",
+          "type": "array"
+        },
+        "rejected_findings": {
+          "items": {
+            "$ref": "#/$defs/RejectedFinding"
+          },
+          "title": "Rejected Findings",
+          "type": "array"
+        },
+        "problems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Problems",
+          "type": "array"
+        },
+        "usage": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Usage",
+          "type": "object"
+        },
+        "usage_complete": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Usage Complete"
+        },
+        "repairs": {
+          "default": 0,
+          "title": "Repairs",
+          "type": "integer"
+        },
+        "first_attempt_problems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "First Attempt Problems",
+          "type": "array"
+        },
+        "first_attempt_rejected_citations": {
+          "default": 0,
+          "title": "First Attempt Rejected Citations",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "reviewer_id",
+        "candidate_id",
+        "content_fingerprint",
+        "criteria",
+        "ratings",
+        "findings",
+        "evidence",
+        "rejected_citations",
+        "rejected_findings",
+        "problems",
+        "usage"
+      ],
+      "title": "ReviewResult",
+      "type": "object"
+    },
+    "ReviewRun": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "sample_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Sample Id",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Reviewer Id",
+          "type": "string"
+        },
+        "candidate_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "content_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Content Fingerprint",
+          "type": "string"
+        },
+        "model": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Model",
+          "type": "string"
+        },
+        "rules_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Rules Fingerprint",
+          "type": "string"
+        },
+        "criteria": {
+          "items": {
+            "enum": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4",
+              "Q5",
+              "Q6",
+              "Q7",
+              "Q8"
+            ],
+            "type": "string"
+          },
+          "title": "Criteria",
+          "type": "array"
+        },
+        "ratings": {
+          "items": {
+            "$ref": "#/$defs/CriterionRating"
+          },
+          "title": "Ratings",
+          "type": "array"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/EvaluationFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRecord"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "rejected_citations": {
+          "items": {
+            "$ref": "#/$defs/RejectedCitation"
+          },
+          "title": "Rejected Citations",
+          "type": "array"
+        },
+        "rejected_findings": {
+          "items": {
+            "$ref": "#/$defs/RejectedFinding"
+          },
+          "title": "Rejected Findings",
+          "type": "array"
+        },
+        "problems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Problems",
+          "type": "array"
+        },
+        "usage": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Usage",
+          "type": "object"
+        },
+        "calls": {
+          "items": {
+            "$ref": "#/$defs/CallRecord"
+          },
+          "title": "Calls",
+          "type": "array"
+        }
+      },
+      "required": [
+        "sample_id",
+        "reviewer_id",
+        "candidate_id",
+        "content_fingerprint",
+        "model",
+        "rules_fingerprint",
+        "criteria",
+        "ratings",
+        "findings",
+        "evidence",
+        "rejected_citations",
+        "rejected_findings",
+        "problems",
+        "usage",
+        "calls"
+      ],
+      "title": "ReviewRun",
+      "type": "object"
+    },
+    "ReviewerConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "method": {
+          "enum": [
+            "program",
+            "model"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "model": {
+          "default": "",
+          "title": "Model",
+          "type": "string"
+        },
+        "criteria_groups": {
+          "items": {
+            "items": {
+              "enum": [
+                "Q1",
+                "Q2",
+                "Q3",
+                "Q4",
+                "Q5",
+                "Q6",
+                "Q7",
+                "Q8"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Criteria Groups",
+          "type": "array"
+        },
+        "inputs": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Inputs",
+          "type": "array"
+        },
+        "excluded_inputs": {
+          "items": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Excluded Inputs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "method",
+        "inputs",
+        "excluded_inputs"
+      ],
+      "title": "ReviewerConfig",
+      "type": "object"
+    },
+    "ReviewerLabels": {
+      "additionalProperties": false,
+      "properties": {
+        "samples": {
+          "title": "Samples",
+          "type": "integer"
+        },
+        "failed_calls": {
+          "title": "Failed Calls",
+          "type": "integer"
+        },
+        "incomplete_usage_calls": {
+          "title": "Incomplete Usage Calls",
+          "type": "integer"
+        },
+        "findings": {
+          "title": "Findings",
+          "type": "integer"
+        },
+        "rejected_findings": {
+          "title": "Rejected Findings",
+          "type": "integer"
+        },
+        "rejected_citations": {
+          "title": "Rejected Citations",
+          "type": "integer"
+        },
+        "unverified_objects": {
+          "title": "Unverified Objects",
+          "type": "integer"
+        },
+        "unobservable_ratings": {
+          "title": "Unobservable Ratings",
+          "type": "integer"
+        },
+        "problems": {
+          "title": "Problems",
+          "type": "integer"
+        },
+        "repairs": {
+          "title": "Repairs",
+          "type": "integer"
+        },
+        "first_attempt_rejected_citations": {
+          "title": "First Attempt Rejected Citations",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "samples",
+        "failed_calls",
+        "incomplete_usage_calls",
+        "findings",
+        "rejected_findings",
+        "rejected_citations",
+        "unverified_objects",
+        "unobservable_ratings",
+        "problems",
+        "repairs",
+        "first_attempt_rejected_citations"
+      ],
+      "title": "ReviewerLabels",
+      "type": "object"
+    },
+    "RevisionOutcome": {
+      "additionalProperties": false,
+      "properties": {
+        "finding": {
+          "$ref": "#/$defs/EvaluationFinding"
+        },
+        "usage_complete": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Usage Complete"
+        },
+        "verdict": {
+          "enum": [
+            "revise",
+            "rebut"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        },
+        "verification": {
+          "title": "Verification",
+          "type": "string"
+        },
+        "accepted": {
+          "title": "Accepted",
+          "type": "boolean"
+        },
+        "problems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Problems",
+          "type": "array"
+        },
+        "revised_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Revised Path"
+        },
+        "revised_fingerprint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Revised Fingerprint"
+        },
+        "changed_pointers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Changed Pointers",
+          "type": "array"
+        },
+        "unchanged_outside": {
+          "default": false,
+          "title": "Unchanged Outside",
+          "type": "boolean"
+        },
+        "program_findings_after": {
+          "items": {
+            "$ref": "#/$defs/EvaluationFinding"
+          },
+          "title": "Program Findings After",
+          "type": "array"
+        },
+        "rebuttal_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRecord"
+          },
+          "title": "Rebuttal Evidence",
+          "type": "array"
+        },
+        "resolution_evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRecord"
+          },
+          "title": "Resolution Evidence",
+          "type": "array"
+        },
+        "usage": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Usage",
+          "type": "object"
+        },
+        "transcript": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Transcript",
+          "type": "array"
+        }
+      },
+      "required": [
+        "finding",
+        "verdict",
+        "verification",
+        "accepted",
+        "problems",
+        "usage"
+      ],
+      "title": "RevisionOutcome",
+      "type": "object"
+    },
+    "RevisionRun": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "sample_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Sample Id",
+          "type": "string"
+        },
+        "outcome": {
+          "$ref": "#/$defs/RevisionOutcome"
+        },
+        "recheck": {
+          "items": {
+            "$ref": "#/$defs/RecheckRecord"
+          },
+          "title": "Recheck",
+          "type": "array"
+        }
+      },
+      "required": [
+        "sample_id",
+        "outcome"
+      ],
+      "title": "RevisionRun",
+      "type": "object"
+    },
+    "Sample": {
+      "additionalProperties": false,
+      "description": "note 只作中性标签，不写改动意图或答案。",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "debug",
+            "holdout"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "base",
+            "known_miss",
+            "injected",
+            "control"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "base": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Base",
+          "type": "string"
+        },
+        "base_fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Base Fingerprint",
+          "type": "string"
+        },
+        "standards": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Standards",
+          "type": "string"
+        },
+        "mutations": {
+          "items": {
+            "$ref": "#/$defs/Mutation"
+          },
+          "title": "Mutations",
+          "type": "array"
+        },
+        "note": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "split",
+        "kind",
+        "base",
+        "base_fingerprint",
+        "standards",
+        "note"
+      ],
+      "title": "Sample",
+      "type": "object"
+    },
+    "SampleAnswer": {
+      "additionalProperties": false,
+      "properties": {
+        "sample_id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Sample Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "base",
+            "known_miss",
+            "injected",
+            "control"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "expected": {
+          "items": {
+            "$ref": "#/$defs/ExpectedIssue"
+          },
+          "title": "Expected",
+          "type": "array"
+        },
+        "protected_pointers": {
+          "items": {
+            "pattern": "^(?:(?:/(?:[^/~]|~[01])*)*|chars:\\d+-\\d+)$",
+            "type": "string"
+          },
+          "title": "Protected Pointers",
+          "type": "array"
+        },
+        "rationale": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sample_id",
+        "kind",
+        "rationale"
+      ],
+      "title": "SampleAnswer",
+      "type": "object"
+    },
+    "ScopeItem": {
+      "additionalProperties": false,
+      "properties": {
+        "party": {
+          "enum": [
+            "project",
+            "im"
+          ],
+          "title": "Party",
+          "type": "string"
+        },
+        "material": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Material",
+          "type": "string"
+        },
+        "depth": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Depth",
+          "type": "string"
+        },
+        "included": {
+          "title": "Included",
+          "type": "boolean"
+        },
+        "reason": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "party",
+        "material",
+        "depth",
+        "included",
+        "reason"
+      ],
+      "title": "ScopeItem",
+      "type": "object"
+    },
+    "ScoreInterval": {
+      "additionalProperties": false,
+      "properties": {
+        "low": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Low",
+          "type": "integer"
+        },
+        "high": {
+          "maximum": 4,
+          "minimum": 0,
+          "title": "High",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "low",
+        "high"
+      ],
+      "title": "ScoreInterval",
+      "type": "object"
+    },
+    "SourceDocument": {
+      "additionalProperties": false,
+      "description": "一份被引用材料；指纹针对 snapshot 的实际字节。",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "party": {
+          "enum": [
+            "project",
+            "im",
+            "ccss",
+            "school"
+          ],
+          "title": "Party",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "candidate",
+            "reference",
+            "standard",
+            "condition"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "locator": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "snapshot": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Snapshot",
+          "type": "string"
+        },
+        "media": {
+          "enum": [
+            "json",
+            "text"
+          ],
+          "title": "Media",
+          "type": "string"
+        },
+        "fingerprint": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Fingerprint",
+          "type": "string"
+        },
+        "retrieved": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieved"
+        },
+        "access": {
+          "default": "complete",
+          "enum": [
+            "complete",
+            "partial",
+            "unavailable"
+          ],
+          "title": "Access",
+          "type": "string"
+        },
+        "access_note": {
+          "default": "",
+          "title": "Access Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "party",
+        "role",
+        "title",
+        "locator",
+        "snapshot",
+        "media",
+        "fingerprint"
+      ],
+      "title": "SourceDocument",
+      "type": "object"
+    },
+    "SpotCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "faithful": {
+          "title": "Faithful",
+          "type": "boolean"
+        },
+        "note": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "faithful",
+        "note"
+      ],
+      "title": "SpotCheck",
+      "type": "object"
+    },
+    "Unobservable": {
+      "additionalProperties": false,
+      "properties": {
+        "object": {
+          "$ref": "#/$defs/ObjectRef"
+        },
+        "document": {
+          "pattern": "^[a-z0-9][a-z0-9_.:-]{0,159}$",
+          "title": "Document",
+          "type": "string"
+        },
+        "quote": {
+          "default": "",
+          "title": "Quote",
+          "type": "string"
+        },
+        "note": {
+          "maxLength": 20000,
+          "minLength": 1,
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "object",
+        "document",
+        "note"
+      ],
+      "title": "Unobservable",
+      "type": "object"
+    },
+    "UsageReport": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "totals": {
+          "additionalProperties": {
+            "$ref": "#/$defs/UsageTotal"
+          },
+          "title": "Totals",
+          "type": "object"
+        }
+      },
+      "required": [
+        "totals"
+      ],
+      "title": "UsageReport",
+      "type": "object"
+    },
+    "UsageTotal": {
+      "additionalProperties": false,
+      "properties": {
+        "calls": {
+          "default": 0,
+          "title": "Calls",
+          "type": "integer"
+        },
+        "incomplete_calls": {
+          "default": 0,
+          "title": "Incomplete Calls",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "default": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "default": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        },
+        "total_tokens": {
+          "default": 0,
+          "title": "Total Tokens",
+          "type": "integer"
+        }
+      },
+      "title": "UsageTotal",
+      "type": "object"
+    },
+    "VerificationReport": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "counts": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          },
+          "title": "Counts",
+          "type": "object"
+        }
+      },
+      "required": [
+        "counts"
+      ],
+      "title": "VerificationReport",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "评价运行交换的全部记录类型；只用于导出 JSON Schema。",
+  "properties": {
+    "config": {
+      "$ref": "#/$defs/EvaluationConfig"
+    },
+    "documents": {
+      "items": {
+        "$ref": "#/$defs/SourceDocument"
+      },
+      "title": "Documents",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/EvidenceRecord"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/EvaluationFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "ratings": {
+      "items": {
+        "$ref": "#/$defs/CriterionRating"
+      },
+      "title": "Ratings",
+      "type": "array"
+    },
+    "adjudications": {
+      "items": {
+        "$ref": "#/$defs/Adjudication"
+      },
+      "title": "Adjudications",
+      "type": "array"
+    },
+    "summaries": {
+      "items": {
+        "$ref": "#/$defs/GradeSummary"
+      },
+      "title": "Summaries",
+      "type": "array"
+    },
+    "comparisons": {
+      "items": {
+        "$ref": "#/$defs/Comparison"
+      },
+      "title": "Comparisons",
+      "type": "array"
+    },
+    "samples": {
+      "items": {
+        "$ref": "#/$defs/Sample"
+      },
+      "title": "Samples",
+      "type": "array"
+    },
+    "answers": {
+      "items": {
+        "$ref": "#/$defs/SampleAnswer"
+      },
+      "title": "Answers",
+      "type": "array"
+    },
+    "detection": {
+      "items": {
+        "$ref": "#/$defs/DetectionMetrics"
+      },
+      "title": "Detection",
+      "type": "array"
+    },
+    "review_runs": {
+      "items": {
+        "$ref": "#/$defs/ReviewRun"
+      },
+      "title": "Review Runs",
+      "type": "array"
+    },
+    "adjudication_runs": {
+      "items": {
+        "$ref": "#/$defs/AdjudicationRun"
+      },
+      "title": "Adjudication Runs",
+      "type": "array"
+    },
+    "revision_runs": {
+      "items": {
+        "$ref": "#/$defs/RevisionRun"
+      },
+      "title": "Revision Runs",
+      "type": "array"
+    },
+    "constructed_findings": {
+      "items": {
+        "$ref": "#/$defs/ConstructedFinding"
+      },
+      "title": "Constructed Findings",
+      "type": "array"
+    },
+    "calibration": {
+      "$ref": "#/$defs/CalibrationReport"
+    },
+    "usage": {
+      "$ref": "#/$defs/UsageReport"
+    },
+    "verification": {
+      "$ref": "#/$defs/VerificationReport"
+    },
+    "extraction_spec": {
+      "$ref": "#/$defs/ExtractionSpec"
+    },
+    "im_sources": {
+      "items": {
+        "$ref": "#/$defs/ImSource"
+      },
+      "title": "Im Sources",
+      "type": "array"
+    },
+    "evidence_index": {
+      "$ref": "#/$defs/EvidenceIndex"
+    }
+  },
+  "required": [
+    "config",
+    "documents",
+    "evidence",
+    "findings",
+    "ratings",
+    "adjudications",
+    "summaries",
+    "comparisons",
+    "samples",
+    "answers",
+    "detection",
+    "review_runs",
+    "adjudication_runs",
+    "revision_runs",
+    "constructed_findings",
+    "calibration",
+    "usage",
+    "verification",
+    "extraction_spec",
+    "im_sources",
+    "evidence_index"
+  ],
+  "title": "GradeEvaluationRecords",
+  "type": "object"
+}

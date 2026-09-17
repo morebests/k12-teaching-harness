@@ -1,0 +1,79 @@
+{
+  "a_id": "b-final",
+  "b_id": "d-known-initial",
+  "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+  "dimensions": [
+    {
+      "criterion_id": "Q1",
+      "judgment": "same_score",
+      "a_status": "settled",
+      "b_status": "settled",
+      "reason": "同分；未做配对核查，不代表等效"
+    },
+    {
+      "criterion_id": "Q2",
+      "judgment": "same_score",
+      "a_status": "settled",
+      "b_status": "settled",
+      "reason": "同分；未做配对核查，不代表等效"
+    },
+    {
+      "criterion_id": "Q3",
+      "judgment": "a_stronger",
+      "a_status": "settled",
+      "b_status": "settled",
+      "reason": "(4, 4) 高于 (3, 3)"
+    },
+    {
+      "criterion_id": "Q4",
+      "judgment": "a_stronger",
+      "a_status": "settled",
+      "b_status": "settled",
+      "reason": "(4, 4) 高于 (2, 2)"
+    },
+    {
+      "criterion_id": "Q5",
+      "judgment": "same_score",
+      "a_status": "settled",
+      "b_status": "settled",
+      "reason": "同分；未做配对核查，不代表等效"
+    },
+    {
+      "criterion_id": "Q6",
+      "judgment": "a_stronger",
+      "a_status": "settled",
+      "b_status": "settled",
+      "reason": "(4, 4) 高于 (3, 3)"
+    },
+    {
+      "criterion_id": "Q7",
+      "judgment": "a_stronger",
+      "a_status": "settled",
+      "b_status": "settled",
+      "reason": "(4, 4) 高于 (0, 0)"
+    },
+    {
+      "criterion_id": "Q8",
+      "judgment": "b_stronger",
+      "a_status": "settled",
+      "b_status": "settled",
+      "reason": "(4, 4) 高于 (3, 3)"
+    }
+  ],
+  "verdict": "对应范围不合格",
+  "winner": null,
+  "failing": [
+    "d-known-initial"
+  ],
+  "weighted": {
+    "b-final": 95.0,
+    "d-known-initial": 71.25
+  },
+  "weighted_direction": "a",
+  "equal_weight_direction": "a",
+  "weight_change_flips": false,
+  "reviewer_direction_conflicts": [],
+  "notes": [
+    "有已确认重大失败的一方在对应范围不合格；另一方未失败不自动证明全部更优"
+  ]
+}

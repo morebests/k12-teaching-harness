@@ -1,0 +1,212 @@
+{
+  "b-final": {
+    "candidate_id": "b-final",
+    "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+    "findings": [],
+    "evidence": []
+  },
+  "d-known-initial": {
+    "candidate_id": "d-known-initial",
+    "content_fingerprint": "a43041d7d4b66f4ae511932e88ed3e6350077f2c2daba2fed03d75a392652a26",
+    "findings": [],
+    "evidence": []
+  },
+  "d-known-revision": {
+    "candidate_id": "d-known-revision",
+    "content_fingerprint": "9c3dcf27d23a220ea7f58fd736dee95133daa0dd6e014854dd7685dacf59aa0a",
+    "findings": [],
+    "evidence": []
+  },
+  "d-assess-early": {
+    "candidate_id": "d-assess-early",
+    "content_fingerprint": "1a13cf140f7e2e675efc18b62753038ed3ed30d80bde4cfd154a4314557ae85c",
+    "findings": [
+      {
+        "id": "program:d-assess-early:assess-before-teach:8.g.b.8",
+        "candidate_id": "d-assess-early",
+        "content_fingerprint": "1a13cf140f7e2e675efc18b62753038ed3ed30d80bde4cfd154a4314557ae85c",
+        "criterion_id": "Q6",
+        "object": {
+          "kind": "goal",
+          "id": "8.G.B.8"
+        },
+        "origin": "program",
+        "reviewer_id": "program",
+        "severity": "key_gap",
+        "claim": "8.G.B.8 在第 2 单元安排评价，早于第 5 单元的首次教学",
+        "requirement": "评价与后续利用须有此前的学习机会",
+        "evidence_ids": [
+          "ev:d-assess-early:e3820d7011f3b757"
+        ],
+        "counterexample": "unit_2_linear_eq 排第 2，首次 teach 排第 5",
+        "impact": "学生在学习机会之前被要求表现或使用该目标",
+        "recheck": "调整分配单元或补充此前的学习机会",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:d-assess-early:e3820d7011f3b757",
+        "document_id": "d-assess-early",
+        "document_fingerprint": "87bea02700fa168dffc16f2bee562e8c5e57c2512304e0c177c9c1d2b7bc2636",
+        "locator": "/goals/25/allocations/1/unit_id",
+        "quote": "unit_2_linear_eq",
+        "extraction": "8.G.B.8 的assess分配所在单元",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.G.B.8"
+          }
+        ],
+        "recorded_by": "program"
+      }
+    ]
+  },
+  "d-time-sum": {
+    "candidate_id": "d-time-sum",
+    "content_fingerprint": "6ab3da63fa9aeace8e9bdc1c17842139a5ed7b6caa3b5197ce88acc273454e94",
+    "findings": [
+      {
+        "id": "program:d-time-sum:time-total:grade-total",
+        "candidate_id": "d-time-sum",
+        "content_fingerprint": "6ab3da63fa9aeace8e9bdc1c17842139a5ed7b6caa3b5197ce88acc273454e94",
+        "criterion_id": "Q7",
+        "object": {
+          "kind": "time",
+          "id": "grade-total"
+        },
+        "origin": "program",
+        "reviewer_id": "program",
+        "severity": "critical",
+        "claim": "单元课时与机动课时不符合学年课时条件",
+        "requirement": "各单元课时与机动课时分别计入，合计等于学年课时，机动课时等于请求",
+        "evidence_ids": [
+          "ev:d-time-sum:058a075277f7a39f",
+          "ev:d-time-sum.conditions:c795c26246be964b",
+          "ev:d-time-sum.conditions:7df63faaf7a41502"
+        ],
+        "counterexample": "32+22+22+18+26+16+14+20=170；170+20=190，条件为 180 课时、机动 20",
+        "impact": "承诺的学习工作在学年时间内无法全部安排",
+        "recheck": "重算单元与机动课时",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:d-time-sum:058a075277f7a39f",
+        "document_id": "d-time-sum",
+        "document_fingerprint": "e72318d5bf901a339606aac7f3e83dcec17ef6a770122cc72de52d14d777ad96",
+        "locator": "/reserve_lessons",
+        "quote": "20",
+        "extraction": "候选机动课时",
+        "objects": [
+          {
+            "kind": "time",
+            "id": "grade-total"
+          }
+        ],
+        "recorded_by": "program"
+      },
+      {
+        "id": "ev:d-time-sum.conditions:c795c26246be964b",
+        "document_id": "d-time-sum.conditions",
+        "document_fingerprint": "0e1e27a3dca98c014075d4817462980412848dad4ae185c397f8293bd09b6d11",
+        "locator": "/school/lesson_count",
+        "quote": "180",
+        "extraction": "学年总课时条件",
+        "objects": [
+          {
+            "kind": "time",
+            "id": "grade-total"
+          }
+        ],
+        "recorded_by": "program"
+      },
+      {
+        "id": "ev:d-time-sum.conditions:7df63faaf7a41502",
+        "document_id": "d-time-sum.conditions",
+        "document_fingerprint": "0e1e27a3dca98c014075d4817462980412848dad4ae185c397f8293bd09b6d11",
+        "locator": "/school/reserve_lessons",
+        "quote": "20",
+        "extraction": "请求的机动课时",
+        "objects": [
+          {
+            "kind": "time",
+            "id": "grade-total"
+          }
+        ],
+        "recorded_by": "program"
+      }
+    ]
+  },
+  "d-opportunity-empty": {
+    "candidate_id": "d-opportunity-empty",
+    "content_fingerprint": "9cb01c4fa707bd40af7f7666d6d79f46be44088567efaea24164a1f98156cb97",
+    "findings": [],
+    "evidence": []
+  },
+  "d-control-renumber": {
+    "candidate_id": "d-control-renumber",
+    "content_fingerprint": "bf261edf0cca9ad13a98c1c9e42c232c6e48592c2fd4c3dc10cac74672ed96b3",
+    "findings": [],
+    "evidence": []
+  },
+  "d-control-resource": {
+    "candidate_id": "d-control-resource",
+    "content_fingerprint": "1e21e8e82991ef2bca32eb6d9c1a62742a2893125277969ac55c34aa0e4e88b3",
+    "findings": [],
+    "evidence": []
+  },
+  "h-opportunity-empty": {
+    "candidate_id": "h-opportunity-empty",
+    "content_fingerprint": "6e3b7246391bc8b91b9e44e7e2ca0a671050f936b1e28fc5c6efa4b230146d01",
+    "findings": [],
+    "evidence": []
+  },
+  "h-assess-before-learning": {
+    "candidate_id": "h-assess-before-learning",
+    "content_fingerprint": "f14bf109dd8bb751653cbdc17ff460ba1b2836dfba08fc42643d0b4d996ce5f8",
+    "findings": [],
+    "evidence": []
+  },
+  "h-reserve-double-count": {
+    "candidate_id": "h-reserve-double-count",
+    "content_fingerprint": "bc511eef0a90e45f3d8c1628795275fe24a878465f5701165cd6b6a2af181d69",
+    "findings": [],
+    "evidence": []
+  },
+  "h-revisit-dropped": {
+    "candidate_id": "h-revisit-dropped",
+    "content_fingerprint": "a2364ae9182402079419afd88d65c942c37b7ed3332b00af6c785f9e812c6452",
+    "findings": [],
+    "evidence": []
+  },
+  "h-order-dependency": {
+    "candidate_id": "h-order-dependency",
+    "content_fingerprint": "a622f759956ffde0e2d5b88a3aa0c977fdcfe75a7a001f487bb42b4ce178e413",
+    "findings": [],
+    "evidence": []
+  },
+  "h-control-swap": {
+    "candidate_id": "h-control-swap",
+    "content_fingerprint": "6b0d7c4a00acee3a215d854b5b5560874b5f1072ae1e71c786fc185fc4e6c024",
+    "findings": [],
+    "evidence": []
+  },
+  "h-control-revisit": {
+    "candidate_id": "h-control-revisit",
+    "content_fingerprint": "c4444f8de62ddf4946bda2c9c0bd204350c599214665d54fa51fef9423880562",
+    "findings": [],
+    "evidence": []
+  },
+  "h-control-resource": {
+    "candidate_id": "h-control-resource",
+    "content_fingerprint": "1de4e630e35cf218f2ba4028c3a64a75b2e56364a3f6a527a7365424c8c7d120",
+    "findings": [],
+    "evidence": []
+  }
+}

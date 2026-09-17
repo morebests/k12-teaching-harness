@@ -1,0 +1,738 @@
+{
+  "schema_version": 1,
+  "program": [
+    {
+      "origin": "program",
+      "split": "debug",
+      "samples": 7,
+      "control_samples": 2,
+      "expected": 2,
+      "detected": 2,
+      "location_correct": 2,
+      "severity_matched": 2,
+      "missed": [],
+      "critical_missed": [],
+      "false_positives": [],
+      "other_findings": []
+    },
+    {
+      "origin": "program",
+      "split": "holdout",
+      "samples": 8,
+      "control_samples": 3,
+      "expected": 0,
+      "detected": 0,
+      "location_correct": 0,
+      "severity_matched": 0,
+      "missed": [],
+      "critical_missed": [],
+      "false_positives": [],
+      "other_findings": []
+    }
+  ],
+  "model": {
+    "r1": [
+      {
+        "origin": "model",
+        "split": "debug",
+        "samples": 7,
+        "control_samples": 2,
+        "expected": 14,
+        "detected": 7,
+        "location_correct": 7,
+        "severity_matched": 5,
+        "missed": [
+          "km1-unbounded",
+          "km1-identity",
+          "km1-two-points",
+          "km2-range",
+          "km2-sampling",
+          "km2-intercept",
+          "km2-causal"
+        ],
+        "critical_missed": [
+          "km2-sampling"
+        ],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:d-known-revision:q8:1",
+          "model:r1:d-assess-early:q8:1",
+          "model:r1:d-assess-early:q8:2",
+          "model:r1:d-time-sum:q2:1",
+          "model:r1:d-time-sum:q8:1",
+          "model:r1:d-time-sum:q8:2",
+          "model:r1:d-opportunity-empty:q7:1",
+          "model:r1:d-opportunity-empty:q2:2",
+          "model:r1:d-opportunity-empty:q8:1",
+          "model:r1:d-opportunity-empty:q8:2",
+          "model:r1:d-opportunity-empty:q8:3",
+          "model:r1:d-control-renumber:q2:1",
+          "model:r1:d-control-renumber:q8:1",
+          "model:r1:d-control-resource:q4:1",
+          "model:r1:d-control-resource:q2:1",
+          "model:r1:d-control-resource:q8:1",
+          "model:r1:d-control-resource:q8:2"
+        ]
+      },
+      {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 8,
+        "control_samples": 3,
+        "expected": 5,
+        "detected": 4,
+        "location_correct": 4,
+        "severity_matched": 2,
+        "missed": [
+          "hold-revisit-roots"
+        ],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:h-opportunity-empty:q5:1",
+          "model:r1:h-opportunity-empty:q8:1",
+          "model:r1:h-opportunity-empty:q8:2",
+          "model:r1:h-assess-before-learning:q2:1",
+          "model:r1:h-assess-before-learning:q8:1",
+          "model:r1:h-reserve-double-count:q8:1",
+          "model:r1:h-reserve-double-count:q8:2",
+          "model:r1:h-order-dependency:q5:1",
+          "model:r1:h-order-dependency:q5:2",
+          "model:r1:h-order-dependency:q8:1",
+          "model:r1:h-control-swap:q2:1",
+          "model:r1:h-control-swap:q8:1",
+          "model:r1:h-control-revisit:q2:1",
+          "model:r1:h-control-revisit:q8:1",
+          "model:r1:h-control-resource:q8:1"
+        ]
+      }
+    ],
+    "r2": [
+      {
+        "origin": "model",
+        "split": "debug",
+        "samples": 7,
+        "control_samples": 2,
+        "expected": 14,
+        "detected": 6,
+        "location_correct": 6,
+        "severity_matched": 2,
+        "missed": [
+          "km1-causal",
+          "km1-unbounded",
+          "km1-identity",
+          "km1-two-points",
+          "km2-range",
+          "km2-sampling",
+          "km2-intercept",
+          "km2-causal"
+        ],
+        "critical_missed": [
+          "km2-sampling"
+        ],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:d-known-initial:q3:1",
+          "model:r2:d-known-initial:q5:1",
+          "model:r2:d-known-initial:q6:1",
+          "model:r2:d-known-initial:q6:2",
+          "model:r2:d-assess-early:q8:1",
+          "model:r2:d-time-sum:q2:1",
+          "model:r2:d-time-sum:q8:1",
+          "model:r2:d-time-sum:q8:2",
+          "model:r2:d-control-renumber:q8:1"
+        ]
+      },
+      {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 8,
+        "control_samples": 3,
+        "expected": 5,
+        "detected": 4,
+        "location_correct": 4,
+        "severity_matched": 2,
+        "missed": [
+          "hold-revisit-roots"
+        ],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:h-opportunity-empty:q2:1",
+          "model:r2:h-opportunity-empty:q8:1",
+          "model:r2:h-opportunity-empty:q8:2",
+          "model:r2:h-assess-before-learning:q8:1",
+          "model:r2:h-reserve-double-count:q2:1",
+          "model:r2:h-reserve-double-count:q8:1",
+          "model:r2:h-reserve-double-count:q8:2",
+          "model:r2:h-order-dependency:q5:1",
+          "model:r2:h-order-dependency:q8:1",
+          "model:r2:h-control-revisit:q2:1",
+          "model:r2:h-control-revisit:q8:1"
+        ]
+      }
+    ]
+  },
+  "per_sample": {
+    "r1": {
+      "d-known-initial": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 7,
+        "detected": 4,
+        "location_correct": 4,
+        "severity_matched": 3,
+        "missed": [
+          "km1-unbounded",
+          "km1-identity",
+          "km1-two-points"
+        ],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": []
+      },
+      "d-known-revision": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 4,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [
+          "km2-range",
+          "km2-sampling",
+          "km2-intercept",
+          "km2-causal"
+        ],
+        "critical_missed": [
+          "km2-sampling"
+        ],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:d-known-revision:q8:1"
+        ]
+      },
+      "d-assess-early": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 1,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:d-assess-early:q8:1",
+          "model:r1:d-assess-early:q8:2"
+        ]
+      },
+      "d-time-sum": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 1,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:d-time-sum:q2:1",
+          "model:r1:d-time-sum:q8:1",
+          "model:r1:d-time-sum:q8:2"
+        ]
+      },
+      "d-opportunity-empty": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:d-opportunity-empty:q7:1",
+          "model:r1:d-opportunity-empty:q2:2",
+          "model:r1:d-opportunity-empty:q8:1",
+          "model:r1:d-opportunity-empty:q8:2",
+          "model:r1:d-opportunity-empty:q8:3"
+        ]
+      },
+      "d-control-renumber": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:d-control-renumber:q2:1",
+          "model:r1:d-control-renumber:q8:1"
+        ]
+      },
+      "d-control-resource": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:d-control-resource:q4:1",
+          "model:r1:d-control-resource:q2:1",
+          "model:r1:d-control-resource:q8:1",
+          "model:r1:d-control-resource:q8:2"
+        ]
+      },
+      "h-opportunity-empty": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:h-opportunity-empty:q5:1",
+          "model:r1:h-opportunity-empty:q8:1",
+          "model:r1:h-opportunity-empty:q8:2"
+        ]
+      },
+      "h-assess-before-learning": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 1,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:h-assess-before-learning:q2:1",
+          "model:r1:h-assess-before-learning:q8:1"
+        ]
+      },
+      "h-reserve-double-count": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:h-reserve-double-count:q8:1",
+          "model:r1:h-reserve-double-count:q8:2"
+        ]
+      },
+      "h-revisit-dropped": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [
+          "hold-revisit-roots"
+        ],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": []
+      },
+      "h-order-dependency": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 1,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:h-order-dependency:q5:1",
+          "model:r1:h-order-dependency:q5:2",
+          "model:r1:h-order-dependency:q8:1"
+        ]
+      },
+      "h-control-swap": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:h-control-swap:q2:1",
+          "model:r1:h-control-swap:q8:1"
+        ]
+      },
+      "h-control-revisit": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:h-control-revisit:q2:1",
+          "model:r1:h-control-revisit:q8:1"
+        ]
+      },
+      "h-control-resource": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r1:h-control-resource:q8:1"
+        ]
+      }
+    },
+    "r2": {
+      "d-known-initial": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 7,
+        "detected": 3,
+        "location_correct": 3,
+        "severity_matched": 1,
+        "missed": [
+          "km1-causal",
+          "km1-unbounded",
+          "km1-identity",
+          "km1-two-points"
+        ],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:d-known-initial:q3:1",
+          "model:r2:d-known-initial:q5:1",
+          "model:r2:d-known-initial:q6:1",
+          "model:r2:d-known-initial:q6:2"
+        ]
+      },
+      "d-known-revision": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 4,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [
+          "km2-range",
+          "km2-sampling",
+          "km2-intercept",
+          "km2-causal"
+        ],
+        "critical_missed": [
+          "km2-sampling"
+        ],
+        "false_positives": [],
+        "other_findings": []
+      },
+      "d-assess-early": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:d-assess-early:q8:1"
+        ]
+      },
+      "d-time-sum": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 1,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:d-time-sum:q2:1",
+          "model:r2:d-time-sum:q8:1",
+          "model:r2:d-time-sum:q8:2"
+        ]
+      },
+      "d-opportunity-empty": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": []
+      },
+      "d-control-renumber": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:d-control-renumber:q8:1"
+        ]
+      },
+      "d-control-resource": {
+        "origin": "model",
+        "split": "debug",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": []
+      },
+      "h-opportunity-empty": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:h-opportunity-empty:q2:1",
+          "model:r2:h-opportunity-empty:q8:1",
+          "model:r2:h-opportunity-empty:q8:2"
+        ]
+      },
+      "h-assess-before-learning": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 1,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:h-assess-before-learning:q8:1"
+        ]
+      },
+      "h-reserve-double-count": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:h-reserve-double-count:q2:1",
+          "model:r2:h-reserve-double-count:q8:1",
+          "model:r2:h-reserve-double-count:q8:2"
+        ]
+      },
+      "h-revisit-dropped": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [
+          "hold-revisit-roots"
+        ],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": []
+      },
+      "h-order-dependency": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 0,
+        "expected": 1,
+        "detected": 1,
+        "location_correct": 1,
+        "severity_matched": 1,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:h-order-dependency:q5:1",
+          "model:r2:h-order-dependency:q8:1"
+        ]
+      },
+      "h-control-swap": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": []
+      },
+      "h-control-revisit": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": [
+          "model:r2:h-control-revisit:q2:1",
+          "model:r2:h-control-revisit:q8:1"
+        ]
+      },
+      "h-control-resource": {
+        "origin": "model",
+        "split": "holdout",
+        "samples": 1,
+        "control_samples": 1,
+        "expected": 0,
+        "detected": 0,
+        "location_correct": 0,
+        "severity_matched": 0,
+        "missed": [],
+        "critical_missed": [],
+        "false_positives": [],
+        "other_findings": []
+      }
+    }
+  },
+  "labels": {
+    "r1": {
+      "samples": 15,
+      "failed_calls": 0,
+      "incomplete_usage_calls": 0,
+      "findings": 57,
+      "rejected_findings": 0,
+      "rejected_citations": 2,
+      "unverified_objects": 0,
+      "unobservable_ratings": 0,
+      "problems": 0,
+      "repairs": 26,
+      "first_attempt_rejected_citations": 39
+    },
+    "r2": {
+      "samples": 15,
+      "failed_calls": 0,
+      "incomplete_usage_calls": 0,
+      "findings": 44,
+      "rejected_findings": 0,
+      "rejected_citations": 3,
+      "unverified_objects": 0,
+      "unobservable_ratings": 0,
+      "problems": 1,
+      "repairs": 24,
+      "first_attempt_rejected_citations": 42
+    }
+  },
+  "agreement": {
+    "pairs": 128,
+    "exact": 97,
+    "differ_by_1": 27,
+    "differ_by_2_or_more": 4,
+    "critical_disagreements": 3
+  }
+}

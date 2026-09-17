@@ -1,0 +1,577 @@
+[
+  {
+    "sample_id": "b-final",
+    "kind": "base",
+    "expected": [],
+    "protected_pointers": [],
+    "rationale": "15 终稿作为评分与回修对象，没有预设答案；其发现需逐条人工核对。"
+  },
+  {
+    "sample_id": "d-known-initial",
+    "kind": "known_miss",
+    "expected": [
+      {
+        "id": "km1-resources",
+        "criteria": [
+          "Q7",
+          "Q4",
+          "Q6"
+        ],
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "probe",
+            "id": "task_3_coordinate_distance"
+          },
+          {
+            "kind": "resource",
+            "id": "school-resources"
+          }
+        ],
+        "pointers": [
+          "/units/0",
+          "/units/6",
+          "/tasks/2/support",
+          "/goals/16",
+          "/goals/26",
+          "/goals/35",
+          "/teacher_preparation",
+          "/practices/4",
+          "/knowledge_uses/6",
+          "/limitations"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "初稿核心活动依赖请求外的透明描图纸、沙水容器和三角板，没有给出现有资源下的替代",
+        "keywords": [
+          "描图纸",
+          "透明",
+          "沙",
+          "容器",
+          "三角板",
+          "器材",
+          "资源"
+        ]
+      },
+      {
+        "id": "km1-stats-data",
+        "criteria": [
+          "Q4",
+          "Q6",
+          "Q2",
+          "Q1"
+        ],
+        "objects": [
+          {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          }
+        ],
+        "pointers": [
+          "/tasks/3"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "统计探查声称教研组调查并绘制了散点图，却没有提供任何数据或图",
+        "keywords": [
+          "数据",
+          "调查",
+          "散点图",
+          "虚构",
+          "不存在",
+          "没有提供"
+        ]
+      },
+      {
+        "id": "km1-causal",
+        "criteria": [
+          "Q4",
+          "Q2",
+          "Q6"
+        ],
+        "objects": [
+          {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          }
+        ],
+        "pointers": [
+          "/tasks/3"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "把趋势线斜率解释为多复习就涨分的个体因果效应，并对成绩分布作无依据断言",
+        "keywords": [
+          "因果",
+          "平均",
+          "期望",
+          "波动",
+          "关联"
+        ]
+      },
+      {
+        "id": "km1-unbounded",
+        "criteria": [
+          "Q4",
+          "Q2"
+        ],
+        "objects": [
+          {
+            "kind": "probe",
+            "id": "task_1_linear_modeling"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          }
+        ],
+        "pointers": [
+          "/tasks/0"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "雨水模型从短时记录推成全部非负时刻都适用，缺少时间区间与容量条件",
+        "keywords": [
+          "定义域",
+          "x≥0",
+          "x \\ge",
+          "范围",
+          "无限",
+          "装满",
+          "容量",
+          "外推",
+          "区间"
+        ]
+      },
+      {
+        "id": "km1-identity",
+        "criteria": [
+          "Q4",
+          "Q2",
+          "Q1"
+        ],
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          }
+        ],
+        "pointers": [
+          "/units/1/narrative"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "第二单元叙述把恒等式说成无解，数学表述错误",
+        "keywords": [
+          "恒等"
+        ]
+      },
+      {
+        "id": "km1-two-points",
+        "criteria": [
+          "Q4",
+          "Q1",
+          "Q3",
+          "Q2"
+        ],
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          }
+        ],
+        "pointers": [
+          "/handoff_guidance",
+          "/units/1"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "交接要求由任意两点写出函数，没有限定两点横坐标不同，并声称表征之间无损互通",
+        "keywords": [
+          "任意两点",
+          "横坐标",
+          "不同",
+          "无损",
+          "互通",
+          "竖直"
+        ]
+      },
+      {
+        "id": "km1-overclaim",
+        "criteria": [
+          "Q4",
+          "Q6",
+          "Q2",
+          "Q3"
+        ],
+        "objects": [
+          {
+            "kind": "probe",
+            "id": "task_1_linear_modeling"
+          },
+          {
+            "kind": "probe",
+            "id": "task_2_systems_decision"
+          },
+          {
+            "kind": "probe",
+            "id": "task_3_coordinate_distance"
+          },
+          {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          }
+        ],
+        "pointers": [
+          "/tasks/0/design_consequence",
+          "/tasks/1/design_consequence",
+          "/tasks/2/design_consequence",
+          "/tasks/3/design_consequence"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "探查结论把设计者自己的求解写成学生已经理解或证明单元位置必要",
+        "keywords": [
+          "证明",
+          "学生已",
+          "保证",
+          "效果",
+          "试做",
+          "强力",
+          "印证",
+          "深刻",
+          "跃迁"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "初稿的已知漏检，来自 15 第一次人工核读；这些问题已写入生成期审阅规则，只能作调试样本。"
+  },
+  {
+    "sample_id": "d-known-revision",
+    "kind": "known_miss",
+    "expected": [
+      {
+        "id": "km2-range",
+        "criteria": [
+          "Q4",
+          "Q2"
+        ],
+        "objects": [
+          {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          }
+        ],
+        "pointers": [
+          "/tasks/3"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "合成数据实际横坐标为 1 到 7，正文和解答却声称有效范围到 0 与 7.5",
+        "keywords": [
+          "7.5",
+          "0~7.5",
+          "0 \\le",
+          "1~7",
+          "1—7",
+          "1-7",
+          "范围"
+        ]
+      },
+      {
+        "id": "km2-sampling",
+        "criteria": [
+          "Q4",
+          "Q6",
+          "Q2",
+          "Q1"
+        ],
+        "objects": [
+          {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          }
+        ],
+        "pointers": [
+          "/tasks/3"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "题面称从 28 名学生中抽取样本、由教研组拟合，暗示存在实际调查过程",
+        "keywords": [
+          "抽取",
+          "28",
+          "调查",
+          "教研组",
+          "真实",
+          "虚构"
+        ]
+      },
+      {
+        "id": "km2-intercept",
+        "criteria": [
+          "Q4",
+          "Q2"
+        ],
+        "objects": [
+          {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          }
+        ],
+        "pointers": [
+          "/tasks/3"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "把样本范围外的截距 48 当作有样本支持的零小时预测",
+        "keywords": [
+          "截距",
+          "48",
+          "0 小时",
+          "0小时",
+          "外推",
+          "样本范围"
+        ]
+      },
+      {
+        "id": "km2-causal",
+        "criteria": [
+          "Q4",
+          "Q2",
+          "Q6"
+        ],
+        "objects": [
+          {
+            "kind": "probe",
+            "id": "task_4_stats_linear_interpretation"
+          }
+        ],
+        "pointers": [
+          "/tasks/3"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "支持语用两组差分不同来论证不存在因果，斜率解释仍接近人群平均干预效果",
+        "keywords": [
+          "因果",
+          "干预",
+          "残差",
+          "差分"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "修订稿的已知漏检，来自 15 第二次人工核读；属调试样本。"
+  },
+  {
+    "sample_id": "d-assess-early",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "inj-assess-structural",
+        "criteria": [
+          "Q6",
+          "Q5"
+        ],
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.G.B.8"
+          },
+          {
+            "kind": "assessment",
+            "id": "8.G.B.8@unit_2_linear_eq"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_2_linear_eq"
+          }
+        ],
+        "pointers": [
+          "/goals/25"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "program",
+          "model"
+        ],
+        "description": "结构化分配显示勾股距离在首次教学前被评价",
+        "keywords": []
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "在第二单元登记坐标距离的评价，而该目标第五单元才首次教学。"
+  },
+  {
+    "sample_id": "d-time-sum",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "inj-time-sum",
+        "criteria": [
+          "Q7"
+        ],
+        "objects": [
+          {
+            "kind": "time",
+            "id": "grade-total"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_1_geom_transform"
+          }
+        ],
+        "pointers": [
+          "/units/0/lesson_count",
+          "/reserve_lessons",
+          "/narrative",
+          "/units/0"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "program",
+          "model"
+        ],
+        "description": "单元课时合计超出学年课时条件",
+        "keywords": [
+          "190",
+          "170",
+          "180",
+          "160",
+          "合计",
+          "总",
+          "超出"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "第一单元课时加十节，单元合计变为一百七十，与学年条件和叙述中的一百六十节常规课时冲突。"
+  },
+  {
+    "sample_id": "d-opportunity-empty",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "inj-opportunity-f-a-3",
+        "criteria": [
+          "Q1",
+          "Q4"
+        ],
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.3"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          }
+        ],
+        "pointers": [
+          "/goals/13",
+          "/units/2/narrative"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "非线性函数目标只剩标签，没有实质学习机会与可观察证据",
+        "keywords": [
+          "8.F.A.3",
+          "非线性",
+          "空泛",
+          "标签",
+          "实质",
+          "涉及"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "非线性函数目标仍有代码和教学分配，但学习机会与证据被换成空泛说法，第三单元叙述也不再提非线性对比。"
+  },
+  {
+    "sample_id": "d-control-renumber",
+    "kind": "control",
+    "expected": [],
+    "protected_pointers": [
+      "/focus_unit_id",
+      "/units/0/id",
+      "/units/1/id",
+      "/units/2/id",
+      "/units/3/id",
+      "/units/4/id",
+      "/units/5/id",
+      "/units/6/id",
+      "/units/7/id",
+      "/units/0/prerequisite_units",
+      "/units/1/prerequisite_units",
+      "/units/2/prerequisite_units",
+      "/units/3/prerequisite_units",
+      "/units/4/prerequisite_units",
+      "/units/5/prerequisite_units",
+      "/units/6/prerequisite_units",
+      "/units/7/prerequisite_units"
+    ],
+    "rationale": "只把八个单元身份统一换成新编号，所有引用同步变化，教学安排不变。"
+  },
+  {
+    "sample_id": "d-control-resource",
+    "kind": "control",
+    "expected": [],
+    "protected_pointers": [
+      "/units/4/assessment_plan"
+    ],
+    "rationale": "第五单元的勾股证明评价改用方格纸画出的面积拼合图，仍在已有资源内。"
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "sample_id": "b-final",
+  "outcome": {
+    "finding": {
+      "id": "human:constructed:b-final:q7:stale-resource",
+      "candidate_id": "b-final",
+      "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+      "criterion_id": "Q7",
+      "object": {
+        "kind": "resource",
+        "id": "unit_7_volume_3d"
+      },
+      "origin": "human",
+      "reviewer_id": "constructed",
+      "severity": "key_gap",
+      "claim": "第 7 单元的体积公式推导与评价依赖装沙注水的实物容器实验，超出学校只提供纸笔、直尺、方格纸、黑白打印、投影和计算器的条件，且没有替代做法",
+      "requirement": "核心活动与必需评价只能使用学校已有资源，或给出可行替代",
+      "evidence_ids": [
+        "ev:b-final:a86f8e00d15723c8"
+      ],
+      "counterexample": "",
+      "impact": "该单元推导与评价在学校条件下无法实施",
+      "recheck": "逐处核对第 7 单元叙述、评价与相关目标分配中的器材",
+      "status": "rebutted",
+      "status_note": "核实候选原文可知：候选方案全文从未提及或要求“装沙注水的实物容器实验”。第 7 单元在 narrative、assessment_plan 以及 8.G.C.9 的教学机会中，均明确指定采用“教师投影动态图解演示”、“黑白打印截面分解图”、“展开图模型以及代数推导”和“课内图形剖析报告”来完成推导与评价，完全处于学校已有的纸笔、黑白打印、教师投影与普通计算器等资源范围之内，并不依赖实物注水容器。因此，该评阅发现与原文事实不符，属于误报，不予成立。",
+      "status_evidence_ids": [
+        "ev:b-final:865e8eb612d55b37",
+        "ev:b-final:1db80b6ac5617331",
+        "ev:b-final:8b41344e6b65a61c"
+      ]
+    },
+    "usage_complete": null,
+    "verdict": "rebut",
+    "verification": "核实候选原文可知：候选方案全文从未提及或要求“装沙注水的实物容器实验”。第 7 单元在 narrative、assessment_plan 以及 8.G.C.9 的教学机会中，均明确指定采用“教师投影动态图解演示”、“黑白打印截面分解图”、“展开图模型以及代数推导”和“课内图形剖析报告”来完成推导与评价，完全处于学校已有的纸笔、黑白打印、教师投影与普通计算器等资源范围之内，并不依赖实物注水容器。因此，该评阅发现与原文事实不符，属于误报，不予成立。",
+    "accepted": true,
+    "problems": [],
+    "revised_path": null,
+    "revised_fingerprint": null,
+    "changed_pointers": [],
+    "unchanged_outside": false,
+    "program_findings_after": [],
+    "rebuttal_evidence": [
+      {
+        "id": "ev:b-final:865e8eb612d55b37",
+        "document_id": "b-final",
+        "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+        "locator": "/units/6/narrative",
+        "quote": "通过黑白打印几何图解、等底等高圆柱与内接圆锥的截面与体积关系分析、展开图模型以及代数推导，建立圆柱、圆锥与球体体积公式之间的内生联系",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "resource",
+            "id": "unit_7_volume_3d"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:b-final:1db80b6ac5617331",
+        "document_id": "b-final",
+        "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+        "locator": "/goals/26/allocations/0/opportunity",
+        "quote": "通过教师投影动态图解演示与黑白打印截面分解图，理解圆柱、圆锥与球体的体积公式几何推导渊源，运用公式求解实际问题中的体积与容积。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "resource",
+            "id": "unit_7_volume_3d"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:b-final:8b41344e6b65a61c",
+        "document_id": "b-final",
+        "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+        "locator": "/units/6/assessment_plan",
+        "quote": "课内图形剖析报告评估体积公式的几何分解与代数推导过程；课内随堂练习（利用普通计算器）评估多步公式代入与根号近似计算",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "resource",
+            "id": "unit_7_volume_3d"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "resolution_evidence": [],
+    "usage": {
+      "input_tokens": 23687,
+      "output_tokens": 1962,
+      "total_tokens": 25649
+    }
+  },
+  "recheck": []
+}

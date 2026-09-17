@@ -1,0 +1,44 @@
+{
+  "note": "人工构造的陈旧发现：该问题在 15 初稿成立，已在终稿修复；用于检验误报能否被原文驳回。",
+  "finding": {
+    "id": "human:constructed:b-final:q7:stale-resource",
+    "candidate_id": "b-final",
+    "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+    "criterion_id": "Q7",
+    "object": {
+      "kind": "resource",
+      "id": "unit_7_volume_3d"
+    },
+    "origin": "human",
+    "reviewer_id": "constructed",
+    "severity": "key_gap",
+    "claim": "第 7 单元的体积公式推导与评价依赖装沙注水的实物容器实验，超出学校只提供纸笔、直尺、方格纸、黑白打印、投影和计算器的条件，且没有替代做法",
+    "requirement": "核心活动与必需评价只能使用学校已有资源，或给出可行替代",
+    "evidence_ids": [
+      "ev:b-final:a86f8e00d15723c8"
+    ],
+    "counterexample": "",
+    "impact": "该单元推导与评价在学校条件下无法实施",
+    "recheck": "逐处核对第 7 单元叙述、评价与相关目标分配中的器材",
+    "status": "open",
+    "status_note": "",
+    "status_evidence_ids": []
+  },
+  "evidence": [
+    {
+      "id": "ev:b-final:a86f8e00d15723c8",
+      "document_id": "b-final",
+      "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+      "locator": "/units/6/assessment_plan",
+      "quote": "课内图形剖析报告评估体积公式的几何分解与代数推导过程",
+      "extraction": "第 7 单元以课内图形剖析报告评价体积公式推导",
+      "objects": [
+        {
+          "kind": "resource",
+          "id": "unit_7_volume_3d"
+        }
+      ],
+      "recorded_by": "human"
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+[
+  {
+    "sample_id": "h-opportunity-empty",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "hold-opportunity-sp-a-4",
+        "criteria": [
+          "Q1",
+          "Q4",
+          "Q6"
+        ],
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.SP.A.4"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_8_bivariate_stats"
+          }
+        ],
+        "pointers": [
+          "/goals/32",
+          "/units/7"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "双向频数表相关目标没有实质学习机会和评价证据",
+        "keywords": [
+          "8.SP.A.4",
+          "列联表",
+          "双向",
+          "分类数据",
+          "频率",
+          "空泛",
+          "实质"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "两维分类数据目标的分配只剩空泛说法，单元叙述、完成表现与评价中对双向表的安排都被删去，但目标代码和教学分配仍在。"
+  },
+  {
+    "sample_id": "h-assess-before-learning",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "hold-assess-systems-early",
+        "criteria": [
+          "Q6",
+          "Q3"
+        ],
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.C.8"
+          }
+        ],
+        "pointers": [
+          "/units/2/assessment_plan"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "第三单元评价要求使用尚未学习的方程组消元方法",
+        "keywords": [
+          "方程组",
+          "消元",
+          "8.EE.C.8",
+          "尚未",
+          "之前",
+          "早于",
+          "第 4",
+          "Unit 4",
+          "unit_4"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "函数单元的单元末评价加入消元法解方程组，而方程组在下一单元才首次教学；结构分配没有改变。"
+  },
+  {
+    "sample_id": "h-reserve-double-count",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "hold-reserve-double",
+        "criteria": [
+          "Q7"
+        ],
+        "objects": [
+          {
+            "kind": "time",
+            "id": "reserve"
+          },
+          {
+            "kind": "time",
+            "id": "grade-total"
+          }
+        ],
+        "pointers": [
+          "/reserve_plan",
+          "/reserve_lessons"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "单元末测试同时计入单元课时与机动课时，机动计划合计超过二十节",
+        "keywords": [
+          "重复",
+          "8 节",
+          "8节",
+          "28",
+          "超出",
+          "超过",
+          "计入",
+          "单元末",
+          "两次"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "机动计划声称用八节机动课时做单元末测试，同时说明单元课时已含这些测试，原有二十节分项仍全部保留，时间被重复计算且机动安排超额。"
+  },
+  {
+    "sample_id": "h-revisit-dropped",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "hold-revisit-roots",
+        "criteria": [
+          "Q5",
+          "Q2",
+          "Q3"
+        ],
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_7_volume_3d"
+          },
+          {
+            "kind": "goal",
+            "id": "8.EE.A.2"
+          },
+          {
+            "kind": "revisit",
+            "id": "8.EE.A.2@unit_7_volume_3d:apply"
+          }
+        ],
+        "pointers": [
+          "/narrative",
+          "/units/6",
+          "/goals/1"
+        ],
+        "severity": "key_gap",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "全年承诺的开方再利用在体积单元没有实际位置",
+        "keywords": [
+          "开方",
+          "平方根",
+          "立方根",
+          "根号",
+          "8.EE.A.2",
+          "再利用",
+          "应用",
+          "承诺",
+          "回访"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "全年叙述仍承诺第七单元应用开方运算，但体积单元中开方的应用分配、叙述、进入要求、完成表现和练习评价都被删去。"
+  },
+  {
+    "sample_id": "h-order-dependency",
+    "kind": "injected",
+    "expected": [
+      {
+        "id": "hold-order-systems-functions",
+        "criteria": [
+          "Q3",
+          "Q2"
+        ],
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_4_linear_systems"
+          },
+          {
+            "kind": "unit",
+            "id": "unit_3_linear_functions"
+          },
+          {
+            "kind": "dependency",
+            "id": "unit_4_linear_systems<-unit_3_linear_functions"
+          }
+        ],
+        "pointers": [
+          "/units/2",
+          "/units/3",
+          "/design_inferences/1",
+          "/tasks/1/design_consequence",
+          "/knowledge_uses/3",
+          "/narrative"
+        ],
+        "severity": "critical",
+        "detectable_by": [
+          "model"
+        ],
+        "description": "方程组单元依赖线性函数图象与解析式，却排在函数单元之前",
+        "keywords": [
+          "顺序",
+          "依赖",
+          "先备",
+          "之前",
+          "之后",
+          "线性函数",
+          "Unit 3",
+          "unit_3",
+          "第三",
+          "矛盾"
+        ]
+      }
+    ],
+    "protected_pointers": [],
+    "rationale": "方程组单元被移到函数单元之前，并删去它对函数单元的先备声明；该单元进入要求与多处设计理由仍依赖先学线性函数。"
+  },
+  {
+    "sample_id": "h-control-swap",
+    "kind": "control",
+    "expected": [],
+    "protected_pointers": [
+      "/units/4",
+      "/units/5",
+      "/narrative"
+    ],
+    "rationale": "互换两个无依赖的单元顺序，并同步调整全年叙述中的先后描述。"
+  },
+  {
+    "sample_id": "h-control-revisit",
+    "kind": "control",
+    "expected": [],
+    "protected_pointers": [
+      "/goals/14/allocations/2"
+    ],
+    "rationale": "在方程组单元新增一次有目的的线性函数回访，位置在首次教学之后。"
+  },
+  {
+    "sample_id": "h-control-resource",
+    "kind": "control",
+    "expected": [],
+    "protected_pointers": [
+      "/goals/26/allocations/0/opportunity"
+    ],
+    "rationale": "体积单元的动态演示改为与讲义同版的静态分步图解，仍在已有投影与打印条件内。"
+  }
+]

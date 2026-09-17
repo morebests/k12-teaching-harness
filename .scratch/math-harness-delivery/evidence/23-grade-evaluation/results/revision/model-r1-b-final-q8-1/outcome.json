@@ -1,0 +1,1153 @@
+{
+  "schema_version": 1,
+  "sample_id": "b-final",
+  "outcome": {
+    "finding": {
+      "id": "model:r1:b-final:q8:1",
+      "candidate_id": "b-final",
+      "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+      "criterion_id": "Q8",
+      "object": {
+        "kind": "teacher_question",
+        "id": "tq-shorten-unit"
+      },
+      "origin": "model",
+      "reviewer_id": "r1",
+      "severity": "local",
+      "claim": "规划对单元课时压缩时的各单元内部内容优先级和裁剪降级预案未作细化说明。",
+      "requirement": "教师规划应支持在单元调整时快速判断内部取舍依据。",
+      "evidence_ids": [
+        "ev:b-final:e65103826a6624f7"
+      ],
+      "counterexample": "",
+      "impact": "当任课教师面临课时缩减时，虽能查到下游受影响单元，但缺乏单元内部哪些任务可压缩、哪些核心活动绝对不可动摇的操作细则。",
+      "recheck": "检查各单元 narrative 或 handoff_guidance 中是否包含针对突发课时缩短的精简优先级指引。",
+      "status": "resolved",
+      "status_note": "修订稿按同一维度复查，未再报告该对象的问题",
+      "status_evidence_ids": [
+        "ev:b-final.revised:46215c588034cd87"
+      ]
+    },
+    "usage_complete": null,
+    "verdict": "revise",
+    "verification": "核实依据：查阅候选规划正文及引用定位处（/handoff_guidance），规划仅说明了在先备基础薄弱时如何追加投放机动课时进行正向补偿，但全文未针对面临课时紧缩或突发课时缩减时，单元内部各项教学活动与任务的优先级界定及裁剪降级预案给出说明。教师在需要缩短单元时，缺乏区分“核心不可动摇的硬性任务（如 8.F.B.4 建模计算与定义域边界分析）”与“可合并压缩的降级辅助任务（如多表征并列草绘与发散实例）”的操作依据。评阅发现属实。\n核实结论：评阅发现成立，对 /handoff_guidance 中“教学调整空间与设计指导”实施最小必要文字修订，补全单元压缩时的内容优先级与裁剪降级预案。",
+    "accepted": true,
+    "problems": [],
+    "revised_path": ".scratch/math-harness-delivery/evidence/23-grade-evaluation/results/revision/model-r1-b-final-q8-1/b-final.revised.json",
+    "revised_fingerprint": "ff75e7ab746bc43a87be9e33ec0735325c752e5e67e83dacefb51a19cbd6f0af",
+    "changed_pointers": [
+      "/handoff_guidance"
+    ],
+    "unchanged_outside": true,
+    "program_findings_after": [],
+    "rebuttal_evidence": [],
+    "resolution_evidence": [
+      {
+        "id": "ev:b-final.revised:46215c588034cd87",
+        "document_id": "b-final.revised",
+        "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+        "locator": "/handoff_guidance",
+        "quote": "【8.F.B.4 核心目标单元（Unit 3: 函数概念与线性函数建模）交接指引】\n\n一、目标分配与承接职责：\n本单元是全年初中数学从‘代数算术运算与几何图形’迈向‘现代变量依从与函数映射模型’的决定性枢纽。\n1. 8.F.B.4 在本单元承担最为核心的明确讲授（teach）职责。核心任务是建立情境描述、数值表格、直角坐标图象与代数解析式 $y = mx + b$ 之间的多向联结。\n2. 突破的数学跨度：学生在 Unit 2 已经学习了正比例关系的单位比率（8.EE.B.5）以及利用相似三角形证明斜率 $\\frac{\\Delta y}{\\Delta x}$ 恒定并得出直线方程（8.EE.B.6）。但在 Unit 2 中，$y = mx + b$ 主要是作为‘直线的几何轨迹方程’；进入 Unit 3 后，必须将其深化为‘输入 $x$ 通过规则 $mx + b$ 映射到唯一输出 $y$’的函数映射模型。特别是对‘初始值（截距 $b$）’赋予系统在基准零状态时的物理意义，对‘变化率（斜率 $m$）’赋予过程变化的恒定速率意义。\n3. 后续承接：本单元建构的 8.F.B.4 建模技能将在 Unit 4（二元一次方程组的交点平衡状态）中被应用，并在 Unit 8（双变量统计）中作为散点图经验拟合直线的分析工具（8.SP.A.3）实施迁移应用。\n\n二、进入与离开条件（Entry & Exit Criteria）：\n1. 进入先备诊断要求（Entry Criteria）：\n- 能在方格纸平面直角坐标系中准确描点并读取坐标；\n- 能在已知两点坐标的情况下执行有理数减法与差商计算 $\\frac{y_2-y_1}{x_2-x_1}$；\n- 警惕假设：虽然学生在 Unit 2 接触过斜率计算，但进入 Unit 3 前必须通过 5 分钟课内前测诊断差商计算中的负数与分数运算，不得预设所有学生已达到熟练掌握。\n2. 离开达成标准（Exit Criteria）：\n- 给定平面上任意横坐标不同的两点 $(x_1, y_1)$ 与 $(x_2, y_2)$（$x_1 \\ne x_2$），学生能独立计算斜率 $m = \\frac{y_2 - y_1}{x_2 - x_1}$，并代入已知点坐标准确求解出截距 $b$，写出规范函数方程 $y = mx + b$；\n- 给定现实情境问题（如蓄水池充水、分段租车费用），学生能用完整语句清晰表述 $m$ 与 $b$ 在该情境中的物理单位与实际含义；\n- 能够理解离散数据与连续图象互译时依赖均匀变化的模型假设，并明确指出线性模型成立的有效定义域（防止无界外推）。\n\n三、教学调整空间与设计指导（Flexibility & Guardrails）：\n1. 课时调配弹性与单元压缩降级预案：本单元分配 22 课时。若前测显示学生在有理数差商运算或坐标系描点上存在较多失误，教师可依据诊断在单元初期投放 1 节全年机动课时进行针对性补偿。若因特殊情况需压缩单元课时（最多压缩 2~3 课时），内部取舍优先级如下：核心不可动摇的是 8.F.B.4 的两点差商斜率计算、初始值代数求解、规范函数式表达及模型物理边界与有效定义域的完整剖析（必须保证课内探究与评价闭环）；可优先裁剪降级的是多情境并列图象草绘与非线性反例的生活发散讨论课时，可将其合并或降级为课内单向随堂练习。\n2. 表征转换教学规划：\n- 单元应整体规划多重表征的进阶过程：初期侧重情境到表格与图象的直观过渡，中期强化两点差商到解析式的代数抽象，后期综合运用图象与解析式进行建模决策；\n- 允许单项练习任务承担明确单一职责（如纯图象读率、纯表格归纳或由情境列代数式），不强求每个函数例子都机械捆绑四维表征同屏呈现，确保留足时间用于代数运算流利度训练与深入概念反思。",
+        "extraction": "修订后的原文",
+        "objects": [],
+        "recorded_by": "program"
+      }
+    ],
+    "usage": {
+      "input_tokens": 23708,
+      "output_tokens": 4223,
+      "total_tokens": 27931
+    }
+  },
+  "recheck": [
+    {
+      "candidate": "original",
+      "same_object_findings": [
+        {
+          "id": "model:r1-recheck:b-final:q8:1",
+          "candidate_id": "b-final",
+          "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+          "criterion_id": "Q8",
+          "object": {
+            "kind": "teacher_question",
+            "id": "tq-shorten-unit"
+          },
+          "origin": "model",
+          "reviewer_id": "r1-recheck",
+          "severity": "local",
+          "claim": "规划明确了单元进出标准与前置依赖，但在单元面临意外课时压缩时，缺乏单元内核心与次要活动裁剪优先级的显式指引。",
+          "requirement": "教师规划应能清晰指引单元缩短时的应对策略与裁剪依据。",
+          "evidence_ids": [
+            "ev:b-final:a4946d2ac665411a",
+            "ev:b-final:e65103826a6624f7"
+          ],
+          "counterexample": "无重大失败反例，属教师实操微调的局部不足。",
+          "impact": "教师若因校历临时变动需要压缩某个单元课时，难以快速判断哪些环节必须保留、哪些环节可先行精简。",
+          "recheck": "查阅各单元 narrative 与 handoff_guidance 是否包含课时削减优先级说明。",
+          "status": "open",
+          "status_note": "",
+          "status_evidence_ids": []
+        }
+      ],
+      "review": {
+        "reviewer_id": "r1-recheck",
+        "candidate_id": "b-final",
+        "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+        "criteria": [
+          "Q2",
+          "Q8"
+        ],
+        "ratings": [
+          {
+            "candidate_id": "b-final",
+            "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+            "criterion_id": "Q2",
+            "reviewer_id": "r1-recheck",
+            "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+            "rules_fingerprint": null,
+            "observability": "observable",
+            "comparability": "single_candidate",
+            "reviewed_scope": {
+              "expected": [
+                {
+                  "kind": "grade",
+                  "id": "mainline"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_1_geom_transform"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_2_linear_eq"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_3_linear_functions"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_4_linear_systems"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_5_real_numbers_pythagoras"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_6_exponents_sci_notation"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_7_volume_3d"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_8_bivariate_stats"
+                }
+              ],
+              "note": ""
+            },
+            "score": 3,
+            "interval": null,
+            "evidence_refs": [
+              "ev:b-final:16bca2788d1b60b8",
+              "ev:b-final:366b4d5416a32a2d",
+              "ev:b-final:4ca543b5cf496d77",
+              "ev:b-final:865e8eb612d55b37",
+              "ev:b-final:b36264298b790c95",
+              "ev:b-final:b8bfdbd9cbda4c0f",
+              "ev:b-final:ba26a8544c5320bd",
+              "ev:b-final:ccd3609d4c24a4f0",
+              "ev:b-final:fdb7d78004825e48"
+            ],
+            "strengths": [
+              "突破传统机械按标准代号罗列的方式，构建了从几何相似推导斜率、再进阶至函数映射与方程组平衡的深度认知进阶主线。",
+              "设计推断（design_inferences）详细论证了为什么将几何前置、为什么将一元方程与二元方程组拆分在函数单元前后，具有扎实的数学教学法依据。"
+            ],
+            "findings": [
+              "model:r1-recheck:b-final:q2:1"
+            ],
+            "critical_failure": false,
+            "critical_failure_reason": "",
+            "object_checks": [
+              {
+                "object": {
+                  "kind": "grade",
+                  "id": "mainline"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:b8bfdbd9cbda4c0f"
+                ],
+                "note": "全年主线从几何变换建立相似，引出斜率三角形与一元方程，升华至函数映射，进而联立方程组，再由勾股定理引入无理数，拓展至整数幂与三维体积，最后收官于双变量统计，主线连贯严密。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_1_geom_transform"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:ba26a8544c5320bd"
+                ],
+                "note": "几何变换单元通过刚体变换的不变性推导相似AA准则，为 Unit 2 构造斜率三角形提供几何先备。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_2_linear_eq"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:b36264298b790c95"
+                ],
+                "note": "承接相似三角形证明斜率恒定性，将单位比率升华至几何斜率，并系统剖析一元一次方程三种解的本质。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_3_linear_functions"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:366b4d5416a32a2d"
+                ],
+                "note": "将直线几何轨迹提升为现代函数映射，聚焦 8.F.B.4，建立多重表征联系与实际物理情境建模。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_4_linear_systems"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:ccd3609d4c24a4f0"
+                ],
+                "note": "将二元一次方程组的解诠释为两线性函数图象交点与平衡决策点，代数与函数有机交融。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_5_real_numbers_pythagoras"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:4ca543b5cf496d77"
+                ],
+                "note": "直角三角形斜边度量赋予无理数鲜明几何实体，面积割补法证明勾股定理并推广至坐标系两点间距离。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_6_exponents_sci_notation"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:16bca2788d1b60b8"
+                ],
+                "note": "建立整数指数幂运算体系并迁移至科学记数法，结合黑白模拟屏幕图例开展规范阅读。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_7_volume_3d"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:865e8eb612d55b37"
+                ],
+                "note": "三维立体体积度量综合运用了 Unit 5 的开平方与开立方反解尺寸，推导依据与评价闭环均在课内落实。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_8_bivariate_stats"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:fdb7d78004825e48"
+                ],
+                "note": "双变量统计收官，将确定性代数函数模型迁移至不确定性经验数据拟合与列联表相关性分析。"
+              }
+            ],
+            "score_rationale": "应查清单全部核查完毕，无重大失败与关键缺口。主线数学逻辑高度严谨，单元进阶与设计推断（如几何相似支撑斜率推导、方程与函数适度剥离再交融、实数数系与勾股空间咬合等）提供了扎实的数学理由，前后年级衔接具体。达到 3 分要求。距离 4 分的主要差异在于：虽然对当前单元组合的取舍给出了充分论证，但未提供面对不同教学安排约束时的系统性可替代单元编排路径说明。"
+          },
+          {
+            "candidate_id": "b-final",
+            "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+            "criterion_id": "Q8",
+            "reviewer_id": "r1-recheck",
+            "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+            "rules_fingerprint": null,
+            "observability": "observable",
+            "comparability": "single_candidate",
+            "reviewed_scope": {
+              "expected": [
+                {
+                  "kind": "teacher_question",
+                  "id": "tq-shorten-unit"
+                },
+                {
+                  "kind": "teacher_question",
+                  "id": "tq-goal-trace"
+                },
+                {
+                  "kind": "teacher_question",
+                  "id": "tq-reserve"
+                }
+              ],
+              "note": ""
+            },
+            "score": 3,
+            "interval": null,
+            "evidence_refs": [
+              "ev:b-final:4e73a5f215bcf9b1",
+              "ev:b-final:7451bca5975fea90",
+              "ev:b-final:a4946d2ac665411a",
+              "ev:b-final:be2bce14d83ebe6d",
+              "ev:b-final:c83801a86384ab9a"
+            ],
+            "strengths": [
+              "目标追踪体系极为完善，通过稳定的角色标签（teach, apply, revisit）与详尽的评价证据，使教师能清晰掌控全年标准的落实全景。",
+              "20 节机动课时的投放规划具有极强的结构性与针对性，精确对应单元前置诊断补偿（3节）、单元测后纠偏（8节）与期末反思（9节），切实保障离线环境下的课内闭环。"
+            ],
+            "findings": [
+              "model:r1-recheck:b-final:q8:1",
+              "model:r1-recheck:b-final:q8:2"
+            ],
+            "critical_failure": false,
+            "critical_failure_reason": "",
+            "object_checks": [
+              {
+                "object": {
+                  "kind": "teacher_question",
+                  "id": "tq-shorten-unit"
+                },
+                "status": "local_gap",
+                "evidence_ids": [
+                  "ev:b-final:be2bce14d83ebe6d",
+                  "ev:b-final:a4946d2ac665411a"
+                ],
+                "note": "教师能通过各单元的 prerequisite_units、entry/exit 标准及目标分配明确缩短单元对后续单元的影响，但缺乏单元内裁剪优先级的直接指引。"
+              },
+              {
+                "object": {
+                  "kind": "teacher_question",
+                  "id": "tq-goal-trace"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final:4e73a5f215bcf9b1",
+                  "ev:b-final:c83801a86384ab9a"
+                ],
+                "note": "goals 字典结构极其清晰，每个目标细分 teach/apply/revisit，提供具体的 opportunity 和 evidence，教师能迅速定位目标的首次学习、巩固与评价位置。"
+              },
+              {
+                "object": {
+                  "kind": "teacher_question",
+                  "id": "tq-reserve"
+                },
+                "status": "local_gap",
+                "evidence_ids": [
+                  "ev:b-final:7451bca5975fea90"
+                ],
+                "note": "reserve_plan 结构化分解了 3 节前置诊断补偿、8 节单元终结后矫正及 9 节期中期末反思（共 20 节），给出了明确的使用时机，但对挪用后的系统损失缺乏显式警告。"
+              }
+            ],
+            "score_rationale": "清单对象全部核查完毕，无重大失败与关键缺口。规划对教什么、目标链条（goals）及机动时间配置（reserve_plan）提供了清晰的一致性支撑，教师能准确跟踪目标与节奏。达到 3 分要求。距离 4 分的差距在于：面对单元缩短缺乏具体裁剪优先级指引，且机动时间未单独设立挪用代价分析。"
+          }
+        ],
+        "findings": [
+          {
+            "id": "model:r1-recheck:b-final:q2:1",
+            "candidate_id": "b-final",
+            "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+            "criterion_id": "Q2",
+            "object": {
+              "kind": "grade",
+              "id": "mainline"
+            },
+            "origin": "model",
+            "reviewer_id": "r1-recheck",
+            "severity": "local",
+            "claim": "课程给出了充分的现有组织理由与设计推断，但未针对不同外部校情或教学约束提供系统性的可替代单元编排路径及后果比较。",
+            "requirement": "4分锚点要求重要取舍与可替代安排清楚。",
+            "evidence_ids": [
+              "ev:b-final:ae4f3af4cbdf16b6"
+            ],
+            "counterexample": "无重大失败反例，属方案弹性层面的局部局限。",
+            "impact": "当学校需要按传统代数优先模式或调整测试节点时，教师缺乏现成的备用模块调序指引与数学衔接补偿方案。",
+            "recheck": "查阅 design_inferences 与 handoff_guidance 是否提供可替代的单元组合分支。",
+            "status": "open",
+            "status_note": "",
+            "status_evidence_ids": []
+          },
+          {
+            "id": "model:r1-recheck:b-final:q8:1",
+            "candidate_id": "b-final",
+            "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+            "criterion_id": "Q8",
+            "object": {
+              "kind": "teacher_question",
+              "id": "tq-shorten-unit"
+            },
+            "origin": "model",
+            "reviewer_id": "r1-recheck",
+            "severity": "local",
+            "claim": "规划明确了单元进出标准与前置依赖，但在单元面临意外课时压缩时，缺乏单元内核心与次要活动裁剪优先级的显式指引。",
+            "requirement": "教师规划应能清晰指引单元缩短时的应对策略与裁剪依据。",
+            "evidence_ids": [
+              "ev:b-final:a4946d2ac665411a",
+              "ev:b-final:e65103826a6624f7"
+            ],
+            "counterexample": "无重大失败反例，属教师实操微调的局部不足。",
+            "impact": "教师若因校历临时变动需要压缩某个单元课时，难以快速判断哪些环节必须保留、哪些环节可先行精简。",
+            "recheck": "查阅各单元 narrative 与 handoff_guidance 是否包含课时削减优先级说明。",
+            "status": "open",
+            "status_note": "",
+            "status_evidence_ids": []
+          },
+          {
+            "id": "model:r1-recheck:b-final:q8:2",
+            "candidate_id": "b-final",
+            "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+            "criterion_id": "Q8",
+            "object": {
+              "kind": "teacher_question",
+              "id": "tq-reserve"
+            },
+            "origin": "model",
+            "reviewer_id": "r1-recheck",
+            "severity": "local",
+            "claim": "机动时间计划详尽分配了课时投放节点与诊断触发条件，但未显式设立“挪用机动时间用于常规赶课将失去什么”的系统性代价清单。",
+            "requirement": "教师规划应说明机动时间挪用后会失去什么。",
+            "evidence_ids": [
+              "ev:b-final:7451bca5975fea90"
+            ],
+            "counterexample": "无重大失败反例，属规划可用性的局部不足。",
+            "impact": "在进度滞后压力下，任课教师可能倾向于随意挪用机动课时赶教学进度，从而忽视其承载的课内诊断干预与错题反思职能。",
+            "recheck": "检查 reserve_plan 中是否含有挪用代价或红线警示。",
+            "status": "open",
+            "status_note": "",
+            "status_evidence_ids": []
+          }
+        ],
+        "evidence": [
+          {
+            "id": "ev:b-final:b8bfdbd9cbda4c0f",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/narrative",
+            "quote": "建立了一条以‘几何相似直观奠基 -> 代数方程与斜率刻画 -> 现代函数映射建构 -> 方程组系统平衡 -> 数系扩充与勾股空间度量 -> 幂运算与科学计量 -> 三维体积度量 -> 双变量统计建模’的连贯认知进阶主线。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "grade",
+                "id": "mainline"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:ba26a8544c5320bd",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/0/narrative",
+            "quote": "完成平行线截角性质、三角形内角和定理与相似AA准则的推导，为 Unit 2 奠定关键几何先备基础。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_1_geom_transform"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:b36264298b790c95",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/1/narrative",
+            "quote": "承接 Unit 1 的相似三角形理论，在平面直角坐标系中构造‘斜率三角形’，严密证明非垂直直线上任意两不同点的变化率恒定",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_2_linear_eq"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:366b4d5416a32a2d",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/2/narrative",
+            "quote": "将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。确立函数的统一定义（每个输入唯一对应输出）",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_3_linear_functions"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:ccd3609d4c24a4f0",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/3/narrative",
+            "quote": "学生发现当两个现实线性函数并存时，寻求二者的共同状态即等价于求解二元一次方程组。单元首先建立解即为两直线几何交点的直观",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_4_linear_systems"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:4ca543b5cf496d77",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/4/narrative",
+            "quote": "开启数系扩充与几何度量的深层交融。通过探究直角三角形斜边长度与几何正方形边长，发现无法表示为两整数之比的无理数",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_5_real_numbers_pythagoras"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:16bca2788d1b60b8",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/5/narrative",
+            "quote": "通过规律探索归纳出零指数幂与负整数指数幂的代数定义，建立完整的整数指数幂运算法则。随后将这一法则应用于科学记数法",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_6_exponents_sci_notation"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:865e8eb612d55b37",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/6/narrative",
+            "quote": "通过黑白打印几何图解、等底等高圆柱与内接圆锥的截面与体积关系分析、展开图模型以及代数推导，建立圆柱、圆锥与球体体积公式之间的内生联系",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_7_volume_3d"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:fdb7d78004825e48",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/7/narrative",
+            "quote": "迁移运用 8.F.B.4 的建模技能求解经验直线方程，理解斜率在统计学中的平均边际变化率含义及统计关联与因果干预的区别。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_8_bivariate_stats"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:ae4f3af4cbdf16b6",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/design_inferences/0",
+            "quote": "教学设计推断：将几何变换与相似（Unit 1）置于线性方程与斜率（Unit 2）之前，能为斜率比值的几何不变性提供直观公理支撑，避免学生将斜率机械化为纯公式记忆。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "grade",
+                "id": "mainline"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:be2bce14d83ebe6d",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/1/prerequisite_units/0",
+            "quote": "unit_1_geom_transform",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "teacher_question",
+                "id": "tq-shorten-unit"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:a4946d2ac665411a",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/units/2/entry",
+            "quote": "具备两不同点斜率计算能力与简单方程求解技能；能理解自变量与因变量的基本生活概念；不假定已熟练掌握线性函数定义。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "teacher_question",
+                "id": "tq-shorten-unit"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:4e73a5f215bcf9b1",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/goals/14/allocations/0/opportunity",
+            "quote": "从文字背景、数据表或图象中构建线性函数模型 $y = mx + b$；确定并阐释变化率（斜率）与初始值（截距）在具体情境中的数学与现实含义。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "teacher_question",
+                "id": "tq-goal-trace"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:c83801a86384ab9a",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/goals/14/allocations/1/opportunity",
+            "quote": "在散点图拟合直线探究中，应用 8.F.B.4 的建模技能求解经验直线的解析式并解读截距与斜率。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "teacher_question",
+                "id": "tq-goal-trace"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:7451bca5975fea90",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/reserve_plan",
+            "quote": "全年设置 20 节机动课时（Reserve Lessons），作为依据诊断实施课内干预与针对性巩固的资源，不计入各单元常规教学课时，其动态投放方案如下……",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "teacher_question",
+                "id": "tq-reserve"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final:e65103826a6624f7",
+            "document_id": "b-final",
+            "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+            "locator": "/handoff_guidance",
+            "quote": "若前测显示学生在有理数差商运算或坐标系描点上存在较多失误，教师可依据诊断在单元初期投放 1 节全年机动课时（reserve lessons）进行针对性补偿。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "teacher_question",
+                "id": "tq-shorten-unit"
+              }
+            ],
+            "recorded_by": "model"
+          }
+        ],
+        "rejected_citations": [],
+        "rejected_findings": [],
+        "problems": [],
+        "usage": {
+          "input_tokens": 63067,
+          "output_tokens": 8886,
+          "total_tokens": 71953
+        },
+        "usage_complete": null,
+        "repairs": 0,
+        "first_attempt_problems": [],
+        "first_attempt_rejected_citations": 0
+      }
+    },
+    {
+      "candidate": "revised",
+      "same_object_findings": [],
+      "review": {
+        "reviewer_id": "r1-recheck",
+        "candidate_id": "b-final.revised",
+        "content_fingerprint": "ff75e7ab746bc43a87be9e33ec0735325c752e5e67e83dacefb51a19cbd6f0af",
+        "criteria": [
+          "Q2",
+          "Q8"
+        ],
+        "ratings": [
+          {
+            "candidate_id": "b-final.revised",
+            "content_fingerprint": "ff75e7ab746bc43a87be9e33ec0735325c752e5e67e83dacefb51a19cbd6f0af",
+            "criterion_id": "Q2",
+            "reviewer_id": "r1-recheck",
+            "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+            "rules_fingerprint": null,
+            "observability": "observable",
+            "comparability": "single_candidate",
+            "reviewed_scope": {
+              "expected": [
+                {
+                  "kind": "grade",
+                  "id": "mainline"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_1_geom_transform"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_2_linear_eq"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_3_linear_functions"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_4_linear_systems"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_5_real_numbers_pythagoras"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_6_exponents_sci_notation"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_7_volume_3d"
+                },
+                {
+                  "kind": "unit",
+                  "id": "unit_8_bivariate_stats"
+                }
+              ],
+              "note": ""
+            },
+            "score": 4,
+            "interval": null,
+            "evidence_refs": [
+              "ev:b-final.revised:153b56d1dfde03d9",
+              "ev:b-final.revised:16bca2788d1b60b8",
+              "ev:b-final.revised:1eccf7a590ccc204",
+              "ev:b-final.revised:5be30d7bd9e719b5",
+              "ev:b-final.revised:717b5c90ccc1cabc",
+              "ev:b-final.revised:7ffcdbdf32d6db71",
+              "ev:b-final.revised:ba26a8544c5320bd",
+              "ev:b-final.revised:ccd3609d4c24a4f0",
+              "ev:b-final.revised:deef1b60c70ba25d"
+            ],
+            "strengths": [
+              "主线设计不仅建立了‘几何直观 -> 代数斜率 -> 函数映射 -> 方程组平衡 -> 空间度量 -> 统计经验拟合’的高阶递进，还给出了充分的数学取舍依据与标准网络支撑证据。",
+              "核心单元（Unit 3）与收官单元（Unit 8）在 8.F.B.4 的前后呼应设计深刻，有效达成了代数确定性与统计相关性的辨析与综合。"
+            ],
+            "findings": [],
+            "critical_failure": false,
+            "critical_failure_reason": "",
+            "object_checks": [
+              {
+                "object": {
+                  "kind": "grade",
+                  "id": "mainline"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:153b56d1dfde03d9"
+                ],
+                "note": "候选方案建立了清晰且符合认知规律的全年主线：从几何变换与相似导出代数斜率，跃升至函数映射，再统摄方程组；下半学期从实数与勾股度量走向科学记数、立体几何，并以双变量统计经验拟合综合收官。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_1_geom_transform"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:ba26a8544c5320bd"
+                ],
+                "note": "单元一以几何不变性与AA相似判定为核心，明确为单元二直角坐标系中的斜率恒定性推导提供公理化几何依据。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_2_linear_eq"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:deef1b60c70ba25d"
+                ],
+                "note": "单元二承接单元一的相似三角形推导斜率恒定性，并攻坚一元一次方程解的分类，为后续函数与方程组奠定代数基础。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_3_linear_functions"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:1eccf7a590ccc204"
+                ],
+                "note": "单元三作为核心单元，将几何直线升华为输入输出的现代函数映射，聚焦 8.F.B.4 的完整建模闭环与物理边界定义。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_4_linear_systems"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:ccd3609d4c24a4f0"
+                ],
+                "note": "单元四将函数与方程融为一体，利用两线性函数交点理解方程组平衡点，顺序编排在单元三之后具有极强的数学逻辑合理性。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_5_real_numbers_pythagoras"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:7ffcdbdf32d6db71"
+                ],
+                "note": "单元五将实数系统扩充与勾股定理紧密咬合，通过直角三角形斜边长度赋予无理数直观几何现实意义。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_6_exponents_sci_notation"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:16bca2788d1b60b8"
+                ],
+                "note": "单元六拓展全部整数指数幂体系并应用于科学记数法，在离线黑白打印图例支持下完成技术工具输出释读。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_7_volume_3d"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:717b5c90ccc1cabc"
+                ],
+                "note": "单元七拓展至三维度量，将体积公式推导与单元五的二次/三次开方运算相结合反解尺寸，依赖关系明确。"
+              },
+              {
+                "object": {
+                  "kind": "unit",
+                  "id": "unit_8_bivariate_stats"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:5be30d7bd9e719b5"
+                ],
+                "note": "单元八作为收官单元，将确定性代数线性模型推广至不确定性数据统计分析，迁移应用 8.F.B.4 经验直线方程，形成全年概念大闭环。"
+              }
+            ],
+            "score_rationale": "全年数学主线逻辑严密清晰，各领域（几何变换、代数方程、函数映射、数系扩充、空间度量、统计建模）及前后年级衔接具体；单元编排具有充分的数学理由（如先相似后斜率、先函数后方程组、数系扩充与勾股结合），完整达到了4分锚点要求。"
+          },
+          {
+            "candidate_id": "b-final.revised",
+            "content_fingerprint": "ff75e7ab746bc43a87be9e33ec0735325c752e5e67e83dacefb51a19cbd6f0af",
+            "criterion_id": "Q8",
+            "reviewer_id": "r1-recheck",
+            "rubric_fingerprint": "026e1d2873c66bfcfeb00ab84ccaf191bdc04f0637f77b2b064321e2f2de0554",
+            "rules_fingerprint": null,
+            "observability": "observable",
+            "comparability": "single_candidate",
+            "reviewed_scope": {
+              "expected": [
+                {
+                  "kind": "teacher_question",
+                  "id": "tq-shorten-unit"
+                },
+                {
+                  "kind": "teacher_question",
+                  "id": "tq-goal-trace"
+                },
+                {
+                  "kind": "teacher_question",
+                  "id": "tq-reserve"
+                }
+              ],
+              "note": ""
+            },
+            "score": 4,
+            "interval": null,
+            "evidence_refs": [
+              "ev:b-final.revised:4e73a5f215bcf9b1",
+              "ev:b-final.revised:6bcabd6fa985a8ce",
+              "ev:b-final.revised:ff4287372ec8b6a7"
+            ],
+            "strengths": [
+              "提供了详尽的分层设计与交接指引（handoff_guidance），对核心单元的弹性调配与压缩降级预案给出了明确的优先级排序。",
+              "机动课时划分科学，将诊断干预、单元矫正与学期综合反思紧密咬合在教学节点上，极大地提升了全年实施的容错度与可用性。"
+            ],
+            "findings": [],
+            "critical_failure": false,
+            "critical_failure_reason": "",
+            "object_checks": [
+              {
+                "object": {
+                  "kind": "teacher_question",
+                  "id": "tq-shorten-unit"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:ff4287372ec8b6a7"
+                ],
+                "note": "在各单元 narrative、prerequisite_units 以及 handoff_guidance 中详细列出了后续依赖和压缩单元时的核心保留项与可降级裁剪项，教师调整依据明确。"
+              },
+              {
+                "object": {
+                  "kind": "teacher_question",
+                  "id": "tq-goal-trace"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:4e73a5f215bcf9b1"
+                ],
+                "note": "目标在 goals 字典中全面分配，并以 teach、apply、revisit 角色明确标明在各单元的学习机会与评价证据，并在单元 narrative 与 assessment_plan 中形成清晰闭环。"
+              },
+              {
+                "object": {
+                  "kind": "teacher_question",
+                  "id": "tq-reserve"
+                },
+                "status": "supported",
+                "evidence_ids": [
+                  "ev:b-final.revised:6bcabd6fa985a8ce"
+                ],
+                "note": "机动时间设立了精确的结构化三级投放方案（承重单元前置诊断 3 节、单元后精准矫正 8 节、期中期末综合建模反思 9 节），挪用后的代价与影响清晰透明。"
+              }
+            ],
+            "score_rationale": "方案为任课教师提供了完整且高度可操作的规划全景与分层入口。三个关键教师规划问题（单元压缩影响与取舍、目标全流程追踪、机动课时用途与挪用代价）均有精准且一致的原文字段支撑，达到4分标准。"
+          }
+        ],
+        "findings": [],
+        "evidence": [
+          {
+            "id": "ev:b-final.revised:153b56d1dfde03d9",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/narrative",
+            "quote": "以‘几何相似直观奠基 -> 代数方程与斜率刻画 -> 现代函数映射建构 -> 方程组系统平衡 -> 数系扩充与勾股空间度量 -> 幂运算与科学计量 -> 三维体积度量 -> 双变量统计建模’的连贯认知进阶主线。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "grade",
+                "id": "mainline"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:ba26a8544c5320bd",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/units/0/narrative",
+            "quote": "完成平行线截角性质、三角形内角和定理与相似AA准则的推导，为 Unit 2 奠定关键几何先备基础。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_1_geom_transform"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:deef1b60c70ba25d",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/units/1/narrative",
+            "quote": "在平面直角坐标系中构造‘斜率三角形’，严密证明非垂直直线上任意两不同点的变化率恒定，将七年级的单位比率升华为直线的几何斜率，推导 y = mx 与 y = mx + b。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_2_linear_eq"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:1eccf7a590ccc204",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/units/2/narrative",
+            "quote": "本单元将 Unit 2 中直线的几何轨迹方程跃升为现代函数的输入输出映射。确立函数的统一定义（每个输入唯一对应输出）",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_3_linear_functions"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:ccd3609d4c24a4f0",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/units/3/narrative",
+            "quote": "学生发现当两个现实线性函数并存时，寻求二者的共同状态即等价于求解二元一次方程组。单元首先建立解即为两直线几何交点的直观",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_4_linear_systems"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:7ffcdbdf32d6db71",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/units/4/narrative",
+            "quote": "通过探究直角三角形斜边长度与几何正方形边长，发现无法表示为两整数之比的无理数（如根号2），理解无限循环小数与非循环小数的界限。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_5_real_numbers_pythagoras"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:16bca2788d1b60b8",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/units/5/narrative",
+            "quote": "通过规律探索归纳出零指数幂与负整数指数幂的代数定义，建立完整的整数指数幂运算法则。随后将这一法则应用于科学记数法",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_6_exponents_sci_notation"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:717b5c90ccc1cabc",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/units/6/narrative",
+            "quote": "建立圆柱、圆锥与球体体积公式之间的内生联系……并结合 Unit 5 学习的开方运算反解立体图形的关键几何尺寸",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_7_volume_3d"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:5be30d7bd9e719b5",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/units/7/narrative",
+            "quote": "利用直尺拟合经验直线，迁移运用 8.F.B.4 的建模技能求解经验直线方程，理解斜率在统计学中的平均边际变化率含义及统计关联与因果干预的区别。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "unit",
+                "id": "unit_8_bivariate_stats"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:ff4287372ec8b6a7",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/handoff_guidance",
+            "quote": "若因特殊情况需压缩单元课时（最多压缩 2~3 课时），内部取舍优先级如下：核心不可动摇的是 8.F.B.4 的两点差商斜率计算、初始值代数求解、规范函数式表达及模型物理边界与有效定义域的完整剖析",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "teacher_question",
+                "id": "tq-shorten-unit"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:4e73a5f215bcf9b1",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/goals/14/allocations/0/opportunity",
+            "quote": "从文字背景、数据表或图象中构建线性函数模型 $y = mx + b$；确定并阐释变化率（斜率）与初始值（截距）在具体情境中的数学与现实含义。",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "teacher_question",
+                "id": "tq-goal-trace"
+              }
+            ],
+            "recorded_by": "model"
+          },
+          {
+            "id": "ev:b-final.revised:6bcabd6fa985a8ce",
+            "document_id": "b-final.revised",
+            "document_fingerprint": "44fa0c1f97dfb7f7e184f745a411c92ee9e53fc7cf1ecedda1451a199deaa623",
+            "locator": "/reserve_plan",
+            "quote": "全年设置 20 节机动课时（Reserve Lessons），作为依据诊断实施课内干预与针对性巩固的资源，不计入各单元常规教学课时",
+            "extraction": "模型引用的原文片段；判断见所属结论",
+            "objects": [
+              {
+                "kind": "teacher_question",
+                "id": "tq-reserve"
+              }
+            ],
+            "recorded_by": "model"
+          }
+        ],
+        "rejected_citations": [],
+        "rejected_findings": [],
+        "problems": [],
+        "usage": {
+          "input_tokens": 63198,
+          "output_tokens": 7156,
+          "total_tokens": 70354
+        },
+        "usage_complete": null,
+        "repairs": 0,
+        "first_attempt_problems": [],
+        "first_attempt_rejected_citations": 0
+      }
+    }
+  ]
+}

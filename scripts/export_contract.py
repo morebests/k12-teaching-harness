@@ -12,6 +12,7 @@ from teaching_harness.contracts import (
     YearBlueprint,
     content_adapter,
 )
+from teaching_harness.grade_evaluation.config import records_schema
 
 target = Path(__file__).resolve().parents[1] / "docs/contracts"
 target.mkdir(parents=True, exist_ok=True)
@@ -27,6 +28,9 @@ for name, model in [
     )
 (target / "curriculum.schema.json").write_text(
     json.dumps(content_adapter.json_schema(), ensure_ascii=False, indent=2) + "\n"
+)
+(target / "grade-evaluation.schema.json").write_text(
+    json.dumps(records_schema(), ensure_ascii=False, indent=2) + "\n"
 )
 (target / "content.openapi.json").write_text(
     json.dumps(app.openapi(), ensure_ascii=False, indent=2) + "\n"

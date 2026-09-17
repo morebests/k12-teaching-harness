@@ -1,0 +1,247 @@
+[
+  {
+    "id": "h-opportunity-empty",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace",
+        "path": "/goals/32/allocations/0/opportunity",
+        "value": "结合本单元内容涉及分类数据。",
+        "from_path": "",
+        "old": "",
+        "new": ""
+      },
+      {
+        "op": "replace",
+        "path": "/goals/32/allocations/0/evidence",
+        "value": "单元测试中考查。",
+        "from_path": "",
+        "old": "",
+        "new": ""
+      },
+      {
+        "op": "replace_text",
+        "path": "/units/7/narrative",
+        "value": null,
+        "from_path": "",
+        "old": "最后，通过双向列联表的行/列相对频率探究分类变量之间的相关性，确立严谨的数据推理素养。",
+        "new": "最后，确立严谨的数据推理素养。"
+      },
+      {
+        "op": "replace_text",
+        "path": "/units/7/exit",
+        "value": null,
+        "from_path": "",
+        "old": "；能通过双向列联表分析分类数据的相关性",
+        "new": ""
+      },
+      {
+        "op": "replace_text",
+        "path": "/units/7/assessment_plan",
+        "value": null,
+        "from_path": "",
+        "old": "、有效范围界定及列联表相关性分析",
+        "new": "及有效范围界定"
+      },
+      {
+        "op": "replace_text",
+        "path": "/narrative",
+        "value": null,
+        "from_path": "",
+        "old": "，并用列联表探究分类关联",
+        "new": ""
+      }
+    ],
+    "note": "终稿副本 H1"
+  },
+  {
+    "id": "h-assess-before-learning",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace_text",
+        "path": "/units/2/assessment_plan",
+        "value": null,
+        "from_path": "",
+        "old": "单元末通过真实情境建模（含 Task 1 类似题）进行终结性闭卷评价",
+        "new": "单元末通过真实情境建模（含 Task 1 类似题）以及用代入消元法、加减消元法求解二元一次方程组的题目进行终结性闭卷评价"
+      }
+    ],
+    "note": "终稿副本 H2"
+  },
+  {
+    "id": "h-reserve-double-count",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace_text",
+        "path": "/reserve_plan",
+        "value": null,
+        "from_path": "",
+        "old": "作为依据诊断实施课内干预与针对性巩固的资源，不计入各单元常规教学课时，其动态投放方案如下：",
+        "new": "其中 8 节用于各单元的单元末闭卷测试（各单元课时数已包含本单元的单元末测试），其余作为依据诊断实施课内干预与针对性巩固的资源，其动态投放方案如下："
+      }
+    ],
+    "note": "终稿副本 H3"
+  },
+  {
+    "id": "h-revisit-dropped",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "remove",
+        "path": "/goals/1/allocations/1",
+        "value": null,
+        "from_path": "",
+        "old": "",
+        "new": ""
+      },
+      {
+        "op": "replace_text",
+        "path": "/units/6/narrative",
+        "value": null,
+        "from_path": "",
+        "old": "，并结合 Unit 5 学习的开方运算反解立体图形的关键几何尺寸",
+        "new": ""
+      },
+      {
+        "op": "replace_text",
+        "path": "/units/6/entry",
+        "value": null,
+        "from_path": "",
+        "old": "；掌握开平方根与开立方根运算",
+        "new": ""
+      },
+      {
+        "op": "replace_text",
+        "path": "/units/6/exit",
+        "value": null,
+        "from_path": "",
+        "old": "，并能根据已知体积反解半径或高度",
+        "new": ""
+      },
+      {
+        "op": "replace_text",
+        "path": "/units/6/assessment_plan",
+        "value": null,
+        "from_path": "",
+        "old": "评估多步公式代入与根号近似计算",
+        "new": "评估多步公式代入"
+      }
+    ],
+    "note": "终稿副本 H4"
+  },
+  {
+    "id": "h-order-dependency",
+    "split": "holdout",
+    "kind": "injected",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "move",
+        "path": "/units/2",
+        "value": null,
+        "from_path": "/units/3",
+        "old": "",
+        "new": ""
+      },
+      {
+        "op": "remove",
+        "path": "/units/2/prerequisite_units/1",
+        "value": null,
+        "from_path": "",
+        "old": "",
+        "new": ""
+      }
+    ],
+    "note": "终稿副本 H5"
+  },
+  {
+    "id": "h-control-swap",
+    "split": "holdout",
+    "kind": "control",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "move",
+        "path": "/units/4",
+        "value": null,
+        "from_path": "/units/5",
+        "old": "",
+        "new": ""
+      },
+      {
+        "op": "replace_text",
+        "path": "/narrative",
+        "value": null,
+        "from_path": "",
+        "old": "Unit 5 将实数系统扩充（无理数与开方）同勾股定理与坐标距离测量紧密咬合，赋予无理数鲜明的几何意义；Unit 6 拓展整数指数运算与科学记数法（依托黑白打印的模拟屏幕示例）；",
+        "new": "Unit 6 拓展整数指数运算与科学记数法（依托黑白打印的模拟屏幕示例）；Unit 5 将实数系统扩充（无理数与开方）同勾股定理与坐标距离测量紧密咬合，赋予无理数鲜明的几何意义；"
+      }
+    ],
+    "note": "终稿副本 H6"
+  },
+  {
+    "id": "h-control-revisit",
+    "split": "holdout",
+    "kind": "control",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "add",
+        "path": "/goals/14/allocations/-",
+        "value": {
+          "unit_id": "unit_4_linear_systems",
+          "role": "revisit",
+          "opportunity": "比较两种收费方案时，先分别写出两个线性函数并解释各自的变化率与初始值，再由图象交点讨论方案选择。",
+          "evidence": "学生能说明每个函数中斜率与截距在情境中的含义，并用它们解释交点两侧哪种方案更省。"
+        },
+        "from_path": "",
+        "old": "",
+        "new": ""
+      }
+    ],
+    "note": "终稿副本 H7"
+  },
+  {
+    "id": "h-control-resource",
+    "split": "holdout",
+    "kind": "control",
+    "base": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/content/curriculum.json",
+    "base_fingerprint": "c3d576c2849c0d302850e6045d40e3f2fb0966302548cd90f6d2a6e9c9bbb44a",
+    "standards": ".scratch/math-harness-delivery/evidence/15-full-year-blueprint/final/knowledge.json",
+    "mutations": [
+      {
+        "op": "replace_text",
+        "path": "/goals/26/allocations/0/opportunity",
+        "value": null,
+        "from_path": "",
+        "old": "通过教师投影动态图解演示与黑白打印截面分解图",
+        "new": "通过教师投影的静态分步图解（与黑白打印讲义同版）和黑白打印截面分解图"
+      }
+    ],
+    "note": "终稿副本 H8"
+  }
+]

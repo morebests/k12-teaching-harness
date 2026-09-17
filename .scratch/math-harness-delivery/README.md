@@ -12,7 +12,7 @@
 
 | 工作项 | 为什么排在这里 | 可检查的交付 | 就绪程度 |
 | --- | --- | --- | --- |
-| [检查校准与全年证据评价（23）](issues/23-year-evaluation-and-check-calibration.md) | 先知道怎样判断和检查会漏什么，避免事后选择有利标准 | 证据索引、对象级发现、评分／裁定记录、旧错和新变体及合法对照的实际校准 | ready-for-agent；待实现 |
+| [检查校准与全年证据评价（23）](issues/23-year-evaluation-and-check-calibration.md) | 先知道怎样判断和检查会漏什么，避免事后选择有利标准 | 证据索引、对象级发现、评分／裁定记录、旧错和新变体及合法对照的实际校准 | ready-for-agent；已实现，模型辅助校准暴露的弱点交 24／25，见 [证据](evidence/23-grade-evaluation/README.md) |
 | [目标依据与全年布局（24）](issues/24-year-foundation-and-layout.md) | 先夯实年度责任和组织理由，防止错误扩散 | 真实 A／B、集中 Context、检查回修和有效交接 | ready-for-agent；工程前置为 15、23 |
 | [所有单元进程与全年核查（25）](issues/25-year-progressions-and-global-checks.md) | 布局还不能证明学习机会与全年组合成立 | 全部 C、D、真实全年从头生成、阅读稿及单元交接 | needs-triage；据 24 实际成果收口 |
 | [全年 IM 比较与修订复评（26）](issues/26-year-im-comparison-and-revision.md) | 让质量差距和方法效果有证据可判 | 逐维强弱／重大问题、实际修订复评、方法结论与局限 | needs-triage；据 23、25 收口 |
