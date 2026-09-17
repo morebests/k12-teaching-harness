@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "key": "4d849b56eab60fd2460057f565d4a15e31986004047232e04b9a0fef901f2420",
+  "task_id": "task_3_coordinate_distance",
+  "first_sample": "b-final",
+  "model": "gemini-3.8-flash",
+  "output": {
+    "solution": {
+      "parts": [
+        {
+          "question": "1. 在方格纸上标出点 A 和点 B；",
+          "answer": "在平面直角坐标系中，从原点出发，沿 x 轴正方向取 2 个单位、y 轴正方向取 3 个单位标出点 A(2, 3)；沿 x 轴正方向取 8 个单位、y 轴正方向取 11 个单位标出点 B(8, 11)。",
+          "work": "平面直角坐标系中，横坐标表示点在 x 轴上的投影位置，纵坐标表示点在 y 轴上的投影位置。因此点 A 的坐标为 (2, 3)，点 B 的坐标为 (8, 11)。"
+        },
+        {
+          "question": "2. 构造一个以线段 AB 为斜边、两条直角边分别平行于坐标轴的直角三角形 ABC；写出直角顶点 C 的坐标；",
+          "answer": "直角顶点 C 的坐标为 (8, 3)（或 (2, 11)）。",
+          "work": "过点 A 作平行于 x 轴（或 y 轴）的直线，过点 B 作平行于 y 轴（或 x 轴）的直线，两直线相交于点 C。\n当过 A 作水平线、过 B 作竖直线时，交点 C 的横坐标与 B 相同（x = 8），纵坐标与 A 相同（y = 3），即 C(8, 3)；\n当过 A 作竖直线、过 B 作水平线时，交点 C 的横坐标与 A 相同（x = 2），纵坐标与 B 相同（y = 11），即 C(2, 11)。两线垂直，故均为直角三角形 ABC。"
+        },
+        {
+          "question": "3. 分别计算两条直角边 AC 和 BC 的长度；",
+          "answer": "以 C(8, 3) 为例，AC = 6，BC = 8（若选 C(2, 11)，则 AC = 8，BC = 6）。两条直角边的长度分别为 6 和 8。",
+          "work": "若选取 C(8, 3)：\n线段 AC 平行于 x 轴，长度为两点横坐标之差的绝对值：AC = |8 - 2| = 6；\n线段 BC 平行于 y 轴，长度为两点纵坐标之差的绝对值：BC = |11 - 3| = 8。\n若选取 C(2, 11)：\n线段 AC 平行于 y 轴，AC = |11 - 3| = 8；\n线段 BC 平行于 x 轴，BC = |8 - 2| = 6。"
+        },
+        {
+          "question": "4. 应用勾股定理，计算出点 A 与点 B 之间的精确距离。",
+          "answer": "点 A 与点 B 之间的精确距离为 10。",
+          "work": "在 Rt△ABC 中，∠C = 90°，由勾股定理可知：\nAB² = AC² + BC²\n将边长代入计算：\nAB² = 6² + 8² = 36 + 64 = 100\n因为几何线段长度大于 0，所以：\nAB = √100 = 10。"
+        }
+      ],
+      "required_conditions": [
+        "平面为标准笛卡尔平面直角坐标系，x 轴与 y 轴相互垂直且单位长度一致",
+        "方格纸网格的每个小正方形边长为 1 个单位长度",
+        "几何距离非负"
+      ],
+      "missing_information": [],
+      "notes": "直角顶点 C 存在两种对称的构造方式：C(8, 3) 或 C(2, 11)，两种构造下两条直角边的长度均为 6 和 8，最终斜边长度一致。"
+    },
+    "review": {
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答与学生样本中均明确在方格纸上标出点 A(2, 3) 和 B(8, 11)，与独立解答一致。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答中明确指出直角顶点 C 可取 (8, 3) 或 (2, 11)，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答通过坐标差绝对值算得直角边长为 6 和 8，与独立解答一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答计算 6^2 + 8^2 = 100 并开平方得出距离为 10，与独立解答一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面明确设定在平面直角坐标系及方格纸中，满足标准笛卡尔坐标系条件。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面和解答均依据方格纸网格单位长度为 1 开展坐标与边长计算。"
+        },
+        {
+          "item": "condition-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "开平方求几何距离时取正值 10，符合几何距离非负要求。"
+        }
+      ],
+      "findings": [],
+      "checked": [
+        "作者解答与独立解答数值与推导核对",
+        "方格纸与坐标系等材料及学校器材可用性核对",
+        "直角三角形两种构造方式对称性及坐标计算核对",
+        "设计结论是否区分试做与学生掌握核对"
+      ]
+    },
+    "usage": {
+      "input_tokens": 8234,
+      "output_tokens": 3335,
+      "total_tokens": 11569,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "repairs": 0
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "sample_id": "b-final",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "max_output_tokens": 32768,
+  "rules_fingerprint": "1ba477545b402d1f84a9e0671904e344b92f3d18de0d5eb9f73f827900bf1aef",
+  "seconds": 59.1,
+  "error": null,
+  "failed_usage": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "b-final",
+    "findings": [
+      {
+        "id": "statements:b-final:1",
+        "candidate_id": "b-final",
+        "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "unit",
+          "id": "unit_5_real_numbers_pythagoras"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "声称能够通过面积割补法同时证明勾股定理及其逆定理。",
+        "requirement": "明确面积割补法仅用于证明勾股定理，勾股定理逆定理应采用构造辅助直角三角形全等或反证法进行证明。",
+        "evidence_ids": [
+          "ev:b-final:5888d8744f858237"
+        ],
+        "counterexample": "面积割补拼图法（如利用4个直角三角形拼接成边长为c的正方形）在构造图形时必须以原三角形为直角三角形作为前提条件，才能保证拼合角为直角且图形无缝密铺，因此割补法只能证明正定理（直角三角形 => a^2 + b^2 = c^2）；勾股定理的逆定理（已知 a^2 + b^2 = c^2，证明该三角形为直角三角形）无法直接用面积割补法证明，通常需构造直角边为 a、b 的辅助直角三角形并由 SSS 判定全等来证得。",
+        "impact": "导致教师与学生混淆命题与逆命题的证明逻辑路径，误认为几何面积割补本身包含了逆定理的充分性证明。",
+        "recheck": "应将逆定理的证明方法与割补法解耦，明确割补法用于直观证明勾股定理，而逆定理通过逻辑推理（如辅助直角三角形全等法）进行探索与判定。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:b-final:2",
+        "candidate_id": "b-final",
+        "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "断言函数的图象是平面直角坐标系中所有有序实数对 $(x, y)$ 的集合。",
+        "requirement": "表述必须限定为“由输入及其唯一对应的输出构成的有序数对 $(x, y)$ 的集合”（即满足函数关系的点的集合）。",
+        "evidence_ids": [
+          "ev:b-final:f7dec01e719ec61d"
+        ],
+        "counterexample": "平面直角坐标系中“所有有序实数对 (x, y) 的集合”是整个二维笛卡尔积平面 R^2，而非某个函数的图象；函数图象仅是由所有自变量输入值 x 及其对应的唯一因变量输出值 y 组成的有序数对集合 {(x, f(x)) | x 在定义域内}。",
+        "impact": "漏写了限定性依存条件，字面上将函数图象扩大为整个坐标平面，歪曲了 CCSSM 8.F.A.1 中关于函数图象的核心定义。",
+        "recheck": "核对 CCSSM 8.F.A.1 原文：“The graph of a function is the set of ordered pairs consisting of an input and the corresponding output”，补充“由输入及对应输出构成的”或“满足函数对应关系的”限定词。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      },
+      {
+        "id": "statements:b-final:3",
+        "candidate_id": "b-final",
+        "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "grade",
+          "id": "mainline"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "local",
+        "claim": "将“分段租车费用”直接作为单个线性模型 $y = mx + b$ 解释其斜率 $m$ 与截距 $b$ 的典型情境实例。",
+        "requirement": "线性函数 $y = mx + b$ 建模的实例应具备全程恒定变化率，若涉及分段计费须指明仅针对其中某特定单一区间。",
+        "evidence_ids": [
+          "ev:b-final:ebc481c604887af0"
+        ],
+        "counterexample": "分段租车费用（tiered / segmented rental fees）在不同计费区间（如起步里程内与超额里程后）具有不同的变化率，本质属于分段线性函数（piecewise linear function），不存在贯穿全程的单一斜率 m 与固定初始截距 b。",
+        "impact": "实例举例不够精确，易使教师在设计单一线性函数 $y = mx + b$ 建模任务时选用不符合恒定变化率的分段情境。",
+        "recheck": "将“分段租车费用”改为“固定起步费加单价计费的租车费用”或“匀速注水/排水蓄水池”。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:b-final:5888d8744f858237",
+        "document_id": "b-final",
+        "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+        "locator": "/units/4/narrative",
+        "quote": "随后通过面积割补法证明勾股定理及其逆定理",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "unit",
+            "id": "unit_5_real_numbers_pythagoras"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:b-final:f7dec01e719ec61d",
+        "document_id": "b-final",
+        "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+        "locator": "/goals/11/allocations/0/opportunity",
+        "quote": "理解图象是所有有序实数对 $(x, y)$ 的集合",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          }
+        ],
+        "recorded_by": "model"
+      },
+      {
+        "id": "ev:b-final:ebc481c604887af0",
+        "document_id": "b-final",
+        "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+        "locator": "/handoff_guidance",
+        "quote": "给定现实情境问题（如蓄水池充水、分段租车费用），学生能用完整语句清晰表述 $m$ 与 $b$ 在该情境中的物理单位与实际含义",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "grade",
+            "id": "mainline"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12558,
+      "output_tokens": 12519,
+      "total_tokens": 25077,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "/narrative",
+      "/prerequisites",
+      "/successors",
+      "/handoff_guidance",
+      "/design_inferences",
+      "/teacher_preparation",
+      "/units/unit_1_geom_transform",
+      "/units/unit_2_linear_eq",
+      "/units/unit_3_linear_functions",
+      "/units/unit_4_linear_systems",
+      "/units/unit_5_real_numbers_pythagoras",
+      "/units/unit_6_exponents_sci_notation",
+      "/units/unit_7_volume_3d",
+      "/units/unit_8_bivariate_stats",
+      "/goals/8.EE.A.1",
+      "/goals/8.EE.A.2",
+      "/goals/8.EE.A.3",
+      "/goals/8.EE.A.4",
+      "/goals/8.EE.B.5",
+      "/goals/8.EE.B.6",
+      "/goals/8.EE.C.7",
+      "/goals/8.EE.C.7.a",
+      "/goals/8.EE.C.7.b",
+      "/goals/8.EE.C.8",
+      "/goals/8.EE.C.8.a",
+      "/goals/8.EE.C.8.b",
+      "/goals/8.EE.C.8.c",
+      "/goals/8.F.A.1",
+      "/goals/8.F.A.2",
+      "/goals/8.F.A.3",
+      "/goals/8.F.B.4",
+      "/goals/8.F.B.5",
+      "/goals/8.G.A.1",
+      "/goals/8.G.A.1.a",
+      "/goals/8.G.A.1.b",
+      "/goals/8.G.A.1.c",
+      "/goals/8.G.A.2",
+      "/goals/8.G.A.3",
+      "/goals/8.G.A.4",
+      "/goals/8.G.A.5",
+      "/goals/8.G.B.6",
+      "/goals/8.G.B.7",
+      "/goals/8.G.B.8",
+      "/goals/8.G.C.9",
+      "/goals/8.NS.A.1",
+      "/goals/8.NS.A.2",
+      "/goals/8.SP.A.1",
+      "/goals/8.SP.A.2",
+      "/goals/8.SP.A.3",
+      "/goals/8.SP.A.4"
+    ],
+    "error_types": {
+      "statements:b-final:1": "concept_confusion",
+      "statements:b-final:2": "missing_condition",
+      "statements:b-final:3": "imprecise"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "key": "db78d294e49dcf814333e28453d541d4b04fd464b2c3445553fe6fc0531268bb",
+  "task_id": "task_3_coordinate_distance",
+  "first_sample": "b-final",
+  "model": "gemini-3.8-flash",
+  "output": {
+    "solution": {
+      "parts": [
+        {
+          "question": "1. 在方格纸上标出点 A 和点 B",
+          "answer": "在平面直角坐标系（方格纸）中建立横轴 x 和纵轴 y，以每个小方格为 1 个单位长度。从原点 (0, 0) 开始，沿 x 轴向右移动 2 个单位，再沿 y 轴向上移动 3 个单位，标出点 A(2, 3)；沿 x 轴向右移动 8 个单位，再沿 y 轴向上移动 11 个单位，标出点 B(8, 11)。",
+          "work": "依据平面直角坐标系的坐标定义，分别确定横坐标与纵坐标并在网格中对应标点。"
+        },
+        {
+          "question": "2. 构造一个以线段 AB 为斜边、两条直角边分别平行于坐标轴的直角三角形 ABC；写出直角顶点 C 的坐标",
+          "answer": "点 C 的坐标为 (8, 3)（或 (2, 11)）。",
+          "work": "过点 A 作平行于 x 轴的水平直线，过点 B 作平行于 y 轴的垂直直线，两直线相交于点 C(8, 3)；或者过点 A 作垂直于 x 轴的直线，过点 B 作水平直线，两直线相交于点 C(2, 11)。两线互相垂直，所得 △ABC 均为以 AB 为斜边的直角三角形。"
+        },
+        {
+          "question": "3. 分别计算两条直角边 AC 和 BC 的长度",
+          "answer": "若取 C(8, 3)，则 AC 的长度为 6，BC 的长度为 8；若取 C(2, 11)，则 AC 的长度为 8，BC 的长度为 6。",
+          "work": "以 C(8, 3) 为例：\nAC 为水平线段，长度为 |x_C - x_A| = |8 - 2| = 6；\nBC 为铅垂线段，长度为 |y_B - y_C| = |11 - 3| = 8。\n（若取 C(2, 11)，AC 长度为 |11 - 3| = 8，BC 长度为 |8 - 2| = 6）。"
+        },
+        {
+          "question": "4. 应用勾股定理，计算出点 A 与点 B 之间的精确距离",
+          "answer": "点 A 与点 B 之间的精确距离为 10。",
+          "work": "在 Rt△ABC 中，由勾股定理得：\nAB² = AC² + BC²\nAB² = 6² + 8² = 36 + 64 = 100\n因此，AB = √100 = 10。"
+        }
+      ],
+      "required_conditions": [
+        "平面为标准欧几里得平面，采用笛卡尔直角坐标系",
+        "方格纸网格的横向与纵向单位长度均为 1"
+      ],
+      "missing_information": [],
+      "notes": "构造直角顶点 C 有两种可能：(8, 3) 或 (2, 11)，两种选择得到的直角边长均为 6 和 8，最终计算出的线段 AB 长度相同。"
+    },
+    "review": {
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 5,
+          "note": "作者题面第 1 问及解答/学生作答均要求并在网格坐标系中正确标出 A(2,3) 和 B(8,11)。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 5,
+          "note": "作者解答明确指出直角顶点 C 为 (8, 3)（亦可取 (2, 11)），与独立解答一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 5,
+          "note": "作者解答计算直角边长为 6 和 8（AC = |8 - 2| = 6，BC = |11 - 3| = 8），与独立解答一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 5,
+          "note": "作者解答通过 6^2 + 8^2 = 100 计算得出斜边 AB = 10，与独立解答一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 5,
+          "note": "题面明确设定在平面直角坐标系中，与欧几里得平面笛卡尔坐标系条件一致。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 5,
+          "note": "题目与解答均依托方格纸标准直角网格，单位长度设定为 1，与求解条件一致。"
+        }
+      ],
+      "findings": [],
+      "checked": [
+        "作者解答与独立解答数值与步骤一致性核对",
+        "题面给定点坐标与所需信息完整性核对",
+        "构造直角三角形顶点可能性的数学准确性（(8,3)与(2,11)）核对",
+        "勾股定理计算与二次方根化简计算核对",
+        "设计结论对“试做”与“学生实际掌握”边界的区分核对",
+        "方格纸与直尺等作图器材与学校资源条件的一致性核对"
+      ]
+    },
+    "usage": {
+      "input_tokens": 8001,
+      "output_tokens": 2947,
+      "total_tokens": 10948,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "repairs": 0
+  }
+}

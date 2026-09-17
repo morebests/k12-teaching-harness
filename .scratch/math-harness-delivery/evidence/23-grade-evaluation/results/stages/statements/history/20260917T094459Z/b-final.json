@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "sample_id": "b-final",
+  "stage": "statements",
+  "model": "gemini-3.8-flash",
+  "rules_fingerprint": "28f4bbda63f5d0ceb4c949ed2acefa60e832ab8ed4fd992aab94cf1204e14d49",
+  "seconds": 19.5,
+  "error": null,
+  "promises": null,
+  "statements": {
+    "stage": "statements",
+    "candidate_id": "b-final",
+    "findings": [
+      {
+        "id": "statements:b-final:1",
+        "candidate_id": "b-final",
+        "content_fingerprint": "8f3c3cc56adb5522e0ae281da65b25e262b17f39abc5153ed9a482ea625f2621",
+        "criterion_id": "Q4",
+        "object": {
+          "kind": "goal",
+          "id": "8.F.A.1"
+        },
+        "origin": "model",
+        "reviewer_id": "statements",
+        "severity": "key_gap",
+        "claim": "断言函数的图象是所有有序实数对 (x, y) 的集合。",
+        "requirement": "应限定为“由输入值及其对应的输出值构成的有序实数对 (x, y) 的集合”（或满足映射规则 y = f(x) 的有序对集合），而非“所有有序实数对”。",
+        "evidence_ids": [
+          "ev:b-final:9305b350b26218ac"
+        ],
+        "counterexample": "所有有序实数对 (x, y) 的集合是整个笛卡尔坐标平面 R^2。函数的图象必须受函数规则约束，例如对于函数 y = 2x，点 (1, 3) 属于有序实数对集合，但不属于该函数的图象。",
+        "impact": "遗漏了“输入值及其对应输出值”的核心限定条件，字面上将局部曲线/直线的函数图象与整个笛卡尔坐标平面混淆，传递了不准确的数学定义。",
+        "recheck": "核对 CCSSM 8.F.A.1 标准原文（The graph of a function is the set of ordered pairs consisting of an input and the corresponding output），并在目标与单元学习机会中纠正表述。",
+        "status": "open",
+        "status_note": "",
+        "status_evidence_ids": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "ev:b-final:9305b350b26218ac",
+        "document_id": "b-final",
+        "document_fingerprint": "5e550d73ec4a5f7db9505aa94e7caea0a374539c272d97cdddc480a1750a4c15",
+        "locator": "/goals/11/allocations/0/opportunity",
+        "quote": "理解图象是所有有序实数对 $(x, y)$ 的集合。",
+        "extraction": "模型引用的原文片段；判断见所属结论",
+        "objects": [
+          {
+            "kind": "goal",
+            "id": "8.F.A.1"
+          }
+        ],
+        "recorded_by": "model"
+      }
+    ],
+    "rejected_citations": [],
+    "rejected_findings": [],
+    "problems": [],
+    "usage": {
+      "input_tokens": 12554,
+      "output_tokens": 6447,
+      "total_tokens": 19001
+    },
+    "usage_complete": true,
+    "repairs": 0,
+    "checked": [
+      "narrative",
+      "prerequisites",
+      "successors",
+      "handoff_guidance",
+      "design_inferences",
+      "teacher_preparation",
+      "units/unit_1_geom_transform",
+      "units/unit_2_linear_eq",
+      "units/unit_3_linear_functions",
+      "units/unit_4_linear_systems",
+      "units/unit_5_real_numbers_pythagoras",
+      "units/unit_6_exponents_sci_notation",
+      "units/unit_7_volume_3d",
+      "units/unit_8_bivariate_stats",
+      "goals/8.EE.A.1",
+      "goals/8.EE.A.2",
+      "goals/8.EE.A.3",
+      "goals/8.EE.A.4",
+      "goals/8.EE.B.5",
+      "goals/8.EE.B.6",
+      "goals/8.EE.C.7",
+      "goals/8.EE.C.7.a",
+      "goals/8.EE.C.7.b",
+      "goals/8.EE.C.8",
+      "goals/8.EE.C.8.a",
+      "goals/8.EE.C.8.b",
+      "goals/8.EE.C.8.c",
+      "goals/8.F.A.1",
+      "goals/8.F.A.2",
+      "goals/8.F.A.3",
+      "goals/8.F.B.4",
+      "goals/8.F.B.5",
+      "goals/8.G.A.1",
+      "goals/8.G.A.1.a",
+      "goals/8.G.A.1.b",
+      "goals/8.G.A.1.c",
+      "goals/8.G.A.2",
+      "goals/8.G.A.3",
+      "goals/8.G.A.4",
+      "goals/8.G.A.5",
+      "goals/8.G.B.6",
+      "goals/8.G.B.7",
+      "goals/8.G.B.8",
+      "goals/8.G.C.9",
+      "goals/8.NS.A.1",
+      "goals/8.NS.A.2",
+      "goals/8.SP.A.1",
+      "goals/8.SP.A.2",
+      "goals/8.SP.A.3",
+      "goals/8.SP.A.4"
+    ],
+    "error_types": {
+      "statements:b-final:1": "missing_condition"
+    }
+  },
+  "probes": [],
+  "probe_cache": []
+}

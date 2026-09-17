@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "key": "9caa6f4bfac51e4f40563fd7767caab520d9b007c3121c6670d0e56059e76917",
+  "task_id": "task_3_coordinate_distance",
+  "first_sample": "b-final",
+  "model": "gemini-3.8-flash",
+  "output": {
+    "solution": {
+      "parts": [
+        {
+          "question": "1. 在方格纸上标出点 A 和点 B",
+          "answer": "在平面直角坐标系中，从原点出发沿 x 轴正方向取 2 个单位、y 轴正方向取 3 个单位确定点 A(2, 3)；沿 x 轴正方向取 8 个单位、y 轴正方向取 11 个单位确定点 B(8, 11)。",
+          "work": "根据平面直角坐标系的定义：点 A 的横坐标为 2、纵坐标为 3；点 B 的横坐标为 8、纵坐标为 11。在网格纸上分别找到对应横纵坐标线的交点并标出。"
+        },
+        {
+          "question": "2. 构造一个以线段 AB 为斜边、两条直角边分别平行于坐标轴的直角三角形 ABC；写出直角顶点 C 的坐标",
+          "answer": "直角顶点 C 的坐标为 (8, 3) 或 (2, 11)（选其一即可）。",
+          "work": "以 AB 为斜边，直角边分别平行于坐标轴：\n情况一：过点 A 作水平线（平行于 x 轴，方程为 y = 3），过点 B 作竖直线（平行于 y 轴，方程为 x = 8），两线交于点 C(8, 3)；\n情况二：过点 A 作竖直线（平行于 y 轴，方程为 x = 2），过点 B 作水平线（平行于 x 轴，方程为 y = 11），两线交于点 C(2, 11)。\n两线互相垂直，故形成的 △ABC 均为以 AB 为斜边的直角三角形。"
+        },
+        {
+          "question": "3. 分别计算两条直角边 AC 和 BC 的长度",
+          "answer": "若直角顶点取 C(8, 3)，则 AC = 6，BC = 8；若取 C(2, 11)，则 AC = 8，BC = 6。",
+          "work": "以 C(8, 3) 为例：\nAC 为水平线段，两端点纵坐标相同，长度为横坐标之差的绝对值：AC = |8 - 2| = 6；\nBC 为竖直线段，两端点横坐标相同，长度为纵坐标之差的绝对值：BC = |11 - 3| = 8。\n（若取 C(2, 11)，则 AC = |11 - 3| = 8，BC = |8 - 2| = 6。）"
+        },
+        {
+          "question": "4. 应用勾股定理，计算出点 A 与点 B 之间的精确距离",
+          "answer": "点 A 与点 B 之间的精确距离为 10。",
+          "work": "在 Rt△ABC 中，由勾股定理得：\nAB² = AC² + BC²\n将直角边长度代入：\nAB² = 6² + 8² = 36 + 64 = 100\n因为长度为非负数，开平方得：\nAB = √100 = 10。"
+        }
+      ],
+      "required_conditions": [
+        "平面直角坐标系为标准欧几里得平面，x 轴与 y 轴垂直且单位长度一致",
+        "点 A 与点 B 的坐标分别为 A(2, 3) 和 B(8, 11)",
+        "两点间距离为连接两点线段的欧氏距离"
+      ],
+      "missing_information": [],
+      "notes": "直角顶点 C 存在两种构造方式：C(8, 3) 或 C(2, 11)，两种构造所得的两条直角边长分别为 6 和 8，最终计算出的斜边长度均为 10。"
+    },
+    "review": {
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 2147483647,
+          "note": "作者解答与学生作答均准确在网格中描出 A(2, 3) 与 B(8, 11)。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 2147483647,
+          "note": "作者解答明确给出了直角顶点 C(8, 3) 并注明亦可取 (2, 11)，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 2147483647,
+          "note": "作者解答中两条直角边长分别为 |8 - 2| = 6 和 |11 - 3| = 8，与独立解答一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 2147483647,
+          "note": "作者解答利用勾股定理 6^2 + 8^2 = 100，开平方得出精确距离 10，完全一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 2147483647,
+          "note": "平面直角坐标系基于标准欧几里得网格，作者在题面与解法中均一致遵循此前提。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 2147483647,
+          "note": "题面明确给出了两点坐标 A(2, 3) 与 B(8, 11)。"
+        },
+        {
+          "item": "condition-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 2147483647,
+          "note": "题面要求“直线几何距离”，即欧氏距离，条件一致。"
+        }
+      ],
+      "findings": [],
+      "checked": [
+        "作者解答与独立解答数值与几何步骤的一致性",
+        "题面信息与作图所需条件的完备性",
+        "方格纸与坐标系资源与学校条件的匹配性",
+        "勾股定理及开平方运算的数学严谨性",
+        "设计结论对试做与学生掌握程度区分的规范性"
+      ]
+    },
+    "usage": {
+      "input_tokens": 8256,
+      "output_tokens": 3553,
+      "total_tokens": 11809,
+      "cached_input_tokens": 0
+    },
+    "usage_complete": true,
+    "repairs": 0
+  }
+}

@@ -75,22 +75,28 @@ def test_补跑只取所选维度组_合并时核对候选指纹():
         combine_retry(earlier, other)
 
 
-def stage_run(error=None, rules="e" * 64, model="gemini-3.8-flash"):
+def stage_run(error=None, rules="e" * 64, model="gemini-3.8-flash", cap=65536):
     return StageRun(
         sample_id="h2-01",
         stage="promises",
         model=model,
+        max_output_tokens=cap,
         rules_fingerprint=rules,
         seconds=1.0,
         error=error,
     )
 
 
-def test_专项检查只重跑失败或规则模型已变的运行_强制时全部重跑():
-    current = ("e" * 64, "gemini-3.8-flash")
+def test_专项检查只重跑失败或设置已变的运行_强制时全部重跑():
+    current = ("e" * 64, "gemini-3.8-flash", 65536)
     assert stage_action(None, *current, force=False) == "new"
     assert stage_action(stage_run(), *current, force=False) is None
     assert stage_action(stage_run(error="截断"), *current, force=False) == "retry"
-    assert stage_action(stage_run(rules="f" * 64), *current, force=False) == "stale"
-    assert stage_action(stage_run(model="deepseek-flash"), *current, force=False) == "stale"
+    for changed in [
+        stage_run(rules="f" * 64),
+        stage_run(model="deepseek-flash"),
+        stage_run(cap=32768),
+        stage_run(cap=None),
+    ]:
+        assert stage_action(changed, *current, force=False) == "stale"
     assert stage_action(stage_run(), *current, force=True) == "force"

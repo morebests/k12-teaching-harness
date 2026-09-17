@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any, Literal
 
 from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_core.messages import messages_from_dict
 from pydantic import BaseModel, TypeAdapter
 
 from teaching_harness.grade_evaluation import review as review_module
@@ -38,6 +39,8 @@ from teaching_harness.grade_evaluation.checks import (
 from teaching_harness.grade_evaluation.config import EvaluationConfig, config_drift, file_ref
 from teaching_harness.grade_evaluation.evidence import cite, register, verify
 from teaching_harness.grade_evaluation.models import (
+    IncompleteReply,
+    check_complete,
     diagnose,
     evaluation_model,
     max_output_tokens,
@@ -360,8 +363,9 @@ def cmd_review(args: argparse.Namespace) -> None:
         if path.exists() and not args.force and args.retry_failed:
             existing = _load(path, ReviewRun)
             # 开跑前核对，避免中途退出丢掉已花费的调用。
-            if (existing.model, existing.rules_fingerprint) != (used, rules_fingerprint):
-                raise SystemExit(f"{path.name} 的模型或规则与本次不同，不能合并补跑")
+            settings = (existing.model, existing.rules_fingerprint, existing.max_output_tokens)
+            if settings != (used, rules_fingerprint, max_output_tokens(used)):
+                raise SystemExit(f"{path.name} 的模型、规则或输出上限与本次不同，不能合并补跑")
             earlier_runs[sample.id] = existing
 
     async def one(sample: Sample) -> None:
@@ -385,7 +389,7 @@ def cmd_review(args: argparse.Namespace) -> None:
             result, error = None, None
             try:
                 async with gate:
-                    result = await review_candidate(
+                    reviewed = await review_candidate(
                         llm,
                         cand,
                         group,
@@ -396,6 +400,8 @@ def cmd_review(args: argparse.Namespace) -> None:
                         transcript=transcript,
                         recorder=recorder,
                     )
+                check_complete(recorder.replies)
+                result = reviewed
                 results.append(result)
             except Exception as exc:  # noqa: BLE001 — 保留失败调用，继续其他维度组。
                 reason = diagnose(recorder.replies[-1]) if recorder.replies else None
@@ -476,7 +482,13 @@ def cmd_stages(args: argparse.Namespace) -> None:
         solver, reviewer = texts
         figures = _figures(sample, cand, task_id)
         key = probe_cache_key(
-            cand, task_id, figures, "\n".join(texts), model=model_name(), repeat=repeat
+            cand,
+            task_id,
+            figures,
+            "\n".join(texts),
+            # 输出上限不同的旧输出不沿用。
+            model=f"{model_name()}@{max_output_tokens(model_name())}",
+            repeat=repeat,
         )
         path = RESULTS / f"stages/probes/cache/{key}.json"
         async with locks.setdefault(key, asyncio.Lock()):
@@ -493,6 +505,8 @@ def cmd_stages(args: argparse.Namespace) -> None:
                     assets=figures,
                     recorder=recorder,
                 )
+            # 截断的输出不写入缓存，下次重新调用。
+            check_complete(recorder.replies)
             _save_transcript(WORK / f"transcripts/stages/probes/{key[:12]}.json", output.transcript)
             _write(
                 path,
@@ -510,7 +524,7 @@ def cmd_stages(args: argparse.Namespace) -> None:
         target = _stage_path(stage, sample.id, repeat)
         texts, fingerprint_ = _stage_rules(stage)
         existing = _load(target, StageRun) if target.exists() else None
-        action = stage_action(existing, fingerprint_, model_name(), force=args.force)
+        action = stage_action(existing, *_current_settings(stage), force=args.force)
         if action is None:
             return
         if existing:
@@ -533,15 +547,19 @@ def cmd_stages(args: argparse.Namespace) -> None:
             if stage == "promises":
                 assert_isolated(promise_packet(cand), hidden)
                 async with gate:
-                    run.promises = await review_promises(
+                    promises = await review_promises(
                         llm, cand, rules=text, transcript=transcript, recorder=recorder
                     )
+                check_complete(recorder.replies)
+                run.promises = promises
             elif stage == "statements":
                 assert_isolated(statement_packet(cand), hidden)
                 async with gate:
-                    run.statements = await review_statements(
+                    statements = await review_statements(
                         llm, cand, rules=text, transcript=transcript, recorder=recorder
                     )
+                check_complete(recorder.replies)
+                run.statements = statements
             else:
                 for task in cand.content.tasks:
                     # 已缓存或已成功的题面用量记在缓存条目上；失败时只计当前题面的调用。
@@ -612,22 +630,36 @@ StageAction = Literal["new", "retry", "stale", "force"]
 STAGE_ACTIONS: dict[StageAction, str] = {
     "new": "首次运行",
     "retry": "上次运行失败，补跑",
-    "stale": "已有结果来自其他规则或模型，重新运行",
+    "stale": "已有结果来自其他规则、模型或输出上限，重新运行",
     "force": "按要求重新运行",
 }
 
 
 def stage_action(
-    existing: StageRun | None, rules_fingerprint: str, model: str, *, force: bool
+    existing: StageRun | None,
+    rules_fingerprint: str,
+    model: str,
+    max_output: int,
+    *,
+    force: bool,
 ) -> StageAction | None:
-    """一次专项检查是否需要运行；已按当前规则与模型成功的运行不再重复调用模型。"""
+    """一次专项检查是否需要运行；按当前规则、模型与输出上限成功的运行不再重复调用模型。"""
     if existing is None:
         return "new"
     if force:
         return "force"
-    if (existing.rules_fingerprint, existing.model) != (rules_fingerprint, model):
+    if _stage_settings(existing) != (rules_fingerprint, model, max_output):
         return "stale"
     return "retry" if existing.error else None
+
+
+def _stage_settings(run: StageRun) -> tuple[str, str, int | None]:
+    return run.rules_fingerprint, run.model, run.max_output_tokens
+
+
+def _current_settings(stage: str) -> tuple[str, str, int]:
+    name = model_name()
+    return _stage_rules(stage)[1], name, max_output_tokens(name)
 
 
 def _archive_stage(target: Path, stamp: str) -> None:
@@ -657,15 +689,15 @@ def _stage_files(stage: str, sample_id: str) -> list[Path]:
 
 
 def _stage_repeats(stage: str) -> dict[str, list[StageRun]]:
-    """每个样本在该专项检查上按当前规则与模型的全部运行，第 0 次在前。
+    """每个样本在该专项检查上按当前规则、模型与输出上限的全部运行，第 0 次在前。
 
-    其他规则或模型的旧运行不计入，没有当前运行的样本不列出。
+    设置不同的旧运行不计入，没有当前运行的样本不列出。
     """
-    current = (_stage_rules(stage)[1], model_name())
+    current = _current_settings(stage)
     runs: dict[str, list[StageRun]] = {}
     for sample_id in _stage_runs(stage):
         loaded = [_load(p, StageRun) for p in _stage_files(stage, sample_id)]
-        kept = [r for r in loaded if (r.rules_fingerprint, r.model) == current]
+        kept = [r for r in loaded if _stage_settings(r) == current]
         if kept:
             runs[sample_id] = kept
     return runs
@@ -1008,6 +1040,7 @@ def cmd_adjudicate(args: argparse.Namespace) -> None:
                     established=established,
                     recorder=recorder,
                 )
+                check_complete(recorder.replies)
             except Exception as exc:  # noqa: BLE001 — 记下失败与已消耗的用量，继续其他维度。
                 error = f"{type(exc).__name__}: {str(exc)[:300]}"
                 usage, complete = recorder.usage()
@@ -1091,6 +1124,13 @@ def cmd_revise(args: argparse.Namespace) -> None:
     finding, evidence = _finding(args, sample)
     outcome = asyncio.run(revise(model(), cand, finding, evidence, out, answers()))
     _save_transcript(WORK / f"transcripts/reviser/{slug}.json", outcome.transcript)
+    try:
+        check_complete(messages_from_dict(outcome.transcript))
+    except IncompleteReply as exc:
+        # 截断的修订不采纳，也不复查；用量照常记录。
+        outcome = outcome.model_copy(
+            update={"accepted": False, "problems": [*outcome.problems, str(exc)]}
+        )
     record = RevisionRun(sample_id=sample.id, outcome=outcome)
     if outcome.revised_path and outcome.accepted:
         revised = load_candidate(
@@ -1106,6 +1146,7 @@ def cmd_revise(args: argparse.Namespace) -> None:
             packet = review_packet(target, group, rubric)
             assert_isolated(packet, answers())
             transcript: list[dict[str, Any]] = []
+            recorder = CallRecorder()
             reviewed = asyncio.run(
                 review_candidate(
                     model(),
@@ -1115,9 +1156,14 @@ def cmd_revise(args: argparse.Namespace) -> None:
                     rubric,
                     packet=packet,
                     transcript=transcript,
+                    recorder=recorder,
                 )
             )
             _save_transcript(WORK / f"transcripts/reviser/{slug}-{label}-recheck.json", transcript)
+            try:
+                check_complete(recorder.replies)
+            except IncompleteReply as exc:
+                raise SystemExit(f"{label} 复查{exc}；修订结果未保存，可用 --force 重跑") from exc
             same = [
                 f
                 for f in reviewed.findings

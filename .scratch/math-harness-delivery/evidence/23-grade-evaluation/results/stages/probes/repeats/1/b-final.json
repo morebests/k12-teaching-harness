@@ -1,0 +1,991 @@
+{
+  "schema_version": 1,
+  "sample_id": "b-final",
+  "stage": "probes",
+  "model": "gemini-3.8-flash",
+  "max_output_tokens": 65536,
+  "rules_fingerprint": "2c22b06ec139d6c6ed4c5b98e6d369d252e6a8b03528f3d930530e6b49b6f1dc",
+  "seconds": 139.6,
+  "error": null,
+  "failed_usage": null,
+  "promises": null,
+  "statements": null,
+  "probes": [
+    {
+      "stage": "probes",
+      "candidate_id": "b-final",
+      "findings": [],
+      "evidence": [],
+      "rejected_citations": [],
+      "rejected_findings": [],
+      "problems": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0,
+        "cached_input_tokens": 0
+      },
+      "usage_complete": null,
+      "repairs": 0,
+      "task_id": "task_1_linear_modeling",
+      "facts": {
+        "task_id": "task_1_linear_modeling",
+        "table_ranges": [],
+        "range_statements": [
+          {
+            "pointer": "/tasks/task_1_linear_modeling/solution",
+            "text": " + 60\\quad (0 \\le x \\le 8)$$\n   因降雨持续",
+            "low": 0.0,
+            "high": 8.0,
+            "variable": "x"
+          },
+          {
+            "pointer": "/tasks/task_1_linear_modeling/solution",
+            "text": " 未溢出），故模型在 $0 \\le x \\le 8$ 内成立。\n4. 图象",
+            "low": 0.0,
+            "high": 8.0,
+            "variable": "x"
+          },
+          {
+            "pointer": "/tasks/task_1_linear_modeling/student_work",
+            "text": "20x + 60，其中 0 <= x <= 8。\n图象上与 y 轴交点",
+            "low": 0.0,
+            "high": 8.0,
+            "variable": "x"
+          },
+          {
+            "pointer": "/tasks/task_1_linear_modeling/evidence",
+            "text": "0x + 60，并标明 0 <= x <= 8；在书面中明确写出变化率",
+            "low": 0.0,
+            "high": 8.0,
+            "variable": "x"
+          },
+          {
+            "pointer": "/tasks/task_1_linear_modeling/anticipated_response",
+            "text": "能结合条件指出定义域为 0 <= x <= 8；能用语言准确表述变化率",
+            "low": 0.0,
+            "high": 8.0,
+            "variable": "x"
+          },
+          {
+            "pointer": "/tasks/task_1_linear_modeling/anticipated_response",
+            "text": "定义域，认为模型对任意 x >= 0 均无限成立。",
+            "low": 0.0,
+            "high": null,
+            "variable": "x"
+          }
+        ],
+        "range_issues": [
+          {
+            "id": "range-1",
+            "kind": "no_upper_bound",
+            "statement": {
+              "pointer": "/tasks/task_1_linear_modeling/anticipated_response",
+              "text": "定义域，认为模型对任意 x >= 0 均无限成立。",
+              "low": 0.0,
+              "high": null,
+              "variable": "x"
+            },
+            "column": null
+          }
+        ],
+        "absent_materials": []
+      },
+      "solution": {
+        "parts": [
+          {
+            "question": "1. 试求降雨期间水桶内蓄水量的变化率（速率），并写出其所带的物理单位；",
+            "answer": "蓄水量的变化率为 20 加仑/小时（或 gal/h）。",
+            "work": "根据题意，在均匀降雨过程中蓄水量均匀增加。已知在 x_1 = 2 小时时，y_1 = 100 加仑；在 x_2 = 5 小时时，y_2 = 160 加仑。\n蓄水量的变化率（斜率）为：\nk = (y_2 - y_1) / (x_2 - x_1) = (160 - 100) / (5 - 2) = 60 / 3 = 20（加仑/小时）。\n物理单位为“加仑/小时”（或 gal/h）。"
+          },
+          {
+            "question": "2. 确定在降雨开始前（即时间 $x = 0$ 时）水桶中原本存有多少雨水（初始值）；",
+            "answer": "降雨开始前水桶中原本存有 60 加仑雨水。",
+            "work": "设线性函数为 y = kx + b，其中 k = 20 加仑/小时。\n将点 (2, 100) 代入方程：\n100 = 20 * 2 + b\nb = 100 - 40 = 60（加仑）。\n因此，降雨开始前（x = 0 时）水桶中的初始蓄水量为 60 加仑。"
+          },
+          {
+            "question": "3. 建立以时间 $x$（小时）为自变量、水桶总蓄水量 $y$（加仑）为因变量的函数关系式，并写出该模型适用的时间范围（定义域）；",
+            "answer": "函数关系式为 y = 20x + 60，定义域为 0 <= x <= 8（即 [0, 8]，单位：小时）。",
+            "work": "结合第 1、2 问，蓄水量 y 与时间 x 的函数关系式为：\ny = 20x + 60。\n关于有效时间范围（定义域）：\n- 降雨从 x = 0 开始；\n- 题干明确指出本次降雨持续了 8 小时；\n- 当 x = 8 时，y = 20 * 8 + 60 = 220 加仑，小于水桶总容量 240 加仑，降雨期间未发生溢流。\n因此，该线性模型的适用时间范围为 0 <= x <= 8（小时）。"
+          },
+          {
+            "question": "4. 结合上面的关系图象，解释图象中的“纵轴截距”与“直线的陡峭程度”在实际农场蓄水情境中分别代表什么；说明为什么该线性模型不能无限制适用于下雨 15 小时后的情况。",
+            "answer": "“纵轴截距”代表降雨开始前水桶内已有的初始存水量（60 加仑）；“直线的陡峭程度”代表雨水流入水桶的恒定速率（20 加仑/小时）。该模型不能适用于 15 小时后，原因有二：一是本次降雨仅持续 8 小时，降雨停止后蓄水量不再以原速率增加；二是水桶最大容量为 240 加仑，即使持续降雨，在第 9 小时水桶即已蓄满溢出，蓄水量无法超过 240 加仑（15 小时按模型计算为 360 加仑，物理上不可能）。",
+            "work": "1. 实际物理意义：\n- 纵轴截距（点 (0, 60)）：代表 x = 0 时刻水桶的蓄水量，即降雨发生前水桶中原有未用完的积水量（初始存水量为 60 加仑）。\n- 直线的陡峭程度（斜率 k = 20）：代表水桶中雨水流入的速率（集水速度），直线的倾斜程度越陡，说明单位时间内雨水收集量越多（降雨强度更大或集水受水面积更大）。\n2. 不能无限制适用于 15 小时后的原因：\n- 降雨持续时间的限制：现实中本次降雨过程仅持续 8 小时，8 小时后降雨停止，雨水流入速率变为 0，不再满足每小时增加 20 加仑的线性规律；\n- 水桶物理容量的限制：水桶总容量为 240 加仑。若降雨不停止，当 20x + 60 = 240 时，即 x = (240 - 60) / 20 = 9 小时，水桶就会蓄满溢流，蓄水量达到物理上限 240 加仑后不会继续上升。若代入 x = 15，模型预测 y = 20 * 15 + 60 = 360 加仑，远超水桶容量 240 加仑，失去实际物理意义。"
+          }
+        ],
+        "required_conditions": [
+          "降雨在 0 <= x <= 8 小时内保持均匀，流入水桶的速率恒定为 20 加仑/小时",
+          "降雨期间水桶无漏水、蒸发或灌溉出水等其他水量损失",
+          "水桶总物理容量为 240 加仑，在 0 <= x <= 8 小时内蓄水量未达上限，未发生溢流",
+          "时间 x 的单位为小时（h），蓄水量 y 的单位为加仑（gal）"
+        ],
+        "missing_information": [],
+        "notes": "题面数据完整自洽，线性模型在 0 <= x <= 8 小时内有效，且 8 小时时蓄水量 220 加仑未超过水桶总容量 240 加仑。"
+      },
+      "check_items": {
+        "answer-1": "1. 试求降雨期间水桶内蓄水量的变化率（速率），并写出其所带的物理单位；：蓄水量的变化率为 20 加仑/小时（或 gal/h）。",
+        "answer-2": "2. 确定在降雨开始前（即时间 $x = 0$ 时）水桶中原本存有多少雨水（初始值）；：降雨开始前水桶中原本存有 60 加仑雨水。",
+        "answer-3": "3. 建立以时间 $x$（小时）为自变量、水桶总蓄水量 $y$（加仑）为因变量的函数关系式，并写出该模型适用的时间范围（定义域）；：函数关系式为 y = 20x + 60，定义域为 0 <= x <= 8（即 [0, 8]，单位：小时）。",
+        "answer-4": "4. 结合上面的关系图象，解释图象中的“纵轴截距”与“直线的陡峭程度”在实际农场蓄水情境中分别代表什么；说明为什么该线性模型不能无限制适用于下雨 15 小时后的情况。：“纵轴截距”代表降雨开始前水桶内已有的初始存水量（60 加仑）；“直线的陡峭程度”代表雨水流入水桶的恒定速率（20 加仑/小时）。该模型不能适用于 15 小时后，原因有二：一是本次降雨仅持续 8 小时，降雨停止后蓄水量不再以原速率增加；二是水桶最大容量为 240 加仑，即使持续降雨，在第 9 小时水桶即已蓄满溢出，蓄水量无法超过 240 加仑（15 小时按模型计算为 360 加仑，物理上不可能）。",
+        "condition-1": "降雨在 0 <= x <= 8 小时内保持均匀，流入水桶的速率恒定为 20 加仑/小时",
+        "condition-2": "降雨期间水桶无漏水、蒸发或灌溉出水等其他水量损失",
+        "condition-3": "水桶总物理容量为 240 加仑，在 0 <= x <= 8 小时内蓄水量未达上限，未发生溢流",
+        "condition-4": "时间 x 的单位为小时（h），蓄水量 y 的单位为加仑（gal）",
+        "range-1": "/tasks/task_1_linear_modeling/anticipated_response 的“定义域，认为模型对任意 x >= 0 均无限成立。”只给出下界 0，没有上界"
+      },
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "作者解答求得变化率为 20 加仑/小时，并给出单位，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "作者解答求得降雨前初始存水量为 60 加仑，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "作者解答给出解析式 y = 20x + 60 且有效定义域为 0 <= x <= 8，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "作者解答对纵轴截距、斜率的物理意义及超出 8 小时降雨停止/容量满溢边界的解释，与独立解答完全一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "题干明确降雨持续 8 小时且以恒定速率持续流入水桶，与求解条件一致。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "题干设定蓄水量以恒定速率流入且降雨期间无其他干扰，与条件一致。"
+        },
+        {
+          "item": "condition-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "题干明确水桶容量 240 加仑且降雨期间未出现溢流（x=8 时 y=220 < 240），与条件一致。"
+        },
+        {
+          "item": "condition-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 1,
+          "note": "题干明确自变量时间单位为小时、因变量蓄水量单位为加仑，与条件一致。"
+        },
+        {
+          "item": "range-1",
+          "author": "not_applicable",
+          "matters": false,
+          "finding": 1,
+          "note": "文中 x >= 0 仅出现在 anticipated_response 中用于说明学生的典型错误（忽视有效定义域），并非作者断言，不改变数学结论。"
+        }
+      ],
+      "checked": [
+        "作者解答与独立解答的一致性核对（斜率、截距、解析式、定义域及物理意义解释）",
+        "题面素材与图象完整性核对（图象定义已在 figures 中提供且参数自洽）",
+        "模型有效定义域及现实物理边界核对（降雨时长 8 小时及水桶容量 240 加仑上限）",
+        "预判学生反应与典型错误核对（区分正比例思维与非零截距线性模型）",
+        "教学支架与学校资源限制核对（利用表格逆推与容积对比，无需额外外部设备）",
+        "设计结论主张核对（明确区分设计假设与待检验事实）"
+      ]
+    },
+    {
+      "stage": "probes",
+      "candidate_id": "b-final",
+      "findings": [],
+      "evidence": [],
+      "rejected_citations": [],
+      "rejected_findings": [],
+      "problems": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0,
+        "cached_input_tokens": 0
+      },
+      "usage_complete": null,
+      "repairs": 0,
+      "task_id": "task_2_systems_decision",
+      "facts": {
+        "task_id": "task_2_systems_decision",
+        "table_ranges": [
+          {
+            "pointer": "/tasks/task_2_systems_decision/blocks/1/headers/0",
+            "header": "骑行时间 $x$（分钟）",
+            "low": 0.0,
+            "high": 80.0,
+            "count": 4,
+            "variable": "x"
+          },
+          {
+            "pointer": "/tasks/task_2_systems_decision/blocks/1/headers/1",
+            "header": "方案 A 费用 $y_A$（美元）",
+            "low": 5.0,
+            "high": 21.0,
+            "count": 4,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_2_systems_decision/blocks/1/headers/2",
+            "header": "方案 B 费用 $y_B$（美元）",
+            "low": 0.0,
+            "high": 24.0,
+            "count": 4,
+            "variable": ""
+          }
+        ],
+        "range_statements": [],
+        "range_issues": [],
+        "absent_materials": []
+      },
+      "solution": {
+        "parts": [
+          {
+            "question": "1. 分别写出方案 A 与方案 B 的费用 $y$ 与骑行时间 $x$ 的方程；",
+            "answer": "方案 A 的方程为：$y = 0.20x + 5$（或 $y = 0.2x + 5$）；\\n方案 B 的方程为：$y = 0.30x$（或 $y = 0.3x$）。\\n其中 $x \\\\ge 0$ 表示骑行时间（分钟），$y$ 表示骑行费用（美元）。",
+            "work": "根据题意：\\n- 方案 A（畅游型）：基础起步费为 5 美元，每分钟 0.20 美元，因此骑行 $x$ 分钟的总费用为：\\n  $$y_A = 0.20x + 5$$\\n- 方案 B（随心型）：无起步费，每分钟 0.30 美元，因此骑行 $x$ 分钟的总费用为：\\n  $$y_B = 0.30x$$\\n对照表格验证：\\n- 当 $x = 0$ 时，$y_A = 5.00$，$y_B = 0.00$；\\n- 当 $x = 20$ 时，$y_A = 0.20 \\\\times 20 + 5 = 9.00$，$y_B = 0.30 \\\\times 20 = 6.00$；\\n- 当 $x = 50$ 时，$y_A = 0.20 \\\\times 50 + 5 = 15.00$，$y_B = 0.30 \\\\times 50 = 15.00$；\\n- 当 $x = 80$ 时，$y_A = 0.20 \\\\times 80 + 5 = 21.00$，$y_B = 0.30 \\\\times 80 = 24.00$。\\n解析式与表格数据完全吻合。"
+          },
+          {
+            "question": "2. 列出二元一次方程组，求出两种方案费用完全相同那一刻的骑行时间与对应费用；",
+            "answer": "方程组为：\\n$$\\\\begin{cases} y = 0.2x + 5 \\\\\\\\ y = 0.3x \\\\end{cases}$$\\n解得：骑行时间为 50 分钟，对应费用为 15 美元。",
+            "work": "令两方案的费用相等，联立方程组：\\n$$\\\\begin{cases} y = 0.2x + 5 \\\\quad \\\\text{①} \\\\\\\\ y = 0.3x \\\\quad \\\\text{②} \\\\end{cases}$$\\n将 ② 式代入 ① 式得：\\n$$0.3x = 0.2x + 5$$\\n$$0.3x - 0.2x = 5$$\\n$$0.1x = 5$$\\n$$x = \\\\frac{5}{0.1} = 50$$\\n将 $x = 50$ 代入 ② 式得：\\n$$y = 0.3 \\\\times 50 = 15$$\\n因此，方程组的解为 $\\\\begin{cases} x = 50 \\\\\\\\ y = 15 \\\\end{cases}$。\\n即两种方案费用完全相同的时刻是骑行 50 分钟，对应费用为 15 美元。"
+          },
+          {
+            "question": "3. 从几何图象与实际决策的角度，解释方程组的解（交点）对消费者选择租车方案的现实指导意义。",
+            "answer": "几何意义：方程组的解对应平面直角坐标系中两条射线的交点 $(50, 15)$。\\n现实指导意义（决策建议）：\\n1. 当单次骑行时间少于 50 分钟时，方案 B 的图象位于方案 A 下方（$y_B < y_A$），选择方案 B（随心型）更便宜省钱，适合短途出行；\\n2. 当单次骑行时间恰好为 50 分钟时，两方案费用相等（均为 15 美元），任选一种均可；\\n3. 当单次骑行时间超过 50 分钟时，方案 A 的图象位于方案 B 下方（$y_A < y_B$），选择方案 A（畅游型）更划算，适合长途出行。",
+            "work": "1. 几何图象角度：\\n在以时间 $x$ 为横轴、费用 $y$ 为纵轴的平面直角坐标系中，两方案分别对应两条以 $(0, 5)$ 和 $(0, 0)$ 为端点、斜率分别为 $0.2$ 和 $0.3$ 的射线。\\n- 两条射线的交点坐标为 $(50, 15)$；\\n- 在区间 $0 \\\\le x < 50$ 内，方案 B 对应射线的纵坐标小于方案 A 对应射线的纵坐标；\\n- 在区间 $x > 50$ 内，方案 A 对应射线的纵坐标小于方案 B 对应射线的纵坐标。\\n\\n2. 实际决策角度：\\n交点 $(50, 15)$ 即为两种资费方案的“收支平衡点/临界点”：\\n- 消费者如果预估骑行时间小于 50 分钟，应选择无基础起步费的方案 B；\\n- 消费者如果预估骑行时间大于 50 分钟，固定起步费带来的每分钟费率优惠显现，应选择方案 A。"
+          }
+        ],
+        "required_conditions": [
+          "骑行时间 $x \\\\ge 0$，费用 $y \\\\ge 0$，单位分别为分钟（min）和美元（$）",
+          "单次骑行独立计费，费用与骑行时长呈线性连续函数关系（不考虑不足 1 分钟按 1 分钟进位等阶梯离散计费规则）"
+        ],
+        "missing_information": [],
+        "notes": "模型基于连续计费（或按实际骑行分钟数正比例计费），不考虑不足 1 分钟向上取整的分段阶梯计费。"
+      },
+      "check_items": {
+        "answer-1": "1. 分别写出方案 A 与方案 B 的费用 $y$ 与骑行时间 $x$ 的方程；：方案 A 的方程为：$y = 0.20x + 5$（或 $y = 0.2x + 5$）；\\n方案 B 的方程为：$y = 0.30x$（或 $y = 0.3x$）。\\n其中 $x \\\\ge 0$ 表示骑行时间（分钟），$y$ 表示骑行费用（美元）。",
+        "answer-2": "2. 列出二元一次方程组，求出两种方案费用完全相同那一刻的骑行时间与对应费用；：方程组为：\\n$$\\\\begin{cases} y = 0.2x + 5 \\\\\\\\ y = 0.3x \\\\end{cases}$$\\n解得：骑行时间为 50 分钟，对应费用为 15 美元。",
+        "answer-3": "3. 从几何图象与实际决策的角度，解释方程组的解（交点）对消费者选择租车方案的现实指导意义。：几何意义：方程组的解对应平面直角坐标系中两条射线的交点 $(50, 15)$。\\n现实指导意义（决策建议）：\\n1. 当单次骑行时间少于 50 分钟时，方案 B 的图象位于方案 A 下方（$y_B < y_A$），选择方案 B（随心型）更便宜省钱，适合短途出行；\\n2. 当单次骑行时间恰好为 50 分钟时，两方案费用相等（均为 15 美元），任选一种均可；\\n3. 当单次骑行时间超过 50 分钟时，方案 A 的图象位于方案 B 下方（$y_A < y_B$），选择方案 A（畅游型）更划算，适合长途出行。",
+        "condition-1": "骑行时间 $x \\\\ge 0$，费用 $y \\\\ge 0$，单位分别为分钟（min）和美元（$）",
+        "condition-2": "单次骑行独立计费，费用与骑行时长呈线性连续函数关系（不考虑不足 1 分钟按 1 分钟进位等阶梯离散计费规则）"
+      },
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者在解答中正确列出了方案 A（y = 0.20x + 5）与方案 B（y = 0.30x）的方程，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者准确联立方程组并运用代入法消元求解，求得 x = 50 分钟，y = 15 美元，计算与结论完全一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者准确阐释了几何交点 (50, 15) 作为费用平衡转换点的意义，并正确给出了 x < 50 选方案 B、x > 50 选方案 A 的分段决策建议。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面与表格数据均以 x>=0 开始，情境在非负实数范围内展开，与实际背景和独立解答条件一致。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面与表格均表明费用与时间按线性关系连续计费，作者模型与此假设一致。"
+        }
+      ],
+      "checked": [
+        "作者代数方程建立与方程组消元求解计算正确性核对",
+        "题面背景、参数及表格数值对应关系核对",
+        "几何交点与分段实际决策建议（x<50、x=50、x>50）核对",
+        "表格自变量取值范围（0至80）与平衡点（50）区间合理性核对",
+        "设计结论与教学推断的严谨性核对（未过度断言学生已掌握）",
+        "支持语与教师提示对学校硬件资源依赖核对"
+      ]
+    },
+    {
+      "stage": "probes",
+      "candidate_id": "b-final",
+      "findings": [],
+      "evidence": [],
+      "rejected_citations": [],
+      "rejected_findings": [],
+      "problems": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0,
+        "cached_input_tokens": 0
+      },
+      "usage_complete": null,
+      "repairs": 0,
+      "task_id": "task_3_coordinate_distance",
+      "facts": {
+        "task_id": "task_3_coordinate_distance",
+        "table_ranges": [],
+        "range_statements": [],
+        "range_issues": [],
+        "absent_materials": []
+      },
+      "solution": {
+        "parts": [
+          {
+            "question": "1. 在方格纸上标出点 A 和点 B",
+            "answer": "在方格纸上建立平面直角坐标系，从原点出发，沿 x 轴正方向数 2 个单位、沿 y 轴正方向数 3 个单位确定点 A(2, 3)；沿 x 轴正方向数 8 个单位、沿 y 轴正方向数 11 个单位确定点 B(8, 11)，并分别标出。",
+            "work": "根据平面直角坐标系的定义，点的横坐标代表沿 x 轴方向的位移，纵坐标代表沿 y 轴方向的位移。A 点坐标为 (2, 3)，B 点坐标为 (8, 11)。在方格纸的网格交点处确定对应的位置并标注点 A 与点 B。"
+          },
+          {
+            "question": "2. 构造一个以线段 AB 为斜边、两条直角边分别平行于坐标轴的直角三角形 ABC；写出直角顶点 C 的坐标",
+            "answer": "直角顶点 C 的坐标为 (8, 3)（或选取 (2, 11)）。",
+            "work": "过点 A 作平行于 x 轴的水平直线（方程为 y = 3），过点 B 作平行于 y 轴的铅垂直线（方程为 x = 8），两线相交于点 C(8, 3)。由于水平线与铅垂线垂直，三角形 ABC是以 AB 为斜边的直角三角形，直角顶点为 C(8, 3)。\\n（注：若过 A 作铅垂线、过 B 作水平线，则交点为 C'(2, 11)，亦为合法构造）。"
+          },
+          {
+            "question": "3. 分别计算两条直角边 AC 和 BC 的长度",
+            "answer": "直角边 AC 的长度为 6，直角边 BC 的长度为 8。（若选 C(2, 11)，则 AC = 8，BC = 6）。",
+            "work": "以 C(8, 3) 为例：\\n线段 AC 为水平线段，端点为 A(2, 3) 和 C(8, 3)，其长度为横坐标之差的绝对值：AC = |8 - 2| = 6 个单位；\\n线段 BC 为铅垂线段，端点为 C(8, 3) 和 B(8, 11)，其长度为纵坐标之差的绝对值：BC = |11 - 3| = 8 个单位。"
+          },
+          {
+            "question": "4. 应用勾股定理，计算出点 A 与点 B 之间的精确距离",
+            "answer": "点 A 与点 B 之间的精确距离为 10。",
+            "work": "在直角三角形 ABC 中，∠ACB = 90°，由勾股定理可得：\\nAB² = AC² + BC²\\n代入直角边长：\\nAB² = 6² + 8² = 36 + 64 = 100\\n因为距离为非负数，所以：\\nAB = √100 = 10。"
+          }
+        ],
+        "required_conditions": [
+          "方格纸的横向网格线与纵向网格线互相垂直，且两个方向上的单位长度一致（设为 1 个单位长）",
+          "处于标准二维欧氏几何平面中，勾股定理在直角三角形中成立"
+        ],
+        "missing_information": [],
+        "notes": "直角顶点 C 有两种合法的选择：(8, 3) 或 (2, 11)，分别对应线段 AB 右下方和左上方的直角三角形。两种构造下直角边的长度集合均为 {6, 8}，计算得到的斜边长（两点间距离）一致，均为 10。"
+      },
+      "check_items": {
+        "answer-1": "1. 在方格纸上标出点 A 和点 B：在方格纸上建立平面直角坐标系，从原点出发，沿 x 轴正方向数 2 个单位、沿 y 轴正方向数 3 个单位确定点 A(2, 3)；沿 x 轴正方向数 8 个单位、沿 y 轴正方向数 11 个单位确定点 B(8, 11)，并分别标出。",
+        "answer-2": "2. 构造一个以线段 AB 为斜边、两条直角边分别平行于坐标轴的直角三角形 ABC；写出直角顶点 C 的坐标：直角顶点 C 的坐标为 (8, 3)（或选取 (2, 11)）。",
+        "answer-3": "3. 分别计算两条直角边 AC 和 BC 的长度：直角边 AC 的长度为 6，直角边 BC 的长度为 8。（若选 C(2, 11)，则 AC = 8，BC = 6）。",
+        "answer-4": "4. 应用勾股定理，计算出点 A 与点 B 之间的精确距离：点 A 与点 B 之间的精确距离为 10。",
+        "condition-1": "方格纸的横向网格线与纵向网格线互相垂直，且两个方向上的单位长度一致（设为 1 个单位长）",
+        "condition-2": "处于标准二维欧氏几何平面中，勾股定理在直角三角形中成立"
+      },
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 18446744073709551616,
+          "note": "作者解答及学生样例中均明确了在方格纸网格中准确定位并标出 A(2, 3) 与 B(8, 11) 的过程，与独立解答一致。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 18446744073709551616,
+          "note": "作者解答明确写出直角顶点 C 的坐标为 (8, 3) 且补充说明亦可取 (2, 11)，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 18446744073709551616,
+          "note": "作者解答中水平直角边 AC=|8-2|=6、垂直直角边 BC=|11-3|=8，计算无误，与独立解答一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 18446744073709551616,
+          "note": "作者解答应用勾股定理算得 6^2+8^2=100 并开方得到距离为 10，与独立解答一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 18446744073709551616,
+          "note": "作者题面与支持语中均依托方格纸横纵垂直且单位长度一致的网格特征，条件一致。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 18446744073709551616,
+          "note": "处于平面直角坐标系中并应用勾股定理求解几何距离，前提条件一致。"
+        }
+      ],
+      "checked": [
+        "作者解答与独立解答数值与步骤核对（点A(2,3)与B(8,11)坐标、顶点C坐标、直角边长6和8、斜边长10）",
+        "题面要求与学校器材条件（方格纸、直尺）的匹配性",
+        "直角顶点选取的多样性（(8, 3) 与 (2, 11)）在正文中的覆盖情况",
+        "数学表述与符号运用的准确性（开方与两点距离公式的前置建构）",
+        "设计结论对试做效力的表述是否审慎（明确其实际掌握效果待课内形成性练习监测）"
+      ]
+    },
+    {
+      "stage": "probes",
+      "candidate_id": "b-final",
+      "findings": [],
+      "evidence": [],
+      "rejected_citations": [],
+      "rejected_findings": [],
+      "problems": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0,
+        "cached_input_tokens": 0
+      },
+      "usage_complete": null,
+      "repairs": 0,
+      "task_id": "task_4_stats_linear_interpretation",
+      "facts": {
+        "task_id": "task_4_stats_linear_interpretation",
+        "table_ranges": [
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+            "header": "每周自主复习时间 $x$（小时）",
+            "low": 1.0,
+            "high": 7.0,
+            "count": 10,
+            "variable": "x"
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/2",
+            "header": "期末测试成绩 $y$（分）",
+            "low": 56.0,
+            "high": 94.0,
+            "count": 10,
+            "variable": "y"
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/3",
+            "header": "模型预测成绩 $\\hat{y}$（分）",
+            "low": 54.5,
+            "high": 93.5,
+            "count": 10,
+            "variable": "y"
+          }
+        ],
+        "range_statements": [
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/solution",
+            "text": "于所给样本的实际范围是 1—7 小时，$x = 0$ ",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/solution",
+            "text": "所给模型有效范围限定在 1—7 小时。若将自变量外推至",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/solution",
+            "text": "所给合成数据使用范围（$1 \\le x \\le 7$ 小时）内，斜率表示自",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": "x"
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/student_work",
+            "text": " 斜率 6.5 表示在 1—7 小时的使用范围内，复习",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/student_work",
+            "text": "学截距。因为数据范围是 1—7 小时，0 小时在样本范",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/student_work",
+            "text": " 分，说明该模型只能在 1—7 小时内参考，不能超出数",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/evidence",
+            "text": "6.5 准确解释为“在 1—7 小时使用范围内自变量每",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/evidence",
+            "text": "线延长的数学截距，处于 1—7 小时样本范围之外，不能",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/evidence",
+            "text": " 分超过满分，说明超出 1—7 小时范围外推的局限性。",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/anticipated_response",
+            "text": "所给数据使用范围限定在 1—7 小时；斜率 6.5 表",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/anticipated_response",
+            "text": "1：仍将有效范围误写为 0—7.5 小时，或把截距 48 ",
+            "low": 0.0,
+            "high": 7.5,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/design_consequence",
+            "text": "范围限定在样本实际范围（1—7 小时），区分延长线的数",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": ""
+          },
+          {
+            "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/2/text",
+            "text": " + 48\\quad (1 \\le x \\le 7)$$\n其中 $x$ 表",
+            "low": 1.0,
+            "high": 7.0,
+            "variable": "x"
+          }
+        ],
+        "range_issues": [
+          {
+            "id": "range-1",
+            "kind": "outside_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/solution",
+              "text": "意趋势线延长到数学上 $x = 0$ 处的纵轴截距值。由于",
+              "low": 0.0,
+              "high": 0.0,
+              "variable": "x"
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          },
+          {
+            "id": "range-2",
+            "kind": "outside_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/solution",
+              "text": "范围是 1—7 小时，$x = 0$ 处于现有数据范围之外",
+              "low": 0.0,
+              "high": 0.0,
+              "variable": "x"
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          },
+          {
+            "id": "range-3",
+            "kind": "outside_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/solution",
+              "text": "时。若将自变量外推至 $x = 10$ 小时，模型预测 $\\",
+              "low": 10.0,
+              "high": 10.0,
+              "variable": "x"
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          },
+          {
+            "id": "range-4",
+            "kind": "outside_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/student_work",
+              "text": "48 是示意直线延长到 x = 0 时的数学截距。因为数据",
+              "low": 0.0,
+              "high": 0.0,
+              "variable": "x"
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          },
+          {
+            "id": "range-5",
+            "kind": "outside_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/student_work",
+              "text": "绕直线散落。如果外推到 x = 10 小时，预测是 113 ",
+              "low": 10.0,
+              "high": 10.0,
+              "variable": "x"
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          },
+          {
+            "id": "range-6",
+            "kind": "outside_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/evidence",
+              "text": "等于每个观测，并计算 $x=10$ 时预测达到 113 ",
+              "low": 10.0,
+              "high": 10.0,
+              "variable": "x"
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          },
+          {
+            "id": "range-7",
+            "kind": "outside_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/anticipated_response",
+              "text": "不等于每个观测；代入 $x=10$ 计算得出 113 分",
+              "low": 10.0,
+              "high": 10.0,
+              "variable": "x"
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          },
+          {
+            "id": "range-8",
+            "kind": "outside_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/support",
+              "text": "$x=1.0$，说明 $x=0$ 已脱离样本支持区间，",
+              "low": 0.0,
+              "high": 0.0,
+              "variable": "x"
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          },
+          {
+            "id": "range-9",
+            "kind": "outside_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/2/text",
+              "text": "？如果将自变量外推至 $x = 10$ 小时，模型会出现什么",
+              "low": 10.0,
+              "high": 10.0,
+              "variable": "x"
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          },
+          {
+            "id": "range-10",
+            "kind": "beyond_data",
+            "statement": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/anticipated_response",
+              "text": "1：仍将有效范围误写为 0—7.5 小时，或把截距 48 ",
+              "low": 0.0,
+              "high": 7.5,
+              "variable": ""
+            },
+            "column": {
+              "pointer": "/tasks/task_4_stats_linear_interpretation/blocks/1/headers/1",
+              "header": "每周自主复习时间 $x$（小时）",
+              "low": 1.0,
+              "high": 7.0,
+              "count": 10,
+              "variable": "x"
+            }
+          }
+        ],
+        "absent_materials": []
+      },
+      "solution": {
+        "parts": [
+          {
+            "question": "1. 结合本情境，详细解释该线性模型中斜率“6.5”的统计学含义；该数值是否能直接解释为对某位学生强制增加 1 小时复习时间的个体因果干预效果？",
+            "answer": "统计学含义：在模型适用范围（1 至 7 小时）内，每周自主复习时间每增加 1 小时，模型估计的期末测试成绩平均增加 6.5 分。\n该数值不能直接解释为对某位学生强制增加 1 小时复习时间的个体因果干预效果。",
+            "work": "1. 斜率的统计学含义：斜率 6.5 表示自变量（每周自主复习时间 $x$）每变动 1 个单位（1 小时），因变量预测值（期末测试成绩 $\\hat{y}$）的平均变动量为 6.5 分。它刻画的是在样本覆盖的复习时间区间内，复习时间与测试成绩之间的总体线性关联和平均变化趋势。\n2. 不能作为个体因果干预效果的原因：\n① 相关性不等于因果性：合成数据仅呈现两者伴随变化的统计关联，可能存在潜在混杂变量（如学生原有的学术基础、学习效率、自律程度、学习兴趣等）；\n② 群体平均趋势不等于个体必然反应：6.5 分是群体水平上的期望变化，具体到个体，由于认知差异与学习方法不同，增幅会存在显著个体差异；\n③ 自然观测行为与强制外部干预机制不同：学生自发的自主复习与其学习动力相关，若强制增加 1 小时，可能伴随疲劳、抵触或低效，其干预效应并不必然等于观测到的斜率 6.5。"
+          },
+          {
+            "question": "2. 解释纵截距“48”在该数学模型中的含义；它是否属于该样本已支持的“不复习学生的预测成绩”？",
+            "answer": "含义：截距 48 是当自变量 $x = 0$ 时模型给出的数学截距值（即理论预测成绩为 48 分）。\n它不属于该样本已支持的“不复习学生的预测成绩”。",
+            "work": "1. 数学含义：在方程 $\\hat{y} = 6.5x + 48$ 中，当自变量 $x = 0$ 时，$\\hat{y} = 48$，表示直线的纵轴截距。\n2. 为何不属于样本支持的预测：\n① 题面明确规定该经验拟合直线的有效定义域为 $1 \\le x \\le 7$ 小时，样本数据中的复习时间最小值为 1.0 小时，样本中完全没有 $x = 0$ 的观测数据；\n② 将 $x = 0$ 代入属于盲目模型外推（extrapolation）。在实际情境中，完全不复习（0 小时）的学生可能存在截然不同的学习特征与行为模式，超出数据支撑范围的外推无法得到当前样本的经验支持。"
+          },
+          {
+            "question": "3. 如果一位学生每周自主复习时间为 6.0 小时，依据该模型，他的预测测试成绩是多少分？",
+            "answer": "依据该模型，他的预测测试成绩是 87 分（或 87.0 分）。",
+            "work": "将 $x = 6.0$ 代入给定的拟合直线方程：\n$$\\hat{y} = 6.5 \\times 6.0 + 48 = 39 + 48 = 87\\text{（分）}$$\n经计算，预测测试成绩为 87 分。"
+          },
+          {
+            "question": "4. 对比表中的 S08 学生（复习 6.0 小时，实际成绩 85 分），该预测值是否等于其实际成绩？为什么？如果将自变量外推至 x = 10 小时，模型会出现什么不合理现象？",
+            "answer": "预测值（87 分）不等于实际成绩（85 分）。原因在于拟合直线反映的是群体的平均趋势，而实际观测存在统计波动与个体残差。\n若外推至 $x = 10$ 小时，预测成绩将达到 113 分，超过了测试满分 100 分的现实上限，且脱离了模型有效区间。",
+            "work": "1. 对比与原因：\n- 预测值 $\\hat{y} = 87$ 分，S08 的实际成绩 $y = 85$ 分，两者不相等，残差为 $e = y - \\hat{y} = 85 - 87 = -2$ 分。\n- 原因：线性拟合模型刻画的是双变量在整体上的中心趋势或条件期望，而真实数据包含个体差异、测量误差、测试发挥波动等随机扰动，实际散点通常分布在拟合线周围而非全部落在直线上。\n2. 外推至 $x = 10$ 的计算与不合理现象：\n- 计算预测值：$\\hat{y} = 6.5 \\times 10 + 48 = 65 + 48 = 113$（分）。\n- 不合理现象：\n  ① 逻辑悖论：题目明确指出期末测试满分为 100 分，预测值 113 分突破了满分上限；\n  ② 严重外推失效：$x = 10$ 远超出模型适用区间 $1 \\le x \\le 7$，忽略了实际学习过程中边际收益递减乃至疲劳递减的非线性规律。"
+          }
+        ],
+        "required_conditions": [
+          "自变量有效区间与单位：每周自主复习时间 $x \\in [1.0, 7.0]$（小时）",
+          "因变量实际约束与单位：期末测试成绩 $y \\in [0, 100]$（分），满分 100 分",
+          "模型形式：经验示意线性拟合方程 $\\hat{y} = 6.5x + 48$",
+          "样本范围：由 S01 至 S10 共 10 名学生构成的合成截面数据",
+          "统计学前提：观测关联不直接等同于个体因果效应；模型预测值代表中心趋势，实际观测值允许存在随机残差波动"
+        ],
+        "missing_information": [],
+        "notes": "所有小问均基于题面给定的 10 行合成数据与经验趋势线方程求解，计算均已核对。题面关于区间适用性、满分约束与因果区分的要求清晰明确。"
+      },
+      "check_items": {
+        "answer-1": "1. 结合本情境，详细解释该线性模型中斜率“6.5”的统计学含义；该数值是否能直接解释为对某位学生强制增加 1 小时复习时间的个体因果干预效果？：统计学含义：在模型适用范围（1 至 7 小时）内，每周自主复习时间每增加 1 小时，模型估计的期末测试成绩平均增加 6.5 分。\n该数值不能直接解释为对某位学生强制增加 1 小时复习时间的个体因果干预效果。",
+        "answer-2": "2. 解释纵截距“48”在该数学模型中的含义；它是否属于该样本已支持的“不复习学生的预测成绩”？：含义：截距 48 是当自变量 $x = 0$ 时模型给出的数学截距值（即理论预测成绩为 48 分）。\n它不属于该样本已支持的“不复习学生的预测成绩”。",
+        "answer-3": "3. 如果一位学生每周自主复习时间为 6.0 小时，依据该模型，他的预测测试成绩是多少分？：依据该模型，他的预测测试成绩是 87 分（或 87.0 分）。",
+        "answer-4": "4. 对比表中的 S08 学生（复习 6.0 小时，实际成绩 85 分），该预测值是否等于其实际成绩？为什么？如果将自变量外推至 x = 10 小时，模型会出现什么不合理现象？：预测值（87 分）不等于实际成绩（85 分）。原因在于拟合直线反映的是群体的平均趋势，而实际观测存在统计波动与个体残差。\n若外推至 $x = 10$ 小时，预测成绩将达到 113 分，超过了测试满分 100 分的现实上限，且脱离了模型有效区间。",
+        "condition-1": "自变量有效区间与单位：每周自主复习时间 $x \\in [1.0, 7.0]$（小时）",
+        "condition-2": "因变量实际约束与单位：期末测试成绩 $y \\in [0, 100]$（分），满分 100 分",
+        "condition-3": "模型形式：经验示意线性拟合方程 $\\hat{y} = 6.5x + 48$",
+        "condition-4": "样本范围：由 S01 至 S10 共 10 名学生构成的合成截面数据",
+        "condition-5": "统计学前提：观测关联不直接等同于个体因果效应；模型预测值代表中心趋势，实际观测值允许存在随机残差波动",
+        "range-1": "/tasks/task_4_stats_linear_interpretation/solution 的“意趋势线延长到数学上 $x = 0$ 处的纵轴截距值。由于”代入 x = 0，不在表中“每周自主复习时间 $x$（小时）”的数据范围 1–7 内",
+        "range-2": "/tasks/task_4_stats_linear_interpretation/solution 的“范围是 1—7 小时，$x = 0$ 处于现有数据范围之外”代入 x = 0，不在表中“每周自主复习时间 $x$（小时）”的数据范围 1–7 内",
+        "range-3": "/tasks/task_4_stats_linear_interpretation/solution 的“时。若将自变量外推至 $x = 10$ 小时，模型预测 $\\”代入 x = 10，不在表中“每周自主复习时间 $x$（小时）”的数据范围 1–7 内",
+        "range-4": "/tasks/task_4_stats_linear_interpretation/student_work 的“48 是示意直线延长到 x = 0 时的数学截距。因为数据”代入 x = 0，不在表中“每周自主复习时间 $x$（小时）”的数据范围 1–7 内",
+        "range-5": "/tasks/task_4_stats_linear_interpretation/student_work 的“绕直线散落。如果外推到 x = 10 小时，预测是 113”代入 x = 10，不在表中“每周自主复习时间 $x$（小时）”的数据范围 1–7 内",
+        "range-6": "/tasks/task_4_stats_linear_interpretation/evidence 的“等于每个观测，并计算 $x=10$ 时预测达到 113”代入 x = 10，不在表中“每周自主复习时间 $x$（小时）”的数据范围 1–7 内",
+        "range-7": "/tasks/task_4_stats_linear_interpretation/anticipated_response 的“不等于每个观测；代入 $x=10$ 计算得出 113 分”代入 x = 10，不在表中“每周自主复习时间 $x$（小时）”的数据范围 1–7 内",
+        "range-8": "/tasks/task_4_stats_linear_interpretation/support 的“$x=1.0$，说明 $x=0$ 已脱离样本支持区间，”代入 x = 0，不在表中“每周自主复习时间 $x$（小时）”的数据范围 1–7 内",
+        "range-9": "/tasks/task_4_stats_linear_interpretation/blocks/2/text 的“？如果将自变量外推至 $x = 10$ 小时，模型会出现什么”代入 x = 10，不在表中“每周自主复习时间 $x$（小时）”的数据范围 1–7 内",
+        "range-10": "/tasks/task_4_stats_linear_interpretation/anticipated_response 的“1：仍将有效范围误写为 0—7.5 小时，或把截距 48”写的范围 0–7.5超出表中“每周自主复习时间 $x$（小时）”的数据范围 1–7"
+      },
+      "comparisons": [
+        {
+          "item": "answer-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答准确界定了斜率在 1—7 小时范围内的统计学预测差异含义，并明确辨析了观察性关联与个体因果干预效果的区别，与独立解答完全一致。"
+        },
+        {
+          "item": "answer-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "作者解答明确指出截距 48 为 x = 0 时的数学截距，且 x = 0 处于样本数据 1—7 小时范围之外，属于外推而不受当前样本支持，与独立解答一致。"
+        },
+        {
+          "item": "answer-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "代入 x = 6.0 求得预测成绩为 87 分，代数计算与结论与独立解答一致。"
+        },
+        {
+          "item": "answer-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "对比 S08 指出预测值与实际值存在 2 分残差，外推至 x = 10 预测为 113 分超出满分 100 分，与独立解答完全一致。"
+        },
+        {
+          "item": "condition-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面与解答均明确限定自变量有效使用范围为 1.0 至 7.0 小时。"
+        },
+        {
+          "item": "condition-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面表格明确标注满分 100 分，解答与分析据此准确指明外推突破满分上限的荒谬性。"
+        },
+        {
+          "item": "condition-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面明确给出经验示意趋势线方程 y_hat = 6.5x + 48 (1 <= x <= 7)。"
+        },
+        {
+          "item": "condition-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面完整提供了由 S01 至 S10 共 10 行合成数据构成的对照表。"
+        },
+        {
+          "item": "condition-5",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "正文全面强调了观察性统计关联不能等同于因果干预效果，且实际观测围绕模型散落波动。"
+        },
+        {
+          "item": "range-1",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "解答中涉及 x = 0 是为了解释几何截距并明确指明其超出数据范围，作者解答已明确说明是外推。"
+        },
+        {
+          "item": "range-2",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "原文明确说明 x = 0 处于现有数据范围之外，与表格数据事实一致。"
+        },
+        {
+          "item": "range-3",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面第 4 问有意要求讨论外推至 x = 10，作者解答明确指出其超出样本范围并导致超出满分的荒谬结果，符合外推分析规范。"
+        },
+        {
+          "item": "range-4",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "学生样例说明 0 小时在样本范围外，与数据事实一致。"
+        },
+        {
+          "item": "range-5",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "学生样例指出 x = 10 属于超出数据范围的外推，与题意及数据一致。"
+        },
+        {
+          "item": "range-6",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "证据要求中明确说明代入 x = 10 是用于检验外推局限性，与数据事实一致。"
+        },
+        {
+          "item": "range-7",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "预判正答中明确指出代入 x = 10 计算得出 113 分超出满分以说明外推局限，符合设计目标。"
+        },
+        {
+          "item": "range-8",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "支持语明确引导学生观察 x = 0 脱离样本支持区间，与表格数据范围一致。"
+        },
+        {
+          "item": "range-9",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "题面第 4 问有意要求学生探讨外推至 x = 10 的不合理现象，按核查规则按一致处理。"
+        },
+        {
+          "item": "range-10",
+          "author": "consistent",
+          "matters": false,
+          "finding": 28,
+          "note": "该处原文是在描述典型错误 1 中学生可能出现的错误理解（误写为 0—7.5 小时），不代表作者设定。"
+        }
+      ],
+      "checked": [
+        "解答一致性",
+        "缺失信息与材料",
+        "数据取值范围与外推",
+        "统计解释与因果辨析",
+        "合成数据属性标注",
+        "数学计算准确性",
+        "设计结论与推断边界",
+        "学校器材与资源依赖"
+      ]
+    }
+  ],
+  "probe_cache": [
+    "d42b468d188505ed5608b8a0d107f584a0680238e0471c2114a20856c3d94416",
+    "b9556a6978f297370d6159680d2d8ff793613d9da345397afa773a53103647c8",
+    "67499b74a9d15a37d22b89f15d013a2cb7ac2327167b3a121392ebd192b439b5",
+    "7dceeef41cbc8b698b06ddeb01d2bebb6675be1a3a8416846acd764fc2200477"
+  ]
+}

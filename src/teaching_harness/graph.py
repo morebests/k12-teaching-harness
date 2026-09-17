@@ -207,12 +207,18 @@ def deterministic_findings(content: Curriculum, request: TaskRequest) -> list[Fi
     return findings
 
 
-def gemini(*, timeout: int = 120, max_retries: int = 0) -> BaseChatModel:
+def gemini(
+    *,
+    model: str | None = None,
+    timeout: int = 120,
+    max_retries: int = 0,
+    max_output_tokens: int = 32768,
+) -> BaseChatModel:
     return ChatGoogleGenerativeAI(
-        model=os.environ.get("HARNESS_MODEL", "gemini-3.8-flash"),
+        model=model or os.environ.get("HARNESS_MODEL", "gemini-3.8-flash"),
         api_key=os.environ.get("GEMINI_API_KEY"),
         max_retries=max_retries,
-        max_output_tokens=32768,
+        max_output_tokens=max_output_tokens,
         timeout=timeout,
     )
 
